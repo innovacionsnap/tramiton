@@ -64,9 +64,9 @@ return array(
 			),
 		),
 		
-		'db'=>array(
+		/*'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),
+		),*/
                 //conexion a la base de datos
                 'db' => array (
 			'connectionString' => 'pgsql:host=localhost;dbname=tramiton2',

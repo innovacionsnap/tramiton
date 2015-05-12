@@ -106,4 +106,30 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+        
+        /**
+         * accion para el registro de un nuevo usuario         
+         */
+        public function actionRegistro(){
+            
+            $model = new ValidarRegistro;
+            $msg = '';
+            
+            if(isset($_POST['ValidarRegistro'])){
+                
+                $model->attributes = $_POST['ValidarRegistro'];
+                if(!$model->validate()){
+                    $this->redirect($this->createUrl('site/registro'));
+                }
+                else{
+                    $msg = 'Gracias por registrarse, en breve recibirá un correo electrónico ';
+                    $msg .= 'con indicaciones para activar su cuenta.';
+                    //echo $msg;
+                    $model->unsetAttributes();
+                }
+            }
+            
+            $this->render('registro', array('model' => $model, 'msg' => $msg));
+            
+        }
 }

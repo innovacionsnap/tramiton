@@ -30,7 +30,7 @@ class UserIdentity extends CUserIdentity {
             $this->errorCode = self::ERROR_NONE;
 
             /* Consultamos los datos del usuario por el username ($user->username) */
-            $info_usuario = Usuario::model()->find('LOWER(usu_nombreusuario)=?', array($user->usu_nombreusuario));
+            //$info_usuario = Usuario::model()->find('LOWER(usu_nombreusuario)=?', array($user->usu_nombreusuario));
             /* En las vistas tendremos disponibles last_login y perfil pueden setear las que requieran */
             //$this->setState('last_login', $info_usuario->last_login);
             //$this->setState('perfil', $info_usuario->perfil);
@@ -48,19 +48,19 @@ class UserIdentity extends CUserIdentity {
         return $this->_id;
     }
 
-    /* public function authenticate()
-      {
-      $users=array(
-      // username => password
-      'demo'=>'demo',
-      'admin'=>'admin',
-      );
-      if(!isset($users[$this->username]))
-      $this->errorCode=self::ERROR_USERNAME_INVALID;
-      elseif($users[$this->username]!==$this->password)
-      $this->errorCode=self::ERROR_PASSWORD_INVALID;
-      else
-      $this->errorCode=self::ERROR_NONE;
-      return !$this->errorCode;
-      } */
+    /*public function authenticate()
+    {
+        $users=array(
+            // username => password
+            'demo'=>'demo',
+            'admin'=>'admin',
+        );
+        if(!isset($users[$this->username]))
+        $this->errorCode=self::ERROR_USERNAME_INVALID;
+        elseif($users[$this->username]!==$this->password)
+        $this->errorCode=self::ERROR_PASSWORD_INVALID;
+        else
+        $this->errorCode=self::ERROR_NONE;
+        return !$this->errorCode;
+    }*/
 }
