@@ -18,20 +18,20 @@
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="<?php echo $baseUrl;?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="<?php echo $baseUrl;?>/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="<?php echo $baseUrl;?>/assets/css/animate.min.css" rel="stylesheet" />
-	<link href="<?php echo $baseUrl;?>/assets/css/style.css" rel="stylesheet" />
-	<link href="<?php echo $baseUrl;?>/assets/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="<?php echo $baseUrl;?>/assets/css/theme/red.css" id="theme" rel="stylesheet" />
+	<link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="<?php echo $baseUrl; ?>/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="<?php echo $baseUrl; ?>/assets/css/animate.min.css" rel="stylesheet" />
+	<link href="<?php echo $baseUrl; ?>/assets/css/theme/red.css" id="theme" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="<?php echo $baseUrl;?>/assets/plugins/pace/pace.min.js"></script>
+	<script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 	
 	<!-- ================== Custom CSS ================== -->
-	<link href="<?php echo $baseUrl;?>/assets/css/main.css" rel="stylesheet" />
+	<link href="<?php echo $baseUrl; ?>/assets/css/style.css" rel="stylesheet" />
+	<link href="<?php echo $baseUrl; ?>/assets/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="<?php echo $baseUrl; ?>/assets/css/main.css" rel="stylesheet" />
 	<!-- ================== END Custom CSS=============== -->
 	
 </head>

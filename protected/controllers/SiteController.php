@@ -135,11 +135,17 @@ class SiteController extends Controller
 		
 		
 		
-		public function actionAdmin()
-	{
+	public function actionAdmin() {
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
+		$this->layout='main-admin';
 		$this->render('admin');
+	}
+	
+	public function actionFormulario() {
+		// renders the view file 'protected/views/site/index.php'
+		// using the default layout 'protected/views/layouts/main.php'
+		$this->render('formulario');
 	}
 		
 		

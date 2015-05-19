@@ -36,7 +36,7 @@
                         )),
 						array('label'=>'Acerca de Tramitón<b class="caret"></b>', 'url'=>array('/site/index/tramites3'),'itemOptions'=>array('class'=>'dropdown'),'linkOptions'=>array('data-toggle'=>'dropdown'), 
                         'items'=>array(
-                            array('label'=>'¿Qué es y Porque Tramitón?', 'url'=>array('/site/index')),
+                            array('label'=>'¿Qué es y Porque Tramitón?', 'url'=>array('/site/formulario/')),
 							array('label'=>'Gobierno Abierto', 'url'=>array('/site/page', 'view'=>'home2')),
 							array('label'=>'FAQs', 'url'=>array('/site/page', 'view'=>'home2')),
                         )),
