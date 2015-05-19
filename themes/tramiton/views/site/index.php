@@ -1,172 +1,199 @@
-    <!--<div class="slider-bootstrap"><!-- start slider -->
-    	<!--<div class="slider-wrapper theme-default">
-            <div id="slider-nivo" class="nivoSlider">
-                <img src="<?php //echo Yii::app()->theme->baseUrl;?>/img/slider/flickr/s10.jpg" data-thumb="<?php echo Yii::app()->theme->baseUrl;?>/img/slider/flickr/s10.jpg" alt="" title="" />
-                <img src="<?php //echo Yii::app()->theme->baseUrl;?>/img/slider/flickr/s11.jpg" data-thumb="<?php echo Yii::app()->theme->baseUrl;?>/img/slider/flickr/s11.jpg" alt="" title="" />
+<!-- begin #about -->
+<div id="about" class="content" data-scrollview="true">
+    <!-- begin container -->
+    <div class="container" data-animation="true" data-animation-type="fadeInDown">
+    	<div class="content-title"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/logo_1.png" /></div>
+        <p class="content-desc">
+            ¿CUÁLES CREES QUE SON LOS <b>TRÁMITES <br> MÁS ABSURDOS</b> DEL SECTOR PÚBLICO?
+        </p>
+        <!-- begin row -->
+        <div class="row">
+            <!-- begin col-4 -->
+            <div class="col-md-4 col-sm-6">
+                <!-- begin about -->
+                <div class="about">
+                    <h3><b>Participa!</b></h3>
+                    <div class="info_home_panel">
+                    	
+                      <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Cédula" />
+                      <button type="submit" class="btn btn-sm btn-primary">Regístrate</button>
+                      
+                      <div class="login-or">
+				        <hr class="hr-or">
+				        <span class="span-or">o</span>
+				      </div>
+				      
+				      <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Usuario" />
+				      <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Contraseña" />
+				      <button type="submit" class="btn btn-sm btn-success">Ingresa</button>
+				      
+                    </div>
+                </div>
+                <!-- end about -->
             </div>
+            <!-- end col-4 -->
+            <!-- begin col-4 -->
+            <div class="col-md-8 col-sm-8">
+                <!-- begin about -->
+                <div class="about">
+                    <h3>Los <b>5</b> Peores Trámites</h3>
+                    <div class="info_home_panel">
+                    	
+                        <div class="panel-body p-t-0">
+							<table class="table table-valign-middle m-b-0">
+								<thead>
+									<tr>	
+										<th>Institución</th>
+										<th>Menciones</th>
+										<th>Likes</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="title_5_peores_tramites">Ministerio del Trabajo</td>
+										<td>622<span class="text-success"><i class="fa fa-arrow-up"></i></span></td>
+										<td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
+									</tr>
+									<tr>
+										<td class="title_5_peores_tramites">Instituto Ecuatoriano de Seguridad Social - IESS</td>
+										<td>612<span class="text-success"><i class="fa fa-arrow-down"></i></span></td>
+										<td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
+									</tr>
+									<tr>
+										<td class="title_5_peores_tramites">Ministerio de Educación - MINEDUC</td>
+										<td>543</td>
+										<td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
+									</tr>
+									<tr>
+										<td class="title_5_peores_tramites">Dirección General de Registro Civil, Identificación y Cedulación - DGRCIC</td>
+										<td>471</td>
+										<td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
+									</tr>
+									<tr>
+										<td class="title_5_peores_tramites">Agencia Nacional de Regulación y Control de Transporte Terrestre Tránsito y Seguridad Vial - ANT</td>
+										<td>423</td>
+										<td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+                    </div>
+                </div>
+                <!-- end about -->
+            </div>
+            <!-- end col-4 -->
         </div>
-
-    </div>--> <!-- /slider -->
-    
-    
-    <div class="shout-box">
-        <div class="shout-text">
-          <h1>Greatest website ever</h1>
-          <p>We work very hard to bring you the best website themes.<br> All our themes are responsive and look great on any device.</p>
-        </div>
+        <!-- end row -->
     </div>
-    	<div class="row-fluid">
-            <ul class="thumbnails center">
-              <li class="span3">
-                <div class="thumbnail">
-                <h3>Works on all devices</h3>
-                  
-                  	<div class="round_background r-grey-light">
-                		<img src="<?php echo Yii::app()->theme->baseUrl;?>/img/icons/smashing/30px-01.png" alt="" class="">
-                     </div>
-                  
-                  <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
-                </div>
-              </li>
-              <li class="span3">
-                <div class="thumbnail">
-                	 <h3>Unlimited color options</h3>
-                     
-                     <div class="round_background r-yellow">
-                		<img src="<?php echo Yii::app()->theme->baseUrl;?>/img/icons/smashing/30px-41.png" alt="" class="">
-                     </div>
-                 
-                  <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
-                </div>
-              </li>
-              <li class="span3">
-                <div class="thumbnail">
-                	<h3>6 home layouts</h3>
-                  	<div class="round_background r-grey-light">
-                		<img src="<?php echo Yii::app()->theme->baseUrl;?>/img/icons/smashing/30px-37.png" alt="" class="">
-                     </div>
-                  <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
-                </div>
-              </li>
-              <li class="span3">
-                <div class="thumbnail">
-                  <h3>More than 500 fonts</h3>
-                  <div class="round_background r-yellow">
-                		<img src="<?php echo Yii::app()->theme->baseUrl;?>/img/icons/smashing/30px-17.png" alt="" class="">
-                     </div>
-                  <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
-                </div>
-              </li>
+    <!-- end container -->
+</div>
+<!-- end #about -->
 
-            </ul>
-        </div>
-        
-        <hr>
-        
-        <div class="row-fluid">
-            <div class="span9">
-                <blockquote>
-                  <h2>This is by far the best theme i have downloaded on webapplicationthemes.com. It was so easy to install and customize.</h2>
-                  <small>Someone famous guy<cite title="Source Title"> - Harvard Business Review</cite></small>
-                </blockquote>
+<!-- begin #milestone -->
+<div id="milestone" class="content bg-black-darker has-bg" data-scrollview="true">
+    <!-- end content-bg -->
+    <!-- begin container -->
+    <div class="container">
+        <!-- begin row -->
+        <div class="row">
+            <!-- begin col-3 -->
+            <div class="col-md-4 col-sm-4 milestone-col">
+                <div class="milestone">
+                    <div class="number">7000</div>
+                    <div class="title">Total Participaciones</div>
+                </div>
             </div>
-            
-            <div class="span3" style="text-align:center;">
-            
-            <h3 class="text-error">What are you waiting for?</h3>
-            
-            <button class="btn btn-large btn-danger" type="button">DOWNLOAD IT NOW!</button>
-            <p> <small>* terms and conditions apply</small></p>
-            
+            <!-- end col-3 -->
+            <!-- begin col-3 -->
+            <div class="col-md-4 col-sm-4 milestone-col">
+                <div class="milestone">
+                    <div class="number">454</div>
+                    <div class="title">Trámites con planes de mejora</div>
+                </div>
             </div>
-            
-        </div>
-       
-      <h3 class="header">Cool features
-        <span class="header-line"></span> 
-      </h3>
-        
-	  <div class="row-fluid">
-      	<div class="span4">
-          
-          <ul class="list-icon">
-          	<li>Unlimited color options</li>
-            <li>Responsive layout</li>
-            <li>6 Homepage variations</li>
-            <li>Portfolio layouts</li>
-            <li>Multiple blog layouts</li>
-            <li>HTML5</li>
-            <li>CSS3</li>
-            
-          </ul>
-       	 </div>
-         
-         <div class="span4">
-          	<div class="showcase-small">
-                <div class="text-icon pull-left">
-                <img src="<?php echo Yii::app()->theme->baseUrl;?>/img/icons/fatcow/html_5.png" width="32" height="32" alt="Font" />
+            <!-- end col-3 -->
+            <!-- begin col-3 -->
+            <div class="col-md-4 col-sm-4 milestone-col">
+                <div class="milestone">
+                    <div class="number">25</div>
+                    <div class="title">Trámites Mejorados</div>
                 </div>
-                <h4>Valid HTML5</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          	</div>
-            <div class="showcase-small">
-                <div class="text-icon pull-left">
-                <img src="<?php echo Yii::app()->theme->baseUrl;?>/img/icons/fatcow/css_3.png" width="32" height="32" alt="Font" />
+            </div>
+            <!-- end col-3 -->
+            <!-- end col-3 -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end #milestone -->
+
+<!-- begin FAQs -->
+<div class="content bg-silver" data-scrollview="true">
+    <!-- begin container -->
+    <div class="container" data-animation="true" data-animation-type="fadeInDown">
+        <h2 class="content-title">Preguntas Frecuentes</h2>
+        <!-- begin panel-group -->
+        <div class="panel-group" id="faq">
+            <!-- begin panel -->
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#faq-1"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i>¿Qué es Tramitón?</a>
+                    </h4>
                 </div>
-                <h4>CSS3 Support</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          	</div>
-          </div>
-          <div class="span4">
-          	<div class="showcase-small">
-                <div class="text-icon pull-left">
-                <img src="<?php echo Yii::app()->theme->baseUrl;?>/img/icons/fatcow/layouts_header_2.png" width="32" height="32" alt="Font" />
+                <div id="faq-1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <p>
+                            Tramitón es un proyecto que busca principalmente fomentar la participación ciudadana a través de una plataforma en la que las y los ciudadanos identifiquen trámites complicados e/o ineficientes, y que presenten propuestas de soluciones para simplificarlos y mejorar el servicio público con la finalidad de impulsar la calidad, eficiencia y calidez en la gestión pública.
+                        </p>
+                    </div>
                 </div>
-                <h4>Multiple layouts</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          	</div>
-            <div class="showcase-small">
-                <div class="text-icon pull-left">
-                <img src="<?php echo Yii::app()->theme->baseUrl;?>/img/icons/fatcow/cog_edit.png" width="32" height="32" alt="Font" />
+            </div>
+            <!-- end panel -->
+            <!-- begin panel -->
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#faq-2"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i>¿Qué objetivo persigue Tramitón?</a>
+                    </h4>
                 </div>
-                <h4>Easy Customization</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          	</div>
-          </div>
-        
-      </div>
-      
-      <h3 class="header">Our customers
-      	<span class="header-line"></span>  
-      </h3>
-      <div class="row-fluid center customers">
-        <div class="span3 ">
-            <img src="<?php echo Yii::app()->theme->baseUrl;?>/img/customers/themeforest.png" alt="Themeforest" />
+                <div id="faq-2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ol>
+                            <li>Incrementar los mecanismos de participación ciudadana.</li>
+							<li>Afianzar la relación entre ciudadanos y Estado.</li>
+							<li>Mejorar los Servicios Públicos de acuerdo al Plan Nacional del Buen Vivir y principios de eficiencia, calidad y calidez.</li>
+							<li>Ejecutar una campaña comunicacional a nivel nacional para incentivar la participación ciudadana en el mejoramiento de los servicios públicos.</li>
+							<li>Promover el uso de los infocentros y tecnologías de la información y comunicaciones en la presente campaña.</li>
+							<li>Registrar y evaluar la participación ciudadana de acuerdo a sus propuestas.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- end panel -->
+            <!-- begin panel -->
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#faq-3"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i>¿Cómo funciona Tramitón?</a>
+                    </h4>
+                </div>
+                <div id="faq-3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>
+                            Los ciudadanos pueden ingresar a la plataforma y describir un caso en el uso de un servicio público, lo califica y propone una solución. El análisis a dicha participación se realiza en función de los componentes del servicio, pertinencia del caso, factibilidad de implementación y coherencia en la descripción del caso y propuesta de la solución. Adicionalmente un equipo técnico se encarga de contactar a las instituciones que han sido mencionadas en el Tramitón para buscar que se atiendan a todos los casos y se desarrollen acciones globales de solución.
+							<br><br>
+							En base a la información entregada por los ciudadanos, las instituciones desarrollan planes de mejora con acciones en el corto mediano plazo para mejorar el servicio público. El objetivo es llegar a una estrategia mejoramiento e innovación de los servicios de forma participativa y colaborativa, siempre con el fin de favorecer la calidad y calidez de los servicios público. Las herramientas TIC son el apoyo informático con el cual contamos, así que en todos los casos en los que se requiera y sea posible aplicarlas se buscará hacerlo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- end panel -->
         </div>
-        <div class="span3">
-            <img src="<?php echo Yii::app()->theme->baseUrl;?>/img/customers/codecanyon.png" alt="Codecanyon" />
-        </div>
-        <div class="span3">
-            <img src="<?php echo Yii::app()->theme->baseUrl;?>/img/customers/graphicriver.png" alt="Graphicriver" />
-        </div>
-        <div class="span3">
-            <img src="<?php echo Yii::app()->theme->baseUrl;?>/img/customers/photodune.png" alt="Photodune" />
-        </div>
-          
-		</div><!--/row-fluid-->
-        
-    <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/nivo-slider/jquery.nivo.slider.pack.js"></script>
-    
-     <script type="text/javascript">
-    $(function() {
-        $('#slider-nivo').nivoSlider({
-			effect: 'boxRandom',
-			manualAdvance:false,
-			controlNav: false
-			});
-    });
-    </script> <!--<script type="text/javascript">
-    $(document).ready(function() {
-        $('#slider-nivo2').nivoSlider();
-    });
-    </script>-->
+        <!-- end panel-group -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end FAQs -->
