@@ -11,7 +11,7 @@ Yii::setPathOfAlias('hash', dirname(__FILE__).'/../components');
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'TRAMITON',
-        //'theme'=>'hebo', // requires you to copy the theme under your themes directory
+        'theme'=>'tramiton', // requires you to copy the theme under your themes directory
 
 	// preloading 'log' component
 	'preload'=>array('log'),
