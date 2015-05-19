@@ -1,6 +1,6 @@
 <?php
 
-$this->pageTitle=Yii::app()->name . ' - Admin';
+$this->pageTitle= 'Tramiton.to - Admin';
 $this->breadcrumbs=array(
 	'Admin',
 );
