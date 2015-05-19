@@ -129,7 +129,10 @@ class SiteController extends Controller
                 }
             }
             
-            $this->render('registro', array('model' => $model, 'msg' => $msg));
+			$this->layout='main-registro';
+			$this->render('registro', array('model' => $model, 'msg' => $msg));
+			
+            //$this->render('registro', array('model' => $model, 'msg' => $msg));
             
         }
 		
