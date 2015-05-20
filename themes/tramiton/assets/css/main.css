@@ -141,6 +141,15 @@
 	text-transform: uppercase;
 }
 
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.home-participar {
+	margin-top: -25px;
+}
+
 /*
  * Mobile
  */

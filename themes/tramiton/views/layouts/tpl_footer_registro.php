@@ -29,7 +29,6 @@
 	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 	
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/dashboard.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/apps-admin.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	

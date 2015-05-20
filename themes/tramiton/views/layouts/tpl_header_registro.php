@@ -31,6 +31,8 @@
     <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
     <link href="<?php echo $baseUrl; ?>/assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
+    
+    <link href="<?php echo $baseUrl; ?>/assets/css/main-registro.css" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->

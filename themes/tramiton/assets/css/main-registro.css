@@ -1,0 +1,15 @@
+
+/* 
+ * Custom Styles Tramiton
+ * Author: Jorge Pantoja
+ * Secretaría Nacional de la Administración Pública
+ */
+
+/*
+ * Common (Desktop and Mobile)
+ */
+
+.login.login-with-news-feed .news-image img,
+.register.register-with-news-feed .news-image img {
+    position: static;
+}

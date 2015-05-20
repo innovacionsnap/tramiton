@@ -4,28 +4,68 @@
     <div class="container" data-animation="true" data-animation-type="fadeInDown">
     	<div class="content-title"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/logo_1.png" /></div>
         <p class="content-desc">
-            ¿CUÁLES CREES QUE SON LOS <b>TRÁMITES <br> MÁS ABSURDOS</b> DEL SECTOR PÚBLICO?
+            ¿CUÁLES CREES QUE SON LOS <b>TRÁMITES <br> MÁS ABSURDOS</b> DEL SECTOR PÚBLICO? <b>CUÉNTANOS!</b>
         </p>
+        
+        <form action="<?php echo CHtml::link('Inicio',array('/site/formulario')); ?>">
+	        <div class="row home-participar">
+	            <div class="col-md-3 col-sm-3 col-centered">
+	            	
+	            	<input type="text" class="form-control input-home-tramiton" id="cedula_participacion" name="cedula_participacion" placeholder="Cédula" />
+	        		<button type="submit" class="btn btn-sm btn-success">Ingresa tu Trámite Absurdo</button>
+	            	
+	            </div>
+	        </div>
+        </form>
+        
+        <?php 
+	    $form = $this->beginWidget('CActiveForm', array
+	            (
+	            'method' => 'POST',
+	            'action' => Yii::app()->createUrl('site/registro'),
+	            'enableClientValidation' => true,
+	            'clientOptions' => array(
+	                'validateOnSubmit' => true,
+	                'validateOnChange' => true,
+	                'validateOnType' => true,
+	            ),
+	            ));
+	    ?>
+	    
+	    
+	    
+	    <?php
+        
+        echo CHtml::submitButton('Registrar');
+        
+        ?>
+        
+    </div>
+    
+    <?php $this->endWidget(); ?>
+        
+        <br /><br />
+        
         <!-- begin row -->
         <div class="row">
             <!-- begin col-4 -->
             <div class="col-md-4 col-sm-6">
                 <!-- begin about -->
                 <div class="about">
-                    <h3><b>Participa!</b></h3>
+                    <h3><b>Seguimiento de Trámites</b></h3>
                     <div class="info_home_panel">
                     	
-                      <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Cédula" />
-                      <button type="submit" class="btn btn-sm btn-primary">Regístrate</button>
+                      <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Usuario" />
+				      <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Contraseña" />
+				      <button type="submit" class="btn btn-sm btn-success">Ingresa</button>
                       
                       <div class="login-or">
 				        <hr class="hr-or">
 				        <span class="span-or">o</span>
 				      </div>
 				      
-				      <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Usuario" />
-				      <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Contraseña" />
-				      <button type="submit" class="btn btn-sm btn-success">Ingresa</button>
+				      <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Cédula" />
+                      <button type="submit" class="btn btn-sm btn-primary">Crea una Cuenta</button>
 				      
                     </div>
                 </div>

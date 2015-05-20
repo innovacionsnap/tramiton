@@ -3,12 +3,12 @@
     <!-- begin news-feed -->
     <div class="news-feed">
         <div class="news-image">
-            <img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/login-bg/bg-8.jpg" alt="" />
+            <img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/login-bg/bg-9-tramiton.jpg" alt="" />
         </div>
         <div class="news-caption">
-            <h4 class="caption-title"><i class="fa fa-edit text-success"></i> Announcing the Color Admin app</h4>
+            <h4 class="caption-title">Tramiton.to | Trámites Absurdos del Sector Público</h4>
             <p>
-                As a Color Admin Apps administrator, you use the Color Admin console to manage your organization’s account, such as add new users, manage security settings, and turn on the services you want your team to access.
+                Regístrate para poder ingresar tus propuestas de trámites absurdos.
             </p>
         </div>
     </div>
