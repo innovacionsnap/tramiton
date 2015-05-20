@@ -2,50 +2,39 @@
 <div id="about" class="content" data-scrollview="true">
     <!-- begin container -->
     <div class="container" data-animation="true" data-animation-type="fadeInDown">
-    	<div class="content-title"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/logo_1.png" /></div>
+        <div class="content-title"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_1.png" /></div>
         <p class="content-desc">
             ¿CUÁLES CREES QUE SON LOS <b>TRÁMITES <br> MÁS ABSURDOS</b> DEL SECTOR PÚBLICO? <b>CUÉNTANOS!</b>
         </p>
-        
-        <form action="<?php echo CHtml::link('Inicio',array('/site/formulario')); ?>">
-	        <div class="row home-participar">
-	            <div class="col-md-3 col-sm-3 col-centered">
-	            	
-	            	<input type="text" class="form-control input-home-tramiton" id="cedula_participacion" name="cedula_participacion" placeholder="Cédula" />
-	        		<button type="submit" class="btn btn-sm btn-success">Ingresa tu Trámite Absurdo</button>
-	            	
-	            </div>
-	        </div>
-        </form>
-        
-        <?php 
-	    $form = $this->beginWidget('CActiveForm', array
-	            (
-	            'method' => 'POST',
-	            'action' => Yii::app()->createUrl('site/registro'),
-	            'enableClientValidation' => true,
-	            'clientOptions' => array(
-	                'validateOnSubmit' => true,
-	                'validateOnChange' => true,
-	                'validateOnType' => true,
-	            ),
-	            ));
-	    ?>
-	    
-	    
-	    
-	    <?php
-        
-        echo CHtml::submitButton('Registrar');
-        
+        <?php
+        $form = $this->beginWidget('CActiveForm', array
+            (
+            'method' => 'POST',
+            'action' => Yii::app()->createUrl('site/validaCedula'),
+            'enableClientValidation' => true,
+            'clientOptions' => array(
+                'validateOnSubmit' => true,
+                'validateOnChange' => true,
+                'validateOnType' => true,
+            ),
+        ));
         ?>
-        
-    </div>
-    
-    <?php $this->endWidget(); ?>
-        
+        <div class="row home-participar">
+            <div class="col-md-3 col-sm-3 col-centered">
+                <?php echo $form->labelEx($model, 'cedula_participacion'); ?>
+                <?php echo $form->textField($model, 'cedula_participacion', array("class" => "form-control input-home-tramiton", "placeholder" => "Ingrese su Cédula")); ?>
+                <?php echo $form->error($model, 'cedula_participacion'); ?>
+
+                <?php
+                echo CHtml::submitButton('Ingresa tu Trámite Absurdo', array("class" => "btn btn-sm btn-success"));
+                ?>
+            </div>
+        </div>
+
+<?php $this->endWidget(); ?>
+
         <br /><br />
-        
+
         <!-- begin row -->
         <div class="row">
             <!-- begin col-4 -->
@@ -54,19 +43,19 @@
                 <div class="about">
                     <h3><b>Seguimiento de Trámites</b></h3>
                     <div class="info_home_panel">
-                    	
-                      <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Usuario" />
-				      <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Contraseña" />
-				      <button type="submit" class="btn btn-sm btn-success">Ingresa</button>
-                      
-                      <div class="login-or">
-				        <hr class="hr-or">
-				        <span class="span-or">o</span>
-				      </div>
-				      
-				      <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Cédula" />
-                      <button type="submit" class="btn btn-sm btn-primary">Crea una Cuenta</button>
-				      
+
+                        <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Usuario" />
+                        <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Contraseña" />
+                        <button type="submit" class="btn btn-sm btn-success">Ingresa</button>
+
+                        <div class="login-or">
+                            <hr class="hr-or">
+                            <span class="span-or">o</span>
+                        </div>
+
+                        <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Cédula" />
+                        <button type="submit" class="btn btn-sm btn-primary">Crea una Cuenta</button>
+
                     </div>
                 </div>
                 <!-- end about -->
@@ -78,46 +67,46 @@
                 <div class="about">
                     <h3>Los <b>5</b> Peores Trámites</h3>
                     <div class="info_home_panel">
-                    	
+
                         <div class="panel-body p-t-0">
-							<table class="table table-valign-middle m-b-0">
-								<thead>
-									<tr>	
-										<th>Institución</th>
-										<th>Menciones</th>
-										<th>Likes</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="title_5_peores_tramites">Ministerio del Trabajo</td>
-										<td>622<span class="text-success"><i class="fa fa-arrow-up"></i></span></td>
-										<td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
-									</tr>
-									<tr>
-										<td class="title_5_peores_tramites">Instituto Ecuatoriano de Seguridad Social - IESS</td>
-										<td>612<span class="text-success"><i class="fa fa-arrow-down"></i></span></td>
-										<td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
-									</tr>
-									<tr>
-										<td class="title_5_peores_tramites">Ministerio de Educación - MINEDUC</td>
-										<td>543</td>
-										<td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
-									</tr>
-									<tr>
-										<td class="title_5_peores_tramites">Dirección General de Registro Civil, Identificación y Cedulación - DGRCIC</td>
-										<td>471</td>
-										<td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
-									</tr>
-									<tr>
-										<td class="title_5_peores_tramites">Agencia Nacional de Regulación y Control de Transporte Terrestre Tránsito y Seguridad Vial - ANT</td>
-										<td>423</td>
-										<td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						
+                            <table class="table table-valign-middle m-b-0">
+                                <thead>
+                                    <tr>	
+                                        <th>Institución</th>
+                                        <th>Menciones</th>
+                                        <th>Likes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="title_5_peores_tramites">Ministerio del Trabajo</td>
+                                        <td>622<span class="text-success"><i class="fa fa-arrow-up"></i></span></td>
+                                        <td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title_5_peores_tramites">Instituto Ecuatoriano de Seguridad Social - IESS</td>
+                                        <td>612<span class="text-success"><i class="fa fa-arrow-down"></i></span></td>
+                                        <td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title_5_peores_tramites">Ministerio de Educación - MINEDUC</td>
+                                        <td>543</td>
+                                        <td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title_5_peores_tramites">Dirección General de Registro Civil, Identificación y Cedulación - DGRCIC</td>
+                                        <td>471</td>
+                                        <td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title_5_peores_tramites">Agencia Nacional de Regulación y Control de Transporte Terrestre Tránsito y Seguridad Vial - ANT</td>
+                                        <td>423</td>
+                                        <td><span class="text-success"><i class="fa fa-thumbs-up fa-2x"></i></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
                 </div>
                 <!-- end about -->
@@ -203,11 +192,11 @@
                     <div class="panel-body">
                         <ol>
                             <li>Incrementar los mecanismos de participación ciudadana.</li>
-							<li>Afianzar la relación entre ciudadanos y Estado.</li>
-							<li>Mejorar los Servicios Públicos de acuerdo al Plan Nacional del Buen Vivir y principios de eficiencia, calidad y calidez.</li>
-							<li>Ejecutar una campaña comunicacional a nivel nacional para incentivar la participación ciudadana en el mejoramiento de los servicios públicos.</li>
-							<li>Promover el uso de los infocentros y tecnologías de la información y comunicaciones en la presente campaña.</li>
-							<li>Registrar y evaluar la participación ciudadana de acuerdo a sus propuestas.</li>
+                            <li>Afianzar la relación entre ciudadanos y Estado.</li>
+                            <li>Mejorar los Servicios Públicos de acuerdo al Plan Nacional del Buen Vivir y principios de eficiencia, calidad y calidez.</li>
+                            <li>Ejecutar una campaña comunicacional a nivel nacional para incentivar la participación ciudadana en el mejoramiento de los servicios públicos.</li>
+                            <li>Promover el uso de los infocentros y tecnologías de la información y comunicaciones en la presente campaña.</li>
+                            <li>Registrar y evaluar la participación ciudadana de acuerdo a sus propuestas.</li>
                         </ol>
                     </div>
                 </div>
@@ -224,8 +213,8 @@
                     <div class="panel-body">
                         <p>
                             Los ciudadanos pueden ingresar a la plataforma y describir un caso en el uso de un servicio público, lo califica y propone una solución. El análisis a dicha participación se realiza en función de los componentes del servicio, pertinencia del caso, factibilidad de implementación y coherencia en la descripción del caso y propuesta de la solución. Adicionalmente un equipo técnico se encarga de contactar a las instituciones que han sido mencionadas en el Tramitón para buscar que se atiendan a todos los casos y se desarrollen acciones globales de solución.
-							<br><br>
-							En base a la información entregada por los ciudadanos, las instituciones desarrollan planes de mejora con acciones en el corto mediano plazo para mejorar el servicio público. El objetivo es llegar a una estrategia mejoramiento e innovación de los servicios de forma participativa y colaborativa, siempre con el fin de favorecer la calidad y calidez de los servicios público. Las herramientas TIC son el apoyo informático con el cual contamos, así que en todos los casos en los que se requiera y sea posible aplicarlas se buscará hacerlo.
+                            <br><br>
+                            En base a la información entregada por los ciudadanos, las instituciones desarrollan planes de mejora con acciones en el corto mediano plazo para mejorar el servicio público. El objetivo es llegar a una estrategia mejoramiento e innovación de los servicios de forma participativa y colaborativa, siempre con el fin de favorecer la calidad y calidez de los servicios público. Las herramientas TIC son el apoyo informático con el cual contamos, así que en todos los casos en los que se requiera y sea posible aplicarlas se buscará hacerlo.
                         </p>
                     </div>
                 </div>
