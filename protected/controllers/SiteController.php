@@ -152,22 +152,24 @@ class SiteController extends Controller {
             $token = $model->obtieneToken();
             $datos = $model->consultaCedulaRegistroCivil($model->cedula_participacion, $token);
             
-            var_dump($datos);
+            //var_dump($datos);
             
-            echo "valor ya en el modelo... " . $model->cedula_participacion;
-            Yii::app()->end();
+            //echo "valor ya en el modelo... " . $model->cedula_participacion;
+            //Yii::app()->end();
             if (!$model->validate()) {
                 $this->redirect($this->createUrl('site/index'));
             } else {
-                $msg = 'Gracias por registrarse, en breve recibirá un correo electrónico ';
-                $msg .= 'con indicaciones para activar su cuenta.';
+                //$this->layout = 'main';
+                $this->render('formulario', array('model' => $model));
+                //$msg = 'Gracias por registrarse, en breve recibirá un correo electrónico ';
+                //$msg .= 'con indicaciones para activar su cuenta.';
                 //echo $msg;
-                $model->unsetAttributes();
+                //$model->unsetAttributes();
             }
         }
-
-        $this->layout = 'main-registro';
-        $this->render('registro', array('model' => $model, 'msg' => $msg));
+        $this->render('formulario', array('model' => $model));
+        //$this->layout = 'main-registro';
+        //$this->render('registro', array('model' => $model, 'msg' => $msg));
     }
 
 }

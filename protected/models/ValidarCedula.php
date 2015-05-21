@@ -14,6 +14,15 @@
 class ValidarCedula extends CFormModel {
 
     public $cedula_participacion;
+    public $condicion_cedulado;
+    public $estado_civil;
+    public $fecha_nacimiento;
+    public $nombre_ciudadano;
+    public $genero;
+    public $instruccion;
+    public $nacionalidad;
+    public $profesion;
+    public $lugar_nacimiento;
 
     public function rules() {
 
@@ -105,18 +114,18 @@ class ValidarCedula extends CFormModel {
                         return $respuesta;
                         exit();
                     } else {
-                        var_dump($valor);
-                        echo "<hr>";
-                        $respuesta = $cedula . "##" .
-                                $valor->CondicionCedulado . "##" .
-                                $valor->EstadoCivil . "##" .
-                                $valor->FechaNacimiento . "##" .
-                                $valor->Nombre . "##" .
-                                $valor->Genero . "##" .
-                                $valor->Instruccion . "##" .
-                                $valor->Nacionalidad . "##" .
-                                $valor->Profesion . "##" .
-                                $valor->LugarNacimiento;
+                        //var_dump($valor);
+			//echo "<hr>";
+                        $this->cedula_participacion = $cedula;
+                        $this->condicion_cedulado = $valor->CondicionCedulado;
+                        $this->estado_civil = $valor->EstadoCivil;
+                        $this->fecha_nacimiento = $valor->FechaNacimiento;
+                        $this->nombre_ciudadano =  $valor->Nombre;
+                        $this->genero = $valor->Genero;
+                        $this->instruccion = $valor->Instruccion;
+                        $this->nacionalidad = $valor->Nacionalidad;
+                        $this->profesion = $valor->Profesion;
+                        $this->lugar_nacimiento = $valor->LugarNacimiento;
                     }
                 }
             } catch (SoapFault $e) {
@@ -127,5 +136,8 @@ class ValidarCedula extends CFormModel {
             return $respuesta = 0;
         }
     }
+    
+   
+    
 
 }
