@@ -26,8 +26,9 @@
                         array('label'=>'Inicio', 'url'=>array('/site/index/'),'linkOptions'=>array(),),
 						array('label'=>'Ranking<b class="caret"></b>', 'url'=>array('/site/index/tramites'),'itemOptions'=>array('class'=>'dropdown'),'linkOptions'=>array('data-toggle'=>'dropdown'), 
                         'items'=>array(
-                            array('label'=>'Trámites Mencionados', 'url'=>array('/site/admin/')),
-							array('label'=>'Instituciones Mencionadas', 'url'=>array('/site/page', 'view'=>'admin')),
+                        	array('label'=>'Trámites Más Absurdos', 'url'=>array('/site/admin/')),
+                            array('label'=>'Trámites Más Mencionados', 'url'=>array('/site/admin/')),
+							array('label'=>'Instituciones Más Mencionadas', 'url'=>array('/site/page', 'view'=>'admin')),
                         )),
 						array('label'=>'Mejora de Trámites<b class="caret"></b>', 'url'=>array('/site/index/tramites2'),'itemOptions'=>array('class'=>'dropdown'),'linkOptions'=>array('data-toggle'=>'dropdown'), 
                         'items'=>array(
