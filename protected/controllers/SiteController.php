@@ -142,6 +142,12 @@ class SiteController extends Controller {
         // using the default layout 'protected/views/layouts/main.php'
         $this->render('formulario');
     }
+	
+	public function actionRanking_Mas_Mencionados() {
+        // renders the view file 'protected/views/site/index.php'
+        // using the default layout 'protected/views/layouts/main.php'
+        $this->render('ranking_mas_mencionados');
+    }
 
     public function actionValidaCedula() {
         //echo "estoy en validar cedula";
