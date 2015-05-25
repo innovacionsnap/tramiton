@@ -14288,3 +14288,102 @@ Stack trace:
 REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
 HTTP_REFERER=http://localhost/tramiton2/
 ---
+2015/05/25 18:54:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/05/25 18:54:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/05/25 18:54:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/05/25 18:54:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/05/25 18:54:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/05/25 18:54:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/05/25 18:54:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/site/validaCedula
+---
+2015/05/25 18:54:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/validaCedula
+---
+2015/05/25 18:54:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/validaCedula
+---
+2015/05/25 18:54:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/site/validaCedula
+---
+2015/05/25 18:54:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/validaCedula
+---
