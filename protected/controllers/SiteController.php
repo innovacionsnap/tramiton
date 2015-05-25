@@ -28,7 +28,8 @@ class SiteController extends Controller {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
         $model = new ValidarCedula;
-        $this->render('index', array("model" => $model));
+        $model_login = new LoginForm;
+        $this->render('index', array("model" => $model, "model_login" => $model_login));
     }
 
     /**
@@ -80,9 +81,13 @@ class SiteController extends Controller {
 
         // collect user input data
         if (isset($_POST['LoginForm'])) {
+            //var_dump($_POST);
             $model->attributes = $_POST['LoginForm'];
             // validate user input and redirect to the previous page if valid
             if ($model->validate() && $model->login())
+                //echo "estoy aqui";
+                //echo Yii::app()->user->returnUrl;
+                //Yii::app()->end();
                 $this->redirect(Yii::app()->user->returnUrl);
         }
         // display the login form

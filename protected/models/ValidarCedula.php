@@ -23,6 +23,7 @@ class ValidarCedula extends CFormModel {
     public $nacionalidad;
     public $profesion;
     public $lugar_nacimiento;
+    public $direccion_ciudadano;
 
     public function rules() {
 
@@ -126,6 +127,7 @@ class ValidarCedula extends CFormModel {
                         $this->nacionalidad = $valor->Nacionalidad;
                         $this->profesion = $valor->Profesion;
                         $this->lugar_nacimiento = $valor->LugarNacimiento;
+                        $this->direccion_ciudadano = $valor->CalleDomicilio;
                     }
                 }
             } catch (SoapFault $e) {

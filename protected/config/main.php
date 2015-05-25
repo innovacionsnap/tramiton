@@ -3,7 +3,7 @@
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 //alias para integrar bootstrap a yii 
-Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
+//Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
 Yii::setPathOfAlias('hash', dirname(__FILE__).'/../components');
 
 // This is the main Web application configuration. Any writable
@@ -15,11 +15,25 @@ return array(
 
 	// preloading 'log' component
 	'preload'=>array('log'),
+    
+        'aliases' => array(
+                'bootstrap' => realpath(__DIR__ . '/../extensions/bootstrap'), // change if necessary
+                
+                //alias para la excepcion
+                //Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.
+                'vendor.twbs.bootstrap.dist' => realpath(__DIR__ . '/../extensions/bootstrap'),
+        ),
 
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+                //importacion de las clases para el bootstrap modal 
+                'bootstrap.behaviors.*',
+                'bootstrap.components.*',
+                'bootstrap.form.*',
+                'bootstrap.helpers.*',
+                'bootstrap.widgets.*'
 	),
 
 	'modules'=>array(
@@ -28,6 +42,7 @@ return array(
                             'bootstrap.gii',
                         ),
                 ), 
+                
 		// uncomment the following to enable the Gii tool
 		
 		'gii'=>array(
@@ -41,9 +56,7 @@ return array(
 
 	// application components
 	'components'=>array(
-                'bootstrap'=>array(
-                        'class'=>'bootstrap.components.Bootstrap',
-                ), 
+            
                 'hash'=>array(
                         'class'=>'hash.Hash',
                 ), 
@@ -52,6 +65,10 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+            
+                'bootstrap' => array(
+                        'class' => 'bootstrap.components.TbApi',   
+                ),
 		// uncomment the following to enable URLs in path-format
 		
 		'urlManager'=>array(
