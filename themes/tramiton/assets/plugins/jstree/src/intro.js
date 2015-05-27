@@ -1,4 +1,10 @@
 /*globals jQuery, define, exports, require, window, document, postMessage */
+/* global define */
+
+/* global define */
+
+/* global define */
+
 (function (factory) {
 	"use strict";
 	if (typeof define === 'function' && define.amd) {
