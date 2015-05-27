@@ -150,6 +150,10 @@
 	margin-top: -25px;
 }
 
+.snap_modal_contenedor {
+    max-width: 350px;
+}
+
 /*
  * Mobile
  */

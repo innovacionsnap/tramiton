@@ -1,6 +1,6 @@
 <!-- Require the header -->
 <?php require_once('tpl_header_login.php')?>
-<?php Yii::app()->bootstrap->register(); ?>
+<?php //Yii::app()->bootstrap->register(); ?>
 
 <!-- Require the navigation -->
 

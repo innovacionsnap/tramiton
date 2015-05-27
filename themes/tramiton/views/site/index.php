@@ -44,26 +44,7 @@
                     <h3><b>Seguimiento de Trámites</b></h3>
                     <div class="info_home_panel">
 
-                        <?php
-                        $form = $this->beginWidget('CActiveForm', array(
-                            'id' => 'login-form',
-                            'action' => $this->createUrl("site/login"),
-                            'enableClientValidation' => true,
-                            'clientOptions' => array(
-                                'validateOnSubmit' => true,
-                            ),
-                        ));
-                        ?>
-
-                        <?php echo $form->textField($model_login, 'username', array("class" => "form-control input-home-tramiton", "placeholder" => "Usuario")); ?>
-                        <?php echo $form->error($model, 'username'); ?>
-
-                        <?php echo $form->passwordField($model_login, 'password', array("class" => "form-control input-home-tramiton", "placeholder" => "Contraseña")); ?>
-                        <?php echo $form->error($model_login, 'password'); ?>
-
-                        <?php echo CHtml::submitButton('Ingresa', array("class" => "btn btn-sm btn-success")); ?>
-
-<?php $this->endWidget(); ?>
+                        <?php $this->renderPartial('_form_login', array('model_login'=>$model_login)); ?>
 
                         <div class="login-or">
                             <hr class="hr-or">
@@ -72,13 +53,7 @@
 
                         <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Cédula" />
                         <button type="submit" class="btn btn-sm btn-primary">Crea una Cuenta</button>
-                        
-                        <?php echo TbHtml::button('Click me to open modal', array(
-    'style' => TbHtml::BUTTON_COLOR_PRIMARY,
-    'size' => TbHtml::BUTTON_SIZE_LARGE,
-    'data-toggle' => 'modal',
-    'data-target' => '#myModal',
-)); ?>
+
 
                     </div>
                 </div>
@@ -253,35 +228,22 @@
 
 <!-- Modal login   -->
 
-<!-- #modal-dialog -->
-<?php $this->widget('bootstrap.widgets.TbModal', array(
-    'id' => 'myModal',
-    'header' => 'Modal Heading',
-    'content' => '<p>One fine body...</p>',
-    'footer' => array(
-        TbHtml::button('Save Changes', array('data-dismiss' => 'modal', 'color' => TbHtml::BUTTON_COLOR_PRIMARY)),
-        TbHtml::button('Close', array('data-dismiss' => 'modal')),
-     ),
-)); ?>
 
 
-
-
-
-<!--<div class="modal fade" id="modal-dialog">
-    <div class="modal-dialog">
+<div class="modal fade" id="login-modal">
+    <div class="modal-dialog snap_modal_contenedor">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Modal Dialog</h4>
+                <h4 class="modal-title">Ingrese al sistema</h4>
             </div>
             <div class="modal-body">
-                Modal body content here...
+                <?php $this->renderPartial('_form_login', array('model_login'=>$model_login)) ?>
             </div>
-            <div class="modal-footer">
-                <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
-                <a href="javascript:;" class="btn btn-sm btn-success">Action</a>
-            </div>
+            
         </div>
     </div>
-</div>-->
+</div>
+
+
+

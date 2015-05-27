@@ -1,5 +1,3 @@
-</div>
-	<!-- end page container -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery/jquery-1.9.1.min.js"></script>

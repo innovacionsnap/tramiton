@@ -1,4 +1,5 @@
-
+<!-- begin #page-container -->
+	<div id="page-container" class="fade">
 	    <!-- begin login -->
         <div class="login login-with-news-feed">
             <!-- begin news-feed -->
@@ -135,4 +136,5 @@
             </div>
         </div>
         <!-- end theme-panel -->
-	
+	</div>
+	<!-- end page container -->

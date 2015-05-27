@@ -14387,3 +14387,484 @@ Stack trace:
 REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
 HTTP_REFERER=http://localhost/tramiton2/site/validaCedula
 ---
+2015/05/25 19:25:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/05/25 19:25:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/05/25 19:25:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/05/25 22:59:33 [error] [php] Undefined variable: model (C:\wamp\www\tramiton2\themes\tramiton\views\site\formulario.php:47)
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 C:\wamp\www\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#2 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(143): SiteController->render()
+#3 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionFormulario()
+#4 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\wamp\www\yii\framework\web\CController.php(286): SiteController->runAction()
+#6 C:\wamp\www\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 C:\wamp\www\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#8 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\tramiton2\index.php(16): CWebApplication->run()
+REQUEST_URI=/tramiton2/site/formulario
+in C:\wamp\www\tramiton2\themes\tramiton\views\site\formulario.php (47)
+in C:\wamp\www\tramiton2\protected\controllers\SiteController.php (143)
+in C:\wamp\www\tramiton2\index.php (16)
+2015/05/26 17:01:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:01:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:01:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:17:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:17:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:17:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:18:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:18:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:18:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:20:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:20:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:20:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:38:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:38:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:39:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:39:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 17:39:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/05/26 22:46:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "modal-dialog".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('modal-dialog')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('modal-dialog')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/modal-dial...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/modal-dialog
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/05/26 22:51:06 [error] [php] Undefined offset: 0 (C:\wamp\www\yii\framework\zii\widgets\CMenu.php:311)
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CBaseController.php(147): CMenu->init()
+#1 C:\wamp\www\yii\framework\web\CBaseController.php(172): SiteController->createWidget()
+#2 C:\wamp\www\tramiton2\themes\tramiton\views\layouts\tpl_navigation.php(52): SiteController->widget()
+#3 C:\wamp\www\tramiton2\themes\tramiton\views\layouts\main.php(5): require_once()
+#4 C:\wamp\www\yii\framework\web\CBaseController.php(126): require()
+#5 C:\wamp\www\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#6 C:\wamp\www\yii\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#7 C:\wamp\www\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#8 C:\wamp\www\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#9 C:\wamp\www\yii\framework\web\CBaseController.php(206): CContentDecorator->run()
+#10 C:\wamp\www\yii\framework\web\CBaseController.php(300): SiteController->endWidget()
+#11 C:\wamp\www\tramiton2\protected\views\layouts\column1.php(6): SiteController->endContent()
+#12 C:\wamp\www\yii\framework\web\CBaseController.php(126): require()
+#13 C:\wamp\www\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#14 C:\wamp\www\yii\framework\web\CController.php(784): SiteController->renderFile()
+#15 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(32): SiteController->render()
+#16 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#17 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#18 C:\wamp\www\yii\framework\web\CController.php(286): SiteController->runAction()
+#19 C:\wamp\www\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#20 C:\wamp\www\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#21 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#22 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\wamp\www\tramiton2\index.php(16): CWebApplication->run()
+REQUEST_URI=/tramiton2/
+in C:\wamp\www\tramiton2\themes\tramiton\views\layouts\tpl_navigation.php (52)
+in C:\wamp\www\tramiton2\themes\tramiton\views\layouts\main.php (5)
+in C:\wamp\www\tramiton2\protected\views\layouts\column1.php (6)
+2015/05/26 23:17:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "modal-dialog".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('modal-dialog')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/modal-dialog
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/05/26 23:27:10 [error] [php] Undefined variable: login_form_model (C:\wamp\www\tramiton2\themes\tramiton\views\site\index.php:316)
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 C:\wamp\www\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#2 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(32): SiteController->render()
+#3 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\wamp\www\yii\framework\web\CController.php(286): SiteController->runAction()
+#6 C:\wamp\www\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 C:\wamp\www\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#8 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\tramiton2\index.php(16): CWebApplication->run()
+REQUEST_URI=/tramiton2/
+in C:\wamp\www\tramiton2\themes\tramiton\views\site\index.php (316)
+in C:\wamp\www\tramiton2\protected\controllers\SiteController.php (32)
+in C:\wamp\www\tramiton2\index.php (16)
+2015/05/26 23:28:54 [error] [exception.CException] exception 'CException' with message 'TbActiveForm and its behaviors do not have a method or closure named "textFieldRow".' in C:\wamp\www\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\wamp\www\tramiton2\themes\tramiton\views\site\index.php(319): CComponent->__call('textFieldRow', Array)
+#1 C:\wamp\www\tramiton2\themes\tramiton\views\site\index.php(319): TbActiveForm->textFieldRow(Object(LoginForm), 'username', Array)
+#2 C:\wamp\www\yii\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\tra...')
+#3 C:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\tra...', Array, true)
+#4 C:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\tra...', Array, true)
+#5 C:\wamp\www\yii\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#6 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(32): CController->render('index', Array)
+#7 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#8 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#13 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#15 {main}
+REQUEST_URI=/tramiton2/
+---
+2015/05/26 23:29:27 [error] [exception.CException] exception 'CException' with message 'Alias "bootstrap.widgets.TbButton" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\wamp\www\yii\framework\YiiBase.php:322
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 C:\wamp\www\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'bootstrap.widge...', Array)
+#2 C:\wamp\www\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\wamp\www\tramiton2\themes\tramiton\views\site\index.php(350): CBaseController->widget('bootstrap.widge...', Array)
+#4 C:\wamp\www\yii\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\tra...')
+#5 C:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\tra...', Array, true)
+#6 C:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\tra...', Array, true)
+#7 C:\wamp\www\yii\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#8 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(32): CController->render('index', Array)
+#9 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#10 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#14 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#15 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/tramiton2/
+---
+2015/05/26 23:29:28 [error] [exception.CException] exception 'CException' with message 'Alias "bootstrap.widgets.TbButton" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\wamp\www\yii\framework\YiiBase.php:322
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 C:\wamp\www\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'bootstrap.widge...', Array)
+#2 C:\wamp\www\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\wamp\www\tramiton2\themes\tramiton\views\site\index.php(350): CBaseController->widget('bootstrap.widge...', Array)
+#4 C:\wamp\www\yii\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\tra...')
+#5 C:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\tra...', Array, true)
+#6 C:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\tra...', Array, true)
+#7 C:\wamp\www\yii\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#8 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(32): CController->render('index', Array)
+#9 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#10 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#14 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#15 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/tramiton2/
+---
+2015/05/26 23:46:13 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "_form".' in C:\wamp\www\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\wamp\www\tramiton2\themes\tramiton\views\site\index.php(48): CController->renderPartial('_form', Array)
+#1 C:\wamp\www\yii\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\tra...')
+#2 C:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\tra...', Array, true)
+#3 C:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\tra...', Array, true)
+#4 C:\wamp\www\yii\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#5 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(32): CController->render('index', Array)
+#6 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#7 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#11 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#12 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#14 {main}
+REQUEST_URI=/tramiton2/
+---
+2015/05/26 23:46:37 [error] [php] Undefined variable: model (C:\wamp\www\tramiton2\themes\tramiton\views\site\_form_login.php:30)
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 C:\wamp\www\tramiton2\themes\tramiton\views\site\index.php(48): SiteController->renderPartial()
+#2 C:\wamp\www\yii\framework\web\CBaseController.php(126): require()
+#3 C:\wamp\www\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#4 C:\wamp\www\yii\framework\web\CController.php(869): SiteController->renderFile()
+#5 C:\wamp\www\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#6 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(32): SiteController->render()
+#7 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#8 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\wamp\www\yii\framework\web\CController.php(286): SiteController->runAction()
+#10 C:\wamp\www\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#11 C:\wamp\www\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#12 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\tramiton2\index.php(16): CWebApplication->run()
+REQUEST_URI=/tramiton2/
+in C:\wamp\www\tramiton2\themes\tramiton\views\site\_form_login.php (30)
+in C:\wamp\www\tramiton2\themes\tramiton\views\site\index.php (48)
+in C:\wamp\www\tramiton2\protected\controllers\SiteController.php (32)
+2015/05/26 23:46:38 [error] [php] Undefined variable: model (C:\wamp\www\tramiton2\themes\tramiton\views\site\_form_login.php:30)
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 C:\wamp\www\tramiton2\themes\tramiton\views\site\index.php(48): SiteController->renderPartial()
+#2 C:\wamp\www\yii\framework\web\CBaseController.php(126): require()
+#3 C:\wamp\www\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#4 C:\wamp\www\yii\framework\web\CController.php(869): SiteController->renderFile()
+#5 C:\wamp\www\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#6 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(32): SiteController->render()
+#7 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#8 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\wamp\www\yii\framework\web\CController.php(286): SiteController->runAction()
+#10 C:\wamp\www\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#11 C:\wamp\www\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#12 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\tramiton2\index.php(16): CWebApplication->run()
+REQUEST_URI=/tramiton2/
+in C:\wamp\www\tramiton2\themes\tramiton\views\site\_form_login.php (30)
+in C:\wamp\www\tramiton2\themes\tramiton\views\site\index.php (48)
+in C:\wamp\www\tramiton2\protected\controllers\SiteController.php (32)
+2015/05/26 23:46:40 [error] [php] Undefined variable: model (C:\wamp\www\tramiton2\themes\tramiton\views\site\_form_login.php:30)
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 C:\wamp\www\tramiton2\themes\tramiton\views\site\index.php(48): SiteController->renderPartial()
+#2 C:\wamp\www\yii\framework\web\CBaseController.php(126): require()
+#3 C:\wamp\www\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#4 C:\wamp\www\yii\framework\web\CController.php(869): SiteController->renderFile()
+#5 C:\wamp\www\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#6 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(32): SiteController->render()
+#7 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#8 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\wamp\www\yii\framework\web\CController.php(286): SiteController->runAction()
+#10 C:\wamp\www\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#11 C:\wamp\www\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#12 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\tramiton2\index.php(16): CWebApplication->run()
+REQUEST_URI=/tramiton2/
+in C:\wamp\www\tramiton2\themes\tramiton\views\site\_form_login.php (30)
+in C:\wamp\www\tramiton2\themes\tramiton\views\site\index.php (48)
+in C:\wamp\www\tramiton2\protected\controllers\SiteController.php (32)
+2015/05/26 23:59:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/site/registro
+---
+2015/05/26 23:59:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/registro
+---
+2015/05/26 23:59:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/registro
+---
+2015/05/27 00:31:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/site/admin
+---
+2015/05/27 00:31:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/admin
+---
+2015/05/27 00:31:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/site/admin
+---
+2015/05/27 17:12:11 [error] [php] Undefined variable: model (C:\wamp\www\tramiton2\themes\tramiton\views\site\formulario.php:47)
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 C:\wamp\www\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#2 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(143): SiteController->render()
+#3 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionFormulario()
+#4 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\wamp\www\yii\framework\web\CController.php(286): SiteController->runAction()
+#6 C:\wamp\www\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 C:\wamp\www\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#8 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\tramiton2\index.php(16): CWebApplication->run()
+REQUEST_URI=/tramiton2/site/formulario
+in C:\wamp\www\tramiton2\themes\tramiton\views\site\formulario.php (47)
+in C:\wamp\www\tramiton2\protected\controllers\SiteController.php (143)
+in C:\wamp\www\tramiton2\index.php (16)

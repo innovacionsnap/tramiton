@@ -42,9 +42,9 @@
 							array('label'=>'FAQs', 'url'=>array('/site/page', 'view'=>'home2')),
                         )),
                         array('label'=>'Contacto', 'url'=>array('/site/index/tramites4'),'linkOptions'=>array(),),
-                       
-                        array('label'=>'<i class="fa fa-user"></i>&nbsp;Ingresar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest,'linkOptions'=>array("data-description"=>"member area")),
-                        array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest,'linkOptions'=>array("data-description"=>"member area")),
+                        
+                        array('label'=>'<i class="fa fa-user"></i>&nbsp;Ingresar', 'url'=>array('./#login-modal'), 'visible'=>Yii::app()->user->isGuest,'linkOptions'=>array("data-description"=>"member area", 'data-toggle' => "modal")),
+                        array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest,'linkOptions'=>array("data-description" => "member area")),
                     ),
                 )); ?>
             
