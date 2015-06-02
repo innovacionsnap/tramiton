@@ -7,7 +7,7 @@ echo "vista index desde los sectores...";
 <table>
     <tr>
         <th>ID</th>
-        <th>NOMBRE</th>
+        <th>NAME</th>
         <th>VALOR</th>
         <th>VER</th>
         <th>EDITAR</th>
