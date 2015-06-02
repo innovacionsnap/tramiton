@@ -4,7 +4,7 @@
     <div class="container" data-animation="true" data-animation-type="fadeInDown">
         <div class="content-title"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_1.png" /></div>
         <p class="content-desc">
-            ¿CUÁLES CREES QUE SON LOS <b>TRÁMITES <br> MÁS ABSURDOS</b> DEL SECTOR PÚBLICO? <b>CUÉNTANOS!</b>
+            ¿CUÁLES CREES QUE SON LOS <b>TRÁMITE <br> MÁS ABSURDOS</b> DEL SECTOR PÚBLICO? <b>CUÉNTANOS!</b>
         </p>
         <?php
         $form = $this->beginWidget('CActiveForm', array
