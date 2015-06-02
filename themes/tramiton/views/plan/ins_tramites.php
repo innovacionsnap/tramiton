@@ -7,7 +7,7 @@
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li><a href="javascript:;">Home</a></li>
-				<li class="active">Tramites</li>
+				<li class="active">los trasmitessss</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
