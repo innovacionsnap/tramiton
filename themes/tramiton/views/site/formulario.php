@@ -35,6 +35,15 @@
                         </li>
                     </ol>
                     <!-- begin wizard step-1 -->
+                    <?php 
+                    
+                    if(!isset($model->nombre_ciudadano)){
+                        $this->redirect($this->createUrl('site/index'));
+                    }
+                    
+                    ?>
+                    
+                    
                     <div>
                         <fieldset>
                             <legend class="pull-left width-full">Datos Personales </legend>

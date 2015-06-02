@@ -27,6 +27,10 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+        
+        <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+	<link href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL STYLE ================== -->
 	
 	<!-- ================== Custom CSS ================== -->
 	<link href="<?php echo $baseUrl; ?>/assets/css/style.css" rel="stylesheet" />

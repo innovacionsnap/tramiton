@@ -17,8 +17,8 @@
     <div class="right-content">
         <!-- begin register-header -->
         <h1 class="register-header">
-            Sign Up
-            <small>Create your Color Admin Account. It’s free and always will be.</small>
+            Regístrate
+            <small>Crea tu cuenta en Tramiton.to y cuéntanos sobre los trámites mas absurdos.</small>
         </h1>
         <!-- end register-header -->
         <!-- begin register-content -->
@@ -26,9 +26,11 @@
             <form action="index.html" method="POST" class="margin-bottom-0">
                 <label class="control-label">Name</label>
                 <div class="row row-space-10">
+                    
                     <div class="col-md-6 m-b-15">
                         <input type="text" class="form-control" placeholder="First name" />
                     </div>
+                    <label class="control-label">Name</label>
                     <div class="col-md-6 m-b-15">
                         <input type="text" class="form-control" placeholder="Last name" />
                     </div>

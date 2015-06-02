@@ -17,7 +17,8 @@
         <!-- begin navbar-collapse -->
         <div class="collapse navbar-collapse" id="header-navbar">
         	
-			<?php $this->widget('zii.widgets.CMenu',array(
+                <?php 
+                $this->widget('zii.widgets.CMenu',array(
                     'htmlOptions'=>array('class'=>'nav navbar-nav navbar-right'),
                     'submenuHtmlOptions'=>array('class'=>'dropdown-menu dropdown-menu-left animated fadeInDown'),
 					'itemCssClass'=>'',

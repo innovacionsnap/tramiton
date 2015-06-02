@@ -21,10 +21,17 @@
         ?>
         <div class="row home-participar">
             <div class="col-md-3 col-sm-3 col-centered">
+                <?php //echo $msg1; 
+                    if(isset($msg1)):  ?>
+                <div class="alert alert-danger fade in m-b-15">
+                    <strong>¡Atención!</strong>
+                    <?php echo $msg1; ?>
+                    <span class="close" data-dismiss="alert">&times;</span>
+                </div>
+                <?php endif; ?>
                 <?php //echo $form->labelEx($model, 'cedula_participacion'); ?>
-                <?php echo $form->textField($model, 'cedula_participacion', array("class" => "form-control input-home-tramiton", "placeholder" => "Ingrese su Cédula")); ?>
+                <?php echo $form->textField($model, 'cedula_participacion', array("class" => "form-control input-home-tramiton", "placeholder" => "Ingrese su Cédula", "data-parsley-required" => "true" )); ?>
                 <?php echo $form->error($model, 'cedula_participacion'); ?>
-
                 <?php
                 echo CHtml::submitButton('Ingresa tu Trámite Absurdo', array("class" => "btn btn-sm btn-success"));
                 ?>

@@ -52,6 +52,11 @@
 	<script src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/scrollMonitor/scrollMonitor.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/apps.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+        
+        <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/parsley/dist/parsley.js"></script>
+	<script src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/apps.min.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	<script>    
 	    $(document).ready(function() {

@@ -4,7 +4,11 @@ class SiteController extends Controller {
 
     /**
      * Declares class-based actions.
-     */
+     */   
+    
+    public $_msgerror;
+    
+    
     public function actions() {
         return array(
             // captcha action renders the CAPTCHA image displayed on the contact page
@@ -29,7 +33,7 @@ class SiteController extends Controller {
         // using the default layout 'protected/views/layouts/main.php'
         $model = new ValidarCedula;
         $model_login = new LoginForm;
-        $this->render('index', array("model" => $model, "model_login" => $model_login));
+        $this->render('index', array("model" => $model, "model_login" => $model_login, 'msg1' => $this->_msgerror));
     }
 
     /**
@@ -153,25 +157,32 @@ class SiteController extends Controller {
         //echo "estoy en validar cedula";
         //var_dump($_POST);
         //Yii::app()->end();
-        $model = new ValidarCedula();
+        $model = new ValidarCedula;
+        $model_login = new LoginForm;
         $msg = '';
 
         if (isset($_POST['ValidarCedula'])) {
 
             $model->attributes = $_POST['ValidarCedula'];
             $model->cedula_participacion = $_POST['ValidarCedula']['cedula_participacion'];
-            $token = $model->obtieneToken();
-            $datos = $model->consultaCedulaRegistroCivil($model->cedula_participacion, $token);
             
-            //var_dump($datos);
+            
+            //var_dump($model);
             
             //echo "valor ya en el modelo... " . $model->cedula_participacion;
             //Yii::app()->end();
             if (!$model->validate()) {
-                $this->redirect($this->createUrl('site/index'));
+                //echo "entro aqui";
+                //Yii::app()->end();
+                $this->_msgerror = "Número de Cédula incorrecto o no existe, favor ingrese nuevamente";
+                $this->render('index', array("model" => $model, "model_login" => $model_login, 'msg1' => $this->_msgerror));
+                //$this->render('index', array('model' => $model, 'msg1' => $this->_msgerror));
+                //$this->redirect($this->createUrl('site/index', array('msg' => 'Número de Cédula incorrecto o no existe, favor ingrese nuevamente')));
             } else {
+                $token = $model->obtieneToken();
+                $datos = $model->consultaCedulaRegistroCivil($model->cedula_participacion, $token);
                 //$this->layout = 'main';
-                $this->render('formulario', array('model' => $model));
+                //$this->render('formulario', array('model' => $model));
                 //$msg = 'Gracias por registrarse, en breve recibirá un correo electrónico ';
                 //$msg .= 'con indicaciones para activar su cuenta.';
                 //echo $msg;
