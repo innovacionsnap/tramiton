@@ -1,4 +1,4 @@
-<!-- begin #footer -->
+  <!-- begin #footer -->
         <div id="footer" class="footer">
             <div class="container">
 
@@ -36,7 +36,7 @@
         </div>
         <!-- end #footer -->
 
-<!-- begin scroll to top btn -->
+        <!-- begin scroll to top btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 		<!-- end scroll to top btn -->
 	</div>
@@ -71,12 +71,20 @@
 	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/dashboard.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/apps-admin.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
-	
+        
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/DataTables/js/jquery.dataTables.js"></script>
+	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/table-manage-default.demo.min.js"></script>
+	<script src="assets/js/apps.min.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+
+        
 	<script>
 		$(document).ready(function() {
 			App.init();
-			Dashboard.init();
+			TableManageDefault.init();
 		});
 	</script>
+
 </body>
 </html>

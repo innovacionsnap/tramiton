@@ -22,20 +22,26 @@
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/animate.min.css" rel="stylesheet" />
-	<link href="<?php echo $baseUrl; ?>/assets/css/style-admin.css" rel="stylesheet" />
+	<link href="<?php echo $baseUrl; ?>/assets/css/style-adm.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/style-responsive-admin.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/theme/default.css" rel="stylesheet" id="theme" />
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->    
-    <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+        <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
-    <link href="<?php echo $baseUrl; ?>/assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
+        <link href="<?php echo $baseUrl; ?>/assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
-	
+        
+	<!-- ================== BEGIN PAGE LEVEL STYLE - TABLAS ================== -->
+	<link href="<?php echo $baseUrl; ?>/assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL STYLE ================== -->
+        
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+        
+      
 </head>
 <body>
 	<!-- begin #page-loader -->
