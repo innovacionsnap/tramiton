@@ -1136,3 +1136,165 @@ Stack trace:
 REQUEST_URI=/tramiton2/site/email_inbox.html
 HTTP_REFERER=http://localhost/tramiton2/site/admin
 ---
+2015/06/03 16:45:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/rec...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/images/recargaricon.png
+HTTP_REFERER=http://localhost/tramiton2/site/registro
+---
+2015/06/03 16:45:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/rec...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/images/recargaricon.png
+HTTP_REFERER=http://localhost/tramiton2/site/registro
+---
+2015/06/03 16:45:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/rec...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/images/recargaricon.png
+HTTP_REFERER=http://localhost/tramiton2/site/registro
+---
+2015/06/03 16:45:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/rec...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/images/recargaricon.png
+HTTP_REFERER=http://localhost/tramiton2/site/registro
+---
+2015/06/03 16:45:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/06/03 16:45:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/06/03 16:45:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/06/03 16:46:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/rec...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/images/recargaricon.png
+HTTP_REFERER=http://localhost/tramiton2/site/registro
+---
+2015/06/03 19:23:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/06/03 19:23:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/css/bootstrap.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/css/bootstrap.css
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/06/03 19:23:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/38fd651/js/bootstrap.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/38fd651/...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/38fd651/js/bootstrap.js
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/06/03 19:23:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "p".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('p')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/p
+---
+2015/06/03 19:24:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/tramiton/assets/css/style-adm.min.css".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/tramiton...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/themes/tramiton/assets/css/style-adm.min.css
+HTTP_REFERER=http://localhost/tramiton2/tramiteInstitucion
+---
+2015/06/03 19:24:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/js/apps.min.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/js/apps....')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/tramiteInstitucion
+---
+2015/06/03 19:24:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/js/apps.min.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/js/apps....')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/tramiteInstitucion
+---
+2015/06/03 19:25:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/js/apps.min.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/js/apps....')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/tramiteInstitucion
+---
+2015/06/03 19:25:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/js/apps.min.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/js/apps....')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/tramiteInstitucion
+---

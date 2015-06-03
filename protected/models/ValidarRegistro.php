@@ -139,6 +139,5 @@ class ValidarRegistro extends CFormModel {
             'repetir_password' => 'Confirme la Contraseña',
         );
     }
-
-    
+  
     }
