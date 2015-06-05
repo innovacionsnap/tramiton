@@ -21,7 +21,7 @@ class TramiteInstitucion extends CActiveRecord
 from tramite a, tramite_institucion b, institucion c
 where a.tra_id = b.tra_id 
 and c.ins_id = b.ins_id
-and c.ins_id = 1
+and c.ins_id = 4
 order by a.tra_nombre";
         $dataReader = $this->connection->createCommand($sql)->query();
         // recibe los datos
