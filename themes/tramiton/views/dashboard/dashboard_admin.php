@@ -37,7 +37,6 @@
 							<h4>RANKING TRAMITES</h4>
 							<p><?php foreach ($datosRankingTramites as $datoRanking){
                                                             $tot_ranking = $datoRanking["sum_10_tot_tramite"];
-                                                            
                                                         }  
                                                         $porcentaje_tramite = ($tot_ranking*100)/$numero_tramites;
                                                         echo substr($porcentaje_tramite, 0,2);
