@@ -1298,3 +1298,171 @@ Stack trace:
 REQUEST_URI=/tramiton2/assets/js/apps.min.js
 HTTP_REFERER=http://localhost/tramiton2/tramiteInstitucion
 ---
+2015/06/04 22:58:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/rec...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/images/recargaricon.png
+HTTP_REFERER=http://localhost/tramiton2/site/registro
+---
+2015/06/04 23:00:59 [error] [php] Cannot modify header information - headers already sent by (output started at C:\wamp\www\yii\framework\web\CController.php:793) (C:\wamp\www\yii\framework\web\CHttpRequest.php:803)
+Stack trace:
+#0 C:\wamp\www\tramiton2\themes\tramiton\views\site\formulario.php(41): SiteController->redirect()
+#1 C:\wamp\www\yii\framework\web\CBaseController.php(126): require()
+#2 C:\wamp\www\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 C:\wamp\www\yii\framework\web\CController.php(869): SiteController->renderFile()
+#4 C:\wamp\www\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#5 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(192): SiteController->render()
+#6 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionValidaCedula()
+#7 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\wamp\www\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 C:\wamp\www\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 C:\wamp\www\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\wamp\www\tramiton2\index.php(16): CWebApplication->run()
+REQUEST_URI=/tramiton2/site/validaCedula
+in C:\wamp\www\tramiton2\themes\tramiton\views\site\formulario.php (41)
+in C:\wamp\www\tramiton2\protected\controllers\SiteController.php (192)
+in C:\wamp\www\tramiton2\index.php (16)
+2015/06/04 23:02:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.html".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('index.html')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('index.html')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.html')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/index.html
+HTTP_REFERER=http://localhost/tramiton2/site/registro
+---
+2015/06/04 23:04:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "s".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('s')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/s
+---
+2015/06/04 23:04:47 [error] [php] Cannot modify header information - headers already sent by (output started at C:\wamp\www\yii\framework\web\CController.php:793) (C:\wamp\www\yii\framework\web\CHttpRequest.php:803)
+Stack trace:
+#0 C:\wamp\www\tramiton2\themes\tramiton\views\site\formulario.php(41): SiteController->redirect()
+#1 C:\wamp\www\yii\framework\web\CBaseController.php(126): require()
+#2 C:\wamp\www\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 C:\wamp\www\yii\framework\web\CController.php(869): SiteController->renderFile()
+#4 C:\wamp\www\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#5 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(192): SiteController->render()
+#6 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionValidaCedula()
+#7 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\wamp\www\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 C:\wamp\www\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 C:\wamp\www\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\wamp\www\tramiton2\index.php(16): CWebApplication->run()
+REQUEST_URI=/tramiton2/site/validaCedula
+in C:\wamp\www\tramiton2\themes\tramiton\views\site\formulario.php (41)
+in C:\wamp\www\tramiton2\protected\controllers\SiteController.php (192)
+in C:\wamp\www\tramiton2\index.php (16)
+2015/06/08 19:39:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/js/...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/site/admin
+---
+2015/06/08 19:39:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/js/...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/site/admin
+---
+2015/06/09 16:56:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/js/...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/site/admin
+---
+2015/06/09 16:56:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/js/...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/site/admin
+---
+2015/06/09 17:01:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/js/...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/site/admin
+---
+2015/06/09 17:01:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/js/...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/site/admin
+---
+2015/06/09 17:01:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('plan')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/plan
+---
+2015/06/09 17:01:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('plan/assets/js/...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/plan/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/plan/instituciones
+---
+2015/06/09 17:01:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('plan/assets/js/...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/plan/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/plan/instituciones
+---
