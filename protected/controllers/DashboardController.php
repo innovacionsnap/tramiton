@@ -7,12 +7,9 @@ class DashboardController extends Controller {
     public function actionIndex() {
         $model= new Dashboard();
         $datosTotalTramites=$model->getTotalTramite();
+        $datosRankingTramites=$model->getRankingTramite();
         $this->layout = 'main-admin';
-        //envio los datos al index en tramite institucion
-        //$this->render('dashboard_admin',  compact("datos"));
-        //$datosRankingTramites = 20;
-        // $datosTotalTramites = 5;
-        $this->render('dashboard_admin', compact('datosTotalTramites'));
+        $this->render('dashboard_admin', compact('datosTotalTramites','datosRankingTramites'));
     }
 
 
