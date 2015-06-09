@@ -21,7 +21,7 @@
 						<div class="stats-icon"><i class="fa fa-desktop"></i></div>
 						<div class="stats-info">
 							<h4>TOTAL TRAMITES </h4>
-                                                        <p><?php foreach ($datosTotalTramites as $dato){echo $dato["total_tramite"];}  ?></p>	
+                                                        <p><?php foreach ($datosTotalTramites as $dato){echo $numero_tramites = $dato["total_tramite"];} ?></p>	
 						</div>
 						<div class="stats-link">
 							<a href="javascript:;">Ver Detalles <i class="fa fa-arrow-circle-o-right"></i></a>
@@ -35,7 +35,13 @@
 						<div class="stats-icon"><i class="fa fa-chain-broken"></i></div>
 						<div class="stats-info">
 							<h4>RANKING TRAMITES</h4>
-							<p><?php //ech $datosRankingTramites ?>20.44%</p>	
+							<p><?php foreach ($datosRankingTramites as $datoRanking){
+                                                            $tot_ranking = $datoRanking["sum_10_tot_tramite"];
+                                                            
+                                                        }  
+                                                        $porcentaje_tramite = ($tot_ranking*100)/$numero_tramites;
+                                                        echo substr($porcentaje_tramite, 0,2);
+                                                        ?>%</p>	
 						</div>
 						<div class="stats-link">
 							<a href="javascript:;">Ver Datalles <i class="fa fa-arrow-circle-o-right"></i></a>
