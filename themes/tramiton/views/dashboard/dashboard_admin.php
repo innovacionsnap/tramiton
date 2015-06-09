@@ -41,7 +41,7 @@
                                                         }  
                                                         $porcentaje_tramite = ($tot_ranking*100)/$numero_tramites;
                                                         echo substr($porcentaje_tramite, 0,2);
-                                                        ?>%</p>	
+                                                        ?></p>	
 						</div>
 						<div class="stats-link">
 							<a href="javascript:;">Ver Datalles <i class="fa fa-arrow-circle-o-right"></i></a>
