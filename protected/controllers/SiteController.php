@@ -89,8 +89,9 @@ class SiteController extends Controller {
             if ($model->validate() && $model->login()) {
                 $modelDashboard = new Dashboard;
                 $datosTotalTramites = $modelDashboard->getTotalTramite();
+                $datosRankingTramites=$modelDashboard->getRankingTramite();
                 $this->layout = 'main-admin';
-                $this->render('../dashboard/dashboard_admin', compact('datosTotalTramites'));
+                $this->render('../dashboard/dashboard_admin', compact('datosTotalTramites','datosRankingTramites'));
             }
             //echo "estoy aqui";
             //echo Yii::app()->user->returnUrl;

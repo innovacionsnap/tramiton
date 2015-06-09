@@ -30,7 +30,7 @@
 			<li class="dropdown navbar-user">
 				<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 					<img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/user-13.jpg" alt="" /> 
-					<span class="hidden-xs">Juan Pedrito Alvarado</span> <b class="caret"></b>
+					<span class="hidden-xs"><?php echo Yii::app()->user->name ?></span> <b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu animated fadeInLeft">
 					<li class="arrow"></li>
@@ -38,7 +38,7 @@
 					<li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Notificaciones</a></li>
 					<li><a href="javascript:;">Calendario</a></li>
 					<li class="divider"></li>
-					<li><a href="javascript:;">Salir</a></li>
+                                        <li><a href="../site/logout">Salir</a></li>
 				</ul>
 			</li>
 		</ul>
