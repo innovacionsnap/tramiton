@@ -30,7 +30,8 @@ from datos_tramite a, tramite_institucion b, institucion c
 where a.trai_id = b.trai_id and b.ins_id = c.ins_id 
 group by c.ins_nombre order by tot_tramite desc limit 10) d";
         $dataReader = $this->connection->createCommand($sql)->query();
-        // recibe los datos
+        // cambio de datos
+        
         $rows=$this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
