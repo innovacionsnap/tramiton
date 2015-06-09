@@ -4,11 +4,9 @@ class SiteController extends Controller {
 
     /**
      * Declares class-based actions.
-     */   
-    
+     */
     public $_msgerror;
-    
-    
+
     public function actions() {
         return array(
             // captcha action renders the CAPTCHA image displayed on the contact page
@@ -88,15 +86,21 @@ class SiteController extends Controller {
             //var_dump($_POST);
             $model->attributes = $_POST['LoginForm'];
             // validate user input and redirect to the previous page if valid
-            if ($model->validate() && $model->login())
-                //echo "estoy aqui";
-                //echo Yii::app()->user->returnUrl;
-                //Yii::app()->end();
-                $this->redirect(Yii::app()->user->returnUrl);
+            if ($model->validate() && $model->login()) {
+                $modelDashboard = new Dashboard;
+                $datosTotalTramites = $modelDashboard->getTotalTramite();
+                $this->layout = 'main-admin';
+                $this->render('../dashboard/dashboard_admin', compact('datosTotalTramites'));
+            }
+            //echo "estoy aqui";
+            //echo Yii::app()->user->returnUrl;
+            //Yii::app()->end();
+            //$this->redirect(Yii::app()->user->returnUrl);
+        } else {
+            // display the login form
+            $this->layout = 'main-login';
+            $this->render('login', array('model' => $model));
         }
-        // display the login form
-        $this->layout = 'main-login';
-        $this->render('login', array('model' => $model));
     }
 
     /**
@@ -146,8 +150,8 @@ class SiteController extends Controller {
         // using the default layout 'protected/views/layouts/main.php'
         $this->render('formulario');
     }
-	
-	public function actionRanking_Mas_Mencionados() {
+
+    public function actionRanking_Mas_Mencionados() {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
         $this->render('ranking_mas_mencionados');
@@ -165,10 +169,9 @@ class SiteController extends Controller {
 
             $model->attributes = $_POST['ValidarCedula'];
             $model->cedula_participacion = $_POST['ValidarCedula']['cedula_participacion'];
-            
-            
+
+
             //var_dump($model);
-            
             //echo "valor ya en el modelo... " . $model->cedula_participacion;
             //Yii::app()->end();
             if (!$model->validate()) {
