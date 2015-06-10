@@ -20,7 +20,7 @@
 					<div class="widget widget-stats bg-green">
 						<div class="stats-icon"><i class="fa fa-desktop"></i></div>
 						<div class="stats-info">
-							<h4>TOTAL TRAMITES </h4>
+							<h4>TOTAL</h4>
                                                         <p><?php foreach ($datosTotalTramites as $dato){echo $numero_tramites = $dato["total_tramite"];} ?></p>	
 						</div>
 						<div class="stats-link">
