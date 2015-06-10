@@ -86,22 +86,11 @@ class SiteController extends Controller {
             //var_dump($_POST);
             $model->attributes = $_POST['LoginForm'];
             // validate user input and redirect to the previous page if valid
-            if ($model->validate() && $model->login()) {
-                $modelDashboard = new Dashboard;
-                $datosTotalTramites = $modelDashboard->getTotalTramite();
-                $datosRankingTramites=$modelDashboard->getRankingTramite();
-                $this->layout = 'main-admin';
-                $this->render('../dashboard/dashboard_admin', compact('datosTotalTramites','datosRankingTramites'));
-            }
-            //echo "estoy aqui";
-            //echo Yii::app()->user->returnUrl;
-            //Yii::app()->end();
-            //$this->redirect(Yii::app()->user->returnUrl);
-        } else {
-            // display the login form
-            $this->layout = 'main-login';
-            $this->render('login', array('model' => $model));
+            if ($model->validate() && $model->login())
+                $this->redirect(array('dashboard/index'));
         }
+        $this->layout = 'main-login';
+        $this->render('login', array('model' => $model));
     }
 
     /**
@@ -136,7 +125,6 @@ class SiteController extends Controller {
         $this->layout = 'main-registro';
         $this->render('registro', array('model' => $model, 'msg' => $msg));
 
-        //$this->render('registro', array('model' => $model, 'msg' => $msg));
     }
 
     public function actionAdmin() {

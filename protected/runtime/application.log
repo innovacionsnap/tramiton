@@ -4146,3 +4146,1080 @@ Stack trace:
 REQUEST_URI=/tramiton_Dos/site/assets/img/user-8.jpg
 HTTP_REFERER=http://localhost/tramiton_Dos/site/login
 ---
+2015/06/10 18:11:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/js/...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/06/10 18:11:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/img...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/06/10 18:11:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/img...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/06/10 18:11:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/img...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/assets/img/user-7.jpg
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/06/10 18:11:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/img...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/assets/img/user-8.jpg
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/06/10 18:11:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/img...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/06/10 18:11:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/js/...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/site/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/site/login
+---
+2015/06/10 18:13:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "dashboard_admin".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('dashboard_admin')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('dashboard_admin')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/dashb...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/dashboard_admin?datosTotalTramites%5B0%5D%5Btotal_tramite%5D=7728&datosRankingTramites%5B0%5D%5Bsum_10_tot_tramite%5D=4844
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/06/10 18:14:39 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "dashboard/index".' in C:\wamp\www\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(782): CController->renderPartial('dashboard/index', Array, true)
+#1 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(94): CController->render('dashboard/index', Array)
+#2 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('login')
+#7 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#10 {main}
+REQUEST_URI=/tramiton2/site/login
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/06/10 18:15:01 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "../dashboard/index".' in C:\wamp\www\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(782): CController->renderPartial('../dashboard/in...', Array, true)
+#1 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(94): CController->render('../dashboard/in...', Array)
+#2 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('login')
+#7 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#10 {main}
+REQUEST_URI=/tramiton2/site/login
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/06/10 18:17:14 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "./dashboard/index".' in C:\wamp\www\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(782): CController->renderPartial('./dashboard/ind...', NULL, true)
+#1 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(95): CController->render('./dashboard/ind...')
+#2 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('login')
+#7 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#10 {main}
+REQUEST_URI=/tramiton2/site/login
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/06/10 18:17:35 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "/dashboard/index".' in C:\wamp\www\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(782): CController->renderPartial('/dashboard/inde...', NULL, true)
+#1 C:\wamp\www\tramiton2\protected\controllers\SiteController.php(95): CController->render('/dashboard/inde...')
+#2 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('login')
+#7 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#10 {main}
+REQUEST_URI=/tramiton2/site/login
+HTTP_REFERER=http://localhost/tramiton2/
+---
+2015/06/10 18:18:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:18:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:18:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-8.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:18:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:18:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:18:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-7.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:18:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:19:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:19:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:19:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-7.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:19:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-8.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:19:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:19:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:19:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:20:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:20:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:20:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-7.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:20:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:20:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:20:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-8.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:20:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:22:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:22:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:22:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:22:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-8.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:22:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-7.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:22:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:22:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:23:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:23:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:23:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-7.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:23:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:23:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-8.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:23:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:23:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:25:22 [error] [exception.CException] exception 'CException' with message 'Property "CAccessRule.role" is not defined.' in C:\wamp\www\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\auth\CAccessControlFilter.php(115): CComponent->__set('role', Array)
+#1 C:\wamp\www\yii\framework\web\CController.php(1144): CAccessControlFilter->setRules(Array)
+#2 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#3 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#5 C:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard')
+#8 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#10 {main}
+REQUEST_URI=/tramiton2/dashboard
+---
+2015/06/10 18:26:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/img/user-13.jpg".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/user...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard
+---
+2015/06/10 18:26:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/img/user-6.jpg".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/user...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard
+---
+2015/06/10 18:26:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/img/user-5.jpg".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/user...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard
+---
+2015/06/10 18:26:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/js/apps.min.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/js/apps....')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard
+---
+2015/06/10 18:26:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/img/user-8.jpg".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/user...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/img/user-8.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard
+---
+2015/06/10 18:26:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/img/user-7.jpg".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/user...')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/img/user-7.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard
+---
+2015/06/10 18:26:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/js/apps.min.js".' in C:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/js/apps....')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/tramiton2/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard
+---
+2015/06/10 18:29:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:29:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:29:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-8.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:29:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:29:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:29:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-7.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:29:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-8.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-7.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/
+---
+2015/06/10 18:30:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/
+---
+2015/06/10 18:30:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/
+---
+2015/06/10 18:30:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-7.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/
+---
+2015/06/10 18:30:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-8.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/
+---
+2015/06/10 18:30:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/
+---
+2015/06/10 18:30:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/
+---
+2015/06/10 18:30:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-7.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-8.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-7.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-8.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-5.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-6.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-8.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-7.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/img/user-13.jpg
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
+2015/06/10 18:30:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in C:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('assets')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/asset...')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\tramiton2\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/tramiton2/dashboard/assets/js/apps.min.js
+HTTP_REFERER=http://localhost/tramiton2/dashboard/index
+---
