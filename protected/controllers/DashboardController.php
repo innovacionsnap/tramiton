@@ -9,6 +9,7 @@ class DashboardController extends Controller {
         );
     }
 
+    //Reglas para accesos a las acciones de cotrolador de acuerdo a Roles
     public function accessRules() {
         return array(
             /*array('allow', // allow all users to perform 'index' and 'view' actions
