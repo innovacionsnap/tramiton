@@ -43,7 +43,7 @@
                                                         ?>%</p>	
 						</div>
 						<div class="stats-link">
-							<a href="javascript:;">Ver Datalles <i class="fa fa-arrow-circle-o-right"></i></a>
+							<a href="javascript:;">Ver Detalles <i class="fa fa-arrow-circle-o-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -71,7 +71,9 @@
 							<p>30%</p>	
 						</div>
 						<div class="stats-link">
-							<a href="javascript:;">Ver Datalles <i class="fa fa-arrow-circle-o-right"></i></a>
+                                                    <a href="rankingTramites">View Detail <i class="fa fa-arrow-circle-o-right"></i></a>
+							<?php //echo CHtml::link('Ver Detalles', array('dashboard/rankingTramites')); ?>
+							
 						</div>
 					</div>
 				</div>

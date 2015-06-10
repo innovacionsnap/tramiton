@@ -42,5 +42,18 @@ class DashboardController extends Controller {
         $this->layout = 'main-admin';
         $this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites'));
     }
+    
+    public function actionRankingTramites() {
+        echo "llegue aqui";
+        Yii::app()->end();
+       // $model = new Dashboard();
+       // $datosTotalTramites = $model->getTotalTramite();
+       // $datosRankingTramites = $model->getRankingTramite();
+       // $this->layout = 'main-admin';
+        $this->render('ranking_tramites');
+        
+        //$sector = Sector::model()->findAll();
+        //$this->render('index', array('sector' => $sector));
+    }
 
 }
