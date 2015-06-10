@@ -13,7 +13,7 @@
                         
                         
                         
-                        <!-- begin row -->
+            <!-- begin row -->
 			<div class="row">
 				<!-- begin col-3 -->
 				<div class="col-md-3 col-sm-6">
@@ -85,22 +85,7 @@
 		<div class="row">
 		<!-- begin col-8 -->
 				<div class="col-md-12">
-					<div class="panel panel-inverse" data-sortable-id="index-1">
-						<div class="panel-heading">
-							<div class="panel-heading-btn">
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-							</div>
-							<h4 class="panel-title">Tramites ingresados (7 días)</h4>
-						</div>
-						<div class="panel-body">
-							<div id="interactive-chart" class="height-sm"></div>
-						</div>
-					</div>
-					
-					
+					<!-- inicio mensajes -->
 					<div class="panel panel-inverse" data-sortable-id="index-5">
 						<div class="panel-heading">
 							<div class="panel-heading-btn">
@@ -162,8 +147,28 @@
 									</span>
 								</div>
 							</form>
-                                                </div>
+                        </div>
 					</div>
+					<!-- fin mensajes -->
+					<!-- inicio grafico -->
+					<div class="panel panel-inverse" data-sortable-id="index-1">
+						<div class="panel-heading">
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+							<h4 class="panel-title">Tramites ingresados (7 días)</h4>
+						</div>
+						<div class="panel-body">
+							<div id="interactive-chart" class="height-sm"></div>
+						</div>
+					</div>
+					<!-- fin grafico --> 
+					
+					
+					
 				</div>
 					    
                 </div>
