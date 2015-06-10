@@ -116,7 +116,7 @@
 								<ul class="media-list media-list-with-divider media-messaging">
 									<li class="media media-sm">
 										<a href="javascript:;" class="pull-left">
-											<img src="assets/img/user-5.jpg" alt="" class="media-object rounded-corner" />
+											<img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/users/user-5.jpg" alt="" class="media-object rounded-corner" />
 										</a>
 										<div class="media-body">
 											<h5 class="media-heading">John Doe</h5>
@@ -125,7 +125,7 @@
 									</li>
 									<li class="media media-sm">
 										<a href="javascript:;" class="pull-left">
-											<img src="assets/img/user-6.jpg" alt="" class="media-object rounded-corner" />
+											<img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/users/user-6.jpg" alt="" class="media-object rounded-corner" />
 										</a>
 										<div class="media-body">
 											<h5 class="media-heading">Terry Ng</h5>
@@ -134,7 +134,7 @@
 									</li>
 									<li class="media media-sm">
 										<a href="javascript:;" class="pull-left">
-											<img src="assets/img/user-8.jpg" alt="" class="media-object rounded-corner" />
+											<img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/users/user-8.jpg" alt="" class="media-object rounded-corner" />
 										</a>
 										<div class="media-body">
 											<h5 class="media-heading">Fiona Log</h5>
@@ -143,7 +143,7 @@
 									</li>
 									<li class="media media-sm">
 										<a href="javascript:;" class="pull-left">
-											<img src="assets/img/user-7.jpg" alt="" class="media-object rounded-corner" />
+											<img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/users/user-7.jpg" alt="" class="media-object rounded-corner" />
 										</a>
 										<div class="media-body">
 											<h5 class="media-heading">John Doe</h5>
