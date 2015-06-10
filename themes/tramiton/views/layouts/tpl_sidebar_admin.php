@@ -10,7 +10,7 @@
 						</div>
 						<div class="info">
 							Usuario
-							<small>Hola Usuario!</small>
+							<small>Hola <?php echo Yii::app()->user->name ?>!</small>
 						</div>
 					</li>
 				</ul>
