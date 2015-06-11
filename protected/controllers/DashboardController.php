@@ -47,7 +47,7 @@ class DashboardController extends Controller {
         $datosRankingTramites = $model->getRankingTramite();
         $datosPublicacionesTramites = $model->getPublicacionesTramites();
         $this->layout = 'main-admin';
-        $this->_datosUser=$modelUser;
+        $this->_datosUser = $modelUser;
         $this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites','datosPublicacionesTramites'));
     
     }

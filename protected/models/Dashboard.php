@@ -37,14 +37,14 @@ class Dashboard extends CActiveRecord {
     }
           public function getPublicacionesTramites(){
         $sql = "select datt.datt_id, ins.ins_nombre,tra.tra_nombre, datt.datt_experiencia,datt.datt_fecharegistro, usu.usu_nombreusuario, usu.usu_imagen
-from tramite tra, tramite_institucion trai, institucion ins, datos_tramite datt, usuario usu
-where tra.tra_id = trai.tra_id
-and datt.trai_id = trai.trai_id
-and trai.ins_id = ins.ins_id
-and usu.usu_id = datt.usu_id
-and datt_estado = 1
-order by datt.datt_fecharegistro
-limit 30 ";
+                from tramite tra, tramite_institucion trai, institucion ins, datos_tramite datt, usuario usu
+                where tra.tra_id = trai.tra_id
+                and datt.trai_id = trai.trai_id
+                and trai.ins_id = ins.ins_id
+                and usu.usu_id = datt.usu_id
+                and datt_estado = 1
+                order by datt.datt_fecharegistro
+                limit 30 ";
         $dataReader = $this->connection->createCommand($sql)->query();
         // cambio de datos
         
