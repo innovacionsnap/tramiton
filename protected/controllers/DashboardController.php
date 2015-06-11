@@ -1,6 +1,8 @@
 <?php
 
 class DashboardController extends Controller {
+    
+    public $_datosUser;
 
     public function filters() {
         return array(
@@ -22,7 +24,7 @@ class DashboardController extends Controller {
             ),*/
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('index'),
-                'users' => array('admin'),
+                'users' => array('admin', 'oacero'),
                 #'roles' => array('admin'),
             ),
             array('deny', // deny all users
@@ -36,24 +38,17 @@ class DashboardController extends Controller {
      * Declares class-based actions.
      */
     public function actionIndex() {
-        $model = new Dashboard();
+        $username = Yii::app()->user->name;
+        $modelUser = new Usuario;
+        $model = new Dashboard;
         $datosTotalTramites = $model->getTotalTramite();
         $datosRankingTramites = $model->getRankingTramite();
+        $datosUsuario = $modelUser->getDatosUsuario($username);
+        //var_dump($datosUsuario);
+        //Yii::app()->end();
         $this->layout = 'main-admin';
-        $this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites'));
-    }
-    
-    public function actionRankingTramites() {
-        echo "llegue aqui";
-        Yii::app()->end();
-       // $model = new Dashboard();
-       // $datosTotalTramites = $model->getTotalTramite();
-       // $datosRankingTramites = $model->getRankingTramite();
-       // $this->layout = 'main-admin';
-        $this->render('ranking_tramites');
-        
-        //$sector = Sector::model()->findAll();
-        //$this->render('index', array('sector' => $sector));
+        $this->_datosUser = $datosUsuario;
+        $this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites', 'datosUsuario'));
     }
 
 }

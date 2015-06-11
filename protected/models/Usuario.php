@@ -35,6 +35,8 @@ class Usuario extends CActiveRecord {
     /**
      * @return string the associated database table name
      */
+    private $connection;
+    
     public function tableName() {
         return 'usuario';
     }
@@ -159,6 +161,22 @@ class Usuario extends CActiveRecord {
         hash_update($hash, $data);
 
         return hash_final($hash);
+    }
+    
+    public function getDatosUsuario($username) {
+        $this->connection=new CDbConnection(Yii::app()->db->connectionString,Yii::app()->db->username,Yii::app()->db->password);
+        $this->connection->active=TRUE;
+        
+        $sql = "SELECT usu_id, rol_id, can_id, usu_cedula, usu_nombre, usu_direccion, 
+                    usu_mail, usu_celular, usu_convencional, usu_nombreusuario, usu_contrasenia, 
+                    usu_fechanacimiento, usu_estado, usu_lugar_nacimiento, usu_fecha_registro, 
+                    usu_genero
+               FROM usuario
+               where usu_nombreusuario ='" . $username ."'";
+        $dataReader = $this->connection->createCommand($sql)->query();
+        // recibe los datos
+        $rows=$this->connection->createCommand($sql)->queryAll();
+        return $rows;
     }
 
 }
