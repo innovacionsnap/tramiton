@@ -101,42 +101,25 @@
 						<div class="panel-body">
 							<div class="height-sm" data-scrollbar="true">
 								<ul class="media-list media-list-with-divider media-messaging">
-									<li class="media media-sm">
+                                                                    <?php 
+                                                                          //  print_r($datosPublicacionesTramites);
+                                                                        foreach ($datosPublicacionesTramites as $datosPublicaciones){
+                                                                    ?>
+                                                                    <li class="media media-sm">
 										<a href="javascript:;" class="pull-left">
-											<img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/users/user-5.jpg" alt="" class="media-object rounded-corner" />
+											<img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/users/<?php echo $datosPublicaciones["usu_imagen"]; ?>" alt="" class="media-object rounded-corner" />
 										</a>
 										<div class="media-body">
-											<h5 class="media-heading">John Doe</h5>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id nunc non eros fermentum vestibulum ut id felis. Nunc molestie libero eget urna aliquet, vitae laoreet felis ultricies. Fusce sit amet massa malesuada, tincidunt augue vitae, gravida felis.</p>
+											<h5 class="media-heading"><?php echo $datosPublicaciones["usu_nombreusuario"]; ?></h5>
+											<p><?php echo $datosPublicaciones["usu_imagen"]; ?>Publicó el trámite , <?php echo $datosPublicaciones["tra_nombre"]; ?> en <?php echo $datosPublicaciones["ins_nombre"]; ?></p>
+                                                                                        <p><strong>Publicado: </strong><?php echo $datosPublicaciones["datt_fecharegistro"]; ?></p>
 										</div>
 									</li>
-									<li class="media media-sm">
-										<a href="javascript:;" class="pull-left">
-											<img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/users/user-6.jpg" alt="" class="media-object rounded-corner" />
-										</a>
-										<div class="media-body">
-											<h5 class="media-heading">Terry Ng</h5>
-											<p>Sed in ante vel ipsum tristique euismod posuere eget nulla. Quisque ante sem, scelerisque iaculis interdum quis, eleifend id mi. Fusce congue leo nec mauris malesuada, id scelerisque sapien ultricies.</p>
-										</div>
-									</li>
-									<li class="media media-sm">
-										<a href="javascript:;" class="pull-left">
-											<img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/users/user-8.jpg" alt="" class="media-object rounded-corner" />
-										</a>
-										<div class="media-body">
-											<h5 class="media-heading">Fiona Log</h5>
-											<p>Pellentesque dictum in tortor ac blandit. Nulla rutrum eu leo vulputate ornare. Nulla a semper mi, ac lacinia sapien. Sed volutpat ornare eros, vel semper sem sagittis in. Quisque risus ipsum, iaculis quis cursus eu, tristique sed nulla.</p>
-										</div>
-									</li>
-									<li class="media media-sm">
-										<a href="javascript:;" class="pull-left">
-											<img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/users/user-7.jpg" alt="" class="media-object rounded-corner" />
-										</a>
-										<div class="media-body">
-											<h5 class="media-heading">John Doe</h5>
-											<p>Morbi molestie lorem quis accumsan elementum. Morbi condimentum nisl iaculis, laoreet risus sed, porta neque. Proin mi leo, dapibus at ligula a, aliquam consectetur metus.</p>
-										</div>
-									</li>
+                                                                    <?php       
+                                                                        //echo $datosPublicaciones["ins_nombre"]; 
+                                                                        }
+                                                                    ?>
+									
 								</ul>
 							</div>
 						</div>
