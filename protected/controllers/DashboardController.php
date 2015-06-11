@@ -24,8 +24,8 @@ class DashboardController extends Controller {
             ),*/
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('index'),
-                'users' => array('admin', 'oacero'),
-                #'roles' => array('admin'),
+                //'users' => array('admin', 'oacero'),
+                'roles' => array('super_admin', 'ciudadano'),
             ),
             array('deny', // deny all users
                 #'roles' => array('*'),
@@ -38,17 +38,34 @@ class DashboardController extends Controller {
      * Declares class-based actions.
      */
     public function actionIndex() {
-        $username = Yii::app()->user->name;
-        $modelUser = new Usuario;
+        //acciones para crear roles y asignar a usuarios
+        //Yii::app()->authManager->createRole('super_admin');
+        //Yii::app()->authManager->assign('super_admin',5);
+        //Yii::app()->authManager->assign('super_admin',12);
+        //Yii::app()->authManager->createRole('ciudadano');
+        //Yii::app()->authManager->assign('ciudadano',6);
+        
+        //echo Yii::app()->user->id;
+        /*if(Yii::app()->user->checkAccess('super_admin')){
+            echo "soy super admin";
+            Yii::app()->end();
+        }
+        if(Yii::app()->user->checkAccess('ciudadano')){
+            echo "soy ciudadano";
+            Yii::app()->end();
+        }*/
+        
+        //busco datos del usuario logueado en base al ID
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+
+        //creo una instancia del modelo Dashboard
         $model = new Dashboard;
         $datosTotalTramites = $model->getTotalTramite();
         $datosRankingTramites = $model->getRankingTramite();
-        $datosUsuario = $modelUser->getDatosUsuario($username);
-        //var_dump($datosUsuario);
-        //Yii::app()->end();
         $this->layout = 'main-admin';
-        $this->_datosUser = $datosUsuario;
-        $this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites', 'datosUsuario'));
+        //asigno al atributo los datos obtenidos del modelo para pasarlo al layout de la vista
+        $this->_datosUser = $modelUser;
+        $this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites'));
     }
 
 }

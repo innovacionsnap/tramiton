@@ -30,12 +30,7 @@
 			<li class="dropdown navbar-user">
 				<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 					<img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/users/user-13.jpg" alt="" /> 
-                                        <?php
-                                            foreach($this->_datosUser as $userData):
-                                                $nombreUsuario = $userData['usu_nombre'];
-                                            endforeach;
-                                        ?>
-					<span class="hidden-xs"><?php echo $nombreUsuario ?></span> <b class="caret"></b>
+					<span class="hidden-xs"><?php echo $this->_datosUser->usu_nombre ?></span> <b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu animated fadeInLeft">
 					<li class="arrow"></li>

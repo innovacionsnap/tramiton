@@ -17,7 +17,7 @@
 				<!-- end sidebar user -->
 				<!-- begin sidebar nav -->
 				<ul class="nav">
-					<li class="nav-header">Navegación</li>
+					<li class="nav-header">Menú</li>
 					<li class="has-sub active">
 						<a href="javascript:;">
 						    <b class="caret pull-right"></b>
@@ -54,12 +54,12 @@
 						    <li ><a href="#">Item 3</a></li>
 						</ul>
 					</li>
-
+                                        <?php if(Yii::app()->user->checkAccess('super_admin')): ?>
 					<li class="has-sub">
 						<a href="javascript:;">
 							<span class="badge pull-right"></span>
 							<i class="fa fa-user"></i> 
-							<span>Usuario-4</span>
+							<span>Administración</span>
 						</a>
 						<ul class="sub-menu">
 						    <li ><a href="#">Item 1</a></li>
@@ -67,6 +67,7 @@
 						    <li ><a href="#">Item 3</a></li>
 						</ul>
 					</li>
+                                        <?php endif; ?>
 					
 			        <!-- begin sidebar minify button -->
 					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
