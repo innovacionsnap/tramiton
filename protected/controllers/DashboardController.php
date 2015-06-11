@@ -38,34 +38,17 @@ class DashboardController extends Controller {
      * Declares class-based actions.
      */
     public function actionIndex() {
-        //acciones para crear roles y asignar a usuarios
-        //Yii::app()->authManager->createRole('super_admin');
-        //Yii::app()->authManager->assign('super_admin',5);
-        //Yii::app()->authManager->assign('super_admin',12);
-        //Yii::app()->authManager->createRole('ciudadano');
-        //Yii::app()->authManager->assign('ciudadano',6);
-        
-        //echo Yii::app()->user->id;
-        /*if(Yii::app()->user->checkAccess('super_admin')){
-            echo "soy super admin";
-            Yii::app()->end();
-        }
-        if(Yii::app()->user->checkAccess('ciudadano')){
-            echo "soy ciudadano";
-            Yii::app()->end();
-        }*/
-        
-        //busco datos del usuario logueado en base al ID
+  
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
 
         //creo una instancia del modelo Dashboard
-        $model = new Dashboard;
+        $model = new Dashboard();
         $datosTotalTramites = $model->getTotalTramite();
         $datosRankingTramites = $model->getRankingTramite();
+        $datosPublicacionesTramites = $model->getPublicacionesTramites();
         $this->layout = 'main-admin';
-        //asigno al atributo los datos obtenidos del modelo para pasarlo al layout de la vista
-        $this->_datosUser = $modelUser;
-        $this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites'));
+        $this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites','datosPublicacionesTramites'));
+    
     }
 
 }

@@ -36,7 +36,7 @@
                                             <th>N° de quejas</th>
                                             <th>Estrategias</th>
                                             <th>verificado</th>
-                                            <th>Acciones</th>
+                                            <th>DOS Y TRESS</th>
                                         </tr>
                                     </thead>
                                     
