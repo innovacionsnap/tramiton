@@ -54,7 +54,7 @@
 						    <li ><a href="#">Item 3</a></li>
 						</ul>
 					</li>
-                                        <?php if(Yii::app()->user->checkAccess('super_admin')): ?>
+                                        <?php if(Yii::app()->authManager->checkAccess('super_admin', Yii::app()->user->id)): ?>
 					<li class="has-sub">
 						<a href="javascript:;">
 							<span class="badge pull-right"></span>
