@@ -62,9 +62,9 @@
 							<span>Administración</span>
 						</a>
 						<ul class="sub-menu">
-						    <li ><a href="#">Item 1</a></li>
-						    <li ><a href="#">Item 2</a></li>
-						    <li ><a href="#">Item 3</a></li>
+						    <li ><a href="#">Usuarios</a></li>
+						    <li ><a href="#">Roles</a></li>
+						    <li ><a href="#">Instituciones</a></li>
 						</ul>
 					</li>
                                         <?php endif; ?>
