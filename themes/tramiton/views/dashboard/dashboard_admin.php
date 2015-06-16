@@ -111,7 +111,7 @@
 										</a>
 										<div class="media-body">
 											<h5 class="media-heading"><?php echo $datosPublicaciones["usu_nombreusuario"]; ?></h5>
-											<p><?php echo $datosPublicaciones["usu_imagen"]; ?>Publicó el trámite , <?php echo $datosPublicaciones["tra_nombre"]; ?> en <?php echo $datosPublicaciones["ins_nombre"]; ?></p>
+											<p>Publicó el trámite , <?php echo $datosPublicaciones["tra_nombre"]; ?> en <?php echo $datosPublicaciones["ins_nombre"]; ?></p>
                                                                                         <p><strong>Publicado: </strong><?php echo $datosPublicaciones["datt_fecharegistro"]; ?></p>
 										</div>
 									</li>
