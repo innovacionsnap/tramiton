@@ -1,15 +1,20 @@
 <?php
 
-class DashboardController extends Controller {
-    
-    public $_menuActive;
-    public $_datosUser;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
+/**
+ * Description of AdminController
+ *
+ * @author Oscar
+ */
+class AdminController extends Controller {
     
-    /*public function __construct() {
-        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        $this->_datosUser = $modelUser;
-    }*/
+    public $_datosUser;
+    public $_menuActive;
     
     public function filters() {
         return array(
@@ -40,31 +45,12 @@ class DashboardController extends Controller {
             ),
         );
     }
-
-    /**
-     * Declares class-based actions.
-     */
+    
     public function actionIndex() {
-  
-        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-
-        //creo una instancia del modelo Dashboard
-        $model = new Dashboard();
-        $datosTotalTramites = $model->getTotalTramite();
-        $datosRankingTramites = $model->getRankingTramite();
-        $datosPublicacionesTramites = $model->getPublicacionesTramites();
-        $this->layout = 'main-admin';
-        $this->_datosUser = $modelUser;
-        $this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites','datosPublicacionesTramites'));
-    
-    }
-    
-    public function actionValor(){
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $this->_datosUser = $modelUser;
+        $this->_menuActive = 1;
         $this->layout = 'main-admin';
-        //$this->_datosUser = $modelUser;
-        $this->render('ranking_tramites');
+        $this->render('index');
     }
-
 }

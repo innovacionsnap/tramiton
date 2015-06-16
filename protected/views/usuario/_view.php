@@ -9,17 +9,13 @@
 	<?php echo CHtml::link(CHtml::encode($data->usu_id), array('view', 'id'=>$data->usu_id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('insu_id')); ?>:</b>
-	<?php echo CHtml::encode($data->insu_id); ?>
-	<br />
+	
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('rol_id')); ?>:</b>
 	<?php echo CHtml::encode($data->rol_id); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('par_id')); ?>:</b>
-	<?php echo CHtml::encode($data->par_id); ?>
-	<br />
+	
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('usu_cedula')); ?>:</b>
 	<?php echo CHtml::encode($data->usu_cedula); ?>
@@ -29,9 +25,7 @@
 	<?php echo CHtml::encode($data->usu_nombre); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('usu_apellido')); ?>:</b>
-	<?php echo CHtml::encode($data->usu_apellido); ?>
-	<br />
+	
 
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('usu_direccion')); ?>:</b>

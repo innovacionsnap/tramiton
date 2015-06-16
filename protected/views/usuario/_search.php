@@ -16,20 +16,12 @@
 		<?php echo $form->textField($model,'usu_id'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'insu_id'); ?>
-		<?php echo $form->textField($model,'insu_id'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'rol_id'); ?>
 		<?php echo $form->textField($model,'rol_id'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'par_id'); ?>
-		<?php echo $form->textField($model,'par_id'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'usu_cedula'); ?>
@@ -39,11 +31,6 @@
 	<div class="row">
 		<?php echo $form->label($model,'usu_nombre'); ?>
 		<?php echo $form->textField($model,'usu_nombre',array('size'=>50,'maxlength'=>50)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'usu_apellido'); ?>
-		<?php echo $form->textField($model,'usu_apellido',array('size'=>50,'maxlength'=>50)); ?>
 	</div>
 
 	<div class="row">

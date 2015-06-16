@@ -29,7 +29,7 @@
 		
 			<li class="dropdown navbar-user">
 				<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-					<img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/users/user-13.jpg" alt="" /> 
+					<img src="<?php echo URL_IMG . $this->_datosUser->usu_imagen;?>" alt="" /> 
 					<span class="hidden-xs"><?php echo $this->_datosUser->usu_nombre ?></span> <b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu animated fadeInLeft">
@@ -38,7 +38,7 @@
 					<li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Notificaciones</a></li>
 					<li><a href="javascript:;">Calendario</a></li>
 					<li class="divider"></li>
-                                        <li><a href="../site/logout">Salir</a></li>
+                                        <li><?php echo CHtml::link('Salir', array('site/logout'));?></li>
 				</ul>
 			</li>
 		</ul>

@@ -35,7 +35,8 @@ class Dashboard extends CActiveRecord {
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
-          public function getPublicacionesTramites(){
+
+    public function getPublicacionesTramites() {
         $sql = "select datt.datt_id, ins.ins_nombre,tra.tra_nombre, datt.datt_experiencia,datt.datt_fecharegistro, usu.usu_nombreusuario, usu.usu_imagen
                 from tramite tra, tramite_institucion trai, institucion ins, datos_tramite datt, usuario usu
                 where tra.tra_id = trai.tra_id
@@ -47,8 +48,8 @@ class Dashboard extends CActiveRecord {
                 limit 30 ";
         $dataReader = $this->connection->createCommand($sql)->query();
         // cambio de datos
-        
-        $rows=$this->connection->createCommand($sql)->queryAll();
+
+        $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
 

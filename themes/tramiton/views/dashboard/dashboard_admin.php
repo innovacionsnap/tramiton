@@ -107,7 +107,7 @@
                                                                     ?>
                                                                     <li class="media media-sm">
 										<a href="javascript:;" class="pull-left">
-											<img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/users/<?php echo $datosPublicaciones["usu_imagen"]; ?>" alt="" class="media-object rounded-corner" />
+											<img src="<?php echo URL_IMG . $datosPublicaciones["usu_imagen"]; ?>" alt="" class="media-object rounded-corner" />
 										</a>
 										<div class="media-body">
 											<h5 class="media-heading"><?php echo $datosPublicaciones["usu_nombreusuario"]; ?></h5>

@@ -12,5 +12,16 @@ defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
 //hash key para encriptación de contraseñas
 define('HASH_KEY', '54d3d05adfb6d');
 
+//definición de variable global para path de imagenes
+define('DS', DIRECTORY_SEPARATOR);
+define('ROOT', realpath(dirname(__FILE__)) . DS);
+define('TEMA', 'tramiton');
+$carpetas = explode(DS, ROOT);
+$posicion = count($carpetas) - 2;
+define('URL_IMG', 'http://' . $_SERVER['HTTP_HOST'] . '/' . $carpetas[count($carpetas) - 2] . '/themes/' . TEMA . '/assets/img/users/');
+
 require_once($yii);
 Yii::createWebApplication($config)->run();
+
+
+
