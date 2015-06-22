@@ -36,7 +36,7 @@
 								<div id="wizard">
 									<ol>
 										<li>
-										    Detalle del trámite 
+										   
 										    <small>Identifica los detalles del tramite.</small>
 										</li>
 										<li>
