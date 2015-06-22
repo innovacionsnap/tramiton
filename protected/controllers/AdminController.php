@@ -14,7 +14,6 @@
 class AdminController extends Controller {
     
     public $_datosUser;
-    public $_menuActive;
     
     public function filters() {
         return array(
@@ -35,7 +34,7 @@ class AdminController extends Controller {
                 'users' => array('@'),
             ),*/
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('index', 'valor'),
+                'actions' => array('index', 'role'),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano'),
             ),
@@ -46,11 +45,27 @@ class AdminController extends Controller {
         );
     }
     
+    /**
+     * Accion del modulo de administración que muestra la lista de usuarios
+     */
     public function actionIndex() {
+        $usuarios = Usuario::model()->findAll();
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $this->_datosUser = $modelUser;
-        $this->_menuActive = 1;
         $this->layout = 'main-admin';
-        $this->render('index');
+        $this->render('index', array('usuarios' => $usuarios));
+    }
+    
+    /**
+     * Accion del modulo de roles que muestra la lista de roles creados
+     * adicional a eso envía el modelo del rol a la vista para poder cargar 
+     * el formulario en una ventana modal
+     */
+    public function actionRole(){
+        $modelRole = new RoleForm;
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $this->_datosUser = $modelUser;
+        $this->layout = 'main-admin';
+        $this->render('role', array('modelRole' => $modelRole));
     }
 }

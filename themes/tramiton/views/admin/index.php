@@ -31,24 +31,34 @@
                                 <table id="data-table" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>N°</th>
-                                            <th>Tramite</th>
-                                            <th>N° de quejas</th>
-                                            <th>Estrategias</th>
-                                            <th>verificado</th>
+                                            <th>ID</th>
+                                            <th>Nombres y Apellidos</th>
+                                            <th>Cédula</th>
+                                            <th>Nombre Usuario</th>
+                                            <th>Email</th>
+                                            <th>Acciones</th>
                                             
                                         </tr>
                                     </thead>
-                                    
                                     <tbody>
+                                        <?php foreach ($usuarios as $users): ?>
                                         <tr class="odd gradeX">
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td>4</td>
-                                            <td>X</td>
+                                            <td><?php echo $users->usu_id; ?></td>
+                                            <td><?php echo $users->usu_nombre; ?></td>
+                                            <td><?php echo $users->usu_cedula; ?></td>
+                                            <td><?php echo $users->usu_nombreusuario; ?></td>
+                                            <td><?php echo $users->usu_mail; ?></td>
+                                            <td><?php 
+                                                echo CHtml::link('<i class="fa fa-eye"></i>', array('view', 'id'=>$users->usu_id), array('title' => 'Mostrar'));
+                                                echo "&nbsp;&nbsp;&nbsp;";
+                                                echo CHtml::link('<i class="fa fa-edit (alias)"></i>', array('edit', 'id'=>$users->usu_id), array('title' => 'Editar'));
+                                                echo "&nbsp;&nbsp;&nbsp;";
+                                                echo CHtml::link('<i class="fa fa-eraser"></i>', array('delete', 'id'=>$users->usu_id), array('title' => 'Eliminar'));
+                                                ?>
+                                            </td>
                                         </tr>
-                                        <tr class="even gradeC">
+                                        <?php endforeach; ?>
+                                        <!--<tr class="even gradeC">
                                             <td>Trident</td>
                                             <td>Internet Explorer 5.0</td>
                                             <td>Win 95+</td>
@@ -439,7 +449,7 @@
                                             <td>-</td>
                                             <td>-</td>
                                             <td>U</td>
-                                        </tr>
+                                        </tr>-->
 
                                     </tbody>
                                       
