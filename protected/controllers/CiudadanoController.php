@@ -31,7 +31,7 @@ class CiudadanoController extends Controller {
                 'users' => array('@'),
             ),*/
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('index', 'valor'),
+                'actions' => array('index', 'valor','Usuario_Tramites'),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano'),
             ),
@@ -57,6 +57,7 @@ class CiudadanoController extends Controller {
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
         $this->render('form_ciudadano', compact('datosTotalTramites', 'datosRankingTramites','datosPublicacionesTramites'));
+        //$this->render('formulario');
     
     }
     
@@ -66,6 +67,18 @@ class CiudadanoController extends Controller {
         $this->layout = 'main-admin';
         //$this->_datosUser = $modelUser;
         $this->render('form_ciudadano');
+    }
+	
+	public function actionUsuario_Tramites() {
+		
+    	$modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+		$model = new Ciudadano();
+        // renders the view file 'protected/views/site/index.php'
+        // using the default layout 'protected/views/layouts/main.php'
+        $datosUsuarioTramite = $model->getUsuarioTramite();
+        $this->_datosUser = $modelUser;
+        $this->layout = 'main-admin';
+        $this->render('usuario_tramites',compact('datosUsuarioTramite'));
     }
     
    
