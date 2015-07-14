@@ -122,6 +122,15 @@
 	margin-top: 5px;
 }
 
+.register_header_tramiton{
+    padding: 50px;
+}
+
+div.form .errorMessage {
+    color: red;
+    font-size: 0.9em;
+}
+
 .footer {
   padding: 50px 0;
   background: #FFFFFF;

@@ -12,7 +12,9 @@ class SiteController extends Controller {
             // captcha action renders the CAPTCHA image displayed on the contact page
             'captcha' => array(
                 'class' => 'CCaptchaAction',
-                'backColor' => 0xFFFFFF,
+                //'backColor' => 0xFFFFFF,
+                'backColor' => 0xD9E0E7,
+                #'foreColor' => 0xFFFFFF,
             ),
             // page action renders "static" pages stored under 'protected/views/site/pages'
             // They can be accessed via: index.php?r=site/page&view=FileName
@@ -106,25 +108,68 @@ class SiteController extends Controller {
      */
     public function actionRegistro() {
 
+        //instancia de modelos a utilizar
         $model = new ValidarRegistro;
-        $msg = '';
+        $modelDatosCiud = new ValidarCedula;
+        $modelInsertUser = new consultasBaseDatos;
 
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'form-registro') {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+        
         if (isset($_POST['ValidarRegistro'])) {
-
+            //echo "no valido el form1"; Yii::app()->end();
             $model->attributes = $_POST['ValidarRegistro'];
-            if (!$model->validate()) {
+            if ($model->validate()) {
                 $this->redirect($this->createUrl('site/registro'));
             } else {
-                $msg = 'Gracias por registrarse, en breve recibirá un correo electrónico ';
-                $msg .= 'con indicaciones para activar su cuenta.';
+                //var_dump($_POST['ValidarRegistro']);
+                $cedulaRegistro = $_POST['ValidarRegistro']['cedula'];
+                //$msg = 'Gracias por registrarse, en breve recibirá un correo electrónico ';
+                //$msg .= 'con indicaciones para activar su cuenta.';
+                $token = $modelDatosCiud->obtieneToken();
+                $datosCiudadano = $modelDatosCiud->consultaCedulaRegistroCivil($cedulaRegistro, $token);
+                $modelInsertUser->inserta_usuario_registro(
+                        $model->cedula, 
+                        $model->email, 
+                        $model->nombre_usuario, 
+                        $model->password, 
+                        $modelDatosCiud
+                        );
+                
+                $mail = new EnviarCorreo;
+                $asunto = utf8_decode('Confirmar Cuenta Tramiton');
+                $mensaje = utf8_decode('¡Bienvenido(a) a Tramiton, ' . $model->nombre_usuario . ' !<br><br>
+                                        Ahora que te has registrado y  creado tu cuenta, sólo tienes que activarla para poder empezar a registrar los trámites mas absurdos del sector público.<br>
+                                        <br>
+                                        <center>
+                                          <div><a href="http://localhost/tramiton2/site/registro/' . $model->email .'&codigoVerificacion=' . $modelInsertUser->codigoVerificacion . '" target="_blank">Activar Cuenta</a></div>
+                                        </center>
+                                        <br>
+                                        <br>
+                                         Si no te has registrado para crear una cuenta en Tramiton.to, puedes ignorar este mensaje. Alguien puede haber incluido tu dirección de correo electrónico por accidente.');
+                
+                $mail->enviarMail(
+                        array(Yii::app()->params['adminEmail'], Yii::app()->name), 
+                        array($model->email, $model->nombre_usuario), 
+                        $asunto, 
+                        $mensaje
+                        );
+                $this->redirect($this->createUrl('site/index'));
+                //var_dump($modelDatosCiud);
+                //echo "<hr>";
+                //var_dump($datosCiudadano);
+                //Yii::app()->end();
+                
+                
                 //echo $msg;
                 $model->unsetAttributes();
             }
         }
 
         $this->layout = 'main-registro';
-        $this->render('registro', array('model' => $model, 'msg' => $msg));
-
+        $this->render('registro', array('model' => $model));
     }
 
     public function actionAdmin() {
@@ -185,5 +230,9 @@ class SiteController extends Controller {
         //$this->layout = 'main-registro';
         //$this->render('registro', array('model' => $model, 'msg' => $msg));
     }
+    
+    //public function actionActivaRegistro($email, ) {
+        
+    //}
 
 }

@@ -4,7 +4,7 @@
 	<!-- end page container -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery/jquery-1.9.1.min.js"></script>-->
 	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -32,6 +32,9 @@
 	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/apps-admin.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
+        <!--<script type="text/javascript" src="/tramiton2/assets/e1bed9d7/jquery.js"></script>-->
+        <script type="text/javascript" src="/tramiton2/assets/e1bed9d7/jquery.yiiactiveform.js"></script>
+        
 	<script>
 		$(document).ready(function() {
 			App.init();

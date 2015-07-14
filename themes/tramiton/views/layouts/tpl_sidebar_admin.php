@@ -55,7 +55,7 @@
                         array('label' => 'Usuarios', 'url' => array('admin/index')),
                         array('label' => 'Instituciones', 'url' => array('')),
                         array('label' => 'Roles', 'url' => array('admin/role')),
-                        array('label' => 'Asignacion de Roles', 'url' => array('')),
+                        array('label' => 'Asignacion de Roles', 'url' => array('admin/rolesUsuarios')),
                         array('label' => 'Configuraciones', 'url' => array('')),
                     )),
                 
