@@ -97,8 +97,6 @@ from tramite tra, tramite_institucion trai, institucion ins where tra.tra_id = t
 }
 
 
-
-
 function problema2()
 {
 	include("config.inc.php");
