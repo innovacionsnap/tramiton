@@ -119,17 +119,14 @@ class SiteController extends Controller {
         }
         
         if (isset($_POST['ValidarRegistro'])) {
-            //echo "no valido el form1"; Yii::app()->end();
             $model->attributes = $_POST['ValidarRegistro'];
             if ($model->validate()) {
                 $this->redirect($this->createUrl('site/registro'));
             } else {
-                //var_dump($_POST['ValidarRegistro']);
                 $cedulaRegistro = $_POST['ValidarRegistro']['cedula'];
-                //$msg = 'Gracias por registrarse, en breve recibirá un correo electrónico ';
-                //$msg .= 'con indicaciones para activar su cuenta.';
                 $token = $modelDatosCiud->obtieneToken();
                 $datosCiudadano = $modelDatosCiud->consultaCedulaRegistroCivil($cedulaRegistro, $token);
+
                 $modelInsertUser->inserta_usuario_registro(
                         $model->cedula, 
                         $model->email, 
@@ -144,7 +141,9 @@ class SiteController extends Controller {
                                         Ahora que te has registrado y  creado tu cuenta, sólo tienes que activarla para poder empezar a registrar los trámites mas absurdos del sector público.<br>
                                         <br>
                                         <center>
-                                          <div><a href="http://localhost/tramiton2/site/registro/' . $model->email .'&codigoVerificacion=' . $modelInsertUser->codigoVerificacion . '" target="_blank">Activar Cuenta</a></div>
+                                            <div>
+                                                <a class="btn btn-success btn-lg" role="button" href="http://localhost/tramiton2/site/activarCuenta?email=' . $model->email .'&codigoVerificacion=' . $modelInsertUser->codigoVerificacion . '" target="_blank">Activar Cuenta</a>
+                                            </div>
                                         </center>
                                         <br>
                                         <br>
@@ -157,17 +156,10 @@ class SiteController extends Controller {
                         $mensaje
                         );
                 $this->redirect($this->createUrl('site/index'));
-                //var_dump($modelDatosCiud);
-                //echo "<hr>";
-                //var_dump($datosCiudadano);
-                //Yii::app()->end();
-                
-                
-                //echo $msg;
-                $model->unsetAttributes();
+
+                //$model->unsetAttributes();
             }
         }
-
         $this->layout = 'main-registro';
         $this->render('registro', array('model' => $model));
     }
@@ -192,9 +184,7 @@ class SiteController extends Controller {
     }
 
     public function actionValidaCedula() {
-        //echo "estoy en validar cedula";
-        //var_dump($_POST);
-        //Yii::app()->end();
+
         $model = new ValidarCedula;
         $model_login = new LoginForm;
         $msg = '';
@@ -204,35 +194,49 @@ class SiteController extends Controller {
             $model->attributes = $_POST['ValidarCedula'];
             $model->cedula_participacion = $_POST['ValidarCedula']['cedula_participacion'];
 
-
-            //var_dump($model);
-            //echo "valor ya en el modelo... " . $model->cedula_participacion;
-            //Yii::app()->end();
             if (!$model->validate()) {
-                //echo "entro aqui";
-                //Yii::app()->end();
                 $this->_msgerror = "Número de Cédula incorrecto o no existe, favor ingrese nuevamente";
                 $this->render('index', array("model" => $model, "model_login" => $model_login, 'msg1' => $this->_msgerror));
-                //$this->render('index', array('model' => $model, 'msg1' => $this->_msgerror));
-                //$this->redirect($this->createUrl('site/index', array('msg' => 'Número de Cédula incorrecto o no existe, favor ingrese nuevamente')));
             } else {
                 $token = $model->obtieneToken();
                 $datos = $model->consultaCedulaRegistroCivil($model->cedula_participacion, $token);
-                //$this->layout = 'main';
-                //$this->render('formulario', array('model' => $model));
-                //$msg = 'Gracias por registrarse, en breve recibirá un correo electrónico ';
-                //$msg .= 'con indicaciones para activar su cuenta.';
-                //echo $msg;
-                //$model->unsetAttributes();
             }
         }
         $this->render('formulario', array('model' => $model));
-        //$this->layout = 'main-registro';
-        //$this->render('registro', array('model' => $model, 'msg' => $msg));
     }
     
-    //public function actionActivaRegistro($email, ) {
+    public function actionActivarCuenta() {
         
-    //}
+        $model = new ValidarCedula;
+        $model_login = new LoginForm;
+        $this->render('sucess', array("model" => $model, "model_login" => $model_login, 'msg1' => $this->_msgerror));
+        
+        
+        $modelActiva = new consultasBaseDatos;
+        
+        $email = $_GET['email'];
+        $codigoVerificacion = $_GET['codigoVerificacion'];
+        
+        echo "email: " . $email . " - codigo: " . $codigoVerificacion;
+        Yii::app()->end();
+        
+        $mensaje = '';
+        if(isset($_GET['email']) && isset($_GET['codigoVerificacion'])){
+            $email = $_GET['email'];
+            $codigoVerificacion = $_GET['codigoVerificacion'];
+            
+            $validarEmail = new CEmailValidator;
+            if(!$validarEmail->validateValue($email)){
+                $mensaje = 'Error de confirmación - correo electrónico electrónico';
+            }
+            else if(!preg_match('/^[a-zA-Z0-9]+$/', $codigoVerificacion)){
+                $mensaje = 'Error de confirmación - código de verificación incorrecto';
+            }
+            else{
+                $mensaje = $modelActiva->activaCuenta($email, $codigoVerificacion);
+            }
+            
+        }
+    }
 
 }

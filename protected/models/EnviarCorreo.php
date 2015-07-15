@@ -35,19 +35,18 @@ class EnviarCorreo {
         $mail->Subject = $asunto;
         $mail->MsgHTML($mensaje);
         $mail->AddAddress($destinatario[0], $destinatario[1]);
-        echo "remitentes: " . $remitente[0] . " nombre: " . $remitente[1];
+        /*echo "remitentes: " . $remitente[0] . " nombre: " . $remitente[1];
         echo "<br>destinos: " . $destinatario[0] . " nombre: " . $destinatario[1];
         echo "<br>asunto: " . $mail->Subject;
         echo "<br>";
         echo "mensaje: <br>" . $mensaje;
         //$mail->Send();
-        echo "<br>";
+        echo "<br>";*/
         if (!$mail->Send()) {
             echo "Error: " . $mail->ErrorInfo;
-        } else {
-            echo "Enviado!";
+            Yii::app()->end();
         }
-        Yii::app()->end();
+        
         
         //
         

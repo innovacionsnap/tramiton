@@ -24,14 +24,6 @@ class consultasBaseDatos {
                 "description = '$descripcion' " .
                 "WHERE name = '$item';";
 
-
-        /* $sqlUpdate = 'UPDATE "AuthItem" SET '
-          . 'name=\'' . $nombre . '\', '
-          . 'description=\'' . $descripcion . '\''
-          . ' WHERE name = "' . $item . '"; ';
-
-          echo $sqlUpdate; Yii::app()->end(); */
-
         $resultado = $conexion->createCommand($sqlUpdate);
         $resultado->execute();
     }
@@ -81,6 +73,43 @@ class consultasBaseDatos {
                     ':codigoConfirmacion' => $this->codigoVerificacion
                     )
                 );
+    }
+    
+    //función para activar cuenta de usuario
+    public function activaCuenta($email, $codigoVerificacion) {
+        
+        $conexion = Yii::app()->db;
+        $mensaje = "";
+        
+        $sqlVerificaCodigo = "SELECT usu_mail, usu_codigo_confirmacion FROM usuario "
+                . "WHERE usu_mail = '$email' AND usu_codigo_confirmacion = '$codigoVerificacion'";
+        
+        $resultado = $conexion->createCommand($sqlVerificaCodigo);
+        
+        $fila = $resultado->query();
+        $existe = FALSE;
+        foreach($fila as $registro){
+            $existe = TRUE;
+        }
+        
+        if($existe == TRUE){
+            $sqlActivaUser = "UPDATE usuario SET "
+                    . "usu_estado = 2 "
+                    . "WHERE "
+                    . "usu_mail = '$email' AND "
+                    . "usu_codigo_confirmacion = '$codigoVerificacion'";
+            
+            $resultado = $conexion->createCommand($sqlActivaUser);
+            $resultado->execute();
+            $mensaje = "Gracias, tu nueva cuenta de Tramiton.to ha sido activada satisfactoriamente,"
+                    . "ya puedes ingresa y registrar los tramites mas absurdos del sector público.";
+        }
+        else{
+            $mensaje = "Lo sentimos, tu nueva cuenta de Tramiton.to no pudo ser activada, por favor intentalo nuevamente";
+        }
+        
+        return $mensaje;
+        
     }
 
 }
