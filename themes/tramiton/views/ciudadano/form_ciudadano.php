@@ -289,7 +289,7 @@ order by pro_prob_id";
                                         <!-- begin col-4 -->
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Titulo del problema</label>
+                                                <label>Titulo del problemassss</label>
                                                 <div class="controls">
                                                     <input type="text" name="titulo_solucion" placeholder="Escribir el titulo de la solucion" data-parsley-range="[20,200]" class="form-control" data-parsley-group="wizard-step-3" required />
                                                 </div>

@@ -92,15 +92,10 @@ return array(
 		),*/
                 //conexion a la base de datos
                 'db' => array (
-<<<<<<< HEAD
-			'connectionString' => 'pgsql:host=localhost;dbname=tramitonV2',
-=======
-			//'connectionString' => 'pgsql:host=181.211.36.240;dbname=tramitonv2',
 			'connectionString' => 'pgsql:host=192.168.0.204;dbname=tramitonv2',
->>>>>>> origin/master
 			'emulatePrepare' => true,
-			'username' => 'postgres',
-			'password' => 'postgresql',
+			'username' => 'tramites',
+			'password' => 'tramiton2015',
 			'charset' => 'utf8',
                 ),
                 /*'db' => array (
