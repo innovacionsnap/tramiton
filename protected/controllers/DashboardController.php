@@ -47,7 +47,7 @@ class DashboardController extends Controller {
     public function actionIndex() {
   
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-
+		//echo $modelUser;
         //creo una instancia del modelo Dashboard
         $model = new Dashboard();
         $datosTotalTramites = $model->getTotalTramite();

@@ -39,7 +39,43 @@
         
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
+	<script src="<?php echo $baseUrl; ?>/views/ciudadano/jquery.js"></script>
+	
 	<!-- ================== END BASE JS ================== -->
+	
+	<!-- ================== BEGIN BASE COMBOBOX JS ================== -->
+	<?php
+	$baseUrl = Yii::app()->theme->baseUrl;
+	//echo "base: ".$baseUrl;
+	?>
+	<?php $linkcombo='/tramiton2/themes/tramiton/views/ciudadano/combobox.php' ?>
+	<?php $linkcombo2='/tramiton2/themes/tramiton/views/ciudadano/combobox2.php' ?>
+	
+	
+	<script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
+	<script type="text/javascript" src="<?php echo $baseUrl; ?>/views/ciudadano/jquery.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		/* COMBOBOX PROVINCIAS  */
+		$("#id_provincia").change(function(event)
+		{
+			var idpadre = $(this).find(':selected').val();
+			$("#pidhijo").html("<img src='/tramiton2/themes/tramiton/views/ciudadano/loading.gif' />");
+			$("#pidhijo").load('<?php echo $linkcombo?>?buscar=hijos&id_provincia='+idpadre);
+		});
+		
+		/* COMBOBOX INTITUCION  */
+		$("#id_institucion").change(function(event)
+		{
+			var id_institucion = $(this).find(':selected').val();
+			$("#pidhijo2").html("<img src='/tramiton2/themes/tramiton/views/ciudadano/loading.gif' />");
+			$("#pidhijo2").load('<?php echo $linkcombo2?>?buscar_institucion=institucion&id_institucion='+id_institucion);
+		});
+		
+	});
+	</script>
+	
+	<!-- ================== END BASE COMBOBOX JS ================== -->
         
       
 </head>
@@ -50,3 +86,4 @@
 	
 	<!-- begin #page-container -->
 	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+	

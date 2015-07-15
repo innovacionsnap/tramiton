@@ -1,9 +1,14 @@
 <?php
 
 class PlanController extends Controller {
+<<<<<<< HEAD
+	
+	   public $_datosUser;
+=======
     
     
     public $_datosUser;
+>>>>>>> origin/master
 
     /**
      * Declares class-based actions.
@@ -24,17 +29,27 @@ class PlanController extends Controller {
      */
 
     public function actionInstituciones() {
+<<<<<<< HEAD
+    	$modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+=======
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+>>>>>>> origin/master
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
+        $this->_datosUser = $modelUser;
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
         $this->render('instituciones');
     }
     public function actionIns_Tramites() {
+<<<<<<< HEAD
+    	$modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+=======
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+>>>>>>> origin/master
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
+        $this->_datosUser = $modelUser;
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
         $this->render('ins_tramites');
