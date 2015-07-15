@@ -6,7 +6,7 @@
  */
 
 /**
- * Description of _form_role
+ * Description of _form_role_update
  * 
  * @var $this AdminController 
  * @var $modelRole Admin 
@@ -16,23 +16,26 @@
  */
 
 $form = $this->beginWidget("CActiveForm", array(
-    'id' => "role-form",
-    'action' => $this->createUrl("admin/nuevoRole"),
+    'method' => 'POST',
+    'id' => "role-form-update",
     'enableAjaxValidation' => true,
     'clientOptions' => array("validateOnSubmit" => true)
         ));
 ?>
 
+<?php //echo $form->hiddenField($modelRole, "nombre_orig", array("value" => $rolSelect['nombre'])); ?>
+<?php echo $form->textField($modelRole, "item", array("value" => $rolSelect['nombre'])); ?>
+
 <?php echo $form->labelEx($modelRole, "nombre"); ?>
-<?php echo $form->textField($modelRole, "nombre", array("class" => "form-control input-home-tramiton")); ?>
+<?php echo $form->textField($modelRole, "nombre", array("value" => $rolSelect['nombre'], "class" => "form-control input-home-tramiton")); ?>
 <?php echo $form->error($modelRole, "nombre"); ?>
 
 <?php echo $form->labelEx($modelRole, "descripcion"); ?>
-<?php echo $form->textArea($modelRole, "descripcion", array("class" => "form-control input-home-tramiton")); ?>
+<?php echo $form->textArea($modelRole, "descripcion", array("value" => $rolSelect['descripcion'], "class" => "form-control input-home-tramiton")); ?>
 <?php echo $form->error($modelRole, "descripcion"); ?>
 
 <br>
-<?php echo CHtml::submitButton('Guardar', array("class" => "btn btn-primary")); ?>
+<?php echo CHtml::submitButton('Actualizar', array("class" => "btn btn-primary")); ?>
 &nbsp;&nbsp;&nbsp;
 <?php echo CHtml::button('Cancelar', array("class" => "btn btn-danger", "data-dismiss" => "modal")); ?>
 <?php $this->endWidget(); ?>

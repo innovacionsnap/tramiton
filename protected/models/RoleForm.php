@@ -17,6 +17,7 @@ class RoleForm extends CFormModel {
 	public $nombre;
 	public $descripcion;
 	public $tipo=2;
+        public $item;
 
 	public function rules()
 	{

@@ -33,7 +33,8 @@ return array(
                 'bootstrap.components.*',
                 'bootstrap.form.*',
                 'bootstrap.helpers.*',
-                'bootstrap.widgets.*'
+                'bootstrap.widgets.*',
+                'bootstrap.widgets.TbModal'
 	),
 
 	'modules'=>array(
@@ -91,12 +92,25 @@ return array(
 		),*/
                 //conexion a la base de datos
                 'db' => array (
+<<<<<<< HEAD
 			'connectionString' => 'pgsql:host=localhost;dbname=tramitonV2',
+=======
+			//'connectionString' => 'pgsql:host=181.211.36.240;dbname=tramitonv2',
+			'connectionString' => 'pgsql:host=192.168.0.204;dbname=tramitonv2',
+>>>>>>> origin/master
 			'emulatePrepare' => true,
 			'username' => 'postgres',
 			'password' => 'postgresql',
 			'charset' => 'utf8',
-                ),    
+                ),
+                /*'db' => array (
+			//'connectionString' => 'pgsql:host=181.211.36.240;dbname=tramitonv2',
+			'connectionString' => 'pgsql:host=localhost;dbname=tramitonv2',
+			'emulatePrepare' => true,
+			'username' => 'postgres',
+			'password' => 'postgres',
+			'charset' => 'utf8',
+                ),    */
             
             
 		// uncomment the following to use a MySQL database

@@ -33,6 +33,7 @@
     <link href="<?php echo $baseUrl; ?>/assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
     
     <link href="<?php echo $baseUrl; ?>/assets/css/main-registro.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/tramiton2/css/form.css" />
 	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
