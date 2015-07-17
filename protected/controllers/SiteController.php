@@ -5,6 +5,7 @@ class SiteController extends Controller {
     /**
      * Declares class-based actions.
      */
+    public $_msgSuccess;
     public $_msgerror;
 
     public function actions() {
@@ -14,7 +15,7 @@ class SiteController extends Controller {
                 'class' => 'CCaptchaAction',
                 //'backColor' => 0xFFFFFF,
                 'backColor' => 0xD9E0E7,
-                #'foreColor' => 0xFFFFFF,
+            #'foreColor' => 0xFFFFFF,
             ),
             // page action renders "static" pages stored under 'protected/views/site/pages'
             // They can be accessed via: index.php?r=site/page&view=FileName
@@ -113,51 +114,51 @@ class SiteController extends Controller {
         $modelDatosCiud = new ValidarCedula;
         $modelInsertUser = new consultasBaseDatos;
 
+        //validación ajax del formulario
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'form-registro') {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
-        
+
+        //comprueba si hay datos en el formulario
         if (isset($_POST['ValidarRegistro'])) {
             $model->attributes = $_POST['ValidarRegistro'];
             if ($model->validate()) {
                 $this->redirect($this->createUrl('site/registro'));
             } else {
+                //obtenemos la cedula del ciudadano a registrar
                 $cedulaRegistro = $_POST['ValidarRegistro']['cedula'];
+                //obtenemos el token de acceso para el webservice
                 $token = $modelDatosCiud->obtieneToken();
+                //obtenemos los datos del ciudadano directamente del registro civil
                 $datosCiudadano = $modelDatosCiud->consultaCedulaRegistroCivil($cedulaRegistro, $token);
 
+                //insertamos el nuevo registro para crear una cuenta en tramiton
                 $modelInsertUser->inserta_usuario_registro(
-                        $model->cedula, 
-                        $model->email, 
-                        $model->nombre_usuario, 
-                        $model->password, 
-                        $modelDatosCiud
-                        );
-                
-                $mail = new EnviarCorreo;
-                $asunto = utf8_decode('Confirmar Cuenta Tramiton');
-                $mensaje = utf8_decode('¡Bienvenido(a) a Tramiton, ' . $model->nombre_usuario . ' !<br><br>
-                                        Ahora que te has registrado y  creado tu cuenta, sólo tienes que activarla para poder empezar a registrar los trámites mas absurdos del sector público.<br>
-                                        <br>
-                                        <center>
-                                            <div>
-                                                <a class="btn btn-success btn-lg" role="button" href="http://localhost/tramiton2/site/activarCuenta?email=' . $model->email .'&codigoVerificacion=' . $modelInsertUser->codigoVerificacion . '" target="_blank">Activar Cuenta</a>
-                                            </div>
-                                        </center>
-                                        <br>
-                                        <br>
-                                         Si no te has registrado para crear una cuenta en Tramiton.to, puedes ignorar este mensaje. Alguien puede haber incluido tu dirección de correo electrónico por accidente.');
-                
-                $mail->enviarMail(
-                        array(Yii::app()->params['adminEmail'], Yii::app()->name), 
-                        array($model->email, $model->nombre_usuario), 
-                        $asunto, 
-                        $mensaje
-                        );
-                $this->redirect($this->createUrl('site/index'));
+                        $model->cedula, $model->email, $model->nombre_usuario, $model->password, $modelDatosCiud
+                );
+                //renderizamos una vista para el envío del correo de activación de cuenta
+                $textoEmail = $this->renderPartial('_mailSistema', array('model' => $model, 'modelInsertUser' => $modelInsertUser), true);
 
-                //$model->unsetAttributes();
+                //instanciamos el modelo para enviar el correo
+                $mail = new EnviarCorreo;
+
+                //enviamos los parametros necesarios para enviar el correo
+                $asunto = utf8_decode('Confirmar Cuenta Tramiton');
+                $mensajeEmail = utf8_decode($textoEmail);
+
+                //llamamos la funcion para enviar el correo y pasamos los parametros necesarios
+                $mail->enviarMail(
+                        array(Yii::app()->params['adminEmail'], Yii::app()->name), array($model->email, $model->nombre_usuario), $asunto, $mensajeEmail
+                );
+
+                //creamos el mensaje de notificación para el usuario
+                $this->_msgSuccess = $this->creaMensaje(
+                        'Gracias por tu registro!', 'En breve recibirás un correo electrónico con un enlace para poder activar tu cuenta'
+                );
+
+                //redirigimos a la pagina de success y con el mensaje
+                $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
             }
         }
         $this->layout = 'main-registro';
@@ -183,6 +184,10 @@ class SiteController extends Controller {
         $this->render('ranking_mas_mencionados');
     }
 
+    /*
+     * función que me permite realizar la accion de validación de cedula
+     */
+
     public function actionValidaCedula() {
 
         $model = new ValidarCedula;
@@ -204,39 +209,64 @@ class SiteController extends Controller {
         }
         $this->render('formulario', array('model' => $model));
     }
-    
+
+    /*
+     * acción para activar la cuenta del usuario
+     */
+
     public function actionActivarCuenta() {
-        
-        $model = new ValidarCedula;
-        $model_login = new LoginForm;
-        $this->render('sucess', array("model" => $model, "model_login" => $model_login, 'msg1' => $this->_msgerror));
-        
-        
+
         $modelActiva = new consultasBaseDatos;
-        
+
         $email = $_GET['email'];
         $codigoVerificacion = $_GET['codigoVerificacion'];
-        
-        echo "email: " . $email . " - codigo: " . $codigoVerificacion;
-        Yii::app()->end();
-        
+
+        //echo "email: " . $email . " - codigo: " . $codigoVerificacion;
+        //Yii::app()->end();
+
         $mensaje = '';
-        if(isset($_GET['email']) && isset($_GET['codigoVerificacion'])){
+        if (isset($_GET['email']) && isset($_GET['codigoVerificacion'])) {
             $email = $_GET['email'];
             $codigoVerificacion = $_GET['codigoVerificacion'];
-            
+
             $validarEmail = new CEmailValidator;
-            if(!$validarEmail->validateValue($email)){
+            if (!$validarEmail->validateValue($email)) {
                 $mensaje = 'Error de confirmación - correo electrónico electrónico';
-            }
-            else if(!preg_match('/^[a-zA-Z0-9]+$/', $codigoVerificacion)){
+                $this->_msgSuccess = $this->creaMensaje(
+                        'Lo sentimos ocurrio un inconveniente al activar tu cuenta', $mensaje
+                );
+            } else if (!preg_match('/^[a-zA-Z0-9]+$/', $codigoVerificacion)) {
                 $mensaje = 'Error de confirmación - código de verificación incorrecto';
-            }
-            else{
+                $this->_msgSuccess = $this->creaMensaje(
+                        'Lo sentimos ocurrio un inconveniente al activar tu cuenta', $mensaje
+                );
+            } else {
                 $mensaje = $modelActiva->activaCuenta($email, $codigoVerificacion);
+                $this->_msgSuccess = $this->creaMensaje(
+                        'Felicitaciones!!!!', $mensaje, 'Ingresa a Tramiton.to', 'login', true
+                );
             }
-            
         }
+        //redirigimos a la pagina de success y con el mensaje
+        $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
+    }
+
+    public function actionSuccess() {
+        
+        $model_login = new LoginForm;
+
+        $mensajes = $_GET['msgSuccess'];
+        $this->render('success', array('msgSuccess' => $mensajes, "model_login" => $model_login));
+    }
+
+    public function creaMensaje($titulo, $mensaje, $tituloLink = false, $url = false, $esLink = false) {
+        return array(
+            'titulo' => $titulo,
+            'mensaje' => $mensaje,
+            'tituloLink' => $tituloLink,
+            'url' => $url,
+            'esLink' => $esLink
+        );
     }
 
 }

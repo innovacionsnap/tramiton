@@ -78,20 +78,29 @@ class consultasBaseDatos {
     //función para activar cuenta de usuario
     public function activaCuenta($email, $codigoVerificacion) {
         
+        //instancia a base de datos
         $conexion = Yii::app()->db;
-        $mensaje = "";
         
-        $sqlVerificaCodigo = "SELECT usu_mail, usu_codigo_confirmacion FROM usuario "
+        //variables locales 
+        $mensaje = "";
+        $codUsuario = -1;
+        $existe = FALSE;
+        
+        //consulta para verificación de usuario de acuerdo al email y codigo de verificacion enviado
+        $sqlVerificaCodigo = "SELECT usu_id, usu_mail, usu_codigo_confirmacion FROM usuario "
                 . "WHERE usu_mail = '$email' AND usu_codigo_confirmacion = '$codigoVerificacion'";
         
         $resultado = $conexion->createCommand($sqlVerificaCodigo);
         
         $fila = $resultado->query();
-        $existe = FALSE;
+        
+        //compueba si hay resultados, cambia el valor de existe y obtiene el codigo del usuario para asiganrle un rol
         foreach($fila as $registro){
             $existe = TRUE;
+            $codUsuario = $registro['usu_id'];
         }
         
+        //actualiza el estado del usuario a activo
         if($existe == TRUE){
             $sqlActivaUser = "UPDATE usuario SET "
                     . "usu_estado = 2 "
@@ -101,8 +110,12 @@ class consultasBaseDatos {
             
             $resultado = $conexion->createCommand($sqlActivaUser);
             $resultado->execute();
-            $mensaje = "Gracias, tu nueva cuenta de Tramiton.to ha sido activada satisfactoriamente,"
-                    . "ya puedes ingresa y registrar los tramites mas absurdos del sector público.";
+            
+            //asigna rol ciudadano a nueva cuenta para que pueda acceder al sistema
+            Yii::app()->authManager->assign('ciudadano', $codUsuario);
+            
+            $mensaje = "Tu nueva cuenta de Tramiton.to ha sido activada satisfactoriamente, ya"
+                    . " puedes ingresar y registrar los tramites más absurdos del sector público.";
         }
         else{
             $mensaje = "Lo sentimos, tu nueva cuenta de Tramiton.to no pudo ser activada, por favor intentalo nuevamente";

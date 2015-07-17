@@ -236,8 +236,6 @@
 
 <!-- Modal login   -->
 
-
-
 <div class="modal fade" id="login-modal">
     <div class="modal-dialog snap_modal_contenedor">
         <div class="modal-content">
