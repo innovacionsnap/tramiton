@@ -27,8 +27,9 @@ where tra.tra_id = trai.tra_id
 and datt.trai_id = trai.trai_id
 and trai.ins_id = ins.ins_id
 and usu.usu_id = datt.usu_id
-and datt_estado = 1
+and datt_estado = 0
 and usu.usu_id = '$id_usuario'";
+//echo $sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         // recibe los datos
         $rows = $this->connection->createCommand($sql)->queryAll();

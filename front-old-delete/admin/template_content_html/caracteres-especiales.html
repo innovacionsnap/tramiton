@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function Validate(txt) {
+            txt.value = txt.value.replace(/[*?|"#Ç¿?="´'{+(^[@&_%]+/g, '');
+        }
+    </script>
+</head>
+<body>
+    <form id="fo2222">
+        <input type = "text" id = "txt" onkeyup = "Validate(this)" />
+    </form>
+</body>
+</html>

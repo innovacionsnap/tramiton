@@ -58,25 +58,15 @@
 	
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
 	
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/gritter/js/jquery.gritter.js"></script>
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/flot/jquery.flot.min.js"></script>
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/flot/jquery.flot.time.min.js"></script>
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/flot/jquery.flot.resize.min.js"></script>
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/flot/jquery.flot.pie.min.js"></script>
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/sparkline/jquery.sparkline.js"></script>
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-	
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/dashboard.js"></script>
+
+	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/parsley/dist/parsley.js"></script>
+	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
+	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/form-wizards-validation.demo.min.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/apps-admin.js"></script>
+	
 	<!-- ================== END PAGE LEVEL JS ================== -->
         
-	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/DataTables/js/jquery.dataTables.js"></script>
-	<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/table-manage-default.demo.min.js"></script>
-	<script src="assets/js/apps.min.js"></script>
-	<!-- ================== END PAGE LEVEL JS ================== -->
+
 
         
 	<script>

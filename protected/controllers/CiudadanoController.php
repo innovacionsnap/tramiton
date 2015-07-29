@@ -54,20 +54,13 @@ class CiudadanoController extends Controller {
         $datosTotalTramites = $model->getTotalTramite();
         $datosRankingTramites = $model->getRankingTramite();
         $datosPublicacionesTramites = $model->getPublicacionesTramites();
-        $this->layout = 'main-admin';
+        $this->layout = 'main-admin_form';
         $this->_datosUser = $modelUser;
         $this->render('form_ciudadano', compact('datosTotalTramites', 'datosRankingTramites','datosPublicacionesTramites'));
         //$this->render('formulario');
     
     }
     
-    public function actionValor(){
-        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        $this->_datosUser = $modelUser;
-        $this->layout = 'main-admin';
-        //$this->_datosUser = $modelUser;
-        $this->render('form_ciudadano');
-    }
 	
 	public function actionUsuario_Tramites() {
 		
@@ -77,7 +70,7 @@ class CiudadanoController extends Controller {
         // using the default layout 'protected/views/layouts/main.php'
         $datosUsuarioTramite = $model->getUsuarioTramite();
         $this->_datosUser = $modelUser;
-        $this->layout = 'main-admin';
+        $this->layout = 'main-admin_form';
         $this->render('usuario_tramites',compact('datosUsuarioTramite'));
     }
     

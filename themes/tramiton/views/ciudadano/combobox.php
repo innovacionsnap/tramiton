@@ -12,7 +12,7 @@ if ($_GET['buscar']=="hijos")
     $numReg = pg_num_rows($resultado_canton);
 	echo "<div class='col-md-10'> <div class='form-group'>";
 	echo "<label>Canton:</label>";
-	echo "<select class='form-control' name='idhijo' id='idhijo'>";
+	echo "<select class='form-control' data-parsley-group='wizard-step-1' required name='idhijo' id='idhijo'>";
 	while ($fila=pg_fetch_array($resultado_canton)) 
 	{
 	echo "<option value=".$fila['can_id'].">".$fila['can_nombre']."</option>";
