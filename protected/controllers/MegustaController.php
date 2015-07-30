@@ -1,6 +1,6 @@
 <?php
 
-class TramiteInstitucionController extends Controller
+class MegustaController extends Controller
 {
 	public function actionIndex()
 	{

@@ -1,31 +1,27 @@
 <?php
 
 /**
- * This is the model class for table "tramite_institucion".
+ * This is the model class for table "comentario".
  *
- * The followings are the available columns in table 'tramite_institucion':
- * @property integer $trai_id
- * @property integer $ins_id
- * @property integer $tra_id
- * @property string $trai_proposito
- * @property string $trai_fecha
- * @property string $trai_demanda
- * @property integer $trai_estado
+ * The followings are the available columns in table 'comentario':
+ * @property integer $com_id
+ * @property integer $sol_id
+ * @property integer $usu_id
+ * @property string $com_descripcion
+ * @property string $com_fecha
  *
  * The followings are the available model relations:
- * @property Mejora[] $mejoras
- * @property Institucion $ins
- * @property Tramite $tra
- * @property DatosTramite[] $datosTramites
+ * @property Solucion $sol
+ * @property Usuario $usu
  */
-class TramiteInstitucion extends CActiveRecord
+class Comentario extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tramite_institucion';
+		return 'comentario';
 	}
 
 	/**
@@ -36,14 +32,11 @@ class TramiteInstitucion extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('trai_estado', 'required'),
-			array('ins_id, tra_id, trai_estado', 'numerical', 'integerOnly'=>true),
-			array('trai_proposito', 'length', 'max'=>512),
-			array('trai_demanda', 'length', 'max'=>20),
-			array('trai_fecha', 'safe'),
+			array('sol_id, usu_id', 'numerical', 'integerOnly'=>true),
+			array('com_descripcion, com_fecha', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('trai_id, ins_id, tra_id, trai_proposito, trai_fecha, trai_demanda, trai_estado', 'safe', 'on'=>'search'),
+			array('com_id, sol_id, usu_id, com_descripcion, com_fecha', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,10 +48,8 @@ class TramiteInstitucion extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'mejoras' => array(self::HAS_MANY, 'Mejora', 'trai_id'),
-			'ins' => array(self::BELONGS_TO, 'Institucion', 'ins_id'),
-			'tra' => array(self::BELONGS_TO, 'Tramite', 'tra_id'),
-			'datosTramites' => array(self::HAS_MANY, 'DatosTramite', 'trai_id'),
+			'sol' => array(self::BELONGS_TO, 'Solucion', 'sol_id'),
+			'usu' => array(self::BELONGS_TO, 'Usuario', 'usu_id'),
 		);
 	}
 
@@ -68,13 +59,11 @@ class TramiteInstitucion extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'trai_id' => 'Trai',
-			'ins_id' => 'Ins',
-			'tra_id' => 'Tra',
-			'trai_proposito' => 'Trai Proposito',
-			'trai_fecha' => 'Trai Fecha',
-			'trai_demanda' => 'Trai Demanda',
-			'trai_estado' => 'Trai Estado',
+			'com_id' => 'Com',
+			'sol_id' => 'Sol',
+			'usu_id' => 'Usu',
+			'com_descripcion' => 'Com Descripcion',
+			'com_fecha' => 'Com Fecha',
 		);
 	}
 
@@ -96,13 +85,11 @@ class TramiteInstitucion extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('trai_id',$this->trai_id);
-		$criteria->compare('ins_id',$this->ins_id);
-		$criteria->compare('tra_id',$this->tra_id);
-		$criteria->compare('trai_proposito',$this->trai_proposito,true);
-		$criteria->compare('trai_fecha',$this->trai_fecha,true);
-		$criteria->compare('trai_demanda',$this->trai_demanda,true);
-		$criteria->compare('trai_estado',$this->trai_estado);
+		$criteria->compare('com_id',$this->com_id);
+		$criteria->compare('sol_id',$this->sol_id);
+		$criteria->compare('usu_id',$this->usu_id);
+		$criteria->compare('com_descripcion',$this->com_descripcion,true);
+		$criteria->compare('com_fecha',$this->com_fecha,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -113,7 +100,7 @@ class TramiteInstitucion extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return TramiteInstitucion the static model class
+	 * @return Comentario the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
