@@ -1,6 +1,6 @@
 <?php
 
-class TramiteInstitucionController extends Controller
+class InstitucionController extends Controller
 {
 	public function actionIndex()
 	{

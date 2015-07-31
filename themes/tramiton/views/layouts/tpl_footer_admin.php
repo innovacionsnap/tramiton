@@ -82,7 +82,7 @@
 	<script>
 		$(document).ready(function() {
 			App.init();
-			FormWizardValidation.init();
+			TableManageDefault.init();
 		});
 	</script>
 
