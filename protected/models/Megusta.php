@@ -107,4 +107,19 @@ class Megusta extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function getVotosSolucion() {
+        
+       $sql = 'select tra_nombre, sol_descripcion, count(mgu_id) as likes
+from solucion a, datos_tramite b, tramite_institucion c, tramite d, megusta e
+where sol_estado=1 and 
+	a.datt_id=b.datt_id and 
+	b.trai_id=c.trai_id and
+	c.tra_id=d.tra_id and
+	a.sol_id= e.sol_id
+group by a.sol_id, tra_nombre
+order by likes desc limit 10';
+        $rows = Yii::app()->db->createCommand($sql)->queryAll();
+        return $rows;
+    }
 }
