@@ -48,7 +48,7 @@ if (isset($insertar_tramite)) {
 		    VALUES (default, 1500, $id_usuario, $id_tramite, '$unidad_prestadora', '$experiencia', 
 		            '$hoy', '$hoy', '$hoy', '0.0.0.0', 
 		            '2015', 'N/A', 'PRUEBA OTRO TRAMITE', 
-		            0, 'prueba decripcion', 0, 150, 
+		            0, 'prueba decripcion', 1, 150, 
 		            'N/A', '$hoy');";
 					
 		           // echo $insert_tramite;
