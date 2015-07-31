@@ -23,10 +23,9 @@
                 <div class="stats-info">
                     <h4>TOTAL</h4>
                     <p><?php
-                        foreach ($datosTotalTramites as $dato) {
-                            echo $numero_tramites = $dato["total_tramite"];
-                        }
-                        ?></p>	
+                        echo $datosTotalTramites[0]["total_tramite"];
+                        ?>
+                    </p>	
                 </div>
                 <div class="stats-link">
                     <a href="../datosTramite/index">Ver Detalles <i class="fa fa-arrow-circle-o-right"></i></a>
@@ -41,15 +40,12 @@
                 <div class="stats-info">
                     <h4>RANKING TRAMITES</h4>
                     <p><?php
-                        foreach ($datosRankingTramites as $datoRanking) {
-                            $tot_ranking = $datoRanking["sum_10_tot_tramite"];
-                        }
-                        $porcentaje_tramite = ($tot_ranking * 100) / $numero_tramites;
-                        echo substr($porcentaje_tramite, 0, 2);
-                        ?>%</p>	
+                        echo substr(($datosRankingTramites[0]['sum_10_tot_tramite']*100/$datosTotalTramites[0]['total_tramite']),0,5);
+                        ?>%
+                    </p>	
                 </div>
                 <div class="stats-link">
-                    <a href="javascript:;">Ver Detalles <i class="fa fa-arrow-circle-o-right"></i></a>
+                    <a href="../datosTramite/ranking">Ver Detalles <i class="fa fa-arrow-circle-o-right"></i></a>
                 </div>
             </div>
         </div>
@@ -59,11 +55,16 @@
             <div class="widget widget-stats bg-purple">
                 <div class="stats-icon"><i class="fa fa-users"></i></div>
                 <div class="stats-info">
-                    <h4>TRAMITES MAS VISITADOS</h4>
-                    <p>1,291,922</p>	
+                    <h4>SOLUCIONES MAS VISITADAS</h4>
+                    <p>
+                        <?php
+                        $total_soluciones=  DashboardController::getTotalSoluciones();
+                        echo substr(($datosRankingSolucion[0]['vistas']*100/$total_soluciones), 0, 5);
+                        ?>%
+                    </p>	
                 </div>
                 <div class="stats-link">
-                    <a href="javascript:;">Ver Datalles <i class="fa fa-arrow-circle-o-right"></i></a>
+                    <a href="../solucion/rankingsoluciones">Ver Detalles <i class="fa fa-arrow-circle-o-right"></i></a>
                 </div>
             </div>
         </div>
@@ -77,7 +78,7 @@
                     <p>30%</p>	
                 </div>
                 <div class="stats-link">
-                    <a href="rankingTramites">View Detail <i class="fa fa-arrow-circle-o-right"></i></a>
+                    <a href="">View Detail <i class="fa fa-arrow-circle-o-right"></i></a>
                     <?php //echo CHtml::link('Ver Detalles', array('dashboard/rankingTramites'));   ?>
 
                 </div>

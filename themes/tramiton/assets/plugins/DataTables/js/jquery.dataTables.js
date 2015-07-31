@@ -11390,7 +11390,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No se a encontrado resultados"
+			"sZeroRecords": "No se han encontrado resultados"
 		},
 	
 	

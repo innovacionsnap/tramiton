@@ -52,5 +52,11 @@ class Dashboard extends CActiveRecord {
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
+    
+    public function getRankingSolucion(){
+        $sql='select sum (d.vistas)as vistas from (select sol_vistas as vistas from solucion order by sol_vistas desc limit 10) d';
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
 
 }

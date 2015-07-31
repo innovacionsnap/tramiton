@@ -54,11 +54,12 @@ class DashboardController extends Controller {
         $datosTotalTramites = $model->getTotalTramite();
         $datosRankingTramites = $model->getRankingTramite();
         $datosPublicacionesTramites = $model->getPublicacionesTramites();
+        $datosRankingSolucion=$model->getRankingSolucion();
         $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc', 'limit' => 10, 'offset' => 15));
         //$datosSolucion = Solucion::model()->findAll(array('order'=>'sol_fecha desc'));
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
-        $this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites','datosPublicacionesTramites','datosSolucion'));
+        $this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites','datosPublicacionesTramites','datosSolucion','datosTotalSoluciones','datosRankingSolucion'));
     
     }
     
@@ -129,6 +130,12 @@ class DashboardController extends Controller {
         $like = Megusta::model()->findAll('sol_id=' . $solucion . 'And mgu_estado=\'1\'');
         $num_likes = count($like);
         return $num_likes;
+    }
+    
+    public function getTotalSoluciones(){
+        $solucion= Solucion::model()->findAll('sol_estado=1');
+        $total_soluciones= count($solucion);
+        return $total_soluciones;
     }
 
     public function actionProcesaMegusta() {

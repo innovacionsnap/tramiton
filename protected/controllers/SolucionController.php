@@ -1,12 +1,13 @@
 <?php
 
 class SolucionController extends Controller {
+
     public $_datosUser;
 
     public function accessRules() {
         return array(
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('index'),
+                'actions' => array('index', 'RankingSoluciones'),
                 'roles' => array('super_admin', 'ciudadano'),
             ),
             array('deny', // deny all users
@@ -22,10 +23,10 @@ class SolucionController extends Controller {
         $solucion = $this->getSolucion($id);
         $imagen_usuario = DashboardController::getImagen($solucion['usu_id']);
         $usuario_solucion = DashboardController::getUsuario($solucion['usu_id']);
-        $vistas=  $this->procesaVista($id);
+        $vistas = $this->procesaVista($id);
         $comentario = $this->getComentario($id);
-        //echo "<pre>"; print_r($comentario); echo "</pre>";
-        //$this->layout = 'main-admin';
+//echo "<pre>"; print_r($comentario); echo "</pre>";
+//$this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
         $this->render('solucion', array('solucion' => $solucion, 'imagen_usuario' => $imagen_usuario, 'usuario_solucion' => $usuario_solucion, 'comentario' => $comentario, 'vistas' => $vistas));
     }
@@ -45,49 +46,57 @@ class SolucionController extends Controller {
         $comentarios = Comentario::model()->findAll($condition = 'sol_id=' . $solucion);
         return $comentarios;
     }
-    
-    public function getVista($id){
-       $sol=  Solucion::model()->find('sol_id='.$id);
-       return $sol->sol_vistas.' Vistas';
+
+    public function getVista($id) {
+        $sol = Solucion::model()->find('sol_id=' . $id);
+        return $sol->sol_vistas . ' Vistas';
     }
-    
-    public function procesaVista($id){
-        $sol=  Solucion::model()->find('sol_id='.$id);
-        $vista= $sol->sol_vistas+1;
-        $sol->sol_vistas=$vista;
-        if ($sol->update()){
-            $vista= $this->getVista($id);
+
+    public function procesaVista($id) {
+        $sol = Solucion::model()->find('sol_id=' . $id);
+        $vista = $sol->sol_vistas + 1;
+        $sol->sol_vistas = $vista;
+        if ($sol->update()) {
+            $vista = $this->getVista($id);
             return $vista;
         }
-        
-        
     }
 
+    public function actionRankingSoluciones() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $solucion=new Solucion();
+        $datosRankingSolucion=$solucion->getRanking();
+        //$soluciones = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_vistas desc', 'limit' => 10));
+        $this->layout = 'main-admin';
+        $this->_datosUser = $modelUser;
+        $this->render('ranking', compact('datosRankingSolucion'));
+    }
 
-    // Uncomment the following methods and override them if needed
-    /*
-      public function filters()
-      {
-      // return the filter configuration for this controller, e.g.:
-      return array(
-      'inlineFilterName',
-      array(
-      'class'=>'path.to.FilterClass',
-      'propertyName'=>'propertyValue',
-      ),
-      );
-      }
-
-      public function actions()
-      {
-      // return external action classes, e.g.:
-      return array(
-      'action1'=>'path.to.ActionClass',
-      'action2'=>array(
-      'class'=>'path.to.AnotherActionClass',
-      'propertyName'=>'propertyValue',
-      ),
-      );
-      }
-     */
 }
+
+// Uncomment the following methods and override them if needed
+/*
+  public function filters()
+  {
+  // return the filter configuration for this controller, e.g.:
+  return array(
+  'inlineFilterName',
+  array(
+  'class'=>'path.to.FilterClass',
+  'propertyName'=>'propertyValue',
+  ),
+  );
+  }
+
+  public function actions()
+  {
+  // return external action classes, e.g.:
+  return array(
+  'action1'=>'path.to.ActionClass',
+  'action2'=>array(
+  'class'=>'path.to.AnotherActionClass',
+  'propertyName'=>'propertyValue',
+  ),
+  );
+  }
+ */

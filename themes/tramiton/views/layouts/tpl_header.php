@@ -22,7 +22,7 @@
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/animate.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/theme/red.css" id="theme" rel="stylesheet" />
-	<!-- ================== END BASE CSS STYLE ================== -->
+        <!-- ================== END BASE CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
@@ -32,7 +32,7 @@
 	<link href="<?php echo $baseUrl; ?>/assets/css/style.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/main.css" rel="stylesheet" />
-	<!-- ================== END Custom CSS=============== -->
+        <!-- ================== END Custom CSS=============== -->
 	
 	
 	

@@ -10,9 +10,6 @@
     <h1 class="page-header">Trámites <small> de la Institución</small></h1>
 
     <!-- end page-header -->
-
-
-
     <!-- begin row -->
     <div class="row">
         <!-- begin col-12 -->
@@ -29,6 +26,7 @@
                     <h4 class="panel-title">Trámites</h4>
                 </div>
                 <div class="panel-body">
+                    <?php //echo "<pre>"; print_r($tramites); echo "</pre>";?>
                     <div class="table-responsive">
                         <table id="data-table" class="table table-striped table-bordered">
                             <thead>
@@ -49,10 +47,10 @@
                                     <tr class="odd gradeA">
                                         <td class="sorting_1"><?php echo $cont; ?></td>
                                         <td class="sorting_1"><?php echo $tramite['datt_fecharegistro'] ?></td>
-                                        <td class="sorting_1"><?php echo $tramite['datt_otronombretramite'] ?></td>
-                                        <td class="sorting_1"><?php echo $tramite['trai_id'] ?></td>
-                                        <td class="sorting_1"><?php echo $tramite['trai_id'] ?></td>
-                                        <td class="sorting_1"><?php echo $tramite->usu['usu_nombreusuario'] ?></td>
+                                        <td class="sorting_1"><?php echo $tramite['tra_nombre'] ?></td>
+                                        <td class="sorting_1"><?php echo $tramite['ins_nombre'] ?></td>
+                                        <td class="sorting_1"><?php echo $tramite['sec_nombre'] ?></td>
+                                        <td class="sorting_1"><?php echo $tramite['usu_nombreusuario'] ?></td>
                                     </tr>
 
                                     <?php
