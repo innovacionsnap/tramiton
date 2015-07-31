@@ -65,7 +65,7 @@
                                             <td><?php echo $dato_tramite_detalle["datt_fecharegistro"] ?></td>
                                         </tr>
                                         <tr>
-                                            <td class="field">U. Prestadora </td>
+                                            <td class="field">U. Prestado </td>
                                             <td><?php echo $dato_tramite_detalle["datt_unidadprestadora"] ?></td>
                                         </tr>
                                         <tr class="divider">
