@@ -21,11 +21,8 @@
             <div class="widget widget-stats bg-green">
                 <div class="stats-icon"><i class="fa fa-desktop"></i></div>
                 <div class="stats-info">
-                    <h4>TOTAL</h4>
-                    <p><?php
-                        echo $datosTotalTramites[0]["total_tramite"];
-                        ?>
-                    </p>	
+                    <h4>TOTAL TRÁMITES</h4>
+                    <p id="total_tramites">&nbsp;</p>	
                 </div>
                 <div class="stats-link">
                     <a href="../datosTramite/index">Ver Detalles <i class="fa fa-arrow-circle-o-right"></i></a>
@@ -39,10 +36,7 @@
                 <div class="stats-icon"><i class="fa fa-chain-broken"></i></div>
                 <div class="stats-info">
                     <h4>RANKING TRAMITES</h4>
-                    <p><?php
-                        echo round(($datosRankingTramites[0]['sum_10_tot_tramite']*100/$datosTotalTramites[0]['total_tramite']),2);
-                        ?>%
-                    </p>	
+                    <p id="ranking_tramites">&nbsp;</p>	
                 </div>
                 <div class="stats-link">
                     <a href="../datosTramite/ranking">Ver Detalles <i class="fa fa-arrow-circle-o-right"></i></a>
@@ -56,12 +50,7 @@
                 <div class="stats-icon"><i class="fa fa-users"></i></div>
                 <div class="stats-info">
                     <h4>SOLUCIONES MAS VISITADAS</h4>
-                    <p>
-                        <?php
-                        $total_soluciones=  DashboardController::getTotalSoluciones();
-                        echo round(($datosRankingSolucion[0]['vistas']*100/$total_soluciones),2);
-                        ?>%
-                    </p>	
+                    <p id="visita_soluciones">&nbsp;</p>	
                 </div>
                 <div class="stats-link">
                     <a href="../solucion/rankingsoluciones">Ver Detalles <i class="fa fa-arrow-circle-o-right"></i></a>
@@ -75,11 +64,7 @@
                 <div class="stats-icon"><i class="fa fa-clock-o"></i></div>
                 <div class="stats-info">
                     <h4>SOLUCIONES MAS VOTADAS</h4>
-                    <p>
-                        <?php
-                        echo round(($datosRankingLikes[0]['likes']*100/$total_soluciones), 2);
-                        ?>%
-                    </p>	
+                    <p id="votos_solucion">&nbsp;</p>	
                 </div>
                 <div class="stats-link">
                     <a href="../megusta/rankinglikes">Ver Detalles <i class="fa fa-arrow-circle-o-right"></i></a>
