@@ -54,13 +54,13 @@
 
                         <?php $this->renderPartial('_form_login', array('model_login'=>$model_login)); ?>
 
-                        <div class="login-or">
+                        <!--<div class="login-or">
                             <hr class="hr-or">
                             <span class="span-or">o</span>
                         </div>
 
                         <input type="text" class="form-control input-home-tramiton" id="exampleInputEmail1" placeholder="Cédula" />
-                        <button type="submit" class="btn btn-sm btn-primary">Crea una Cuenta</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Crea una Cuenta</button>-->
 
 
                     </div>

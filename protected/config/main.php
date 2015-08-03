@@ -10,7 +10,7 @@ Yii::setPathOfAlias('hash', dirname(__FILE__).'/../components');
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'TRAMITON',
+	'name'=>'Tramiton',
         'theme'=>'tramiton', // requires you to copy the theme under your themes directory
 
 	// preloading 'log' component
@@ -100,12 +100,12 @@ return array(
                 ),
                 /*'db' => array (
 			//'connectionString' => 'pgsql:host=181.211.36.240;dbname=tramitonv2',
-			'connectionString' => 'pgsql:host=localhost;dbname=tramitonv2',
+			'connectionString' => 'pgsql:host=localhost;dbname=tramiton_v2',
 			'emulatePrepare' => true,
 			'username' => 'postgres',
 			'password' => 'postgres',
 			'charset' => 'utf8',
-                ),    */
+                ),*/
             
             
 		// uncomment the following to use a MySQL database
@@ -143,6 +143,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'tramiton@administracionpublica.gob.ec',
+		'adminEmail' => 'tramiton@administracionpublica.gob.ec',
+		'hashKey' => '54d3d05adfb6d',
 	),
 );
