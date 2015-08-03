@@ -121,7 +121,7 @@
                 </div>
             </div>
             <div class="register-buttons">
-                <?php echo CHtml::submitButton('Registrarse', array('class' => 'btn btn-primary btn-block btn-lg')); ?>
+                <?php echo CHtml::submitButton('Únete ahora', array('class' => 'btn btn-primary btn-block btn-lg')); ?>
             </div>
 
             <?php $this->endWidget(); ?>
