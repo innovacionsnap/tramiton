@@ -41,7 +41,7 @@
                                             <th>N°</th>
                                             <th>Tramite</th>
                                             <th>Experiencia</th>
-                                            <th>Acciones</th>
+                                            <th>Accioness</th>
                                         </tr>
                                     </thead>
                                     <tbody>
