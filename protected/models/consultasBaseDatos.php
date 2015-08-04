@@ -28,7 +28,16 @@ class consultasBaseDatos {
         $resultado->execute();
     }
 
-    //función para insertar una registro de usuarios
+    /**
+     * Función que permite insertar un nuevo registro en la tabla de usuarios
+     * 
+     * @return true Verdadero si se inserta el nuevo registro correctamente
+     * @param string $cedula Cedula de identidad del nuevo usuario
+     * @param string $mail Correo electrónico del nuevo usuario
+     * @param string $username Nombre de usuario ingresado por el nuevo usuario
+     * @param string $password Contraseña ingresada por el usuario para su inicio de sesión
+     * @param array $datosCiudadano Datos del nuevo usuario obtenidos del Registro Civil mediante web service
+     */
     public function inserta_usuario_registro($cedula, $mail, $username, $password, $datosCiudadano) {
 
         //conexion a la base de datos
@@ -149,7 +158,7 @@ class consultasBaseDatos {
         //consulta para verificación de usuario de acuerdo al email y codigo de verificacion enviado
         $sqlVerificaEmailUser = "SELECT usu_id, usu_nombreusuario, usu_cedula, usu_mail, usu_contrasenia, "
                 . "usu_nombre FROM usuario "
-                . "WHERE usu_mail = '$email'";
+                . "WHERE usu_mail = '$email' and usu_estado <> 11";
         
         //echo "consulta: " . $sqlVerificaEmailUser . "<br>";
 
@@ -200,8 +209,17 @@ class consultasBaseDatos {
         return $datosUser;
     }
     
+    /**
+     * Realiza la acción de reestablecer la contraseña por una nueva ingresada por el usuario
+     * debido a que está encriptada el usuario debe ingresar una nueva.
+     * 
+     * @return true si se realiza la actualización correctamente
+     * @param string $email Correo electrónico del usuario para verificar
+     * @param string $codigoVerificacion Código de verificación enviado al correo al momento de solicitar restauración de clave
+     * @param string $nuevoPassword Nueva contraseña ingresada por el usuario, previamente validada y ser encriptada
+     */
     public function cambiaPassword($email, $codigoVerificacion, $nuevoPassword) {
-        
+        //conexión al objeto base de datos
         $conexion = Yii::app()->db;
         
         //instancia de modelo Usuario para encriptacion de clave
@@ -209,14 +227,20 @@ class consultasBaseDatos {
         //encriptación de la clave ingresada por el usuario
         $nuevoPassword = $userModel->getHash('sha1', $nuevoPassword, Yii::app()->params['hashKey']);
         
+        //Instrucción de actualización de nueva contraseña y estado
         $sqlUpdatePasswd = "UPDATE usuario SET "
-                . "usu_contrasenia = '$nuevoPassword' "
+                . "usu_contrasenia = '$nuevoPassword',"
+                . "usu_estado = 12 "
                 . "WHERE "
                 . "usu_mail = '$email' AND "
-                . "usu_codigo_confirmacion = '$codigoVerificacion'";
+                . "usu_codigo_confirmacion = '$codigoVerificacion' AND "
+                . "usu_estado = 11";
+        
+        //echo $sqlUpdatePasswd; Yii::app()->end();
         
         $resultado = $conexion->createCommand($sqlUpdatePasswd);
-        $resultado->execute();
+        return $resultado->execute();
+        //echo "<br><br> retorno update " . $var; Yii::app()->end();
     }
 
 }
