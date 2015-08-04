@@ -25,6 +25,7 @@
         <link href="<?php echo $baseUrl; ?>/assets/css/style-adm.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/css/style-responsive-admin.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/css/theme/default.css" rel="stylesheet" id="theme" />
+        <link href="<?php echo $baseUrl; ?>/assets/css/loader.css" rel="stylesheet" />
         <!-- ================== END BASE CSS STYLE ================== -->
 
         <!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->    
@@ -40,6 +41,7 @@
         <!-- ================== BEGIN BASE JS ================== -->
         <script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
         <script src="<?php echo $baseUrl; ?>/views/ciudadano/jquery.js"></script>
+        <script src="<?php echo $baseUrl; ?>/assets/js/total_tramites.js"></script>
 
         <!-- ================== END BASE JS ================== -->
 

@@ -93,7 +93,7 @@ class SiteController extends Controller {
                 $this->redirect(array('dashboard/index'));
         }
         $this->layout = 'main-login';
-        $this->render('login', array('model' => $model));
+        $this->render('login', array('model_login' => $model));
     }
 
     /**
@@ -165,6 +165,9 @@ class SiteController extends Controller {
         $this->render('registro', array('model' => $model));
     }
 
+    /**
+     * Acción para mostrar el administrador
+     */
     public function actionAdmin() {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
@@ -184,10 +187,9 @@ class SiteController extends Controller {
         $this->render('ranking_mas_mencionados');
     }
 
-    /*
+    /**
      * función que me permite realizar la accion de validación de cedula
      */
-
     public function actionValidaCedula() {
 
         $model = new ValidarCedula;
@@ -205,22 +207,21 @@ class SiteController extends Controller {
             } else {
                 $token = $model->obtieneToken();
                 $datos = $model->consultaCedulaRegistroCivil($model->cedula_participacion, $token);
+                //var_dump($model);Yii::app()->end();
             }
         }
         $this->render('formulario', array('model' => $model));
     }
 
-    /*
+    /**
      * acción para activar la cuenta del usuario
      */
-
     public function actionActivarCuenta() {
 
         $modelActiva = new consultasBaseDatos;
 
-        $email = $_GET['email'];
-        $codigoVerificacion = $_GET['codigoVerificacion'];
-
+        //$email = $_GET['email'];
+        //$codigoVerificacion = $_GET['codigoVerificacion'];
         //echo "email: " . $email . " - codigo: " . $codigoVerificacion;
         //Yii::app()->end();
 
@@ -251,14 +252,20 @@ class SiteController extends Controller {
         $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
     }
 
+    /**
+     * Accion para mandar mensajes de exito o error
+     */
     public function actionSuccess() {
-        
+
         $model_login = new LoginForm;
 
         $mensajes = $_GET['msgSuccess'];
         $this->render('success', array('msgSuccess' => $mensajes, "model_login" => $model_login));
     }
 
+    /**
+     * Función que permite crear el mensaje
+     */
     public function creaMensaje($titulo, $mensaje, $tituloLink = false, $url = false, $esLink = false) {
         return array(
             'titulo' => $titulo,
@@ -267,6 +274,190 @@ class SiteController extends Controller {
             'url' => $url,
             'esLink' => $esLink
         );
+    }
+
+    /**
+     * acción para solicitar recuperación de contraseña
+     */
+    public function actionRecuperarPassword() {
+
+        //echo "voy a recuperar contraseña"; Yii::app()->end();
+
+        $model_reset_pass = new RecuperarPasswordForm;
+        $modelVerificaEmail = new consultasBaseDatos;
+
+        $mensaje = "";
+
+        //validación ajax del formulario
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'recovery_pass_form') {
+            echo CActiveForm::validate($model_reset_pass);
+            Yii::app()->end();
+        }
+
+        if (isset($_POST['RecuperarPasswordForm'])) {
+            //echo "entre aqui por post"; Yii::app()->end();
+            $model_reset_pass->attributes = $_POST['RecuperarPasswordForm'];
+            $var = $model_reset_pass->validate();
+            //echo "retorno valida solicitud: " . $var; Yii::app()->end();
+            if (!$model_reset_pass->validate()) {
+                $mensaje = "Error al validar información, intentelo nuevamente";
+                $this->_msgSuccess = $this->creaMensaje(
+                        'Aviso!!!!', $mensaje, 'Recuperar Contraseña', 'recuperarPassword', true
+                );
+                $model_reset_pass->unsetAttributes();
+                //redirigimos a la pagina de success y con el mensaje
+                $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
+            } else {
+                $email = $_POST['RecuperarPasswordForm']['email'];
+                $datosUser = $modelVerificaEmail->verificaEmailUser($email);
+                $existeUser = $datosUser['existe'];
+                //var_dump($datosUser);
+                //Yii::app()->end();
+                if ($existeUser == FALSE) {
+                    $mensaje = "Error al validar información, correo electrónico no registrado en Tramitón, intentelo nuevamente";
+                    $this->_msgSuccess = $this->creaMensaje(
+                            'Aviso!!!!', $mensaje, 'Recuperar Contraseña', 'recuperarPassword', true
+                    );
+                    //redirigimos a la pagina de success y con el mensaje
+                    $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
+                } else {
+                    $codigoVerificacion = $modelVerificaEmail->codigoVerificacion;
+
+                    //echo "codigo nuevo: " . $codigoVerificacion;
+                    //var_dump($datosUser);
+                    //Yii::app()->end();
+                    $url = Yii::app()->createAbsoluteUrl('site/resetPassword', array('email' => $datosUser['usuMail'], 'codigoVerificacion' => $codigoVerificacion));
+                    $msgEmail = "Hola " . $datosUser['usuNombre'] . ", <br><br>" .
+                            "Has solicitado un restablecimiento de contrase&ntilde;a para tu cuenta <strong>'" . $datosUser['usuUsername'] . "'</strong> en Tramiton.<br><br>" .
+                            "Para confirmar esta petici&oacute;n, y establecer una nueva contrase&ntilde;a para tu cuenta, <br>" .
+                            "por favor da click en el siguiente v&iacute;nculo: <br><br>" .
+                            "<a href='" . $url . "' target='_blank'>Click Aqu&iacute;</a><br><br>" .
+                            "Si no has solicitado este restablecimiento de contrase&ntilde;a, no es necesario <br>
+                            realizar ninguna acci&oacute;n.<br><br>
+                            Si necesita ayuda, por favor p&oacute;ngase en contacto con <a href='mailto:" . Yii::app()->params['adminEmail'] . "'>" . Yii::app()->params['adminEmail'] . "</a>.";
+
+                    //instanciamos el modelo para enviar el correo
+                    $mail = new EnviarCorreo;
+
+                    //enviamos los parametros necesarios para enviar el correo
+                    $asunto = Yii::app()->name . ": Solicitud de restablecimiento de clave";
+                    //$mensajeEmail = utf8_decode($textoEmail);
+                    //llamamos la funcion para enviar el correo y pasamos los parametros necesarios
+                    $mail->enviarMail(
+                            array(Yii::app()->params['adminEmail'], Yii::app()->name), array($datosUser['usuMail'], $datosUser['usuNombre']), $asunto, $msgEmail
+                    );
+
+                    //echo "<br><br>mensaje: " . utf8_decode($msgEmail);
+                    //echo "<br><br>mensaje: <br>" . $msgEmail;
+                    //Yii::app()->end();
+                }
+            }
+        }
+
+
+        $this->layout = 'main-registro';
+        $this->render('recuperaPassword', array('model_reset_pass' => $model_reset_pass));
+    }
+
+    /**
+     * Acción para restablecer la contraseña
+     */
+    public function actionResetPassword() {
+
+        $modelResetPassw = new consultasBaseDatos;
+        $modelNuevoPassw = new NuevoPasswordForm;
+
+        $mensaje = '';
+
+        //validación ajax del formulario
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'form-reset-pass') {
+            echo CActiveForm::validate($modelNuevoPassw);
+            Yii::app()->end();
+        }
+
+        if (isset($_POST['NuevoPasswordForm'])) {
+            $modelNuevoPassw->attributes = $_POST['NuevoPasswordForm'];
+
+            $valida = $modelNuevoPassw->validate();
+            //echo "retorno validación: " . $valida; Yii::app()->end();
+
+            if (!$modelNuevoPassw->validate()) {
+                //echo "hubo error y entro aqui: " . $valida;
+                //Yii::app()->end();
+                $mensaje = "Error al validar información, intentelo nuevamente";
+                $this->_msgSuccess = $this->creaMensaje(
+                        'Aviso!!!!', $mensaje
+                );
+                //$model_reset_pass->unsetAttributes();
+                //redirigimos a la pagina de success y con el mensaje
+                $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
+            } else {
+                $email = $_POST['NuevoPasswordForm']['email'];
+                $codigoVerificacion = $_POST['NuevoPasswordForm']['codigoVerificacion'];
+                echo "tengo los datos";
+                echo "<br>email: " . $email;
+                echo "<br>codigo: " . $codigoVerificacion;
+                //Yii::app()->end();
+                $validarEmail = new CEmailValidator;
+                if (!$validarEmail->validateValue($email)) {
+                    echo "<br>no valido el email: " . $email;
+                    Yii::app()->end();
+                    $mensaje = 'Ocurrio un inconveniente en el proceso de restaurar tu contraseña <br>Error de confirmación - correo electrónico y/o código de verificación incorrectos';
+                    $this->_msgSuccess = $this->creaMensaje(
+                            'Aviso!!!', $mensaje
+                    );
+                    $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
+                } else if (!preg_match('/^[a-zA-Z0-9]+$/', $codigoVerificacion)) {
+                    echo "<br>no valido el codigo: " . $codigoVerificacion;
+                    Yii::app()->end();
+                    $mensaje = 'Ocurrio un inconveniente en el proceso de restaurar tu contraseña <br>Error de confirmación - correo electrónico y/ocódigo de verificación incorrectos';
+                    $this->_msgSuccess = $this->creaMensaje(
+                            'Aviso!!!', $mensaje
+                    );
+                    $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
+                } else {
+                    $nuevoPassword = $_POST['NuevoPasswordForm']['password'];
+                    echo "<br> todo bien voy a cambiar la clave por la siguiente: " . $nuevoPassword;
+                    //Yii::app()->end();
+                    $update = $modelResetPassw->cambiaPassword($email, $codigoVerificacion, $nuevoPassword);
+                    if (!$update) {
+                        $mensaje = 'Ocurrio un inconveniente en el proceso de restaurar tu contraseña <br> no se envió una solicitud o ya se restableció anteriormente';
+                        $this->_msgSuccess = $this->creaMensaje(
+                                'Aviso!!!', $mensaje
+                        );
+                    } else {
+                        $mensaje = "Se ha reestablecido tu contraseña correctamente, ya puedes iniciar sesión en Tramiton";
+                        $this->_msgSuccess = $this->creaMensaje(
+                                'Felicitaciones!!!!', $mensaje, 'Ingresa a Tramiton', 'login', true
+                        );
+                    }
+                    $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
+                }
+            }
+        } else {
+            if (isset($_GET['email']) && isset($_GET['codigoVerificacion'])) {
+                $email = $_GET['email'];
+                $codigoVerificacion = $_GET['codigoVerificacion'];
+
+                $validarEmail = new CEmailValidator;
+                if (!$validarEmail->validateValue($email)) {
+                    $mensaje = 'Ocurrio un inconveniente en el proceso de restaurar tu contraseña <br>Error de confirmación - correo electrónico y/o código de verificación incorrectos';
+                    $this->_msgSuccess = $this->creaMensaje(
+                            'Aviso!!!!', $mensaje
+                    );
+                    $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
+                } else if (!preg_match('/^[a-zA-Z0-9]+$/', $codigoVerificacion)) {
+                    $mensaje = 'Ocurrio un inconveniente en el proceso de restaurar tu contraseña <br>Error de confirmación - correo electrónico y/o código de verificación incorrectos';
+                    $this->_msgSuccess = $this->creaMensaje(
+                            'Aviso!!!!', $mensaje
+                    );
+                    $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
+                } else {
+                    $this->layout = 'main-registro';
+                    $this->render('nuevoPassword', array('modelNuevoPassw' => $modelNuevoPassw, 'email' => $email, 'codigoVerif' => $codigoVerificacion));
+                }
+            }
+        }
     }
 
 }

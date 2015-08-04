@@ -58,5 +58,11 @@ class Dashboard extends CActiveRecord {
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
+    
+    public function getRankingLike(){
+        $sql='select sum(d.suma) as likes from (select count(mgu_id) as suma from megusta where mgu_estado=\'1\' group by sol_id order by suma desc limit 10) d';
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
 
 }
