@@ -1,4 +1,8 @@
 
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/lib/jquery-1.10.1.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.js?v=2.1.5"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.css?v=2.1.5"></script>
+
 
 <!-- begin #content -->
 		<div id="content" class="content">
@@ -96,21 +100,81 @@
                     <div class="row">
                         <!-- begin col-4 -->
                         <div class="col-md-12">
-                            <h4 class="title">Soluciones</small></h4>
+                            <h4 class="title">Soluciones <a class="fancybox fancybox.iframe" href="iframe.html?uno=2">Iframe</a></small></h4>
                             <!-- begin scrollbar -->
                             <div data-scrollbar="true" data-height="280px" class="bg-silver">
                                 <!-- begin chats -->
                                 <ul class="chats">
+
+                                        <tr>
+                                        <td>Modal Dialog Box with fade out animation.</td>
+                                        <td><a href="#modal-without-animation" class="btn btn-sm btn-default" data-toggle="modal">Demo</a></td>
+                                        </tr>
+
+                                        <!-- #modal-without-animation -->
+                                        <div class="modal" id="modal-without-animation">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h4 class="modal-title">Modal Without Animation</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Modal body content here...
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal" id="modal-without-animation2">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h4 class="modal-title">Modal Without Animation</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Modal body content here...
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal" id="modal-without-animation3">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h4 class="modal-title">Modal Without Animation</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Modal body content here...
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                 	<?php foreach ($datosTramite_Solucion as $dato_tramite_solucion){ ?>
                                     <li class="left">
                                     	<span class="date-time"><?php echo $dato_tramite_solucion["sol_fecha"] ?></span>
-                                    	<a href="<?php echo 'http://localhost/tramiton2/solucion/index?sol='. $dato_tramite_solucion['sol_id']; ?>" class="name"><?php echo $dato_tramite_solucion["sol_titulo"] ?></a>
+                                    	<a href="#modal-without-animation" data-toggle="modal" class="name"><?php echo $dato_tramite_solucion["sol_titulo"] ?></a>
                                         <a href="javascript:;" class="image"><img src="<?php echo URL_IMG . $this->_datosUser->usu_imagen; ?>" alt="" /></a>
                                         <div class="message">
                                            <?php echo $dato_tramite_solucion["sol_descripcion"] ?>
                                         </div>
                                     </li>
                                    <?php } ?>
+                                   <?php //$usuario = Usuario::model()->findByPk(id);
+                                   //echo $usuario;
+                                    ?>
                                     
                                 </ul>
                                 <!-- end chats -->

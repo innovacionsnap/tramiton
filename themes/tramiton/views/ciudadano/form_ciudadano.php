@@ -319,12 +319,18 @@ order by pro_prob_id limit 4 offset 0";
 	}
 	
 </script>
+<?php
+	  $baseUrl = Yii::app()->baseUrl; 
+	  $cs = Yii::app()->getClientScript();
+	  Yii::app()->clientScript->registerCoreScript('jquery');
+	?>
+<?php echo $baseUrl; ?>
 
 <!-- begin #content -->
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li><a href="http://localhost/tramiton2/dashboard/">Inicio</a></li>
+				<li><a href="<?php echo $baseUrl; ?>/dashboard/">Inicio</a></li>
 				
 				<li class="active">Registro Tr&aacute;mite </li>
 			</ol>
@@ -350,7 +356,7 @@ order by pro_prob_id limit 4 offset 0";
                         </div>
                         <div class="panel-body">
                         	
-                            <form action="themes/tramiton/views/ciudadano/prueba.php" method="POST" data-parsley-validate="true" name="form-wizard">
+                            <form action="<?php echo $baseUrl; ?>themes/tramiton/views/ciudadano/prueba.php" method="POST" data-parsley-validate="true" name="form-wizard">
 								<div id="wizard">
 									<ol>
 										<li>
@@ -449,7 +455,7 @@ order by pro_prob_id limit 4 offset 0";
                                                 <!-- begin col-12 -->
                                                 <div class="col-md-12">
 													<div class="form-group">
-														<label>Detalle del problema4</label>
+														<label>Detalle del problema</label>
 														<textarea class="form-control" id = "experiencia" onkeyup = "Validate(this)" name="experiencia" rows="4" data-parsley-range="[20,200]" placeholder="experiencia" data-parsley-group="wizard-step-2" required></textarea>
 														 	
 													</div>

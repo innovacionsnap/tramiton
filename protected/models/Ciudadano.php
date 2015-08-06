@@ -73,6 +73,20 @@ and datt_estado = 1 order by datt.datt_id desc";
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
+
+    public function getdatosTramite_Solucion_Comentario(){
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        
+        $id_usuario= $modelUser['usu_id'];
+        //$dato_datt_id = $_GET['datt_id'];
+        //$usu_id = $this->_datosUser->usu_id;
+        $sql = "select * from comentario com, solucion sol 
+where com.sol_id = sol.sol_id
+and sol.datt_id = 7781";
+        $dataReader = $this->connection->createCommand($sql)->query();
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
             
             
     
