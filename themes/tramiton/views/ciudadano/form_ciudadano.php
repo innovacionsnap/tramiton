@@ -319,18 +319,24 @@ order by pro_prob_id limit 4 offset 0";
 	}
 	
 </script>
+<?php
+	  $baseUrl = Yii::app()->baseUrl; 
+	  $cs = Yii::app()->getClientScript();
+	  Yii::app()->clientScript->registerCoreScript('jquery');
+	?>
+<?php echo $baseUrl; ?>
 
 <!-- begin #content -->
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li><a href="javascript:;">Home</a></li>
-				<li><a href="javascript:;">Form Stuff</a></li>
-				<li class="active">Wizards + Validation</li>
+				<li><a href="<?php echo $baseUrl; ?>/dashboard/">Inicio</a></li>
+				
+				<li class="active">Registro Tr&aacute;mite </li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Wizards + Validation <small>header small text goes here...</small></h1>
+			<h1 class="page-header">Registro Tr&aacute;mite<small></small></h1>
 			<!-- end page-header -->
 			
 			<!-- begin row -->
@@ -349,24 +355,25 @@ order by pro_prob_id limit 4 offset 0";
                             <h4 class="panel-title">Form Wizards</h4>
                         </div>
                         <div class="panel-body">
-                            <form action="themes/tramiton/views/ciudadano/prueba.php" method="POST" data-parsley-validate="true" name="form-wizard">
+                        	
+                            <form action="<?php echo $baseUrl; ?>themes/tramiton/views/ciudadano/prueba.php" method="POST" data-parsley-validate="true" name="form-wizard">
 								<div id="wizard">
 									<ol>
 										<li>
-										    Identification 
-										    <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small>
+										    Tramite
+										    <small>Identificar el tramite y la institucion .</small>
 										</li>
 										<li>
-										    Contact Information
-										    <small>Aliquam bibendum felis id purus ullamcorper, quis luctus leo sollicitudin.</small>
+										    Problematica
+										    <small>Idenficar el problema encontrado en la institucion.</small>
 										</li>
 										<li>
-										    Login
+										    Solucion
 										    <small>Phasellus lacinia placerat neque pretium condimentum.</small>
 										</li>
 										<li>
-										    Completed
-										    <small>Sed nunc neque, dapibus non leo sed, rhoncus dignissim elit.</small>
+										    Finalizar
+										    <small>Enviar y publicar.</small>
 										</li>
 									</ol>
 									<!-- begin wizard step-1 -->
@@ -448,7 +455,7 @@ order by pro_prob_id limit 4 offset 0";
                                                 <!-- begin col-12 -->
                                                 <div class="col-md-12">
 													<div class="form-group">
-														<label>Detalle d</label>
+														<label>Detalle del problema</label>
 														<textarea class="form-control" id = "experiencia" onkeyup = "Validate(this)" name="experiencia" rows="4" data-parsley-range="[20,200]" placeholder="experiencia" data-parsley-group="wizard-step-2" required></textarea>
 														 	
 													</div>
@@ -471,7 +478,7 @@ order by pro_prob_id limit 4 offset 0";
                                                     <div class="form-group">
                                                         <label>Titulo Solucion</label>
                                                         <div class="controls">
-                                                        	<input type="text"  id="titulo_solucion" onkeyup = "Validate(this)" name="titulo_solucion" placeholder="Titulo Problematica" class="form-control" data-parsley-group="wizard-step-3" required />
+                                                        	<input type="text"  id="titulo_solucion" onkeyup = "Validate(this)" name="titulo_solucion"  data-parsley-range="[20,99]" placeholder="Titulo Problematica" class="form-control" data-parsley-group="wizard-step-3" required />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -479,7 +486,7 @@ order by pro_prob_id limit 4 offset 0";
                                                 <!-- begin col-12 -->
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label>calve</label>
+                                                        <label>Detalle de solucion</label>
                                                         <div class="controls">
                                                             <textarea class="form-control" id="propuesta_solucion" onkeyup = "Validate(this)" name="propuesta_solucion" rows="4" data-parsley-range="[20,200]" placeholder="propuesta_solucion" data-parsley-group="wizard-step-3" required></textarea>
                                                         </div>
@@ -498,7 +505,7 @@ order by pro_prob_id limit 4 offset 0";
                                     <h1>Gracias por ingresar el tramite</h1>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat commodo porttitor. Vivamus eleifend, arcu in tincidunt semper, lorem odio molestie lacus, sed malesuada est lacus ac ligula. Aliquam bibendum felis id purus ullamcorper, quis luctus leo sollicitudin. </p>
                                     <!--  <p><a class="btn btn-success btn-lg" role="button">Guardar y enviar</a></p> -->
-                                    <input type="submit" value="Submit" class="btn btn-success btn-lg"> 
+                                    <input type="submit" value="Publicar y Guardar" class="btn btn-success btn-lg"> 
                                     <input type="hidden" name="insertar_tramite" value="1">
                                     <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
                                 </div>
