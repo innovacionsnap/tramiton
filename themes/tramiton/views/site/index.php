@@ -11,6 +11,7 @@
             (
             'method' => 'POST',
             'action' => Yii::app()->createUrl('site/validaCedula'),
+            'id' => 'validaCedula-form',
             'enableClientValidation' => true,
             'enableAjaxValidation'=>true,
             'clientOptions' => array(

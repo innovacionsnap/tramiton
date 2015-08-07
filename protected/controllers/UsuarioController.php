@@ -170,4 +170,14 @@ class UsuarioController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        /**
+         * accion para actualizar imagen de perfil
+         * @param integer  $userId Id del usuario a cambiar la imagen
+         */
+        public function actionCambiaImagen($userId){
+            
+            $model=$this->loadModel($userId);
+            
+        }
 }

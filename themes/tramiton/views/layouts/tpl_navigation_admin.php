@@ -34,7 +34,7 @@
 				</a>
 				<ul class="dropdown-menu animated fadeInLeft">
 					<li class="arrow"></li>
-					<li><a href="javascript:;">Editar Perfil</a></li>
+					<li><?php echo CHtml::link('Editar Perfil', array('ciudadano/mostrarPerfil'));?></li>
 					<li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Notificaciones</a></li>
 					<li><a href="javascript:;">Calendario</a></li>
 					<li class="divider"></li>

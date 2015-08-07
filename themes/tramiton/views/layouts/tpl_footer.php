@@ -57,6 +57,9 @@
 	<script src="<?php echo Yii::app()->theme->baseUrl;?>/assets/plugins/parsley/dist/parsley.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl;?>/assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
+        
+        <!--<script type="text/javascript" src="/tramiton2/assets/e1bed9d7/jquery.js"></script>-->
+        <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/assets/e1bed9d7/jquery.yiiactiveform.js"></script>
 	
 	<script>    
 	    $(document).ready(function() {

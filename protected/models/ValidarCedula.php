@@ -29,7 +29,7 @@ class ValidarCedula extends CFormModel {
 
         return array(
             //validación de cedula 
-            array('cedula_participacion', 'required', 'message' => 'El número de cédula es requerido'),
+            array('cedula_participacion', 'required', 'message' => '<span style="color: #F00;">El número de cédula es requerido</span>'),
             array(
                 'cedula_participacion',
                 'match',
@@ -40,9 +40,9 @@ class ValidarCedula extends CFormModel {
                 'cedula_participacion',
                 'length',
                 'min' => 10,
-                'tooShort' => 'Mínimo 10 caracteres',
+                'tooShort' => '<span style="color: #F00;">Mínimo 10 caracteres</span>',
                 'max' => 10,
-                'tooLong' => 'Máximo 10 caracteres'
+                'tooLong' => '<span style="color: #F00;">Máximo 10 caracteres</span>'
             ),
         );
     }

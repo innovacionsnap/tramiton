@@ -22,7 +22,8 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			// username and password are required
-			array('username, password', 'required'),
+			array('username', 'required', 'message' => '<span style="color: #F00;">El usuario es requerido</span>'),
+			array('password', 'required', 'message' => '<span style="color: #F00;">La contraseña es requerida</span>'),
 			// rememberMe needs to be a boolean
 			array('rememberMe', 'boolean'),
 			// password needs to be authenticated
