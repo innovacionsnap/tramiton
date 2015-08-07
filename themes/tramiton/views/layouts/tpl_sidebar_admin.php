@@ -32,8 +32,8 @@
                 
                 array('label' => '<i class="fa fa-archive"></i>Tramites<b class="caret pull-right"></b>', 'url' => array('#'), 'itemOptions' => array('class' => 'has-sub'), 
                     'items' => array(
-                        array('label' => 'Registro', 'url' => array('')),
-                        array('label' => 'Seguimiento', 'url' => array('')),
+                        array('label' => 'Registro', 'url' => array('ciudadano/index')),
+                        array('label' => 'Seguimiento', 'url' => array('ciudadano/usuario_tramites')),
                         array('label' => 'Mis comentarios', 'url' => array('')),
                     )),
                 array('label' => '<i class="fa fa-institution alias"></i>Instituciones<b class="caret pull-right"></b>', 'url' => array(''), 'itemOptions' => array('class' => 'has-sub'), 
@@ -49,6 +49,13 @@
                         array('label' => 'Aprobar Tranferencias', 'url' => array('')),
                         array('label' => 'Aprobar Acciones Correctivas', 'url' => array('')),
                         array('label' => 'Seguimiento', 'url' => array('')),
+                    )),
+                 array('label' => '<i class="fa fa-crosshairs"></i>Seguimiento<b class="caret pull-right"></b>', 'url' => array('#'), 'itemOptions' => array('class' => 'has-sub'), 
+                    'items' => array(
+                        array('label' => 'Registro', 'url' => array('')),
+                        array('label' => 'Tareas generales', 'url' => array('')),
+                        array('label' => 'Tareas por usuario', 'url' => array('')),
+                        array('label' => 'Archivos', 'url' => array('')),
                     )),
                 array('label' => '<i class="fa fa-cogs"></i>Administración<b class="caret pull-right"></b>', 'url' => array('#'), 'visible' => Yii::app()->authManager->checkAccess('super_admin', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
                     'items' => array(

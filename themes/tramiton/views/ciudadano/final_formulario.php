@@ -12,6 +12,7 @@ if (isset($insertar_tramite)) {
 		$id_tramite = $_POST['id_tramite'];
 		$experiencia = $_POST['experiencia'];
 		$titulo_solucion = $_POST['titulo_solucion'];
+		$otro_tramite = $_POST['otro_tramite'];
 		$propuesta_solucion = $_POST['propuesta_solucion'];
 		$id_usuario = $_POST['id_usuario'];
 		$problematica_otro = $_POST['problematica_otro'];
@@ -49,7 +50,7 @@ if (isset($insertar_tramite)) {
 		            datt_otronombreinstitucion, datt_fecha_actualizacion)
 		    VALUES (default, 1500, $id_usuario, $id_tramite, '$unidad_prestadora', '$experiencia', 
 		            '$hoy', '$hoy', '$hoy', '0.0.0.0', 
-		            '2015', 'N/A', 'PRUEBA OTRO TRAMITE', 
+		            '2015', 'N/A', '$otro_tramite', 
 		            0, 'prueba decripcion', 1, 150, 
 		            'N/A', '$hoy');";
 					

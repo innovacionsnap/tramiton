@@ -1,6 +1,14 @@
 <?php
 include 'config.inc.php';
 
+
+function dameURL(){
+$url="http://".$_SERVER['HTTP_HOST'].":".$_SERVER['SERVER_PORT'];
+return $url;
+}
+
+ echo dameURL();
+ 
 if ($_GET['buscar_institucion']=="institucion")
 {
 	
@@ -23,7 +31,7 @@ if ($_GET['buscar_institucion']=="institucion")
 	
 	
 		if($numReg == 1 and $fila['tra_nombre'] =='Otro...'){
-			 echo "<input type='text' name='otro_tramite' placeholder='Escriba otro tramite' class='form-control' data-parsley-group='wizard-step-1' required />";
+			 echo "<input type='text' name='otro_tramite' onkeyup = 'Validate(this)' placeholder='Escriba otro tramite' class='form-control' data-parsley-group='wizard-step-1' required />";
 	    }else{
 	    	echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_tramite' id='id_tramite' required>";
 			

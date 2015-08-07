@@ -356,7 +356,7 @@ order by pro_prob_id limit 4 offset 0";
                         </div>
                         <div class="panel-body">
                         	
-                            <form action="<?php echo $baseUrl; ?>themes/tramiton/views/ciudadano/prueba.php" method="POST" data-parsley-validate="true" name="form-wizard">
+                            <form action="<?php echo $baseUrl; ?>/themes/tramiton/views/ciudadano/final_formulario.php" method="POST" data-parsley-validate="true" name="form-wizard">
 								<div id="wizard">
 									<ol>
 										<li>
