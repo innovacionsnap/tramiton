@@ -44,82 +44,82 @@
                     <div class="table-responsive">
                         <?php
                         $form = $this->beginWidget('CActiveForm', array
-                                (
-                                'method' => 'POST',
-                                'action' => Yii::app()->createUrl('usuario/update'),
-                                'id' => 'usuario-form',
-                                'enableClientValidation' => true,
-                                'enableAjaxValidation'=>true,
-                                'htmlOptions' => array('class' => 'margin-bottom-0'),
-                                'clientOptions' => array(
-                                    'validateOnSubmit' => true,
-                                    'validateOnChange' => true,
-                                    'validateOnType' => true,
-                                ),
-                                ));
+                            (
+                            'method' => 'POST',
+                            'action' => Yii::app()->createUrl('usuario/update'),
+                            'id' => 'usuario-form',
+                            'enableClientValidation' => true,
+                            'enableAjaxValidation' => true,
+                            'htmlOptions' => array('class' => 'margin-bottom-0'),
+                            'clientOptions' => array(
+                                'validateOnSubmit' => true,
+                                'validateOnChange' => true,
+                                'validateOnType' => true,
+                            ),
+                        ));
                         ?>
-                        
-                        
+
+
                         <table class="table table-profile">
                             <thead>
                                 <tr>
                                     <th></th>
                                     <th>
-                            <h4>
-                                <?php echo $modelUser->usu_nombre; ?>
-                                <small><?php echo $modelUser->usu_cedula; ?></small>
-                            </h4>
-                            </th>
-                            </tr>
+                                        <h4>
+                                            <?php echo $modelUser->usu_nombre; ?>
+                                            <small><?php echo $modelUser->usu_cedula; ?></small>
+                                        </h4>
+                                    </th>
+                                </tr>
                             </thead>
                             <tbody>
                                 <tr class="highlight">
-                                    <td class="field"><?php echo $form->labelEx($modelUser,'usu_nombreusuario'); ?></td>
+                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_nombreusuario'); ?></td>
                                     <td>
-                                        <?php echo $form->textField($modelUser,'usu_nombreusuario',array('size'=>20,'maxlength'=>20, 'value' => $modelUser->usu_nombreusuario)); ?>
-                                        <?php echo $form->error($modelUser,'usu_nombreusuario'); ?>
+                                        <?php echo $form->textField($modelUser, 'usu_nombreusuario', array('size' => 20, 'maxlength' => 20, 'value' => $modelUser->usu_nombreusuario)); ?>
+                                        <?php echo $form->error($modelUser, 'usu_nombreusuario'); ?>
                                     </td>
-                                    
+
                                 </tr>
 
                                 <tr class="highlight">
-                                    <td class="field"><?php echo $form->labelEx($modelUser,'usu_mail'); ?></td>
+                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_mail'); ?></td>
                                     <td>
-                                        <?php echo $form->textField($modelUser,'usu_mail',array('size' => 50,'maxlength' => 50, 'value' =>$modelUser->usu_mail)); ?>
-                                        <?php echo $form->error($modelUser,'usu_mail'); ?>
+                                        <?php echo $form->textField($modelUser, 'usu_mail', array('size' => 50, 'maxlength' => 50, 'value' => $modelUser->usu_mail)); ?>
+                                        <?php echo $form->error($modelUser, 'usu_mail'); ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="field"><?php echo $form->labelEx($modelUser,'usu_convencional'); ?></td>
+                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_convencional'); ?></td>
                                     <td>
-                                        <?php echo $form->textField($modelUser,'usu_convencional',array('size' => 20,'maxlength' => 20, 'value' => $modelUser->usu_convencional)); ?>
+                                        <?php echo $form->textField($modelUser, 'usu_convencional', array('size' => 20, 'maxlength' => 20, 'value' => $modelUser->usu_convencional)); ?>
                                         <i class="fa fa-phone fa-lg m-r-5"></i> 
-                                        <?php echo $form->error($modelUser,'usu_convencional'); ?>
+                                        <?php echo $form->error($modelUser, 'usu_convencional'); ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="field"><?php echo $form->labelEx($modelUser,'usu_celular'); ?></td>
+                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_celular'); ?></td>
                                     <td>
-                                        <?php echo $form->textField($modelUser,'usu_celular',array('size' => 20,'maxlength' => 20, 'value' => $modelUser->usu_celular)); ?>
+                                        <?php echo $form->textField($modelUser, 'usu_celular', array('size' => 20, 'maxlength' => 20, 'value' => $modelUser->usu_celular)); ?>
                                         <i class="fa fa-mobile fa-lg m-r-5"></i> 
-                                        <?php echo $form->error($modelUser,'usu_celular'); ?>
+                                        <?php echo $form->error($modelUser, 'usu_celular'); ?>
                                     </td>
                                 </tr>
                                 <tr class="divider">
                                     <td colspan="2"></td>
                                 </tr>
                                 <tr class="highlight">
-                                    <td class="field"><?php echo $form->labelEx($modelUser,'usu_direccion'); ?></td>
+                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_direccion'); ?></td>
                                     <td>
-                                        <?php echo $form->textField($modelUser,'usu_direccion',array('size' => 50,'maxlength' => 50, 'value' => $modelUser->usu_direccion)); ?>
-                                        <?php echo $form->error($modelUser,'usu_direccion'); ?>
+                                        <?php echo $form->textField($modelUser, 'usu_direccion', array('size' => 50, 'maxlength' => 50, 'value' => $modelUser->usu_direccion)); ?>
+                                        <?php echo $form->error($modelUser, 'usu_direccion'); ?>
                                     </td>
                                 </tr>
                                 <tr class="divider">
                                     <td colspan="2"></td>
                                 </tr>
                                 <tr>
-                                    <td class="field"><?php echo $form->labelEx($modelUser,'usu_fechanacimiento'); ?></td>
+                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_fechanacimiento'); ?></td>
                                     <td>
                                         <?php echo $modelUser->usu_fechanacimiento; ?>
                                     </td>
@@ -147,7 +147,7 @@
                                         <?php echo CHtml::submitButton('Cancelar', array('class' => 'btn btn-danger btn-sm')); ?>
                                     </td>
                                 </tr>
-                                
+
                             </tbody>
                         </table>
                         <?php $this->endWidget(); ?>
