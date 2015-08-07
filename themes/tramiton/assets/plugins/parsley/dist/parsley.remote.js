@@ -2133,11 +2133,11 @@ window.ParsleyConfig.i18n.en = $.extend(window.ParsleyConfig.i18n.en || {}, {
     alphanum:     "This value should be alphanumeric."
   },
   notblank:       "This value should not be blank.",
-  required:       "This value is required.",
+  required:       "Campo requerido.",
   pattern:        "This value seems to be invalid.",
   min:            "This value should be greater than or equal to %s.",
   max:            "This value should be lower than or equal to %s.",
-  range:          "This value should be between %s and %s.",
+  range:          "Rango de caracteres entre %s y %s.",
   minlength:      "This value is too short. It should have %s characters or more.",
   maxlength:      "This value is too long. It should have %s characters or less.",
   length:         "This value length is invalid. It should be between %s and %s characters long.",

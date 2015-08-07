@@ -32,6 +32,7 @@
                             <thead>
                                 <tr>
                                     <th>N°</th>
+                                    <th>Institución</th>
                                     <th>Trámite</th>
                                     <th>Solución</th>
                                     <th>Visitas</th>
@@ -44,6 +45,7 @@
                                     ?>
                                     <tr class="odd gradeA">
                                         <td class="sorting_1"><?php echo $cont; ?></td>
+                                        <td class="sorting_1"><?php echo $solucion['ins_nombre']; ?></td>
                                         <td class="sorting_1"><?php echo $solucion['tra_nombre'] ?></td>
                                         <td class="sorting_1"><?php echo $solucion['sol_descripcion'] ?></td>
                                         <td class="sorting_1"><?php echo $solucion['sol_vistas'] ?></td>

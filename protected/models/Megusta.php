@@ -8,7 +8,7 @@
  * @property integer $sol_id
  * @property integer $usu_id
  * @property string $mgu_fecha
- * @property string $mgu_estado
+ * @property integer $mgu_estado
  *
  * The followings are the available model relations:
  * @property Solucion $sol
@@ -33,8 +33,7 @@ class Megusta extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('mgu_fecha', 'required'),
-			array('sol_id, usu_id', 'numerical', 'integerOnly'=>true),
-			array('mgu_estado', 'length', 'max'=>1),
+			array('sol_id, usu_id, mgu_estado', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('mgu_id, sol_id, usu_id, mgu_fecha, mgu_estado', 'safe', 'on'=>'search'),
@@ -90,7 +89,7 @@ class Megusta extends CActiveRecord
 		$criteria->compare('sol_id',$this->sol_id);
 		$criteria->compare('usu_id',$this->usu_id);
 		$criteria->compare('mgu_fecha',$this->mgu_fecha,true);
-		$criteria->compare('mgu_estado',$this->mgu_estado,true);
+		$criteria->compare('mgu_estado',$this->mgu_estado);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -112,11 +111,11 @@ class Megusta extends CActiveRecord
         
        $sql = 'select tra_nombre, sol_descripcion, count(mgu_id) as likes
 from solucion a, datos_tramite b, tramite_institucion c, tramite d, megusta e
-where sol_estado=1 and 
-	a.datt_id=b.datt_id and 
+where 	a.datt_id=b.datt_id and 
 	b.trai_id=c.trai_id and
 	c.tra_id=d.tra_id and
-	a.sol_id= e.sol_id
+	a.sol_id= e.sol_id and
+	sol_estado=1
 group by a.sol_id, tra_nombre
 order by likes desc limit 10';
         $rows = Yii::app()->db->createCommand($sql)->queryAll();

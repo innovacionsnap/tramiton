@@ -166,8 +166,9 @@ where a.ins_id=b.ins_id and
       a.trai_id=c.trai_id and
       b.sec_id=d.sec_id and
       c.usu_id=e.usu_id and
-      a.tra_id=f.tra_id
-order by tra_nombre limit 10';
+      a.tra_id=f.tra_id and f.tra_estado=1 and
+      b.ins_funcion_ejecutiva=1
+order by tra_nombre';
         $rows =Yii::app()->db->createCommand($sql)->queryAll();
         return $rows;
     }
@@ -178,7 +179,8 @@ order by tra_nombre limit 10';
 from datos_tramite a, tramite_institucion b, solucion c, institucion d 
 where a.trai_id=b.trai_id and 
       a.datt_id=c.datt_id and 
-      b.ins_id=d.ins_id and
+      b.ins_id=d.ins_id and 
+      d.ins_funcion_ejecutiva=1 and
       c.sol_estado=1
 group by ins_nombre 
 order by soluciones desc 

@@ -20,17 +20,69 @@ class Ciudadano extends CActiveRecord {
         $id_usuario = $modelUser['usu_id'];
         //$usu_id = $this->_datosUser->usu_id;
 
-        $sql = "select datt.datt_id, ins.ins_nombre,tra.tra_nombre, datt.datt_experiencia,datt.datt_fecharegistro, usu.usu_nombreusuario, usu.usu_imagen
+        $sql = "select datt.datt_id, ins.ins_nombre,tra.tra_nombre, datt.datt_experiencia,datt.datt_fecharegistro, usu.usu_nombreusuario, usu.usu_imagen,datt_otronombretramite
                 from tramite tra, tramite_institucion trai, institucion ins, datos_tramite datt, usuario usu
                 where tra.tra_id = trai.tra_id
                 and datt.trai_id = trai.trai_id
                 and trai.ins_id = ins.ins_id
                 and usu.usu_id = datt.usu_id
-                and datt_estado = 0
-                and usu.usu_id = '$id_usuario'";
-        //echo $sql;
+                and datt_estado = 1
+                and usu.usu_id = '$id_usuario'  order by datt.datt_id desc";
+//echo $sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         // recibe los datos
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
+
+    public function getTramite_Usuario() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $id_usuario = $modelUser['usu_id'];
+        //$usu_id = $this->_datosUser->usu_id;
+        $dato_datt_id = $_GET['datt_id'];
+        //echo "UNO DE LOS CASOS: ".$dato_datt_id;
+
+
+        $sql = "select datt.datt_id,datt.datt_unidadprestadora, ins.ins_nombre,tra.tra_nombre, datt.datt_experiencia,datt.datt_fecharegistro, usu.usu_nombreusuario, usu.usu_imagen,datt_otronombretramite,pro.pro_nombre,can.can_nombre
+                from tramite tra, tramite_institucion trai, institucion ins, datos_tramite datt, usuario usu,canton can, provincia pro
+                where tra.tra_id = trai.tra_id
+                and can.pro_id = pro.pro_id
+                and datt.can_id = can.can_id
+                and datt.trai_id = trai.trai_id
+                and trai.ins_id = ins.ins_id
+                and usu.usu_id = datt.usu_id
+                and datt.datt_id = '$dato_datt_id'
+                and datt_estado = 1 order by datt.datt_id desc";
+                //echo $sql;
+
+        $dataReader = $this->connection->createCommand($sql)->query();
+
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
+
+    public function getTramite_Solucion() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+
+        $id_usuario = $modelUser['usu_id'];
+        $dato_datt_id = $_GET['datt_id'];
+        //$usu_id = $this->_datosUser->usu_id;
+        $sql = "select * from solucion where datt_id = '$dato_datt_id'";
+        $dataReader = $this->connection->createCommand($sql)->query();
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
+
+    public function getdatosTramite_Solucion_Comentario() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+
+        $id_usuario = $modelUser['usu_id'];
+        //$dato_datt_id = $_GET['datt_id'];
+        //$usu_id = $this->_datosUser->usu_id;
+        $sql = "select * from comentario com, solucion sol 
+                where com.sol_id = sol.sol_id
+                and sol.datt_id = 7781";
+        $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
