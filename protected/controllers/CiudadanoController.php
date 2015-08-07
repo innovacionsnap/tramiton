@@ -29,7 +29,7 @@ class CiudadanoController extends Controller {
               'users' => array('@'),
               ), */
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('index', 'valor','Usuario_Tramites','viewTramite_Usuario','viewTramite_Usuario_Comentario'),
+                'actions' => array('index', 'valor','Usuario_Tramites','viewTramite_Usuario','viewTramite_Usuario_Comentario', 'mostrarPerfil'),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano'),
             ),
