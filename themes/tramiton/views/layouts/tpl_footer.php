@@ -59,7 +59,7 @@
 	<!-- ================== END PAGE LEVEL JS ================== -->
         
         <!--<script type="text/javascript" src="/tramiton2/assets/e1bed9d7/jquery.js"></script>-->
-        <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/assets/e1bed9d7/jquery.yiiactiveform.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.yiiactiveform.js"></script>
 	
 	<script>    
 	    $(document).ready(function() {
