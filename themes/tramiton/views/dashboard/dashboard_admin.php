@@ -6,7 +6,7 @@
     </div>
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li><a href="javascript:;">Home</a></li>
+        <li><a href="javascript:;">Inicio</a></li>
         <li class="active">Trámites</li>
     </ol>
     <!-- end breadcrumb -->
@@ -252,13 +252,13 @@
                     <h4 class="panel-title">Noticias</h4>
                 </div>
                 <div class="panel-body" style="height: 440px">
-                    <div class="height-sm" data-scrollbar="true" >
+                    <div class="height-sm" data-scrollbar="true" style="height:400px" >
                         <?php
                         $noticias = DashboardController::getNoticias();
                         foreach ($noticias as $noticia):
                             ?>
                             <p style=" background-color: #ffffff; border-radius: 8px; padding: 10px">
-                                <?php echo $noticia['logs_usu_usuario'] . " " . $noticia['logs_accion']; ?>  
+                                <?php echo $noticia['logs_usu_usuario'] . " "?><a href="<?php echo (Yii::app()->baseUrl.'/solucion/index?sol='.$noticia['logs_id_tabla_destino']); ?>" target="_blank"><?php echo $noticia['logs_accion']; ?></a>  
                             </p>
                         <?php endforeach; ?>
                     </div>

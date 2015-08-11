@@ -16,6 +16,8 @@
  * @property string $logs_tipo_publicacion
  * @property integer $logs_idtabla
  * @property string $logs_tabla
+ * @property integer $logs_id_tabla_destino
+ * @property string $logs_tabla_destino
  */
 class LogSistema extends CActiveRecord
 {
@@ -36,15 +38,15 @@ class LogSistema extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('logs_usu_id, logs_usu_nombre, logs_accion, logs_fechahora, logs_ip_ips, logs_ip, logs_estado', 'required'),
-			array('logs_estado, logs_idtabla', 'numerical', 'integerOnly'=>true),
+			array('logs_estado, logs_idtabla, logs_id_tabla_destino', 'numerical', 'integerOnly'=>true),
 			array('logs_usu_id, logs_ip_ips', 'length', 'max'=>50),
 			array('logs_usu_nombre, logs_usu_usuario, logs_tipo_publicacion', 'length', 'max'=>250),
 			array('logs_accion', 'length', 'max'=>1000),
 			array('logs_ip', 'length', 'max'=>20),
-			array('logs_tabla', 'length', 'max'=>80),
+			array('logs_tabla, logs_tabla_destino', 'length', 'max'=>80),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('logs_id, logs_usu_id, logs_usu_nombre, logs_accion, logs_fechahora, logs_ip_ips, logs_ip, logs_estado, logs_usu_usuario, logs_tipo_publicacion, logs_idtabla, logs_tabla', 'safe', 'on'=>'search'),
+			array('logs_id, logs_usu_id, logs_usu_nombre, logs_accion, logs_fechahora, logs_ip_ips, logs_ip, logs_estado, logs_usu_usuario, logs_tipo_publicacion, logs_idtabla, logs_tabla, logs_id_tabla_destino, logs_tabla_destino', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,6 +79,8 @@ class LogSistema extends CActiveRecord
 			'logs_tipo_publicacion' => 'Logs Tipo Publicacion',
 			'logs_idtabla' => 'Logs Idtabla',
 			'logs_tabla' => 'Logs Tabla',
+			'logs_id_tabla_destino' => 'Logs Id Tabla Destino',
+			'logs_tabla_destino' => 'Logs Tabla Destino',
 		);
 	}
 
@@ -110,6 +114,8 @@ class LogSistema extends CActiveRecord
 		$criteria->compare('logs_tipo_publicacion',$this->logs_tipo_publicacion,true);
 		$criteria->compare('logs_idtabla',$this->logs_idtabla);
 		$criteria->compare('logs_tabla',$this->logs_tabla,true);
+		$criteria->compare('logs_id_tabla_destino',$this->logs_id_tabla_destino);
+		$criteria->compare('logs_tabla_destino',$this->logs_tabla_destino,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
