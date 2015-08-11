@@ -6,9 +6,8 @@ class LogSistemaController extends Controller
 	{
 		$this->render('index');
 	}
-        
-        
-        // Uncomment the following methods and override them if needed
+
+	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()
 	{

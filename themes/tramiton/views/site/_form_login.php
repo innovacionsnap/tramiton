@@ -48,6 +48,6 @@ $form = $this->beginWidget('CActiveForm', array(
 </div>
 
 <div class="m-t-20">
-    Todavía no eres miembro? Haz click <?php echo CHtml::link('aquí', array('site/registro'), array('class' => 'text-success')); ?> para registrarte.
+    ¿No dispones de una cuenta en Tramitón? <?php echo CHtml::link('<strong>Registrate aquí</strong>', array('site/registro'), array('class' => 'text-success')); ?>.
 </div>
 <?php $this->endWidget(); ?>

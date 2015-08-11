@@ -118,12 +118,14 @@ class Solucion extends CActiveRecord {
 
     public function getRanking() {
         
-       $sql = 'select tra_nombre, sol_descripcion,sol_vistas 
-from solucion a, datos_tramite b, tramite_institucion c, tramite d 
+       $sql = 'select ins_nombre, tra_nombre, sol_descripcion,sol_vistas 
+from solucion a, datos_tramite b, tramite_institucion c, tramite d, institucion e 
 where sol_estado=1 and 
 	a.datt_id=b.datt_id and 
 	b.trai_id=c.trai_id and
-	c.tra_id=d.tra_id
+	c.tra_id=d.tra_id and
+        c.ins_id=e.ins_id and
+        e.ins_funcion_ejecutiva=1
 order by sol_vistas desc limit 10';
         $rows = Yii::app()->db->createCommand($sql)->queryAll();
         return $rows;

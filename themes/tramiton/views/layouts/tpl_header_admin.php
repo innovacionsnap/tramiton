@@ -5,7 +5,8 @@
     <!--<![endif]-->
     <head>
         <meta charset="utf-8" />
-        <title>Tramiton.to | Admin</title>
+        <!--<title>Tramiton.to | Admin</title>-->
+        <title><?php echo CHtml::encode($this->pageTitle); ?></title>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />

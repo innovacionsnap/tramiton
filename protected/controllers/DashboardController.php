@@ -46,7 +46,7 @@ class DashboardController extends Controller {
      */
     public function actionIndex() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc', 'limit' => 10, 'offset' => 15));
+        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc', 'limit' => 20));
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
         //$this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites', 'datosPublicacionesTramites', 'datosSolucion', 'datosTotalSoluciones', 'datosRankingSolucion','datosRankingLikes'));

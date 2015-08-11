@@ -1,6 +1,9 @@
 
 <!-- begin #content -->
 <div id="content" class="content">
+    <div style="margin-bottom:10px">
+        <a href="<?php echo(Yii::app()->baseUrl . '/ciudadano'); ?>"><img class="media-object" src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/registro_caso.png'); ?>" style="max-height: 72px; max-width: 163px; padding-left: 20px; float: right"></a>
+    </div>
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li><a href="javascript:;">Home</a></li>
@@ -92,8 +95,8 @@
                     </div>
                     <h4 class="panel-title">Soluciones Planteadas</h4>
                 </div>
-                <div class="panel-body">
-                    <div class="height-sm" data-scrollbar="true">
+                <div class="panel-body" style="height: 440px;">
+                    <div class="height-sm" data-scrollbar="true" style="height:400px">
                         <ul class="timeline">
                             <script type="text/javascript">
                                 function actualizarTexto(idTexto) {
@@ -157,7 +160,7 @@
 
                                         <div class="timeline-footer">
                                             <div id="comenta_<?php echo $contador; ?>" data-scrollbar="true" style="font-size: 12px;max-height: 100px;margin-bottom: 0px;padding-left: 16px;padding-right: 16px; overflow: auto"><?php DashboardController::getComentario($datoSolucion['sol_id']) ?></div>
-                                            
+
                                             <div class="modal fade" id="solucion_<?php echo $contador; ?>" tabindex="-1" role="dialog" aria-labelledby="MyModalLabel" aria-hidden="true" >
                                                 <div class="modal-dialog">
                                                     <div class="modal-content" >
@@ -197,7 +200,7 @@
                                                     <input type="hidden" name="usuario" id="usuario" value="<?php echo $datoSolucion['usu_id']; ?>" />
                                                     <input type="hidden" name="contador" id="contador" value="<?php echo $contador; ?>" />
                                                     <textarea class="form-control" name="comentario_<?php echo $contador; ?>" id="comment_<?php echo $contador; ?>" rows="1" cols="70"></textarea>
-                                                    <?php echo CHtml::ajaxSubmitButton('Enviar', 'procesacomentario', array('update' => '#comenta_' . $contador,'complete' => "$('#comenta_$contador').addClass('comenta')")); ?>
+                                                    <?php echo CHtml::ajaxSubmitButton('Enviar', 'procesacomentario', array('update' => '#comenta_' . $contador, 'complete' => "$('#comenta_$contador').addClass('comenta')")); ?>
                                                 </div>
 
 
@@ -237,7 +240,7 @@
 
         </div>
         <div class="col-md-4">
-            <!-- inicio grafico -->
+            <!-- inicio noticias -->
             <div class="panel panel-inverse" data-sortable-id="index-1">
                 <div class="panel-heading">
                     <div class="panel-heading-btn">
@@ -248,20 +251,20 @@
                     </div>
                     <h4 class="panel-title">Noticias</h4>
                 </div>
-                <div class="panel-body" >
+                <div class="panel-body" style="height: 440px">
                     <div class="height-sm" data-scrollbar="true" >
-                        <?php 
-                            $noticias=DashboardController::getNoticias();
-                            foreach ($noticias as $noticia):
-                        ?>
-                        <p style=" background-color: #ffffff; border-radius: 8px; padding: 10px">
-                          <?php echo $noticia['logs_usu_nombre']." ".$noticia['logs_accion'];?>  
-                        </p>
-                        <?php endforeach;?>
+                        <?php
+                        $noticias = DashboardController::getNoticias();
+                        foreach ($noticias as $noticia):
+                            ?>
+                            <p style=" background-color: #ffffff; border-radius: 8px; padding: 10px">
+                                <?php echo $noticia['logs_usu_usuario'] . " " . $noticia['logs_accion']; ?>  
+                            </p>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
-            <!-- fin grafico -->
+            <!-- fin noticias -->
         </div>
         <div>Status API Training Shop Blog About Help © 2015 GitHub, Inc. Terms Privacy Security Contact </div>
     </div>

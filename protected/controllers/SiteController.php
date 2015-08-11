@@ -195,6 +195,12 @@ class SiteController extends Controller {
         $model = new ValidarCedula;
         $model_login = new LoginForm;
         $msg = '';
+        
+        //validación ajax del formulario
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'validaCedula-form') {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
 
         if (isset($_POST['ValidarCedula'])) {
 
@@ -265,6 +271,12 @@ class SiteController extends Controller {
 
     /**
      * Función que permite crear el mensaje
+     * @return array Arreglo clave valor que contiene las partes para el mensaje
+     * @param string $titulo titulo del mensaje
+     * @param string $mensaje texto contenido del mensaje
+     * @param boolean $tituloLink true si quiere que el mensaje tenga un link, por defecto false
+     * @param string $url cadena que contiene la url para redirigir, por defecto false
+     * @param boolean $esLink true si el mensaje tiene link, por defecto false
      */
     public function creaMensaje($titulo, $mensaje, $tituloLink = false, $url = false, $esLink = false) {
         return array(
