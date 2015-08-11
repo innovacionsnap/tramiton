@@ -42,13 +42,17 @@
 	<!-- ================== END BASE JS ================== -->
 	
 	<!-- ================== BEGIN BASE COMBOBOX JS ================== -->
+
+
 	<?php
-	$baseUrl = Yii::app()->theme->baseUrl;
-	//echo "base: ".$baseUrl;
+	  $baseUrl = Yii::app()->baseUrl; 
+	  $cs = Yii::app()->getClientScript();
+	  Yii::app()->clientScript->registerCoreScript('jquery');
 	?>
-	<?php $linkcombo='/tramiton2/themes/tramiton/views/ciudadano/combobox.php' ?>
-	<?php $linkcombo2='/tramiton2/themes/tramiton/views/ciudadano/combobox2.php' ?>
+	<?php echo "BASE URL: ".$baseUrl; ?>
 	
+	<?php $linkcombo=$baseUrl.'/themes/tramiton/views/ciudadano/combobox.php' ?>
+	<?php $linkcombo2=$baseUrl.'/themes/tramiton/views/ciudadano/combobox2.php' ?>
 	
 	<script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
 	<script type="text/javascript" src="<?php echo $baseUrl; ?>/views/ciudadano/jquery.js"></script>
@@ -58,7 +62,7 @@
 		$("#id_provincia").change(function(event)
 		{
 			var idpadre = $(this).find(':selected').val();
-			$("#pidhijo").html("<img src='/tramiton2/themes/tramiton/views/ciudadano/loading.gif' />");
+			$("#pidhijo").html("<img src='<?php echo $baseUrl ?>/themes/tramiton/views/ciudadano/loading.gif' />");
 			$("#pidhijo").load('<?php echo $linkcombo?>?buscar=hijos&id_provincia='+idpadre);
 		});
 		
@@ -66,7 +70,7 @@
 		$("#id_institucion").change(function(event)
 		{
 			var id_institucion = $(this).find(':selected').val();
-			$("#pidhijo2").html("<img src='/tramiton2/themes/tramiton/views/ciudadano/loading.gif' />");
+			$("#pidhijo2").html("<img src='<?php echo $baseUrl ?>/themes/tramiton/views/ciudadano/loading.gif' />");
 			$("#pidhijo2").load('<?php echo $linkcombo2?>?buscar_institucion=institucion&id_institucion='+id_institucion);
 		});
 		
