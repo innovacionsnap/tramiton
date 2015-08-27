@@ -28,10 +28,13 @@ class RecuperarPasswordForm extends CFormModel {
             ),
             
             //validar captcha
-            array('captcha', 'required', 'message' => '<span style="color: #F00;">El código de verificación es requerido</span>'),
+            array('captcha', 'required', 'message' => '<span style="color: #F00;">El código de verificación es requerido</span>', 'on'=>'recuperarPassword'),
             array(
                 'captcha',
                 'captcha',
+                'on' => 'recuperarPassword',
+                'captchaAction' => 'user/captcha',
+                'skipOnError' => true,
                 'message' => '<span style="color: #F00;">El texto no corresponde al de la imagen</span>'
             ),
         );

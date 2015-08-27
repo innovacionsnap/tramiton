@@ -121,7 +121,22 @@
                                 <tr>
                                     <td class="field"><?php echo $form->labelEx($modelUser, 'usu_fechanacimiento'); ?></td>
                                     <td>
-                                        <?php echo $modelUser->usu_fechanacimiento; ?>
+                                        <?php 
+                                        $this->widget('zii.widgets.jui.CjuiDatePicker', array(
+                                            'attribute' => 'usu_fechanacimiento',
+                                            'model' => $modelUser,
+                                            'language' => 'es',
+                                            'options' => array(
+                                                'date-format' => 'yy-mm-dd',
+                                                'showButtonPanel' => true,
+                                                'changeYear' => true,
+                                                'yearRange' => '-80:-10',
+                                                'minDate' => '-80Y',
+                                                'maxDate' => '-10Y',
+                                            )
+                                        ));
+                                        //echo $modelUser->usu_fechanacimiento; 
+                                        ?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -129,8 +144,8 @@
                                     <td><?php echo $modelUser->usu_lugar_nacimiento; ?></td>
                                 </tr>
                                 <tr>
-                                    <td class="field">Gender</td>
-                                    <td>
+                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_genero'); ?></td>
+                                    <td><?php echo "sexo: " . $modelUser->usu_genero; ?>
                                         <select class="form-control input-inline input-xs" name="gender">
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>

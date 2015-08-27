@@ -3,7 +3,7 @@
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li><a href="<?php echo Yii::app()->getBaseUrl(); ?>/dashboard/index">Inicio</a></li>
-        <li class="active">Soluciones más Votadas</li>
+        <li class="active">Total Trámites</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
@@ -23,7 +23,7 @@
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                     </div>
-                    <h4 class="panel-title">Soluciones más votadas</h4>
+                    <h4 class="panel-title">Trámites</h4>
                 </div>
                 <div class="panel-body">
                     <?php //echo "<pre>"; print_r($tramites); echo "</pre>";?>
@@ -33,20 +33,22 @@
                                 <tr>
                                     <th>N°</th>
                                     <th>Trámite</th>
-                                    <th>Solución</th>
-                                    <th>Votos</th>
+                                    <th>Institución</th>
+                                    <th>Acción</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 $cont = 1;
-                                foreach ($datosVotosSolucion as $solucion):
+                                foreach ($tramites as $tramite):
                                     ?>
                                     <tr class="odd gradeA">
                                         <td class="sorting_1"><?php echo $cont; ?></td>
-                                        <td class="sorting_1"><?php echo $solucion['tra_nombre'] ?></td>
-                                        <td class="sorting_1"><?php echo $solucion['sol_descripcion'] ?></td>
-                                        <td class="sorting_1"><?php echo $solucion['likes'] ?></td>
+                                        <td class="sorting_1"><?php echo $tramite['tra_nombre'] ?></td>
+                                        <td class="sorting_1"><?php echo $tramite['ins_nombre'] ?></td>
+                                        <td><a href="/tramiton/ciudadano/index?t=<?php echo $tramite['tra_id'] ?>&i=<?php echo $tramite['ins_id'] ?>" title="Registre su caso"><button class="btn btn-inverse active btn-xs m-r-5" type="button"><i class="fa fa-edit"></i> Registre su caso</button></a></td>
+                                        
                                     </tr>
 
                                     <?php
@@ -65,9 +67,9 @@
     </div>
 </div>
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
-<?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/assets/plugins/DataTables/js/jquery.dataTables.js', CClientScript::POS_END); ?>	
-<?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/assets/js/table-manage-default.demo.min.js', CClientScript::POS_END); ?>	
-<?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/assets/js/apps.min.js', CClientScript::POS_END); ?>	
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . 'assets/plugins/DataTables/js/jquery.dataTables.js', CClientScript::POS_END); ?>	
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . 'assets/js/table-manage-default.demo.min.js', CClientScript::POS_END); ?>	
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . 'assets/js/apps.min.js', CClientScript::POS_END); ?>	
 
 
 <!-- ================== END PAGE LEVEL JS prueba ================== -->

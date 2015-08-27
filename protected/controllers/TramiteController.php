@@ -1,15 +1,14 @@
 <?php
 
-class DatosTramiteController extends Controller {
+class TramiteController extends Controller {
 
     public $_menuActive;
     public $_datosUser;
-    
+
     public function accessRules() {
         return array(
-            
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('index','ranking'),
+                'actions' => array('index', 'busca'),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano'),
             ),
@@ -21,23 +20,19 @@ class DatosTramiteController extends Controller {
     }
 
     public function actionIndex() {
+
+        $this->render('index');
+    }
+
+    public function actionBusca() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        $modelTramite= new DatosTramite();
-        $tramites=$modelTramite->getTramite();
+        $modelTramite = new Tramite();
+        $tramites = $modelTramite->getTramite($_POST['busca']);
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
-        $this->render('index',compact('tramites'));
+        $this->render('busca', compact('tramites'));
     }
-    
-    public function actionRanking(){
-        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        $modelTramite= new DatosTramite();
-        $rankings=$modelTramite->getRanking();
-        $this->layout = 'main-admin';
-        $this->_datosUser = $modelUser;
-        $this->render('ranking',compact('rankings'));
-    }
-    
+
     // Uncomment the following methods and override them if needed
     /*
       public function filters()
