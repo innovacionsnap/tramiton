@@ -109,7 +109,7 @@ class Usuario extends CActiveRecord
 			'usu_estado' => 'Usu Estado',
 			'usu_lugar_nacimiento' => 'Lugar Nac.',
 			'usu_fecha_registro' => 'Usu Fecha Registro',
-			'usu_genero' => 'Usu Genero',
+			'usu_genero' => 'Genero',
 			'usu_imagen' => 'Usu Imagen',
 			'usu_codigo_confirmacion' => 'Usu Codigo Confirmacion',
 		);

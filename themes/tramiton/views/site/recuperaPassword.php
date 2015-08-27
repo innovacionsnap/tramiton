@@ -1,3 +1,14 @@
+<?php
+// Snippet that reloads the captcha image after validation
+$updateCaptcha=<<<EOD
+function(form,attribute,data,hasError) {
+    var i=form.find('.captcha img').first(),
+                h=/^.*\/v\//.exec(i.attr('src'));  // will cut off the number part at the end of image src URL (".../v/123456")
+    i.attr('src',h+Math.floor(100000*Math.random()));  // creates a new random number to prevent image caching
+    return true;
+}
+EOD;
+?>
 <!-- begin register -->
 <div class="register register-with-news-feed">
     <!-- begin news-feed -->
@@ -35,6 +46,8 @@
                         'validateOnSubmit' => true,
                         'validateOnChange' => true,
                         'validateOnType' => true,
+                        'afterValidateAttribute' => 'js:'.$updateCaptcha,
+                        'afterValidate' => 'js:'.$updateCaptcha,
                     ),
                     ));
             ?>
