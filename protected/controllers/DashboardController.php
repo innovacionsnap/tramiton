@@ -46,7 +46,7 @@ class DashboardController extends Controller {
      */
     public function actionIndex() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc', 'limit' => 20));
+        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 20));
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
         //$this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites', 'datosPublicacionesTramites', 'datosSolucion', 'datosTotalSoluciones', 'datosRankingSolucion','datosRankingLikes'));
@@ -203,7 +203,7 @@ class DashboardController extends Controller {
     }
 
     public function getNoticias() {
-        $noticias = LogSistema::model()->findAllByAttributes(array('logs_tipo_publicacion'=>"p_usuario"),array('order'=>'logs_fechahora desc','limit'=>10));
+        $noticias = LogSistema::model()->findAllByAttributes(array('logs_tipo_publicacion'=>"p_usuario"),array('order'=>'logs_fechahora desc, logs_id desc','limit'=>10));
         return $noticias;
     }
 

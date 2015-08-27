@@ -1,11 +1,19 @@
 <?php
 include 'config.inc.php';
 
+
+function dameURL(){
+$actual_link="http://".$_SERVER['HTTP_HOST'].":".$_SERVER['SERVER_PORT'].$_SERVER['PHP_SELF'];
+return $actual_link;
+}
+
+//echo dameURL();
+ 
 if ($_GET['buscar_institucion']=="institucion")
 {
 	
 	$var_institucion = $_GET['id_institucion'];
-	//	echo $var_institucion;
+	//echo "Id: institucion".$var_institucion."<br>";
 		
 	$consulta_tramite = "select ins.ins_id,ins.ins_nombre,tra.tra_nombre from tramite tra, tramite_institucion trai, institucion ins where tra.tra_id = trai.tra_id and trai.ins_id = ins.ins_id and ins.ins_id='".$var_institucion."' order by tra.tra_nombre";	
 	
@@ -23,7 +31,7 @@ if ($_GET['buscar_institucion']=="institucion")
 	
 	
 		if($numReg == 1 and $fila['tra_nombre'] =='Otro...'){
-			 echo "<input type='text' name='otro_tramite' placeholder='Escriba otro tramite' class='form-control' data-parsley-group='wizard-step-1' required />";
+			 echo "<input type='text' name='otro_tramite' onkeyup = 'Validate(this)' placeholder='Escriba otro tramite' class='form-control' data-parsley-group='wizard-step-1' required />";
 	    }else{
 	    	echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_tramite' id='id_tramite' required>";
 			

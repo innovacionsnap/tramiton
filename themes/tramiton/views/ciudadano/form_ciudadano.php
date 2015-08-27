@@ -324,7 +324,7 @@ order by pro_prob_id limit 4 offset 0";
 	  $cs = Yii::app()->getClientScript();
 	  Yii::app()->clientScript->registerCoreScript('jquery');
 	?>
-<?php echo $baseUrl; ?>
+<?php //echo $baseUrl; ?>
 
 <!-- begin #content -->
 		<div id="content" class="content">
@@ -356,7 +356,7 @@ order by pro_prob_id limit 4 offset 0";
                         </div>
                         <div class="panel-body">
                         	
-                            <form action="<?php echo $baseUrl; ?>themes/tramiton/views/ciudadano/prueba.php" method="POST" data-parsley-validate="true" name="form-wizard">
+                            <form action="<?php echo $baseUrl; ?>/themes/tramiton/views/ciudadano/final_formulario.php" method="POST" data-parsley-validate="true" name="form-wizard">
 								<div id="wizard">
 									<ol>
 										<li>
@@ -508,6 +508,7 @@ order by pro_prob_id limit 4 offset 0";
                                     <input type="submit" value="Publicar y Guardar" class="btn btn-success btn-lg"> 
                                     <input type="hidden" name="insertar_tramite" value="1">
                                     <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
+                                     <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
                                 </div>
 									</div>
 									<!-- end wizard step-4 -->
