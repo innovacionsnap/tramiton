@@ -4,12 +4,13 @@ class DashboardController extends Controller {
 
     public $_menuActive;
     public $_datosUser;
-    
-   /* public function __construct() {
+
+    /* public function __construct() {
       //$modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
       //$this->_datosUser = $modelUser;
-        
-      }*/
+
+      } */
+
     public function filters() {
         return array(
             'accessControl', // perform access control for CRUD operations
@@ -29,7 +30,7 @@ class DashboardController extends Controller {
               'users' => array('@'),
               ), */
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('index', 'valor','totaltramite','ranktramite', 'visitasolucion','votossolucion','procesacomentario', 'getusuario', 'getcomentario',
+                'actions' => array('index', 'valor', 'totaltramite', 'timeline', 'ranktramite', 'visitasolucion', 'votossolucion', 'procesacomentario', 'getusuario', 'getcomentario',
                     'validalike', 'getLike', 'procesamegusta', 'procesavista'),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano'),
@@ -46,11 +47,26 @@ class DashboardController extends Controller {
      */
     public function actionIndex() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 20));
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
-        //$this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites', 'datosPublicacionesTramites', 'datosSolucion', 'datosTotalSoluciones', 'datosRankingSolucion','datosRankingLikes'));
-        $this->render('dashboard_admin', compact('datosSolucion'));
+        $this->render('dashboard_admin');
+    }
+
+    public function actionTimeline() {
+        //$modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        /*if(isset($_GET['limite'])){
+            $limite=$_GET['limite'];
+        }else{
+            $limite=0;
+        }*/
+        $limite=0;
+        $total = Solucion::model()->count();
+        //$paginas=ceil($total/10);
+        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 12, 'offset' => $limite));
+        //$this->layout = 'main-admin';
+        //$this->_datosUser = $modelUser;
+        $this->renderPartial('timeline', compact('datosSolucion','total','limite'), false, true);
+       // $this->render('prueba', compact('datosSolucion','total','limite'));
     }
 
     public function actionValor() {
@@ -60,35 +76,30 @@ class DashboardController extends Controller {
         //$this->_datosUser = $modelUser;
         //$this->render('ranking_tramites');
     }
-    
-    public function actionTotalTramite(){
+
+    public function actionTotalTramite() {
         $model = new Dashboard();
         $datosTotalTramites = $model->getTotalTramite();
-        echo $datosTotalTramites[0]['total_tramite'];
+        echo $datosTotalTramites[0]['total_tramites'];
     }
-    
-    public function actionRankTramite(){
+
+    public function actionRankTramite() {
         $model = new Dashboard();
         $datosRankingTramites = $model->getRankingTramite();
-        $datosTotalTramites = $model->getTotalTramite();
-        echo round(($datosRankingTramites[0]['sum_10_tot_tramite']*100/$datosTotalTramites[0]['total_tramite']),2)."%";
+        echo $datosRankingTramites[0]['ranking_tramites'] . ' %';
     }
-    
-    public function actionVisitaSolucion(){
+
+    public function actionVisitaSolucion() {
         $model = new Dashboard();
-        $total_soluciones=  $this->getTotalSoluciones();
         $datosRankingSolucion = $model->getRankingSolucion();
-        echo round(($datosRankingSolucion[0]['vistas']*100/$total_soluciones),2)."%";
-        
+        echo($datosRankingSolucion[0]['visita_solucion'] . ' %');
     }
-    
-    public function actionVotosSolucion(){
+
+    public function actionVotosSolucion() {
         $model = new Dashboard();
-        $datosRankingLikes=$model->getRankingLike();
-        $total_soluciones=  $this->getTotalSoluciones();
-        echo round(($datosRankingLikes[0]['likes']*100/$total_soluciones), 2)."%";
+        $datosRankingLikes = $model->getRankingLike();
+        echo ($datosRankingLikes[0]['votos_solucion']);
     }
-            
 
     public function getUsuario($usu_id) {
         $usuario = Usuario::model()->findByPk($usu_id);
@@ -126,6 +137,12 @@ class DashboardController extends Controller {
             echo $html;
         endforeach;
     }
+    
+    public function getNumComentarios($solucion) {
+        $comentarios = Comentario::model()->findAll($condition = 'sol_id=' . $solucion);
+        $num_comentarios=count($comentarios);
+        return $num_comentarios;
+    }
 
     public function validaLike($solucion) {
         $usuario = Yii::app()->user->id;
@@ -155,7 +172,7 @@ class DashboardController extends Controller {
         $total_soluciones = count($solucion);
         return $total_soluciones;
     }
-    
+
     public function actionProcesaMegusta() {
         $solucion = $_GET['sol'];
         $usuario = Yii::app()->user->id;
@@ -187,7 +204,7 @@ class DashboardController extends Controller {
 
     public function getVista($id) {
         $sol = Solucion::model()->find('sol_id=' . $id);
-        return $sol->sol_vistas . ' Vistas';
+        return $sol->sol_vistas;
     }
 
     public function actionprocesaVista() {
@@ -203,7 +220,7 @@ class DashboardController extends Controller {
     }
 
     public function getNoticias() {
-        $noticias = LogSistema::model()->findAllByAttributes(array('logs_tipo_publicacion'=>"p_usuario"),array('order'=>'logs_fechahora desc, logs_id desc','limit'=>10));
+        $noticias = LogSistema::model()->findAllByAttributes(array('logs_tipo_publicacion' => "p_usuario"), array('order' => 'logs_fechahora desc, logs_id desc', 'limit' => 10));
         return $noticias;
     }
 

@@ -42,8 +42,7 @@
         <!-- ================== BEGIN BASE JS ================== -->
         <script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
         <script src="<?php echo $baseUrl; ?>/views/ciudadano/jquery.js"></script>
-        <script src="<?php echo $baseUrl; ?>/assets/js/total_tramites.js"></script>
-
+        
         <!-- ================== END BASE JS ================== -->
 
         <!-- ================== BEGIN BASE COMBOBOX JS ================== -->
@@ -89,5 +88,5 @@
         <!-- end #page-loader -->
 
         <!-- begin #page-container -->
-        <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+        <div id="page-container" class="fade page-sidebar-fixed page-header-fixed in">
 

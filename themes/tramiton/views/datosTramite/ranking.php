@@ -2,7 +2,7 @@
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li><a href="<?php echo Yii::app()->getBaseUrl(); ?>/dashboard/index">Home</a></li>
+        <li><a href="<?php echo Yii::app()->getBaseUrl(); ?>/dashboard/index">Inicio</a></li>
         <li class="active">Ranking Trámites</li>
     </ol>
     <!-- end breadcrumb -->
@@ -63,9 +63,9 @@
     </div>
 </div>
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . 'assets/plugins/DataTables/js/jquery.dataTables.js', CClientScript::POS_END); ?>	
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . 'assets/js/table-manage-default.demo.min.js', CClientScript::POS_END); ?>	
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . 'assets/js/apps.min.js', CClientScript::POS_END); ?>	
+<?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/assets/plugins/DataTables/js/jquery.dataTables.js', CClientScript::POS_END); ?>	
+<?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/assets/js/table-manage-default.demo.min.js', CClientScript::POS_END); ?>	
+<?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/assets/js/apps.min.js', CClientScript::POS_END); ?>	
 
 
 <!-- ================== END PAGE LEVEL JS prueba ================== -->
