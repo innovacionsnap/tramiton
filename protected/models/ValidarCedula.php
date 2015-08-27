@@ -115,9 +115,9 @@ class ValidarCedula extends CFormModel {
                         return $respuesta;
                         exit();
                     } else {
-                        //var_dump($valor);
+                        var_dump($valor);
 			//echo "<hr>";
-                        //Yii::app()->end();
+                        Yii::app()->end();
                         $this->cedula_participacion = $cedula;
                         $this->condicion_cedulado = $valor->CondicionCedulado;
                         $this->estado_civil = $valor->EstadoCivil;

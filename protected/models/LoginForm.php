@@ -51,7 +51,7 @@ class LoginForm extends CFormModel
 		{
 			$this->_identity=new UserIdentity($this->username,$this->password);
 			if(!$this->_identity->authenticate())
-				$this->addError('password','Usuario o Contraseña Incorrecta.');
+				$this->addError('password','<span style="color: #F00;">Usuario y/o Contraseña Incorrecta</span>');
 		}
 	}
 
