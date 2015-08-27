@@ -53,7 +53,7 @@ class Ciudadano extends CActiveRecord {
                 and usu.usu_id = datt.usu_id
                 and datt.datt_id = '$dato_datt_id'
                 and datt_estado = 1 order by datt.datt_id desc";
-                //echo $sql;
+               // echo $sql;
 
         $dataReader = $this->connection->createCommand($sql)->query();
 
@@ -68,6 +68,7 @@ class Ciudadano extends CActiveRecord {
         $dato_datt_id = $_GET['datt_id'];
         //$usu_id = $this->_datosUser->usu_id;
         $sql = "select * from solucion where datt_id = '$dato_datt_id'";
+        echo "<br>".$sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
@@ -82,6 +83,7 @@ class Ciudadano extends CActiveRecord {
         $sql = "select * from comentario com, solucion sol 
                 where com.sol_id = sol.sol_id
                 and sol.datt_id = 7781";
+
         $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;

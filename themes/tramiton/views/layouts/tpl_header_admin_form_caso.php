@@ -13,7 +13,7 @@
 	<?php
 	  $baseUrl = Yii::app()->theme->baseUrl; 
 	  $cs = Yii::app()->getClientScript();
-	  Yii::app()->clientScript->registerCoreScript('jquery');
+	 // Yii::app()->clientScript->registerCoreScript('jquery');
 	?>
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
@@ -23,7 +23,8 @@
 	<link href="<?php echo $baseUrl; ?>/assets/css/animate.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/style-adm.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/style-responsive-admin.css" rel="stylesheet" />
-
+	
+	
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->    
@@ -37,18 +38,18 @@
 	<!-- ================== END BASE JS ================== -->
 	
 	<!-- ================== BEGIN BASE COMBOBOX JS ================== -->
+	
 	<?php
 	$baseUrl = Yii::app()->theme->baseUrl;
 	echo "base: ".$baseUrl;
 	?>
 
 	
-	
-	
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/lib/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.js?v=2.1.5"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.css?v=2.1.5" media="screen" />
 
-<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/lib/jquery-1.10.1.min.js"></script>
-<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.js?v=2.1.5"></script>
-<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.css?v=2.1.5"></script>
+
 
 	
 	<!-- ================== END BASE COMBOBOX JS ================== -->
