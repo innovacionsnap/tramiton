@@ -23,6 +23,7 @@
 	<link href="<?php echo $baseUrl; ?>/assets/css/animate.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/style-adm.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/style-responsive-admin.css" rel="stylesheet" />
+        <link href="<?php echo $baseUrl; ?>/assets/css/loader.css" rel="stylesheet" />
 	
 	
 	<!-- ================== END BASE CSS STYLE ================== -->

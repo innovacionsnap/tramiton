@@ -58,9 +58,10 @@
         <div class="cuerpo">
             <p>
                 <?php
-                $sol_descripcion = substr($datoSolucion['sol_descripcion'], 0, 170);
-                echo $sol_descripcion . ' ...';
+                $sol_descripcion = substr($datoSolucion['sol_descripcion'], 0, 150);
+                echo $sol_descripcion;
                 ?>
+                <a href="../solucion/index?sol=<?php echo $datoSolucion['sol_id'] ?>" class="solucion-new" target="_blank">Ver más</a>
             </p>
         </div>
         <hr>
@@ -81,10 +82,22 @@
     <?php $contador++; ?>
 <?php endforeach; ?>
 
-
-
-
 <script type="text/javascript">
+    $(document).ready(function () {
+        $(".solucion-new").fancybox({
+            'titleShow': false,
+            'width': '65%',
+            'height': '65%',
+            'autoScale': false,
+            'transitionIn': 'none',
+            'transitionOut': 'none',
+            'type': 'iframe',
+             /*afterClose : function() {
+                 location.reload();
+            }*/
+        });
+
+    });
     function actualizarTexto(idTexto) {
         if ($(idTexto).html() === "Me gusta") {
             $(idTexto).html("Ya no me gusta");

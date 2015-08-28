@@ -47,7 +47,8 @@ class DashboardController extends Controller {
      */
     public function actionIndex() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        $this->layout = 'main-admin';
+        //$this->layout = 'main-admin';
+        $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;
         $this->render('dashboard_admin');
     }

@@ -51,7 +51,7 @@
                             ?>
                             <p style=" background-color: #ffffff; border-radius: 8px; padding: 10px">
                                 <?php echo $noticia['logs_usu_usuario'] . " "; ?> 
-                                <a href="../solucion/index?sol=<?php echo $noticia['logs_id_tabla_destino']; ?>" target="_blank"><?php echo $noticia['logs_accion']; ?></a>
+                                <a href="../solucion/index?sol=<?php echo $noticia['logs_id_tabla_destino']; ?>" class="noticia-new" target="_blank"><?php echo $noticia['logs_accion']; ?></a>
                             </p>
                         <?php endforeach; ?>
                     </div>
@@ -81,6 +81,20 @@
                 res1.container.find(res1.loader).remove();
             }
         });
+
+        $(".noticia-new").fancybox({
+            'titleShow': false,
+            'width': '65%',
+            'height': '65%',
+            'autoScale': false,
+            'transitionIn': 'none',
+            'transitionOut': 'none',
+            'type': 'iframe',
+            // afterClose : function() {
+            //     location.reload();
+            // }
+        });
+
     });
 
 

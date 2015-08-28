@@ -31,10 +31,12 @@ class SolucionController extends Controller {
         if (Yii::app()->user->isGuest == 1) {
             $this->layout = 'main';
         } else {
-            $this->layout = 'main-admin';
-            $this->_datosUser = $modelUser;
+            //$this->layout = 'main-admin';
+            //$this->layout = 'main-admin_form_caso';
+           // $this->_datosUser = $modelUser;
         }
         $this->render('solucion', array('solucion' => $solucion, 'imagen_usuario' => $imagen_usuario, 'usuario_solucion' => $usuario_solucion, 'comentario' => $comentario, 'vistas' => $vistas, 'experiencia' => $experiencia, 'tramite' => $tramite));
+        //$this->renderPartial('solucion', array('solucion' => $solucion, 'imagen_usuario' => $imagen_usuario, 'usuario_solucion' => $usuario_solucion, 'comentario' => $comentario, 'vistas' => $vistas, 'experiencia' => $experiencia, 'tramite' => $tramite),false,true);
     }
 
     public function actionProcesaComentario() {
