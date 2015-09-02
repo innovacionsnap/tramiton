@@ -31,7 +31,7 @@ class DashboardController extends Controller {
               ), */
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('index', 'valor', 'totaltramite', 'timeline', 'ranktramite', 'visitasolucion', 'votossolucion', 'procesacomentario', 'getusuario', 'getcomentario',
-                    'validalike', 'getLike', 'procesamegusta', 'procesavista'),
+                    'validalike', 'getLike', 'procesamegusta', 'procesavista', 'cargatimeline'),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano'),
             ),
@@ -55,19 +55,61 @@ class DashboardController extends Controller {
 
     public function actionTimeline() {
         //$modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        /*if(isset($_GET['limite'])){
-            $limite=$_GET['limite'];
-        }else{
-            $limite=0;
-        }*/
-        $limite=0;
+        $limite = 0;
         $total = Solucion::model()->count();
-        //$paginas=ceil($total/10);
-        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 12, 'offset' => $limite));
+        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 15, 'offset' => $limite));
         //$this->layout = 'main-admin';
         //$this->_datosUser = $modelUser;
-        $this->renderPartial('timeline', compact('datosSolucion','total','limite'), false, true);
-       // $this->render('prueba', compact('datosSolucion','total','limite'));
+        $this->renderPartial('timeline', compact('datosSolucion', 'total'), false, true);
+        //$this->renderPartial('prueba', compact('datosSolucion','total'),false,true);
+    }
+
+    public function actionCargaTimeline() {
+        if (isset($_GET['lim'])) {
+            $limite = $_GET['lim'];
+        } else {
+            $limite = 0;
+        }
+        $html = '';
+        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 15, 'offset' => $limite));
+        foreach ($datosSolucion as $datoSolucion):
+            $html.='<div class="contenido-solucion" style="margin-right:18px">
+                        <div class="usuario">
+                            <img src="';
+            $html.= (Yii::app()->theme->baseUrl) . '/assets/img/users/';
+            $html.= $this->getImagen($datoSolucion['usu_id']) . '" alt=""/>';
+            $html.='<span>' . $this->GetUsuario($datoSolucion['usu_id']) . '</span></div>';
+            $html.='<div class="detalles">
+                <span title="Me Gusta"><i class="fa fa-thumbs-o-up fa-fw"></i>' . $this->getLike($datoSolucion['sol_id']) . '</span>
+                <span title="Comentarios"><i class="fa fa-comments fa-fw"></i>' . $this->getNumComentarios($datoSolucion['sol_id']) . '</span>
+                <span title="Vistas"><i class="fa fa-eye fa-fw"></i>' . $this->getVista($datoSolucion['sol_id']) . '</span>
+            </div>
+            <hr>
+            <div class="cuerpo">
+                <p>';
+
+            $sol_descripcion = substr($datoSolucion['sol_descripcion'], 0, 150);
+            $html.= $sol_descripcion . '<a href="../solucion/index?sol=' . $datoSolucion['sol_id'] . '" class="solucion-new" target="_blank">Ver más</a>
+                </p>
+            </div>
+            <hr>
+            <div class="pie">
+                <div class="compartir">
+                    <a href="http://www.facebook.com/sharer.php?u=';
+            $html.=urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
+                    <a href="http://twitter.com/share?url=';
+
+            $html.=urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
+                    <a href="https://plus.google.com/share?url=';
+            $html.=urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
+                </div>
+                <div class="fecha">
+                    <span>Publicado el: ' . $datoSolucion['sol_fecha'] . '</span>
+                </div>
+            </div>
+        </div>';
+        endforeach;
+        echo $html;
     }
 
     public function actionValor() {
@@ -138,10 +180,10 @@ class DashboardController extends Controller {
             echo $html;
         endforeach;
     }
-    
+
     public function getNumComentarios($solucion) {
         $comentarios = Comentario::model()->findAll($condition = 'sol_id=' . $solucion);
-        $num_comentarios=count($comentarios);
+        $num_comentarios = count($comentarios);
         return $num_comentarios;
     }
 
