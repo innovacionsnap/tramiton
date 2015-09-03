@@ -1,3 +1,8 @@
+<style type="text/css">
+    .navbar-header button{
+        display: none;
+    }
+</style>
 <!-- begin #about -->
 <div id="about" class="content" data-scrollview="true">
     <!-- begin container -->

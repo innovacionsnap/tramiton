@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="../css/slider-vertical.css" media="all" />
+<script src="../assets/602d1638/slider-vertical.js" type="text/javascript"></script>
 <style type="text/css">
     .linea{
         background-color: #ccccbc;
@@ -7,8 +9,12 @@
         margin-left: 50px;
         margin-right: 20px;
     }
-</style>
 
+    .noticia-new{
+        font-weight: bold;
+        color: #fff;
+    }
+</style>
 <!-- begin #content -->
 <div id="content" class="content linea">
     <!-- begin breadcrumb -->
@@ -23,42 +29,36 @@
 
     <!-- begin row -->
     <div class="row">
+        <div class="col-md-11">
+            <div class="nivel slider-vertical">
+                <div class="contenedor-slider">
+                    <div class="bloque-slider">
+                        <?php
+                        $noticias = DashboardController::getNoticias();
+                        foreach ($noticias as $noticia):
+                            ?>
+                            <div class="modulo-slider">
+                                <?php echo $noticia['logs_usu_usuario'] . " "; ?> 
+                                <a href="../solucion/index?sol=<?php echo $noticia['logs_id_tabla_destino']; ?>" class="noticia-new" target="_blank"><?php echo $noticia['logs_accion']; ?></a>
+                            </div>
+                        <?php endforeach; ?>
+                        <!-- fin modulo-noticias-slide -->
+                    </div>
+                    <!-- fin bloque-slider -->
+                    
+                </div>
+
+            </div>
+        </div>
         <!-- begin col-8 -->
-        <div class="col-md-9">
+        <div class="col-md-11">
             <!-- inicio mensajes -->
 
             <div id="contenido_linea" class="height-sm" data-scrollbar="true" style="height:600px; background-color: #fff; padding: 10px;"></div>
 
             <!-- fin mensajes -->
         </div>
-        <div class="col-md-3">
-            <!-- inicio noticias -->
-            <div class="panel panel-inverse" data-sortable-id="index-1">
-                <div class="panel-heading">
-                    <div class="panel-heading-btn">
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-                    </div>
-                    <h4 class="panel-title">Noticias</h4>
-                </div>
-                <div class="panel-body" style="height: 540px">
-                    <div class="height-sm" data-scrollbar="true" style="height:500px" >
-                        <?php
-                        $noticias = DashboardController::getNoticias();
-                        foreach ($noticias as $noticia):
-                            ?>
-                            <p style=" background-color: #ffffff; border-radius: 8px; padding: 10px">
-                                <?php echo $noticia['logs_usu_usuario'] . " "; ?> 
-                                <a href="../solucion/index?sol=<?php echo $noticia['logs_id_tabla_destino']; ?>" target="_blank"><?php echo $noticia['logs_accion']; ?></a>
-                            </p>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </div>
-            <!-- fin noticias -->
-        </div>
+        
 
     </div>
     <!-- end row -->
@@ -81,12 +81,33 @@
                 res1.container.find(res1.loader).remove();
             }
         });
+
+        $(".noticia-new").fancybox({
+            'titleShow': false,
+            'width': '65%',
+            'height': '65%',
+            'autoScale': false,
+            'transitionIn': 'none',
+            'transitionOut': 'none',
+            'type': 'iframe',
+            // afterClose : function() {
+            //     location.reload();
+            // }
+        });
+
+        moverSlider();
+        $(".slider-vertical").mouseover(function () {
+            verificar = 0;
+        });
+
+        $(".slider-vertical").mouseout(function () {
+            verificar = 1;
+        });
+
+
+
     });
 
 
 </script>
-
-
-
-
 
