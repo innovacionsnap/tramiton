@@ -48,13 +48,14 @@ class BitacoraController extends Controller {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
 
         //creo una instancia del modelo Dashboard
-        $model = new Dashboard();
+        $model = new Bitacora();
         //$datosTotalTramites = $model->getTotalTramite();
         //$datosRankingTramites = $model->getRankingTramite();
         //$datosPublicacionesTramites = $model->getPublicacionesTramites();
+        $datosTarea = $model->getTarea();
         $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;
-        $this->render('index');
+        $this->render('index',compact('datosTarea'));
         //$this->render('formulario');
     }
 
@@ -63,14 +64,15 @@ class BitacoraController extends Controller {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
 
         //creo una instancia del modelo Dashboard
-        $model = new Dashboard();
+        $model = new Bitacora();
         $dos = 0;
         //$datosTotalTramites = $model->getTotalTramite();
         //$datosRankingTramites = $model->getRankingTramite();
-        //$datosPublicacionesTramites = $model->getPublicacionesTramites();
-        $this->layout = 'main-admin_form_caso';
+        
+       // $this->layout = 'main-admin_form_caso';
+        $this->layout = 'main-admin_form';
         $this->_datosUser = $modelUser;
-        $this->renderPartial('actividad',compact('dos'));
+        $this->renderPartial('actividad',compact('dos'),false,true);
         //$this->render('formulario');
     }
 

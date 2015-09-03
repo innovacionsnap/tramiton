@@ -1,29 +1,33 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="es">
+<!--<![endif]-->
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" href="/tramiton2/assets/76b0e685/css/bootstrap.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="/tramiton2/assets/50fa885a/css/yiistrap.css" media="screen" />
-<script type="text/javascript" src="/tramiton2/assets/1fef0640/jquery.js"></script>
-<title>Tramiton.to | Admin</title>
+    <title>Tramiton.to | Admin</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
+     
+    <?php
+    $baseUrl = Yii::app()->theme->baseUrl;
     
-        
+    ?>
     <!-- ================== BEGIN BASE CSS STYLE ================== -->
 
-    <link href="/tramiton2/themes/tramiton/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/tramiton2/themes/tramiton/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="/tramiton2/themes/tramiton/assets/css/animate.min.css" rel="stylesheet" />
-    <link href="/tramiton2/themes/tramiton/assets/css/style-adm-bitacora.min.css" rel="stylesheet" />
-    <link href="/tramiton2/themes/tramiton/assets/css/style-responsive-admin.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/css/animate.min.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/css/style-adm-bitacora.min.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/css/style-responsive-admin.css" rel="stylesheet" />
     
     
     <!-- ================== END BASE CSS STYLE ================== -->
     
     <!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->    
-        <link href="/tramiton2/themes/tramiton/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
-        <link href="/tramiton2/themes/tramiton/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
         
     <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
         
@@ -32,12 +36,12 @@
     <!-- ================== END BASE JS ================== -->
     
     <!-- ================== BEGIN BASE COMBOBOX JS ================== -->
-    
-  
-    
-<script type="text/javascript" src="/tramiton2/themes/tramiton/assets/lib/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="/tramiton2/themes/tramiton/assets/source/jquery.fancybox.js?v=2.1.5"></script>
-<link rel="stylesheet" type="text/css" href="/tramiton2/themes/tramiton/assets/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+   
+
+        
+    <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/lib/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.js?v=2.1.5"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.css?v=2.1.5" media="screen" />
 
 
 
@@ -46,319 +50,147 @@
         
       
 </head>
-    <!-- begin #page-loader -->
-    <div id="page-loader" class="fade in"><span class="spinner"></span></div>
-    <!-- end #page-loader -->
-    
-    <!-- begin #page-container -->
-    <div id="page-container" class="fade page-sidebar-minified page-sidebar-fixed page-header-fixed">
-        
-        <!-- begin #sidebar -->
-        <div id="sidebar" class="sidebar">
-            <!-- begin sidebar scrollbar -->
-            <div data-scrollbar="true" data-height="100%">
-                
-                <!-- begin sidebar nav -->
-                <ul class="nav">
-                
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-laptop"></i>
-                            <span>Dashboard</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="index.html">Dashboard v1</a></li>
-                            <li><a href="index_v2.html">Dashboard v2</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <span class="badge pull-right">10</span>
-                            <i class="fa fa-inbox"></i> 
-                            <span>Email</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="email_inbox.html">Inbox v1</a></li>
-                            <li><a href="email_inbox_v2.html">Inbox v2</a></li>
-                            <li><a href="email_compose.html">Compose</a></li>
-                            <li><a href="email_detail.html">Detail</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-suitcase"></i>
-                            <span>UI Elements <span class="label label-theme m-l-5">NEW</span></span> 
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="ui_general.html">General</a></li>
-                            <li><a href="ui_typography.html">Typography</a></li>
-                            <li><a href="ui_tabs_accordions.html">Tabs & Accordions</a></li>
-                            <li><a href="ui_unlimited_tabs.html">Unlimited Nav Tabs</a></li>
-                            <li><a href="ui_modal_notification.html">Modal & Notification</a></li>
-                            <li><a href="ui_widget_boxes.html">Widget Boxes</a></li>
-                            <li><a href="ui_media_object.html">Media Object</a></li>
-                            <li><a href="ui_buttons.html">Buttons</a></li>
-                            <li><a href="ui_icons.html">Icons</a></li>
-                            <li><a href="ui_simple_line_icons.html">Simple Line Icons</a></li>
-                            <li><a href="ui_ionicons.html">Ionicons</a></li>
-                            <li><a href="ui_tree.html">Tree View <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
-                            <li><a href="ui_language_bar_icon.html">Language Bar & Icon <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-file-o"></i>
-                            <span>Form Stuff <span class="label label-theme m-l-5">NEW</span></span> 
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="form_elements.html">Form Elements</a></li>
-                            <li><a href="form_plugins.html">Form Plugins <i class="fa fa-paper-plane text-theme"></i></a></li>
-                            <li><a href="form_slider_switcher.html">Form Slider + Switcher</a></li>
-                            <li><a href="form_validation.html">Form Validation</a></li>
-                            <li><a href="form_wizards.html">Wizards</a></li>
-                            <li><a href="form_wizards_validation.html">Wizards + Validation</a></li>
-                            <li><a href="form_wysiwyg.html">WYSIWYG</a></li>
-                            <li><a href="form_editable.html">X-Editable</a></li>
-                            <li><a href="form_multiple_upload.html">Multiple File Upload</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-th"></i>
-                            <span>Tables</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="table_basic.html">Basic Tables</a></li>
-                            <li class="has-sub">
-                                <a href="javascript:;"><b class="caret pull-right"></b> Managed Tables</a>
-                                <ul class="sub-menu">
-                                    <li><a href="table_manage.html">Default</a></li>
-                                    <li><a href="table_manage_autofill.html">Autofill</a></li>
-                                    <li><a href="table_manage_colreorder.html">ColReorder</a></li>
-                                    <li><a href="table_manage_colvis.html">ColVis</a></li>
-                                    <li><a href="table_manage_fixed_columns.html">Fixed Column</a></li>
-                                    <li><a href="table_manage_fixed_header.html">Fixed Header</a></li>
-                                    <li><a href="table_manage_keytable.html">KeyTable</a></li>
-                                    <li><a href="table_manage_responsive.html">Responsive</a></li>
-                                    <li><a href="table_manage_scroller.html">Scroller</a></li>
-                                    <li><a href="table_manage_tabletools.html">TableTools</a></li>
-                                    <li><a href="table_manage_combine.html">Extension Combination</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-star"></i> 
-                            <span>Front End</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="../../frontend/one-page-parallax/index.html" target="_blank">One Page Parallax</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-envelope"></i>
-                            <span>Email Template</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="email_system.html">System Template</a></li>
-                            <li><a href="email_newsletter.html">Newsletter Template</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-area-chart"></i>
-                            <span>Chart</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="chart-flot.html">Flot Chart</a></li>
-                            <li><a href="chart-morris.html">Morris Chart</a></li>
-                            <li><a href="chart-js.html">Chart JS</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="calendar.html"><i class="fa fa-calendar"></i> <span>Calendar</span></a></li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-map-marker"></i>
-                            <span>Map</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="map_vector.html">Vector Map</a></li>
-                            <li><a href="map_google.html">Google Map</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-camera"></i>
-                            <span>Gallery</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="gallery.html">Gallery v1</a></li>
-                            <li><a href="gallery_v2.html">Gallery v2</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub active">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-cogs"></i>
-                            <span>Page Options <span class="label label-theme m-l-5">NEW</span></span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="page_blank.html">Blank Page</a></li>
-                            <li><a href="page_with_footer.html">Page with Footer</a></li>
-                            <li><a href="page_without_sidebar.html">Page without Sidebar</a></li>
-                            <li><a href="page_with_right_sidebar.html">Page with Right Sidebar</a></li>
-                            <li class="active"><a href="page_with_minified_sidebar.html">Page with Minified Sidebar</a></li>
-                            <li><a href="page_with_two_sidebar.html">Page with Two Sidebar</a></li>
-                            <li><a href="page_with_line_icons.html">Page with Line Icons</a></li>
-                            <li><a href="page_with_ionicons.html">Page with Ionicons</a></li>
-                            <li><a href="page_full_height.html">Full Height Content</a></li>
-                            <li><a href="page_with_wide_sidebar.html">Page with Wide Sidebar <i class="fa fa-paper-plane text-theme"></i></a></li>
-                            <li><a href="page_with_light_sidebar.html">Page with Light Sidebar <i class="fa fa-paper-plane text-theme"></i></a></li>
-                            <li><a href="page_with_mega_menu.html">Page with Mega Menu <i class="fa fa-paper-plane text-theme"></i></a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-gift"></i>
-                            <span>Extra <span class="label label-theme m-l-5">NEW</span></span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="extra_timeline.html">Timeline</a></li>
-                            <li><a href="extra_coming_soon.html">Coming Soon Page</a></li>
-                            <li><a href="extra_search_results.html">Search Results</a></li>
-                            <li><a href="extra_invoice.html">Invoice</a></li>
-                            <li><a href="extra_404_error.html">404 Error Page</a></li>
-                            <li><a href="extra_profile.html">Profile Page <i class="fa fa-paper-plane text-theme"></i></a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-key"></i>
-                            <span>Login & Register <span class="label label-theme m-l-5">NEW</span></span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="login_v2.html">Login v2</a></li>
-                            <li><a href="login_v3.html">Login v3 <i class="fa fa-paper-plane text-theme"></i></a></li>
-                            <li><a href="register_v3.html">Register v3 <i class="fa fa-paper-plane text-theme"></i></a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-cubes"></i>
-                            <span>Version</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="javascript:;">HTML</a></li>
-                            <li><a href="../template_content_ajax/index.html">AJAX</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-medkit"></i>
-                            <span>Helper</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="helper_css.html">Predefined CSS Classes</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <i class="fa fa-align-left"></i> 
-                            <span>Menu Level</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li class="has-sub">
-                                <a href="javascript:;">
-                                    <b class="caret pull-right"></b>
-                                    Menu 1.1
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="has-sub">
-                                        <a href="javascript:;">
-                                            <b class="caret pull-right"></b>
-                                            Menu 2.1
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li><a href="javascript:;">Menu 3.1</a></li>
-                                            <li><a href="javascript:;">Menu 3.2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="javascript:;">Menu 2.2</a></li>
-                                    <li><a href="javascript:;">Menu 2.3</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:;">Menu 1.2</a></li>
-                            <li><a href="javascript:;">M3</a></li>
-                        </ul>
-                    </li>
-                    <!-- begin sidebar minify button -->
-                    <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
-                    <!-- end sidebar minify button -->
-                </ul>
-                <!-- end sidebar nav -->
-            </div>
-            <!-- end sidebar scrollbar -->
-        </div>
-        <div class="sidebar-bg"></div>
-        <!-- end #sidebar -->
-        
-        <!-- begin #content -->
+<body>
+
+
+<!-- begin #content -->
         <div id="content" class="content">
-            <!-- begin breadcrumb -->
-            <ol class="breadcrumb pull-right">
-                <li><a href="javascript:;">Home</a></li>
-                <li><a href="javascript:;">Page Options</a></li>
-                <li class="active">Page with Minified Sidebar</li>
-            </ol>
-            <!-- end breadcrumb -->
-            <!-- begin page-header -->
-            <h1 class="page-header">Page with Minified Sidebar <small>header small text goes here...</small></h1>
-            <!-- end page-header -->
-            
-            <div class="panel panel-inverse">
-                <div class="panel-heading">
-                    <div class="panel-heading-btn">
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+           
+           
+            <!-- begin row -->
+            <div class="row">
+                <!-- begin col-12 -->
+                <div class="col-md-12">
+                    <!-- begin panel -->
+                    <div class="panel panel-inverse">
+                        
+                        <div class="panel-body">
+                            
+                            <form action="<?php echo $baseUrl; ?>/themes/tramiton/views/ciudadano/final_formulario.php" method="POST" data-parsley-validate="true" name="form-wizard">
+                                <div id="wizard">
+                                  
+                                    <!-- begin wizard step-1 -->
+                                    <div class="wizard-step-1">
+                                        <fieldset>
+                                        
+                                            <!-- begin row -->
+                                            <div class="row">
+                                                
+                                                <!-- begin col-12 -->
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="form-group block1">
+                                                        <label>Tarea</label>
+                                                        <input type="text" id = "nombre_tarea" onkeyup = "Validate(this)" name="nombre_tarea" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-1" required />
+                                                        
+                                                    </div>
+                                                     <div class="form-group block1">
+                                                        <label>Descripcion</label>
+                                                        <input type="text" id = "descripcion_tarea" onkeyup = "Validate(this)" name="descripcion_tarea" data-parsley-range="[2,200]" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-1" required />
+                                                        
+                                                    </div>
+                                                    <div class="form-group block1">
+                                                        <label>Fechas</label>
+                                                           <div class="input-group input-daterange">
+                                                                <input type="text" class="form-control" name="start" placeholder="Fecha Inicio" />
+                                                                <span class="input-group-addon">a</span>
+                                                                <input type="text" class="form-control" name="end" placeholder="Fecha Fin" />
+                                                            </div>
+                                                        
+                                                    </div>
+                                                    <div class="form-group block1">
+                                                        <label>Meta</label>
+                                                        <div class="controls">
+                                                            <textarea class="form-control" id="meta_tarea" onkeyup = "Validate(this)" name="meta_tarea" rows="4" data-parsley-range="[20,200]" placeholder="Escribir aqui" data-parsley-group="wizard-step-3" required></textarea>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <input type="submit" value="Guardar" class="btn btn-success btn-lg"> 
+                                                </div>
+                                                <!-- end col-12 -->
+                                            </div>
+                                            <!-- end row -->
+                                        </fieldset>
+                                    </div>
+                                    <!-- end wizard step-1 -->
+                                    <!-- begin wizard step-2 -->
+                                    <div class="wizard-step-2">
+                                        <fieldset>
+                                            <legend class="pull-left width-full">Problemas</legend>
+                                            <!-- begin row -->
+                                            <div class="row">
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <?php //echo problema2() ?>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <?php //echo problema3() ?>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <?php //echo problema4() ?>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-12 -->
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Detalle del problema</label>
+                                                        <textarea class="form-control" id = "experiencia" onkeyup = "Validate(this)" name="experiencia" rows="4" data-parsley-range="[20,200]" placeholder="experiencia" data-parsley-group="wizard-step-2" required></textarea>
+                                                            
+                                                    </div>
+                                                </div>
+                                                <!-- end col-6 -->
+                                                
+                                            </div>
+                                            <!-- end row -->
+                                        </fieldset>
+                                    </div>
+                                    <!-- end wizard step-2 -->
+                                    
+                                    <!-- begin wizard step-4 -->
+                                    <div>
+                                        <div class="jumbotron m-b-0 text-center">
+                                    <h1>Gracias por ingresar el tramite</h1>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat commodo porttitor. Vivamus eleifend, arcu in tincidunt semper, lorem odio molestie lacus, sed malesuada est lacus ac ligula. Aliquam bibendum felis id purus ullamcorper, quis luctus leo sollicitudin. </p>
+                                    <!--  <p><a class="btn btn-success btn-lg" role="button">Guardar y enviar</a></p> -->
+                                    <input type="submit" value="Publicar y Guardar" class="btn btn-success btn-lg"> 
+                                    <input type="hidden" name="insertar_tramite" value="1">
+                                    <input type="hidden" name="id_usuario" value="<?php // echo $id_usuario ?>">
+                                     <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
+                                </div>
+                                    </div>
+                                    <!-- end wizard step-4 -->
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <h4 class="panel-title">Panel Title here</h4>
+                    <!-- end panel -->
                 </div>
-                <div class="panel-body">
-                    Panel Content Here
-                </div>
+                <!-- end col-12 -->
             </div>
+            <!-- end row -->
         </div>
         <!-- end #content -->
-        
-       
-        
+
+
+  
         <!-- begin scroll to top btn -->
         <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
         <!-- end scroll to top btn -->
     </div>
     <!-- end page container -->
-
-
-
     
     <!-- ================== BEGIN BASE JS ================== -->
     <!--  JS PARA QUE FUNCIONE FANCYBOX 
