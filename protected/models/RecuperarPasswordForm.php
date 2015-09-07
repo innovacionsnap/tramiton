@@ -26,17 +26,24 @@ class RecuperarPasswordForm extends CFormModel {
                 'email',
                 'message' => '<span style="color: #F00;">Favor ingrese una dirección de correo electrónico válida</span>'
             ),
+            //array('email', 'comprobar_email'),
             
             //validar captcha
             array('captcha', 'required', 'message' => '<span style="color: #F00;">El código de verificación es requerido</span>', 'on'=>'recuperarPassword'),
             array(
+                'captcha', 
+                'ext.validacion.AjaxCaptchaValidator', 
+                'allowEmpty' => !Yii::app()->user->isGuest || !CCaptcha::checkRequirements(),
+                'message' => '<span style="color: #F00;">El texto no corresponde al de la imagen</span>'
+            ),
+            /*array(
                 'captcha',
                 'captcha',
                 'on' => 'recuperarPassword',
                 'captchaAction' => 'user/captcha',
                 'skipOnError' => true,
                 'message' => '<span style="color: #F00;">El texto no corresponde al de la imagen</span>'
-            ),
+            ),*/
         );
     }
     
@@ -59,7 +66,7 @@ class RecuperarPasswordForm extends CFormModel {
         $emails = $resultado->query();
 
         foreach ($emails as $em) {
-            if ($this->email == $em['usu_mail']) {
+            if ($this->email != $em['usu_mail']) {
                 $this->addError('email', '<span style="color: #F00;">Correo Electrónico ingresado no se encuentra registrado en Tramiton</span>');
                 break;
             }
