@@ -53,7 +53,7 @@
 										echo  "<td>".$dato["datt_experiencia"]."</td>";
 										echo  "<td>";
 										    echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'
-										    ,array("ciudadano/viewTramite_Usuario", 'datt_id' => $dato['datt_id']), array('title' => 'Mostrar'));
+										    ,array("ciudadano/viewTramite_Usuario2", 'datt_id' => $dato['datt_id']), array('title' => 'Mostrar'));
                                           
                                          ?>
 										

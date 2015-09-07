@@ -1,3 +1,8 @@
+<style type="text/css">
+    .navbar-header button{
+        display: none;
+    }
+</style>
 <!-- begin #about -->
 <div id="about" class="content" data-scrollview="true">
     <!-- begin container -->
@@ -9,7 +14,7 @@
         <?php
         $form = $this->beginWidget('CActiveForm', array
             (
-            'method' => 'POST',
+            'method' => 'POST', 
             'action' => Yii::app()->createUrl('site/validaCedula'),
             'id' => 'validaCedula-form',
             'enableClientValidation' => true,
@@ -79,7 +84,7 @@
                         <div class="panel-body p-t-0">
                             <table class="table table-valign-middle m-b-0">
                                 <thead>
-                                    <tr>	
+                                    <tr>    
                                         <th>Institución</th>
                                         <th>Menciones</th>
                                         <th>Likes</th>

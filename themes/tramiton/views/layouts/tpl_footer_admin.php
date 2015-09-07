@@ -75,7 +75,7 @@
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/DataTables/js/jquery.dataTables.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/table-manage-default.demo.min.js"></script>
-<script src="assets/js/apps.min.js"></script>
+
 <!-- ================== END PAGE LEVEL JS ================== -->
 
 

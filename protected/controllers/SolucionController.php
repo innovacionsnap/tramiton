@@ -7,7 +7,7 @@ class SolucionController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('index', 'RankingSoluciones'),
+                'actions' => array('index', 'RankingSoluciones', 'procesacomentario'),
                 'roles' => array('super_admin', 'ciudadano'),
             ),
             array('deny', // deny all users
@@ -17,18 +17,42 @@ class SolucionController extends Controller {
     }
 
     public function actionIndex() {
+        $model_solucion = new Solucion();
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         Yii::import('application.controllers.DashboardController');
         $id = $_GET['sol'];
         $solucion = $this->getSolucion($id);
+        $experiencia = DatosTramite::model()->find('datt_id=' . $solucion['datt_id']);
+        $tramite = $model_solucion->getTramite($experiencia['trai_id']);
         $imagen_usuario = DashboardController::getImagen($solucion['usu_id']);
         $usuario_solucion = DashboardController::getUsuario($solucion['usu_id']);
         $vistas = $this->procesaVista($id);
-        $comentario = $this->getComentario($id);
-//echo "<pre>"; print_r($comentario); echo "</pre>";
-//$this->layout = 'main-admin';
-        $this->_datosUser = $modelUser;
-        $this->render('solucion', array('solucion' => $solucion, 'imagen_usuario' => $imagen_usuario, 'usuario_solucion' => $usuario_solucion, 'comentario' => $comentario, 'vistas' => $vistas));
+        $comentario = $this->getComentario($id, 'inicio');
+        if (Yii::app()->user->isGuest == 1) {
+            $this->layout = 'main';
+        } else {
+            //$this->layout = 'main-admin';
+            //$this->layout = 'main-admin_form_caso';
+           // $this->_datosUser = $modelUser;
+        }
+        $this->render('solucion', array('solucion' => $solucion, 'imagen_usuario' => $imagen_usuario, 'usuario_solucion' => $usuario_solucion, 'comentario' => $comentario, 'vistas' => $vistas, 'experiencia' => $experiencia, 'tramite' => $tramite));
+        //$this->renderPartial('solucion', array('solucion' => $solucion, 'imagen_usuario' => $imagen_usuario, 'usuario_solucion' => $usuario_solucion, 'comentario' => $comentario, 'vistas' => $vistas, 'experiencia' => $experiencia, 'tramite' => $tramite),false,true);
+    }
+
+    public function actionProcesaComentario() {
+        $comentario = new Comentario();
+        $comentario_enviado = $_POST['comentario-interno'];
+        $solucion = $_POST['solucion'];
+        $usuario = Yii::app()->user->id;
+        $fecha = date('d/m/y', time());
+
+        $comentario->sol_id = $solucion;
+        $comentario->usu_id = $usuario;
+        $comentario->com_descripcion = $comentario_enviado;
+        $comentario->com_fecha = $fecha;
+        if ($comentario->save()) {
+            $this->getComentario($solucion, 'comentado');
+        }
     }
 
     public function getUsuario($usu_id) {
@@ -42,9 +66,19 @@ class SolucionController extends Controller {
         return $solucion;
     }
 
-    public function getComentario($solucion) {
+    public function getComentario($solucion, $bandera) {
         $comentarios = Comentario::model()->findAll($condition = 'sol_id=' . $solucion);
-        return $comentarios;
+        if ($bandera == 'inicio') {
+            return $comentarios;
+        } else {
+            foreach ($comentarios as $dato):
+                $usuario = $this->GetUsuario($dato['usu_id']);
+                $html = '<div class="row" style="border-top: 1px solid #ffffff;"><p><font style="color:#348fe2;">' . $usuario . '</font><font> ' . $dato['com_descripcion'] . '</font></p></div>';
+                echo $html;
+            endforeach;
+        }
+
+        /**/
     }
 
     public function getVista($id) {
@@ -64,8 +98,8 @@ class SolucionController extends Controller {
 
     public function actionRankingSoluciones() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        $solucion=new Solucion();
-        $datosRankingSolucion=$solucion->getRanking();
+        $solucion = new Solucion();
+        $datosRankingSolucion = $solucion->getRanking();
         //$soluciones = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_vistas desc', 'limit' => 10));
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;

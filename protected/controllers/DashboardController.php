@@ -4,12 +4,13 @@ class DashboardController extends Controller {
 
     public $_menuActive;
     public $_datosUser;
-    
-   /* public function __construct() {
+
+    /* public function __construct() {
       //$modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
       //$this->_datosUser = $modelUser;
-        
-      }*/
+
+      } */
+
     public function filters() {
         return array(
             'accessControl', // perform access control for CRUD operations
@@ -29,8 +30,8 @@ class DashboardController extends Controller {
               'users' => array('@'),
               ), */
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('index', 'valor','totaltramite','ranktramite', 'visitasolucion','votossolucion','procesacomentario', 'getusuario', 'getcomentario',
-                    'validalike', 'getLike', 'procesamegusta', 'procesavista'),
+                'actions' => array('index', 'valor', 'totaltramite', 'timeline', 'ranktramite', 'visitasolucion', 'votossolucion', 'procesacomentario', 'getusuario', 'getcomentario',
+                    'validalike', 'getLike', 'procesamegusta', 'procesavista', 'cargatimeline'),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano'),
             ),
@@ -46,11 +47,69 @@ class DashboardController extends Controller {
      */
     public function actionIndex() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 20));
-        $this->layout = 'main-admin';
+        //$this->layout = 'main-admin';
+        $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;
-        //$this->render('dashboard_admin', compact('datosTotalTramites', 'datosRankingTramites', 'datosPublicacionesTramites', 'datosSolucion', 'datosTotalSoluciones', 'datosRankingSolucion','datosRankingLikes'));
-        $this->render('dashboard_admin', compact('datosSolucion'));
+        $this->render('dashboard_admin');
+    }
+
+    public function actionTimeline() {
+        //$modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $limite = 0;
+        $total = Solucion::model()->count();
+        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 15, 'offset' => $limite));
+        //$this->layout = 'main-admin';
+        //$this->_datosUser = $modelUser;
+        $this->renderPartial('timeline', compact('datosSolucion', 'total'), false, true);
+        //$this->renderPartial('prueba', compact('datosSolucion','total'),false,true);
+    }
+
+    public function actionCargaTimeline() {
+        if (isset($_GET['lim'])) {
+            $limite = $_GET['lim'];
+        } else {
+            $limite = 0;
+        }
+        $html = '';
+        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 15, 'offset' => $limite));
+        foreach ($datosSolucion as $datoSolucion):
+            $html.='<div class="contenido-solucion" style="margin-right:18px">
+                        <div class="usuario">
+                            <img src="';
+            $html.= (Yii::app()->theme->baseUrl) . '/assets/img/users/';
+            $html.= $this->getImagen($datoSolucion['usu_id']) . '" alt=""/>';
+            $html.='<span>' . $this->GetUsuario($datoSolucion['usu_id']) . '</span></div>';
+            $html.='<div class="detalles">
+                <span title="Me Gusta"><i class="fa fa-thumbs-o-up fa-fw"></i>' . $this->getLike($datoSolucion['sol_id']) . '</span>
+                <span title="Comentarios"><i class="fa fa-comments fa-fw"></i>' . $this->getNumComentarios($datoSolucion['sol_id']) . '</span>
+                <span title="Vistas"><i class="fa fa-eye fa-fw"></i>' . $this->getVista($datoSolucion['sol_id']) . '</span>
+            </div>
+            <hr>
+            <div class="cuerpo">
+                <p>';
+
+            $sol_descripcion = substr($datoSolucion['sol_descripcion'], 0, 150);
+            $html.= $sol_descripcion . '<a href="../solucion/index?sol=' . $datoSolucion['sol_id'] . '" class="solucion-new" target="_blank">Ver más</a>
+                </p>
+            </div>
+            <hr>
+            <div class="pie">
+                <div class="compartir">
+                    <a href="http://www.facebook.com/sharer.php?u=';
+            $html.=urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
+                    <a href="http://twitter.com/share?url=';
+
+            $html.=urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
+                    <a href="https://plus.google.com/share?url=';
+            $html.=urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
+                </div>
+                <div class="fecha">
+                    <span>Publicado el: ' . $datoSolucion['sol_fecha'] . '</span>
+                </div>
+            </div>
+        </div>';
+        endforeach;
+        echo $html;
     }
 
     public function actionValor() {
@@ -60,35 +119,30 @@ class DashboardController extends Controller {
         //$this->_datosUser = $modelUser;
         //$this->render('ranking_tramites');
     }
-    
-    public function actionTotalTramite(){
+
+    public function actionTotalTramite() {
         $model = new Dashboard();
         $datosTotalTramites = $model->getTotalTramite();
-        echo $datosTotalTramites[0]['total_tramite'];
+        echo $datosTotalTramites[0]['total_tramites'];
     }
-    
-    public function actionRankTramite(){
+
+    public function actionRankTramite() {
         $model = new Dashboard();
         $datosRankingTramites = $model->getRankingTramite();
-        $datosTotalTramites = $model->getTotalTramite();
-        echo round(($datosRankingTramites[0]['sum_10_tot_tramite']*100/$datosTotalTramites[0]['total_tramite']),2)."%";
+        echo $datosRankingTramites[0]['ranking_tramites'] . ' %';
     }
-    
-    public function actionVisitaSolucion(){
+
+    public function actionVisitaSolucion() {
         $model = new Dashboard();
-        $total_soluciones=  $this->getTotalSoluciones();
         $datosRankingSolucion = $model->getRankingSolucion();
-        echo round(($datosRankingSolucion[0]['vistas']*100/$total_soluciones),2)."%";
-        
+        echo($datosRankingSolucion[0]['visita_solucion'] . ' %');
     }
-    
-    public function actionVotosSolucion(){
+
+    public function actionVotosSolucion() {
         $model = new Dashboard();
-        $datosRankingLikes=$model->getRankingLike();
-        $total_soluciones=  $this->getTotalSoluciones();
-        echo round(($datosRankingLikes[0]['likes']*100/$total_soluciones), 2)."%";
+        $datosRankingLikes = $model->getRankingLike();
+        echo ($datosRankingLikes[0]['votos_solucion']);
     }
-            
 
     public function getUsuario($usu_id) {
         $usuario = Usuario::model()->findByPk($usu_id);
@@ -127,6 +181,12 @@ class DashboardController extends Controller {
         endforeach;
     }
 
+    public function getNumComentarios($solucion) {
+        $comentarios = Comentario::model()->findAll($condition = 'sol_id=' . $solucion);
+        $num_comentarios = count($comentarios);
+        return $num_comentarios;
+    }
+
     public function validaLike($solucion) {
         $usuario = Yii::app()->user->id;
         $like = Megusta::model()->findAll('sol_id=' . $solucion . 'And usu_id=' . $usuario);
@@ -155,7 +215,7 @@ class DashboardController extends Controller {
         $total_soluciones = count($solucion);
         return $total_soluciones;
     }
-    
+
     public function actionProcesaMegusta() {
         $solucion = $_GET['sol'];
         $usuario = Yii::app()->user->id;
@@ -187,7 +247,7 @@ class DashboardController extends Controller {
 
     public function getVista($id) {
         $sol = Solucion::model()->find('sol_id=' . $id);
-        return $sol->sol_vistas . ' Vistas';
+        return $sol->sol_vistas;
     }
 
     public function actionprocesaVista() {
@@ -203,7 +263,7 @@ class DashboardController extends Controller {
     }
 
     public function getNoticias() {
-        $noticias = LogSistema::model()->findAllByAttributes(array('logs_tipo_publicacion'=>"p_usuario"),array('order'=>'logs_fechahora desc, logs_id desc','limit'=>10));
+        $noticias = LogSistema::model()->findAllByAttributes(array('logs_tipo_publicacion' => "p_usuario"), array('order' => 'logs_fechahora desc, logs_id desc', 'limit' => 10));
         return $noticias;
     }
 

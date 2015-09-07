@@ -130,5 +130,14 @@ order by sol_vistas desc limit 10';
         $rows = Yii::app()->db->createCommand($sql)->queryAll();
         return $rows;
     }
+    
+    public function getTramite($id_trains){
+        $sql= 'select tra_nombre 
+               from tramite t, tramite_institucion ti 
+               where ti.trai_id='.$id_trains.'and
+               t.tra_id=ti.tra_id';
+        $rows = Yii::app()->db->createCommand($sql)->queryAll();
+        return $rows;
+    }
 
 }
