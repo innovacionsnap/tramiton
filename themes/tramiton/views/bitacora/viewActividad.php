@@ -1,12 +1,3 @@
-
-<?php
-    $baseUrl = Yii::app()->theme->baseUrl;
-
-    //include("../themes/tramiton/views/ciudadano/config.inc.php");
-
-?>
-
-
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
@@ -64,7 +55,7 @@
 
 <!-- begin #content -->
         <div id="content" class="content">
-           
+          
            
             <!-- begin row -->
             <div class="row">
@@ -74,25 +65,6 @@
                     <div class="panel panel-inverse">
                         
                         <div class="panel-body">
-                            <?php echo CHtml::beginForm('','post',array("name"=>"form-wizard"));?>
-                                <div class="form-group block1">
-                                    <label>Tarea</label>
-                                    <?php echo CHtml::activeTextField($model,'nombre_tarea', array("placeholder"=>"Escribir aqui", "class" => "form-control"))?>
-                                    
-                                </div>
-                                 <div class="form-group block1">
-                                    <label>Decripcion</label>
-                                    <?php echo CHtml::activeTextField($model,'descripcion_tarea', array("placeholder"=>"Escribir aqui", "class" => "form-control"))?>
-                                    
-                                </div>
-                                <div class="form-group block1">
-                                    <label>Meta</label>
-                                    <?php echo CHtml::activeTextArea($model,'meta_tarea', array("placeholder"=>"Escribir aqui", "class" => "form-control", "rows"=>"4"))?>
-                                </div>
-                              
-                                <?php echo CHtml::submitButton("Guardar",array("class" =>"btn btn-success btn","title"=>"Guardar Tarea")); ?>
-
-                            <?php echo CHtml::endForm();?>
                             
                             <form action="<?php echo $baseUrl; ?>/themes/tramiton/views/ciudadano/final_formulario.php" method="POST" data-parsley-validate="true" name="form-wizard">
                                 <div id="wizard">
@@ -107,19 +79,8 @@
                                                 <!-- begin col-12 -->
                                                 
                                                 <div class="col-md-12">
-                                                     <div class="form-group block1">
-                                                        <label>Categoria</label>
-                                                        <select class='form-control' data-parsley-group='wizard-step-1' required>
-                                                            <option value="volvo">Proyecto Espececial 1 </option>
-                                                            <option value="saab">Proyecto Espececial 2 </option>
-                                                            <option value="mercedes">Proyecto Espececial 3</option>
-                                                            <option value="audi">Proyecto Espececial 4</option>
-                                                        </select>
-                                                        
-                                                        
-                                                    </div>
                                                     <div class="form-group block1">
-                                                        <label>Tarea</label>
+                                                        <label>Tareassssss</label>
                                                         <input type="text" id = "nombre_tarea" onkeyup = "Validate(this)" name="nombre_tarea" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-1" required />
                                                         
                                                     </div>

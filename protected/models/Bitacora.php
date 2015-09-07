@@ -4,6 +4,14 @@ class Bitacora extends CActiveRecord {
 
     private $connection;
 
+    // datos formulario de tarea
+    public $nombre_tarea;
+    public $descripcion_tarea;
+    public $meta_tarea;
+
+
+
+
     public function __construct() {
         //Yii::app()->db->connectionString
         // 
@@ -32,6 +40,29 @@ class Bitacora extends CActiveRecord {
         // recibe los datos
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
+    }
+
+    public function getTarea_Actividad() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+
+        $id_usuario = $modelUser['usu_id'];
+        //$dato_datt_id = $_GET['datt_id'];
+        //$usu_id = $this->_datosUser->usu_id;
+        $sql = "select * from solucion where datt_id = '10'";
+        echo "<br>".$sql;
+        $dataReader = $this->connection->createCommand($sql)->query();
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
+
+    public function rules(){
+
+        return array(
+            array('nombre_tarea','required'),
+            array('descripcion_tarea','required'),
+
+            );
+
     }
 
   

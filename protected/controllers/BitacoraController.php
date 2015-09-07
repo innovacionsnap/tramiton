@@ -29,7 +29,7 @@ class BitacoraController extends Controller {
               'users' => array('@'),
               ), */
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('index', 'actividad'),
+                'actions' => array('index', 'actividad','viewActividad'),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano'),
             ),
@@ -63,17 +63,43 @@ class BitacoraController extends Controller {
 
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
 
-        //creo una instancia del modelo Dashboard
+        //creo una instancia del modelo Bitacora
         $model = new Bitacora();
         $dos = 0;
-        //$datosTotalTramites = $model->getTotalTramite();
-        //$datosRankingTramites = $model->getRankingTramite();
+
+        if(isset($_POST["Bitacora"])){
+
+          $model->attibutes = $_POST[]
+
+          if ($model->validate()){
+
+            die("ingreso sin errores");  
+          }
+          
+        }
+       
+        $this->layout = 'main-admin_form';
+        $this->_datosUser = $modelUser;
+
+        $this->renderPartial('actividad',compact('model'),false,true);
+        //$this->render('formulario');
+    }
+
+     public function actionviewActividad() {
+
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+
+        //creo una instancia del modelo Ditacora
+        $model = new Bitacora();
+        $dos = 0;
+        
+        $datosTarea_Actividad = $model->getTarea_Actividad();
         
        // $this->layout = 'main-admin_form_caso';
         $this->layout = 'main-admin_form';
         $this->_datosUser = $modelUser;
-        $this->renderPartial('actividad',compact('dos'),false,true);
-        //$this->render('formulario');
+        $this->renderPartial('viewActividad',compact('datosTarea_Actividad'),false,true);
+      
     }
 
 }
