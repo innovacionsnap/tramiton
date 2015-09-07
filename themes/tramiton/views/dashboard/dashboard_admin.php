@@ -51,7 +51,7 @@
         padding-bottom: 10px;
         //height:330px;
     }
-        
+    
     .registro{
         width:201px;
         background-color: #DA6925;
@@ -67,6 +67,8 @@
         font-weight: bold;
         
     }
+    
+    
 </style>
 <div class="nivel slider-vertical col-md-12">
     <div class="contenedor-slider">
@@ -104,10 +106,10 @@
                 <img src="<?php echo (Yii::app()->theme->baseUrl.'/assets/img/flecha-arriba.png');?>"><h3>1999</h3>
                 <p>Casos por día</p>
             </div>
-            <div class="registro"><a>Registre otro caso</a></div>
-            <a><img src="<?php echo (Yii::app()->theme->baseUrl.'/assets/img/plusvalia.png');?>"></a>
-            <a><img src="<?php echo (Yii::app()->theme->baseUrl.'/assets/img/herencias.png');?>"></a>
-            <a><img src="<?php echo (Yii::app()->theme->baseUrl.'/assets/img/cotopaxi.png');?>"></a>
+            <div class="registro"><a href="../ciudadano/index">Registre otro caso</a></div>
+            <a href="http://www.sri.gob.ec/web/guest/calculadora-plusvalia"><img src="<?php echo (Yii::app()->theme->baseUrl.'/assets/img/plusvalia.png');?>"></a>
+            <a href="http://www.sri.gob.ec/web/guest/calculadora-herencias"><img src="<?php echo (Yii::app()->theme->baseUrl.'/assets/img/herencias.png');?>"></a>
+            <a href="http://www.volcancotopaxi.com" target="_blank"><img src="<?php echo (Yii::app()->theme->baseUrl.'/assets/img/cotopaxi.png');?>"></a>
             
         </div>
 
