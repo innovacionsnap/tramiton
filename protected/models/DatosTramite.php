@@ -188,5 +188,17 @@ limit 10';
         $rows = Yii::app()->db->createCommand($sql)->queryAll();
         return $rows;
     }
+    
+    public function getCaso($cadena) {
+        $sql = "select d.datt_id, datt_experiencia, i.ins_id,ins_nombre, sol_id, sol_descripcion
+from datos_tramite d, institucion i, tramite_institucion ti, solucion s
+where ins_funcion_ejecutiva =1 and
+SP_ASCII(datt_experiencia) ilike SP_ASCII('%".$cadena."%') and
+d.trai_id=ti.trai_id and
+i.ins_id=ti.ins_id and
+d.datt_id=s.datt_id;";
+        $rows =Yii::app()->db->createCommand($sql)->queryAll();
+        return $rows;
+    }
 
 }

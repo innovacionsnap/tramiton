@@ -1,19 +1,35 @@
+<style type="text/css">
+    .menu-central{
+        border-right: 2px solid #000;
+        height: 14px;
+        margin-right: 20px;
+        padding-right: 10px;
+        width: 100%;
+    }
+</style>
 <!-- begin #header -->
 <div id="header" class="header navbar navbar-default navbar-fixed-top">
     <!-- begin container-fluid -->
     <div class="container-fluid">
         <!-- begin mobile sidebar expand / collapse button -->
-        <div class="navbar-header">
+        <div class="navbar-header" style="margin-top: 5px; margin-bottom: 5px; display: inline-flex">
             <button type="button" class="navbar-toggle" data-click="sidebar-toggled" style="float: left">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <font style="font-size: 9px;font-weight: bold;">MENU</font>
             </button>
-            <a href="index.html" class="navbar-brand"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_2.png" class="media-object" alt="" /></a>
-            
+            <a href="index"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/Logo.png" class="media-object" alt="" /></a>
+            <div class="nav navbar-nav " style="display: inline-flex">
+                <div class="menu-central"><a href="#">Participa</a></div>
+                <div class="menu-central"><a href="#">¿Qué es el Tramitón?</a></div>
+                <div class="menu-central"><a href="#">Términos y Condiciones</a></div>
+                <div class="menu-central"><a href="#">Ayuda</a></div>
+            </div>
         </div>
         <!-- end mobile sidebar expand / collapse button -->
+
+
 
         <!-- begin header navigation right -->
 
@@ -28,10 +44,10 @@
                 </form>-->
 
                 <div id="busqueda" class="navbar-form full-width">
-                    <?php echo CHtml::beginForm(array('tramite/busca')) ?>
+                    <?php echo CHtml::beginForm(array('datostramite/busca')) ?>
 
                     <div class="form-group">
-                        <input name="busca" type="text" class="form-control" placeholder="Busque un trámite" />
+                        <input name="busca" type="text" class="form-control" placeholder="Busque una experiencia" />
                         <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
                     </div>
 
@@ -56,6 +72,7 @@
                 </ul>
             </li>
         </ul>
+
         <!-- end header navigation right -->
     </div>
     <!-- end container-fluid -->

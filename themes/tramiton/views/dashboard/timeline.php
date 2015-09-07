@@ -17,11 +17,24 @@
     }
 
     .detalles{
+        float: left;
+    }
+    
+    .compartir{
         float: right;
     }
 
     .cuerpo{
         height: 120px;
+    }
+    
+    .cuerpo p{
+        text-align: justify;
+    }
+    .cuerpo a{
+        float:right;
+        color: #325972;
+        font-weight: bold;
     }
 
     .pie .fecha{
@@ -40,7 +53,7 @@
     .plus{color:#DD4B39;}
 
     #more{
-        background: lightgray none repeat scroll 0 0;
+        background: #325972;
         border-radius: 4px;
         margin: 20px;
         text-align: center;
@@ -56,13 +69,18 @@
             <div class="usuario">
                 <img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/users/' . DashboardController::getImagen($datoSolucion['usu_id'])); ?>" alt=""/>
                 <span><?php echo (DashboardController::GetUsuario($datoSolucion['usu_id'])); ?></span>
-                <!--<span><?php //echo CHtml::Ajaxlink('<h4>' . $datoSolucion["sol_titulo"] . '</h4>', array('dashboard/procesavista?sol=' . $datoSolucion['sol_id']), array('update' => '#vista_' . $contador, 'complete' => 'js:function(html){$("#solucion_' . $contador . ' >.modal-body").html(html); $("#solucion_' . $contador . '").modal("show");}'));                              ?></span>-->
+                <!--<span><?php //echo CHtml::Ajaxlink('<h4>' . $datoSolucion["sol_titulo"] . '</h4>', array('dashboard/procesavista?sol=' . $datoSolucion['sol_id']), array('update' => '#vista_' . $contador, 'complete' => 'js:function(html){$("#solucion_' . $contador . ' >.modal-body").html(html); $("#solucion_' . $contador . '").modal("show");}'));                               ?></span>-->
 
             </div>
             <div class="detalles">
-                <span title="Me Gusta"><i class="fa fa-thumbs-o-up fa-fw"></i><?php echo DashboardController::getLike($datoSolucion['sol_id']); ?></span>
-                <span title="Comentarios"><i class="fa fa-comments fa-fw"></i><?php echo DashboardController::getNumComentarios($datoSolucion['sol_id']); ?></span>
-                <span title="Vistas"><i class="fa fa-eye fa-fw"></i><?php echo DashboardController::getVista($datoSolucion['sol_id']); ?></span>
+                <span title="Me Gusta"><?php echo DashboardController::getLike($datoSolucion['sol_id']); ?><i class="fa fa-thumbs-o-up fa-fw"></i></span>
+                <span title="Comentarios"><?php echo DashboardController::getNumComentarios($datoSolucion['sol_id']); ?><i class="fa fa-comments-o fa-fw"></i></span>
+                <span title="Vistas"><?php echo DashboardController::getVista($datoSolucion['sol_id']); ?><i class="fa fa-eye fa-fw"></i></span>
+            </div>
+            <div class="compartir">
+                <a href="http://www.facebook.com/sharer.php?u=<?php echo urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
+                <a href="http://twitter.com/share?url=<?php echo urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
+                <a href="https://plus.google.com/share?url=<?php echo urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
             </div>
             <hr>
             <div class="cuerpo">
@@ -71,16 +89,12 @@
                     $sol_descripcion = substr($datoSolucion['sol_descripcion'], 0, 150);
                     echo $sol_descripcion;
                     ?>
-                    <a href="../solucion/index?sol=<?php echo $datoSolucion['sol_id'] ?>" class="solucion-new" target="_blank">Ver más</a>
+                    <a href="../solucion/index?sol=<?php echo $datoSolucion['sol_id'] ?>" class="solucion-new" target="_blank" title="Leer más">>></a>
                 </p>
             </div>
             <hr>
             <div class="pie">
-                <div class="compartir">
-                    <a href="http://www.facebook.com/sharer.php?u=<?php echo urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
-                    <a href="http://twitter.com/share?url=<?php echo urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
-                    <a href="https://plus.google.com/share?url=<?php echo urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
-                </div>
+
                 <div class="fecha">
                     <span><?php echo 'Publicado el: ' . $datoSolucion['sol_fecha']; ?></span>
                 </div>
@@ -93,7 +107,7 @@
     <?php endforeach; ?>
 </div>
 <div id="porvenir" style="max-height: 80px;position: relative"></div>
-<div id="more"><a href="#" onclick="cargasolucion()">Mostrar más</a></div>
+<div id="more"><a href="#" onclick="cargasolucion()"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/flecha-abajo.png');?>"></a></div>
 
 <script type="text/javascript">
     $(document).ready(function () {

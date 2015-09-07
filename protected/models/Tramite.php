@@ -100,14 +100,5 @@ class Tramite extends CActiveRecord
 		return parent::model($className);
 	}
         
-        public function getTramite($cadena) {
-        $sql = "select t.tra_id, tra_nombre, i.ins_id,ins_nombre
-from tramite t, institucion i, tramite_institucion ti
-where ins_funcion_ejecutiva =1 and
-SP_ASCII(tra_nombre) ilike SP_ASCII('%".$cadena."%') and
-t.tra_id=ti.tra_id and
-i.ins_id=ti.ins_id;";
-        $rows =Yii::app()->db->createCommand($sql)->queryAll();
-        return $rows;
-    }
+        
 }
