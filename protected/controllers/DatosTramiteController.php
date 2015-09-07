@@ -38,6 +38,15 @@ class DatosTramiteController extends Controller {
         $this->render('ranking',compact('rankings'));
     }
     
+    public function actionBusca() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelDatosTramite = new DatosTramite();
+        $casos = $modelDatosTramite->getCaso($_POST['busca']);
+        $this->layout = 'main-admin_form_caso';
+        $this->_datosUser = $modelUser;
+        $this->render('busca', compact('casos'));
+    }
+    
     // Uncomment the following methods and override them if needed
     /*
       public function filters()

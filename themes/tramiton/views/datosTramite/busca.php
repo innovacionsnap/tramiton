@@ -1,13 +1,24 @@
+<style type="text/css">
+    .content{
+        margin-left: 50px;
+        margin-right: 20px;
+        background-color: #ccccbc;
+     
+    }
+    #data-table td{
+        text-align: justify; 
+    }
+</style>
 <link href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li><a href="<?php echo Yii::app()->getBaseUrl(); ?>/dashboard/index">Inicio</a></li>
-        <li class="active">Total Trámites</li>
+        <li class="active">Casos Registrados</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">Trámites <small> de la Institución</small></h1>
+    <h1 class="page-header">Casos Registrados</h1>
 
     <!-- end page-header -->
     <!-- begin row -->
@@ -23,17 +34,18 @@
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                     </div>
-                    <h4 class="panel-title">Trámites</h4>
+                    <h4 class="panel-title">Casos Registrados</h4>
                 </div>
                 <div class="panel-body">
                     <?php //echo "<pre>"; print_r($tramites); echo "</pre>";?>
-                    <div class="table-responsive">
+                    <div class="table-default">
                         <table id="data-table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th>N°</th>
-                                    <th>Trámite</th>
+                                    <th>Experiencia del Usuario</th>
                                     <th>Institución</th>
+                                    <th>Propuesta de solución</th>
                                     <th>Acción</th>
                                     
                                 </tr>
@@ -41,13 +53,14 @@
                             <tbody>
                                 <?php
                                 $cont = 1;
-                                foreach ($tramites as $tramite):
+                                foreach ($casos as $caso):
                                     ?>
                                     <tr class="odd gradeA">
                                         <td class="sorting_1"><?php echo $cont; ?></td>
-                                        <td class="sorting_1"><?php echo $tramite['tra_nombre'] ?></td>
-                                        <td class="sorting_1"><?php echo $tramite['ins_nombre'] ?></td>
-                                        <td><a href="/tramiton/ciudadano/index?t=<?php echo $tramite['tra_id'] ?>&i=<?php echo $tramite['ins_id'] ?>" title="Registre su caso"><button class="btn btn-inverse active btn-xs m-r-5" type="button"><i class="fa fa-edit"></i> Registre su caso</button></a></td>
+                                        <td class="sorting_1"><?php echo substr($caso['datt_experiencia'],0,500).' ...'; ?></td>
+                                        <td class="sorting_1"><?php echo $caso['ins_nombre']; ?></td>
+                                        <td class="sorting_1"><?php echo substr($caso['sol_descripcion'],0,500).' ...'; ?></td>
+                                        <td><a href="/tramiton/solucion/index?sol=<?php echo $caso['sol_id']; ?>" title="Mostrar caso" class="caso-new" target="_blank"><button class="btn btn-inverse active btn-xs m-r-5" type="button"><i class="fa fa-eye"></i> Mostrar caso</button></a></td>
                                         
                                     </tr>
 
@@ -73,9 +86,27 @@
 
 
 <!-- ================== END PAGE LEVEL JS prueba ================== -->
-<script>
+<script type="text/javascript">
     $(document).ready(function () {
+        $(".caso-new").fancybox({
+            'titleShow': false,
+            'width': '65%',
+            'height': '65%',
+            'autoScale': false,
+            'transitionIn': 'none',
+            'transitionOut': 'none',
+            'type': 'iframe',
+            // afterClose : function() {
+            //     location.reload();
+            // }
+        });
+        
         App.init();
         TableManageDefault.init();
+        
+         
     });
 </script>
+
+
+       

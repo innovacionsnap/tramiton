@@ -51,6 +51,15 @@ class consultasBaseDatos {
         $datoCodigo = $cedula . $username . $mail . $password . date("m/d/Y h:i:s a", time());
         //genera código de verificación
         $this->codigoVerificacion = $userModel->getHash('md5', $datoCodigo, HASH_KEY);
+        
+        $imagen = 'default_image_profile.jpg';
+        
+        if($datosCiudadano->genero === 'MASCULINO'){
+            $imagen = 'hombre.png';
+        }
+        else{
+            $imagen = 'mujer.png';
+        }
 
         //construye consulta sql para insertar
         $sqlInsertUser = "INSERT INTO usuario(" .
@@ -78,7 +87,7 @@ class consultasBaseDatos {
                     ':fechaNacimiento' => $datosCiudadano->fecha_nacimiento,
                     ':lugarNacimiento' => $datosCiudadano->lugar_nacimiento,
                     ':genero' => $datosCiudadano->genero,
-                    ':imagen' => 'default_image_profile.jpg',
+                    ':imagen' => $imagen,
                     ':codigoConfirmacion' => $this->codigoVerificacion
                 )
         );
@@ -157,10 +166,10 @@ class consultasBaseDatos {
 
         //consulta para verificación de usuario de acuerdo al email y codigo de verificacion enviado
         $sqlVerificaEmailUser = "SELECT usu_id, usu_nombreusuario, usu_cedula, usu_mail, usu_contrasenia, "
-                . "usu_nombre FROM usuario "
+                . "usu_nombre, usu_estado FROM usuario "
                 . "WHERE usu_mail = '$email' and usu_estado <> 11";
         
-        //echo "consulta: " . $sqlVerificaEmailUser . "<br>";
+        //echo "<br>consulta: " . $sqlVerificaEmailUser . "<br>";
 
         $resultado = $conexion->createCommand($sqlVerificaEmailUser);
 
@@ -182,6 +191,7 @@ class consultasBaseDatos {
                 'usuUsername' => $registro['usu_nombreusuario'],
                 'usuMail' => $registro['usu_mail'],
                 'usuNombre' => $registro['usu_nombre'],
+                'usuEstado' => $registro['usu_estado'],
                 'existe' => $existe
             );
         }
@@ -205,7 +215,19 @@ class consultasBaseDatos {
             
             $resultado = $conexion->createCommand($sqlUpdateUser);
             $resultado->execute();
+            
         }
+        else{
+            $sqlEstadoUser = "SELECT usu_estado FROM usuario WHERE usu_mail = '$email'";
+            
+            $resultado = $conexion->createCommand($sqlEstadoUser);
+
+            $fila = $resultado->query();
+            foreach ($fila as $registro) {
+                $datosUser['usuEstado'] = $registro['usu_estado'];
+            }
+        }
+        
         return $datosUser;
     }
     

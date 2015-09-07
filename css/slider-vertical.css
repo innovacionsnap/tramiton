@@ -6,8 +6,9 @@
     height: 50px;
     overflow: hidden;
     position: relative;
-    margin: 0;
-    background: rgba(0,0,0,0.5);
+    margin-top: 14px;
+    margin-bottom: 20px;
+    background: #325972;
     color:#fff;
     border-left: 1px solid #bbb;
     width:auto;
