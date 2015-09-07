@@ -16,7 +16,6 @@ class SiteController extends Controller {
                 //'backColor' => 0xFFFFFF,
                 'backColor' => 0xD9E0E7,
                 'testLimit' => 3,
-
             #'foreColor' => 0xFFFFFF,
             ),
             // page action renders "static" pages stored under 'protected/views/site/pages'
@@ -125,9 +124,19 @@ class SiteController extends Controller {
         //comprueba si hay datos en el formulario
         if (isset($_POST['ValidarRegistro'])) {
             $model->attributes = $_POST['ValidarRegistro'];
+            //$var  = $model->validate();
+            //echo "valor de la validación: " . $var;
+            //Yii::app()->end();
+            
+            
             if ($model->validate()) {
+            //if ($var === false) {
+                //echo "validacion no fue verdadera " . $var;
+                //Yii::app()->end();
                 $this->redirect($this->createUrl('site/registro'));
             } else {
+                //echo "validacion fue exitosa " . $var;
+                //Yii::app()->end();
                 //obtenemos la cedula del ciudadano a registrar
                 $cedulaRegistro = $_POST['ValidarRegistro']['cedula'];
                 //obtenemos el token de acceso para el webservice
@@ -154,6 +163,11 @@ class SiteController extends Controller {
                         array(Yii::app()->params['adminEmail'], Yii::app()->name), array($model->email, $model->nombre_usuario), $asunto, $mensajeEmail
                 );
 
+                /* if (Yii::app()->session && isset(Yii::app()->session['cCache'])) {
+                  // delete the cached captcha values
+                  unset(Yii::app()->session['cCache']);
+                  } */
+
                 //creamos el mensaje de notificación para el usuario
                 $this->_msgSuccess = $this->creaMensaje(
                         'Gracias por tu registro!', 'En breve recibirás un correo electrónico con un enlace para poder activar tu cuenta'
@@ -163,6 +177,12 @@ class SiteController extends Controller {
                 $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
             }
         }
+        
+        if (Yii::app()->session && isset(Yii::app()->session['cCache'])) {
+            // delete the cached captcha values
+            unset(Yii::app()->session['cCache']);
+        }
+        
         $this->layout = 'main-registro';
         $this->render('registro', array('model' => $model));
     }
@@ -197,7 +217,7 @@ class SiteController extends Controller {
         $model = new ValidarCedula;
         $model_login = new LoginForm;
         $msg = '';
-        
+
         //validación ajax del formulario
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'validaCedula-form') {
             echo CActiveForm::validate($model);
@@ -312,16 +332,16 @@ class SiteController extends Controller {
             //echo "entre aqui por post"; Yii::app()->end();
             $model_reset_pass->attributes = $_POST['RecuperarPasswordForm'];
             $var = $model_reset_pass->validate();
-            /*if($var == true){
+            /*if ($var == true) {
                 echo "<br>validacion verdadera";
-            }
-            else{
+            } else {
                 echo "<br>validacion falsa";
-            }
-            echo "<br>retorno valida solicitud: " . $var; //Yii::app()->end();*/
+            }*/
+            //echo "<br>retorno valida solicitud: " . $var; Yii::app()->end();
             //if ($model_reset_pass->validate() == false) {
             if ($var == false) {
-                //echo "<br>entre aqui datos no validos"; Yii::app()->end();
+                //echo "<br>entre aqui datos no validos";
+                Yii::app()->end();
                 $mensaje = "Error al validar información, intentelo nuevamente";
                 $this->_msgSuccess = $this->creaMensaje(
                         'Aviso!!!!', $mensaje, 'Recuperar Contraseña', 'recuperarPassword', true
@@ -330,14 +350,34 @@ class SiteController extends Controller {
                 //redirigimos a la pagina de success y con el mensaje
                 $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
             } else {
-                //echo "<br>entre aqui datos son correctos"; Yii::app()->end();
+                //echo "<br>entre aqui datos son correctos";
+                //Yii::app()->end();
                 $email = $_POST['RecuperarPasswordForm']['email'];
+                //echo "<br>correo a buscar: " . $email;
                 $datosUser = $modelVerificaEmail->verificaEmailUser($email);
                 $existeUser = $datosUser['existe'];
+                $estadoUser = $datosUser['usuEstado'];
                 //var_dump($datosUser);
                 //Yii::app()->end();
+                if($estadoUser == 1){
+                    $mensaje = "Error al validar información, no ha activado su cuenta todavía, por favor revise su correo electrónico para activar su cuenta";
+                    $this->_msgSuccess = $this->creaMensaje(
+                            'Aviso!!!!', $mensaje
+                    );
+                    //redirigimos a la pagina de success y con el mensaje
+                    $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
+                }
+                if($estadoUser == 11){
+                    $mensaje = "Error al validar información, usted ya envió una solicitud para reestablecer contraseña anteriormente y no la completó, revise su correo electrónico";
+                    $this->_msgSuccess = $this->creaMensaje(
+                            'Aviso!!!!', $mensaje
+                    );
+                    //redirigimos a la pagina de success y con el mensaje
+                    $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
+                }
+                
                 if ($existeUser == false) {
-                    //echo "<br>no encontro usuario"; Yii::app()->end();
+                    echo "<br>no encontro usuario"; Yii::app()->end();
                     $mensaje = "Error al validar información, correo electrónico no registrado en Tramitón, intentelo nuevamente";
                     $this->_msgSuccess = $this->creaMensaje(
                             'Aviso!!!!', $mensaje, 'Recuperar Contraseña', 'recuperarPassword', true
@@ -371,7 +411,7 @@ class SiteController extends Controller {
                     $mail->enviarMail(
                             array(Yii::app()->params['adminEmail'], Yii::app()->name), array($datosUser['usuMail'], $datosUser['usuNombre']), $asunto, $msgEmail
                     );
-                    
+
                     $mensaje = "Se ha generado una solicitad de cambio de contraseña, por favor revise su correo electrónico";
                     $this->_msgSuccess = $this->creaMensaje(
                             'Aviso!!!!', $mensaje
@@ -384,6 +424,11 @@ class SiteController extends Controller {
                     //Yii::app()->end();
                 }
             }
+        }
+
+        if (Yii::app()->session && isset(Yii::app()->session['cCache'])) {
+            // delete the cached captcha values
+            unset(Yii::app()->session['cCache']);
         }
 
 
@@ -426,21 +471,21 @@ class SiteController extends Controller {
             } else {
                 $email = $_POST['NuevoPasswordForm']['email'];
                 $codigoVerificacion = $_POST['NuevoPasswordForm']['codigoVerificacion'];
-                echo "tengo los datos";
-                echo "<br>email: " . $email;
-                echo "<br>codigo: " . $codigoVerificacion;
+                //echo "tengo los datos";
+                //echo "<br>email: " . $email;
+                //echo "<br>codigo: " . $codigoVerificacion;
                 //Yii::app()->end();
                 $validarEmail = new CEmailValidator;
                 if (!$validarEmail->validateValue($email)) {
-                    echo "<br>no valido el email: " . $email;
-                    Yii::app()->end();
+                    //echo "<br>no valido el email: " . $email;
+                    //Yii::app()->end();
                     $mensaje = 'Ocurrio un inconveniente en el proceso de restaurar tu contraseña <br>Error de confirmación - correo electrónico y/o código de verificación incorrectos';
                     $this->_msgSuccess = $this->creaMensaje(
                             'Aviso!!!', $mensaje
                     );
                     $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
                 } else if (!preg_match('/^[a-zA-Z0-9]+$/', $codigoVerificacion)) {
-                    echo "<br>no valido el codigo: " . $codigoVerificacion;
+                    //echo "<br>no valido el codigo: " . $codigoVerificacion;
                     Yii::app()->end();
                     $mensaje = 'Ocurrio un inconveniente en el proceso de restaurar tu contraseña <br>Error de confirmación - correo electrónico y/ocódigo de verificación incorrectos';
                     $this->_msgSuccess = $this->creaMensaje(
@@ -449,7 +494,7 @@ class SiteController extends Controller {
                     $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
                 } else {
                     $nuevoPassword = $_POST['NuevoPasswordForm']['password'];
-                    echo "<br> todo bien voy a cambiar la clave por la siguiente: " . $nuevoPassword;
+                    //echo "<br> todo bien voy a cambiar la clave por la siguiente: " . $nuevoPassword;
                     //Yii::app()->end();
                     $update = $modelResetPassw->cambiaPassword($email, $codigoVerificacion, $nuevoPassword);
                     if (!$update) {

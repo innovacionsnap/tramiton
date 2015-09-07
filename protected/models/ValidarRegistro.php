@@ -119,14 +119,20 @@ class ValidarRegistro extends CFormModel {
             ),
             //validar captcha
             array('captcha', 'required', 'message' => '<span style="color: #F00;">El código de verificación es requerido</span>'),
+            array(
+                'captcha', 
+                'ext.validacion.AjaxCaptchaValidator', 
+                'allowEmpty' => !Yii::app()->user->isGuest || !CCaptcha::checkRequirements(),
+                'message' => '<span style="color: #F00;">El texto no corresponde al de la imagen</span>'
+                ),
             /*array(
                 'captcha',
                 'captcha',
                 'message' => '<span style="color: #F00;">El texto no corresponde al de la imagen</span>'
             ),*/
-            array('captcha', 
+            /*array('captcha', 
                'application.extensions.recaptcha.EReCaptchaValidator', 
-               'privateKey' => '6LcHyAsTAAAAADNnnbPJru4miCGmCCP4Wj5QJ5RO'),
+               'privateKey' => '6LcHyAsTAAAAADNnnbPJru4miCGmCCP4Wj5QJ5RO'),*/
             //validar terminios
             array('terminos', 'required', 'message' => '<span style="color: #F00;">Acepte los términos y condiciones</span>'),
         );
@@ -142,8 +148,8 @@ class ValidarRegistro extends CFormModel {
             'password' => 'Contraseña',
             'repetir_password' => 'Confirme la Contraseña',
             'terminos' => 'Términos y Condiciones',
-            'captcha' => 'Ingrese las dos palabras separadas por un espacio',
-            //'captcha'=>Yii::t('demo', 'Ingrese las dos palabras separadas por un espacio'),
+            //'captcha' => 'Ingrese las dos palabras separadas por un espacio',
+            'captcha'=>Yii::t('demo', 'Ingrese las dos palabras separadas por un espacio'),
         );
     }
     

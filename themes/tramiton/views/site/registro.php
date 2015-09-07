@@ -83,25 +83,34 @@
                     <?php echo $form->error($model, 'repetir_password'); ?>
                 </div>
             </div>
+            
+            <?php if(CCaptcha::checkRequirements()) : ?>
+                <?php echo $form->labelEx($model, 'captcha', array('class' => 'control-label')); ?>
+                <div class="row row-space-10">
+                    <div class="col-md-6 m-b-15">
+                        <?php 
+                            $this->widget("CCaptcha",
+                                    array(
+                                        'buttonType' => 'button',
+                                        'buttonOptions' => array(
+                                            'type' => 'image',
+                                            'src' => '../images/recargaricon.png'
+                                        ),
+                                    )); 
+                        ?>
+                    </div>    
+                    <div class="col-md-6 m-b-15">
+                        <?php echo $form->textField($model, 'captcha', array('class' => 'form-control')); ?>
+                        <?php echo $form->error($model, 'captcha'); ?>
+                    </div>
 
-            <?php echo $form->labelEx($model, 'captcha', array('class' => 'control-label')); ?>
-            <div class="row row-space-10">
-                <div class="col-md-6 m-b-15">
+                </div>
 
-                    <?php
-                    $this->widget('application.extensions.recaptcha.EReCaptcha', 
-                            array(
-                                'model' => $model, 
-                                'attribute' => 'captcha',
-                                'theme' => 'white', 
-                                'language' => 'es_ES',
-                                'publicKey' => '6LcHyAsTAAAAACMhatDvXFeLpZAIC83el2DPhbTq'
-                            ));
-                    ?>
-                <?php echo CHtml::error($model, 'captcha'); ?>
-                </div>    
-            </div>
-
+                <div class='control-label'>
+                    <!--Por favor ingrese el texto que se muestra en la imagen.-->
+                </div>
+                
+            <?php endif; ?>
             
             <?php echo $form->labelEx($model, 'terminos', array('class' => 'control-label')); ?>
             <div class="row m-b-15">

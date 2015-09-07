@@ -1,4 +1,5 @@
 <?php
+
 /**
  * EReCaptchaValidator class file.
  *
@@ -34,11 +35,10 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
-
 /**
  * Include the reCAPTCHA PHP wrapper.
  */
-require_once(dirname(__FILE__).DIRECTORY_SEPARATOR.'reCAPTCHA'.DIRECTORY_SEPARATOR.'recaptchalib.php');
+require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'reCAPTCHA' . DIRECTORY_SEPARATOR . 'recaptchalib.php');
 
 /**
  * EReCaptchaValidator validates that the attribute value is the same as the verification code displayed in the CAPTCHA.
@@ -50,52 +50,91 @@ require_once(dirname(__FILE__).DIRECTORY_SEPARATOR.'reCAPTCHA'.DIRECTORY_SEPARAT
  * @package application.extensions.recaptcha
  * @since 1.3
  */
-class EReCaptchaValidator extends CValidator
-{
-   /**
-    * The private key for reCAPTCHA
-    *
-    * @var string
-    */
-   private $privateKey='';
+class EReCaptchaValidator extends CValidator {
 
-   /**
-    * Sets the private key.
-    *
-    * @param string $value
-    * @throws CException if $value is not valid.
-    */
-   public function setPrivateKey($value)
-   {
-      if (empty($value)||!is_string($value)) throw new CException(Yii::t('yii','EReCaptchaValidator.privateKey must contain your reCAPTCHA private key.'));
-      $this->privateKey = $value;
-   }
+    /**
+     * The private key for reCAPTCHA
+     *
+     * @var string
+     */
+    private $privateKey = '';
 
-   /**
-    * Returns the reCAPTCHA private key
-    *
-    * @return string
-    */
-   public function getPrivateKey()
-   {
-      return $this->privateKey;
-   }
+    /**
+     * Sets the private key.
+     *
+     * @param string $value
+     * @throws CException if $value is not valid.
+     */
+    public function setPrivateKey($value) {
+        if (empty($value) || !is_string($value))
+            throw new CException(Yii::t('yii', 'EReCaptchaValidator.privateKey must contain your reCAPTCHA private key.'));
+        $this->privateKey = $value;
+    }
 
-	/**
-	 * Validates the attribute of the object.
-	 * If there is any error, the error message is added to the object.
-	 * @param CModel the object being validated
-	 * @param string the attribute being validated
-	 */
-	protected function validateAttribute($object,$attribute)
-	{
-	   $resp = recaptcha_check_answer($this->privateKey,
-	                                  $_SERVER['REMOTE_ADDR'],
-	                                  $_POST['recaptcha_challenge_field'],
-	                                  $_POST['recaptcha_response_field']);
-		if (!$resp->is_valid) {
-			$message = $this->message !== null ? $this->message : Yii::t('yii','The verification code is incorrect.');
-			$this->addError($object, $attribute, $message);
-		}
-	}
+    /**
+     * Returns the reCAPTCHA private key
+     *
+     * @return string
+     */
+    public function getPrivateKey() {
+        return $this->privateKey;
+    }
+
+    /**
+     * Validates the attribute of the object.
+     * If there is any error, the error message is added to the object.
+     * @param CModel the object being validated
+     * @param string the attribute being validated
+     */
+    /* protected function validateAttribute($object,$attribute)
+      {
+      $resp = recaptcha_check_answer($this->privateKey,
+      $_SERVER['REMOTE_ADDR'],
+      $_POST['recaptcha_challenge_field'],
+      $_POST['recaptcha_response_field']);
+      if (!$resp->is_valid) {
+      $message = $this->message !== null ? $this->message : Yii::t('yii','The verification code is incorrect.');
+      $this->addError($object, $attribute, $message);
+      }
+      } */
+
+    protected function validateAttribute($object, $attribute) {
+        $valid = false;
+        // only validate if the captcha has been POSTed
+        if (isset($_POST['recaptcha_challenge_field']) && isset($_POST['recaptcha_response_field'])) {
+            // sessions are enabled, so we can cache the value
+            if ($session = Yii::app()->session) {
+                // if this question that was asked before, check the cached answer
+                if (isset($session['cCache']) && isset($session['cCache']['q']) && $session['cCache']['q'] == $_POST['recaptcha_challenge_field']
+                ) {
+                    // if the cached answer equals the provided answer,
+                    // we know it was previously validated as correct
+                    if (isset($session['cCache']['a']) &&
+                            $session['cCache']['a'] == $_POST['recaptcha_response_field']) {
+                        $valid = true;
+                    }
+                } else { // validate the captcha 
+                    $resp = recaptcha_check_answer(
+                            $this->privateKey, $_SERVER['REMOTE_ADDR'], $_POST['recaptcha_challenge_field'], $_POST['recaptcha_response_field']
+                    );
+                    // if it validates, store challenge and response hash in session
+                    if ($resp->is_valid) {
+                        if (Yii::app()->session) {
+                            Yii::app()->session['cCache'] = array(
+                                'q' => $_POST['recaptcha_challenge_field'],
+                                'a' => sha1($_POST['recaptcha_response_field']),
+                            );
+                        }
+                        $valid = true;
+                    }
+                }
+            }
+        }
+        // if the captcha or cached value were not validated, set the error
+        if (!$valid) {
+            $message = $this->message !== null ? $this->message : Yii::t('yii', 'The verification code is incorrect.');
+            $this->addError($object, $attribute, $message);
+        }
+    }
+
 }
