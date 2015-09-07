@@ -24,14 +24,7 @@ class TramiteController extends Controller {
         $this->render('index');
     }
 
-    public function actionBusca() {
-        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        $modelTramite = new Tramite();
-        $tramites = $modelTramite->getTramite($_POST['busca']);
-        $this->layout = 'main-admin';
-        $this->_datosUser = $modelUser;
-        $this->render('busca', compact('tramites'));
-    }
+    
 
     // Uncomment the following methods and override them if needed
     /*
