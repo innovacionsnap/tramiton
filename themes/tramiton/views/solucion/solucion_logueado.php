@@ -70,7 +70,7 @@
             </div>
             <div class="panel-body p-t-0" style="margin-top:5px; border-radius: 8px">
                 <h4>Comentarios</h4>
-                <div id="comentario-interno" data-scrollbar="true" style="max-height: 300px; padding-left: 20px; padding-right: 20px; background-color: #fff; border-radius:8px">
+                <div id="comentario-interno" data-scrollbar="true" style="max-height: 300px; padding-left: 20px; padding-right: 20px; background-color: #fff; border-radius:8px;overflow: auto">
                     <?php
                     foreach ($comentario as $dato):
                         $usuario_comentario = SolucionController::getUsuario($dato['usu_id']);

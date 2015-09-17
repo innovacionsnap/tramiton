@@ -1,5 +1,3 @@
-
-
 <!-- begin #content -->
 <div id="content" class="content">
     <!-- begin breadcrumb -->

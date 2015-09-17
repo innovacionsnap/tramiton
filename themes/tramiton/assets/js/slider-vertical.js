@@ -1,5 +1,5 @@
-velocidad = 1500;
-tiempoEspera = 3000;
+velocidad = 5000;
+tiempoEspera = 6000;
 verificar = 1;
 dif = 0;
 timer = 0

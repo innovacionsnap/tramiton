@@ -3,10 +3,10 @@
 }
 
 .contenedor-slider {
-    height: 50px;
+    height: 20px;
     overflow: hidden;
     position: relative;
-    margin-top: 14px;
+   // margin-top: 0.5em;
     margin-bottom: 20px;
     background: #325972;
     color:#fff;
@@ -23,11 +23,11 @@
 .modulo-slider {
     height: 50px;
     /* los paddings los coloque independientes para que se puedan obtener por javascript */
-    padding: 13px 10px 5px 10px;
+    padding: 2px 10px 5px 10px;
     position: relative;
     margin: 0;
     //display:inline-flex;
-    width:200px;
+    width:600px;
 }
 .modulo-slider h4 {
     margin-top: 0;

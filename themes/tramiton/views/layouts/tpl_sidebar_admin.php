@@ -9,8 +9,7 @@
                     <a href="javascript:;"><img src="<?php echo URL_IMG . $this->_datosUser->usu_imagen; ?>" alt="" /></a>
                 </div>
                 <div class="info">
-                    Usuario
-                    <small>Hola <?php echo Yii::app()->user->name ?>!</small>
+                    <h4 style="color:#fff;">Hola <?php echo Yii::app()->user->name ?></h4>
                 </div>
             </li>
         </ul>
