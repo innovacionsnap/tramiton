@@ -34,7 +34,7 @@ class Bitacora extends CActiveRecord {
                 from tarea tar, institucion ins 
                 where tar.ins_id = ins.ins_id 
                 and tar.tar_estado = 1
-                order by tar.tar_fecharegistro desc";
+                order by tar.tar_id desc";
 //echo $sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         // recibe los datos
@@ -48,8 +48,8 @@ class Bitacora extends CActiveRecord {
         $id_usuario = $modelUser['usu_id'];
         //$dato_datt_id = $_GET['datt_id'];
         //$usu_id = $this->_datosUser->usu_id;
-        $sql = "select * from solucion where datt_id = '10'";
-        echo "<br>".$sql;
+        $sql = "select * from tarea where tar_id = '10'";
+       // echo "<br>".$sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
@@ -58,7 +58,7 @@ class Bitacora extends CActiveRecord {
     public function rules(){
 
         return array(
-            array('nombre_tarea','required'),
+            array('nombre_tarea','ext.BitacoraValidation'),
             array('descripcion_tarea','required'),
 
             );

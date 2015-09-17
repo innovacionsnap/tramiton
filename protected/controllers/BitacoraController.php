@@ -69,7 +69,7 @@ class BitacoraController extends Controller {
 
         if(isset($_POST["Bitacora"])){
 
-          $model->attibutes = $_POST[]
+          //$model->attibutes = $_POST[]
 
           if ($model->validate()){
 

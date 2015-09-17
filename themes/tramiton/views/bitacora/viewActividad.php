@@ -1,3 +1,18 @@
+
+<?php
+    $baseUrl = Yii::app()->theme->baseUrl;
+
+    include("config.inc.php");
+
+   
+    //usuario 
+
+        $modelUser = Usuario::model() -> findByPk(Yii::app() -> user -> id);
+        $id_usuario = $modelUser['usu_id'];
+
+?>
+
+
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
@@ -14,6 +29,10 @@
     $baseUrl = Yii::app()->theme->baseUrl;
     
     ?>
+
+
+
+
     <!-- ================== BEGIN BASE CSS STYLE ================== -->
 
     <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -21,21 +40,28 @@
     <link href="<?php echo $baseUrl; ?>/assets/css/animate.min.css" rel="stylesheet" />
     <link href="<?php echo $baseUrl; ?>/assets/css/style-adm-bitacora.min.css" rel="stylesheet" />
     <link href="<?php echo $baseUrl; ?>/assets/css/style-responsive-admin.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/css/theme/default.css" rel="stylesheet" id="theme" />
     
     
     <!-- ================== END BASE CSS STYLE ================== -->
     
-    <!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->    
-    <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
-    <link href="<?php echo $baseUrl; ?>/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
-        
-    <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
+  
+
+    <!-- ================== BEGIN PAGE EDIT INPUTS ================== -->  
+
+    <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap3-editable/inputs-ext/address/address.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap3-editable/inputs-ext/typeaheadjs/lib/typeahead.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/plugins/select2/select2.css" rel="stylesheet" />
+    <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css" rel="stylesheet" />
+
+
+    <!-- ================== END PAGE EDIT INPUTS  ================== -->
         
 
-    
-    <!-- ================== END BASE JS ================== -->
-    
-    <!-- ================== BEGIN BASE COMBOBOX JS ================== -->
    
 
         
@@ -44,146 +70,155 @@
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.css?v=2.1.5" media="screen" />
 
 
-
-    
-    <!-- ================== END BASE COMBOBOX JS ================== -->
+        <script type="text/javascript">
+     $(document).ready(function() {
+        $(".actividad").fancybox({
+            'titleShow'         : false,
+            'width'             : '65%',
+            'height'            : '65%',
+            'autoScale'         : false,
+            'transitionIn'      : 'none',
+            'transitionOut'     : 'none',
+            'type'              : 'iframe',
+           afterClose : function() {
+                location.reload();
+            }
+        });
+    });
+     $(document).ready(function() {
+        $(".actividad-new").fancybox({
+            'titleShow'         : false,
+            'width'             : '65%',
+            'height'            : '65%',
+            'autoScale'         : false,
+            'transitionIn'      : 'none',
+            'transitionOut'     : 'none',
+            'type'              : 'iframe',
+           afterClose : function() {
+                location.reload();
+           }
+        });
+    });
+    </script>   
         
       
 </head>
 <body>
-
+    <!-- begin page-header -->
+            
+            
+    <!-- end page-header -->
 
 <!-- begin #content -->
         <div id="content" class="content">
-          
+            <!-- begin breadcrumb -->
+            <ol class="breadcrumb pull-right">
+                <li class="active"><a href="#">Tarea</a></li>
+                <li><a href="">Participantes</a></li>
+                <li><a href="">Actividades</a></li>
+            </ol>
+            <!-- end breadcrumb -->
            
-            <!-- begin row -->
-            <div class="row">
-                <!-- begin col-12 -->
-                <div class="col-md-12">
-                    <!-- begin panel -->
-                    <div class="panel panel-inverse">
-                        
-                        <div class="panel-body">
-                            
-                            <form action="<?php echo $baseUrl; ?>/themes/tramiton/views/ciudadano/final_formulario.php" method="POST" data-parsley-validate="true" name="form-wizard">
-                                <div id="wizard">
-                                  
-                                    <!-- begin wizard step-1 -->
-                                    <div class="wizard-step-1">
-                                        <fieldset>
+       
+            <!-- begin profile-container -->
+            <div class="profile-container">
+                <!-- begin profile-section -->
+                <div class="profile-section">
+                  
+                    <!-- begin profile-right -->
+                    <div class="profile">
+                        <!-- begin profile-info -->
+                        <div class="profile-info">
+                            <!-- begin table -->
+                            <div class="table-responsive">
+                                <table class="table table-profile">
+                                    <thead>
+                                        <tr>
+                                           <?php foreach ($datosTarea_Actividad as $datosTarea_Actividad_detalle) ?>
+                                             <h4><?php echo $datosTarea_Actividad_detalle["tar_nombre"] ?>
+                                                 <br><small>Registro:<?php echo $datosTarea_Actividad_detalle["tar_fecharegistro"] ?></small>
+                                            </h4>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                         <tr class="highlight">
+                                            <td class="field">Tramite</td>
+                                            <td><?php //echo $dato_tramite_detalle["tra_nombre"] ?></td>
+                                        </tr>
+                                        <tr class="highlight">
+                                            <td class="field">Tramite</td>
+                                            <td><?php //echo $dato_tramite_detalle["tra_nombre"] ?></td>
+                                        </tr>
+                                        <tr class="divider">
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="field">Provincia</td>
+                                            <td><?php // echo $dato_tramite_detalle["pro_nombre"] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="field">Canton</td>
+                                            <td><?php //echo $dato_tramite_detalle["can_nombre"] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="field">Fecha </td>
+                                            <td><?php //echo $dato_tramite_detalle["datt_fecharegistro"] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="field">U. Prestado </td>
+                                            <td><?php // echo $dato_tramite_detalle["datt_unidadprestadora"] ?></td>
+                                        </tr>
+                                        <tr class="divider">
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr class="highlight">
+                                            <td class="field">Experiencia</td>
+                                            <td><?php //echo $dato_tramite_detalle["datt_experiencia"] ?></td>
+                                        </tr>
+                                        <tr class="divider">
+                                            <td colspan="2"></td>
+                                        </tr>
                                         
-                                            <!-- begin row -->
-                                            <div class="row">
-                                                
-                                                <!-- begin col-12 -->
-                                                
-                                                <div class="col-md-12">
-                                                    <div class="form-group block1">
-                                                        <label>Tareassssss</label>
-                                                        <input type="text" id = "nombre_tarea" onkeyup = "Validate(this)" name="nombre_tarea" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-1" required />
-                                                        
-                                                    </div>
-                                                     <div class="form-group block1">
-                                                        <label>Descripcion</label>
-                                                        <input type="text" id = "descripcion_tarea" onkeyup = "Validate(this)" name="descripcion_tarea" data-parsley-range="[2,200]" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-1" required />
-                                                        
-                                                    </div>
-                                                    <div class="form-group block1">
-                                                        <label>Fechas</label>
-                                                           <div class="input-group input-daterange">
-                                                                <input type="text" class="form-control" name="start" placeholder="Fecha Inicio" />
-                                                                <span class="input-group-addon">a</span>
-                                                                <input type="text" class="form-control" name="end" placeholder="Fecha Fin" />
-                                                            </div>
-                                                        
-                                                    </div>
-                                                    <div class="form-group block1">
-                                                        <label>Meta</label>
-                                                        <div class="controls">
-                                                            <textarea class="form-control" id="meta_tarea" onkeyup = "Validate(this)" name="meta_tarea" rows="4" data-parsley-range="[20,200]" placeholder="Escribir aqui" data-parsley-group="wizard-step-3" required></textarea>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                    <input type="submit" value="Guardar" class="btn btn-success btn-lg"> 
-                                                </div>
-                                                <!-- end col-12 -->
-                                            </div>
-                                            <!-- end row -->
-                                        </fieldset>
-                                    </div>
-                                    <!-- end wizard step-1 -->
-                                    <!-- begin wizard step-2 -->
-                                    <div class="wizard-step-2">
-                                        <fieldset>
-                                            <legend class="pull-left width-full">Problemas</legend>
-                                            <!-- begin row -->
-                                            <div class="row">
-                                                <!-- begin col-4 -->
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <?php //echo problema2() ?>
-                                                        
-                                                    </div>
-                                                </div>
-                                                <!-- end col-4 -->
-                                                <!-- begin col-4 -->
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <?php //echo problema3() ?>
-                                                        
-                                                    </div>
-                                                </div>
-                                                <!-- end col-4 -->
-                                                <!-- begin col-4 -->
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <?php //echo problema4() ?>
-                                                        
-                                                    </div>
-                                                </div>
-                                                <!-- end col-4 -->
-                                                <!-- begin col-12 -->
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label>Detalle del problema</label>
-                                                        <textarea class="form-control" id = "experiencia" onkeyup = "Validate(this)" name="experiencia" rows="4" data-parsley-range="[20,200]" placeholder="experiencia" data-parsley-group="wizard-step-2" required></textarea>
-                                                            
-                                                    </div>
-                                                </div>
-                                                <!-- end col-6 -->
-                                                
-                                            </div>
-                                            <!-- end row -->
-                                        </fieldset>
-                                    </div>
-                                    <!-- end wizard step-2 -->
-                                    
-                                    <!-- begin wizard step-4 -->
-                                    <div>
-                                        <div class="jumbotron m-b-0 text-center">
-                                    <h1>Gracias por ingresar el tramite</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat commodo porttitor. Vivamus eleifend, arcu in tincidunt semper, lorem odio molestie lacus, sed malesuada est lacus ac ligula. Aliquam bibendum felis id purus ullamcorper, quis luctus leo sollicitudin. </p>
-                                    <!--  <p><a class="btn btn-success btn-lg" role="button">Guardar y enviar</a></p> -->
-                                    <input type="submit" value="Publicar y Guardar" class="btn btn-success btn-lg"> 
-                                    <input type="hidden" name="insertar_tramite" value="1">
-                                    <input type="hidden" name="id_usuario" value="<?php // echo $id_usuario ?>">
-                                     <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
-                                </div>
-                                    </div>
-                                    <!-- end wizard step-4 -->
-                                </div>
-                            </form>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- end table -->
                         </div>
+                        <!-- end profile-info -->
                     </div>
-                    <!-- end panel -->
+                    <!-- end profile-right -->
                 </div>
-                <!-- end col-12 -->
+                <!-- end profile-section -->
+                <!-- begin profile-section -->
+                <div class="profile-section">
+                    <!-- begin row -->
+                    <div class="row">
+                        <!-- begin col-4 -->
+                        <div class="col-md-12">
+                            <h4 class="title">Actividades</small></h4>
+                            <!-- begin scrollbar -->
+                            <div data-scrollbar="true" data-height="280px" class="bg-silver">
+                                <!-- begin chats -->
+                                <ul class="chats">
+                                    
+                                   
+                                    
+                                </ul>
+                                <!-- end chats -->
+                            </div>
+                            <!-- end scrollbar -->
+                        </div>
+                        <!-- end col-4 -->
+                       
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end profile-section -->
             </div>
-            <!-- end row -->
+            <!-- end profile-container -->
         </div>
         <!-- end #content -->
-
 
   
         <!-- begin scroll to top btn -->
@@ -211,6 +246,20 @@
     <!-- ================== BEGIN PAGE LEVEL JS ================== -->
     
 
+    <!-- INICIO EXTRA CSS -->
+    <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap3-editable/inputs-ext/address/address.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap3-editable/inputs-ext/typeaheadjs/lib/typeahead.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap3-editable/inputs-ext/typeaheadjs/typeaheadjs.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap3-editable/inputs-ext/wysihtml5/wysihtml5.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/select2/select2.min.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/mockjax/jquery.mockjax.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/moment/moment.min.js"></script>
+    <!-- FIN EXTRA CSS -->
     <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/parsley/dist/parsley.js"></script>
     <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
     <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/form-wizards-validation.demo.min.js"></script>
@@ -224,7 +273,7 @@
     <script>
         $(document).ready(function() {
             App.init();
-            FormWizardValidation.init();
+            FormEditable.init();
         });
     </script>
 

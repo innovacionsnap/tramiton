@@ -2,7 +2,13 @@
 <?php
     $baseUrl = Yii::app()->theme->baseUrl;
 
-    //include("../themes/tramiton/views/ciudadano/config.inc.php");
+    include("config.inc.php");
+
+   
+    //usuario 
+
+        $modelUser = Usuario::model() -> findByPk(Yii::app() -> user -> id);
+        $id_usuario = $modelUser['usu_id'];
 
 ?>
 
@@ -74,27 +80,30 @@
                     <div class="panel panel-inverse">
                         
                         <div class="panel-body">
+                            <?php /*
                             <?php echo CHtml::beginForm('','post',array("name"=>"form-wizard"));?>
                                 <div class="form-group block1">
                                     <label>Tarea</label>
                                     <?php echo CHtml::activeTextField($model,'nombre_tarea', array("placeholder"=>"Escribir aqui", "class" => "form-control"))?>
-                                    
+                                    <?php echo CHtml::error($model,'nombre_tarea')?>
                                 </div>
                                  <div class="form-group block1">
                                     <label>Decripcion</label>
                                     <?php echo CHtml::activeTextField($model,'descripcion_tarea', array("placeholder"=>"Escribir aqui", "class" => "form-control"))?>
-                                    
+                                    <?php echo CHtml::error($model,'descripcion_tarea')?>
                                 </div>
                                 <div class="form-group block1">
                                     <label>Meta</label>
                                     <?php echo CHtml::activeTextArea($model,'meta_tarea', array("placeholder"=>"Escribir aqui", "class" => "form-control", "rows"=>"4"))?>
+                                    <?php echo CHtml::error($model,'meta_tarea')?>
                                 </div>
                               
                                 <?php echo CHtml::submitButton("Guardar",array("class" =>"btn btn-success btn","title"=>"Guardar Tarea")); ?>
 
                             <?php echo CHtml::endForm();?>
+                            */?>
                             
-                            <form action="<?php echo $baseUrl; ?>/themes/tramiton/views/ciudadano/final_formulario.php" method="POST" data-parsley-validate="true" name="form-wizard">
+                            <form action="<?php echo $baseUrl; ?>/views/bitacora/final_bitacora.php" method="POST" data-parsley-validate="true" name="form-wizard">
                                 <div id="wizard">
                                   
                                     <!-- begin wizard step-1 -->
@@ -109,13 +118,47 @@
                                                 <div class="col-md-12">
                                                      <div class="form-group block1">
                                                         <label>Categoria</label>
-                                                        <select class='form-control' data-parsley-group='wizard-step-1' required>
-                                                            <option value="volvo">Proyecto Espececial 1 </option>
-                                                            <option value="saab">Proyecto Espececial 2 </option>
-                                                            <option value="mercedes">Proyecto Espececial 3</option>
-                                                            <option value="audi">Proyecto Espececial 4</option>
-                                                        </select>
+                                                        <?php
+
+                                                            $consulta_categoria = "SELECT * FROM categoria";    
+        
+                                                            $resultado_categoria = pg_query($con, $consulta_categoria) or die("Error en la Consulta SQL");
+                                                            $numReg = pg_num_rows($resultado_categoria);
+                                                          
+                                                            echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_categoria' id='id_categoria' required>";
+                                                            echo "<option value=''>Selecciona una categoria...</option>";
+                                                            while ($fila=pg_fetch_array($resultado_categoria)) 
+                                                            {
+                                                            echo "<option value=".$fila['cat_id'].">".$fila['cat_nombre']."</option>";
+                                                            }
+                                                            echo "</select>";
+                                                           
+                                                        ?>
                                                         
+                                                    </div>
+                                                 
+                                                    
+                                                        
+                                                
+                                                    <div class="form-group block1">
+                                                        <label>Tarea</label>
+                                                        
+                                                        <?php
+
+                                                            $consulta_institucion = "SELECT * FROM institucion";    
+        
+                                                            $resultado_institucion = pg_query($con, $consulta_institucion) or die("Error en la Consulta SQL");
+                                                            $numReg = pg_num_rows($resultado_institucion);
+                                                          
+                                                            echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_institucion' id='id_institucion' required>";
+                                                            echo "<option value=''>Selecciona una institucion...</option>";
+                                                            while ($fila=pg_fetch_array($resultado_institucion)) 
+                                                            {
+                                                            echo "<option value=".$fila['ins_id'].">".$fila['ins_nombre']."</option>";
+                                                            }
+                                                            echo "</select>";
+                                                   
+                                                        ?>
                                                         
                                                     </div>
                                                     <div class="form-group block1">
@@ -144,7 +187,10 @@
                                                         </div>
                                                         
                                                     </div>
-                                                    <input type="submit" value="Guardar" class="btn btn-success btn-lg"> 
+                                                    <input type="submit" value="Guardar" class="btn btn-success btn-lg">
+                                                    <input type="hidden" name="insertar_tarea" value="1">
+                                                    <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
+                                                    <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
                                                 </div>
                                                 <!-- end col-12 -->
                                             </div>
@@ -152,65 +198,9 @@
                                         </fieldset>
                                     </div>
                                     <!-- end wizard step-1 -->
-                                    <!-- begin wizard step-2 -->
-                                    <div class="wizard-step-2">
-                                        <fieldset>
-                                            <legend class="pull-left width-full">Problemas</legend>
-                                            <!-- begin row -->
-                                            <div class="row">
-                                                <!-- begin col-4 -->
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <?php //echo problema2() ?>
-                                                        
-                                                    </div>
-                                                </div>
-                                                <!-- end col-4 -->
-                                                <!-- begin col-4 -->
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <?php //echo problema3() ?>
-                                                        
-                                                    </div>
-                                                </div>
-                                                <!-- end col-4 -->
-                                                <!-- begin col-4 -->
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <?php //echo problema4() ?>
-                                                        
-                                                    </div>
-                                                </div>
-                                                <!-- end col-4 -->
-                                                <!-- begin col-12 -->
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label>Detalle del problema</label>
-                                                        <textarea class="form-control" id = "experiencia" onkeyup = "Validate(this)" name="experiencia" rows="4" data-parsley-range="[20,200]" placeholder="experiencia" data-parsley-group="wizard-step-2" required></textarea>
-                                                            
-                                                    </div>
-                                                </div>
-                                                <!-- end col-6 -->
-                                                
-                                            </div>
-                                            <!-- end row -->
-                                        </fieldset>
-                                    </div>
-                                    <!-- end wizard step-2 -->
+                                 
                                     
-                                    <!-- begin wizard step-4 -->
-                                    <div>
-                                        <div class="jumbotron m-b-0 text-center">
-                                    <h1>Gracias por ingresar el tramite</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat commodo porttitor. Vivamus eleifend, arcu in tincidunt semper, lorem odio molestie lacus, sed malesuada est lacus ac ligula. Aliquam bibendum felis id purus ullamcorper, quis luctus leo sollicitudin. </p>
-                                    <!--  <p><a class="btn btn-success btn-lg" role="button">Guardar y enviar</a></p> -->
-                                    <input type="submit" value="Publicar y Guardar" class="btn btn-success btn-lg"> 
-                                    <input type="hidden" name="insertar_tramite" value="1">
-                                    <input type="hidden" name="id_usuario" value="<?php // echo $id_usuario ?>">
-                                     <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
-                                </div>
-                                    </div>
-                                    <!-- end wizard step-4 -->
+                                  
                                 </div>
                             </form>
                         </div>

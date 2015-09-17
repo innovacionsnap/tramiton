@@ -10,9 +10,9 @@
         'transitionIn'      : 'none',
         'transitionOut'     : 'none',
         'type'              : 'iframe',
-       // afterClose : function() {
-       //     location.reload();
-       // }
+       afterClose : function() {
+            location.reload();
+        }
     });
 });
  $(document).ready(function() {
@@ -24,9 +24,9 @@
         'transitionIn'      : 'none',
         'transitionOut'     : 'none',
         'type'              : 'iframe',
-       // afterClose : function() {
-       //     location.reload();
-       // }
+       afterClose : function() {
+            location.reload();
+       }
     });
 });
 </script>   
@@ -81,13 +81,13 @@
                                            ?>
                                             <tr class="odd gradeA">
                                                 <td>
-                                                <a href="#" class="actividad" ><?php echo $dato["tar_id"] ?></a>
+                                                <a href="http://localhost/tramiton2/bitacora/viewActividad" class="actividad" ><?php echo $dato["tar_id"] ?></a>
                                                 </td>
                                                 <td>
                                                <?php // echo $dato["tar_nombre"] ?>
                                                 </td>
                                                 <td>
-                                               <a href="#" class="actividad" title="<?php echo $dato["ins_nombre"] ?>"><?php echo substr($dato["ins_nombre"],0,40) ?></a>
+                                               <a href="http://localhost/tramiton2/bitacora/viewActividad" class="actividad" title="<?php echo $dato["ins_nombre"] ?>"><?php echo substr($dato["ins_nombre"],0,40) ?></a>
                                                 </td>
                                                 <td>
                                                <a href="#" class="actividad"><?php echo $dato["tar_nombre"] ?></a>
