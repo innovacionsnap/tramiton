@@ -327,7 +327,7 @@ order by pro_prob_id limit 4 offset 0";
 <?php //echo $baseUrl; ?>
 
 <!-- begin #content -->
-		<div id="content" class="content">
+		<div id="content" class="content" style="margin-left: 50px; margin-right: 20px">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li><a href="<?php echo $baseUrl; ?>/dashboard/">Inicio</a></li>

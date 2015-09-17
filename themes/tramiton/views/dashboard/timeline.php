@@ -1,6 +1,6 @@
 <style type="text/css">
     .contenido-solucion{
-        margin: 15px; 
+        margin: 5px; 
         padding: 10px; 
         display:inline-block; 
         width:200px;
@@ -8,6 +8,7 @@
         height: 280px;
         border: 1px solid #B1B9C0; 
         max-height: 280px;
+        background: #fff;
     }
 
     .usuario img{
@@ -26,6 +27,7 @@
 
     .cuerpo{
         height: 120px;
+        word-wrap:break-word;
     }
     
     .cuerpo p{
@@ -89,7 +91,7 @@
                     $sol_descripcion = substr($datoSolucion['sol_descripcion'], 0, 150);
                     echo $sol_descripcion;
                     ?>
-                    <a href="../solucion/index?sol=<?php echo $datoSolucion['sol_id'] ?>" class="solucion-new" target="_blank" title="Leer más">>></a>
+                    <a href="../solucion/index?sol=<?php echo $datoSolucion['sol_id'] ?>" class="solucion-new" target="_blank" title="Leer más"> Leer más >></a>
                 </p>
             </div>
             <hr>
@@ -106,7 +108,7 @@
         <?php $contador++; ?>
     <?php endforeach; ?>
 </div>
-<div id="porvenir" style="max-height: 80px;position: relative"></div>
+<div id="porvenir" style="max-height: 80px;position: relative;"></div>
 <div id="more"><a href="#" onclick="cargasolucion()"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/flecha-abajo.png');?>"></a></div>
 
 <script type="text/javascript">

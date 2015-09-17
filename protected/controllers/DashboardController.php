@@ -73,7 +73,7 @@ class DashboardController extends Controller {
         $html = '';
         $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 15, 'offset' => $limite));
         foreach ($datosSolucion as $datoSolucion):
-            $html.='<div class="contenido-solucion" style="margin-right:18px">
+            $html.='<div class="contenido-solucion" style="margin-right:8px">
                         <div class="usuario">
                             <img src="';
             $html.= (Yii::app()->theme->baseUrl) . '/assets/img/users/';
@@ -89,7 +89,7 @@ class DashboardController extends Controller {
                 <p>';
 
             $sol_descripcion = substr($datoSolucion['sol_descripcion'], 0, 150);
-            $html.= $sol_descripcion . '<a href="../solucion/index?sol=' . $datoSolucion['sol_id'] . '" class="solucion-new" target="_blank">Ver más</a>
+            $html.= $sol_descripcion . '<a href="../solucion/index?sol=' . $datoSolucion['sol_id'] . '" class="solucion-new" target="_blank"> Leer más >></a>
                 </p>
             </div>
             <hr>
@@ -150,7 +150,7 @@ class DashboardController extends Controller {
         return $nombre_usuario;
     }
 
-    public function getImagen($usu_id) {
+    public static function getImagen($usu_id) {
         $usuario = Usuario::model()->findByPk($usu_id);
         $usu_imagen = $usuario->usu_imagen;
         return $usu_imagen;
@@ -172,7 +172,7 @@ class DashboardController extends Controller {
         }
     }
 
-    public function getComentario($solucion) {
+    public static function getComentario($solucion) {
         $comentarios = Comentario::model()->findAll($condition = 'sol_id=' . $solucion);
         foreach ($comentarios as $dato):
             $usuario = $this->GetUsuario($dato['usu_id']);
@@ -181,13 +181,13 @@ class DashboardController extends Controller {
         endforeach;
     }
 
-    public function getNumComentarios($solucion) {
+    public static function getNumComentarios($solucion) {
         $comentarios = Comentario::model()->findAll($condition = 'sol_id=' . $solucion);
         $num_comentarios = count($comentarios);
         return $num_comentarios;
     }
 
-    public function validaLike($solucion) {
+    public static function validaLike($solucion) {
         $usuario = Yii::app()->user->id;
         $like = Megusta::model()->findAll('sol_id=' . $solucion . 'And usu_id=' . $usuario);
         $contador = count($like);
@@ -204,13 +204,13 @@ class DashboardController extends Controller {
         }
     }
 
-    public function getLike($solucion) {
+    public static function getLike($solucion) {
         $like = Megusta::model()->findAll('sol_id=' . $solucion . 'And mgu_estado=\'1\'');
         $num_likes = count($like);
         return $num_likes;
     }
 
-    public function getTotalSoluciones() {
+    public static function getTotalSoluciones() {
         $solucion = Solucion::model()->findAll('sol_estado=1');
         $total_soluciones = count($solucion);
         return $total_soluciones;
@@ -245,7 +245,7 @@ class DashboardController extends Controller {
         }
     }
 
-    public function getVista($id) {
+    public static function getVista($id) {
         $sol = Solucion::model()->find('sol_id=' . $id);
         return $sol->sol_vistas;
     }
@@ -262,7 +262,7 @@ class DashboardController extends Controller {
         }
     }
 
-    public function getNoticias() {
+    public static function getNoticias() {
         $noticias = LogSistema::model()->findAllByAttributes(array('logs_tipo_publicacion' => "p_usuario"), array('order' => 'logs_fechahora desc, logs_id desc', 'limit' => 10));
         return $noticias;
     }
