@@ -42,7 +42,7 @@
 	
 	<?php
 	$baseUrl = Yii::app()->theme->baseUrl;
-	echo "base: ".$baseUrl;
+	//echo "base: ".$baseUrl;
 	?>
 
 
