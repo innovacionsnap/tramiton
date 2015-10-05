@@ -2170,7 +2170,8 @@ legend {
 .pager li > span,
 .pagination > li > a {
     border-color: #e2e7eb;
-    color: #242a30;
+    color: #fff;
+    background-color:#325972;
 }
 .pager.pager-without-border li > a, 
 .pager.pager-without-border li > span,
