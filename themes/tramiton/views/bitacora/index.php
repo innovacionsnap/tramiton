@@ -1,3 +1,5 @@
+
+
 <script type="text/javascript">
  $(document).ready(function() {
     $(".actividad").fancybox({
@@ -8,9 +10,9 @@
         'transitionIn'      : 'none',
         'transitionOut'     : 'none',
         'type'              : 'iframe',
-       // afterClose : function() {
-       //     location.reload();
-       // }
+       afterClose : function() {
+            location.reload();
+        }
     });
 });
  $(document).ready(function() {
@@ -22,9 +24,9 @@
         'transitionIn'      : 'none',
         'transitionOut'     : 'none',
         'type'              : 'iframe',
-       // afterClose : function() {
-       //     location.reload();
-       // }
+       afterClose : function() {
+            location.reload();
+       }
     });
 });
 </script>   
@@ -60,9 +62,50 @@
                             </div>
                             <h4 class="panel-title">Tareas</h4>
                         </div>
-                        <div class="panel-body">
-                        	<a href="#" class="actividad">hola</a>
-                           
+                       
+                         <div class="panel-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>Categoria</th>
+                                        <th>Institucion</th>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Fechas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   <?php
+                                            foreach ($datosTarea as $dato){
+                                           ?>
+                                            <tr class="odd gradeA">
+                                                <td>
+                                                <a href="http://localhost/tramiton2/bitacora/viewActividad" class="actividad" ><?php echo $dato["tar_id"] ?></a>
+                                                </td>
+                                                <td>
+                                               <?php // echo $dato["tar_nombre"] ?>
+                                                </td>
+                                                <td>
+                                               <a href="http://localhost/tramiton2/bitacora/viewActividad" class="actividad" title="<?php echo $dato["ins_nombre"] ?>"><?php echo substr($dato["ins_nombre"],0,40) ?></a>
+                                                </td>
+                                                <td>
+                                               <a href="#" class="actividad"><?php echo $dato["tar_nombre"] ?></a>
+                                                </td>
+                                                <td>
+                                               <a href="#" class="actividad"><?php echo $dato["tar_descripcion"] ?></a>
+                                                </td>
+                                                <td>
+                                               <a href="#" class="actividad"><?php echo $dato["tar_fecharegistro"] ?></a>
+                                                </td>
+
+                                                            
+                                            </tr>
+                                           <?php
+                                            }
+                                           ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <!-- end panel -->
