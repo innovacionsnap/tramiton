@@ -7,6 +7,8 @@ class SiteController extends Controller {
      */
     public $_msgSuccess;
     public $_msgerror;
+    public $_datosUser;
+    
 
     public function actions() {
         return array(
@@ -103,6 +105,28 @@ class SiteController extends Controller {
     public function actionLogout() {
         Yii::app()->user->logout();
         $this->redirect(Yii::app()->homeUrl);
+    }
+    
+    /**
+     * accion para el registro de un nuevo usuario         
+     */
+    public static function verificaUsuario($cedula){
+        
+        $total = Usuario::model()->findAllByAttributes(array('usu_cedula' => $cedula))->count();
+        if ($total > 0){
+            $usuario= Usuario::model()->findAllByAttributes(array('usu_cedula' => $cedula));
+            $estado = $usuario['usu_estado'];
+            if ($estado == 2){
+                return 1;
+            }else{
+                $usuario['usu_estado']=2;
+                $usuario->save();
+                return 1;
+            }
+        }else{
+            return 0;
+        }
+        
     }
 
     /**
@@ -212,6 +236,7 @@ class SiteController extends Controller {
     /**
      * función que me permite realizar la accion de validación de cedula
      */
+    
     public function actionValidaCedula() {
 
         $model = new ValidarCedula;
