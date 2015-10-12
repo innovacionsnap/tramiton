@@ -59,6 +59,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
     .theme-panel .control-label.double-line {
         line-height: 30px;
     }
+
 }
 
 @media (max-width: 767px) {
@@ -83,6 +84,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
     .content.content-full-width .breadcrumb {
         margin: 20px;
     }
+
     .navbar-brand {
         width: auto;
     }
@@ -182,7 +184,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
     }
     .page-sidebar-toggled .sidebar-bg {
         position: fixed;
-        background: #2d353c;
+        //background: #2d353c;
         left: 0;
         animation: sidebarSlideInLeft .2s;
         -webkit-animation: sidebarSlideInLeft .2s;
@@ -199,6 +201,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
         left: -220px;
         padding-top: 0;
         z-index: 1030;
+
     }
     .sidebar-bg {
         left: -220px;
@@ -209,7 +212,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
     }
     .page-sidebar-toggled.page-sidebar-minified .sidebar-bg {
         position: fixed;
-        background: #2d353c;
+        //background: #2d353c;
         z-index: 1010;
         left: 0;
         animation: sidebarSlideInLeft .2s;
@@ -452,6 +455,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
     .gallery .image {
         width: 100%;
     }
+
 }
 
 @media (max-width: 380px) {
@@ -459,6 +463,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
     .navbar-form .form-control:focus {
         width: 160px !important;
     }
+
 }
 
 @media (max-width: 340px) {
@@ -466,6 +471,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
     .navbar-form .form-control:focus {
         width: 140px !important;
     }
+
 }
 
 
@@ -492,6 +498,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
     .timeline:before {
         left: 19%;
     }
+
 }
 @media (max-width: 767px) {
     .timeline:before {
@@ -649,6 +656,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
     .vertical-box .slimScrollRail {
         display: none !important;
     }
+
 }
 
 
@@ -691,9 +699,9 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
 
 @media (max-width: 767px) {
     .navbar-inverse .navbar-header.navbar-header-without-bg {
-      background: none;
-      border-bottom: 1px solid #666;
-      border-bottom: 1px solid rgba(255,255,255, 0.1);
+        background: none;
+        border-bottom: 1px solid #666;
+        border-bottom: 1px solid rgba(255,255,255, 0.1);
     }
 }
 
@@ -884,72 +892,76 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
     }
 }
 @keyframes sidebarSlideInLeft {
-        from { left: -220px; }
-        to { left: 0; }
-    }
-    @-webkit-keyframes sidebarSlideInLeft {
-        from { left: -220px; }
-        to { left: 0; }
-    }
-    @keyframes sidebarSlideInRight {
-        from { right: -220px; }
-        to { right: 0; }
-    }
-    @-webkit-keyframes sidebarSlideInRight {
-        from { right: -220px; }
-        to { right: 0; }
-    }
-.page-sidebar-toggled .content{margin-left: 250px !important;}
+    from { left: -220px; }
+    to { left: 0; }
+}
+@-webkit-keyframes sidebarSlideInLeft {
+    from { left: -220px; }
+    to { left: 0; }
+}
+@keyframes sidebarSlideInRight {
+    from { right: -220px; }
+    to { right: 0; }
+}
+@-webkit-keyframes sidebarSlideInRight {
+    from { right: -220px; }
+    to { right: 0; }
+}
+.page-sidebar-toggled .content{
+    //margin-left: 250px !important;
+}
 .page-sidebar-toggled .sidebar {
-        left: 0;
-        animation: sidebarSlideInLeft .2s;
-        -webkit-animation: sidebarSlideInLeft .2s;
-    }
-    .page-sidebar-toggled .sidebar-bg {
-        position: fixed;
-        background: #2d353c;
-        left: 0;
-        animation: sidebarSlideInLeft .2s;
-        -webkit-animation: sidebarSlideInLeft .2s;
-    }
-    .page-sidebar-toggled.page-with-right-sidebar .sidebar,
-    .page-sidebar-toggled.page-with-right-sidebar .sidebar-bg {
-        left: auto;
-        right: 0;
-        animation: sidebarSlideInRight .2s;
-        -webkit-animation: sidebarSlideInRight .2s;
-    }
-    .sidebar {
-        margin-top: 84px;
-        position: absolute;
-        left: -220px;
-        padding-top: 0;
-        z-index: 1030;
-    }
-    .sidebar-bg {
-        left: -220px;
-        z-index: 1020;
-    }
-    .page-sidebar-minified.page-sidebar-minified .sidebar {
-        position: fixed !important;
-    }
-    .page-sidebar-toggled.page-sidebar-minified .sidebar-bg {
-        position: fixed;
-        background: #2d353c;
-        z-index: 1010;
-        left: 0;
-        animation: sidebarSlideInLeft .2s;
-        -webkit-animation: sidebarSlideInLeft .2s;
-    }
-    .page-with-right-sidebar.page-sidebar-toggled.page-sidebar-minified .sidebar-bg {
-        left: auto;
-        right: 0;
-        animation: sidebarSlideInRight .2s;
-        -webkit-animation: sidebarSlideInRight .2s;
-    }
-    .page-sidebar-minified.page-with-right-sidebar .content {
-        margin-right: 0;
-    }
-    .page-sidebar-minified.page-with-right-sidebar .footer {
-        margin-right: 20px;
-    }
+    left: 0;
+    animation: sidebarSlideInLeft .2s;
+    -webkit-animation: sidebarSlideInLeft .2s;
+}
+.page-sidebar-toggled .sidebar-bg {
+    position: fixed;
+    //background: #315972;
+    left: 0;
+    animation: sidebarSlideInLeft .2s;
+    -webkit-animation: sidebarSlideInLeft .2s;
+}
+.page-sidebar-toggled.page-with-right-sidebar .sidebar,
+.page-sidebar-toggled.page-with-right-sidebar .sidebar-bg {
+    left: auto;
+    right: 0;
+    animation: sidebarSlideInRight .2s;
+    -webkit-animation: sidebarSlideInRight .2s;
+}
+.sidebar {
+    margin-top: 76px;
+    position: absolute;
+    left: -220px;
+    padding-top: 0;
+    z-index: 1030;
+    background-color:rgba(233,230,225,0.80);
+}
+.sidebar-bg {
+    left: -220px;
+    z-index: 1020;
+}
+.page-sidebar-minified.page-sidebar-minified .sidebar {
+    position: fixed !important;
+}
+.page-sidebar-toggled.page-sidebar-minified .sidebar-bg {
+    position: fixed;
+    //background: #2d353c;
+    z-index: 1010;
+    left: 0;
+    animation: sidebarSlideInLeft .2s;
+    -webkit-animation: sidebarSlideInLeft .2s;
+}
+.page-with-right-sidebar.page-sidebar-toggled.page-sidebar-minified .sidebar-bg {
+    left: auto;
+    right: 0;
+    animation: sidebarSlideInRight .2s;
+    -webkit-animation: sidebarSlideInRight .2s;
+}
+.page-sidebar-minified.page-with-right-sidebar .content {
+    margin-right: 0;
+}
+.page-sidebar-minified.page-with-right-sidebar .footer {
+    margin-right: 20px;
+}
+

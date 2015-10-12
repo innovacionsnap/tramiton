@@ -1,38 +1,25 @@
 <!-- begin #footer -->
-<div id="footer" class="footer">
-    <div class="container">
-
-        <!-- begin row -->
-        <div class="row">
-            <!-- begin col-3 -->
-            <div align="left" class="col-md-4 col-sm-4">
-                <a><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logotipo_republica_ecuador.png" /></a>
-            </div>
-            <!-- end col-3 -->
-            <!-- begin col-3 -->
-            <div class="col-md-4 col-sm-4 footer-texto-snap">			    	
-                <p>García Moreno N10-43 entre Chile y Espejo<br>
-                    Código Postal: 170401 / Quito - Ecuador<br>
-                    Teléfono: 593-2 382-7000</p>
-            </div>
-            <!-- end col-3 -->
-            <!-- begin col-3 -->
-            <div align="right" class="col-md-4 col-sm-4">
-                <a class="footer-logo-ecuador"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logos/Logo-PAIS.png" /></a>
-            </div>
-            <!-- end col-3 -->
-            <!-- end col-3 -->
+<div id="footer" >
+  <div class="col-md-12 col-sm-12 col-xs-12 " style="padding-top:10px; background: url('<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/footer.png') repeat-x">
+        <!-- begin col-3 -->
+        <div class="col-md-4 col-sm-4 col-xs-12" style="margin-top:30px;">
+            <a><img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_snap.png" /></a>
         </div>
-        <!-- end row -->
-
-        <p class="social-list">
-            <a href="#"><i class="fa fa-facebook fa-fw"></i></a>
-            <a href="#"><i class="fa fa-instagram fa-fw"></i></a>
-            <a href="#"><i class="fa fa-twitter fa-fw"></i></a>
-            <a href="#"><i class="fa fa-google-plus fa-fw"></i></a>
-            <a href="#"><i class="fa fa-dribbble fa-fw"></i></a>
-        </p>
-    </div>
+        <!-- end col-3 -->
+        <!-- begin col-3 -->
+        <div class="col-md-4 col-sm-4 col-xs-12" style="margin-top:30px;">			    	
+            <a><img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_pais.png" /></a>
+        </div>
+        <!-- end col-3 -->
+        <!-- begin col-3 -->
+        <div align="right" class="col-md-4 col-sm-4 col-xs-12">
+            <a href=""><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_plataforma_innovacion.png'); ?>"></a>
+            <a href=""><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_facebook.png'); ?>"></a>
+            <a href=""><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_twitter.png'); ?>"></a>
+            <a href=""><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_youtube.png'); ?>"></a>
+        </div>
+        
+    </div>   
 </div>
 <!-- end #footer -->
 

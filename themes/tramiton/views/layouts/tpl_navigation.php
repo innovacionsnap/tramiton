@@ -1,54 +1,35 @@
+<style type="text/css">
+    .menu-home{
+        display: inline-flex;
+        margin-left:10%;
+    }
+    .menu-home #header-navbar{
+        width: 100%;
+    }
+</style>
+
 <!-- begin #header -->
 <div id="header" class="header navbar navbar-default navbar-fixed-top">
     <!-- begin container -->
-    <div class="container">
+    <div class="container menu-home">
         <!-- begin navbar-header -->
+
+        <!-- INGRESASAR LOGO -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="index.html" class="navbar-brand visible-xs">
-                <span class="brand-logo"><img src=""></span>
-            </a>
+            <a href="index"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/Logo.png" class="media-object" alt="" /></a>
         </div>
+        <!-- INGRESASAR LOGO -->
         <!-- end navbar-header -->
         <!-- begin navbar-collapse -->
         <div class="collapse navbar-collapse" id="header-navbar">
-
-            <?php
-            $this->widget('zii.widgets.CMenu', array(
-                'htmlOptions' => array('class' => 'nav navbar-nav navbar-right'),
-                'submenuHtmlOptions' => array('class' => 'dropdown-menu dropdown-menu-left animated fadeInDown'),
-                'itemCssClass' => '',
-                'encodeLabel' => false,
-                'items' => array(
-                    array('label' => 'Inicio', 'url' => array('/site/index/'), 'linkOptions' => array(),),
-                    array('label' => 'Ranking<b class="caret"></b>', 'url' => array('/site/index/tramites'), 'itemOptions' => array('class' => 'dropdown'), 'linkOptions' => array('data-toggle' => 'dropdown'),
-                        'items' => array(
-                            array('label' => 'Trámites Más Absurdos', 'url' => array('/site/admin/')),
-                            array('label' => 'Trámites Más Mencionados', 'url' => array('/site/admin/')),
-                            array('label' => 'Instituciones Más Mencionadas', 'url' => array('/site/page', 'view' => 'admin')),
-                        )),
-                    array('label' => 'Mejora de Trámites<b class="caret"></b>', 'url' => array('/site/index/tramites2'), 'itemOptions' => array('class' => 'dropdown'), 'linkOptions' => array('data-toggle' => 'dropdown'),
-                        'items' => array(
-                            array('label' => 'Seguimiento de Mejora de Trámites', 'url' => array('/site/index')),
-                            array('label' => 'Plan Nacional de Simplificación de Trámites', 'url' => array('/site/page', 'view' => 'home2')),
-                        )),
-                    array('label' => 'Acerca de Tramitón<b class="caret"></b>', 'url' => array('/site/index/tramites3'), 'itemOptions' => array('class' => 'dropdown'), 'linkOptions' => array('data-toggle' => 'dropdown'),
-                        'items' => array(
-                            array('label' => '¿Qué es y Porque Tramitón?', 'url' => array('/site/formulario/')),
-                            array('label' => 'Gobierno Abierto', 'url' => array('/site/page', 'view' => 'home2')),
-                            array('label' => 'FAQs', 'url' => array('/site/page', 'view' => 'home2')),
-                        )),
-                    array('label' => 'Contacto', 'url' => array('/site/index/tramites4'), 'linkOptions' => array(),),
-                    array('label' => '<i class="fa fa-user"></i>&nbsp;Ingresar', 'url' => array('./#login-modal'), 'visible' => Yii::app()->user->isGuest, 'linkOptions' => array("data-description" => "member area", 'data-toggle' => "modal")),
-                    array('label' => 'Salir (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest, 'linkOptions' => array("data-description" => "member area")),
-                ),
-            ));
-            ?>
-
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#home" data-click="scroll-to-target">Participa</a></li>
+                <li><a href="#que_es_tramiton" data-click="scroll-to-target">¿Qué es Tramitón?</a></li>
+                <li><a href="#estadisticas" data-click="scroll-to-target">Estadisticas</a></li>
+                <li><a href="#noticias" data-click="scroll-to-target">Noticias</a></li>
+                <li><a href="#preguntas" data-click="scroll-to-target">Preguntas Frecuentes</a></li>
+                <li><a href="/tramiton/./#login-modal" data-toggle="modal" data-description="member area">Ingresar</a></li>
+            </ul>
         </div>
         <!-- end navbar-collapse -->
     </div>

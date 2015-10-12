@@ -30,10 +30,38 @@
 	
 	<!-- ================== Custom CSS ================== -->
 	<link href="<?php echo $baseUrl; ?>/assets/css/style.css" rel="stylesheet" />
-	<link href="<?php echo $baseUrl; ?>/assets/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="<?php echo $baseUrl; ?>/assets/css/style-responsive.admin.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/main.css" rel="stylesheet" />
         <!-- ================== END Custom CSS=============== -->
-	
+        <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
+        <link href="<?php echo $baseUrl; ?>/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
+	<?php
+        $baseUrl = Yii::app()->baseUrl;
+        $cs = Yii::app()->getClientScript();
+        Yii::app()->clientScript->registerCoreScript('jquery');
+        ?>
+        <?php $linkcombo = $baseUrl . '/themes/tramiton/views/ciudadano/combobox.php' ?>
+        <?php $linkcombo2 = $baseUrl . '/themes/tramiton/views/ciudadano/combobox2.php' ?>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                /* COMBOBOX PROVINCIAS  */
+                $("#id_provincia").change(function (event)
+                {
+                    var idpadre = $(this).find(':selected').val();
+                    $("#pidhijo").html("<img src='<?php echo $baseUrl ?>/themes/tramiton/views/ciudadano/loading.gif' />");
+                    $("#pidhijo").load('<?php echo $linkcombo ?>?buscar=hijos&id_provincia=' + idpadre);
+                });
+
+                /* COMBOBOX INTITUCION  */
+                $("#id_institucion").change(function (event)
+                {
+                    var id_institucion = $(this).find(':selected').val();
+                    $("#pidhijo2").html("<img src='<?php echo $baseUrl ?>/themes/tramiton/views/ciudadano/loading.gif' />");
+                    $("#pidhijo2").load('<?php echo $linkcombo2 ?>?buscar_institucion=institucion&id_institucion=' + id_institucion);
+                });
+
+            });
+        </script>
 	
 	
 </head>
