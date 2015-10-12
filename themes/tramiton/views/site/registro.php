@@ -17,7 +17,7 @@
     <div class="right-content">
         <!-- begin register-header -->
         <h1 class="register-header" style="padding: 0px 60px 0;">
-            Regístrate
+            Regístrate 
             <!--<small>Crea tu cuenta en Tramiton.to y cuéntanos sobre los trámites mas absurdos.</small>-->
         </h1>
         <!-- end register-header -->

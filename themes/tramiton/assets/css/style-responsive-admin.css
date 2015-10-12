@@ -899,7 +899,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
         from { right: -220px; }
         to { right: 0; }
     }
-.page-sidebar-toggled .content{margin-left: 250px;}
+.page-sidebar-toggled .content{margin-left: 250px !important;}
 .page-sidebar-toggled .sidebar {
         left: 0;
         animation: sidebarSlideInLeft .2s;

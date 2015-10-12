@@ -94,6 +94,7 @@ class SiteController extends Controller {
                 $this->redirect(array('dashboard/index'));
         }
         $this->layout = 'main-login';
+        $model->unsetAttributes();
         $this->render('login', array('model_login' => $model));
     }
 

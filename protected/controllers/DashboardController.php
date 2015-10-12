@@ -144,13 +144,13 @@ class DashboardController extends Controller {
         echo ($datosRankingLikes[0]['votos_solucion']);
     }
 
-    public function getUsuario($usu_id) {
+    public static function getUsuario($usu_id) {
         $usuario = Usuario::model()->findByPk($usu_id);
         $nombre_usuario = $usuario->usu_nombreusuario;
         return $nombre_usuario;
     }
 
-    public function getImagen($usu_id) {
+    public static function getImagen($usu_id) {
         $usuario = Usuario::model()->findByPk($usu_id);
         $usu_imagen = $usuario->usu_imagen;
         return $usu_imagen;
@@ -187,7 +187,7 @@ class DashboardController extends Controller {
         return $num_comentarios;
     }
 
-    public function validaLike($solucion) {
+    public static function validaLike($solucion) {
         $usuario = Yii::app()->user->id;
         $like = Megusta::model()->findAll('sol_id=' . $solucion . 'And usu_id=' . $usuario);
         $contador = count($like);
@@ -204,7 +204,7 @@ class DashboardController extends Controller {
         }
     }
 
-    public function getLike($solucion) {
+    public static function getLike($solucion) {
         $like = Megusta::model()->findAll('sol_id=' . $solucion . 'And mgu_estado=\'1\'');
         $num_likes = count($like);
         return $num_likes;

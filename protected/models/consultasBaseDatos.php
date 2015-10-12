@@ -264,5 +264,37 @@ class consultasBaseDatos {
         return $resultado->execute();
         //echo "<br><br> retorno update " . $var; Yii::app()->end();
     }
+    
+    /**
+     * 
+     */
+    public function updatePerfilUsuario($idUsr, $username, $email, $fijo, $celular, $direccion, $fechaNac, $genero) {
+        $conexion = Yii::app()->db;
+        
+        $sqlUpdatePerfilUsr = "UPDATE usuario SET "
+                . "usu_nombreusuario = :username, "
+                . "usu_mail = :email, "
+                . "usu_convencional = :fijo, "
+                . "usu_celular = :celular, "
+                . "usu_direccion = :direccion, "
+                . "usu_fechanacimiento = :fechaNac, "
+                . "usu_genero = :genero "
+                . "WHERE "
+                . "usu_id = :usrId";
+        
+        $resultado = $conexion->createCommand($sqlUpdatePerfilUsr);
+        return $resultado->execute(
+                array(
+                    ':username' => $username,
+                    ':email' => $email,
+                    ':fijo' => $fijo,
+                    ':celular' => $celular,
+                    ':direccion' => $direccion,
+                    ':fechaNac' => $fechaNac,
+                    ':genero' => $genero,
+                    ':usrId' => $idUsr,
+                )
+            );
+    }
 
-}
+} 

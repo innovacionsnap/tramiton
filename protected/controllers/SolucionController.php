@@ -20,12 +20,15 @@ class SolucionController extends Controller {
         $model_solucion = new Solucion();
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         Yii::import('application.controllers.DashboardController');
+        //$dashboardController = new DashboardController();
         $id = $_GET['sol'];
         $solucion = $this->getSolucion($id);
         $experiencia = DatosTramite::model()->find('datt_id=' . $solucion['datt_id']);
         $tramite = $model_solucion->getTramite($experiencia['trai_id']);
         $imagen_usuario = DashboardController::getImagen($solucion['usu_id']);
         $usuario_solucion = DashboardController::getUsuario($solucion['usu_id']);
+        //$imagen_usuario = $dashboardController->getImagen($solucion['usu_id']);
+        //$usuario_solucion = $dashboardController->getUsuario($solucion['usu_id']);
         $vistas = $this->procesaVista($id);
         $comentario = $this->getComentario($id, 'inicio');
         if (Yii::app()->user->isGuest == 1) {
