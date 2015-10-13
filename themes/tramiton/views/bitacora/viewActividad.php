@@ -1,15 +1,10 @@
-
 <?php
     $baseUrl = Yii::app()->theme->baseUrl;
-
     include("config.inc.php");
-
    
     //usuario 
-
         $modelUser = Usuario::model() -> findByPk(Yii::app() -> user -> id);
         $id_usuario = $modelUser['usu_id'];
-
 ?>
 
 
@@ -104,121 +99,112 @@
       
 </head>
 <body>
-    <!-- begin page-header -->
-            
+
+
+         <!-- begin row -->
+        <div class="row">
+            <!-- begin col-12 -->
+            <div class="col-md-12">
+                <!-- begin panel -->
+                <div class="panel panel-inverse">
+                     
+                    <div class="panel-body">
+                        <div class="col-md-6">
+                            <!-- begin breadcrumb -->
+                        <ol class="breadcrumb pull-right">
+                            <li class="active"><a href="#">Tarea</a></li>
+                            <li><a href="participantes">Participantes</a></li>
+                            <li><a href="actividad_detalle">Actividades</a></li>
+                        </ol>
+                        <!-- end breadcrumb -->
+                            <?php foreach ($datosTarea_Actividad as $datosTarea_Actividad_detalle) ?>
+                            <h4><?php echo $datosTarea_Actividad_detalle["tar_nombre"] ?></h4>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Categoría</strong></td>
+                                        <td><?php echo $datosTarea_Actividad_detalle["cat_nombre"] ?></td>
+                                    </tr>
+                                     <tr>
+                                        <td><strong>Descripción</strong></td>
+                                        <td><?php  echo $datosTarea_Actividad_detalle["tar_descripcion"] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Institución</strong></td>
+                                        <td><?php echo $datosTarea_Actividad_detalle["ins_nombre"] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Participantes</strong></td>
+                                        <td><?php 
+                                            foreach ($datosTarea_Participantes as $datosTarea_Participantes_detalle){
+                                                echo $datosTarea_Participantes_detalle["usu_nombre"]." / ";
+                                            } 
+                                        ?>
+                                      
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr>
+                            <h4>Actividades</h4>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Descripción</th>
+                                        <th>Estado</th>
+                                        <th>Fecha Registro</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                                     <?php foreach ($datosActividad as $datosActividad_detalle) {?>
+                                    <tr class="odd gradeA">
+                                       
+                                        <td>
+                                        <a href="<?php  echo $datosActividad_detalle["acc_id"] ?>" ><?php  echo $datosActividad_detalle["acc_nombre"] ?></a>
+                                        </td>
+                                        <td>
+                                        <a href="<?php  echo $datosActividad_detalle["acc_id"] ?>" ><?php  echo $datosActividad_detalle["acc_descripcion"] ?></a>
+                                        </td>
+                                        <td>
+                                        <a href="<?php  echo $datosActividad_detalle["acc_id"] ?>" ><?php  if ($datosActividad_detalle["acc_estado"]==1){echo "rojo";}
+                                        elseif ($datosActividad_detalle["acc_estado"]==2)
+                                            {echo "naranja";}
+                                        if ($datosActividad_detalle["acc_estado"]==3){
+                                            echo "verde";
+                                        }
+
+                                        
+                                            # code...
+                                         ?></a>
+                                        </td>
+                                        <td>
+                                        <a href="<?php  echo $datosActividad_detalle["acc_id"] ?>" ><?php  echo $datosActividad_detalle["acc_fecharegistro"] ?></a>
+                                        </td>
+                                     
+                                    </tr>
+                                      <?php 
+                                        } 
+                                        ?>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- end panel -->
+            </div>
+            <!-- end col-12 -->
+        </div>
+        <!-- end row -->
+        <!-- end row -->
+    </div>
+    <!-- end #content -->
+
+
             
     <!-- end page-header -->
 
-<!-- begin #content -->
-        <div id="content" class="content">
-            <!-- begin breadcrumb -->
-            <ol class="breadcrumb pull-right">
-                <li class="active"><a href="#">Tarea</a></li>
-                <li><a href="">Participantes</a></li>
-                <li><a href="">Actividades</a></li>
-            </ol>
-            <!-- end breadcrumb -->
-           
-       
-            <!-- begin profile-container -->
-            <div class="profile-container">
-                <!-- begin profile-section -->
-                <div class="profile-section">
-                  
-                    <!-- begin profile-right -->
-                    <div class="profile">
-                        <!-- begin profile-info -->
-                        <div class="profile-info">
-                            <!-- begin table -->
-                            <div class="table-responsive">
-                                <table class="table table-profile">
-                                    <thead>
-                                        <tr>
-                                           <?php foreach ($datosTarea_Actividad as $datosTarea_Actividad_detalle) ?>
-                                             <h4><?php echo $datosTarea_Actividad_detalle["tar_nombre"] ?>
-                                                 <br><small>Registro:<?php echo $datosTarea_Actividad_detalle["tar_fecharegistro"] ?></small>
-                                            </h4>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                         <tr class="highlight">
-                                            <td class="field">Tramite</td>
-                                            <td><?php //echo $dato_tramite_detalle["tra_nombre"] ?></td>
-                                        </tr>
-                                        <tr class="highlight">
-                                            <td class="field">Tramite</td>
-                                            <td><?php //echo $dato_tramite_detalle["tra_nombre"] ?></td>
-                                        </tr>
-                                        <tr class="divider">
-                                            <td colspan="2"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="field">Provincia</td>
-                                            <td><?php // echo $dato_tramite_detalle["pro_nombre"] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="field">Canton</td>
-                                            <td><?php //echo $dato_tramite_detalle["can_nombre"] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="field">Fecha </td>
-                                            <td><?php //echo $dato_tramite_detalle["datt_fecharegistro"] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="field">U. Prestado </td>
-                                            <td><?php // echo $dato_tramite_detalle["datt_unidadprestadora"] ?></td>
-                                        </tr>
-                                        <tr class="divider">
-                                            <td colspan="2"></td>
-                                        </tr>
-                                        <tr class="highlight">
-                                            <td class="field">Experiencia</td>
-                                            <td><?php //echo $dato_tramite_detalle["datt_experiencia"] ?></td>
-                                        </tr>
-                                        <tr class="divider">
-                                            <td colspan="2"></td>
-                                        </tr>
-                                        
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- end table -->
-                        </div>
-                        <!-- end profile-info -->
-                    </div>
-                    <!-- end profile-right -->
-                </div>
-                <!-- end profile-section -->
-                <!-- begin profile-section -->
-                <div class="profile-section">
-                    <!-- begin row -->
-                    <div class="row">
-                        <!-- begin col-4 -->
-                        <div class="col-md-12">
-                            <h4 class="title">Actividades</small></h4>
-                            <!-- begin scrollbar -->
-                            <div data-scrollbar="true" data-height="280px" class="bg-silver">
-                                <!-- begin chats -->
-                                <ul class="chats">
-                                    
-                                   
-                                    
-                                </ul>
-                                <!-- end chats -->
-                            </div>
-                            <!-- end scrollbar -->
-                        </div>
-                        <!-- end col-4 -->
-                       
-                    </div>
-                    <!-- end row -->
-                </div>
-                <!-- end profile-section -->
-            </div>
-            <!-- end profile-container -->
-        </div>
-        <!-- end #content -->
+
 
   
         <!-- begin scroll to top btn -->

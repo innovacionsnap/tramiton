@@ -78,7 +78,13 @@
                 <div class="col-md-12">
                     <!-- begin panel -->
                     <div class="panel panel-inverse">
-                        
+
+                        <ol class="breadcrumb pull-right">
+                            <li ><a href="viewActividad">Tarea</a></li>
+                            <li><a href="participantes">Participantes</a></li>
+                            <li class="active"><a href="actividad_detalle">Actividades</a></li>
+                        </ol>
+
                         <div class="panel-body">
                             <?php /*
                             <?php echo CHtml::beginForm('','post',array("name"=>"form-wizard"));?>
@@ -108,12 +114,12 @@
 
                                   <ol>
                                         <li>
-                                            Institucion
-                                            <small>Ingresar datos de Institucion responsable.</small>
+                                            Actividad
+                                            <small>Detalle de la actividad.</small>
                                         </li>
                                         <li>
-                                            Tarea
-                                            <small>Detalle tarea a ser ingresada.</small>
+                                            Archivos
+                                            <small>Adjuntar archivos.</small>
                                         </li>
                                        
                                         <li>
@@ -144,7 +150,7 @@
                                                             $resultado_categoria = pg_query($con, $consulta_categoria) or die("Error en la Consulta SQL");
                                                             $numReg = pg_num_rows($resultado_categoria);
                                                           
-                                                            echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_categoria' id='id_categoria' required>";
+                                                            echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_categoria' id='id_categoria'>";
                                                             echo "<option value=''>Selecciona una categoria...</option>";
                                                             while ($fila=pg_fetch_array($resultado_categoria)) 
                                                             {
@@ -155,55 +161,31 @@
                                                         ?>
                                                         
                                                     </div>
-                                                 
-                                                 
-                                                    <div class="form-group block1">
-                                                        <label>Institucion responsable:</label>
-                                                        
-                                                        <?php
 
-                                                            $consulta_institucion = "SELECT * FROM institucion";    
-        
-                                                            $resultado_institucion = pg_query($con, $consulta_institucion) or die("Error en la Consulta SQL");
-                                                            $numReg = pg_num_rows($resultado_institucion);
-                                                          
-                                                            echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_institucion' id='id_institucion' required>";
-                                                            echo "<option value=''>Selecciona una institucion...</option>";
-                                                            while ($fila=pg_fetch_array($resultado_institucion)) 
-                                                            {
-                                                            echo "<option value=".$fila['ins_id'].">".$fila['ins_nombre']."</option>";
-                                                            }
+                                                    <div class="form-group block1">
+                                                        <label>Estado</label>
+                                                        <?php
+                                                            echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_categoria' id='id_categoria' >";
+                                                            echo "<option value=''>Selecciona un estado...</option>";
+                                                            echo "<option value=''>Rojo</option>";
+                                                            echo "<option value=''>Verde</option>";
+                                                            echo "<option value=''>Naranja</option>";
                                                             echo "</select>";
-                                                   
                                                         ?>
                                                         
                                                     </div>
-
-                                                    
-
-                                                    <div class="form-group block1">
-                                                        <label>Usuario responsable:</label>
-                                                        
-                                                        <?php
-
-                                                            $consulta_usuario = 'select * from usuario usu, "AuthAssignment" aut where CAST(aut.userid as integer) = usu.usu_id and aut.itemname = \'Bitacora\' ';    
-        
-                                                            $resultado_usuario = pg_query($con, $consulta_usuario) or die("Error en la Consulta SQL");
-                                                            $numReg = pg_num_rows($resultado_usuario);
-                                                          
-                                                            echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_usuario' id='id_usuario' required>";
-                                                            echo "<option value=''>Selecciona una usuario...</option>";
-                                                            while ($fila_usuario=pg_fetch_array($resultado_usuario)) 
-                                                            {
-                                                            echo "<option value=".$fila_usuario['usu_id'].">".$fila_usuario['usu_nombre']."</option>";
-                                                            }
-                                                            echo "</select>";
-                                                   
-                                                        ?>
-                                                        
+                                                 
+                                                    <div class="form-group">
+                                                          <label>Actividad</label>
+                                                          <input type="text" id = "nombre_tarea" onkeyup = "Validate(this)" name="nombre_tarea" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-2" required />
                                                     </div>
-                                                    
-                                                   
+                                                    <div class="form-group">
+                                                        <label>Descipcion</label>
+                                                        <div class="controls">
+                                                             <textarea class="form-control" id="meta_tarea" onkeyup = "Validate(this)" name="meta_tarea" rows="4" data-parsley-range="[20,200]" placeholder="Escribir aqui" data-parsley-group="wizard-step-2" required></textarea>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                                 <!-- end col-12 -->
                                             </div>
@@ -216,31 +198,21 @@
                                     <!-- begin wizard step-2 -->
                                     <div class="wizard-step-2">
                                         <div class="form-group">
-                                              <label>Tarea</label>
-                                              <input type="text" id = "nombre_tarea" onkeyup = "Validate(this)" name="nombre_tarea" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-2" required />
+                                              <label>Archivo 1</label>
+                                              <input type="file" name="fileToUpload" id="fileToUpload">
                                                         
                                         </div>
                                         <div class="form-group ">
-                                                <label>Descripcion</label>
-                                                <input type="text" id = "descripcion_tarea" onkeyup = "Validate(this)" name="descripcion_tarea" data-parsley-range="[2,200]" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-2" required />
+                                                <label>Archivo 2</label>
+                                                <input type="file" name="fileToUpload" id="fileToUpload">
                                                         
                                         </div>
                                         <div class="form-group">
-                                            <label>Fechas</label>
-                                            <div class="input-group input-daterange">
-                                                <input type="text" class="form-control" name="start" placeholder="Fecha Inicio" />
-                                                <span class="input-group-addon">a</span>
-                                                <input type="text" class="form-control" name="end" placeholder="Fecha Fin" />
-                                            </div>
+                                            <label>Archivo 3</label>
+                                                <input type="file" name="fileToUpload" id="fileToUpload">
+                                            
                                         </div>
-                                        
-                                        <div class="form-group">
-                                            <label>Meta</label>
-                                            <div class="controls">
-                                                 <textarea class="form-control" id="meta_tarea" onkeyup = "Validate(this)" name="meta_tarea" rows="4" data-parsley-range="[20,200]" placeholder="Escribir aqui" data-parsley-group="wizard-step-2" required></textarea>
-                                            </div>
-                                        </div>
-                                        
+                                            
                                     </div>
                                     <!-- end wizard step-2 -->
                                     <!-- begin wizard step-3 -->

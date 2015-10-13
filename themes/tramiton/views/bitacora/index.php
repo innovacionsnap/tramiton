@@ -81,22 +81,22 @@
                                            ?>
                                             <tr class="odd gradeA">
                                                 <td>
-                                                <a href="http://localhost/tramiton2/bitacora/viewActividad" class="actividad" ><?php echo $dato["tar_id"] ?></a>
+                                                <a href="http://localhost/tramiton2/bitacora/viewActividad?tar_id=<?php echo $dato["tar_id"] ?>" class="actividad" ><?php echo $dato["tar_id"] ?></a>
                                                 </td>
                                                 <td>
-                                               <?php // echo $dato["tar_nombre"] ?>
+                                                 <a href="http://localhost/tramiton2/bitacora/viewActividad?tar_id=<?php echo $dato["tar_id"] ?>" class="actividad" ><?php  echo $dato["cat_nombre"] ?></a>
                                                 </td>
                                                 <td>
-                                               <a href="http://localhost/tramiton2/bitacora/viewActividad" class="actividad" title="<?php echo $dato["ins_nombre"] ?>"><?php echo substr($dato["ins_nombre"],0,40) ?></a>
+                                               <a href="http://localhost/tramiton2/bitacora/viewActividad?tar_id=<?php echo $dato["tar_id"] ?>" class="actividad" title="<?php echo $dato["ins_nombre"] ?>"><?php echo substr($dato["ins_nombre"],0,40) ?></a>
                                                 </td>
                                                 <td>
-                                               <a href="#" class="actividad"><?php echo $dato["tar_nombre"] ?></a>
+                                               <a href="http://localhost/tramiton2/bitacora/viewActividad?tar_id=<?php echo $dato["tar_id"] ?>" class="actividad" title="<?php echo $dato["tar_nombre"] ?>"><?php echo $dato["tar_nombre"] ?></a>
                                                 </td>
                                                 <td>
-                                               <a href="#" class="actividad"><?php echo $dato["tar_descripcion"] ?></a>
+                                               <a href="http://localhost/tramiton2/bitacora/viewActividad?tar_id=<?php echo $dato["tar_id"] ?>" class="actividad" title="<?php echo $dato["tar_nombre"] ?>"><?php echo $dato["tar_descripcion"] ?></a>
                                                 </td>
                                                 <td>
-                                               <a href="#" class="actividad"><?php echo $dato["tar_fecharegistro"] ?></a>
+                                               <a href="http://localhost/tramiton2/bitacora/viewActividad?tar_id=<?php echo $dato["tar_id"] ?>" class="actividad" title="<?php echo $dato["tar_nombre"] ?>"><?php echo $dato["tar_fecharegistro"] ?></a>
                                                 </td>
 
                                                             
