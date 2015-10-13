@@ -64,6 +64,8 @@
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/table-manage-default.demo.min.js"></script>
 
 <!-- ================== END PAGE LEVEL JS ================== -->
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.yiiactiveform.js"></script>
+
 
 
 <script>

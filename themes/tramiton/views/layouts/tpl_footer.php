@@ -29,6 +29,7 @@
 <!-- ================== BEGIN BASE JS ================== -->
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <!--[if lt IE 9]>
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/crossbrowserjs/html5shiv.js"></script>
@@ -43,6 +44,9 @@
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/parsley/dist/parsley.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/apps.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/form-wizards-validation.demo.min.js"></script>
+
 <!-- ================== END PAGE LEVEL JS ================== -->
 
 <!--<script type="text/javascript" src="/tramiton2/assets/e1bed9d7/jquery.js"></script>-->
@@ -51,6 +55,7 @@
 <script>
     $(document).ready(function () {
         App.init();
+         FormWizardValidation.init();
     });
 </script>
 </body>

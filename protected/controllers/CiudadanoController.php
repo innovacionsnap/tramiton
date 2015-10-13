@@ -29,7 +29,7 @@ class CiudadanoController extends Controller {
               'users' => array('@'),
               ), */
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('index', 'valor','Usuario_Tramites','viewTramite_Usuario','viewTramite_Usuario2','viewTramite_Usuario_Comentario', 'mostrarPerfil'),
+                'actions' => array('index', 'valor', 'Usuario_Tramites', 'viewTramite_Usuario', 'viewTramite_Usuario2', 'viewTramite_Usuario_Comentario', 'mostrarPerfil', 'updatePerfil'),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano'),
             ),
@@ -69,45 +69,92 @@ class CiudadanoController extends Controller {
         $this->layout = 'main-admin_form';
         $this->render('usuario_tramites', compact('datosUsuarioTramite'));
     }
-	
-	public function actionviewTramite_Usuario() {
-		
-    	$modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-		$model = new Ciudadano();
+
+    public function actionviewTramite_Usuario() {
+
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $model = new Ciudadano();
         $datosTramite_Usuario = $model->getTramite_Usuario();
-		$datosTramite_Solucion = $model->getTramite_Solucion();
-		$this->_datosUser = $modelUser;
+        $datosTramite_Solucion = $model->getTramite_Solucion();
+        $this->_datosUser = $modelUser;
         $this->layout = 'main-admin_form';
-        $this->render('viewTramite_Usuario',compact('datosUsuarioTramite','datosTramite_Usuario','datosTramite_Solucion'));
+        $this->render('viewTramite_Usuario', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion'));
     }
 
     public function actionviewTramite_Usuario2() {
-        
+
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $model = new Ciudadano();
         $datosTramite_Usuario = $model->getTramite_Usuario();
         $datosTramite_Solucion = $model->getTramite_Solucion();
         $this->_datosUser = $modelUser;
         $this->layout = 'main-admin_form_caso';
-        $this->render('viewTramite_Usuario2',compact('datosUsuarioTramite','datosTramite_Usuario','datosTramite_Solucion'));
+        $this->render('viewTramite_Usuario2', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion'));
     }
 
     public function actionviewTramite_Usuario_Comentario() {
-        
+
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $model = new Ciudadano();
-       
+
         $datosTramite_Solucion_Comentario = $model->getdatosTramite_Solucion_Comentario();
-        
-        $this->renderPartial('viewTramite_Usuario_Comentario',compact('datosTramite_Solucion_Comentario'));
+
+        $this->renderPartial('viewTramite_Usuario_Comentario', compact('datosTramite_Solucion_Comentario'));
     }
-    
+
     public function actionMostrarPerfil() {
-        
+
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelPerfil = new PerfilUsuario;
+
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'update-form') {
+            echo CActiveForm::validate($modelPerfil);
+            Yii::app()->end();
+        }
+
         $this->_datosUser = $modelUser;
+        //$this->layout = 'main-admin-user';
         $this->layout = 'main-admin';
-        $this->render('perfilUsuario', array('modelUser' => $modelUser));
+        //$this->layout = 'main-prueba';
+        //$this->render('perfilPrueba', array('modelUser' => $modelUser, 'modelPerfil' => $modelPerfil));
+        $this->render('perfilUsuario', array('modelUser' => $modelUser, 'modelPerfil' => $modelPerfil));
+    }
+
+    public function actionUpdatePerfil() {
+        //echo "llegue a actualizar el perfil"; Yii::app()->end();
+
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelPerfil = new PerfilUsuario;
+
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'update-form') {
+            echo CActiveForm::validate($modelPerfil);
+            Yii::app()->end();
+        }
+        echo "llegue a actualizar el perfil"; //Yii::app()->end();
+        if (isset($_POST['PerfilUsuario'])) {
+            $modelPerfil->attributes = $_POST['PerfilUsuario'];
+            var_dump($modelPerfil);
+            //$var  = $model->validate();
+            //echo "valor de la validación: " . $var;
+            Yii::app()->end();
+
+
+            if ($model->validate()) {
+                //if ($var === false) {
+                //echo "validacion no fue verdadera " . $var;
+                //Yii::app()->end();
+                $this->redirect($this->createUrl('ciudadano/mostrarPerfil'));
+            } else {
+                
+            }
+        }
+
+        $this->_datosUser = $modelUser;
+        //$this->layout = 'main-admin-user';
+        $this->layout = 'main-admin';
+        //$this->layout = 'main-prueba';
+        //$this->render('perfilPrueba', array('modelUser' => $modelUser, 'modelPerfil' => $modelPerfil));
+        $this->render('perfilUsuario', array('modelUser' => $modelUser, 'modelPerfil' => $modelPerfil));
     }
 
 }

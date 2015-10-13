@@ -1,5 +1,5 @@
 <!-- begin #content -->
-<div id="content" class="content">
+<div id="content" class="content" style="margin-left: 50px; margin-top: 50px;">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li><a href="javascript:;">Home</a></li>
@@ -44,8 +44,9 @@
                         $form = $this->beginWidget('CActiveForm', array
                             (
                             'method' => 'POST',
-                            'action' => Yii::app()->createUrl('usuario/update'),
-                            'id' => 'usuario-form',
+                            //'action' => Yii::app()->createUrl('ciudadano/updatePerfil'),
+                            'action' => $this->createUrl('ciudadano/updatePerfil'),
+                            'id' => 'update-form',
                             'enableClientValidation' => true,
                             'enableAjaxValidation' => true,
                             'htmlOptions' => array('class' => 'margin-bottom-0'),
@@ -56,8 +57,17 @@
                             ),
                         ));
                         ?>
-
-
+                        <?php //var_dump($modelUser); 
+                        echo "ID User ==>> " . $modelUser->usu_id;
+                        $modelPerfil->idUsr = $modelUser->usu_id;
+                        
+                        echo "<br><br>ID User update ==>> " . $modelPerfil->idUsr;
+                         
+                          
+                                
+                        ?>
+                        <?php //echo $form->hiddenField($modelPerfil, 'idUsr', array('value' => $modelUser->usu_id)); ?>
+                        <?php echo $form->textField($modelPerfil, 'idUsr', array('value' => $modelUser->usu_id)); ?>
                         <table class="table table-profile">
                             <thead>
                                 <tr>
@@ -72,82 +82,88 @@
                             </thead>
                             <tbody>
                                 <tr class="highlight">
-                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_nombreusuario'); ?></td>
+                                    <td class="field"><?php echo $form->labelEx($modelPerfil, 'nombreUsuario'); ?></td>
                                     <td>
-                                        <?php echo $form->textField($modelUser, 'usu_nombreusuario', array('size' => 20, 'maxlength' => 20, 'value' => $modelUser->usu_nombreusuario)); ?>
-                                        <?php echo $form->error($modelUser, 'usu_nombreusuario'); ?>
+                                        <?php echo $form->textField($modelPerfil, 'nombreUsuario', array('class' => 'form-control input-inline input-xs', 'size' => 20, 'maxlength' => 20, 'value' => $modelUser->usu_nombreusuario)); ?>
+                                        <?php echo $form->error($modelPerfil, 'nombreUsuario'); ?>
                                     </td>
 
                                 </tr>
 
                                 <tr class="highlight">
-                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_mail'); ?></td>
+                                    <td class="field"><?php echo $form->labelEx($modelPerfil, 'email'); ?></td>
                                     <td>
-                                        <?php echo $form->textField($modelUser, 'usu_mail', array('size' => 50, 'maxlength' => 50, 'value' => $modelUser->usu_mail)); ?>
-                                        <?php echo $form->error($modelUser, 'usu_mail'); ?>
+                                        <?php echo $form->textField($modelPerfil, 'email', array('class' => 'form-control input-inline input-xs', 'size' => 50, 'maxlength' => 50, 'value' => $modelUser->usu_mail)); ?>
+                                        <?php echo $form->error($modelPerfil, 'email'); ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_convencional'); ?></td>
+                                    <td class="field"><?php echo $form->labelEx($modelPerfil, 'telfConvencional'); ?></td>
                                     <td>
-                                        <?php echo $form->textField($modelUser, 'usu_convencional', array('size' => 20, 'maxlength' => 20, 'value' => $modelUser->usu_convencional)); ?>
+                                        <?php echo $form->textField($modelPerfil, 'telfConvencional', array('class' => 'form-control input-inline input-xs', 'size' => 20, 'maxlength' => 20, 'value' => $modelUser->usu_convencional)); ?>
                                         <i class="fa fa-phone fa-lg m-r-5"></i> 
-                                        <?php echo $form->error($modelUser, 'usu_convencional'); ?>
+                                        <?php echo $form->error($modelPerfil, 'telfConvencional'); ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_celular'); ?></td>
+                                    <td class="field"><?php echo $form->labelEx($modelPerfil, 'telfCelular'); ?></td>
                                     <td>
-                                        <?php echo $form->textField($modelUser, 'usu_celular', array('size' => 20, 'maxlength' => 20, 'value' => $modelUser->usu_celular)); ?>
+                                        <?php echo $form->textField($modelPerfil, 'telfCelular', array('class' => 'form-control input-inline input-xs', 'size' => 20, 'maxlength' => 20, 'value' => $modelUser->usu_celular)); ?>
                                         <i class="fa fa-mobile fa-lg m-r-5"></i> 
-                                        <?php echo $form->error($modelUser, 'usu_celular'); ?>
+                                        <?php echo $form->error($modelPerfil, 'telfCelular'); ?>
                                     </td>
                                 </tr>
                                 <tr class="divider">
                                     <td colspan="2"></td>
                                 </tr>
                                 <tr class="highlight">
-                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_direccion'); ?></td>
+                                    <td class="field"><?php echo $form->labelEx($modelPerfil, 'direccion'); ?></td>
                                     <td>
-                                        <?php echo $form->textField($modelUser, 'usu_direccion', array('size' => 50, 'maxlength' => 50, 'value' => $modelUser->usu_direccion)); ?>
-                                        <?php echo $form->error($modelUser, 'usu_direccion'); ?>
+                                        <?php echo $form->textField($modelPerfil, 'direccion', array('class' => 'form-control input-inline input-xs', 'size' => 50, 'maxlength' => 50, 'value' => $modelUser->usu_direccion)); ?>
+                                        <?php echo $form->error($modelPerfil, 'direccion'); ?>
                                     </td>
                                 </tr>
                                 <tr class="divider">
                                     <td colspan="2"></td>
                                 </tr>
                                 <tr>
-                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_fechanacimiento'); ?></td>
+                                    <td class="field"><?php echo $form->labelEx($modelPerfil, 'fechaNacimiento'); ?></td>
                                     <td>
                                         <?php 
                                         $this->widget('zii.widgets.jui.CjuiDatePicker', array(
-                                            'attribute' => 'usu_fechanacimiento',
-                                            'model' => $modelUser,
+                                            'attribute' => 'fechaNacimiento',
+                                            'model' => $modelPerfil,
                                             'language' => 'es',
                                             'options' => array(
-                                                'date-format' => 'yy-mm-dd',
+                                                'date-format' => 'yyyy-mm-dd',
                                                 'showButtonPanel' => true,
                                                 'changeYear' => true,
-                                                'yearRange' => '-80:-10',
+                                                'yearRange' => '-80:-5',
                                                 'minDate' => '-80Y',
-                                                'maxDate' => '-10Y',
-                                            )
+                                                'maxDate' => '-5Y',
+                                            ),
+                                            'htmlOptions'=> array('class' => 'form-control input-inline input-xs', 'value' => $modelUser->usu_fechanacimiento)
                                         ));
-                                        //echo $modelUser->usu_fechanacimiento; 
+                                        //echo $modelUser->usu_fechanacimiento . "<br>"; 
+                                        //echo date("d/m/Y", $modelUser->usu_fechanacimiento);
                                         ?>
+                                        <?php echo $form->error($modelPerfil, 'fechaNacimiento'); ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_lugar_nacimiento'); ?></td>
+                                    <td class="field"><?php echo $form->labelEx($modelPerfil, 'lugarNacimiento'); ?></td>
                                     <td><?php echo $modelUser->usu_lugar_nacimiento; ?></td>
                                 </tr>
                                 <tr>
-                                    <td class="field"><?php echo $form->labelEx($modelUser, 'usu_genero'); ?></td>
-                                    <td><?php echo "sexo: " . $modelUser->usu_genero; ?>
-                                        <select class="form-control input-inline input-xs" name="gender">
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                        </select>
+                                    <td class="field"><?php echo $form->labelEx($modelPerfil, 'genero'); ?></td>
+                                    <?php
+                                    $swGenero = false;
+                                    if($modelUser->usu_genero === 'MASCULINO'){
+                                        $swGenero = true;
+                                    }
+                                    ?>
+                                    <td>
+                                        <?php echo $form->dropDownList($modelPerfil,'genero', array('MASCULINO'=>'MASCULINO','FEMENINO'=>'FEMENINO'), array('class' => 'form-control input-inline input-xs', 'options' => array($swGenero?'MASCULINO':'FEMENINO' => array('selected' => true)))); ?>
                                     </td>
                                 </tr>
                                 <tr class="divider">
@@ -157,7 +173,7 @@
                                     <td class="field"></td>
                                     <td>
                                         <?php echo CHtml::submitButton('Guardar', array('class' => 'btn btn-primary btn-sm')); ?>&nbsp;&nbsp;
-                                        <?php echo CHtml::submitButton('Cancelar', array('class' => 'btn btn-danger btn-sm')); ?>
+                                        <?php echo CHtml::Button('Cancelar', array('class' => 'btn btn-danger btn-sm')); ?>
                                     </td>
                                 </tr>
 

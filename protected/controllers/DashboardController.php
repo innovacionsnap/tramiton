@@ -144,7 +144,7 @@ class DashboardController extends Controller {
         echo ($datosRankingLikes[0]['votos_solucion']);
     }
 
-    public function getUsuario($usu_id) {
+    public static function getUsuario($usu_id) {
         $usuario = Usuario::model()->findByPk($usu_id);
         $nombre_usuario = $usuario->usu_nombreusuario;
         return $nombre_usuario;

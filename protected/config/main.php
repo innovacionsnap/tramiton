@@ -108,7 +108,7 @@ return array(
 			'connectionString' => 'pgsql:host=localhost;dbname=tramiton_v2',
 			'emulatePrepare' => true,
 			'username' => 'postgres',
-			'password' => 'postgres',
+			'password' => '12345',
 			'charset' => 'utf8',
                 ),*/
             
