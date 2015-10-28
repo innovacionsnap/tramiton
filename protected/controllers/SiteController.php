@@ -8,7 +8,6 @@ class SiteController extends Controller {
     public $_msgSuccess;
     public $_msgerror;
     public $_datosUser;
-    
 
     public function actions() {
         return array(
@@ -96,7 +95,6 @@ class SiteController extends Controller {
                 $this->redirect(array('dashboard/index'));
         }
         $this->layout = 'main-login';
-        $model->unsetAttributes();
         $this->render('login', array('model_login' => $model));
     }
 
@@ -107,27 +105,26 @@ class SiteController extends Controller {
         Yii::app()->user->logout();
         $this->redirect(Yii::app()->homeUrl);
     }
-    
+
     /**
      * accion para el registro de un nuevo usuario         
      */
-    public static function verificaUsuario($cedula){
-        
+    public static function verificaUsuario($cedula) {
+
         $total = Usuario::model()->findAllByAttributes(array('usu_cedula' => $cedula))->count();
-        if ($total > 0){
-            $usuario= Usuario::model()->findAllByAttributes(array('usu_cedula' => $cedula));
+        if ($total > 0) {
+            $usuario = Usuario::model()->findAllByAttributes(array('usu_cedula' => $cedula));
             $estado = $usuario['usu_estado'];
-            if ($estado == 2){
+            if ($estado == 2) {
                 return 1;
-            }else{
-                $usuario['usu_estado']=2;
+            } else {
+                $usuario['usu_estado'] = 2;
                 $usuario->save();
                 return 1;
             }
-        }else{
+        } else {
             return 0;
         }
-        
     }
 
     /**
@@ -152,10 +149,10 @@ class SiteController extends Controller {
             //$var  = $model->validate();
             //echo "valor de la validación: " . $var;
             //Yii::app()->end();
-            
-            
+
+
             if ($model->validate()) {
-            //if ($var === false) {
+                //if ($var === false) {
                 //echo "validacion no fue verdadera " . $var;
                 //Yii::app()->end();
                 $this->redirect($this->createUrl('site/registro'));
@@ -202,12 +199,12 @@ class SiteController extends Controller {
                 $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
             }
         }
-        
+
         if (Yii::app()->session && isset(Yii::app()->session['cCache'])) {
             // delete the cached captcha values
             unset(Yii::app()->session['cCache']);
         }
-        
+
         $this->layout = 'main-registro';
         $this->render('registro', array('model' => $model));
     }
@@ -237,7 +234,6 @@ class SiteController extends Controller {
     /**
      * función que me permite realizar la accion de validación de cedula
      */
-    
     public function actionValidaCedula() {
 
         $model = new ValidarCedula;
@@ -358,11 +354,11 @@ class SiteController extends Controller {
             //echo "entre aqui por post"; Yii::app()->end();
             $model_reset_pass->attributes = $_POST['RecuperarPasswordForm'];
             $var = $model_reset_pass->validate();
-            /*if ($var == true) {
-                echo "<br>validacion verdadera";
-            } else {
-                echo "<br>validacion falsa";
-            }*/
+            /* if ($var == true) {
+              echo "<br>validacion verdadera";
+              } else {
+              echo "<br>validacion falsa";
+              } */
             //echo "<br>retorno valida solicitud: " . $var; Yii::app()->end();
             //if ($model_reset_pass->validate() == false) {
             if ($var == false) {
@@ -385,7 +381,7 @@ class SiteController extends Controller {
                 $estadoUser = $datosUser['usuEstado'];
                 //var_dump($datosUser);
                 //Yii::app()->end();
-                if($estadoUser == 1){
+                if ($estadoUser == 1) {
                     $mensaje = "Error al validar información, no ha activado su cuenta todavía, por favor revise su correo electrónico para activar su cuenta";
                     $this->_msgSuccess = $this->creaMensaje(
                             'Aviso!!!!', $mensaje
@@ -393,7 +389,7 @@ class SiteController extends Controller {
                     //redirigimos a la pagina de success y con el mensaje
                     $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
                 }
-                if($estadoUser == 11){
+                if ($estadoUser == 11) {
                     $mensaje = "Error al validar información, usted ya envió una solicitud para reestablecer contraseña anteriormente y no la completó, revise su correo electrónico";
                     $this->_msgSuccess = $this->creaMensaje(
                             'Aviso!!!!', $mensaje
@@ -401,9 +397,10 @@ class SiteController extends Controller {
                     //redirigimos a la pagina de success y con el mensaje
                     $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
                 }
-                
+
                 if ($existeUser == false) {
-                    echo "<br>no encontro usuario"; Yii::app()->end();
+                    echo "<br>no encontro usuario";
+                    Yii::app()->end();
                     $mensaje = "Error al validar información, correo electrónico no registrado en Tramitón, intentelo nuevamente";
                     $this->_msgSuccess = $this->creaMensaje(
                             'Aviso!!!!', $mensaje, 'Recuperar Contraseña', 'recuperarPassword', true
@@ -561,6 +558,29 @@ class SiteController extends Controller {
                 }
             }
         }
+    }
+
+    public static function getTwitter() {
+        include("themes/tramiton/assets/lib/TwitterAPIExchange.php");
+
+        $settings = array(
+            'oauth_access_token' => "2586191070-fO2KoBxKuNObGJ2BsLexjRSTJGD7dOOfs7Yachz",
+            'oauth_access_token_secret' => "EpypbVBsjkBANScVnQtMjaXyni05sq3BJkVnsyIz88naw",
+            'consumer_key' => "T1fbyn6VosPPuc8RPGXZY0JGr",
+            'consumer_secret' => "FTutnqpr0uFk4foeRwY8um0uHvAxnvCHbKVzXvD2BcYmZgfmFS"
+        );
+
+        $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+        $getfield = '?screen_name=TramitonEC&count=12';
+        $requestMethod = 'GET';
+        $twitter = new TwitterAPIExchange($settings);
+        $twit = $twitter->setGetfield($getfield)
+                ->buildOauth($url, $requestMethod)
+                ->performRequest();
+
+//$datos_clientes = file_get_contents("clientes.json");
+        $json_clientes = json_decode($twit, true);
+        return $json_clientes;
     }
 
 }
