@@ -76,11 +76,12 @@ class BitacoraController extends Controller {
         
         $datosTarea_Actividad = $model->getTarea_Actividad();
         $datosTarea_Participantes = $model->getTarea_Participantes();
+        $datosTarea_Generador = $model->getTarea_Generador();        
         $datosActividad = $model->getActividad();
        // $this->layout = 'main-admin_form_caso';
         $this->layout = 'main-admin_form';
         $this->_datosUser = $modelUser;
-        $this->renderPartial('viewActividad',compact('datosTarea_Actividad','datosTarea_Participantes', 'datosActividad'),false,true);
+        $this->renderPartial('viewActividad',compact('datosTarea_Actividad','datosTarea_Participantes', 'datosActividad','datosTarea_Generador'),false,true);
       
     }
 

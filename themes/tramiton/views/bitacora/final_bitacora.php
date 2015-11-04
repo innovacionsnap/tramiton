@@ -1,6 +1,11 @@
 <?php
 
-$insertar_tarea= $_POST['insertar_tarea'];
+//$insertar_tarea= $_POST['insertar_tarea'];
+$insertar_participantes = $_POST['insertar_participantes'];
+
+//echo $insertar_participantes;
+
+include 'config.inc.php';
 
 if (isset($insertar_tarea)) {
 	
@@ -14,7 +19,7 @@ if (isset($insertar_tarea)) {
 		$id_usuario = $_POST['id_usuario'];
 		$url = $_POST['url'];
 		$id_institucion = $_POST['id_institucion'];
-		$id_usuario = $_POST['id_usuario'];
+		$id_usuario_responsable = $_POST['id_usuario_responsable'];
 
 
 		
@@ -28,6 +33,7 @@ if (isset($insertar_tarea)) {
 		echo "fecha Fin: ".$end."<br>";
 		echo "Meta Tarea: ".$meta_tarea."<br>";
 		echo "Instituicion:".$id_institucion."<br>";
+		echo "Usario R".$id_usuario_responsable."<br>";
 
 		
 
@@ -35,7 +41,7 @@ if (isset($insertar_tarea)) {
 		
 		//echo "<Br>Insertar tramite".$insertar_tramite;
 		
-		include 'config.inc.php';
+		
 
 		$insertar_tarea = "INSERT INTO tarea(
             tar_id, tar_nombre, tar_descripcion, tar_meta, tar_fechainicio, 
@@ -51,7 +57,7 @@ if (isset($insertar_tarea)) {
 			$max_tarea= $fila_max_tarea ['tarea_id'];
 
 			// ingreso de usuario 
-			$insert_tarea_usuario= "INSERT INTO tarea_usuario(taru_id, tar_id, taru_estado, usu_id,taru_categoria)VALUES (DEFAULT, '$max_tarea', 1, '$id_usuario',1);";
+			$insert_tarea_usuario= "INSERT INTO tarea_usuario(taru_id, tar_id, taru_estado, usu_id,taru_categoria)VALUES (DEFAULT, '$max_tarea', 1, '$id_usuario_responsable',1);";
 			echo "<BR> Tramite Solucion: ".$insert_tarea_usuario;
 			$resultado_tarea_usuario = pg_query($con, $insert_tarea_usuario) or die("Error en la Consulta SQL");
 					
@@ -81,7 +87,21 @@ if (isset($insertar_tarea)) {
 	  	*/
 	
 	
-}	 
-	
-	
+}
+
+if (isset($insertar_participantes)) {
+
+	$id_usuario_participante = $_POST['id_usuario_participante'];
+	$tar_id = $_POST['tar_id'];
+
+	echo $id_usuario_participante."<br>";
+	echo $tar_id."<br>";
+
+	$insertar_participante_tarea = "INSERT INTO tarea_usuario(
+            taru_id, tar_id, taru_estado, usu_id, taru_categoria)
+    VALUES (default, $tar_id, 1, $id_usuario_participante, 2);";
+					
+		echo "<Br>sqL DE TRAMITES: <BR>".$insertar_participante_tarea;
+			$resultado_insert = pg_query($con, $insertar_participante_tarea) or die("Error en la Consulta SQL");
+}	
 ?>

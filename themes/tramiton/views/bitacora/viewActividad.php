@@ -111,11 +111,21 @@
                     <div class="panel-body">
                         <div class="col-md-6">
                             <!-- begin breadcrumb -->
+                            <?php foreach ($datosTarea_Actividad as $datosTarea_Actividad_detalle) ?>
+                            <?php echo $datosTarea_Actividad_detalle["tar_nombre"] ?>
+
                         <ol class="breadcrumb pull-right">
                             <li class="active"><a href="#">Tarea</a></li>
-                            <li><a href="participantes">Participantes</a></li>
-                            <li><a href="actividad_detalle">Actividades</a></li>
+                            <li><a href="participantes?tar_id=<?php echo $datosTarea_Actividad_detalle["tar_id"] ?>">Participantes</a></li>
+                            <li><a href="actividad_detalle?tar_id=<?php echo $datosTarea_Actividad_detalle["tar_id"] ?>">Actividades</a></li>
                         </ol>
+                        <td><small><strong>Generado por:</strong></small></td>
+                        <td><small><?php 
+                                foreach ($datosTarea_Generador as $datosTarea_Generador_detalle){
+                                   echo $datosTarea_Generador_detalle["usu_nombre"]."  ";
+                                } 
+                            ?>
+                        </small></td>
                         <!-- end breadcrumb -->
                             <?php foreach ($datosTarea_Actividad as $datosTarea_Actividad_detalle) ?>
                             <h4><?php echo $datosTarea_Actividad_detalle["tar_nombre"] ?></h4>
@@ -124,6 +134,8 @@
                                     <tr>
                                         <td><strong>Categoría</strong></td>
                                         <td><?php echo $datosTarea_Actividad_detalle["cat_nombre"] ?></td>
+                                        
+                                        
                                     </tr>
                                      <tr>
                                         <td><strong>Descripción</strong></td>

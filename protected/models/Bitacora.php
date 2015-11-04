@@ -60,6 +60,23 @@ where tar.tar_id = taru.tar_id
 and taru.usu_id = usu.usu_id
 and tar.tar_id = '$tar_id_detalle'
 and taru.taru_categoria = 2";
+        //echo "<br>".$sql;
+        $dataReader = $this->connection->createCommand($sql)->query();
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
+
+    public function getTarea_Generador() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //$id_usuario = $modelUser['usu_id'];
+        $tar_id_detalle = $_GET['tar_id'];
+        
+        $sql = "select taru.taru_categoria,usu.usu_nombre, usu.usu_nombreusuario
+from tarea_usuario taru, tarea tar, usuario usu
+where tar.tar_id = taru.tar_id
+and taru.usu_id = usu.usu_id
+and tar.tar_id = '$tar_id_detalle'
+and taru.taru_categoria = 1";
         echo "<br>".$sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
@@ -77,7 +94,7 @@ where acc.tar_id = tar.tar_id
 and tar.tar_id = '$tar_id_detalle'
 order by acc_fecharegistro desc
 ";
-       // echo "<br>".$sql;
+        echo "<br>".$sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;

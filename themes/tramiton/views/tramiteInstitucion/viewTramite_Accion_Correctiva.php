@@ -1,7 +1,40 @@
 <?php 
 //$usu_id = $modelUser->usu_id;
+$baseUrl = Yii::app()->baseUrl;
 $usu_id = $this->_datosUser->usu_id;
 ?>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+    $(".actividad").fancybox({
+        'titleShow'         : false,
+        'width'             : '65%',
+        'height'            : '65%',
+        'autoScale'         : false,
+        'transitionIn'      : 'none',
+        'transitionOut'     : 'none',
+        'type'              : 'iframe',
+       afterClose : function() {
+            location.reload();
+        }
+    });
+});
+ $(document).ready(function() {
+    $(".actividad-new").fancybox({
+        'titleShow'         : false,
+        'width'             : '65%',
+        'height'            : '65%',
+        'autoScale'         : false,
+        'transitionIn'      : 'none',
+        'transitionOut'     : 'none',
+        'type'              : 'iframe',
+       afterClose : function() {
+            location.reload();
+       }
+    });
+});
+</script>   
+
 <!-- begin #content -->
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
@@ -12,6 +45,14 @@ $usu_id = $this->_datosUser->usu_id;
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
 			<h1 class="page-header">Tramites <small> de la institucion</small></h1>
+            <?php
+
+              foreach ($datoAccioneCorrectiva as $datoAccioneCorrectivaDetalle){
+                $tra_id = $datoAccioneCorrectivaDetalle["tra_id"];
+              } 
+
+             ?>
+            <div class="m-b"><a class="btn btn-success p-l-40 p-r-40 btn-sm actividad-new" href="<?php echo $baseUrl ?>/tramiteInstitucion/accion_correctiva?tra_id=<?php echo $tra_id ?>"> + Añadir </a> </div>
 
 			<!-- end page-header -->
 			
@@ -36,9 +77,11 @@ $usu_id = $this->_datosUser->usu_id;
                                     <thead>
                                         <tr>
                                            
-                                            <th>N° de quejas</th>
-                                            <th>Tramite</th>
-                                            <th>Acciones</th>
+                                            <th>Id AC</th>
+                                            <th>Nombre</th>
+                                            <th>Descripcion</th>
+                                            <th>F. Ingreso</th>
+                                            
                                            
                                         </tr>
                                     </thead>
@@ -46,25 +89,29 @@ $usu_id = $this->_datosUser->usu_id;
                                     <tbody>
                                         
                                         <?php
-                                            foreach ($datosgetTramiteInstitucion as $dato){
+                                            foreach ($datoAccioneCorrectiva as $datoAccioneCorrectivaDetalle){
                                            ?>
                                             <tr class="odd gradeA">
                                               
                                                 <td>
-                                               <?php  echo $dato["total"] ?>
+                                               <?php  echo $datoAccioneCorrectivaDetalle["accc_id"] ?>
                                                 </td>
                                                 <td>
-                                               <?php  echo $dato["tra_nombre"] ?>
+                                               <?php  echo $datoAccioneCorrectivaDetalle["accc_nombre"] ?>
                                                 </td>
                                                 <td>
-                                                    <?php 
-                                                echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'
-                                            ,array("tramiteInstitucion/viewTramite_Institucion", 'tra_id' => $dato['tra_id'],'usu_id' =>$usu_id), array('title' => 'Mostrar'));
+                                               <?php  echo $datoAccioneCorrectivaDetalle["accc_descripcion"] ?>
+                                                </td>
+                                                <td>
+                                               <?php  echo $datoAccioneCorrectivaDetalle["accc_fechaingreso"] ?>
+                                                </td>
+                                              
+                                                <td>
+                                                    <?php
+                                                   //echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'
+                                            //,array("ciudadano/viewTramite_Usuario2", 'datt_id' => $datoTramiteDetalle['datt_id']), array('title' => 'Mostrar'));
                                             ?>
-                                             <?php 
-                                                echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> AC</button>'
-                                            ,array("tramiteInstitucion/viewTramite_Accion_Correctiva", 'tra_id' => $dato['tra_id']), array('title' => 'Mostrar'));
-                                            ?>
+                                             
                                                 </td>
 
                                             </tr>

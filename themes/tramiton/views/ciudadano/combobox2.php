@@ -15,7 +15,7 @@ if ($_GET['buscar_institucion']=="institucion")
 	$var_institucion = $_GET['id_institucion'];
 	//echo "Id: institucion".$var_institucion."<br>";
 		
-	$consulta_tramite = "select ins.ins_id,ins.ins_nombre,tra.tra_nombre from tramite tra, tramite_institucion trai, institucion ins where tra.tra_id = trai.tra_id and trai.ins_id = ins.ins_id and ins.ins_id='".$var_institucion."' order by tra.tra_nombre";	
+	$consulta_tramite = "select trai.trai_id,ins.ins_id,ins.ins_nombre,tra.tra_nombre from tramite tra, tramite_institucion trai, institucion ins where tra.tra_id = trai.tra_id and trai.ins_id = ins.ins_id and ins.ins_id='".$var_institucion."' order by tra.tra_nombre";	
 	
 	//echo "<br>".$consulta_tramite."<br>";
 	$resultado_tramite = pg_query($con, $consulta_tramite) or die("Error en la Consulta SQL");
@@ -33,10 +33,10 @@ if ($_GET['buscar_institucion']=="institucion")
 		if($numReg == 1 and $fila['tra_nombre'] =='Otro...'){
 			 echo "<input type='text' name='otro_tramite' onkeyup = 'Validate(this)' placeholder='Escriba otro tramite' class='form-control' data-parsley-group='wizard-step-1' required />";
 	    }else{
-	    	echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_tramite' id='id_tramite' required>";
+	    	echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_tramite2' id='id_tramite2' required>";
 			
 			while ($fila2=pg_fetch_array($resultado_tramite2)){
-				echo "<option value=".$fila2['ins_id'].">".$fila2['tra_nombre']."</option>";
+				echo "<option value=".$fila2['trai_id'].">".$fila2['tra_nombre']."</option>";
 			}
 			echo "</select>";
 		}

@@ -36,9 +36,11 @@ $usu_id = $this->_datosUser->usu_id;
                                     <thead>
                                         <tr>
                                            
-                                            <th>N° de quejas</th>
-                                            <th>Tramite</th>
-                                            <th>Acciones</th>
+                                            <th>Id Tramite</th>
+                                            <th>Nombre</th>
+                                            <th>Experiencia</th>
+                                            <th>Usuario</th>
+                                            <th>F. Registro</th>
                                            
                                         </tr>
                                     </thead>
@@ -46,25 +48,31 @@ $usu_id = $this->_datosUser->usu_id;
                                     <tbody>
                                         
                                         <?php
-                                            foreach ($datosgetTramiteInstitucion as $dato){
+                                            foreach ($datosgetTramiteInstitucionDetalle as $datoTramiteDetalle){
                                            ?>
                                             <tr class="odd gradeA">
                                               
                                                 <td>
-                                               <?php  echo $dato["total"] ?>
+                                               <?php  echo $datoTramiteDetalle["tra_id"] ?>
                                                 </td>
                                                 <td>
-                                               <?php  echo $dato["tra_nombre"] ?>
+                                               <?php  echo $datoTramiteDetalle["tra_nombre"] ?>
                                                 </td>
                                                 <td>
-                                                    <?php 
-                                                echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'
-                                            ,array("tramiteInstitucion/viewTramite_Institucion", 'tra_id' => $dato['tra_id'],'usu_id' =>$usu_id), array('title' => 'Mostrar'));
+                                               <?php  echo $datoTramiteDetalle["datt_experiencia"] ?>
+                                                </td>
+                                                <td>
+                                               <?php  echo $datoTramiteDetalle["usu_nombreusuario"] ?>
+                                                </td>
+                                                <td>
+                                               <?php  echo $datoTramiteDetalle["datt_fecharegistro"] ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                   echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'
+                                            ,array("ciudadano/viewTramite_Usuario2", 'datt_id' => $datoTramiteDetalle['datt_id']), array('title' => 'Mostrar'));
                                             ?>
-                                             <?php 
-                                                echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> AC</button>'
-                                            ,array("tramiteInstitucion/viewTramite_Accion_Correctiva", 'tra_id' => $dato['tra_id']), array('title' => 'Mostrar'));
-                                            ?>
+                                             
                                                 </td>
 
                                             </tr>

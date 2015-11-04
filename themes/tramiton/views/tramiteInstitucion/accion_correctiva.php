@@ -8,7 +8,10 @@
     //usuario 
 
         $modelUser = Usuario::model() -> findByPk(Yii::app() -> user -> id);
-        $id_usuario = $modelUser['usu_id'];
+        $usu_id = $modelUser->usu_id;
+        echo "Este es jejej:".$usu_id;
+
+        $tra_id = $_GET['tra_id'];
 
 ?>
 
@@ -78,22 +81,23 @@
                 <div class="col-md-12">
                     <!-- begin panel -->
                     <div class="panel panel-inverse">
-                        <?php  $tar_id_detalle = $_GET['tar_id']; ?>
                         
-                        <!-- begin breadcrumb -->
-                         <ol class="breadcrumb pull-right">
-                            <li><a href="viewActividad?tar_id=<?php echo $tar_id_detalle ?>">Tarea</a></li>
-                            <li class="active"><a href="participantes?tar_id=<?php echo $tar_id_detalle ?>">Participantes</a></li>
-                            <li><a href="actividad_detalle?tar_id=<?php echo $tar_id_detalle ?>">Actividades</a></li>
-                        </ol>
                         <div class="panel-body">
-                        
                             
-                            <form action="<?php echo $baseUrl; ?>/views/bitacora/final_bitacora.php" method="POST" data-parsley-validate="true" name="form-wizard">
+                            
+                            <form action="<?php echo $baseUrl; ?>/views/tramiteInstitucion/final_accion.php" method="POST" data-parsley-validate="true" name="form-wizard">
                                 <div id="wizard">
 
-                      
-                        <!-- end breadcrumb -->
+                                  <ol>
+                                        <li>
+                                            Accion Correctiva
+                                            <small>Ingresar datos de Institucion responsable.</small>
+                                        </li>
+                                       
+                                       
+                                        
+                                    </ol>  
+                                  
                                     <!-- begin wizard step-1 -->
                                    
                                        <!-- begin wizard step-1 -->
@@ -106,67 +110,38 @@
                                                 <!-- begin col-12 -->
                                                 
                                                 <div class="col-md-12">
-                                                    <div class="form-group block1">
-                                                        <label>Participantes:</label>
-                                                        
-                                                        
-                                                        <?php
-
-                                                            $consulta_usuario = 'select * from usuario usu, "AuthAssignment" aut
-                                                            where CAST(aut.userid as integer) = usu.usu_id and aut.itemname = \'Bitacora\' 
-                                                            ';    
-                                                            // echo $consulta_usuario;
-                                                            $resultado_usuario = pg_query($con, $consulta_usuario) or die("Error en la Consulta SQL");
-                                                            $numReg = pg_num_rows($resultado_usuario);
-                                                          
-                                                            echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_usuario_participante' id='id_usuario_participante' required>";
-                                                            echo "<option value=''>Selecciona una usuario...</option>";
-                                                            while ($fila_usuario=pg_fetch_array($resultado_usuario)) 
-                                                            {
-                                                            echo "<option value=".$fila_usuario['usu_id'].">".$fila_usuario['usu_nombre']."</option>";
-                                                            }
-                                                            echo "</select>";
-                                                   
-                                                        ?>
-                                                        
+                                                    <div class="form-group">
+                                                        <label>Nombre</label>
+                                                        <input type="text" id = "nombre_accc" onkeyup = "Validate(this)" name="nombre_accc" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-1" required />
                                                     </div>
-                                               </div>
+                                                    <div class="form-group ">
+                                                        <label>Descripcion</label>
+                                                        <textarea class="form-control" id="descripcion_accc" onkeyup = "Validate(this)" name="descripcion_accc" rows="4" data-parsley-range="[20,200]" placeholder="Escribir aqui" data-parsley-group="wizard-step-1" required></textarea>
+                                                                    
+                                                    </div>  
+                                                  
+                                                   
+                                                </div>
                                                 <!-- end col-12 -->
-                                                <input type="submit" value="Enviar y Guardar" class="btn btn-success">
-                                                <input type="hidden" name="insertar_participantes" value="1">
-                                                <input type="hidden" name="tar_id" value="<?php echo $tar_id_detalle ?>">
-                                                <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
                                             </div>
                                             <!-- end row -->
                                         </fieldset>
+                                     
+                                           
+                                                <input type="submit" value="Enviar y Guardar" class="btn btn-success btn">
+                                                <input type="hidden" name="insertar_accion" value="1">
+                                                <input type="hidden" name="id_usuario" value="<?php echo $usu_id ?>">
+                                                <input type="hidden" name="tra_id" value="<?php echo $tra_id ?>">
+                                                <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
+                                                
+                                     
                                     </div>
                                     <!-- end wizard step-1 -->
                                   
-                               </div>
+                                 
+                                  
+                                </div>
                             </form>
-                            <h4>Participantes</h4>
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Usuario</th>
-                                    </tr>
-                                    </thead>
-                                <tbody>
-                                </tbody>
-                                     <?php foreach ($datosTarea_Participantes as $datosTarea_Participantes_detalle) {?>
-                                    <tr class="odd gradeA">
-                                   
-                                        <td>
-                                      <?php  echo $datosTarea_Participantes_detalle["usu_nombre"] ?>
-                                        </td>
-                                        <td>
-                                        <?php  echo $datosTarea_Participantes_detalle["usu_nombreusuario"] ?>
-                                        </td>
-                                      
-                                    </tr>
-                                   <?php } ?>
-                            </table>
                         </div>
                     </div>
                     <!-- end panel -->
@@ -174,7 +149,6 @@
                 <!-- end col-12 -->
             </div>
             <!-- end row -->
-            
         </div>
         <!-- end #content -->
 

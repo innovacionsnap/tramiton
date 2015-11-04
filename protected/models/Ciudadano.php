@@ -68,7 +68,7 @@ class Ciudadano extends CActiveRecord {
         $dato_datt_id = $_GET['datt_id'];
         //$usu_id = $this->_datosUser->usu_id;
         $sql = "select * from solucion where datt_id = '$dato_datt_id'";
-        echo "<br>".$sql;
+        //echo "<br>".$sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;

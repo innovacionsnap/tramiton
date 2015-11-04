@@ -10,8 +10,8 @@ if (isset($insertar_tramite)) {
     $idhijo = $_POST['idhijo'];
     //$id_tramite = isset ($_POST['id_tramite']);
 
-    if (isset($_POST['id_tramite'])) {
-        $id_tramite = $_POST['id_tramite'];
+    if (isset($_POST['id_tramite2'])) {
+        $id_tramite = $_POST['id_tramite2'];
     } else {
         $id_tramite = 4173;
     }
@@ -25,14 +25,14 @@ if (isset($insertar_tramite)) {
         $otro_tramite = "n/a";
     }
 
-    echo "<br>fin tramite: " . $otro_tramite;
+    //echo "<br>fin tramite: " . $otro_tramite;
     $propuesta_solucion = $_POST['propuesta_solucion'];
     $id_usuario = $_POST['id_usuario'];
     $problematica_otro = $_POST['problematica_otro'];
     $url = $_POST['url'];
 
     echo "Usuario:" . $id_usuario . '<br>';
-    echo "Dos ";
+    //echo "Dos ";
     //$problematica = $_POST['problematica'];
 
 
@@ -41,7 +41,9 @@ if (isset($insertar_tramite)) {
 
     echo "Institucion: " . $id_institucion . "<br>";
     echo "Provincia: " . $id_provincia . "<br>";
+    echo "canton: ".$idhijo. "<br>";
     echo "Unidad: " . $unidad_prestadora . "<br>";
+
     echo "Experiencia: " . $idhijo . "<br>";
     echo "Tramite: " . $id_tramite . "<br>";
     echo "Titulo Solucion: " . $titulo_solucion . "<br>";
@@ -106,4 +108,4 @@ if (isset($insertar_tramite)) {
     }
 }
 ?>
-<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=<?php echo $url ?>/ciudadano/">
+<!-- <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=<?php echo $url ?>/ciudadano/">

@@ -191,7 +191,7 @@
                                                             $resultado_usuario = pg_query($con, $consulta_usuario) or die("Error en la Consulta SQL");
                                                             $numReg = pg_num_rows($resultado_usuario);
                                                           
-                                                            echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_usuario' id='id_usuario' required>";
+                                                            echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_usuario_responsable' id='id_usuario_responsable' required>";
                                                             echo "<option value=''>Selecciona una usuario...</option>";
                                                             while ($fila_usuario=pg_fetch_array($resultado_usuario)) 
                                                             {
