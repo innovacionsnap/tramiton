@@ -149,7 +149,8 @@ class ValidarRegistro extends CFormModel {
             'repetir_password' => 'Confirme la Contraseña',
             'terminos' => 'Términos y Condiciones',
             //'captcha' => 'Ingrese las dos palabras separadas por un espacio',
-            'captcha'=>Yii::t('demo', 'Ingrese las dos palabras separadas por un espacio'),
+            //'captcha'=>Yii::t('demo', 'Ingrese las dos palabras separadas por un espacio'),
+            'captcha'=>Yii::t('demo', 'Ingrese el codigo de verifición de la imagen'),
         );
     }
     

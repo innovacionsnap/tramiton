@@ -29,6 +29,10 @@ class UserIdentity extends CUserIdentity {
             $this->errorCode = self::ERROR_USER_INACTIVE;*/
 
         else {
+            
+            //Yii::app()->end();
+        
+
             $this->_id = $user->usu_id;
             $this->username = $user->usu_nombreusuario;
             $this->errorCode = self::ERROR_NONE;

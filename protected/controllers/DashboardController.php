@@ -33,7 +33,7 @@ class DashboardController extends Controller {
                 'actions' => array('index', 'valor', 'totaltramite', 'timeline', 'ranktramite', 'visitasolucion', 'votossolucion', 'procesacomentario', 'getusuario', 'getcomentario',
                     'validalike', 'getLike', 'procesamegusta', 'procesavista', 'cargatimeline'),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano'),
+                'roles' => array('super_admin', 'ciudadano', 'bitacora'),
             ),
             array('deny', // deny all users
                 #'roles' => array('*'),
@@ -45,8 +45,11 @@ class DashboardController extends Controller {
     /**
      * Declares class-based actions.
      */
-    public function actionIndex() {
+    public function actionIndex($param = false) {
+        //echo "index dashboard";
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //var_dump($modelUser);
+        //Yii::app()->end();
         //$this->layout = 'main-admin';
         $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;

@@ -2,13 +2,8 @@
 
 class CiudadanoController extends Controller {
 
-    public $_menuActive;
+    //public $_menuActive;
     public $_datosUser;
-
-    /* public function __construct() {
-      $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-      $this->_datosUser = $modelUser;
-      } */
 
     public function filters() {
         return array(
@@ -29,7 +24,17 @@ class CiudadanoController extends Controller {
               'users' => array('@'),
               ), */
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('index', 'valor', 'Usuario_Tramites', 'viewTramite_Usuario', 'viewTramite_Usuario2', 'viewTramite_Usuario_Comentario', 'mostrarPerfil', 'updatePerfil'),
+                'actions' => array(
+                                'index', 
+                                'valor', 
+                                'Usuario_Tramites', 
+                                'viewTramite_Usuario', 
+                                'viewTramite_Usuario2', 
+                                'viewTramite_Usuario_Comentario', 
+                                'mostrarPerfil', 
+                                'updatePerfil', 
+                                'updateImagen'
+                            ),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano'),
             ),
@@ -102,26 +107,103 @@ class CiudadanoController extends Controller {
         $this->renderPartial('viewTramite_Usuario_Comentario', compact('datosTramite_Solucion_Comentario'));
     }
 
-    public function actionMostrarPerfil() {
-
-        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+    public function actionMostrarPerfil($usrId) {
+        $modelUser = Usuario::model()->findByPk($usrId);
         $modelPerfil = new PerfilUsuario;
+        
+        $this->_datosUser = $modelUser;
 
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'update-form') {
             echo CActiveForm::validate($modelPerfil);
             Yii::app()->end();
         }
-
-        $this->_datosUser = $modelUser;
-        //$this->layout = 'main-admin-user';
+        if (isset($_POST['PerfilUsuario'])) {
+            $modelPerfil->attributes = $_POST['PerfilUsuario'];
+            $var = $modelPerfil->validate();
+            if ($modelPerfil->validate()) {
+                echo "validacion no fue verdadera " . $var;
+                Yii::app()->end();
+                //$this->redirect($this->createUrl('ciudadano/dashboard'));
+            } else {
+                $modelUpdateperfil = new consultasBaseDatos;
+                $modelUpdateperfil->updatePerfilUsuario($usrId, $modelPerfil);
+                
+                $this->layout = 'main-admin_form_caso';
+                $this->_datosUser = $modelUser;
+                $this->redirect(array('dashboard/index'));
+                
+            }
+        }
         $this->layout = 'main-admin';
-        //$this->layout = 'main-prueba';
-        //$this->render('perfilPrueba', array('modelUser' => $modelUser, 'modelPerfil' => $modelPerfil));
         $this->render('perfilUsuario', array('modelUser' => $modelUser, 'modelPerfil' => $modelPerfil));
     }
+    
+    public function actionUpdateImagen($usrId) {
+        
+        //echo "voy a actualizar la imagen del avatar";
+        
+        //Yii::app()->end();
+        
+        $modelUser = Usuario::model()->findByPk($usrId);
+        $modelImgUpload = new ImageUploadForm;
+        
+        $msgs = array();
+        
+         var_dump($modelImgUpload);
+        
+        echo "tengo para los mensajes";
+        var_dump(is_null($_POST));
+        var_dump(isset($_POST));
+        //var_dump(is_null($_POST['ImageUploadForm']));
+        
+        
+        
+        //Yii::app()->end();
+        if(isset($_POST['ImageUploadForm'])){
+        //if(empty($_POST)){
+            echo "<br>tengo algo por post";
+            $modelImgUpload->attributes = $_POST['ImageUploadForm'];
+            $images = CUploadFile::getInstancesByName('imagenPerfil');
+            
+            if(count($images) === 0){
+                $msg = array(
+                    'mensaje' => 'No has seleccionado ninguna imagen',
+                );
+            }
+            elseif(!$modelImgUpload->validate()){
+                $msg = array(
+                    'mensaje' => 'Error al enviar formulario.',
+                );
+            }
+            else{
+                echo "para creacer carpeta" . $modelUser->usu_cedula;
+                Yii::app()->end();
+            }
+            
+        }
+        
+        //Yii::app()->end();
+        
+        $this->_datosUser = $modelUser;
+        
+        $this->layout = 'main-admin';
+        //$this->layout = 'main-admin_form_caso';
+        $this->render('cambiaAvatar', array('modelUser' => $modelUser, 'modelImgUpload' => $modelImgUpload));
+        
+        
+    }
+    
+    
+    
+    
+    
+    
 
-    public function actionUpdatePerfil() {
+    public function actionUpdatePerfil($usrId) {
         //echo "llegue a actualizar el perfil"; Yii::app()->end();
+
+        echo "usuario a actualizar: " . $usrId;
+
 
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $modelPerfil = new PerfilUsuario;
@@ -133,10 +215,10 @@ class CiudadanoController extends Controller {
         echo "llegue a actualizar el perfil"; //Yii::app()->end();
         if (isset($_POST['PerfilUsuario'])) {
             $modelPerfil->attributes = $_POST['PerfilUsuario'];
-            var_dump($modelPerfil);
+            //var_dump($modelPerfil);
             //$var  = $model->validate();
             //echo "valor de la validación: " . $var;
-            Yii::app()->end();
+            //Yii::app()->end();
 
 
             if ($model->validate()) {

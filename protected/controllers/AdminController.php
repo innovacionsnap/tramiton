@@ -115,11 +115,22 @@ class AdminController extends Controller {
 
     public function actionRolesUsuarios() {
         $modelRole = new RoleForm;
-        $usuarios = Usuario::model()->findAll();
+        $model=new Usuario('search');
+        //$usuarios = Usuario::model()->findAll();
+        
+        $dataProvider=new CActiveDataProvider('Usuario');
+		/*$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));*/
+        
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $this->_datosUser = $modelUser;
         $this->layout = 'main-admin';
-        $this->render('roleUsuarios', array('usuarios' => $usuarios, 'modelRole' => $modelRole));
+        $this->render('roleUsuarios', array(
+                    'model' => $model, 
+                    'dataProvider' => $dataProvider,
+                    'modelRole' => $modelRole
+                ));
     }
 
     public function actionAsignarRol($usrId) {

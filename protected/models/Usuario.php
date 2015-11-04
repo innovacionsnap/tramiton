@@ -106,7 +106,7 @@ class Usuario extends CActiveRecord {
             'usu_lugar_nacimiento' => 'Lugar Nac.',
             'usu_fecha_registro' => 'Usu Fecha Registro',
             'usu_genero' => 'Genero',
-            'usu_imagen' => 'Usu Imagen',
+            'usu_imagen' => 'Imagen',
             'usu_codigo_confirmacion' => 'Usu Codigo Confirmacion',
         );
     }
@@ -163,6 +163,9 @@ class Usuario extends CActiveRecord {
     }
 
     public function validatePassword($password) {
+        
+        //echo "clave  enviada: " . $this->getHash('sha1', $password, HASH_KEY);
+        //echo "<br>clave de la BD: " . $this->usu_contrasenia;
         return $this->getHash('sha1', $password, HASH_KEY) === $this->usu_contrasenia;
     }
     
