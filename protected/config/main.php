@@ -105,13 +105,14 @@ return array(
 
                 'db' => array (
 			//'connectionString' => 'pgsql:host=181.211.36.240;dbname=tramitonv2',
-			'connectionString' => 'pgsql:host=localhost;dbname=tramiton',
+			'connectionString' => 'pgsql:host=192.168.0.204;dbname=tramitonv2',
 			'emulatePrepare' => true,
-			'username' => 'postgres',
-			'password' => '12345',
+			'username' => 'tramites',
+			'password' => 'tramiton2015',
 			'charset' => 'utf8',
                 ),
             
+
             
 		// uncomment the following to use a MySQL database
 		/*
