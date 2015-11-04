@@ -365,12 +365,6 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
 <?php //echo $baseUrl; ?>
 
-<!-- begin #content -->
-<div id="content" class="content" style="margin-left: 50px; margin-right: 20px">
-    <!-- begin row -->
-    <div class="row">
-        <!-- begin col-12 -->
-        <div class="col-md-12">
             <!-- begin panel -->
             <div class="panel panel-inverse">
                 <div class="panel-body">
@@ -499,7 +493,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                             <!-- begin wizard step-3 -->
                             <div class="wizard-step-4">
                                 <fieldset>
-                                    <legend class="pull-left width-full">Login</legend>
+                                    <legend class="pull-left width-full">Solución recomendada</legend>
                                     <!-- begin row -->
                                     <div class="row">
                                         <!-- begin col-12 -->
@@ -546,9 +540,4 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 </div>
             </div>
             <!-- end panel -->
-        </div>
-        <!-- end col-12 -->
-    </div>
-    <!-- end row -->
-</div>
-<!-- end #content -->
+

@@ -548,14 +548,15 @@ body.page-navbar-fixed-top-sm {
 
 .milestone {
     text-align: center;
+    border-right: 4px solid #325972;
 }
 .milestone-col + .milestone-col {
     border-left: 1px solid rgba(255,255,255,0.2);
 }
 .milestone .number {
     font-size: 42px;
-    color: #fff;
-    font-weight: 300;
+    color: #325972;
+    font-weight: 500;
 }
 .milestone .title {
     color: #8F8E8E;
@@ -2479,7 +2480,7 @@ legend {
     color: #fff;
 }
 .panel-inverse { border-color: #242a30; }
-.panel-inverse > .panel-heading { background: #242a30; }
+.panel-inverse > .panel-heading { background: #325972; }
 .panel-success { border-color: #008a8a; }
 .panel-success > .panel-heading { background: #008a8a; }
 .panel-warning { border-color: #c47d15; }

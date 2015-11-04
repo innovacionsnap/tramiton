@@ -89,7 +89,7 @@
 <!-- ================================================= -->
 
 <?php
-$this->widget('bootstrap.widgets.TbModal', array(
+/*$this->widget('bootstrap.widgets.TbModal', array(
     'id' => 'myModal',
     'header' => 'Modal Heading',
     'content' => $this->renderPartial('_form_role', array('modelRole' => $modelRole, 'role' => $roles)),
@@ -97,7 +97,7 @@ $this->widget('bootstrap.widgets.TbModal', array(
         TbHtml::button('Save Changes', array('data-dismiss' => 'modal', 'color' => TbHtml::BUTTON_COLOR_PRIMARY)),
         TbHtml::button('Close', array('data-dismiss' => 'modal')),
     ),
-));
+));*/
 ?>
 
 <!--  ================================================  -->
@@ -111,7 +111,7 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
     ),
 ));
 
-echo 'dialog content here';
+
 
 $this->endWidget('zii.widgets.jui.CJuiDialog');
 ?>
@@ -135,7 +135,7 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
     ),
 ));
 
-echo 'Animation Dialog Content';
+
 
 $this->endWidget('zii.widgets.jui.CJuiDialog');
 
