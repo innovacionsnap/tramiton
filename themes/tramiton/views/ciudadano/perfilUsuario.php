@@ -24,7 +24,7 @@
                 </div>
                 <!-- end profile-image -->
                 <div class="m-b-10">
-                    <?php echo CHtml::link('Cambiar Imagen', array("usuario/cambiaImagen", 'userId' => $modelUser->usu_id), array('class' => 'btn btn-warning btn-block btn-sm', 'title' => 'Cambiar Imagen')); ?>
+                    <?php echo CHtml::link('Cambiar Imagen', array("ciudadano/updateImagen", 'usrId' => $modelUser->usu_id), array('class' => 'btn btn-warning btn-block btn-sm', 'title' => 'Cambiar Imagen')); ?>
                     <!--<a href="#" class="btn btn-warning btn-block btn-sm">Cambiar Imagen</a>-->
                 </div>
                 <div class="m-b-10">
@@ -41,11 +41,12 @@
                     <!-- begin table -->
                     <div class="table-responsive">
                         <?php
+                        $usrId = $modelUser->usu_id;
                         $form = $this->beginWidget('CActiveForm', array
                             (
                             'method' => 'POST',
                             //'action' => Yii::app()->createUrl('ciudadano/updatePerfil'),
-                            'action' => $this->createUrl('ciudadano/updatePerfil'),
+                            'action' => $this->createUrl("ciudadano/mostrarPerfil?usrId=$usrId"),
                             'id' => 'update-form',
                             'enableClientValidation' => true,
                             'enableAjaxValidation' => true,
@@ -58,16 +59,16 @@
                         ));
                         ?>
                         <?php //var_dump($modelUser); 
-                        echo "ID User ==>> " . $modelUser->usu_id;
-                        $modelPerfil->idUsr = $modelUser->usu_id;
+                        //echo "ID User ==>> " . $modelUser->usu_id;
+                        //$modelPerfil->idUsr = $modelUser->usu_id;
                         
-                        echo "<br><br>ID User update ==>> " . $modelPerfil->idUsr;
+                        //echo "<br><br>ID User update ==>> " . $modelPerfil->idUsr;
                          
                           
                                 
                         ?>
                         <?php //echo $form->hiddenField($modelPerfil, 'idUsr', array('value' => $modelUser->usu_id)); ?>
-                        <?php echo $form->textField($modelPerfil, 'idUsr', array('value' => $modelUser->usu_id)); ?>
+                        <?php //echo $form->textField($modelPerfil, 'idUsr', array('value' => $modelUser->usu_id)); ?>
                         <table class="table table-profile">
                             <thead>
                                 <tr>

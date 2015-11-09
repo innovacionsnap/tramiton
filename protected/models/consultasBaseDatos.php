@@ -266,9 +266,14 @@ class consultasBaseDatos {
     }
     
     /**
-     * 
+     * Funcion para actualizar el perfil del usuario
      */
-    public function updatePerfilUsuario($idUsr, $username, $email, $fijo, $celular, $direccion, $fechaNac, $genero) {
+    public function updatePerfilUsuario($usrId, $datosPerfil) {
+        
+        //echo "<br> estoy en el modelo listo para actualizar " . $datosPerfil->nombreUsuario;
+        
+        //var_dump($datosPerfil);
+        //Yii::app()->end();
         $conexion = Yii::app()->db;
         
         $sqlUpdatePerfilUsr = "UPDATE usuario SET "
@@ -285,16 +290,20 @@ class consultasBaseDatos {
         $resultado = $conexion->createCommand($sqlUpdatePerfilUsr);
         return $resultado->execute(
                 array(
-                    ':username' => $username,
-                    ':email' => $email,
-                    ':fijo' => $fijo,
-                    ':celular' => $celular,
-                    ':direccion' => $direccion,
-                    ':fechaNac' => $fechaNac,
-                    ':genero' => $genero,
-                    ':usrId' => $idUsr,
+                    ':username' => $datosPerfil->nombreUsuario,
+                    ':email' => $datosPerfil->email,
+                    ':fijo' => $datosPerfil->telfConvencional,
+                    ':celular' => $datosPerfil->telfCelular,
+                    ':direccion' => $datosPerfil->direccion,
+                    ':fechaNac' => $datosPerfil->fechaNacimiento,
+                    ':genero' => $datosPerfil->genero,
+                    ':usrId' => $usrId,
                 )
             );
     }
-
+    
+    public function obtieneUsuario($idUsr) {
+        
+    }
+    
 } 

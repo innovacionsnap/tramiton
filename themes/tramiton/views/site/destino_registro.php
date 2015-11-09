@@ -1,6 +1,11 @@
 <?php
 $insertar_tramite = $_POST['insertar_tramite'];
 
+echo "llegue a insertar el tramite";
+var_dump($insertar_tramite);
+Yii::app()->end();
+
+
 if (isset($insertar_tramite)) {
     $cedula = $_POST['cedula_ciudadania'];
     $verifica_usuario = SiteController::verificaUsuario($cedula);

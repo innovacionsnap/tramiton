@@ -68,6 +68,7 @@
 
 
 
+
 <script>
     $(document).ready(function () {
         App.init();
@@ -76,4 +77,5 @@
 </script>
 
 </body>
+<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/gridview/jquery.yiigridview.js"></script>
 </html>

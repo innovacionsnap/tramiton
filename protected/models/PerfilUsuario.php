@@ -22,7 +22,9 @@ class PerfilUsuario extends CFormModel {
     public $lugarNacimiento;
     public $genero;
     public $idUsr;
-    
+    public $imagenPerfil;
+
+
     public function rules() {
         return array(
             array('nombreUsuario', 'required', 'message' => '<span style="color: #F00;">El nombre de usuario es requerido</span>'),
@@ -63,6 +65,7 @@ class PerfilUsuario extends CFormModel {
             'fechaNacimiento' => 'Fecha Nac.',
             'lugarNacimiento' => 'Lugar Nac.',
             'genero' => 'Genero',
+            'imagenPerfil' => 'Imagen',
         );
     }
     

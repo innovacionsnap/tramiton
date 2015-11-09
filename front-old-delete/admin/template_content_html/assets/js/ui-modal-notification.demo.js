@@ -19,7 +19,7 @@ var handleGritterNotification = function() {
 	});
 	$('#add-regular').click( function() {
 		$.gritter.add({
-			title: 'This is a regular notice!',
+			title: 'This is a regular notice! hice el cambio',
 			text: 'This will fade out after a certain amount of time. Sed tempus lacus ut lectus rutrum placerat. ',
 			image: 'assets/img/user-3.jpg',
 			sticky: false,
