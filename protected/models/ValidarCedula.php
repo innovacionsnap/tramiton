@@ -115,9 +115,9 @@ class ValidarCedula extends CFormModel {
                         return $respuesta;
                         exit();
                     } else {
-                        var_dump($valor);
-			echo "<hr>";
-                        Yii::app()->end();
+                        //var_dump($valor);
+			//echo "<hr>";
+                        
                         $this->cedula_participacion = $cedula;
                         $this->condicion_cedulado = $valor->CondicionCedulado;
                         $this->estado_civil = $valor->EstadoCivil;
@@ -129,6 +129,8 @@ class ValidarCedula extends CFormModel {
                         $this->profesion = $valor->Profesion;
                         $this->lugar_nacimiento = $valor->LugarNacimiento;
                         $this->direccion_ciudadano = $valor->CalleDomicilio;
+                        return 1;
+                        //Yii::app()->end();
                     }
                 }
             } catch (SoapFault $e) {

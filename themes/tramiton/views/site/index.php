@@ -95,12 +95,15 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <span class="boton-1"><a href="">Ciudadano</a></span>
                 <span class="boton-2"><a href="">Servidor Público</a></span>
                 <span><img src="<?php echo $baseUrl; ?>/assets/img/Home_1.png" alt="Home" /></span>
+                <span><?php /*$data=SiteController::validaCedula('1716475015');
+var_dump($data);*/?> </span>
             </div>
             <div class="col-md-8"> 
                 <?php
                 $this->renderPartial('form_caso', true, false);
                 ?>
             </div>
+            
 
         </div>
     </div>
@@ -146,11 +149,18 @@ $baseUrl = Yii::app()->theme->baseUrl;
         <div class="row">
             <div class="col-md-3 col-sm-3 milestone-col">
                 <div class="milestone">
-                    <div class="number" data-animation="true" data-animation-type="number" data-final-number="7500">7,500</div>
+                    <div class="number" data-animation="true" data-animation-type="number" data-final-number="6505">6,505</div>
                     <div class="title">Total Participantes</div>
                 </div>
             </div>
             <!-- end col-3 -->
+            <div class="col-md-3 col-sm-3 milestone-col">
+                <div class="milestone">
+                    <?php 
+                    echo '<div class="number" data-animation="true" data-animation-type="number" data-final-number="'.$total_soluciones.'">'.$total_soluciones.'</div>'?>
+                    <div class="title">Soluciones Registradas</div>
+                </div>
+            </div>
             <!-- begin col-3 -->
             <div class="col-md-3 col-sm-3 milestone-col">
                 <div class="milestone">
@@ -167,12 +177,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 </div>
             </div>
             <!-- end col-3 -->
-            <div class="col-md-3 col-sm-3 milestone-col">
-                <div class="milestone">
-                    <div class="number" data-animation="true" data-animation-type="number" data-final-number="64">64</div>
-                    <div class="title">Instituciones más votadas</div>
-                </div>
-            </div>
+            
         </div>
     </div>
     <br>

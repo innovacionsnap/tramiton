@@ -18,7 +18,7 @@
             <a href=""><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_twitter.png'); ?>"></a>
             <a href=""><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_youtube.png'); ?>"></a>
         </div>
-        
+
     </div>   
 </div>
 <!-- end #footer -->
@@ -55,7 +55,7 @@
 <script>
     $(document).ready(function () {
         App.init();
-         FormWizardValidation.init();
+        FormWizardValidation.init();
     });
 </script>
 </body>
