@@ -22,8 +22,8 @@ class ImageUploadForm extends CFormModel{
                 'file',
                 'types' => 'jpg, gif, png',
                 'wrongType' => 'Formatos permitidos jpg, gif y png',
-                'maxSize' => 1024 * 1024 * 2,
-                'tooLarge' => '<span style="color: #F00;">El tamaño máximo permitodo para la imagen es 2MB</span>',
+                'maxSize' => 1024 * 1024 * 1,
+                'tooLarge' => '<span style="color: #F00;">El tamaño máximo permitido para la imagen es 1MB</span>',
                 'allowEmpty' => true,
             ),
         );

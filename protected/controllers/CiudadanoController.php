@@ -148,22 +148,26 @@ class CiudadanoController extends Controller {
         $modelImgUpload = new ImageUploadForm;
         
         $msgs = array();
+        //echo "<br><br><br><br><br><br><br><br>";
         
-         var_dump($modelImgUpload);
+        //var_dump($modelImgUpload);
         
-        echo "tengo para los mensajes";
-        var_dump(is_null($_POST));
-        var_dump(isset($_POST));
+        //echo "tengo para los mensajes";
+        //var_dump(is_null($_POST));
+        //var_dump(isset($_POST));
         //var_dump(is_null($_POST['ImageUploadForm']));
-        
+        //var_dump($_POST);
+        //var_dump($_POST['ImageUploadForm']);
         
         
         //Yii::app()->end();
         if(isset($_POST['ImageUploadForm'])){
+        //if(isset($_POST)){
         //if(empty($_POST)){
-            echo "<br>tengo algo por post";
+            echo "<br>tengo algo por post";Yii::app()->end();
             $modelImgUpload->attributes = $_POST['ImageUploadForm'];
-            $images = CUploadFile::getInstancesByName('imagenPerfil');
+            //$modelImgUpload->attributes = $_POST['imagenPerfil'];
+            $images = CUploadedFile::getInstancesByName('imagenPerfil');
             
             if(count($images) === 0){
                 $msg = array(
@@ -188,7 +192,8 @@ class CiudadanoController extends Controller {
         
         $this->layout = 'main-admin';
         //$this->layout = 'main-admin_form_caso';
-        $this->render('cambiaAvatar', array('modelUser' => $modelUser, 'modelImgUpload' => $modelImgUpload));
+        //$this->render('cambiaAvatar', array('modelUser' => $modelUser, 'modelImgUpload' => $modelImgUpload));
+        $this->render('cambiaAvatar', array('modelImgUpload' => $modelImgUpload));
         
         
     }
