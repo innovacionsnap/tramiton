@@ -1,65 +1,100 @@
 <style type="text/css">
-    h3{
-        width:auto;
-        display: inline-flex;
-        margin-right: 10px;
-    }
-
-    select.form-control{
-        border-color: #325972;
-        border-radius: 10px;
-        -moz-appearance: none;
-        background: transparent url("themes/tramiton/assets/img/flecha_select.png") no-repeat right center;
-    }
-    input.form-control{
-        border-color: #325972;
-        border-radius: 10px;
-    }
     #content{
         padding-top: 30px !important;
     }
-    .panel-inverse{
-        border:none !important;
+    .tab-panels ul {
+        margin: 0;
+        padding: 0;
     }
-    .well{
-        border:none !important;
-        background: none !important;
-    }
-    .bwizard{
-        background-color: #F5F5F5;
-    }
-    .bwizard-steps{
+    .tab-panels ul li {
+        list-style-type: none;
+        display: inline-block;
         background: #325972;
-        border-radius: 6px !important;
-        padding-left: 0px !important;
-        margin-bottom: 0px !important;
-    }
-    .bwizard-steps li{
-        background: none !important;
-        padding:0px !important;
+        margin: 0;
+        padding: 3px 10px;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: bold;
+        cursor: default;
+        width: 148px;
+
     }
 
-    .bwizard-steps li.active{
-        background: #F5F5F5 !important;
+    .tab-panels ul li.active {
+        color: #325972;
+        background: #F5F5F5;
     }
 
-    .bwizard-steps li.active a{
-        color:#325972 !important;
-    }
-
-    .bwizard-steps .label{
+    .tab-panels .panel-registro {
         display:none;
+        background: #F5F5F5;
+        padding: 30px;
+        border-radius: 0 0 10px 10px;
+        min-height: 374px;
     }
 
-    .bwizard-steps li a{
-        color:white !important;
-        font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    .tab-panels .panel-registro.active {
+        display:block;
     }
+
+    .botones_nav{
+        margin-top: 20px;
+
+    }
+    .next-tab{
+        float:right;
+
+    }
+
+    .prev-tab{
+        float:left;
+    }
+
+    .next-tab,.prev-tab{
+        background: #325972;
+        border-radius: 5px;
+        padding:5px;
+        color:#fff;
+    }
+
+    select.form-registro{
+        border-color: #325972;
+        border-radius: 5px;
+        -moz-appearance: none;
+        background: transparent url("themes/tramiton/assets/img/flecha_select.png") no-repeat right center;
+        width: 100%;
+        height: 34px;
+    }
+    input.form-registro{
+        border-color: #325972;
+        border-radius: 5px;
+        width:100%;
+        height: 34px;
+    }
+    textarea.form-registro{
+        width: 100%;
+    }
+
+    .btn-publicar{
+        background: #325972;
+        color:#fff;
+        width: 100%;
+        height: 40px;
+        font-weight: bold;
+    }
+
+    .btn-publicar:hover{
+        background: #f5f5f5;
+        color:#325972;
+
+    }
+
 </style>
 
 <?php
+define("JS_ONLY_NUMS", " onKeypress=\"hkp(event); if ((_KeyCode < 48 && _KeyCode != 0 && _KeyCode != 8) || _KeyCode > 57) return false;\"");
 /* Agregar funciones de combox provincia  */
-define( "JS_ONLY_NUMS", " onKeypress=\"hkp(event); if ((_KeyCode < 48 && _KeyCode != 0 && _KeyCode != 8) || _KeyCode > 57) return false;\"" );
+
 function provincia($nombre, $valor) {
 
     include("config.inc.php");
@@ -68,7 +103,7 @@ function provincia($nombre, $valor) {
     $resultado_provincia = pg_query($con, $consulta_provincia) or die("Error en la Consulta SQL");
     $numReg = pg_num_rows($resultado_provincia);
     //echo "<div class='col-md-10'>";
-    echo "<select class='form-control' data-parsley-group='wizard-step-2' required name='$nombre' id='$nombre'>";
+    echo "<select class='form-registro' name='$nombre' id='$nombre'>";
     echo "<option value=''>Selecciona una Provincia...</option>";
     while ($fila = pg_fetch_array($resultado_provincia)) {
         echo "<option value='" . $fila["pro_id"] . "'";
@@ -89,7 +124,7 @@ function canton($nombre, $valor) {
 
 
     echo "<select name='$nombre' id='$nombre'>";
-    echo "<option value=''>Selecciona un Canton...</option>";
+    echo "<option value=''>Selecciona un Cantón...</option>";
     while ($fila = pg_fetch_array($resultado_canton)) {
         echo "<option value='" . $fila["can_id"] . "'";
         if ($fila["can_id"] == $valor)
@@ -108,8 +143,8 @@ function institucion($nombre, $valor) {
     $numReg = pg_num_rows($resultado_institucion);
     //echo "<div class='col-md-12'>";
     //echo "<div class='form-group'>";
-    echo "<select class='form-control' data-parsley-group='wizard-step-2' required name='$nombre' id='$nombre'>";
-    echo "<option value=''>Selecciona una Institucion...</option>";
+    echo "<select class='form-registro' name='$nombre' id='$nombre'>";
+    echo "<option value=''>Selecciona una Institución...</option>";
     while ($fila = pg_fetch_array($resultado_institucion)) {
         echo "<option value='" . $fila["ins_id"] . "'";
         if ($fila["ins_id"] == $valor)
@@ -130,7 +165,7 @@ from tramite tra, tramite_institucion trai, institucion ins where tra.tra_id = t
     $numReg = pg_num_rows($resultado_tramite);
 
     echo "<select name='$nombre' id='$nombre'>";
-    echo "<option value=''>Selecciona un tramite...</option>";
+    echo "<option value=''>Selecciona un trámite...</option>";
     while ($fila = pg_fetch_array($resultado_tramite)) {
         echo "<option value='" . $fila["ins_id"] . "'";
         if ($fila["ins_id"] == $valor)
@@ -349,13 +384,13 @@ $id_usuario = $modelUser['usu_id'];
     function Validate(propuesta_solucion) {
         propuesta_solucion.value = propuesta_solucion.value.replace(/[*?|"#Ç¿ç?="´'{+(^;@&_%]+/g, '');
     }
-    
-    function hkp( evt )
-        {
-                _KeyCode = ( window.event ) ? evt.keyCode : evt.which;
-                return( _KeyCode );
-        }
-    
+
+    function hkp(evt)
+    {
+        _KeyCode = (window.event) ? evt.keyCode : evt.which;
+        return(_KeyCode);
+    }
+
 
 </script>
 <?php
@@ -363,181 +398,250 @@ $baseUrl = Yii::app()->baseUrl;
 $cs = Yii::app()->getClientScript();
 Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
-<?php //echo $baseUrl; ?>
+<?php //echo $baseUrl;  ?>
 
-            <!-- begin panel -->
-            <div class="panel panel-inverse">
-                <div class="panel-body">
-                    <form action="<?php echo $baseUrl; ?>/themes/tramiton/views/site/destino_registro.php" method="POST" data-parsley-validate="true" name="form-wizard">
-                        <div id="wizard">
-                            <ul>
-                                <li>Identificación</li>
-                                <li>Trámite</li>
-                                <li>Problemática</li>
-                                <li>Solución</li>
-                                <li>Finalizar</li>
-                            </ul>
-                            <!-- begin wizard step-1 -->
-                            <div class="wizard-step-1">
-                                <h3>Identificación</h3>
-                                <span>Ingresar su documento de identificación</span>
-                                <fieldset>
 
-                                    <!-- begin row -->
-                                    <div class="row">
+<form action="/" method="POST" name="form-wizard" onsubmit="alert('no debe desjarse enviar') return false;">
+    <div class="tab-panels">
+        <ul class="tabs">
+            <li rel="panel1" class="active">Identificación</li>
+            <li rel="panel2">Institución</li>
+            <li rel="panel3">Problemática</li>
+            <li rel="panel4">Solución</li>
+            <li rel="panel5">Finalizar</li>
+        </ul>
 
-                                        <!-- begin col-12 -->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Cédula de Ciudadanía</label>
-                                                <input type="text" maxlength="10" id = "cedula_ciudadania" <?php echo JS_ONLY_NUMS;?> name="cedula_ciudadania" placeholder="Ingrese su cédula de ciudadanía" class="form-control" data-parsley-group="wizard-step-1" required />
-                                            </div>
-                                        </div>
-                                        <!-- end col-12 -->
-                                    </div>
-                                    <!-- end row -->
-                                </fieldset>
-                            </div>
-                            <div class="wizard-step-2">
-                                <h3>Institución</h3>
-                                <span>Identificar la Institución donde realizó el trámite</span>
-                                <fieldset>
+        <div id="panel1" class="panel-registro active">
+            <h3>Ingresar su documento de identificación</h3>
+            <label>Cédula de Ciudadanía</label>
+            <input type="text" maxlength="10" id = "cedula_ciu" class="form-registro" placeholder="Ingrese su cédula de ciudadanía" autocomplete="off"/>
+            <div class="row botones_nav"></div>
+        </div>
+        <div id="panel2" class="panel-registro">
+            <h3>Institución</h3>
+            <span>Identificar la Institución donde realizó el trámite</span>
+            <div class="row">
 
-                                    <!-- begin row -->
-                                    <div class="row">
+                <!-- begin col-12 -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Unidad Prestadora</label>
+                        <?php institucion("id_institucion", "0"); ?>  
 
-                                        <!-- begin col-12 -->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Unidad Prestadora</label>
-                                                <?php institucion("id_institucion", "0"); ?>  
-
-                                            </div>
-                                        </div>
-                                        <!-- end col-12 -->
-                                        <!-- begin col-12 -->
-                                        <p id="pidhijo2">
-                                            <!-- end col-12 -->
-                                            <!-- begin col-4 -->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Provincia</label>
-                                                <?php provincia("id_provincia", "0") ?>
-                                            </div>
-                                        </div>
-                                        <!-- end col-4 -->
-                                        <!-- begin col-12 -->
-                                        <p id="pidhijo">
-                                            <!-- end col-12 -->
-
-                                            <!-- begin col-12 -->
-
-                                        <div class="col-md-12">
-                                            <div class="form-group block1">
-                                                <label>Unidad Prestadora</label>
-                                                <input type="text" id = "unidad_prestadora" onkeyup = "Validate(this)" name="unidad_prestadora" placeholder="Unidad Prestadora" class="form-control" data-parsley-group="wizard-step-2" required />
-
-                                            </div>
-                                        </div>
-                                        <!-- end col-12 -->
-                                    </div>
-                                    <!-- end row -->
-                                </fieldset>
-                            </div>
-                            <!-- end wizard step-1 -->
-                            <!-- begin wizard step-2 -->
-                            <div class="wizard-step-3">
-                                <fieldset>
-                                    <legend class="pull-left width-full">Problemas</legend>
-                                    <!-- begin row -->
-                                    <div class="row">
-                                        <!-- begin col-4 -->
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <?php echo problema2() ?>
-
-                                            </div>
-                                        </div>
-                                        <!-- end col-4 -->
-                                        <!-- begin col-4 -->
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <?php echo problema3() ?>
-
-                                            </div>
-                                        </div>
-                                        <!-- end col-4 -->
-                                        <!-- begin col-4 -->
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <?php echo problema4() ?>
-
-                                            </div>
-                                        </div>
-                                        <!-- end col-4 -->
-                                        <!-- begin col-12 -->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Detalle del problema</label>
-                                                <textarea class="form-control" id = "experiencia" onkeyup = "Validate(this)" name="experiencia" rows="4" data-parsley-range="[0,200]" placeholder="experiencia" data-parsley-group="wizard-step-3" required></textarea>
-
-                                            </div>
-                                        </div>
-                                        <!-- end col-6 -->
-
-                                    </div>
-                                    <!-- end row -->
-                                </fieldset>
-                            </div>
-                            <!-- end wizard step-2 -->
-                            <!-- begin wizard step-3 -->
-                            <div class="wizard-step-4">
-                                <fieldset>
-                                    <legend class="pull-left width-full">Solución recomendada</legend>
-                                    <!-- begin row -->
-                                    <div class="row">
-                                        <!-- begin col-12 -->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Titulo Solucion</label>
-                                                <div class="controls">
-                                                    <input type="text"  id="titulo_solucion" onkeyup = "Validate(this)" name="titulo_solucion"  data-parsley-range="[20,99]" placeholder="Titulo Problematica" class="form-control" data-parsley-group="wizard-step-4" required />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- end col-12 -->
-                                        <!-- begin col-12 -->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Detalle de solucion</label>
-                                                <div class="controls">
-                                                    <textarea class="form-control" id="propuesta_solucion" onkeyup = "Validate(this)" name="propuesta_solucion" rows="4" data-parsley-range="[20,200]" placeholder="propuesta_solucion" data-parsley-group="wizard-step-4" required></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- end col-12 -->
-
-                                    </div>
-                                    <!-- end row -->
-                                </fieldset>
-                            </div>
-                            <!-- end wizard step-3 -->
-                            <!-- begin wizard step-4 -->
-                            <div>
-                                <div class="jumbotron m-b-0 text-center">
-                                    <h1>Gracias por ingresar el tramite</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat commodo porttitor. Vivamus eleifend, arcu in tincidunt semper, lorem odio molestie lacus, sed malesuada est lacus ac ligula. Aliquam bibendum felis id purus ullamcorper, quis luctus leo sollicitudin. </p>
-                                    <!--  <p><a class="btn btn-success btn-lg" role="button">Guardar y enviar</a></p> -->
-                                    <input type="submit" value="Publicar y Guardar" class="btn btn-success btn-lg"> 
-                                    <input type="hidden" name="insertar_tramite" value="1">
-                                    <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
-                                    <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
-                                </div>
-                            </div>
-                            <!-- end wizard step-4 -->
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-            <!-- end panel -->
+                <!-- end col-12 -->
+                <!-- begin col-12 -->
+                <p id="pidhijo2">
+                    <!-- end col-12 -->
+                    <!-- begin col-4 -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provincia</label>
+                        <?php provincia("id_provincia", "0") ?>
+                    </div>
+                </div>
+                <!-- end col-4 -->
+                <!-- begin col-12 -->
+                <p id="pidhijo">
+                    <!-- end col-12 -->
 
+                    <!-- begin col-12 -->
+
+                <div class="col-md-12">
+                    <div class="form-group block1">
+                        <label>Unidad Prestadora</label>
+                        <input type="text" id = "unidad_prestadora" name="unidad_prestadora" class="form-registro" placeholder="Unidad Prestadora" class="form-control" />
+
+                    </div>
+                </div>
+                <!-- end col-12 -->
+            </div>
+            <div class="row botones_nav"></div>
+        </div>
+        <div id="panel3" class="panel-registro">
+            <div class="row">
+                <!-- begin col-4 -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <?php echo problema2() ?>
+
+                    </div>
+                </div>
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <?php echo problema3() ?>
+
+                    </div>
+                </div>
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <?php echo problema4() ?>
+
+                    </div>
+                </div>
+                <!-- end col-4 -->
+                <!-- begin col-12 -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Detalle del problema</label>
+                        <textarea class="form-registro" id = "experiencia" name="experiencia" rows="4" placeholder="experiencia"></textarea>
+
+                    </div>
+                </div>
+                <!-- end col-6 -->
+
+            </div>
+            <div class="row botones_nav"></div>
+        </div>
+        <div id="panel4" class="panel-registro">
+
+            <div class="row">
+                <!-- begin col-12 -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Titulo Solucion</label>
+                        <div class="controls">
+                            <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Titulo Problemática" class="form-registro" />
+                        </div>
+                    </div>
+                </div>
+                <!-- end col-12 -->
+                <!-- begin col-12 -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Detalle de solucion</label>
+                        <div class="controls">
+                            <textarea class="form-registro" id="propuesta_solucion" name="propuesta_solucion" rows="4" placeholder="propuesta_solucion"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- end col-12 -->
+
+            </div>
+            <div class="row botones_nav"></div>
+        </div>
+        <div id="panel5" class="panel-registro">
+
+            <h1>Gracias por ingresar el tramite</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat commodo porttitor. Vivamus eleifend, arcu in tincidunt semper, lorem odio molestie lacus, sed malesuada est lacus ac ligula. Aliquam bibendum felis id purus ullamcorper, quis luctus leo sollicitudin. </p>
+            <!--  <p><a class="btn btn-success btn-lg" role="button">Guardar y enviar</a></p> -->
+            <input type="submit" value="Publicar y Guardar" class="btn-publicar"> 
+            <input type="hidden" name="insertar_tramite" value="1">
+            <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
+            <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
+            <div class="row botones_nav"></div>
+        </div>
+
+    </div>
+</form>
+
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $('.panel-registro').each(function (i) {
+            var total = $('.panel-registro').size() - 1;
+
+            if (i != total) {
+                next = i + 2;
+                $(this).find('.botones_nav').append("<a href='#' class='next-tab' rel='panel" + next + "'>Siguiente &#187;</a>");
+                $('a.next-tab').hide();
+            }
+            if (i != 0) {
+                prev = i;
+                $(this).find('.botones_nav').append("<a href='#' class='prev-tab' rel='panel" + prev + "'>&#171; Anterior</a>");
+
+            }
+
+        });
+        $('#cedula_ciu').keyup(function () {
+            var cedula=(this).value;
+           var tamano=cedula.length;
+           if (tamano==10){
+              $.ajax({
+                type: "POST",
+                url: 'site/validacedula',
+                data: {cedula: cedula},
+                beforeSend: function () {
+                },
+                success: function (data) {
+                    if (data == 1) {
+                        $('a.next-tab').show();
+                    } else {
+                        $('a.next-tab').hide();
+                        //$(this).append("<p>Cédula ingresada no es válida</p>");
+                    }
+                }
+            });
+
+           
+           }else{$('a.next-tab').hide();}
+           
+            //alert(cedula);
+            /**/
+        });
+        $('.next-tab').click(function () {
+            var panelToShow = $(this).attr('rel');
+            var litoshow = parseInt(panelToShow.slice(5, 6));
+            $('.tab-panels').find('.tabs li.active').removeClass('active');
+            $('.tab-panels').find('.tabs li').eq(litoshow - 1).addClass('active');
+            //$('a.next-tab').hide();
+            $('.tab-panels').find('.panel-registro.active').show(showNextPanel);
+            function showNextPanel() {
+                $(this).removeClass('active');
+
+                $('#' + panelToShow).hide(function () {
+                    $(this).addClass('active');
+                });
+            }
+        });
+
+        $('.prev-tab').click(function () {
+            var panelToShow = $(this).attr('rel');
+            var litoshow = parseInt(panelToShow.slice(5, 6));
+            $('.tab-panels').find('.tabs li.active').removeClass('active');
+            $('.tab-panels').find('.tabs li').eq(litoshow - 1).addClass('active');
+            $('.tab-panels').find('.panel-registro.active').show(showNextPanel);
+            function showNextPanel() {
+                $(this).removeClass('active');
+
+                $('#' + panelToShow).hide(function () {
+                    $(this).addClass('active');
+                });
+            }
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    /* var resultado = false;
+     window.ParsleyValidator.addValidator('validarcedula',
+     function (value, requirement) {
+     
+     $.ajax({
+     type: "POST",
+     url: 'site/validacedula',
+     data: {cedula: value},
+     beforeSend: function () {
+     },
+     success: function (data) {
+     if (data == 1) {
+     resultado = true;
+     return true;
+     } else {
+     resultado = false;
+     return true;
+     }
+     }
+     });
+     
+     return resultado;
+     }, 32);
+     */
+</script>
