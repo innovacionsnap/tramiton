@@ -19,7 +19,7 @@
                 <!-- begin profile-image -->
                 <div class="profile-image">
                     <!--<img src="assets/img/profile-cover.jpg" />-->
-                    <img src="<?php echo URL_IMG . $modelUser->usu_imagen; ?>" />
+                    <img src="<?php //echo URL_IMG . $modelUser->usu_imagen; ?>" />
                     <i class="fa fa-user hide"></i>
                 </div>
                 <!-- end profile-image -->
@@ -41,16 +41,20 @@
                     <!-- begin table -->
                     <div class="table-responsive">
                         <?php
-                        $usrId = $modelUser->usu_id;
+                        //$usrId = $modelUser->usu_id;
+                        $usrId = 12;
                         $form = $this->beginWidget('CActiveForm', array
                             (
                             'method' => 'POST',
                             //'action' => Yii::app()->createUrl('ciudadano/updatePerfil'),
-                            'action' => $this->createUrl("updateImagen?usrId=$usrId"),
+                            'action' => $this->createUrl("ciudadano/updateImagen?usrId=$usrId"),
                             'id' => 'updateImage-form',
                             'enableClientValidation' => true,
                             'enableAjaxValidation' => true,
-                            'htmlOptions' => array('class' => 'margin-bottom-0'),
+                            'htmlOptions' => array(
+                                'enctype' => 'multipart/form-data',
+                                'class' => 'margin-bottom-0'
+                                ),
                             'clientOptions' => array(
                                 'validateOnSubmit' => true,
                                 'validateOnChange' => true,
@@ -67,8 +71,8 @@
                                     <th></th>
                                     <th>
                                         <h4>
-                                            <?php echo $modelUser->usu_nombre; ?>
-                                            <small><?php echo $modelUser->usu_cedula; ?></small>
+                                            <?php //echo $modelUser->usu_nombre; ?>
+                                            <small><?php //echo $modelUser->usu_cedula; ?></small>
                                         </h4>
                                     </th>
                                 </tr>
@@ -99,7 +103,7 @@
                                         $this->widget('CMultiFileUpload',
                                                 array(
                                                     'model' => $modelImgUpload,
-                                                    'name' => 'imagenPerfil',
+                                                    'name' => 'imagen',
                                                     'attribute' => 'imagenPerfil',
                                                     'accept' => 'jpg|gif|png',
                                                     'denied' => 'El tipo de archivo seleccionado no esta permitido',
@@ -113,7 +117,7 @@
                                         </span>
                                         <?php echo $form->error($modelImgUpload, 'imagenPerfil'); ?>
                                         <span class="field f-s-14">
-                                            <br><br>Tamaño máximo: 2MB<br>
+                                            <br><br>Tamaño máximo: 1MB<br>
                                         </span>
                                         
                                         
