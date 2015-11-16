@@ -1,30 +1,26 @@
 <!-- begin #footer -->
-<div id="footer">
-    <div class="col-md-12 col-sm-12 col-xs-12 " style="padding-top:10px; background: url('<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/footer.png') repeat-x">
-        <!-- begin col-3 -->
-        <div class="col-md-4 col-sm-4 col-xs-12" style="margin-top:30px;">
+<div id="footer" class="container-fluid">
+    <div class="row" style="padding-top:10px; background: url('<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/footer.png') repeat-x">
+
+        <div id="col-snap-logo" class="col-xs-4" style="padding-top:30px; padding-left:2%;">
             <a><img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_snap.png" /></a>
         </div>
-        <!-- end col-3 -->
-        <!-- begin col-3 -->
-        <div class="col-md-4 col-sm-4 col-xs-12" style="margin-top:30px;">			    	
-            <a><img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_pais.png" /></a>
-        </div>
-        <!-- end col-3 -->
-        <!-- begin col-3 -->
-        <div align="right" class="col-md-4 col-sm-4 col-xs-12">
-            <a href=""><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_plataforma_innovacion.png'); ?>"></a>
-            <a href=""><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_facebook.png'); ?>"></a>
-            <a href=""><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_twitter.png'); ?>"></a>
-            <a href=""><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_youtube.png'); ?>"></a>
+
+        <div id="col-ecu-logo" class="col-xs-4" align="right" style="padding-top:30px;">
+            <a><img class="center-block" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_pais.png" /></a>
         </div>
 
-    </div>   
-</div>
-<!-- end #footer -->
+        <div id="col-socials-networks" class="col-xs-4" align="right" style="padding-right:2%;">
+    
+                    <a target="_blank" href="http://ilab.gob.ec/"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_plataforma_innovacion.png'); ?>"></a>
+                    <a target="_blank" href="https://www.facebook.com/AdmPublicaEcuador"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_facebook.png'); ?>"></a>
+                    <a target="_blank" href="https://twitter.com/tramitonEC"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_twitter.png'); ?>"></a>
+                    <a target="_blank" href="https://www.youtube.com/user/AdmPublicaEcuador"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_youtube.png'); ?>"></a>
+    
+        </div>
 
+    </div>
 </div>
-<!-- end #page-container -->
 
 <!-- ================== BEGIN BASE JS ================== -->
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
@@ -51,12 +47,8 @@
 
 <!--<script type="text/javascript" src="/tramiton2/assets/e1bed9d7/jquery.js"></script>-->
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.yiiactiveform.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/home.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/view-elements.js"></script>
 
-<script>
-    $(document).ready(function () {
-        App.init();
-        FormWizardValidation.init();
-    });
-</script>
 </body>
 </html>
