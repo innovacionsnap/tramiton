@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en">
+<html lang="es">
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
@@ -35,36 +35,38 @@
         <!-- ================== END Custom CSS=============== -->
         <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/home.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css">
+
 	<?php
         $baseUrl = Yii::app()->baseUrl;
         $cs = Yii::app()->getClientScript();
         Yii::app()->clientScript->registerCoreScript('jquery');
-        ?>
-        <?php $linkcombo = $baseUrl . '/themes/tramiton/views/ciudadano/combobox.php' ?>
-        <?php $linkcombo2 = $baseUrl . '/themes/tramiton/views/ciudadano/combobox2.php' ?>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                /* COMBOBOX PROVINCIAS  */
-                $("#id_provincia").change(function (event)
-                {
-                    var idpadre = $(this).find(':selected').val();
-                    $("#pidhijo").html("<img src='<?php echo $baseUrl ?>/themes/tramiton/views/ciudadano/loading.gif' />");
-                    $("#pidhijo").load('<?php echo $linkcombo ?>?buscar=hijos&id_provincia=' + idpadre);
-                });
+    ?>
+    <?php $linkcombo = $baseUrl . '/themes/tramiton/views/ciudadano/combobox.php' ?>
+    <?php $linkcombo2 = $baseUrl . '/themes/tramiton/views/ciudadano/combobox2.php' ?>
 
-                /* COMBOBOX INTITUCION  */
-                $("#id_institucion").change(function (event)
-                {
-                    var id_institucion = $(this).find(':selected').val();
-                    $("#pidhijo2").html("<img src='<?php echo $baseUrl ?>/themes/tramiton/views/ciudadano/loading.gif' />");
-                    $("#pidhijo2").load('<?php echo $linkcombo2 ?>?buscar_institucion=institucion&id_institucion=' + id_institucion);
-                });
-
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /* COMBOBOX PROVINCIAS  */
+            $("#id_provincia").change(function (event)
+            {
+                var idpadre = $(this).find(':selected').val();
+                $("#pidhijo").html("<img src='<?php echo $baseUrl ?>/themes/tramiton/views/ciudadano/loading.gif' />");
+                $("#pidhijo").load('<?php echo $linkcombo ?>?buscar=hijos&id_provincia=' + idpadre);
             });
-        </script>
-	
-	
+
+            /* COMBOBOX INTITUCION  */
+            $("#id_institucion").change(function (event)
+            {
+                var id_institucion = $(this).find(':selected').val();
+                $("#pidhijo2").html("<img src='<?php echo $baseUrl ?>/themes/tramiton/views/ciudadano/loading.gif' />");
+                $("#pidhijo2").load('<?php echo $linkcombo2 ?>?buscar_institucion=institucion&id_institucion=' + id_institucion);
+            });
+
+        });
+    </script>
 </head>
 <body data-spy="scroll" data-target="#header-navbar" data-offset="51">
-<!-- begin #page-container -->
-    <div id="page-container" class="fade">
+	<!-- begin #page-container -->
+    <!-- <div id="page-container" class="fade"> -->

@@ -10,7 +10,7 @@
  */
 
 .header.navbar.navbar-default {
-  background: #F1F1F1;
+  background: #fff;
 }
 
 .navbar-nav .dropdown-menu {
@@ -22,7 +22,7 @@
   line-height: 20px;
   color: #2d353c;
   font-weight: 600;
-  padding: 25px 10px;
+  padding: 9px 7px;
 }
 
 .tramiton-container-home-1 {
