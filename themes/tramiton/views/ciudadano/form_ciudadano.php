@@ -308,6 +308,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
         <li><a href="<?php echo $baseUrl; ?>/dashboard/">Inicio</a></li>
 
         <li class="active">Registro Tr&aacute;mite </li>
+        
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
@@ -319,7 +320,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
         <!-- begin col-12 -->
         <div class="col-md-12">
             <!-- begin panel -->
-            <div class="panel panel-inverse">
+            <!--<div class="panel panel-inverse">
                 <div class="panel-heading">
                     <div class="panel-heading-btn">
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -328,23 +329,23 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                     </div>
                     <h4 class="panel-title">Form Wizards</h4>
-                </div>
+                </div>-->
                 <div class="panel-body">
 
-                    <form action="<?php echo $baseUrl; ?>/themes/tramiton/views/ciudadano/final_formulario.php" method="POST" data-parsley-validate="true" name="form-wizard">
+                    <form action="../ciudadano/registrocasointerno" method="POST" data-parsley-validate="true" name="form-wizard">
                         <div id="wizard">
                             <ol>
                                 <li>
-                                    Tramite
-                                    <small>Identificar el tramite y la institucion .</small>
+                                    Institución
+                                    <small>Identificar la Institución donde realizó el trámite</small>
                                 </li>
                                 <li>
-                                    Problematica
-                                    <small>Idenficar el problema encontrado en la institucion.</small>
+                                    Problemática
+                                    <small>Idenficar el problema encontrado en la institución</small>
                                 </li>
                                 <li>
-                                    Solucion
-                                    <small>Phasellus lacinia placerat neque pretium condimentum.</small>
+                                    Solución
+                                    <small>Registre su solución al problema</small>
                                 </li>
                                 <li>
                                     Finalizar
@@ -354,14 +355,14 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                             <!-- begin wizard step-1 -->
                             <div class="wizard-step-1">
                                 <fieldset>
-                                    <legend class="pull-left width-full">Identification</legend>
+                                    <legend class="pull-left width-full">Institución</legend>
                                     <!-- begin row -->
                                     <div class="row">
 
                                         <!-- begin col-12 -->
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Unidad Prestadora</label>
+                                                <label>Institución</label>
                                                 <?php institucion("id_institucion", "0"); ?>  
 
                                             </div>
@@ -445,7 +446,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                             <!-- begin wizard step-3 -->
                             <div class="wizard-step-3">
                                 <fieldset>
-                                    <legend class="pull-left width-full">Login</legend>
+                                    <legend class="pull-left width-full">Solución</legend>
                                     <!-- begin row -->
                                     <div class="row">
                                         <!-- begin col-12 -->
@@ -484,6 +485,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                     <input type="hidden" name="insertar_tramite" value="1">
                                     <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
                                     <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
+                                    <input type="hidden" name="empresa" value="<?php echo $empresa;?>">
                                 </div>
                             </div>
                             <!-- end wizard step-4 -->

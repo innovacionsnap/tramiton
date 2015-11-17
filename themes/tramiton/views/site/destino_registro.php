@@ -1,14 +1,16 @@
 <?php
-$insertar_tramite = $_POST['insertar_tramite'];
+//$insertar_tramite = $_POST['insertar_tramite'];
 
-echo "llegue a insertar el tramite";
+/*echo "llegue a insertar el tramite";
 var_dump($insertar_tramite);
 Yii::app()->end();
-
-
-if (isset($insertar_tramite)) {
+*/
+$verifica_usuario = SiteController::verificaUsuario($cedula);
+var_dump($_POST);
+Yii::app()->end();
+/*if (isset($insertar_tramite)) {
     $cedula = $_POST['cedula_ciudadania'];
-    $verifica_usuario = SiteController::verificaUsuario($cedula);
+    
     if ($verifica_usuario == 1) {
         //Debe Loguearse
         
@@ -113,10 +115,10 @@ if (isset($insertar_tramite)) {
 
                 $resultado_problem_tramite = pg_query($con, $insert_problem_tramite) or die("Error en la Consulta SQL");
             }
-        }*/
+        }
     }else{
         //Debe Registrarse
     }
-}
+}*/
 ?>
 <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=<?php echo $url ?>/ciudadano/">
