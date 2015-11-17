@@ -1,0 +1,166 @@
+body{
+	/*background-color: cyan;*/
+	padding-top: 43px;
+}
+#home{
+	/*background-color: blue;*/
+}#estadisticas{
+	/*background-color:yellow;*/
+}#preguntas{
+	/*background-color:#6b6767;*/
+}
+#home{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#row-arrows{
+	border-top: 3px solid #325972;
+	margin-right: 2%;
+	margin-left: 2%;
+	padding: 0px;
+    height: 7px;
+}
+.row{
+	padding: 10px 0px;
+}
+#que_es_tramiton{
+	//padding: 37px 0px;
+	padding: 0px;
+	height: 100%;
+	//background-color: pink;
+	position:relative;
+}
+#text_tramiton{
+	//position: absolute;    		
+}
+#titulo_tramiton{
+    //font-size: 50px;
+    font-weight: bold;
+    //margin-top:5%;
+    //padding: 9%;
+    color:red;
+}
+#definicion_tramiton{
+    padding: 0px 2%;
+	color:red;
+}
+
+/*video{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+}*/
+
+video{
+    //position:relative;
+    //width:100%;
+    //height:80%;
+    //top:50%;
+    //left:50%;
+    //transform:translateX(-50%) translateY(-50%);
+    //z-index:-1;
+    //-webkit-filter:sepia(100%);
+}
+#footer{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.twitter{
+    background-color:#325972 !important;
+}
+
+.titulo-twitter{
+    text-align: left !important;
+}
+.titulos{
+    color:#325972 !important;
+    text-align: left !important;
+    border-bottom: 3px solid #325972;
+}
+#col-ciudadano, #col-organizacion, #col-servidor-publico, #col-otro{
+	padding-top: 1%;
+	
+}
+
+.boton-ciu, .boton-org, .boton-ser, .boton-otr{
+    font-weight: bold;
+    color: #fff;  
+
+    border-radius: 8px;      
+    
+    height: 30px;
+
+    width: 130px;
+    margin: auto;
+    padding: 1%;
+}
+
+#row-line-ciudadano{
+	padding: 0px;
+	border-bottom: 3px solid #325972;
+	margin-right: 5%; margin-left: 5%;
+}
+.boton-ciu{
+    background-color: #325972 !important;
+    border: 1px solid #325972 !important;
+}
+.boton-ciu:hover{
+	background-color:#f5f5f5 !important;
+    color:#325972
+}
+
+#row-line-organizacion{
+	border-bottom: 5px solid #ee9d46;
+	padding-left: 5%; padding-right: 5%;
+}
+.boton-org{
+    background-color: #ee9d46 !important;
+    border: 1px solid #ee9d46 !important;
+}		    
+.boton-org:hover{
+    background-color: #f5f5f5 !important;
+    color:#ee9d46
+}
+
+#row-line-servidor{
+	border-bottom: 5px solid #349876;
+	padding-left: 5%; padding-right: 5%;
+}
+.boton-ser{
+    background-color: #349876 !important;
+    border: 1px solid #349876 !important;
+}		    
+.boton-ser:hover{
+    background-color: #f5f5f5 !important;
+    color:#349876
+}
+
+.titulo-estadistica{
+	margin: 3% 10%;
+    font-weight: bold;
+}
+.titulo-estadistica div hr{
+    border-width:3px;
+    border-color:#325972;
+}
+.titulo-estadistica div h2{
+    color:#325972 !important;
+    font-weight: bold;
+}
+
+.line-tramiton{
+	padding-top: 3px !important;
+}
+
+#row-lines{
+	padding: 0px !important;
+}

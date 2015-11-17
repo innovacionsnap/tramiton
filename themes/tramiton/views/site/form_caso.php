@@ -16,7 +16,7 @@
         color: #fff;
         font-weight: bold;
         cursor: default;
-        width: 148px;
+        //width: 148px;
 
     }
 
