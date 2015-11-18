@@ -18,7 +18,7 @@ class EnviarCorreo {
     public $host = 'mail.administracionpublica.gob.ec';
     public $port = 587;
     public $userName = 'tramiton@administracionpublica.gob.ec';
-    public $passWord = 'Innovacion.15';
+    public $passWord = 'Tramiton.2015';
 
     public function enviarMail(array $remitente, array $destinatario, $asunto, $mensaje) {
 
