@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if !IE]><!-->
 <html lang="es">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
 	<title>Tramiton.to | Trámites engorrosos del sector público</title>
@@ -30,13 +27,14 @@
 	
 	<!-- ================== Custom CSS ================== -->
 	<link href="<?php echo $baseUrl; ?>/assets/css/style.css" rel="stylesheet" />
-	<link href="<?php echo $baseUrl; ?>/assets/css/style-responsive.admin.css" rel="stylesheet" />
+	<link href="<?php echo $baseUrl; ?>/assets/css/style-responsive-admin.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/main.css" rel="stylesheet" />
         <!-- ================== END Custom CSS=============== -->
         <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/home.css">
         <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/form-caso.css">
 
 	<?php
         $baseUrl = Yii::app()->baseUrl;
@@ -67,6 +65,6 @@
         });
     </script>
 </head>
-<body data-spy="scroll" data-target="#header-navbar" data-offset="51">
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="100">
 	<!-- begin #page-container -->
     <!-- <div id="page-container" class="fade"> -->
