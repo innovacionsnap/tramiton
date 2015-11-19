@@ -64,7 +64,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/admin/
 
 @media (max-width: 767px) {
     .page-header-fixed {
-        padding-top: 109px;
+        /*padding-top: 109px;*/
     }
     .page-with-right-sidebar .sidebar,
     .page-with-right-sidebar .sidebar-bg {

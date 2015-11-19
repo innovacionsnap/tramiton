@@ -207,7 +207,7 @@ body.page-navbar-fixed-top-sm {
 /* 2.2 Navbar Brand Logo & Text Setting */
 
 .header .navbar-brand {
-    padding: 25px 15px;
+    /*padding: 25px 15px;*/
 }
 .brand-logo {
     float: left;
