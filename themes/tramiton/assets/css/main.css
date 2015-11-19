@@ -18,11 +18,12 @@
 }
 
 .header.navbar .navbar-nav>li>a {
+  margin-top: 20px;
   font-size: 15px;
   line-height: 20px;
   color: #2d353c;
   font-weight: 600;
-  padding: 9px 7px;
+  padding: 1px 5px;
 }
 
 .tramiton-container-home-1 {
@@ -170,7 +171,7 @@ div.form .errorMessage {
 @media (min-width: 768px) {
 	
 	.navbar-nav {
-	    width: 100%;
+	    /*width: 100%;*/
 	    text-align: center;
 	}
 	
