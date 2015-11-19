@@ -1,103 +1,3 @@
-<style type="text/css">
-    #content{
-        padding-top: 30px !important;
-    }
-    .tab-panels ul {
-        margin: 0;
-        padding: 0;
-    }
-    .tab-panels ul li {
-        list-style-type: none;
-        display: inline-block;
-        background: #325972;
-        margin: 0;
-        padding: 3px 10px;
-        border-radius: 5px;
-        color: #fff;
-        font-weight: bold;
-        cursor: default;
-        //width: 148px;
-
-    }
-
-    .tab-panels ul li.active {
-        color: #325972;
-        background: #F5F5F5;
-    }
-
-    .tab-panels .panel-registro {
-        display:none;
-        background: #F5F5F5;
-        padding: 30px;
-        border-radius: 0 0 10px 10px;
-        min-height: 374px;
-    }
-
-    .tab-panels .panel-registro.active {
-        display:block;
-    }
-
-    .botones_nav{
-        margin-top: 20px;
-
-    }
-    .next-tab{
-        float:right;
-
-    }
-
-    .prev-tab{
-        float:left;
-    }
-
-    .next-tab,.prev-tab{
-        background: #325972;
-        border-radius: 5px;
-        padding:5px;
-        color:#fff;
-    }
-
-    select.form-registro{
-        border-color: #325972;
-        border-radius: 5px;
-        -moz-appearance: none;
-        background: transparent url("themes/tramiton/assets/img/flecha_select.png") no-repeat right center;
-        width: 100%;
-        height: 34px;
-    }
-    input.form-registro{
-        border-color: #325972;
-        border-radius: 5px;
-        width:100%;
-        height: 34px;
-    }
-    textarea.form-registro{
-        width: 100%;
-    }
-
-    .btn-publicar{
-        background: #325972;
-        color:#fff;
-        width: 100%;
-        height: 40px;
-        font-weight: bold;
-    }
-
-    .btn-publicar:hover{
-        background: #f5f5f5;
-        color:#325972;
-
-    }
-    .loader {
-    background: rgba(0, 0, 0, 0) url("<?php echo (Yii::app()->theme->baseUrl . '/assets/img/spinner.gif'); ?>") no-repeat scroll 50% center;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 30;
-    width: 100%;
-}
-
-</style>
 <?php
 include("funcion_registro.php");
 define("JS_ONLY_NUMS", " onKeypress=\"hkp(event); if ((_KeyCode < 48 && _KeyCode != 0 && _KeyCode != 8) || _KeyCode > 57) return false;\"");
@@ -110,12 +10,12 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 
 <form action="" method="POST" name="form-wizard">
     <div class="tab-panels">
-        <ul class="tabs">
-            <li rel="panel1" class="active">Identificación</li>
-            <li rel="panel2">Institución</li>
-            <li rel="panel3">Problemática</li>
-            <li rel="panel4">Solución</li>
-            <li rel="panel5">Finalizar</li>
+        <ul class="tabs nav nav-pills nav-justified">
+            <li role="presentation" rel="panel1" class="active text-center">Identificación</li>
+            <li role="presentation" rel="panel2" class="text-center">Institución</li>
+            <li role="presentation" rel="panel3" class="text-center">Problemática</li>
+            <li role="presentation" rel="panel4" class="text-center">Solución</li>
+            <li role="presentation" rel="panel5" class="text-center">Finalizar</li>
         </ul>
 
         <div id="panel1" class="panel-registro active">
@@ -124,7 +24,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Cédula de Ciudadanía</label>
-                        <input type="text" maxlength="10" id = "cedula_ciu" class="campo-panel1 form-registro" placeholder="Ingrese su cédula de ciudadanía" autocomplete="off" <?php echo JS_ONLY_NUMS; ?>/>
+                        <input size="20" type="text" maxlength="10" id = "cedula_ciu" class="campo-panel1 form-registro" placeholder="Ingrese su cédula de ciudadanía" autocomplete="off" <?php echo JS_ONLY_NUMS; ?>/>
                         <div id="cedula_ciu_error" style="display:none;color:red;"></div>
                         <div id="verifica" style="max-height: 80px;"></div>
                     </div>
@@ -205,7 +105,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Detalle del problema</label>
-                        <textarea class="campo-panel3 form-registro" id = "experiencia" name="experiencia" rows="4" placeholder="experiencia"></textarea>
+                        <textarea class="campo-panel3 form-registro" id = "experiencia" name="experiencia" rows="4" placeholder="Experiencia"></textarea>
                         <div id="experiencia_error" style="display:none;"></div>
 
                     </div>
@@ -223,7 +123,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                     <div class="form-group">
                         <label>Titulo Solucion</label>
                         <div class="controls">
-                            <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Titulo Problemática" class="campo-panel4 form-registro" />
+                            <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Titulo de la solución" class="campo-panel4 form-registro" />
                             <div id="titulo_solucion_error" style="display:none;"></div>
                         </div>
                     </div>
@@ -234,7 +134,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                     <div class="form-group">
                         <label>Detalle de solucion</label>
                         <div class="controls">
-                            <textarea class="campo-panel4 form-registro" id="propuesta_solucion" name="propuesta_solucion" rows="4" placeholder="propuesta_solucion"></textarea>
+                            <textarea class="campo-panel4 form-registro" id="propuesta_solucion" name="Detalle de la solución" rows="4" placeholder="Propuesta de la solución"></textarea>
                             <div id="propuesta_solucion_error" style="display:none;"></div>
                         </div>
                     </div>
@@ -247,7 +147,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
         <div id="panel5" class="panel-registro">
 
             <h1>Gracias por ingresar el tramite</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat commodo porttitor. Vivamus eleifend, arcu in tincidunt semper, lorem odio molestie lacus, sed malesuada est lacus ac ligula. Aliquam bibendum felis id purus ullamcorper, quis luctus leo sollicitudin. </p>
+            <p>... </p>
             <!--  <p><a class="btn btn-success btn-lg" role="button">Guardar y enviar</a></p> -->
             <input type="submit" value="Publicar y Guardar" class="btn-publicar"> 
             <input type="hidden" name="insertar_tramite" value="1">
