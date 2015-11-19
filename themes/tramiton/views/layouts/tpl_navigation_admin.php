@@ -1,105 +1,55 @@
-<style type="text/css">
-    .menu-central{
-        border-right: 2px solid #707478;
-       // height: auto;
-        //margin-right: 10px;
-        padding-right: 5px;
-        padding-left: 5px;
-        width: auto;
-    }
-
-    .cont-menu-central{
-       //  margin-left: 0px !important;
-       //  margin-top: 20px;
-         display: inline-flex;
-
-    }
-
-    .cont-menu-central a{
-        color:#707478;
-        font-weight: bold;
-    }
-    
-    .container-fluid{
-        margin-bottom: 2px;
-    }
-</style>
 <!-- begin #header -->
-<div id="header" class="header navbar navbar-default navbar-fixed-top">
-    <!-- begin container-fluid -->
-    <div class="container-fluid">
-        <!-- begin mobile sidebar expand / collapse button -->
-        <div class="col-md-12 col-sm-4 col-xs-12">
-            <div class="col-md-1 col-sm-1 col-xs-6" style="width:auto;background-image:url('<?php echo Yii::app()->theme->baseUrl;?>/assets/img/flecha-menu.png');background-position:28px 64px; background-repeat:no-repeat;">
-                <button type="button" class="navbar-toggle" data-click="sidebar-toggled" style="float: left">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <font style="font-size: 9px;font-weight: bold;">MENU</font>
-                </button>
-            </div>
-            <div class="col-md-1 col-sm-1 col-xs-6">
-                <a href="index"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/Logo.png" class="media-object" alt="" /></a>
-            </div>
-            <div class="cont-menu-central col-md-3 col-sm-1 col-xs-6">
-                <div class="menu-central"><a href="<?php echo Yii::app()->baseUrl; ?>/ciudadano/index">Participa</a></div>
-                <div class="menu-central"><a href="#">¿Qué es el Tramitón?</a></div>
-                <div class="menu-central"><a href="#">Términos y Condiciones</a></div>
-                <div class="menu-central"><a href="#">Ayuda</a></div>
-            </div>
-            <div class="col-md-6 col-sm-1 col-xs-12" style="display:inline-flex;float: right;">
+<nav id="header" class="navbar navbar-default navbar-fixed-top header">
 
-                <ul class="nav navbar-nav navbar-right">
+  <div id="nav-admin" class="container-fluid menu-dashboard">
 
-                    <li>
-                        <!--<form class="navbar-form full-width">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Buscar" />
-                                <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
-                            </div>
-                        </form>-->
+    <div class="navbar-header">
+        <button class="navbar-toggle" style="float: left;" data-click="sidebar-toggled" type="button">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true" style="font-size: 25px;"></span>
+        </button>
+        <a class="navbar-brand no-margin-right" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_tramiton1.png" alt="" /></a>
+        <button id="navbar-toggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" > <!-- style="display:none;" -->
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <font style="font-size: 9px;font-weight: bold;">MENU</font>
+        </button>
+    </div> <!-- end navbar-header -->
 
-                        <div id="busqueda" class="navbar-form full-width">
-                            <?php echo CHtml::beginForm(array('datostramite/busca')) ?>
-
-                            <div class="form-group">
-                                <input name="busca" type="text" class="form-control" placeholder="Busque una experiencia" />
-                                <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
-                            </div>
-
-
-                            <?php echo CHtml::endForm(); ?>
-                        </div>
-                    </li>
-
-
-                    <li class="dropdown navbar-user">
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="<?php echo URL_IMG . $this->_datosUser->usu_imagen; ?>" alt="" /> 
-                            <span class="hidden-xs"><?php echo $this->_datosUser->usu_nombre ?></span> <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu animated fadeInLeft">
-                            <li class="arrow"></li>
-                            <li><?php echo CHtml::link('Editar Perfil', array('ciudadano/mostrarPerfil', 'usrId' => $this->_datosUser->usu_id)); ?></li>
-                            <li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Notificaciones</a></li>
-                            <li><a href="javascript:;">Calendario</a></li>
-                            <li class="divider"></li>
-                            <li><?php echo CHtml::link('Salir', array('site/logout')); ?></li>
-                        </ul>
-                    </li>
+    <div class="collapse navbar-collapse" id="collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a class="menu-central-dashboard borde-derecha" href="<?php echo Yii::app()->baseUrl; ?>/ciudadano/index">Participa</a></li>
+            <li><a class="menu-central-dashboard borde-derecha" href="<?php echo Yii::app()->baseUrl; ?>/#que_es_tramiton" data-click="scroll-to-target">¿Qué es Tramitón?</a></li>
+            <li><a class="menu-central-dashboard borde-derecha" href="#">Términos y Condiciones</a></li>
+            <li><a class="menu-central-dashboard no-border" href="#">Ayuda</a></li>
+        </ul>
+        <ul id="dashboard-navbar" class="nav navbar-nav navbar-right">
+            <li>
+                <form id="dashboard-navbar-form" class="navbar-form">
+                    <?php echo CHtml::beginForm(array('datostramite/busca')) ?>
+                    <div class="form-group inner-addon left-addon">
+                      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Busque una experiencia">
+                    </div>
+                    <?php echo CHtml::endForm(); ?>
+                </form>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="<?php echo URL_IMG . $this->_datosUser->usu_imagen; ?>" alt="" /> 
+                    <span class="hidden-xs"><?php echo $this->_datosUser->usu_nombre ?></span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu animated fadeInLeft">
+                    <li><?php echo CHtml::link('Editar Perfil', array('ciudadano/mostrarPerfil', 'usrId' => $this->_datosUser->usu_id)); ?></li>
+                    <li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Notificaciones</a></li>
+                    <li><a href="javascript:;">Calendario</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><?php echo CHtml::link('Salir', array('site/logout')); ?></li>
                 </ul>
-            </div>
-        </div>
-        <!-- end mobile sidebar expand / collapse button -->
+            </li> <!-- end dropdown -->
+        </ul>
+    </div><!-- end collapse -->
 
-
-
-        <!-- begin header navigation right -->
-
-
-
-        <!-- end header navigation right -->
-    </div>
-    <!-- end container-fluid -->
-</div>
+  </div><!-- end container -->
+</nav>
 <!-- end #header -->
