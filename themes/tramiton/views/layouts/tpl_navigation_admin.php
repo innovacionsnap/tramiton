@@ -1,4 +1,5 @@
 <!-- begin #header -->
+<<<<<<< HEAD
 <nav id="header" class="navbar navbar-default navbar-fixed-top header">
 
   <div id="nav-admin" class="container-fluid menu-dashboard">
@@ -25,24 +26,25 @@
         </ul>
         <ul id="dashboard-navbar" class="nav navbar-nav navbar-right">
             <li>
-                <form id="dashboard-navbar-form" class="navbar-form">
-                    <?php echo CHtml::beginForm(array('datostramite/busca')) ?>
-                    <div class="form-group inner-addon left-addon">
-                      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Busque una experiencia">
-                    </div>
-                    <?php echo CHtml::endForm(); ?>
-                </form>
+                <!-- <form id="dashboard-navbar-form" class="navbar-form"> -->
+                <?php echo CHtml::beginForm(array('datostramite/busca')) ?>
+                <div class="form-group inner-addon left-addon">
+                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Busque una experiencia">
+                </div>
+                <?php echo CHtml::endForm(); ?>
+                <!-- </form> -->
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     <img src="<?php echo URL_IMG . $this->_datosUser->usu_imagen; ?>" alt="" /> 
-                    <span class="hidden-xs"><?php echo $this->_datosUser->usu_nombre ?></span>
-                    <span class="caret"></span>
+                    <span class="hidden-xs"><?php echo $this->_datosUser->usu_nombre ?></span> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu animated fadeInLeft">
+                    <!-- <li class="arrow"></li> -->
                     <li><?php echo CHtml::link('Editar Perfil', array('ciudadano/mostrarPerfil', 'usrId' => $this->_datosUser->usu_id)); ?></li>
-                    <li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Notificaciones</a></li>
-                    <li><a href="javascript:;">Calendario</a></li>
+                    <!--<li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Notificaciones</a></li>-->
+                    <li><a href="../empresa/index">Registrar Empresa</a></li>
+                    <li><a href="../empresa/index">Registrar Caso como Empresa</a></li>
                     <li role="separator" class="divider"></li>
                     <li><?php echo CHtml::link('Salir', array('site/logout')); ?></li>
                 </ul>
