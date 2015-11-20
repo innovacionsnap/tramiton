@@ -7,7 +7,7 @@ function viewElements(){
        $("#navbar-toggle").show();
        $(".menu-central").css("border","none");
        $(".menu-central-dashboard").css("border","none");
-       $("#dashboard-navbar").removeClass("navbar-right");
+       // $("#dashboard-navbar").removeClass("navbar-right");
 
         if( $wid >= 679){
             $(".col-ecu-logo").show();
@@ -41,6 +41,6 @@ function viewElements(){
         $("#navbar-toggle").hide();
         $(".menu-central").css("border-right","2px solid #707478");
         $(".menu-central-dashboard").css("border-right","2px solid #707478");
-        $("#dashboard-navbar").addClass("navbar-right");
+        // $("#dashboard-navbar").addClass("navbar-right");
     }
 }

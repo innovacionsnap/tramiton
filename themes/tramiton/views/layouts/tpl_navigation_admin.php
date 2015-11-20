@@ -25,13 +25,16 @@
         </ul>
         <ul id="dashboard-navbar" class="nav navbar-nav navbar-right">
             <li>
-                <!-- <form id="dashboard-navbar-form" class="navbar-form"> -->
-                <?php echo CHtml::beginForm(array('datostramite/busca')) ?>
-                <div class="form-group inner-addon left-addon">
-                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Busque una experiencia">
+                <div id="busqueda" class="navbar-form full-width">
+                    <?php echo CHtml::beginForm(array('datostramite/busca')) ?>
+                                        
+                        <div class="form-group has-feedback">
+                            <input id="input-buscar-experiencia" name="busca" type="text" class="form-control" placeholder="Busque una experiencia" />
+                            <button type="submit" class="btn btn-search"><i class="glyphicon glyphicon-search form-control-feedback"></i></button>
+                        </div>
+
+                    <?php echo CHtml::endForm(); ?>
                 </div>
-                <?php echo CHtml::endForm(); ?>
-                <!-- </form> -->
             </li>
             <li class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
