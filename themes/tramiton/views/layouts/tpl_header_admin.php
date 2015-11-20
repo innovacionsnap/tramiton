@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 8]> <html lang="es" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en">
+<html lang="es">
     <!--<![endif]-->
     <head>
         <meta charset="utf-8" />
@@ -38,6 +38,7 @@
         <!-- ================== BEGIN PAGE LEVEL STYLE - TABLAS ================== -->
         <link href="<?php echo $baseUrl; ?>/assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
         <!-- ================== END PAGE LEVEL STYLE ================== -->
+        <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css">
 
         <!-- ================== BEGIN BASE JS ================== -->
         <script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>

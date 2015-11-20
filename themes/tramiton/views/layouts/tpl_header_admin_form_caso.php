@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if !IE]><!-->
 <html lang="es">
-    <!--<![endif]-->
     <head>
         <meta charset="utf-8" />
         <title>Tramiton.to | Admin</title>
@@ -24,7 +21,13 @@
         <link href="<?php echo $baseUrl; ?>/assets/css/style-adm.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/css/style-responsive-admin.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/css/loader.css" rel="stylesheet" />
+        <link href="<?php echo $baseUrl; ?>/assets/css/theme/default.css" id="theme" rel="stylesheet" />
 
+        <!-- ================== Custom CSS ================== -->
+        <!-- <link href="<?php echo $baseUrl; ?>/assets/css/style.css" rel="stylesheet" /> -->
+        <link href="<?php echo $baseUrl; ?>/assets/css/style-responsive-admin.css" rel="stylesheet" />
+        <!-- <link href="<?php echo $baseUrl; ?>/assets/css/main.css" rel="stylesheet" /> -->
+            <!-- ================== END Custom CSS=============== -->
 
         <!-- ================== END BASE CSS STYLE ================== -->
 
@@ -32,6 +35,8 @@
         <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
 
+        <link type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/timeline.css">
         <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 
 
@@ -42,7 +47,6 @@
 
         <?php
         $baseUrl = Yii::app()->theme->baseUrl;
-        echo "base: " . $baseUrl;
         ?>
 
 
@@ -57,11 +61,10 @@
 
 
     </head>
-    <body>
+    <body id="body-admin-form-caso" >
         <!-- begin #page-loader -->
         <div id="page-loader" class="fade in"><span class="spinner"></span></div>
         <!-- end #page-loader -->
 
         <!-- begin #page-container -->
         <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
-

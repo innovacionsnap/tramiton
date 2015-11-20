@@ -2,9 +2,10 @@
 $baseUrl = Yii::app()->theme->baseUrl;
 ?>
 
-<div id="home" class="container-fluid" style="padding-top: 28px;">
+<div id="home" class="container-fluid">
     <div class="row">
         <div class="col-md-7 col-md-push-5"> 
+            <h2 class="text-center">Registra tu caso</h2>
             <?php
             $this->renderPartial('form_caso', true, false);
             ?>
@@ -12,6 +13,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
         <div class="col-md-5 col-md-pull-7">
             <div id="row-buttons" class="row">
+                <h2 class="text-center">Cómo registrar tu caso</h2>
 
                 <div id="col-ciudadano" class="col-sm-4">
                     <a id="button-ciudadano" class="btn btn-primary boton-ciu center-block" href="#" role="button">Ciudadano</a>
@@ -50,7 +52,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
             <div id="row-vid-ciudadano" class="row">
                 <div class="col-xs-12" style="padding-bottom: 10px;">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe>
+                        <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
+                        <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe> -->
                     </div>
                 </div>
             </div> 
@@ -64,7 +67,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
             <div id="row-vid-organizacion" class="row" style="display: none;">
                 <div class="col-xs-12" style="padding-bottom: 10px;">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe>
+                        <!-- <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe> -->
+                        <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe> -->
                     </div>
                 </div>
             </div> 
@@ -77,7 +81,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
             <div id="row-vid-servidor" class="row" style="display: none;">
                 <div class="col-xs-12" style="padding-bottom: 10px;">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe>
+                        <!-- <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe> -->
+                        <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe> -->
                     </div>
                 </div>
             </div> 
