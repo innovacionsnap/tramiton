@@ -16,15 +16,15 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <h2 class="text-center">Cómo registrar tu caso</h2>
 
                 <div id="col-ciudadano" class="col-sm-4">
-                    <a id="button-ciudadano" class="btn btn-primary boton-ciu center-block" href="#" role="button">Ciudadano</a>
+                    <a id="button-ciudadano" class="btn btn-primary boton-ciu center-block" href="" role="button">Ciudadano</a>
                 </div>
 
                 <div id="col-organizacion" class="col-sm-4">
-                    <a id="button-organizacion" class="btn btn-warning boton-org center-block" href="#" role="button">Organización</a>
+                    <a id="button-organizacion" class="btn btn-warning boton-org center-block" href="" role="button">Organización</a>
                 </div>
 
                 <div id="col-servidor-publico" class="col-sm-4">
-                    <a id="button-servidor-publico" class="btn btn-success boton-ser center-block" href="#" role="button">Servidor Público</a>
+                    <a id="button-servidor-publico" class="btn btn-success boton-ser center-block" href="" role="button">Servidor Público</a>
                 </div>
 
                 <div style="display:none;" id="col-otro" class="col-sm-6">
@@ -67,7 +67,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
             <div id="row-vid-organizacion" class="row" style="display: none;">
                 <div class="col-xs-12" style="padding-bottom: 10px;">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <!-- <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe> -->
+                        <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
                         <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe> -->
                     </div>
                 </div>
@@ -81,7 +81,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
             <div id="row-vid-servidor" class="row" style="display: none;">
                 <div class="col-xs-12" style="padding-bottom: 10px;">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <!-- <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe> -->
+                        <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
                         <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe> -->
                     </div>
                 </div>

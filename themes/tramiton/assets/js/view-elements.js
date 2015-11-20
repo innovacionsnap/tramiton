@@ -3,7 +3,7 @@ function viewElements(){
     $wid = $(window).width();
     console.log("wid " + $wid );
 
-    if($wid <=767){
+    if($wid <=750){
        $("#navbar-toggle").show();
        $(".menu-central").css("border","none");
        $(".menu-central-dashboard").css("border","none");
