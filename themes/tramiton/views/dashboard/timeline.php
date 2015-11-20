@@ -1,3 +1,7 @@
+<?php 
+$baseUrl = Yii::app()->baseUrl;
+?>
+
 <div id="linea-tiempo" class="container-fluid">
     <div class="row">
     <?php $contador = 1; ?>
@@ -16,9 +20,9 @@
                 <span title="Vistas"><?php echo DashboardController::getVista($datoSolucion['sol_id']); ?><i class="fa fa-eye fa-fw"></i></span>
             </div>
             <div class="compartir">
-                <a href="http://www.facebook.com/sharer.php?u=<?php echo urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
-                <a href="http://twitter.com/share?url=<?php echo urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
-                <a href="https://plus.google.com/share?url=<?php echo urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
+                <a href="http://www.facebook.com/sharer.php?u=<?php echo urlencode($baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
+                <a href="http://twitter.com/share?url=<?php echo urlencode($baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
+                <a href="https://plus.google.com/share?url=<?php echo urlencode($baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
             </div>
             <hr>
             <div class="cuerpo">
