@@ -1,5 +1,4 @@
 <!-- begin #header -->
-<<<<<<< HEAD
 <nav id="header" class="navbar navbar-default navbar-fixed-top header">
 
   <div id="nav-admin" class="container-fluid menu-dashboard">
