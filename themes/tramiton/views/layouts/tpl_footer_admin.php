@@ -66,6 +66,7 @@
 <!-- ================== END PAGE LEVEL JS ================== -->
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.yiiactiveform.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/view-elements.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/admin-form-caso.js"></script>
 
 
 
@@ -75,9 +76,11 @@
         App.init();
         TableManageDefault.init();
         viewElements();
+        bodyPadding();
     });
     $(window).resize(function(){
         viewElements();
+        bodyPadding();
     });
 </script>
 

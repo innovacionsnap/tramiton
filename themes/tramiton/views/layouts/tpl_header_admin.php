@@ -82,7 +82,7 @@
 
 
     </head>
-    <body>
+    <body id="body-admin-role">
         
         <!-- begin #page-loader -->
         <div id="page-loader" class="fade in"><span class="spinner"></span></div>
