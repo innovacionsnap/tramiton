@@ -1,3 +1,13 @@
+<style type="text/css">
+.loader {
+    background: rgba(0, 0, 0, 0) url("<?php echo (Yii::app()->theme->baseUrl . '/assets/img/spinner.gif'); ?>") no-repeat scroll 50% center;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 30;
+    width: 100%;
+}
+</style>
 <?php
 include("funcion_registro.php");
 define("JS_ONLY_NUMS", " onKeypress=\"hkp(event); if ((_KeyCode < 48 && _KeyCode != 0 && _KeyCode != 8) || _KeyCode > 57) return false;\"");

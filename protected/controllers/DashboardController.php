@@ -1,5 +1,4 @@
 <?php
-$baseUrl = Yii::app()->baseUrl;
 
 class DashboardController extends Controller {
 
@@ -92,12 +91,12 @@ class DashboardController extends Controller {
             </div>
             <div class="compartir">
                     <a href="http://www.facebook.com/sharer.php?u=';
-            $html.=urlencode($baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
+            $html.=urlencode(Yii::app()->theme->baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
                     <a href="http://twitter.com/share?url=';
 
-            $html.=urlencode($baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
+            $html.=urlencode(Yii::app()->theme->baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
                     <a href="https://plus.google.com/share?url=';
-            $html.=urlencode($baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
+            $html.=urlencode(Yii::app()->theme->baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
                 </div>
             <hr>
             <div class="cuerpo">
