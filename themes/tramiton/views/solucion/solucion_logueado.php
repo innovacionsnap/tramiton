@@ -20,7 +20,7 @@
         padding-top: 0px;
         padding-bottom: 0px;
     }
-    #footer, .pace, #header{
+    #footer, .pace, #headerTramiton{
         display:none;
     }
     .page-header{
