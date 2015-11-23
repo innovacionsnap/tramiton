@@ -7,6 +7,7 @@
         <meta charset="utf-8" />
         <!--<title>Tramiton.to | Admin</title>-->
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+        <link rel="icon" href="<?php echo Yii::app()->theme->baseUrl; ?>/images/logos/favicon.ico" type="image/x-icon">
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
