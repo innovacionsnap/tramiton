@@ -37,7 +37,7 @@
                     )),
                 array('label' => '<i class="fa fa-institution alias"></i>Instituciones<b class="caret pull-right"></b>', 'url' => '', 'itemOptions' => array('class' => 'has-sub'), 
                     'items' => array(
-                        array('label' => 'Mi Institución', 'url' => array('tramiteinstitucion/index')),
+                        array('label' => 'Mi Institución', 'url' => array('tramiteInstitucion/index')),
                         //array('label' => 'Acciones Correctivas', 'url' => array('')),
                         //array('label' => 'Seguimiento de Trámites', 'url' => array('')),
                         //array('label' => 'Servicios', 'url' => array('')),
