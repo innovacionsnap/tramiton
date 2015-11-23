@@ -9,7 +9,7 @@
 
         $modelUser = Usuario::model() -> findByPk(Yii::app() -> user -> id);
         $usu_id = $modelUser->usu_id;
-        echo "Este es jejej:".$usu_id;
+        //echo "Este es jejej:".$usu_id;
 
         $tra_id = $_GET['tra_id'];
 

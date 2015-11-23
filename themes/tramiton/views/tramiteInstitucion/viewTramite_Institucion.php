@@ -39,8 +39,8 @@ $usu_id = $this->_datosUser->usu_id;
                                             <th>Id Tramite</th>
                                             <th>Nombre</th>
                                             <th>Experiencia</th>
-                                            <th>Usuario</th>
                                             <th>F. Registro</th>
+                                            <th>Acciones</th>
                                            
                                         </tr>
                                     </thead>
@@ -61,9 +61,7 @@ $usu_id = $this->_datosUser->usu_id;
                                                 <td>
                                                <?php  echo $datoTramiteDetalle["datt_experiencia"] ?>
                                                 </td>
-                                                <td>
-                                               <?php  echo $datoTramiteDetalle["usu_nombreusuario"] ?>
-                                                </td>
+                                               
                                                 <td>
                                                <?php  echo $datoTramiteDetalle["datt_fecharegistro"] ?>
                                                 </td>
