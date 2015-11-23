@@ -14,10 +14,8 @@
 <body>
     <header>
         <h1>¿QUÉ ES EL TRAMITÓN?</h1>
-        <p>Tramitón es un proyecto que busca principalmente fomentar la participación ciudadana a través
-         de una plataforma en la que las y los ciudadanos identifiquen trámites complicados e/o ineficientes,
-          y que presenten propuestas de soluciones para simplificarlos y mejorar el servicio público con la
-           finalidad de impulsar la calidad, eficiencia y calidez en la gestión pública.</p>
+        <p>Tramitón es un proyecto de innovación social que fomenta la participación y colaboración ciudadana en la
+         simplificación de los trámites para impulsar la calidad, eficiencia, eficacia y calidez en la gestión pública.</p>
     </header>
 
     <div class="wrapper">

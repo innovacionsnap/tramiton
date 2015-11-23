@@ -29,8 +29,8 @@
                     <?php echo CHtml::beginForm(array('datostramite/busca')) ?>
                                         
                         <div class="form-group has-feedback">
-                            <input id="input-buscar-experiencia" name="busca" type="text" class="form-control" placeholder="Busque una experiencia" />
-                            <button type="submit" class="btn btn-search"><i class="glyphicon glyphicon-search form-control-feedback"></i></button>
+                            <input id="input-buscar-experiencia" name="busca" type="text" class="form-control" placeholder="Busque una experiencia" style="min-width:176px!important;"/>
+                            <button id="boton-busqueda" type="submit" class="btn btn-search"><i class="glyphicon glyphicon-search form-control-feedback"></i></button>
                         </div>
 
                     <?php echo CHtml::endForm(); ?>

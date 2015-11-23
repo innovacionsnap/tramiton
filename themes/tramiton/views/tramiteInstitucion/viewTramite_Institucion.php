@@ -3,7 +3,7 @@
 $usu_id = $this->_datosUser->usu_id;
 ?>
 <!-- begin #content -->
-		<div id="content" class="content">
+		<div id="content" class="container-fluid">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li><a href="javascript:;">Home</a></li>
