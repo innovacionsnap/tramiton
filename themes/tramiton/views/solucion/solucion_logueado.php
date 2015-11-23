@@ -20,7 +20,7 @@
         padding-top: 0px;
         padding-bottom: 0px;
     }
-    #footer, .pace, #header{
+    #footer, .pace, #headerTramiton{
         display:none;
     }
     .page-header{
@@ -136,7 +136,7 @@
                     foreach ($comentario as $dato):
                         $usuario_comentario = SolucionController::getUsuario($dato['usu_id']);
                         ?>
-                        <div class="row" style="border-bottom: 1px solid #f1f1f1; text-align: left; padding-top: 10px;"><p><font style="color:#348fe2; word-wrap: break-word;"><?php echo $usuario_comentario; ?></font><font><?php echo " " . $dato['com_descripcion']; ?></font></p></div>
+                        <div class="row" style="border-bottom: 1px solid #f1f1f1; text-align: left; padding-top: 10px;"><p><font style="color:#348fe2;"><?php echo $usuario_comentario; ?></font style="word-wrap: break-word;"><font><?php echo " " . $dato['com_descripcion']; ?></font></p></div>
                     <?php endforeach; ?>
                 </div>
                 <!--<div id="comenta-interno" data-scrollbar="true" style="font-size: 12px;max-height: 100px;margin-bottom: 0px;padding-left: 16px;padding-right: 16px; overflow: auto"><?php //DashboardController::getComentario($datoSolucion['sol_id'])      ?></div>-->
