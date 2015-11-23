@@ -90,10 +90,3 @@ textarea.form-registro{
     color:#325972;
 
 }
-.loader {
-background: rgba(0, 0, 0, 0) url("<?php echo (Yii::app()->theme->baseUrl . '/assets/img/spinner.gif'); ?>") no-repeat scroll 50% center;
-height: 100%;
-left: 0;
-position: absolute;
-top: 30;
-width: 100%;
