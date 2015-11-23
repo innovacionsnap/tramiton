@@ -115,14 +115,14 @@ $baseUrl = Yii::app()->theme->baseUrl;
 <div id="estadisticas" class="container" style="padding-top: 28px;padding-bottom: 28px;">
     <!-- begin row -->
     <div class="row">
-        <div class="col-sm-3 milestone-col">
+        <div class="col-sm-4 milestone-col">
             <div class="milestone">
                 <div class="number" data-animation="true" data-animation-type="number" data-final-number="6505">6,505</div>
                 <div class="title">Total Participantes</div>
             </div>
         </div>
         <!-- end col-3 -->
-        <div class="col-sm-3 milestone-col">
+        <div class="col-sm-4 milestone-col">
             <div class="milestone">
                 <?php 
                 echo '<div class="number" data-animation="true" data-animation-type="number" data-final-number="'.$total_soluciones.'">'.$total_soluciones.'</div>'?>
@@ -130,7 +130,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
             </div>
         </div>
         <!-- begin col-3 -->
-        <div class="col-sm-3 milestone-col">
+        <div class="col-sm-4 milestone-col">
             <div class="milestone">
                 <div class="number" data-animation="true" data-animation-type="number" data-final-number="454">454</div>
                 <div class="title">Trámites con planes de mejora</div>
@@ -138,12 +138,12 @@ $baseUrl = Yii::app()->theme->baseUrl;
         </div>
         <!-- end col-3 -->
         <!-- begin col-3 -->
-        <div class="col-sm-3 milestone-col">
+        <!-- <div class="col-sm-3 milestone-col">
             <div class="milestone">
                 <div class="number" data-animation="true" data-animation-type="number" data-final-number="25">25</div>
                 <div class="title">Trámites mejorados</div>
             </div>
-        </div>
+        </div> -->
         <!-- end col-3 -->
         
     </div>
