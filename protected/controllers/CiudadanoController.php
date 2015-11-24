@@ -37,7 +37,7 @@ class CiudadanoController extends Controller {
                     'registrocasointerno'
                 ),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano'),
+                'roles' => array('super_admin', 'ciudadano', 'institucion'),
             ),
             array('deny', // deny all users
                 #'roles' => array('*'),

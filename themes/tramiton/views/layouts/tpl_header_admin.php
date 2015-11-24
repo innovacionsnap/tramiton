@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 8]> <html lang="es" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en">
+<html lang="es">
     <!--<![endif]-->
     <head>
         <meta charset="utf-8" />
         <!--<title>Tramiton.to | Admin</title>-->
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+        <link rel="icon" href="<?php echo Yii::app()->theme->baseUrl; ?>/images/logos/favicon.ico" type="image/x-icon">
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
@@ -38,6 +39,7 @@
         <!-- ================== BEGIN PAGE LEVEL STYLE - TABLAS ================== -->
         <link href="<?php echo $baseUrl; ?>/assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
         <!-- ================== END PAGE LEVEL STYLE ================== -->
+        <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css">
 
         <!-- ================== BEGIN BASE JS ================== -->
         <script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
@@ -81,7 +83,7 @@
 
 
     </head>
-    <body>
+    <body id="body-admin-role">
         
         <!-- begin #page-loader -->
         <div id="page-loader" class="fade in"><span class="spinner"></span></div>

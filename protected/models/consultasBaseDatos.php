@@ -306,4 +306,139 @@ class consultasBaseDatos {
         
     }
     
+    public function actualizaEstadoAprobado($idUsr) {
+        $conexion = Yii::app()->db;
+
+        $sqlUpdateEstado = "UPDATE usuario SET "
+                . "usu_estado = 2 "
+                . "where usu_id = $idUsr";
+
+        $resultado = $conexion->createCommand($sqlUpdateEstado);
+        return $resultado->execute();
+    }
+
+    public function insertTemporalRegistro($datosRegistro) {
+
+        echo "<br><br>voy a insertar, estoy en el modelo";
+        var_dump($datosRegistro);
+
+        $conexion = Yii::app()->db;
+
+        $userModel = new Usuario;
+        //$cedulaCiud = $datosRegistro['cedulaCiudadano'];
+        //echo "cedula a encriptar" . $cedulaCiud;
+        //Yii::app()->end();
+
+        $codigoVerif = $userModel->getHash('sha1', $datosRegistro['cedulaCiudadano'], Yii::app()->params['hashKey']);
+
+        $sqlInsertTmpRegistro = "INSERT INTO tmp_registro_caso("
+                . "cedula, id_institucion, id_tramite, experiencia, titulo_solucion, "
+                . "id_canton, unidad_prestadora, verificacion, otro_problema, fecha_registro, "
+                . "propuesta_solucion, otro_tramite) "
+                . "VALUES ("
+                . ":cedula, :idInstitucion, :idTramite, :experiencia, :tituloSolucion, "
+                . ":idCanton, :unidadPrestadora, :verificacion, :otroProblema, "
+                . "now(), :propuestaSolucion, :otroTramite)";
+
+        // crea el la instrucción para mandar a la base de datos
+        $command = $conexion->createCommand($sqlInsertTmpRegistro);
+
+        //ejecuta la instrucción de del insert y manda parámetros para insertar
+        $resultado = $command->execute(
+                array(
+                    ':cedula' => $datosRegistro['cedulaCiudadano'],
+                    ':idInstitucion' => $datosRegistro['idInstitucion'],
+                    ':idTramite' => $datosRegistro['idTramite'],
+                    ':experiencia' => $datosRegistro['experienciaTram'],
+                    ':tituloSolucion' => $datosRegistro['tituloSolucion'],
+                    ':idCanton' => $datosRegistro['idInstitucion'],
+                    ':unidadPrestadora' => $datosRegistro['unidadPrestadora'],
+                    ':verificacion' => $codigoVerif,
+                    ':otroProblema' => $datosRegistro['otroProblema'],
+                    ':propuestaSolucion' => $datosRegistro['propuestaSolucion'],
+                    ':otroTramite' => $datosRegistro['otroTramite'],
+                )
+        );
+
+        $sqlLastValue = "SELECT last_value FROM tmp_registro_caso_id_registro_caso_seq";
+
+        $resultado = $conexion->createCommand($sqlLastValue);
+
+        $lastValue;
+
+        $fila = $resultado->query();
+        foreach ($fila as $registro) {
+            $lastValue = $registro['last_value'];
+        }
+
+        return $lastValue;
+    }
+
+    public function insertTemporalProblem($datosProblem) {
+        $conexion = Yii::app()->db;
+
+        $sqlInsertTmpProblem = "INSERT INTO tmp_problema_registro_caso("
+                . "id_problema, id_registro_caso, otro_problema) "
+                . "VALUES (:idProblema, :idRegistroTmp, :otroProblem)";
+
+        $command = $conexion->createCommand($sqlInsertTmpProblem);
+
+        //ejecuta la instrucción de del insert y manda parámetros para insertar
+        $resultado = $command->execute(
+                array(
+                    'idProblema' => $datosProblem['idProblem'],
+                    'idRegistroTmp' => $datosProblem['idTmpTramite'],
+                    'otroProblem' => $datosProblem['otroProblema'],
+                )
+        );
+    }
+    
+    public function getTotalParticipantes(){
+        $conexion = Yii::app()->db;
+        
+        $sqlTotalParticipantes = "select count(*) as total_participantes from usuario where usu_estado <> 100";
+
+        $resultado = $conexion->createCommand($sqlTotalParticipantes);
+        
+        $totalParticipantes;
+        $fila = $resultado->query();
+        foreach ($fila as $registro) {
+            $totalParticipantes = $registro['total_participantes'];
+        }
+                
+        return $totalParticipantes;
+    }
+    
+    public function getTramitesMencionados(){
+        $conexion = Yii::app()->db;
+        
+        $sqlTramitesMencionados = "select count(trai_id) as total_tamites from datos_tramite";
+
+        $resultado = $conexion->createCommand($sqlTramitesMencionados);
+        
+        $totalTramites;
+        $fila = $resultado->query();
+        foreach ($fila as $registro) {
+            $totalTramites = $registro['total_tamites'];
+        }
+                
+        return $totalTramites;
+    }
+    
+    public function getAccionesCorrectivasTram(){
+        $conexion = Yii::app()->db;
+        
+        $sqlAccionesTramite = "select count(accc_id) as total_acciones from acciones_correctivas";
+
+        $resultado = $conexion->createCommand($sqlAccionesTramite);
+        
+        $totalAcciones;
+        $fila = $resultado->query();
+        foreach ($fila as $registro) {
+            $totalAcciones = $registro['total_acciones'];
+        }
+                
+        return $totalAcciones;
+    }
+    
 } 

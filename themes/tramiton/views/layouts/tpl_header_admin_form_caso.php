@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if !IE]><!-->
 <html lang="es">
-    <!--<![endif]-->
     <head>
         <meta charset="utf-8" />
         <title>Tramiton.to | Admin</title>
+        <link rel="icon" href="<?php echo Yii::app()->theme->baseUrl; ?>/images/logos/favicon.ico" type="image/x-icon">
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
@@ -17,14 +15,21 @@
         ?>
 
         <!-- ================== BEGIN BASE CSS STYLE ================== -->
-
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+        
         <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/css/animate.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/css/style-adm.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/css/style-responsive-admin.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/css/loader.css" rel="stylesheet" />
+        <link href="<?php echo $baseUrl; ?>/assets/css/theme/default.css" id="theme" rel="stylesheet" />
 
+        <!-- ================== Custom CSS ================== -->
+        <!-- <link href="<?php echo $baseUrl; ?>/assets/css/style.css" rel="stylesheet" /> -->
+        <link href="<?php echo $baseUrl; ?>/assets/css/style-responsive-admin.css" rel="stylesheet" />
+        <link type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css" rel="stylesheet" />
+            <!-- ================== END Custom CSS=============== -->
 
         <!-- ================== END BASE CSS STYLE ================== -->
 
@@ -32,6 +37,8 @@
         <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
 
+        <link type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/timeline.css">
         <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 
 
@@ -42,7 +49,6 @@
 
         <?php
         $baseUrl = Yii::app()->theme->baseUrl;
-        echo "base: " . $baseUrl;
         ?>
 
 
@@ -57,11 +63,10 @@
 
 
     </head>
-    <body>
+    <body id="body-admin-form-caso" >
         <!-- begin #page-loader -->
         <div id="page-loader" class="fade in"><span class="spinner"></span></div>
         <!-- end #page-loader -->
 
         <!-- begin #page-container -->
         <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
-

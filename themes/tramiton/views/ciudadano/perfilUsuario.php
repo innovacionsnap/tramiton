@@ -131,7 +131,36 @@
                                     <td class="field"><?php echo $form->labelEx($modelPerfil, 'fechaNacimiento'); ?></td>
                                     <td>
                                         <?php 
-                                        $this->widget('zii.widgets.jui.CjuiDatePicker', array(
+                                        $fecha = date("Y-m-d");
+                                        $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                                                'options' => array(
+                                                        'showAnim' => 'fold',
+                                                ),
+                                                'model' => $modelPerfil,
+                                                'language' => 'es',
+                                                'attribute' => 'fechaNacimiento',
+                                                'htmlOptions' => array(
+                                                        //'class' => 'form-control input-inline input-xs',
+                                                        'tabindex' => 3
+                                                ),
+                                                'options'=>array(
+                                                        'dateFormat'=>'yy-mm-dd',
+                                                        'defaultDate' => $fecha,
+                                                        'showButtonPanel'=>true,
+                                                        'changeMonth'=>true,
+                                                        'changeYear'=>true,
+                                                        'defaultDate'=>'+1w',
+                                                        'yearRange' => '-80:-5',
+                                                        'minDate' => '-80Y',
+                                                        'maxDate' => '-5Y',
+                                                ),
+                                                'htmlOptions'=>array('class' => 'form-control input-inline input-xs', 'value' => $modelUser->usu_fechanacimiento)
+                                        ));
+                                        
+                                        
+                                        
+                                        
+                                        /*$this->widget('zii.widgets.jui.CjuiDatePicker', array(
                                             'attribute' => 'fechaNacimiento',
                                             'model' => $modelPerfil,
                                             'language' => 'es',
@@ -144,7 +173,7 @@
                                                 'maxDate' => '-5Y',
                                             ),
                                             'htmlOptions'=> array('class' => 'form-control input-inline input-xs', 'value' => $modelUser->usu_fechanacimiento)
-                                        ));
+                                        ));*/
                                         //echo $modelUser->usu_fechanacimiento . "<br>"; 
                                         //echo date("d/m/Y", $modelUser->usu_fechanacimiento);
                                         ?>

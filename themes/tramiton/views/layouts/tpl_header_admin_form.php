@@ -6,6 +6,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Tramiton.to | Admin</title>
+        <link rel="icon" href="<?php echo Yii::app()->theme->baseUrl; ?>/images/logos/favicon.ico" type="image/x-icon">
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
@@ -30,7 +31,7 @@
         <!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->    
         <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
-
+        <link type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css" rel="stylesheet" />
         <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 
 
@@ -49,7 +50,7 @@
         $cs = Yii::app()->getClientScript();
         Yii::app()->clientScript->registerCoreScript('jquery');
         ?>
-        <?php echo "BASE URL: " . $baseUrl; ?>
+        <?php //echo "BASE URL: " . $baseUrl; ?>
 
         <?php $linkcombo = $baseUrl . '/themes/tramiton/views/ciudadano/combobox.php' ?>
         <?php $linkcombo2 = $baseUrl . '/themes/tramiton/views/ciudadano/combobox2.php' ?>
@@ -81,7 +82,7 @@
 
 
     </head>
-    <body>
+    <body id="body-admin-form">
         <!-- begin #page-loader -->
         <div id="page-loader" class="fade in"><span class="spinner"></span></div>
         <!-- end #page-loader -->

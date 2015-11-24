@@ -1,36 +1,33 @@
-.navbar-collapse{
-	width: 100%;
-	border-top-width: 0px;
-}
-#navbar-toggle{
-	display: none;
-	position: fixed;
-	left:82%;
+.no-margin-right{
+    margin-right: 0px;
 }
 .nav-tramiton {
-    margin-left: 10px !important;
+    /*margin-left: 10px !important;*/
 }
-.menu-home{
-    display: inline-flex;
-    width: 100%;
-    //margin-left:10%;
+.borde-derecha{
+    border-right: 2px solid #707478;
+}
+.menu-dashboard{
     border-bottom: 4px solid #325972;
 }
-.menu-home #header-navbar{
-    width: 100%;
-}
-
-.menu-central{
-	border-right: 2px solid #707478;
-	/*height: 20px;*/
-    margin-top: 10px;
-    margin-bottom: 10px;
+.menu-central-dashboard{
+    margin-top: 27px;
+    margin-bottom: 0px;
     padding: 0px 7px !important;
 }
+#input-buscar-experiencia{
+    margin-top: 11px;
+    margin-right: 13px;
+}
+.menu-central{
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
+    /*padding: 0px 7px !important;*/
+}
 .cont-menu-central a{
-    color:#707478;
-    font-weight: bold;
-    margin-right: 3px;
+    /*color:#707478;*/
+    /*font-weight: bold;*/
+    /*margin-right: 3px;*/
 }
 #form-group-busqueda, #li-navbar-user{
     margin: 3px;

@@ -3,7 +3,7 @@
 $usu_id = $this->_datosUser->usu_id;
 ?>
 <!-- begin #content -->
-		<div id="content" class="content">
+		<div id="content" class="container-fluid">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li><a href="javascript:;">Home</a></li>
@@ -39,8 +39,8 @@ $usu_id = $this->_datosUser->usu_id;
                                             <th>Id Tramite</th>
                                             <th>Nombre</th>
                                             <th>Experiencia</th>
-                                            <th>Usuario</th>
                                             <th>F. Registro</th>
+                                            <th>Acciones</th>
                                            
                                         </tr>
                                     </thead>
@@ -61,9 +61,7 @@ $usu_id = $this->_datosUser->usu_id;
                                                 <td>
                                                <?php  echo $datoTramiteDetalle["datt_experiencia"] ?>
                                                 </td>
-                                                <td>
-                                               <?php  echo $datoTramiteDetalle["usu_nombreusuario"] ?>
-                                                </td>
+                                               
                                                 <td>
                                                <?php  echo $datoTramiteDetalle["datt_fecharegistro"] ?>
                                                 </td>

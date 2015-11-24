@@ -33,7 +33,7 @@ class DashboardController extends Controller {
                 'actions' => array('index', 'valor', 'totaltramite', 'timeline', 'ranktramite', 'visitasolucion', 'votossolucion', 'procesacomentario', 'getusuario', 'getcomentario',
                     'validalike', 'getLike', 'procesamegusta', 'procesavista', 'cargatimeline'),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano', 'bitacora'),
+                'roles' => array('super_admin', 'ciudadano', 'bitacora', 'institucion'),
             ),
             array('deny', // deny all users
                 #'roles' => array('*'),
@@ -74,9 +74,11 @@ class DashboardController extends Controller {
             $limite = 0;
         }
         $html = '';
+        $html.='<div class="row">';
         $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 15, 'offset' => $limite));
         foreach ($datosSolucion as $datoSolucion):
-            $html.='<div class="contenido-solucion" style="margin-right:8px">
+            $html.='<div class="col-contenido-solucion col-xs-6 col-sm-4 col-md-3">';
+            $html.='<div class="contenido-solucion center-block">
                         <div class="usuario">
                             <img src="';
             $html.= (Yii::app()->theme->baseUrl) . '/assets/img/users/';
@@ -87,6 +89,15 @@ class DashboardController extends Controller {
                 <span title="Comentarios"><i class="fa fa-comments fa-fw"></i>' . $this->getNumComentarios($datoSolucion['sol_id']) . '</span>
                 <span title="Vistas"><i class="fa fa-eye fa-fw"></i>' . $this->getVista($datoSolucion['sol_id']) . '</span>
             </div>
+            <div class="compartir">
+                    <a href="http://www.facebook.com/sharer.php?u=';
+            $html.=urlencode(Yii::app()->theme->baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
+                    <a href="http://twitter.com/share?url=';
+
+            $html.=urlencode(Yii::app()->theme->baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
+                    <a href="https://plus.google.com/share?url=';
+            $html.=urlencode(Yii::app()->theme->baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
+                </div>
             <hr>
             <div class="cuerpo">
                 <p>';
@@ -97,21 +108,14 @@ class DashboardController extends Controller {
             </div>
             <hr>
             <div class="pie">
-                <div class="compartir">
-                    <a href="http://www.facebook.com/sharer.php?u=';
-            $html.=urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
-                    <a href="http://twitter.com/share?url=';
-
-            $html.=urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
-                    <a href="https://plus.google.com/share?url=';
-            $html.=urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
-                </div>
                 <div class="fecha">
                     <span>Publicado el: ' . $datoSolucion['sol_fecha'] . '</span>
                 </div>
             </div>
+        </div>
         </div>';
         endforeach;
+        $html.='</div>';
         echo $html;
     }
 

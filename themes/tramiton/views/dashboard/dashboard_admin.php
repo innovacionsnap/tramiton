@@ -22,26 +22,40 @@
 
 </div>
 <!-- begin #content -->
-<div id="content" class="content linea">
+<div id="content" class="container-fluid linea">
     <div class="row">
         <!-- begin col-8 -->
         <div class="col-md-10">
             <!-- inicio mensajes -->
 
-            <div id="contenido_linea" class="height-sm" data-scrollbar="true" style="height:610px; background-color: #e7e5e2; padding: 10px;"></div>
+            <div id="contenido_linea" class="height-sm" data-scrollbar="true" style="height:610px; background-color: #e7e5e2; "></div> <!-- padding: 10px; -->
 
             <!-- fin mensajes -->
         </div>
         <div class="col-md-2 banner-lateral">
-            <div class="banner-1" style="background-image:url('<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/estadisticas.png')">
-                <img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/flecha-arriba.png'); ?>"><h3>1999</h3>
-                <p>Casos por día</p>
-            </div>
-            <div class="banner-2"><a href="../ciudadano/index">Registre otro caso</a></div>
-            <div class="banner-3"><a href="http://www.sri.gob.ec/web/guest/calculadora-plusvalia"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/plusvalia.png'); ?>"></a></div>
-            <div class="banner-4"><a href="http://www.sri.gob.ec/web/guest/calculadora-herencias"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/herencias.png'); ?>"></a></div>
-            <div class="banner-5"><a href="http://www.volcancotopaxi.com" target="_blank"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/cotopaxi.png'); ?>"></a></div>
+            <div class="row">
+                <div class="dashboard-admin-banner col-xs-6 col-md-12">
+                    <div class="banner-1 center-block" style="    background-repeat: no-repeat;background-image:url('<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/estadisticas.png')">
+                        <img class="center-block img-responsive" src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/flecha-arriba.png'); ?>">
+                        <h2 class="center-block">1999</h2>
+                        <p>Casos por día</p>
+                    </div>
+                </div>
+                <div class="dashboard-admin-banner col-xs-6 col-md-12">
+                    <div class="banner-2" style="margin-left:auto; margin-right:auto;"><a href="../ciudadano/index">Registre otro caso</a></div>
+                    <div class="banner-3"><a target="_blank" href="http://www.sri.gob.ec/web/guest/calculadora-plusvalia"><img class="center-block img-responsive" src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/plusvalia.png'); ?>"></a></div>
+                </div>
+            </div> <!-- end row -->
+            
+            <div class="row">
+                <div class="dashboard-admin-banner col-xs-6 col-md-12">
+                    <div class="banner-4"><a target="_blank" href="http://www.sri.gob.ec/web/guest/calculadora-herencias"><img class="center-block img-responsive" src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/herencias.png'); ?>"></a></div>
 
+                </div>
+                <div class="dashboard-admin-banner col-xs-6  col-md-12">
+                    <div class="banner-5"><a target="_blank" href="http://www.volcancotopaxi.com" target="_blank"><img class="center-block img-responsive" src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/cotopaxi.png'); ?>"></a></div>
+                </div>
+            </div> <!-- end row -->
         </div>
 
 
