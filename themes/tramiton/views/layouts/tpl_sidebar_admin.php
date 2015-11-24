@@ -33,7 +33,7 @@
                     'items' => array(
                         array('label' => 'Registro', 'url' => array('ciudadano/index')),
                         array('label' => 'Seguimiento', 'url' => array('ciudadano/usuario_tramites')),
-                        array('label' => 'Mis comentarios', 'url' => array('')),
+                        //array('label' => 'Mis comentarios', 'url' => array('')),
                     )),
                 array('label' => '<i class="fa fa-institution alias"></i>Instituciones<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('institucion', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'), 
                     'items' => array(

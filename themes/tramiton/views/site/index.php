@@ -361,7 +361,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
             <div id = "faq-6" class = "panel-collapse collapse">
                 <div class = "panel-body">
                     <p>
-                        El Tramitón es su primer convocatoria lo hizo bajo figura de un concurso, sin embargo, una vez concluida su la misma, continua abierta la plataforma para el acceso a la ciudadanía, con el fin de continuar con la interacción con los usuarios ya que genera información importante para el seguimiento con respecto a los planes de acción para el mejoramiento de los trámites y posterior análisis de datos y planteamiento de propuestas para la innovación de los servicios.
+                        El Tramitón es su primer convocatoria lo hizo bajo figura de un concurso, sin embargo, una vez concluida la misma, continua abierta la plataforma para el acceso a la ciudadanía, con el fin de continuar con la interacción con los usuarios ya que genera información importante para el seguimiento con respecto a los planes de acción para el mejoramiento de los trámites y posterior análisis de datos y planteamiento de propuestas para la innovación de los servicios.
                     </p>
                 </div>
             </div>

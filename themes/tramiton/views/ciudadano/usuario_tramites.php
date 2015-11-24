@@ -152,15 +152,15 @@
 <!-- end theme-panel -->
 
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'assets/plugins/DataTables/js/jquery.dataTables.js',CClientScript::POS_END); ?>	
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'assets/js/table-manage-default.demo.min.js',CClientScript::POS_END); ?>	
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'assets/js/apps.min.js',CClientScript::POS_END); ?>	
+<?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/assets/plugins/DataTables/js/jquery.dataTables.js',CClientScript::POS_END); ?>	
+<?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/assets/js/table-manage-default.demo.min.js',CClientScript::POS_END); ?>	
+<?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/assets/js/apps.min.js',CClientScript::POS_END); ?>	
 
 
 <!-- ================== END PAGE LEVEL JS prueba ================== -->
 <script>
 		$(document).ready(function() {
-			App.init();
-			TableManageDefault.init();
+			//App.init();
+			//TableManageDefault.init();
 		});
 </script>

@@ -1,5 +1,5 @@
 <!-- Require the header -->
-<?php require_once('tpl_header_admin_form.php')?>
+<?php require_once('tpl_header_admin_form_caso.php')?>
 <?php require_once('tpl_sidebar_admin.php')?>
 <?php //Yii::app()->bootstrap->register(); ?>
 

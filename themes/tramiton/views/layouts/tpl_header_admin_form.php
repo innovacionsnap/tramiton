@@ -37,8 +37,7 @@
 
 
         <!-- ================== BEGIN BASE JS ================== -->
-        <script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
-        <script src="<?php echo $baseUrl; ?>/views/ciudadano/jquery.js"></script>
+        <script src="<?php echo $baseUrl; ?>/themes/tramiton/assets/plugins/pace/pace.min.js"></script>
 
         <!-- ================== END BASE JS ================== -->
 
@@ -55,8 +54,6 @@
         <?php $linkcombo = $baseUrl . '/themes/tramiton/views/ciudadano/combobox.php' ?>
         <?php $linkcombo2 = $baseUrl . '/themes/tramiton/views/ciudadano/combobox2.php' ?>
 
-        <script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
-        <script type="text/javascript" src="<?php echo $baseUrl; ?>/views/ciudadano/jquery.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 /* COMBOBOX PROVINCIAS  */
