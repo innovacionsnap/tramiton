@@ -36,9 +36,22 @@ class SiteController extends Controller {
 // using the default layout 'protected/views/layouts/main.php'
         Yii::import('application.controllers.DashboardController');
         $total_soluciones = DashboardController::getTotalSoluciones();
+
+        $modelEstadisticas = new consultasBaseDatos;
+
+        $totalParticipantes = $modelEstadisticas->getTotalParticipantes();
+        $totalTramites = $modelEstadisticas->getTramitesMencionados();
+        $totalAcciones = $modelEstadisticas->getAccionesCorrectivasTram();
+
+        $estadisticas = array(
+            'totalParticipantes' => $totalParticipantes,
+            'totalTramites' => $totalTramites,
+            'totalAcciones' => $totalAcciones
+        );
+
         $model = new ValidarCedula;
         $model_login = new LoginForm;
-        $this->render('index', array("model" => $model, "model_login" => $model_login, 'msg1' => $this->_msgerror, "total_soluciones" => $total_soluciones));
+        $this->render('index', array("model" => $model, "model_login" => $model_login, 'msg1' => $this->_msgerror, 'estadisticas' => $estadisticas));
     }
 
     /**

@@ -1,114 +1,123 @@
-<?php
-/* @var $this EmpresaController */
-/* @var $model Empresa */
-/* @var $form CActiveForm */
-?>
-<div id="content" class="content linea">
+<!-- begin #content -->
+<div id="content" class="content">
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">Home</a></li>
+        <li class="active">Mis Empresas</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">Mis Empresas<small></small></h1>
+
+    <!-- end page-header -->
+
+    <!-- begin row -->
     <div class="row">
-        <div class="form">
-
-            <?php
-            $form = $this->beginWidget('CActiveForm', array
-                (
-                'method' => 'POST',
-                'action' => Yii::app()->createUrl('site/registro'),
-                'id' => 'form-registro',
-                'enableClientValidation' => true,
-                'enableAjaxValidation' => true,
-                'htmlOptions' => array('class' => 'margin-bottom-0'),
-                'clientOptions' => array(
-                    'validateOnSubmit' => true,
-                    'validateOnChange' => true,
-                    'validateOnType' => true,
-                ),
-            ));
-            ?>
-
-            <p class="note">Fields with <span class="required">*</span> are required.</p>
-
-            <?php echo $form->errorSummary($model); ?>
-
-            <div class="row">
-                <?php echo $form->labelEx($model, 'RUC'); ?>
-                <?php echo $form->textField($model, 'emp_ruc'); ?>
-                <?php echo $form->error($model, 'emp_ruc'); ?>
-            </div>
-
-            <div class="row">
-                <?php echo $form->labelEx($model, 'Razón Social'); ?>
-                <?php echo $form->textField($model, 'emp_razon'); ?>
-                <?php echo $form->error($model, 'emp_razon'); ?>
-            </div>
-
-            <div class="row">
-                <?php echo $form->labelEx($model, 'Dirección'); ?>
-                <?php echo $form->textField($model, 'emp_direccion'); ?>
-                <?php echo $form->error($model, 'emp_direccion'); ?>
-            </div>
-
-            <div class="row">
-                <?php echo $form->labelEx($model, 'Teléfono 1'); ?>
-                <?php echo $form->textField($model, 'emp_telefono1'); ?>
-                <?php echo $form->error($model, 'emp_telefono1'); ?>
-            </div>
-
-            <div class="row">
-                <?php echo $form->labelEx($model, 'usu_id'); ?>
-                <?php echo $form->textField($model, 'usu_id'); ?>
-                <?php echo $form->error($model, 'usu_id'); ?>
-            </div>
-
-            <div class="row">
-                <?php echo $form->labelEx($model, 'Teléfono 2'); ?>
-                <?php echo $form->textField($model, 'emp_telefono2'); ?>
-                <?php echo $form->error($model, 'emp_telefono2'); ?>
-            </div>
-
-            <div class="row">
-                <?php echo $form->labelEx($model, 'Fax'); ?>
-                <?php echo $form->textField($model, 'emp_fax'); ?>
-                <?php echo $form->error($model, 'emp_fax'); ?>
-            </div>
-
-            <div class="row">
-                <?php echo $form->labelEx($model, 'Sitio Web'); ?>
-                <?php echo $form->textField($model, 'emp_web'); ?>
-                <?php echo $form->error($model, 'emp_web'); ?>
-            </div>
-
-            <div class="row">
-                <?php echo $form->labelEx($model, 'Correo electrónico'); ?>
-                <?php echo $form->textField($model, 'emp_email'); ?>
-                <?php echo $form->error($model, 'emp_email'); ?>
-            </div>
-
-            <?php if (CCaptcha::checkRequirements()) : ?>
-                <div class='row'>
-                    <?php echo $form->labelEx($model, 'captcha'); ?>
-                    <div>
-                        <?php
-                        $this->widget("CCaptcha", array(
-                            'buttonType' => 'button',
-                            'buttonOptions' => array(
-                                'type' => 'image',
-                                'src' => '../images/recargaricon.png'
-                            ),
-                        ));
-                        ?>
-                        <?php echo $form->textField($model, 'captcha'); ?>
+        <!-- begin col-12 -->
+        <div class="col-md-12">
+            <!-- begin panel -->
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                     </div>
-                    <div class='hint'>
-                        Por favor ingrese el texto que se muestra en la imagen.
-                    </div>
-    <?php echo $form->error($model, 'captcha'); ?>
+                    <h4 class="panel-title">Empresas registradas</h4>
                 </div>
-                <?php endif; ?>
-            <div class="row buttons">
-            <?php echo CHtml::submitButton('Submit'); ?>
+                <div class="panel-body">
+                    <?php echo CHtml::link('<button type="button" class="btn btn-primary">Nueva Empresa</button>', array("empresa/ingresarempresa"), array('title' => 'Nueva empresa'));?>
+                    <hr>
+                    <div class="table-responsive">
+                        <table id="data-table" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Empresa</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($empresas as $empresa): ?>
+                                    <tr class="odd gradeX">
+                                        <td><?php echo $empresa['emp_razon']; ?></td>
+                                        <td><?php
+                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-edit (alias)"></i> Editar</button>', array('empresa/ingresarempresa', 'emp' => $empresa['emp_id']), array('title' => 'Editar'));
+                                            echo "&nbsp;&nbsp;";
+                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-trash-o"></i> Eliminar</button>', array('admin/viewRole', 'empresa' => "empresa", 'del' => TRUE), array('title' => 'Eliminar'));
+                                            ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
             </div>
-
-<?php $this->endWidget(); ?>
-
-        </div><!-- form -->
+            <!-- end panel -->
+        </div>
+        <!-- end col-12 -->
     </div>
+    <!-- end row -->
+    <!-- end row -->
 </div>
+<!-- end #content -->
+
+
+
+<?php
+/*$this->widget('bootstrap.widgets.TbModal', array(
+    'id' => 'myModal',
+    'header' => 'Modal Heading',
+    'content' => $this->renderPartial('_form_role', array('modelRole' => $modelRole, 'role' => $roles)),
+    'footer' => array(
+        TbHtml::button('Save Changes', array('data-dismiss' => 'modal', 'color' => TbHtml::BUTTON_COLOR_PRIMARY)),
+        TbHtml::button('Close', array('data-dismiss' => 'modal')),
+    ),
+));*/
+?>
+
+<!--  ================================================  -->
+<?php
+$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+    'id' => 'mydialog',
+    // additional javascript options for the dialog plugin
+    'options' => array(
+        'title' => 'Dialog box 1',
+        'autoOpen' => false,
+    ),
+));
+
+
+
+$this->endWidget('zii.widgets.jui.CJuiDialog');
+?>
+<!-- ============================================ -->
+
+<?php
+/** Start Widget * */
+$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+    'id' => 'dialog-animation',
+    'options' => array(
+        'title' => 'Dialog box - Animation',
+        'autoOpen' => false,
+        'show' => array(
+            'effect' => 'blind',
+            'duration' => 1000,
+        ),
+        'hide' => array(
+            'effect' => 'explode',
+            'duration' => 500,
+        ),
+    ),
+));
+
+
+
+$this->endWidget('zii.widgets.jui.CJuiDialog');
+
+/** End Widget * */
+
+?>

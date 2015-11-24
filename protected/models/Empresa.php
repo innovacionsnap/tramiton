@@ -34,22 +34,16 @@ class Empresa extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('emp_ruc, emp_razon, emp_direccion, emp_telefono1', 'required'),
+            array('emp_ruc, emp_razon, emp_direccion, emp_telefono1', 'required','message'=>'Campo requerido'),
             array('usu_id', 'numerical', 'integerOnly' => true),
-            array('emp_ruc', 'length', 'max' => 13),
+            array('emp_ruc', 'length', 'min'=>13,'tooShort' => 'El campo debe contener 13 dígitos', 'max'=>13),
             array('emp_razon, emp_direccion', 'length', 'max' => 250),
             array('emp_telefono1, emp_telefono2, emp_fax', 'length', 'max' => 10),
             array('emp_web, emp_email', 'length', 'max' => 100),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('emp_id, usu_id, emp_ruc, emp_razon, emp_direccion, emp_telefono1, emp_telefono2, emp_fax, emp_web, emp_email', 'safe', 'on' => 'search'),
-            array('captcha', 'required', 'message' => '<span style="color: #F00;">El código de verificación es requerido</span>'),
-            array(
-                'captcha',
-                'ext.validacion.AjaxCaptchaValidator',
-                'allowEmpty' => !Yii::app()->user->isGuest || !CCaptcha::checkRequirements(),
-                'message' => '<span style="color: #F00;">El texto no corresponde al de la imagen</span>'
-            ),
+            
         );
     }
 
@@ -79,7 +73,7 @@ class Empresa extends CActiveRecord {
             'emp_fax' => 'Emp Fax',
             'emp_web' => 'Emp Web',
             'emp_email' => 'Emp Email',
-            'captcha'=>Yii::t('demo', 'Ingrese el codigo de verifición de la imagen'),
+            
         );
     }
 

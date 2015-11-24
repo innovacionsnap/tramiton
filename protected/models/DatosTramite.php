@@ -200,5 +200,15 @@ d.datt_id=s.datt_id;";
         $rows =Yii::app()->db->createCommand($sql)->queryAll();
         return $rows;
     }
+    public static function getTramiteMencionado() {
+        $sql="select t.tra_nombre,count(datt_id)total from datos_tramite d, tramite_institucion ti, tramite t 
+where d.trai_id=ti.trai_id and
+ti.tra_id=t.tra_id and
+ti.tra_id<>3752
+group by d.trai_id, t.tra_nombre order by total desc
+limit 10";
+        $rows=Yii::app()->db->createCommand($sql)->queryAll();
+        return $rows;
+    }
 
 }

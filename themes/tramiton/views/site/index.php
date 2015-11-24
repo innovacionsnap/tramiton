@@ -2,9 +2,10 @@
 $baseUrl = Yii::app()->theme->baseUrl;
 ?>
 
-<div id="home" class="container-fluid" style="padding-top: 28px;">
+<div id="home" class="container-fluid">
     <div class="row">
         <div class="col-md-7 col-md-push-5"> 
+            <h2 class="text-center">Registra tu caso</h2>
             <?php
             $this->renderPartial('form_caso', true, false);
             ?>
@@ -12,6 +13,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
         <div class="col-md-5 col-md-pull-7">
             <div id="row-buttons" class="row">
+                <h2 class="text-center">Cómo registrar tu caso</h2>
 
                 <div id="col-ciudadano" class="col-sm-4">
                     <a id="button-ciudadano" class="btn btn-primary boton-ciu center-block" href="#" role="button">Ciudadano</a>
@@ -50,7 +52,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
             <div id="row-vid-ciudadano" class="row">
                 <div class="col-xs-12" style="padding-bottom: 10px;">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe>
+                        <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
+                        <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe> -->
                     </div>
                 </div>
             </div> 
@@ -64,7 +67,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
             <div id="row-vid-organizacion" class="row" style="display: none;">
                 <div class="col-xs-12" style="padding-bottom: 10px;">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe>
+                        <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
+                        <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe> -->
                     </div>
                 </div>
             </div> 
@@ -72,12 +76,13 @@ $baseUrl = Yii::app()->theme->baseUrl;
             <div id="row-img-servidor" class="row" style="display: none;">
                 <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/servidor_1.png" alt="Home" /></span></div>
                 <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/servidor_2.png" alt="Home" /></span></div>
-                <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/servidor_3.png" alt="Home" /></span></div>
+                <div class="col-xs-4"><span><a href="http://tramiton.to/interno" target="-blank"><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/servidor_3.png" alt="Home" /></a></span></div>
             </div>
             <div id="row-vid-servidor" class="row" style="display: none;">
                 <div class="col-xs-12" style="padding-bottom: 10px;">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe>
+                        <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
+                        <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe> -->
                     </div>
                 </div>
             </div> 
@@ -110,35 +115,34 @@ $baseUrl = Yii::app()->theme->baseUrl;
 <div id="estadisticas" class="container" style="padding-top: 28px;padding-bottom: 28px;">
     <!-- begin row -->
     <div class="row">
-        <div class="col-sm-3 milestone-col">
+        <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <div class="number" data-animation="true" data-animation-type="number" data-final-number="6505">6,505</div>
+                <div class="number" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalParticipantes']?>"><?php echo $estadisticas['totalParticipantes']?></div>
                 <div class="title">Total Participantes</div>
             </div>
         </div>
         <!-- end col-3 -->
-        <div class="col-sm-3 milestone-col">
+        <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <?php 
-                echo '<div class="number" data-animation="true" data-animation-type="number" data-final-number="'.$total_soluciones.'">'.$total_soluciones.'</div>'?>
+                <div class="number" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalTramites']?>"><?php echo $estadisticas['totalTramites']?></div>
                 <div class="title">Soluciones Registradas</div>
             </div>
         </div>
         <!-- begin col-3 -->
-        <div class="col-sm-3 milestone-col">
+        <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <div class="number" data-animation="true" data-animation-type="number" data-final-number="454">454</div>
+                <div class="number" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalAcciones']?>"><?php echo $estadisticas['totalAcciones']?></div>
                 <div class="title">Trámites con planes de mejora</div>
             </div>
         </div>
         <!-- end col-3 -->
         <!-- begin col-3 -->
-        <div class="col-sm-3 milestone-col">
+        <!-- <div class="col-sm-3 milestone-col">
             <div class="milestone">
                 <div class="number" data-animation="true" data-animation-type="number" data-final-number="25">25</div>
                 <div class="title">Trámites mejorados</div>
             </div>
-        </div>
+        </div> -->
         <!-- end col-3 -->
         
     </div>
