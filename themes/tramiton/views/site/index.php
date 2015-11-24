@@ -76,7 +76,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
             <div id="row-img-servidor" class="row" style="display: none;">
                 <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/servidor_1.png" alt="Home" /></span></div>
                 <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/servidor_2.png" alt="Home" /></span></div>
-                <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/servidor_3.png" alt="Home" /></span></div>
+                <div class="col-xs-4"><span><a href="http://tramiton.to/interno" target="-blank"><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/servidor_3.png" alt="Home" /></a></span></div>
             </div>
             <div id="row-vid-servidor" class="row" style="display: none;">
                 <div class="col-xs-12" style="padding-bottom: 10px;">
@@ -117,22 +117,21 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <div class="row">
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <div class="number" data-animation="true" data-animation-type="number" data-final-number="6505">6,505</div>
+                <div class="number" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalParticipantes']?>"><?php echo $estadisticas['totalParticipantes']?></div>
                 <div class="title">Total Participantes</div>
             </div>
         </div>
         <!-- end col-3 -->
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <?php 
-                echo '<div class="number" data-animation="true" data-animation-type="number" data-final-number="'.$total_soluciones.'">'.$total_soluciones.'</div>'?>
+                <div class="number" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalTramites']?>"><?php echo $estadisticas['totalTramites']?></div>
                 <div class="title">Soluciones Registradas</div>
             </div>
         </div>
         <!-- begin col-3 -->
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <div class="number" data-animation="true" data-animation-type="number" data-final-number="454">454</div>
+                <div class="number" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalAcciones']?>"><?php echo $estadisticas['totalAcciones']?></div>
                 <div class="title">Trámites con planes de mejora</div>
             </div>
         </div>
