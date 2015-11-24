@@ -33,7 +33,7 @@ class DashboardController extends Controller {
                 'actions' => array('index', 'valor', 'totaltramite', 'timeline', 'ranktramite', 'visitasolucion', 'votossolucion', 'procesacomentario', 'getusuario', 'getcomentario',
                     'validalike', 'getLike', 'procesamegusta', 'procesavista', 'cargatimeline'),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano', 'bitacora'),
+                'roles' => array('super_admin', 'ciudadano', 'bitacora', 'institucion'),
             ),
             array('deny', // deny all users
                 #'roles' => array('*'),

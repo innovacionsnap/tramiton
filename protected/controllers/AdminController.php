@@ -116,7 +116,7 @@ class AdminController extends Controller {
     public function actionRolesUsuarios() {
         $modelRole = new RoleForm;
         $model=new Usuario('search');
-        //$usuarios = Usuario::model()->findAll();
+        $usuarios = Usuario::model()->findAll();
         
         $dataProvider=new CActiveDataProvider('Usuario');
 		/*$this->render('index',array(
@@ -129,7 +129,8 @@ class AdminController extends Controller {
         $this->render('roleUsuarios', array(
                     'model' => $model, 
                     'dataProvider' => $dataProvider,
-                    'modelRole' => $modelRole
+                    'modelRole' => $modelRole,
+                    'usuarios' => $usuarios
                 ));
     }
 

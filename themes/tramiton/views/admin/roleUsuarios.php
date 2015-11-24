@@ -32,7 +32,7 @@
                                 
                                 //var_dump($dataProvider);
                                 
-                                $this->widget('zii.widgets.grid.CGridView', array(
+                                /*$this->widget('zii.widgets.grid.CGridView', array(
                                         'id'=>'usuario-grid',
                                         'dataProvider'=>$dataProvider,
                                         'itemsCssClass'=>'table table-striped table-bordered dataTable no-footer',
@@ -44,16 +44,16 @@
                                                 ),*/
                                                 //'selectedPageCssClass' => 'paginate_button current',
                                                 //'hiddenPageCssClass' => 'disabled',
-                                                'header' => '',
+                                             //cambio   'header' => '',
                                                 
-                                            ),
+                                        //cambio    ),
                                         //'filter'=>$model,
-                                        'filter'=>$dataProvider->model,
+                                        /*cambio 'filter'=>$dataProvider->model,
                                         'columns'=>array(
                                                 'usu_id',
                                                 'rol_id',
                                                 'usu_cedula',
-                                                'usu_nombre',
+                                                'usu_nombre',*/
                                                 /*array(
                                                     'value' => "CHtml::link('<button type='button' class='btn btn-inverse active btn-xs m-r-5'><i class='fa fa-lock'></i>&nbsp;&nbsp;&nbsp;Permisos</button>', array('admin/asignarRol', 'usrId' => $model->usu_id), array('title' => 'Asingar Permisos',))",
                                                     'type'  => 'html',
@@ -74,15 +74,15 @@
                                                 /*array(
                                                         'class'=>'CButtonColumn',
                                                 ),*/
-                                        ),
-                                ));
+                                    //cambio    ),
+                            //cambio    ));*/
                                 
                                 ?>
                                 
                                 
                                 
                                 
-                               <!--
+                               
                                 <table id="data-table" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
@@ -95,14 +95,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php //foreach ($usuarios as $users): ?>
+                                        <?php foreach ($usuarios as $users): ?>
                                         <tr class="odd gradeX">
-                                            <td><?php //echo $users->usu_id; ?></td>
-                                            <td><?php //echo $users->usu_nombre; ?></td>
-                                            <td><?php //echo $users->usu_cedula; ?></td>
-                                            <td><?php //echo $users->usu_nombreusuario; ?></td>
+                                            <td><?php echo $users->usu_id; ?></td>
+                                            <td><?php echo $users->usu_nombre; ?></td>
+                                            <td><?php echo $users->usu_cedula; ?></td>
+                                            <td><?php echo $users->usu_nombreusuario; ?></td>
                                             <td><?php 
-                                                // CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-lock"></i>&nbsp;&nbsp;&nbsp;Permisos</button>', array('admin/asignarRol', 'usrId' => $users->usu_id), array('title' => 'Asingar Permisos',));    
+                                                 echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-lock"></i>&nbsp;&nbsp;&nbsp;Permisos</button>', array('admin/asignarRol', 'usrId' => $users->usu_id), array('title' => 'Asingar Permisos',));    
                                                 //echo CHtml::link('<i class="fa fa-lock"></i>&nbsp;', array('view', 'id'=>$users->usu_id), array('title' => 'Asignar Permisos'));
                                                 //echo "&nbsp;&nbsp;&nbsp;";
                                                 //echo CHtml::link('<i class="fa fa-edit (alias)"></i>', array('edit', 'id'=>$users->usu_id), array('title' => 'Editar'));
@@ -111,12 +111,12 @@
                                                 ?>
                                             </td>
                                         </tr>
-                                        <?php //endforeach; ?>
+                                        <?php endforeach; ?>
                                         
 
                                     </tbody>
                                       
-                                </table>-->
+                                </table>
                             </div>
                         </div>
                     </div>
