@@ -45,7 +45,7 @@
                     <!-- <li class="arrow"></li> -->
                     <li><?php echo CHtml::link('Editar Perfil', array('ciudadano/mostrarPerfil', 'usrId' => $this->_datosUser->usu_id)); ?></li>
                     <!--<li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Notificaciones</a></li>-->
-                    <li><a href="../empresa/index">Registrar Empresa</a></li>
+                    <li><a href="../empresa/empresa">Registrar Empresa</a></li>
                     <li><a href="../empresa/index">Registrar Caso como Empresa</a></li>
                     <li role="separator" class="divider"></li>
                     <li><?php echo CHtml::link('Salir', array('site/logout')); ?></li>
