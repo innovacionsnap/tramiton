@@ -33,6 +33,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
             </div>
 
             <div id="row-arrows" class="row">
+            </div>
+            <div id="row-triangulos" class="row">
                 <div id="col-triangulo-ciudadano" class="col-xs-4">
                     <img class="center-block" src="<?php echo $baseUrl; ?>/assets/img/triangulo_ciudadano.png" alt="arrow">
                 </div>

@@ -3,7 +3,7 @@ $("#button-ciudadano").click(function(){
     $("#col-triangulo-organizacion").hide();
     $("#col-triangulo-servidor").hide();
 
-    $("#row-arrows").css("border-top","3px solid #325972");
+    $("#row-arrows").css("border-bottom","3px solid #325972");
 
     $("#row-img-organizacion").hide();
     $("#row-vid-organizacion").hide();
@@ -29,7 +29,7 @@ $("#button-organizacion").click(function(){
     $("#col-triangulo-organizacion").show();
     $("#col-triangulo-servidor").hide();
 
-    $("#row-arrows").css("border-top","3px solid #ee9d46");
+    $("#row-arrows").css("border-bottom","3px solid #ee9d46");
 
     $("#row-img-ciudadano").hide();
     $("#row-vid-ciudadano").hide();
@@ -55,7 +55,7 @@ $("#button-servidor-publico").click(function(){
     $("#col-triangulo-organizacion").hide();
     $("#col-triangulo-servidor").show();
 
-    $("#row-arrows").css("border-top","3px solid #349876");
+    $("#row-arrows").css("border-bottom","3px solid #349876");
     
 
     $("#row-img-ciudadano").hide();
