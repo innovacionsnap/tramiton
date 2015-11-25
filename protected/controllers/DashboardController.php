@@ -77,7 +77,7 @@ class DashboardController extends Controller {
         $html.='<div class="row">';
         $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 15, 'offset' => $limite));
         foreach ($datosSolucion as $datoSolucion):
-            $html.='<div class="col-contenido-solucion col-xs-12 col-sm-4 col-md-3 col-lg-2">';
+            $html.='<div class="col-contenido-solucion col-xs-12 col-sm-4 col-md-3">';
             $html.='<div class="contenido-solucion center-block">
                         <div class="usuario">
                             <img src="';

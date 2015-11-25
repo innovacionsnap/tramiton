@@ -1,0 +1,9 @@
+.errorMessage, .error{
+    text-align: left;
+}
+.row{
+    padding-bottom: 10px;
+}
+.pace-activity{
+    display: none !important;
+}
