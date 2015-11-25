@@ -1,14 +1,3 @@
-<style type="text/css">
-.w-a{
-    width: auto;
-}
-.icon{
-    position: relative;
-    top: -17px;
-    right: -163px;
-}
-</style>
-
 <?php $baseUrl = Yii::app()->baseUrl?>
 
 

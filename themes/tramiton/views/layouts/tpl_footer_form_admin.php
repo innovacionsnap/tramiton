@@ -1,22 +1,17 @@
 <!-- begin #footer -->
-<div id="footer" class="container-fluid">
+<div class="footer container-fluid">
     <div class="row" style="padding-top:10px; background: url('<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/footer.png') repeat-x">
-
         <div id="col-snap-logo" class="col-xs-4" style="padding-top:30px; padding-left:2%;">
             <a><img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_snap.png" /></a>
         </div>
-
         <div class="col-xs-4 col-ecu-logo" align="right" style="padding-top:30px;">
             <a><img class="center-block" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_pais.png" /></a>
         </div>
-
         <div id="col-socials-networks" class="col-xs-4" align="right" style="padding-right:2%;">
-    
                     <a style="display: none;" target="_blank" href="http://ilab.gob.ec/"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_plataforma_innovacion.png'); ?>"></a>
                     <a target="_blank" href="https://www.facebook.com/AdmPublicaEcuador"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_facebook.png'); ?>"></a>
                     <a target="_blank" href="https://twitter.com/tramitonEC"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_twitter.png'); ?>"></a>
                     <a target="_blank" href="https://www.youtube.com/user/AdmPublicaEcuador"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_youtube.png'); ?>"></a>
-    
         </div>
 
     </div>
@@ -28,7 +23,6 @@
 <!-- end scroll to top btn -->
 </div>
 <!-- end page container -->
-
 <!-- ================== BEGIN BASE JS ================== -->
 <!--  JS PARA QUE FUNCIONE FANCYBOX 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery/jquery-1.9.1.min.js"></script> 

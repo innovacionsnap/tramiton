@@ -7,3 +7,12 @@
 .pace-activity{
     display: none !important;
 }
+.w-a{
+    width: auto;
+    padding: 0px 7px;
+}
+.icon{
+    position: relative;
+    top: -17px;
+    right: -163px;
+}
