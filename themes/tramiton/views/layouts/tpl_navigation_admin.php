@@ -7,7 +7,7 @@
         <button class="navbar-toggle" style="float: left;" data-click="sidebar-toggled" type="button">
             <span class="glyphicon glyphicon-cog" aria-hidden="true" style="font-size: 25px;"></span>
         </button>
-        <a class="navbar-brand no-margin-right" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_tramiton1.png" alt="" /></a>
+        <a class="navbar-brand no-margin-right" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_tramiton1.png" alt="" style="width:120px;"/></a>
         <button id="navbar-toggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" > <!-- style="display:none;" -->
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
