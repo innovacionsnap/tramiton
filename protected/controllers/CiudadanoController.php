@@ -62,7 +62,7 @@ class CiudadanoController extends Controller {
         $datosTotalTramites = $model->getTotalTramite();
         $datosRankingTramites = $model->getRankingTramite();
         $datosPublicacionesTramites = $model->getPublicacionesTramites();
-        $this->layout = 'main-admin_form';
+        $this->layout = 'main-admin_form2';
         $this->_datosUser = $modelUser;
         $this->render('form_ciudadano', compact('datosTotalTramites', 'datosRankingTramites', 'datosPublicacionesTramites', 'empresa'));
         //$this->render('formulario');
