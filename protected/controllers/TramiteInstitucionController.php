@@ -45,7 +45,7 @@ class TramiteInstitucionController extends Controller {
         //$datosRankingTramites = $model->getRankingTramite();
         //$datosPublicacionesTramites = $model->getPublicacionesTramites();
         //$datosTarea = $model->getTarea();
-        $this->layout = 'main-admin_form_caso';
+        $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
         $this->render('index',compact('datosgetTramiteInstitucion'));
         //$this->render('formulario');
