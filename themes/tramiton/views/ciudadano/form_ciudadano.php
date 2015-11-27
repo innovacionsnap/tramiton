@@ -431,7 +431,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Detalle del problema</label>
-                                                <textarea class="form-control" id = "experiencia" onkeyup = "Validate(this)" name="experiencia" rows="4" data-parsley-range="[20,200]" placeholder="experiencia" data-parsley-group="wizard-step-2" required></textarea>
+                                                <textarea class="form-control" id = "experiencia" onkeyup = "Validate(this)" name="experiencia" rows="4" data-parsley-range="[20,200]" placeholder="Experiencia" data-parsley-group="wizard-step-2" required></textarea>
 
                                             </div>
                                         </div>
@@ -451,9 +451,9 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                         <!-- begin col-12 -->
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Titulo Solucion</label>
+                                                <label>Titulo de la solución</label>
                                                 <div class="controls">
-                                                    <input type="text"  id="titulo_solucion" onkeyup = "Validate(this)" name="titulo_solucion"  data-parsley-range="[20,99]" placeholder="Titulo Problematica" class="form-control" data-parsley-group="wizard-step-3" required />
+                                                    <input type="text"  id="titulo_solucion" onkeyup = "Validate(this)" name="titulo_solucion"  data-parsley-range="[20,99]" placeholder="Título de la problemática" class="form-control" data-parsley-group="wizard-step-3" required />
                                                 </div>
                                             </div>
                                         </div>
@@ -461,9 +461,9 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                         <!-- begin col-12 -->
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Detalle de solucion</label>
+                                                <label>Detalle de la solución</label>
                                                 <div class="controls">
-                                                    <textarea class="form-control" id="propuesta_solucion" onkeyup = "Validate(this)" name="propuesta_solucion" rows="4" data-parsley-range="[20,200]" placeholder="propuesta_solucion" data-parsley-group="wizard-step-3" required></textarea>
+                                                    <textarea class="form-control" id="propuesta_solucion" onkeyup = "Validate(this)" name="propuesta_solucion" rows="4" data-parsley-range="[20,200]" placeholder="Solución" data-parsley-group="wizard-step-3" required></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -478,7 +478,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                             <div>
                                 <div class="jumbotron m-b-0 text-center">
                                     <h1>Gracias por ingresar el tramite</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat commodo porttitor. Vivamus eleifend, arcu in tincidunt semper, lorem odio molestie lacus, sed malesuada est lacus ac ligula. Aliquam bibendum felis id purus ullamcorper, quis luctus leo sollicitudin. </p>
+                                    <p>... </p>
                                     <!--  <p><a class="btn btn-success btn-lg" role="button">Guardar y enviar</a></p> -->
                                     <input type="submit" value="Publicar y Guardar" class="btn btn-success btn-lg"> 
                                     <input type="hidden" name="insertar_tramite" value="1">
