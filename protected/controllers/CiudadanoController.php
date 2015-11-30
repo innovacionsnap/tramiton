@@ -112,9 +112,18 @@ class CiudadanoController extends Controller {
         $this->renderPartial('viewTramite_Usuario_Comentario', compact('datosTramite_Solucion_Comentario'));
     }
 
-    public function actionMostrarPerfil($usrId) {
-        $modelUser = Usuario::model()->findByPk($usrId);
+    public function actionMostrarPerfil($key) {
+        
+        //$modelUser = Usuario::model()->findByPk($usrId);
+        $modelUser = Usuario::model()->findByAttributes(array('usu_codigo_confirmacion' => $key));
         $modelPerfil = new PerfilUsuario;
+        $modelMensaje = new MensajesAplicacion;
+        
+        //echo "resultado busqueda por codigo encriptado";
+        //var_dump($modelUser);
+        
+        //echo "obtiene error: " . utf8_decode($modelMensaje->getMensaje(102));
+        //Yii::app()->end();
 
         $this->_datosUser = $modelUser;
 
