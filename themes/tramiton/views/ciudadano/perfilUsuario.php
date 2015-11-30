@@ -37,12 +37,12 @@
             </div>
 
             <?php
-            $usrId = $modelUser->usu_id;
+            $key = $modelUser->usu_codigo_confirmacion;
             $form = $this->beginWidget('CActiveForm', array
                 (
                 'method' => 'POST',
                 //'action' => Yii::app()->createUrl('ciudadano/updatePerfil'),
-                'action' => $this->createUrl("ciudadano/mostrarPerfil?usrId=$usrId"),
+                'action' => $this->createUrl("ciudadano/mostrarPerfil?key=$key"),
                 'id' => 'update-form',
                 'enableClientValidation' => true,
                 'enableAjaxValidation' => true,

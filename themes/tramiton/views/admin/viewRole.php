@@ -29,6 +29,15 @@
                 <div class="panel-body">
                     <div class="col-md-6">
                         <h4>Vista de Rol</h4>
+                        
+                        <?php
+                        if($sw == 0):
+                        ?>
+                        <br>
+                        <h5><?php echo $modelMensajes->getMensaje(104) ?></h5>
+                        <br>
+                        <?php echo CHtml::link('<button type="button" class="btn btn-primary btn-xs m-r-5"> Regresar</button>', array('admin/role'), array('title' => 'Cancelar')); ?>
+                        <?php else: ?>
                         <table class="table">
                             <tbody>
                                 <tr>
@@ -41,6 +50,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        
                         <hr>
                         <?php 
                         if($rolSelect['nombre'] != 'super_admin'){
@@ -63,6 +73,7 @@
                             echo CHtml::link('<button type="button" class="btn btn-primary btn-xs m-r-5"> Regresar</button>', array('admin/role'), array('title' => 'Cancelar'));
                         }
                         ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

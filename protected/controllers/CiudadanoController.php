@@ -140,7 +140,7 @@ class CiudadanoController extends Controller {
                 //$this->redirect($this->createUrl('ciudadano/dashboard'));
             } else {
                 $modelUpdateperfil = new consultasBaseDatos;
-                $modelUpdateperfil->updatePerfilUsuario($usrId, $modelPerfil);
+                $modelUpdateperfil->updatePerfilUsuario($modelUser->usu_id, $modelPerfil);
 
                 $this->layout = 'main-admin_form_caso';
                 $this->_datosUser = $modelUser;

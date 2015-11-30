@@ -159,6 +159,7 @@ class AdminController extends Controller {
 
     public function actionViewRole($role, $del = FALSE) {
         $existe = false;
+        $sw = 0;
         if($del){
             $modelVerificaUsr = new consultasBaseDatos;
             $existe = $modelVerificaUsr->verificaRoleUser($role);
@@ -173,13 +174,15 @@ class AdminController extends Controller {
                     'elimina' => $del,
                     'existe' => $existe
                 );
+                $sw = 1;
             }
+            
         endforeach;
         $modelUserSesion = Usuario::model()->findByPk(Yii::app()->user->id);
         $modelMensajes = new MensajesAplicacion;
         $this->_datosUser = $modelUserSesion;
         $this->layout = 'main-admin';
-        $this->render('viewRole', array('rolSelect' => $rolSelect, 'modelMensajes' => $modelMensajes));
+        $this->render('viewRole', array('rolSelect' => $rolSelect, 'modelMensajes' => $modelMensajes, 'sw' => $sw));
     }
 
     public function actionUpdateRole($role) {
