@@ -150,7 +150,11 @@
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-2">
                         <?php echo CHtml::submitButton('Guardar', array('class' => 'btn btn-primary btn-sm')); ?>&nbsp;&nbsp;
-                        <?php echo CHtml::Button('Cancelar', array('class' => 'btn btn-danger btn-sm')); ?>
+                        <?php //echo CHtml::Button('Cancelar', array('class' => 'btn btn-danger btn-sm')); ?>
+                        <?php echo CHtml::link('<button type="button" class="btn btn-danger btn-sm"> Cancelar</button>', array('dashboard/index'), array('title' => 'Cancelar')); ?>
+                        
+                        
+                        
                     </div>
                 </div>
                 

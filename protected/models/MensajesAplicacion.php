@@ -17,6 +17,10 @@ class MensajesAplicacion {
     public $mensajesApp = array(
         '101' => 'Acción no permitida',
         '102' => 'No tiene permisos para la acción solicitada',
+        '103' => 'No se puede eliminar el registro seleccionado, tiene datos asociados',
+        
+        '201' => '¿Está seguro que desea eliminar este registro?'
+        
     );
     
     public function getMensaje($codigo) {

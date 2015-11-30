@@ -158,20 +158,28 @@ class AdminController extends Controller {
     }
 
     public function actionViewRole($role, $del = FALSE) {
+        $existe = false;
+        if($del){
+            $modelVerificaUsr = new consultasBaseDatos;
+            $existe = $modelVerificaUsr->verificaRoleUser($role);
+        }
+        
         $rolSelect = array();
         foreach (Yii::app()->authManager->getAuthItems() as $data):
             if ($data->name == $role) {
                 $rolSelect = array(
                     'nombre' => $data->name,
                     'descripcion' => $data->description,
-                    'elimina' => $del
+                    'elimina' => $del,
+                    'existe' => $existe
                 );
             }
         endforeach;
         $modelUserSesion = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelMensajes = new MensajesAplicacion;
         $this->_datosUser = $modelUserSesion;
         $this->layout = 'main-admin';
-        $this->render('viewRole', array('rolSelect' => $rolSelect));
+        $this->render('viewRole', array('rolSelect' => $rolSelect, 'modelMensajes' => $modelMensajes));
     }
 
     public function actionUpdateRole($role) {

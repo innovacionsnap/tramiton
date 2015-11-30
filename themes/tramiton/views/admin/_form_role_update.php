@@ -24,10 +24,10 @@ $form = $this->beginWidget("CActiveForm", array(
 ?>
 
 <?php //echo $form->hiddenField($modelRole, "nombre_orig", array("value" => $rolSelect['nombre'])); ?>
-<?php echo $form->textField($modelRole, "item", array("value" => $rolSelect['nombre'])); ?>
+<?php //echo $form->textField($modelRole, "item", array("value" => $rolSelect['nombre'])); ?>
 
 <?php echo $form->labelEx($modelRole, "nombre"); ?>
-<?php echo $form->textField($modelRole, "nombre", array("value" => $rolSelect['nombre'], "class" => "form-control input-home-tramiton")); ?>
+<?php echo $form->textField($modelRole, "nombre", array("disabled" => true, "value" => $rolSelect['nombre'], "class" => "form-control input-home-tramiton")); ?>
 <?php echo $form->error($modelRole, "nombre"); ?>
 
 <?php echo $form->labelEx($modelRole, "descripcion"); ?>
@@ -35,9 +35,10 @@ $form = $this->beginWidget("CActiveForm", array(
 <?php echo $form->error($modelRole, "descripcion"); ?>
 
 <br>
-<?php echo CHtml::submitButton('Actualizar', array("class" => "btn btn-primary")); ?>
+<?php echo CHtml::submitButton('Actualizar', array("class" => "btn btn-primary btn-sm")); ?>
 &nbsp;&nbsp;&nbsp;
-<?php echo CHtml::button('Cancelar', array("class" => "btn btn-danger", "data-dismiss" => "modal")); ?>
+<?php //echo CHtml::button('Cancelar', array("class" => "btn btn-danger btn-sm", "data-dismiss" => "modal")); ?>
+<?php echo CHtml::link('<button type="button" class="btn btn-danger btn-sm"> Cancelar</button>', array('admin/role'), array('title' => 'Cancelar')); ?>
 <?php $this->endWidget(); ?>
 
 
