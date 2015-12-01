@@ -255,7 +255,7 @@ function problema4() {
                                     $prob_nombre_otros = $prob_nombre;
                                     ?>
 
-                                    <input type="text" name="problematica_otro" placeholder="Otra Problematica" data-parsley-range="[20,140]" class="form-control" data-parsley-group="wizard-step-2"/>
+                                    <input type="text" name="problematica_otro" placeholder="Otra Problemática" data-parsley-range="[20,140]" class="form-control" data-parsley-group="wizard-step-2"/>
 
 
                                     <?php
