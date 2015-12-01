@@ -275,7 +275,7 @@ class CiudadanoController extends Controller {
 
             $propuesta_solucion = $_POST['propuesta_solucion'];
             $id_usuario = $_POST['id_usuario'];
-            $problematica_otro = $_POST['problematica_otro'];
+            //$problematica_otro = $_POST['problematica_otro'];
             $url = $_POST['url'];
 
             $insertar_tramite = $_POST['insertar_tramite'];
@@ -328,7 +328,7 @@ class CiudadanoController extends Controller {
                 $model_solucion->save();
 
                 //Problemática
-                
+                /*
                 if (strlen($_POST['problematica_otro'])>0) {
                     $model_problema = new ProblemaTramite();
                     $model_problema->prob_id = 41;
@@ -337,6 +337,7 @@ class CiudadanoController extends Controller {
                     $model_problema->prot_nombreotroproblema = $problematica_otro;
                     $model_problema->save();
                 }
+                */
                 if (isset($_POST['problematica'])) {
                     $optionArray = $_POST['problematica'];
                     for ($i = 0; $i < count($optionArray); $i++) {

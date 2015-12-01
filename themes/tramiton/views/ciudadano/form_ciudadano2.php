@@ -1,4 +1,4 @@
-
+	
 
 <?php 
 /* Agregar funciones de combox provincia  */
@@ -274,10 +274,11 @@ order by pro_prob_id limit 4 offset 0";
 											if ($prob_nombre =='Otros'){
 											$prob_nombre_otros = $prob_nombre;
 											?>
+											<!--
 											<div class="controls">
                                                     <input type="text" name="problematica_otro" placeholder="Otra Problematica" data-parsley-range="[20,140]" class="form-control" data-parsley-group="wizard-step-3" required />
                                             </div>
-												
+											-->	
 											<?php
 											}
                                            ?> 
