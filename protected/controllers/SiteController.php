@@ -409,24 +409,19 @@ class SiteController extends Controller {
 //var_dump($datosUser);
 //Yii::app()->end();
                     $url = Yii::app()->createAbsoluteUrl('site/resetPassword', array('email' => $datosUser['usuMail'], 'codigoVerificacion' => $codigoVerificacion));
-                    $msgEmail = "Hola " . $datosUser['usuNombre'] . ", <br><br>" .
-                            "Has solicitado un restablecimiento de contrase&ntilde;a para tu cuenta <strong>'" . $datosUser['usuUsername'] . "'</strong> en Tramiton.<br><br>" .
-                            "Para confirmar esta petici&oacute;n, y establecer una nueva contrase&ntilde;a para tu cuenta, <br>" .
-                            "por favor da click en el siguiente v&iacute;nculo: <br><br>" .
-                            "<a href='" . $url . "' target='_blank'>Click Aqu&iacute;</a><br><br>" .
-                            "Si no has solicitado este restablecimiento de contrase&ntilde;a, no es necesario <br>
-                            realizar ninguna acci&oacute;n.<br><br>
-                            Si necesita ayuda, por favor p&oacute;ngase en contacto con <a href='mailto:" . Yii::app()->params['adminEmail'] . "'>" . Yii::app()->params['adminEmail'] . "</a>.";
 
+                    $msgEmail = $this->renderPartial('_mailReestablecer', array('datosUser' => $datosUser, 'url' => $url),true);
 //instanciamos el modelo para enviar el correo
                     $mail = new EnviarCorreo;
 
 //enviamos los parametros necesarios para enviar el correo
                     $asunto = Yii::app()->name . ": Solicitud de restablecimiento de clave";
+                    $msgEmail = utf8_decode($msgEmail);
 //$mensajeEmail = utf8_decode($textoEmail);
 //llamamos la funcion para enviar el correo y pasamos los parametros necesarios
                     $mail->enviarMail(
-                            array(Yii::app()->params['adminEmail'], Yii::app()->name), array($datosUser['usuMail'], $datosUser['usuNombre']), $asunto, $msgEmail
+                            array(Yii::app()->params['adminEmail'], Yii::app()->name), array($datosUser['usuMail'], $datosUser['usuUsername']), $asunto, $msgEmail
+                            // array(Yii::app()->params['adminEmail'], Yii::app()->name), array($datosUser['usuMail'], $datosUser['usuNombre']), $asunto, $msgEmail
                     );
 
                     $mensaje = "Se ha generado una solicitad de cambio de contraseña, por favor revise su correo electrónico";
