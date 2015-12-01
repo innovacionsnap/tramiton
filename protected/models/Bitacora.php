@@ -60,7 +60,7 @@ where tar.tar_id = taru.tar_id
 and taru.usu_id = usu.usu_id
 and tar.tar_id = '$tar_id_detalle'
 and taru.taru_categoria = 2";
-        //echo "<br>".$sql;
+        //echo "<br>Participantes:".$sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
@@ -77,7 +77,7 @@ where tar.tar_id = taru.tar_id
 and taru.usu_id = usu.usu_id
 and tar.tar_id = '$tar_id_detalle'
 and taru.taru_categoria = 1";
-        echo "<br>".$sql;
+        //echo "<br>".$sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
@@ -94,7 +94,7 @@ where acc.tar_id = tar.tar_id
 and tar.tar_id = '$tar_id_detalle'
 order by acc_fecharegistro desc
 ";
-        echo "<br>".$sql;
+        //echo "<br>".$sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;

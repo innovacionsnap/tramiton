@@ -20,12 +20,31 @@ class consultasBaseDatos {
         $conexion = Yii::app()->db;
 
         $sqlUpdate = "UPDATE \"AuthItem\" SET " .
-                "name = '$nombre', " .
+                //"name = '$nombre', " .
                 "description = '$descripcion' " .
                 "WHERE name = '$item';";
 
         $resultado = $conexion->createCommand($sqlUpdate);
         $resultado->execute();
+    }
+    
+    /**
+     * función para verificar que un role no este asignado a un usuario
+     */
+    public function verificaRoleUser($role) {
+        $conexion = Yii::app()->db;
+        
+        $sqlUserRole = "select * from \"AuthAssignment\" where itemname = '$role'";
+
+        $resultado = $conexion->createCommand($sqlUserRole);
+        
+        $existe = false;
+        $fila = $resultado->query();
+        
+        foreach ($fila as $registro) {
+            $existe = true;
+        }
+        return $existe;
     }
 
     /**

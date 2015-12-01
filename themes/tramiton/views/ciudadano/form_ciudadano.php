@@ -213,7 +213,7 @@ function problema4() {
 
     $consulta_problema = "select DISTINCT pro_prob_id, prob_nombre from problema
 	where nivp_ip = 1
-	order by pro_prob_id limit 4 offset 8";
+	order by pro_prob_id limit 1 offset 8";
     //echo $consulta_problema;
     $resultado_problema = pg_query($con, $consulta_problema) or die("Error en la Consulta SQL");
     $numReg1 = pg_num_rows($resultado_problema);
@@ -331,7 +331,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 </div>-->
                 <div class="panel-body">
 
-                    <form action="../ciudadano/registrocasointerno" method="POST" data-parsley-validate="true" name="form-wizard">
+                    <form action="<?php echo Yii::app()->BaseUrl?>/ciudadano/registrocasointerno" method="POST" data-parsley-validate="true" name="form-wizard">
                         <div id="wizard">
                             <ol>
                                 <li>

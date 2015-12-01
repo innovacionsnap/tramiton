@@ -37,12 +37,12 @@
             </div>
 
             <?php
-            $usrId = $modelUser->usu_id;
+            $key = $modelUser->usu_codigo_confirmacion;
             $form = $this->beginWidget('CActiveForm', array
                 (
                 'method' => 'POST',
                 //'action' => Yii::app()->createUrl('ciudadano/updatePerfil'),
-                'action' => $this->createUrl("ciudadano/mostrarPerfil?usrId=$usrId"),
+                'action' => $this->createUrl("ciudadano/mostrarPerfil?key=$key"),
                 'id' => 'update-form',
                 'enableClientValidation' => true,
                 'enableAjaxValidation' => true,
@@ -100,7 +100,8 @@
                     <label class="col-sm-2 control-label" for=""><?php echo $form->labelEx($modelPerfil, 'fechaNacimiento'); ?></label>
                     <div class="col-sm-10">
                         <?php 
-                            $fecha = date("Y-m-d");
+                            echo $modelUser->usu_fechanacimiento;
+                            /*$fecha = date("Y-m-d");
                             $this->widget('zii.widgets.jui.CJuiDatePicker', array(
                                     'options' => array(
                                             'showAnim' => 'fold',
@@ -124,7 +125,7 @@
                                             'maxDate' => '-5Y',
                                     ),
                                     'htmlOptions'=>array('class' => 'form-control w-a input-xs', 'value' => $modelUser->usu_fechanacimiento)
-                            ));
+                            ));*/
                         ?>
                         <?php echo $form->error($modelPerfil, 'fechaNacimiento'); ?>
                     </div>
@@ -139,18 +140,23 @@
                     <label class="col-sm-2 control-label" for=""><?php echo $form->labelEx($modelPerfil, 'genero'); ?></label>
                     <div class="col-sm-10">
                         <?php
-                        $swGenero = false;
+                        echo $modelUser->usu_genero;
+                        /*$swGenero = false;
                         if($modelUser->usu_genero === 'MASCULINO'){
                             $swGenero = true;
-                        }
+                        }*/
                         ?>
-                        <?php echo $form->dropDownList($modelPerfil,'genero', array('MASCULINO'=>'MASCULINO','FEMENINO'=>'FEMENINO'), array('class' => 'form-control input-inline input-xs', 'options' => array($swGenero?'MASCULINO':'FEMENINO' => array('selected' => true)))); ?>
+                        <?php //echo $form->dropDownList($modelPerfil,'genero', array('MASCULINO'=>'MASCULINO','FEMENINO'=>'FEMENINO'), array('class' => 'form-control input-inline input-xs', 'options' => array($swGenero?'MASCULINO':'FEMENINO' => array('selected' => true)))); ?>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-2">
                         <?php echo CHtml::submitButton('Guardar', array('class' => 'btn btn-primary btn-sm')); ?>&nbsp;&nbsp;
-                        <?php echo CHtml::Button('Cancelar', array('class' => 'btn btn-danger btn-sm')); ?>
+                        <?php //echo CHtml::Button('Cancelar', array('class' => 'btn btn-danger btn-sm')); ?>
+                        <?php echo CHtml::link('<button type="button" class="btn btn-danger btn-sm"> Cancelar</button>', array('dashboard/index'), array('title' => 'Cancelar')); ?>
+                        
+                        
+                        
                     </div>
                 </div>
                 

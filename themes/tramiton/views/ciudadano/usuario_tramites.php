@@ -6,14 +6,14 @@
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li><a href="javascript:;">Home<?php //echo $this->_datosUser->usu_id ?></a></li>
-				<li class="active">Tramites <?php // foreach ($datosUsuarioTramite as $dato){
+				<li><a href="../dashboard/index">Home</a></li>
+				<li class="active">Mis trámites <?php // foreach ($datosUsuarioTramite as $dato){
 					//echo  $dato["ins_nombre"]."<br>";
 					//} ?></li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Tramites <small> de la institucion</small></h1>
+			<h1 class="page-header">Trámites <small> de la institucion</small></h1>
 
 			<!-- end page-header -->
 			
@@ -39,7 +39,7 @@
                                     <thead>
                                         <tr>
                                             <th>N°</th>
-                                            <th>Tramite</th>
+                                            <th>Trámite</th>
                                             <th>Experiencia</th>
                                             <th>Acciones</th>
                                         </tr>

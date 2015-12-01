@@ -50,12 +50,13 @@ class CiudadanoController extends Controller {
      * Declares class-based actions.
      */
     public function actionIndex() {
-
+        
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        if (isset($_GET['emp'])) {
-            $empresa = $_GET['emp'];
-        } else {
+        if (empty($_GET)) {
             $empresa = 0;
+        } else {
+            Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
+            $empresa = $_GET['emp'];
         }
         //creo una instancia del modelo Dashboard
         $model = new Dashboard();
@@ -112,9 +113,18 @@ class CiudadanoController extends Controller {
         $this->renderPartial('viewTramite_Usuario_Comentario', compact('datosTramite_Solucion_Comentario'));
     }
 
-    public function actionMostrarPerfil($usrId) {
-        $modelUser = Usuario::model()->findByPk($usrId);
+    public function actionMostrarPerfil($key) {
+        
+        //$modelUser = Usuario::model()->findByPk($usrId);
+        $modelUser = Usuario::model()->findByAttributes(array('usu_codigo_confirmacion' => $key));
         $modelPerfil = new PerfilUsuario;
+        $modelMensaje = new MensajesAplicacion;
+        
+        //echo "resultado busqueda por codigo encriptado";
+        //var_dump($modelUser);
+        
+        //echo "obtiene error: " . utf8_decode($modelMensaje->getMensaje(102));
+        //Yii::app()->end();
 
         $this->_datosUser = $modelUser;
 
@@ -131,7 +141,7 @@ class CiudadanoController extends Controller {
                 //$this->redirect($this->createUrl('ciudadano/dashboard'));
             } else {
                 $modelUpdateperfil = new consultasBaseDatos;
-                $modelUpdateperfil->updatePerfilUsuario($usrId, $modelPerfil);
+                $modelUpdateperfil->updatePerfilUsuario($modelUser->usu_id, $modelPerfil);
 
                 $this->layout = 'main-admin_form_caso';
                 $this->_datosUser = $modelUser;
@@ -266,7 +276,7 @@ class CiudadanoController extends Controller {
 
             $propuesta_solucion = $_POST['propuesta_solucion'];
             $id_usuario = $_POST['id_usuario'];
-            $problematica_otro = $_POST['problematica_otro'];
+            //$problematica_otro = $_POST['problematica_otro'];
             $url = $_POST['url'];
 
             $insertar_tramite = $_POST['insertar_tramite'];
@@ -281,15 +291,15 @@ class CiudadanoController extends Controller {
                 $model_dtramite->par_id = 1500;
                 $model_dtramite->usu_id = $id_usuario;
                 $model_dtramite->trai_id = $id_tramite;
-                $model_dtramite->datt_unidadprestadora = '$unidad_prestadora';
-                $model_dtramite->datt_experiencia = '$experiencia';
+                $model_dtramite->datt_unidadprestadora = $unidad_prestadora;
+                $model_dtramite->datt_experiencia = $experiencia;
                 $model_dtramite->datt_fechainicio = $hoy;
                 $model_dtramite->datt_fechafin = $hoy;
                 $model_dtramite->datt_fecharegistro = $hoy;
                 $model_dtramite->datt_ipingreso = '0.0.0.0';
                 $model_dtramite->datt_edicion = '2015';
                 $model_dtramite->datt_codigoconfirmacion = 'N/A';
-                $model_dtramite->datt_otronombretramite = '$otro_tramite';
+                $model_dtramite->datt_otronombretramite = $otro_tramite;
                 $model_dtramite->datt_calificado = 0;
                 $model_dtramite->datt_descripcionbreve = 'prueba decripcion';
                 $model_dtramite->datt_estado = 1;
@@ -319,7 +329,7 @@ class CiudadanoController extends Controller {
                 $model_solucion->save();
 
                 //Problemática
-                
+                /*
                 if (strlen($_POST['problematica_otro'])>0) {
                     $model_problema = new ProblemaTramite();
                     $model_problema->prob_id = 41;
@@ -328,6 +338,7 @@ class CiudadanoController extends Controller {
                     $model_problema->prot_nombreotroproblema = $problematica_otro;
                     $model_problema->save();
                 }
+                */
                 if (isset($_POST['problematica'])) {
                     $optionArray = $_POST['problematica'];
                     for ($i = 0; $i < count($optionArray); $i++) {
