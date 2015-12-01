@@ -23,6 +23,7 @@ $baseUrl = Yii::app()->baseUrl;
             $urlShare = Yii::app()->createAbsoluteUrl('solucion/index',array('sol' => $datoSolucion['sol_id']));
             ?>
             <div class="compartir">
+                <span title="Compartir"><i class="fa fa-share-alt"></i></span>&nbsp;&nbsp;
                 <a href="http://www.facebook.com/sharer.php?u=<?php echo urlencode($urlShare); ?>" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
                 <a href="http://twitter.com/share?url=<?php echo urlencode($urlShare); ?>" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
                 <a href="https://plus.google.com/share?url=<?php echo urlencode($urlShare); ?>" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
