@@ -45,7 +45,8 @@ class DashboardController extends Controller {
     /**
      * Declares class-based actions.
      */
-    public function actionIndex($param = false) {
+    //public function actionIndex($param = false) {
+    public function actionIndex() {
         //echo "index dashboard";
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //var_dump($modelUser);

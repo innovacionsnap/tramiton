@@ -48,6 +48,7 @@
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/apps-admin.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/view-elements.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/admin-form-caso.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/form-ciudadano.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 
 

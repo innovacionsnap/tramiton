@@ -45,6 +45,26 @@
 
         <!-- ================== END BASE JS ================== -->
 
+        <script type="text/javascript">
+            $(document).ready(function () {
+                /* COMBOBOX PROVINCIAS  */
+                $("#id_provincia").change(function (event)
+                {
+                    var idpadre = $(this).find(':selected').val();
+                    $("#pidhijo").html("<img src='<?php echo $baseUrl; ?>/views/ciudadano/loading.gif' />");
+                    $("#pidhijo").load('<?php echo $baseUrl; ?>/views/ciudadano/combobox.php?buscar=hijos&id_provincia=' + idpadre);
+                });
+
+                /* COMBOBOX INTITUCION  */
+                $("#id_institucion").change(function (event)
+                {
+                    var id_institucion = $(this).find(':selected').val();
+                    $("#pidhijo2").html("<img src='<?php echo $baseUrl; ?>/views/ciudadano/loading.gif' />");
+                    $("#pidhijo2").load('<?php echo $baseUrl; ?>/views/ciudadano/combobox2.php?buscar_institucion=institucion&id_institucion=' + id_institucion);
+                });
+
+            });
+        </script>
         <!-- ================== BEGIN BASE COMBOBOX JS ================== -->
 
         <?php

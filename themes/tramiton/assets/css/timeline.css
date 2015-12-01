@@ -4,12 +4,13 @@
     margin-bottom: 4px;
     padding: 10px; 
     /*display:inline-block; */
-    width:192px;
+    width:215px;
     max-width:200px; 
     height: 280px;
     border: 1px solid #B1B9C0; 
     max-height: 280px;
     background: #fff;
+    box-shadow: 7px 7px 5px rgb(136, 136, 136);
 }
 
 .usuario img{
