@@ -26,7 +26,7 @@ class BitacoraController extends Controller {
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('index', 'actividad','viewActividad','participantes','actividad_detalle'),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano'),
+                'roles' => array('super_admin', 'ciudadano','bitacoraaq'),
             ),
             array('deny', // deny all users
                 #'roles' => array('*'),
@@ -45,7 +45,7 @@ class BitacoraController extends Controller {
         //$datosRankingTramites = $model->getRankingTramite();
         //$datosPublicacionesTramites = $model->getPublicacionesTramites();
         $datosTarea = $model->getTarea();
-        $this->layout = 'main-admin_form_caso';
+        $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
         $this->render('index',compact('datosTarea'));
         //$this->render('formulario');
@@ -78,10 +78,11 @@ class BitacoraController extends Controller {
         $datosTarea_Participantes = $model->getTarea_Participantes();
         $datosTarea_Generador = $model->getTarea_Generador();        
         $datosActividad = $model->getActividad();
-       // $this->layout = 'main-admin_form_caso';
-        $this->layout = 'main-admin_form';
         $this->_datosUser = $modelUser;
-        $this->renderPartial('viewActividad',compact('datosTarea_Actividad','datosTarea_Participantes', 'datosActividad','datosTarea_Generador'),false,true);
+        $this->layout = 'main-admin_form_caso';
+        
+        $this->_datosUser = $modelUser;
+        $this->render('viewActividad',compact('datosTarea_Actividad','datosTarea_Participantes', 'datosActividad','datosTarea_Generador'),false,true);
       
     }
 

@@ -22,13 +22,13 @@
         <div id="content" class="content">
             <!-- begin breadcrumb -->
             <ol class="breadcrumb pull-right">
-                <li><a href="javascript:;">Home</a></li>
-                <li><a href="javascript:;">Extra</a></li>
-                <li class="active">Profile Page</li>
+                <li><a href="../dashboard/index">Home</a></li>
+                <li class= "active"><a href="javascript:history.go(-1)">Regresar</a></li>
+                
             </ol>
             <!-- end breadcrumb -->
             <!-- begin page-header -->
-            <h1 class="page-header">Detalle tramite <small></small></h1>
+            <h1 class="page-header">Detalle trámite <small></small></h1>
             <!-- end page-header -->
             <!-- begin profile-container -->
             <div class="profile-container">
@@ -53,7 +53,7 @@
                                     </thead>
                                     <tbody>
                                         <tr class="highlight">
-                                            <td class="field">Tramite</td>
+                                            <td class="field">Trámite</td>
                                             <td><?php echo $dato_tramite_detalle["tra_nombre"] ?></td>
                                         </tr>
                                         <tr class="divider">
