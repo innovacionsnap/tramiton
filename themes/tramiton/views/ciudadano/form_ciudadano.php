@@ -332,7 +332,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 </div>-->
                 <div class="panel-body">
 
-                    <form action="../ciudadano/registrocasointerno" method="POST" data-parsley-validate="true" name="form-wizard">
+                    <form action="<?php echo Yii::app()->BaseUrl?>/ciudadano/registrocasointerno" method="POST" data-parsley-validate="true" name="form-wizard">
                         <div id="wizard">
                             <ol>
                                 <li>

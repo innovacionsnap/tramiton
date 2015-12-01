@@ -42,9 +42,10 @@
                                     <tr class="odd gradeX">
                                         <td><?php echo $empresa['emp_razon']; ?></td>
                                         <td><?php
-                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-edit (alias)"></i> Editar</button>', array('empresa/ingresarempresa', 'emp' => $empresa['emp_id']), array('title' => 'Editar'));
+                                            $id=Empresa::model()->codificaGet('emp='.$empresa['emp_id']);
+                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-edit (alias)"></i> Editar</button>', array('empresa/ingresarempresa/?'.$id), array('title' => 'Editar'));
                                             echo "&nbsp;&nbsp;";
-                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-trash-o"></i> Eliminar</button>', array('admin/viewRole', 'empresa' => "empresa", 'del' => TRUE), array('title' => 'Eliminar'));
+                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-trash-o"></i>Registrar caso</button>', array('ciudadano/index/?'.$id), array('title' => 'Registrar caso'));
                                             ?>
                                         </td>
                                     </tr>

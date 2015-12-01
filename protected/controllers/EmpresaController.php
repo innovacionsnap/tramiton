@@ -54,6 +54,7 @@ class EmpresaController extends Controller {
 // uncomment the following code to enable ajax-based validation
         $id_usuario = Yii::app()->user->id;
         $modelUser = Usuario::model()->findByPk($id_usuario);
+        Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]); 
         if (isset($_GET['emp'])) {
             $id_empresa = $_GET['emp'];
             $model = Empresa::model()->findByPk($id_empresa);
@@ -68,7 +69,7 @@ class EmpresaController extends Controller {
     public function actionGuardarEmpresa() {
         $empresa = array();
         $empresa = $_POST['Empresa'];
-        
+
         if ($empresa['emp_id'] == ''or $empresa['emp_id'] == NULL) {
             //nuevo registro
             $model = new Empresa();
@@ -86,21 +87,27 @@ class EmpresaController extends Controller {
                 $this->redirect($this->createUrl('empresa/empresa'));
             }
         }
-        
     }
-    
-    public function actionVerificaRuc($ruc){
-        $model=  Empresa::model()->findAllByAttributes(array('emp_ruc'=>$ruc));
-        $empresas=count($model);
-        if ($empresas>0){
-            echo "empresa ya existe";
-            return 1;
-        }else{
-            echo "empresa no existe";
-            return 0;
+
+    public function actionvalidaRuc() {
+        $ruc = $_POST['ruc'];
+        $empresa = Empresa::model()->findByAttributes(array('emp_ruc' => $ruc));
+        $nro_empresas = count($empresa);
+        if ($nro_empresas == 0) {
+            //validación con SRI
+            $model = new Empresa();
+            $token = $model->obtieneToken();
+            $datos = $model->consultaRucSri($ruc, $token);
+            $emp = array();
+            $emp['emp_razon'] = $datos->emp_razon;
+            $emp['emp_direccion'] = $datos->emp_direccion;
+            $emp['emp_telefono1'] = substr($datos->emp_telefono1, 1, 10);
+            $emp['emp_fax'] = $datos->emp_fax;
+            //enviamos a la vista que solicitó con ajax 
+            print_r(json_encode($emp));
+        } else {
+            echo $nro_empresas;
         }
-        
-                 
     }
 
 }

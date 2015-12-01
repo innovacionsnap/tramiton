@@ -50,7 +50,7 @@ class CiudadanoController extends Controller {
      * Declares class-based actions.
      */
     public function actionIndex() {
-
+        Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         if (isset($_GET['emp'])) {
             $empresa = $_GET['emp'];
