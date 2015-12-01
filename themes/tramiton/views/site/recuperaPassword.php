@@ -14,7 +14,7 @@ EOD;
     <!-- begin news-feed -->
     <div class="news-feed">
         <div class="news-image">
-            <img src="<?php echo Yii::app()->theme->baseUrl;?>/assets/img/login-bg/bg-7.jpg" alt="" />
+            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/login-bg/bg-9-tramiton.jpg" alt="" />
         </div>
         <div class="news-caption">
             <h4 class="caption-title">Tramiton.to | Bienvenido...</h4>
@@ -90,7 +90,7 @@ EOD;
             <?php endif; ?>
             
             <div class="register-buttons">
-                <?php echo CHtml::submitButton('Recuperar Contraseña', array('class' => 'btn btn-primary btn-block btn-lg')); ?>
+                <?php echo CHtml::submitButton('Recuperar Contraseña', array('class' => 'btn btn-block btn-md btn-blue-tramiton')); ?>
             </div>
 
             <?php $this->endWidget(); ?>
