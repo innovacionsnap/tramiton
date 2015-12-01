@@ -50,12 +50,13 @@ class CiudadanoController extends Controller {
      * Declares class-based actions.
      */
     public function actionIndex() {
-        Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
+        
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        if (isset($_GET['emp'])) {
-            $empresa = $_GET['emp'];
-        } else {
+        if (empty($_GET)) {
             $empresa = 0;
+        } else {
+            Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
+            $empresa = $_GET['emp'];
         }
         //creo una instancia del modelo Dashboard
         $model = new Dashboard();

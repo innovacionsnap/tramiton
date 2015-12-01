@@ -54,12 +54,14 @@ class EmpresaController extends Controller {
 // uncomment the following code to enable ajax-based validation
         $id_usuario = Yii::app()->user->id;
         $modelUser = Usuario::model()->findByPk($id_usuario);
-        Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]); 
-        if (isset($_GET['emp'])) {
+        
+        if (empty($_GET)) {
+            $model = new Empresa();
+        } else {
+            Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
             $id_empresa = $_GET['emp'];
             $model = Empresa::model()->findByPk($id_empresa);
-        } else {
-            $model = new Empresa();
+            
         }
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
