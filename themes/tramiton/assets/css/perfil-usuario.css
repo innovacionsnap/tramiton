@@ -1,0 +1,18 @@
+.errorMessage, .error{
+    text-align: left;
+}
+.row{
+    padding-bottom: 10px;
+}
+.pace-activity{
+    display: none !important;
+}
+.w-a{
+    width: auto;
+    padding: 0px 7px;
+}
+.icon{
+    position: relative;
+    top: -17px;
+    right: -175px;
+}

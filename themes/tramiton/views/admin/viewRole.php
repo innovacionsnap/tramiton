@@ -29,6 +29,15 @@
                 <div class="panel-body">
                     <div class="col-md-6">
                         <h4>Vista de Rol</h4>
+                        
+                        <?php
+                        if($sw == 0):
+                        ?>
+                        <br>
+                        <h5><?php echo $modelMensajes->getMensaje(104) ?></h5>
+                        <br>
+                        <?php echo CHtml::link('<button type="button" class="btn btn-primary btn-xs m-r-5"> Regresar</button>', array('admin/role'), array('title' => 'Cancelar')); ?>
+                        <?php else: ?>
                         <table class="table">
                             <tbody>
                                 <tr>
@@ -41,20 +50,30 @@
                                 </tr>
                             </tbody>
                         </table>
+                        
                         <hr>
                         <?php 
                         if($rolSelect['nombre'] != 'super_admin'){
-                            if ($rolSelect['elimina']){ 
-                                echo "<h5>¿Está seguro que desea elimnar este ROL?</h5>";
+                            if ($rolSelect['elimina'] == TRUE && $rolSelect['existe'] == FALSE){ 
+                                echo "<h5>" . $modelMensajes->getMensaje(201) . "</h5>";
                                 echo CHtml::link('<button type="button" class="btn btn-primary btn-xs m-r-5"> Eliminar</button>', array('admin/deleteRole', 'role' => $rolSelect['nombre']), array('title' => 'Eliminar'));
                                 echo "&nbsp;&nbsp;";
                                 echo CHtml::link('<button type="button" class="btn btn-danger btn-xs m-r-5"> Cancelar</button>', array('admin/role'), array('title' => 'Cancelar'));
                             }
+                            else if($rolSelect['elimina'] == TRUE && $rolSelect['existe'] == TRUE){
+                                echo "<h5>" . $modelMensajes->getMensaje(103) . "</h5>";
+                                echo CHtml::link('<button type="button" class="btn btn-primary btn-xs m-r-5"> Regresar</button>', array('admin/role'), array('title' => 'Cancelar'));
+                            }
+                            else{
+                                echo CHtml::link('<button type="button" class="btn btn-primary btn-xs m-r-5"> Regresar</button>', array('admin/role'), array('title' => 'Cancelar'));
+                            }
                         }
                         else{
                             echo "<h5>No puede eliminar el ROL de Super Administrador</h5>";
+                            echo CHtml::link('<button type="button" class="btn btn-primary btn-xs m-r-5"> Regresar</button>', array('admin/role'), array('title' => 'Cancelar'));
                         }
                         ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

@@ -40,19 +40,20 @@ $usu_id = $this->_datosUser->usu_id;
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li><a href="javascript:;">Home</a></li>
-				<li class="active">Tramites</li>
+                <li><a href="index">Mi institución</a></li>
+				<li class="active">Acciones correctivas</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Tramites <small> de la institucion</small></h1>
+			<h1 class="page-header">Tramites <small> de la institucion<br>Acciones correctivas</small></h1>
             <?php
-
-              foreach ($datoAccioneCorrectiva as $datoAccioneCorrectivaDetalle){
-                $tra_id = $datoAccioneCorrectivaDetalle["tra_id"];
-              } 
+            //echo $_GET["tra_id"];
+             //foreach ($datoAccioneCorrectiva as $datoAccioneCorrectivaDetalle){
+             //  $tra_id = $datoAccioneCorrectivaDetalle["tra_id"];
+             // } 
 
              ?>
-            <div class="m-b"><a class="btn btn-success p-l-40 p-r-40 btn-sm actividad-new" href="<?php echo $baseUrl ?>/tramiteInstitucion/accion_correctiva?tra_id=<?php echo $tra_id ?>"> + Añadir </a> </div>
+            <div class="m-b"><a class="btn btn-success p-l-40 p-r-40 btn-sm actividad-new" href="<?php echo $baseUrl ?>/tramiteInstitucion/accion_correctiva?tra_id=<?php echo $_GET["tra_id"] ?>"> + Añadir </a> </div>
 
 			<!-- end page-header -->
 			
@@ -92,9 +93,14 @@ $usu_id = $this->_datosUser->usu_id;
                                             foreach ($datoAccioneCorrectiva as $datoAccioneCorrectivaDetalle){
                                            ?>
                                             <tr class="odd gradeA">
+
                                               
                                                 <td>
-                                               <?php  echo $datoAccioneCorrectivaDetalle["accc_id"] ?>
+                                               <?php  
+                                                 if( $datoAccioneCorrectivaDetalle["accc_id"]!=''){
+                                                    echo $datoAccioneCorrectivaDetalle["accc_id"];
+                                                 }
+                                                ?>
                                                 </td>
                                                 <td>
                                                <?php  echo $datoAccioneCorrectivaDetalle["accc_nombre"] ?>

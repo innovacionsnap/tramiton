@@ -33,6 +33,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
             </div>
 
             <div id="row-arrows" class="row">
+            </div>
+            <div id="row-triangulos" class="row">
                 <div id="col-triangulo-ciudadano" class="col-xs-4">
                     <img class="center-block" src="<?php echo $baseUrl; ?>/assets/img/triangulo_ciudadano.png" alt="arrow">
                 </div>
@@ -329,7 +331,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
             <div id = "faq-4" class = "panel-collapse collapse">
                 <div class = "panel-body">
                     <p>
-                        Tramitón fue lanzado a la ciudadanía el 21 de junio de 2014, bajo la figura de Concurso Nacional con convocatoria abierta hasta el 31 de agosto de 2104, con la motivación de entregar premios de Tren Crucero a los ciudadanos con las mejores propuestas de solución para la mejora de trámites de la gestión pública.
+                        Tramitón fue lanzado a la ciudadanía el 21 de junio de 2014, bajo la figura de Concurso Nacional con convocatoria abierta hasta el 31 de agosto de 2014, con la motivación de entregar premios de Tren Crucero a los ciudadanos con las mejores propuestas de solución para la mejora de trámites de la gestión pública.
                     </p>
                 </div>
             </div>
@@ -361,7 +363,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
             <div id = "faq-6" class = "panel-collapse collapse">
                 <div class = "panel-body">
                     <p>
-                        El Tramitón es su primer convocatoria lo hizo bajo figura de un concurso, sin embargo, una vez concluida su la misma, continua abierta la plataforma para el acceso a la ciudadanía, con el fin de continuar con la interacción con los usuarios ya que genera información importante para el seguimiento con respecto a los planes de acción para el mejoramiento de los trámites y posterior análisis de datos y planteamiento de propuestas para la innovación de los servicios.
+                        El Tramitón es su primer convocatoria lo hizo bajo figura de un concurso, sin embargo, una vez concluida la misma, continua abierta la plataforma para el acceso a la ciudadanía, con el fin de continuar con la interacción con los usuarios ya que genera información importante para el seguimiento con respecto a los planes de acción para el mejoramiento de los trámites y posterior análisis de datos y planteamiento de propuestas para la innovación de los servicios.
                     </p>
                 </div>
             </div>
@@ -380,14 +382,14 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         Los ciudadanos pueden ingresar a la plataforma y describir un caso en el uso de un servicio público, lo califica y propone una solución. El análisis a dicha participación se realiza en función de los componentes del servicio, pertinencia del caso, factibilidad de implementación y coherencia en la descripción del caso y propuesta de la solución. Adicionalmente un equipo técnico se encarga de contactar a las instituciones que han sido mencionadas en el Tramitón para buscar que se atiendan a todos los casos y se desarrollen acciones globales de solución.
                     </p>
                     <p>
-                        En base a la información entregada por los ciudadanos, las instituciones desarrollan planes de mejora con acciones en el corto mediano plazo para mejorar el servicio público. El objetivo es llegar a una estrategia mejoramiento e innovación de los servicios de forma participativa y colaborativa, siempre con el fin de favorecer la calidad y calidez de los servicios público. Las herramientas TIC son el apoyo informático con el cual contamos, así que en todos los casos en los que se requiera y sea posible aplicarlas se buscará hacerlo.
+                        En base a la información entregada por los ciudadanos, las instituciones desarrollan planes de mejora con acciones en el corto mediano plazo para mejorar el servicio público. El objetivo es llegar a una estrategia de mejoramiento e innovación de los servicios de forma participativa y colaborativa, siempre con el fin de favorecer la calidad y calidez de los servicios público. Las herramientas TIC son el apoyo informático con el cual contamos, así que en todos los casos en los que se requiera y sea posible aplicarlas se buscará hacerlo.
                     </p>
                 </div>
             </div>
         </div>
         <!--end panel -->
         <!--begin panel -->
-        <div class = "panel panel-inverse">
+        <!--<div class = "panel panel-inverse">
             <div class = "panel-heading">
                 <h4 class = "panel-title">
                     <a data-toggle = "collapse" href = "#faq-8"><i class = "fa fa-question-circle fa-fw text-success m-r-5"></i>¿Cuáles trámites han logrado ser simplificados?</a>
@@ -414,7 +416,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                     </p>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!--end panel -->
         <!--begin panel -->
         <div class = "panel panel-inverse">

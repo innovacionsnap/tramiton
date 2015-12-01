@@ -6,7 +6,7 @@ $baseUrl = Yii::app()->baseUrl;
     <div class="row">
     <?php $contador = 1; ?>
     <?php foreach ($datosSolucion as $datoSolucion): ?>
-    <div class="col-contenido-solucion col-xs-6 col-sm-4 col-md-3"> 
+    <div class="col-contenido-solucion col-xs-12 col-sm-4 col-md-3"> 
         <div class="contenido-solucion center-block">
             <div class="usuario">
                 <img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/users/' . DashboardController::getImagen($datoSolucion['usu_id'])); ?>" alt=""/>
@@ -19,10 +19,13 @@ $baseUrl = Yii::app()->baseUrl;
                 <span title="Comentarios"><?php echo DashboardController::getNumComentarios($datoSolucion['sol_id']); ?><i class="fa fa-comments-o fa-fw"></i></span>
                 <span title="Vistas"><?php echo DashboardController::getVista($datoSolucion['sol_id']); ?><i class="fa fa-eye fa-fw"></i></span>
             </div>
+            <?php
+            $urlShare = Yii::app()->createAbsoluteUrl('solucion/index',array('sol' => $datoSolucion['sol_id']));
+            ?>
             <div class="compartir">
-                <a href="http://www.facebook.com/sharer.php?u=<?php echo urlencode($baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
-                <a href="http://twitter.com/share?url=<?php echo urlencode($baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
-                <a href="https://plus.google.com/share?url=<?php echo urlencode($baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']); ?>" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
+                <a href="http://www.facebook.com/sharer.php?u=<?php echo urlencode($urlShare); ?>" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
+                <a href="http://twitter.com/share?url=<?php echo urlencode($urlShare); ?>" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
+                <a href="https://plus.google.com/share?url=<?php echo urlencode($urlShare); ?>" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
             </div>
             <hr>
             <div class="cuerpo">

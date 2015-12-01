@@ -119,7 +119,7 @@ order by pro_prob_id limit 4 offset 0";
                                     //echo $prob_nombre_otros;	
                                     //}else {
                                     ?>
-                                    <input type="checkbox" name="problematica[]" value="<?php echo $fila_p2['prob_id'] ?>">&nbsp&nbsp<?php echo $fila_p2['prob_nombre'] ?><br>	
+                                    <input class="problema-checkbox" type="checkbox" name="problematica[]" value="<?php echo $fila_p2['prob_id'] ?>">&nbsp&nbsp<?php echo $fila_p2['prob_nombre'] ?><br>
                                     <?php
                                     //}
                                     ?>
@@ -182,7 +182,7 @@ function problema3() {
                                     //echo $prob_nombre_otros;	
                                     //}else {
                                     ?>
-                                    <input type="checkbox" name="problematica[]" value="<?php echo $fila_p2['prob_id'] ?>">&nbsp&nbsp<?php echo $fila_p2['prob_nombre'] ?><br>	
+                                    <input class="problema-checkbox" type="checkbox" name="problematica[]" value="<?php echo $fila_p2['prob_id'] ?>">&nbsp&nbsp<?php echo $fila_p2['prob_nombre'] ?><br>
                                     <?php
                                     //}
                                     ?>
@@ -243,7 +243,7 @@ function problema4() {
                             <p><?php
                                 while ($fila_p2 = pg_fetch_array($resultado_problema_2)) {
                                     ?>											
-                                    <input type="checkbox" name="problematica[]" value="<?php echo $fila_p2['prob_id'] ?>">&nbsp&nbsp<?php echo $fila_p2['prob_nombre'] ?><br>	
+                                    <input class="problema-checkbox" type="checkbox" name="problematica[]" value="<?php echo $fila_p2['prob_id'] ?>">&nbsp&nbsp<?php echo $fila_p2['prob_nombre'] ?><br>
 
                                     <?php
                                 }
