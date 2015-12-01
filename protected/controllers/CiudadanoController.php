@@ -50,12 +50,13 @@ class CiudadanoController extends Controller {
      * Declares class-based actions.
      */
     public function actionIndex() {
-
+        
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        if (isset($_GET['emp'])) {
-            $empresa = $_GET['emp'];
-        } else {
+        if (empty($_GET)) {
             $empresa = 0;
+        } else {
+            Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
+            $empresa = $_GET['emp'];
         }
         //creo una instancia del modelo Dashboard
         $model = new Dashboard();
@@ -290,15 +291,15 @@ class CiudadanoController extends Controller {
                 $model_dtramite->par_id = 1500;
                 $model_dtramite->usu_id = $id_usuario;
                 $model_dtramite->trai_id = $id_tramite;
-                $model_dtramite->datt_unidadprestadora = '$unidad_prestadora';
-                $model_dtramite->datt_experiencia = '$experiencia';
+                $model_dtramite->datt_unidadprestadora = $unidad_prestadora;
+                $model_dtramite->datt_experiencia = $experiencia;
                 $model_dtramite->datt_fechainicio = $hoy;
                 $model_dtramite->datt_fechafin = $hoy;
                 $model_dtramite->datt_fecharegistro = $hoy;
                 $model_dtramite->datt_ipingreso = '0.0.0.0';
                 $model_dtramite->datt_edicion = '2015';
                 $model_dtramite->datt_codigoconfirmacion = 'N/A';
-                $model_dtramite->datt_otronombretramite = '$otro_tramite';
+                $model_dtramite->datt_otronombretramite = $otro_tramite;
                 $model_dtramite->datt_calificado = 0;
                 $model_dtramite->datt_descripcionbreve = 'prueba decripcion';
                 $model_dtramite->datt_estado = 1;

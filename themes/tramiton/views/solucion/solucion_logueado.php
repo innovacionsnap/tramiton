@@ -98,11 +98,14 @@
             <span id="contalike-interno" style="color:#005580; padding-left: 20px;"><?php echo DashboardController::getLike($solucion['sol_id']);
                 ?></span><i class="fa fa-thumbs-o-up fa-fw"></i>
         </div>
+        <?php
+        $urlShare = Yii::app()->createAbsoluteUrl('solucion/index',array('sol' => $solucion['sol_id']));
+        ?>
         <div class="col-sm-5">
             <div style="float:right;">
-                <a href="http://www.facebook.com/sharer.php?u=<?php echo urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $solucion['sol_id']); ?>" target="_blank" style="color: inherit;"><i class="fa fa-adjust fa-facebook"></i></a>
-                <a href="http://twitter.com/share?url=<?php echo urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $solucion['sol_id']); ?>" target="_blank" style="color: inherit;"><i class="fa fa-adjust fa-twitter"></i></a>
-                <a href="https://plus.google.com/share?url=<?php echo urlencode('http://172.16.42.217/tramiton/solucion/index?sol=' . $solucion['sol_id']); ?>" target="_blank" style="color: inherit;"><i class="fa fa-adjust fa-google-plus"></i></a>
+                <a href="http://www.facebook.com/sharer.php?u=<?php echo urlencode($urlShare); ?>" target="_blank" style="color: inherit;"><i class="fa fa-adjust fa-facebook"></i></a>
+                <a href="http://twitter.com/share?url=<?php echo urlencode($urlShare); ?>" target="_blank" style="color: inherit;"><i class="fa fa-adjust fa-twitter"></i></a>
+                <a href="https://plus.google.com/share?url=<?php echo urlencode($urlShare); ?>" target="_blank" style="color: inherit;"><i class="fa fa-adjust fa-google-plus"></i></a>
             </div>
         </div>
     </div>
