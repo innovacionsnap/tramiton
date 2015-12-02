@@ -35,7 +35,7 @@ class EmpresaController extends Controller {
         $model = new Empresa();
         $usuario = Usuario::model()->findByPk(Yii::app()->user->id);
         $empresas = Empresa::model()->findAllByAttributes(array('usu_id' => ($usuario['usu_id'])));
-        $this->layout = 'main-admin_form';
+        $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $usuario;
         $this->render('index', array('empresas' => $empresas));
     }
