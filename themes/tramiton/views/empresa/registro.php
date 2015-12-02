@@ -1,8 +1,12 @@
+<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+<link href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
+<!-- ================== END PAGE LEVEL STYLE ================== -->
+
 <!-- begin #content -->
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li><a href="javascript:;">Home</a></li>
+        <li><a href="../dashboard/index">Inicio</a></li>
         <li class="active">Mis Empresas</li>
     </ol>
     <!-- end breadcrumb -->
@@ -48,8 +52,9 @@
                                             echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-trash-o"></i>Registrar caso</button>', array('ciudadano/index/?'.$id), array('title' => 'Registrar caso'));
                                             ?>
                                         </td>
-                                    </tr>
+                                    
                                 <?php endforeach; ?>
+                                </tr>
 
                             </tbody>
 
@@ -66,58 +71,44 @@
 </div>
 <!-- end #content -->
 
-
-
-<?php
-/*$this->widget('bootstrap.widgets.TbModal', array(
-    'id' => 'myModal',
-    'header' => 'Modal Heading',
-    'content' => $this->renderPartial('_form_role', array('modelRole' => $modelRole, 'role' => $roles)),
-    'footer' => array(
-        TbHtml::button('Save Changes', array('data-dismiss' => 'modal', 'color' => TbHtml::BUTTON_COLOR_PRIMARY)),
-        TbHtml::button('Close', array('data-dismiss' => 'modal')),
-    ),
-));*/
-?>
-
 <!--  ================================================  -->
 <?php
-$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
-    'id' => 'mydialog',
-    // additional javascript options for the dialog plugin
-    'options' => array(
-        'title' => 'Dialog box 1',
-        'autoOpen' => false,
-    ),
-));
+// $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+//     'id' => 'mydialog',
+//     // additional javascript options for the dialog plugin
+//     'options' => array(
+//         'title' => 'Dialog box 1',
+//         'autoOpen' => false,
+//     ),
+// ));
 
 
 
-$this->endWidget('zii.widgets.jui.CJuiDialog');
+// $this->endWidget('zii.widgets.jui.CJuiDialog');
 ?>
 <!-- ============================================ -->
 
 <?php
 /** Start Widget * */
-$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
-    'id' => 'dialog-animation',
-    'options' => array(
-        'title' => 'Dialog box - Animation',
-        'autoOpen' => false,
-        'show' => array(
-            'effect' => 'blind',
-            'duration' => 1000,
-        ),
-        'hide' => array(
-            'effect' => 'explode',
-            'duration' => 500,
-        ),
-    ),
-));
+// $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+//     'id' => 'dialog-animation',
+//     'options' => array(
+//         'title' => 'Dialog box - Animation',
+//         'autoOpen' => false,
+//         'show' => array(
+//             'effect' => 'blind',
+//             'duration' => 1000,
+//         ),
+//         'hide' => array(
+//             'effect' => 'explode',
+//             'duration' => 500,
+//         ),
+//     ),
+// ));
 
 
 
-$this->endWidget('zii.widgets.jui.CJuiDialog');
+// $this->endWidget('zii.widgets.jui.CJuiDialog');
 
 /** End Widget * */
 
