@@ -75,7 +75,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Unidad Prestadora</label>
+                        <label>Sucursal (Ej. Norte, Sur, etc)</label>
                         <input type="text" id = "unidad_prestadora" name="unidad_prestadora" class="campo-panel2 form-registro " placeholder="Unidad Prestadora" class="form-control" />
                         <div id="unidad_prestadora_error" style="display:none;"></div>
 

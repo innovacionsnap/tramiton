@@ -1,0 +1,11 @@
+.btn-blue-tramiton{
+	background-color: #325972;
+	color: white;
+	font-weight: bold;
+}
+.text-blue-tramiton{
+	color: #325972;
+}
+.btn-blue-tramiton:hover{
+	color: #D9E0E7;
+}

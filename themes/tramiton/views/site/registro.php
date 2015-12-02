@@ -41,11 +41,11 @@
             ?>
             <?php echo $form->labelEx($model, 'cedula', array('class' => 'control-label')); ?>
             <div class="row row-space-10">
-                <div class="col-md-6 m-b-15">
+                <div class="col-md-6 m-b-5">
                     <?php echo $form->textField($model, 'cedula', array('class' => 'form-control', 'placeholder' => 'Cédula')); ?>
                     <?php echo $form->error($model, 'cedula') ?>
                 </div>
-                <div class="col-md-6 m-b-15">
+                <div class="col-md-6 m-b-5">
                     <?php echo $form->textField($model, 'nombre_usuario', array('class' => 'form-control', 'placeholder' => 'Nombre usuario')); ?>
                     <?php //echo $form->error($model, 'nombre_usuario', array('class' => 'errorMessage', 'errorCssClass' => 'parsley-error', 'successCssClass' =>'parsley-success')); ?>
                     <?php echo $form->error($model, 'nombre_usuario'); ?>
@@ -53,7 +53,7 @@
             </div>
 
             <?php echo $form->labelEx($model, 'email', array('class' => 'control-label')); ?>
-            <div class="row m-b-15">
+            <div class="row m-b-5">
                 <div class="col-md-12">
                     <?php echo $form->textField($model, 'email', array('class' => 'form-control', 'placeholder' => 'Correo Electrónico')); ?>
                     <?php echo $form->error($model, 'email'); ?>
@@ -61,7 +61,7 @@
             </div>
 
             <?php echo $form->labelEx($model, 'repetir_email', array('class' => 'control-label')); ?>
-            <div class="row m-b-15">
+            <div class="row m-b-5">
                 <div class="col-md-12">
                     <?php echo $form->textField($model, 'repetir_email', array('class' => 'form-control', 'placeholder' => 'Reingrese Correo Electrónico')); ?>
                     <?php echo $form->error($model, 'repetir_email'); ?>
@@ -69,7 +69,7 @@
             </div>
 
             <?php echo $form->labelEx($model, 'password', array('class' => 'control-label')); ?>
-            <div class="row m-b-15">
+            <div class="row m-b-5">
                 <div class="col-md-12">
                     <?php echo $form->passwordField($model, 'password', array('class' => 'form-control', 'placeholder' => 'Contraseña')); ?>
                     <?php echo $form->error($model, 'password'); ?>
@@ -77,7 +77,7 @@
             </div>
 
             <?php echo $form->labelEx($model, 'repetir_password', array('class' => 'control-label')); ?>
-            <div class="row m-b-15">
+            <div class="row m-b-5">
                 <div class="col-md-12">
                     <?php echo $form->passwordField($model, 'repetir_password', array('class' => 'form-control', 'placeholder' => 'Confirme Contraseña')); ?>
                     <?php echo $form->error($model, 'repetir_password'); ?>
@@ -87,7 +87,7 @@
             <?php if(CCaptcha::checkRequirements()) : ?>
                 <?php echo $form->labelEx($model, 'captcha', array('class' => 'control-label')); ?>
                 <div class="row row-space-10">
-                    <div class="col-md-6 m-b-15">
+                    <div class="col-md-6 m-b-5">
                         <?php 
                             $this->widget("CCaptcha",
                                     array(
@@ -99,7 +99,7 @@
                                     )); 
                         ?>
                     </div>    
-                    <div class="col-md-6 m-b-15">
+                    <div class="col-md-6 m-b-5">
                         <?php echo $form->textField($model, 'captcha', array('class' => 'form-control')); ?>
                         <?php echo $form->error($model, 'captcha'); ?>
                     </div>
@@ -113,15 +113,15 @@
             <?php endif; ?>
             
             <?php echo $form->labelEx($model, 'terminos', array('class' => 'control-label')); ?>
-            <div class="row m-b-15">
+            <div class="row m-b-5">
                 <div class="col-md-12">
                     <?php echo $form->checkBox($model, 'terminos', array('style', 'display:inline')); ?>&nbsp;&nbsp;
-                    Al dar click en aquí, usted acepta nuestros <a href="#">Términos</a> y acepta que ha leido nuestra <a href="#">Política de Datos</a>, incluido el <a href="#">Uso de Cookies
+                    Al dar click en aquí, usted acepta nuestros <a href="#">Términos</a> y acepta que ha leido nuestra <a href="#">Política de Datos</a>, incluido el <a href="#">Uso de Cookies</a>
                         <?php echo $form->error($model, 'terminos'); ?>
                 </div>
             </div>
             <div class="register-buttons">
-                <?php echo CHtml::submitButton('Únete ahora', array('class' => 'btn btn-primary btn-block btn-lg')); ?>
+                <?php echo CHtml::submitButton('Únete ahora', array('class' => 'btn btn-block btn-md btn-blue-tramiton')); ?>
             </div>
 
             <?php $this->endWidget(); ?>
