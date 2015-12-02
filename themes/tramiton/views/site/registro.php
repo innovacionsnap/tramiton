@@ -28,10 +28,10 @@
         
 
         <!-- begin register-header -->
-        <h1 class="register-header" style="padding: 0px 60px 0px;">
+        <h2 class="register-header" style="padding: 0px 60px 0px;">
             Regístrate 
             <!--<small>Crea tu cuenta en Tramiton.to y cuéntanos sobre los trámites mas absurdos.</small>-->
-        </h1>
+        </h2>
         <!-- end register-header -->    
         <!-- begin register-content -->
         <div class="register-content" style="padding-bottom:0px;">

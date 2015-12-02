@@ -85,8 +85,8 @@ $baseUrl = Yii::app()->baseUrl;
     var total = "<?php echo $total; ?>";
     function cargasolucion()
     {
-        limite = limite + 15;
-        if (limite < (total - 15)) {
+        limite = limite + 16;
+        if (limite < (total - 16)) {
             $.ajax({
                 type: "POST",
                 url: "cargatimeline?lim=" + limite,
