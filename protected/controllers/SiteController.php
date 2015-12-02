@@ -121,6 +121,130 @@ class SiteController extends Controller {
         Yii::app()->user->logout();
         $this->redirect(Yii::app()->homeUrl);
     }
+    
+    /**
+     * accion para insertar nuevos datos de formulario
+     */
+    public function actionRegistroCaso() {
+        var_dump($_POST); //Yii::app()->end();
+        $insertar_tramite = $_POST['insertar_tramite'];
+
+        if (isset($insertar_tramite)) {
+            $cedula = $_POST['cedula_ciu'];
+
+            //verifica si ya es usuario de tramitón
+            $verifica_usuario = $this->verificaUsuario($cedula);
+
+            //realiza post de todo el formulario y almacena en variables
+            $id_institucion = $_POST['id_institucion'];
+            $id_provincia = $_POST['id_provincia'];
+            $unidad_prestadora = $_POST['unidad_prestadora'];
+            $idhijo = $_POST['idhijo']; // canton de la provincia seleccionada
+
+            if (isset($_POST['id_tramite2'])) {
+                $id_tramite = $_POST['id_tramite2'];
+            } else {
+                $id_tramite = 4173;
+            }
+            $experiencia = $_POST['experiencia'];
+            $titulo_solucion = $_POST['titulo_solucion'];
+
+            if (isset($_POST['otro_tramite'])) {
+                $otro_tramite = $_POST['otro_tramite'];
+            } else {
+                $otro_tramite = "n/a";
+            }
+
+            $propuesta_solucion = $_POST['propuesta_solucion'];
+            $id_usuario = $_POST['id_usuario'];
+
+            if (isset($_POST['problematica_otro']))
+                $problematica_otro = $_POST['problematica_otro'];
+            else
+                $problematica_otro = '';
+
+            $url = $_POST['url'];
+
+            //echo "Usuario:" . $id_usuario . '<br>';
+
+            $insertar_tramite = $_POST['insertar_tramite'];
+
+            echo "Institucion: " . $id_institucion . "<br>";
+            echo "Provincia: " . $id_provincia . "<br>";
+            echo "canton: " . $idhijo . "<br>";
+            echo "Unidad: " . $unidad_prestadora . "<br>";
+
+            echo "otro canton id: " . $idhijo . "<br>";
+            echo "Tramite: " . $id_tramite . "<br>";
+            echo "Titulo Solucion: " . $titulo_solucion . "<br>";
+            echo "Experiencia: " . $experiencia . "<br>";
+            echo "Propuesta Solucion: " . $propuesta_solucion . "<br>";
+            echo "Otro Problema: " . $problematica_otro . "<br>";
+            echo "otro tramite: " . $otro_tramite . "<br>";
+            //echo "problematica: ".$problematica."<br>";
+            //$hoy = date("Y-m-d");
+
+            echo "<Br>Insertar tramite" . $insertar_tramite;
+
+            $datosRegistro = array(
+                'cedulaCiudadano' => $cedula,
+                'idInstitucion' => $id_institucion,
+                'idTramite' => $id_tramite,
+                'otroTramite' => $otro_tramite,
+                'idCanton' => $idhijo,
+                'experienciaTram' => $experiencia,
+                'tituloSolucion' => $titulo_solucion,
+                'unidadPrestadora' => $unidad_prestadora,
+                'otroProblema' => $problematica_otro,
+                'propuestaSolucion' => $propuesta_solucion
+            );
+
+            $modelTemp = new consultasBaseDatos;
+
+            $lastValue = $modelTemp->insertTemporalRegistro($datosRegistro);
+
+            echo "<br>se inserto el temporal del registro: " . $lastValue . "<br>";
+
+            if (isset($_POST['problematica_otro'])) {
+
+                $datosProblem = array(
+                    'idProblem' => 41,
+                    'idTmpTramite' => $lastValue,
+                    'otroProblema' => $_POST['problematica_otro'],
+                );
+
+                $modelTemp->insertTemporalProblem($datosProblem);
+            }
+
+            if (isset($_POST['problematica'])) {
+                $optionArray = $_POST['problematica'];
+                for ($i = 0; $i < count($optionArray); $i++) {
+                    $datosProblem = array(
+                        'idProblem' => $optionArray[$i],
+                        'idTmpTramite' => $lastValue,
+                        'otroProblema' => '',
+                    );
+                    $modelTemp->insertTemporalProblem($datosProblem);
+                }
+            }
+
+            echo "<br>se insertaron lor problemas tambien<br>";
+
+
+
+
+            Yii::app()->end();
+
+
+            if ($verifica_usuario == 1) {
+                //Debe Loguearse
+            } else {
+                echo "<br><br>no es usuario debe registrarse";
+                Yii::app()->end();
+                //Debe Registrarse
+            }
+        }
+    }
 
     /**
      * accion para el registro de un nuevo usuario         
