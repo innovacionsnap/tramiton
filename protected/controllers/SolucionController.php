@@ -21,25 +21,27 @@ class SolucionController extends Controller {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         Yii::import('application.controllers.DashboardController');
         //$dashboardController = new DashboardController();
-        $id = $_GET['sol'];
-        $solucion = $this->getSolucion($id);
-        $experiencia = DatosTramite::model()->find('datt_id=' . $solucion['datt_id']);
-        $tramite = $model_solucion->getTramite($experiencia['trai_id']);
-        $imagen_usuario = DashboardController::getImagen($solucion['usu_id']);
-        $usuario_solucion = DashboardController::getUsuario($solucion['usu_id']);
-        //$imagen_usuario = $dashboardController->getImagen($solucion['usu_id']);
-        //$usuario_solucion = $dashboardController->getUsuario($solucion['usu_id']);
-        $vistas = $this->procesaVista($id);
-        $comentario = $this->getComentario($id, 'inicio');
-        if (Yii::app()->user->isGuest == 1) {
-            $this->layout = 'main';
-        } else {
-            //$this->layout = 'main-admin';
-            //$this->layout = 'main-admin_form_caso';
-           // $this->_datosUser = $modelUser;
+        if (!empty($_GET)) {
+            Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
+            $id = $_GET['sol'];
+            $solucion = $this->getSolucion($id);
+            $experiencia = DatosTramite::model()->find('datt_id=' . $solucion['datt_id']);
+            $tramite = $model_solucion->getTramite($experiencia['trai_id']);
+            $imagen_usuario = DashboardController::getImagen($solucion['usu_id']);
+            $usuario_solucion = DashboardController::getUsuario($solucion['usu_id']);
+            //$imagen_usuario = $dashboardController->getImagen($solucion['usu_id']);
+            //$usuario_solucion = $dashboardController->getUsuario($solucion['usu_id']);
+            $vistas = $this->procesaVista($id);
+            $comentario = $this->getComentario($id,'inicio');
+            if (Yii::app()->user->isGuest == 1) {
+                $this->layout = 'main';
+            } else{
+               // $this->layout='main-admin';
+               // $this->_datosUser = $modelUser;
+            }
+            $this->render('solucion', array('solucion' => $solucion, 'imagen_usuario' => $imagen_usuario, 'usuario_solucion' => $usuario_solucion, 'comentario' => $comentario, 'vistas' => $vistas, 'experiencia' => $experiencia, 'tramite' => $tramite));
+            
         }
-        $this->render('solucion', array('solucion' => $solucion, 'imagen_usuario' => $imagen_usuario, 'usuario_solucion' => $usuario_solucion, 'comentario' => $comentario, 'vistas' => $vistas, 'experiencia' => $experiencia, 'tramite' => $tramite));
-        //$this->renderPartial('solucion', array('solucion' => $solucion, 'imagen_usuario' => $imagen_usuario, 'usuario_solucion' => $usuario_solucion, 'comentario' => $comentario, 'vistas' => $vistas, 'experiencia' => $experiencia, 'tramite' => $tramite),false,true);
     }
 
     public function actionProcesaComentario() {

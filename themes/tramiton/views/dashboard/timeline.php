@@ -20,7 +20,8 @@ $baseUrl = Yii::app()->baseUrl;
                 <span title="Vistas"><?php echo DashboardController::getVista($datoSolucion['sol_id']); ?><i class="fa fa-eye fa-fw"></i></span>
             </div>
             <?php
-            $urlShare = Yii::app()->createAbsoluteUrl('solucion/index',array('sol' => $datoSolucion['sol_id']));
+            $id=Empresa::model()->codificaGet('sol='.$datoSolucion['sol_id']);
+            $urlShare = Yii::app()->createAbsoluteUrl('solucion/index?'.$id);
             ?>
             <div class="compartir">
                 <span title="Compartir"><i class="fa fa-share-alt"></i></span>&nbsp;&nbsp;
@@ -35,7 +36,7 @@ $baseUrl = Yii::app()->baseUrl;
                     $sol_descripcion = substr($datoSolucion['sol_descripcion'], 0, 150);
                     echo $sol_descripcion;
                     ?>
-                    <a href="../solucion/index?sol=<?php echo $datoSolucion['sol_id'] ?>" class="solucion-new" target="_blank" title="Leer más"> Leer más >></a>
+                    <a href="../solucion/index?<?php echo $id; ?>" class="solucion-new" target="_blank" title="Leer más"> Leer más >></a>
                 </p>
             </div>
             <hr>
