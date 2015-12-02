@@ -27,7 +27,7 @@ if ($_GET['buscar_institucion']=="institucion")
 	
 		$fila=pg_fetch_array($resultado_tramite);
 		echo "<div class='col-md-12'> <div class='form-group block1'>";
-		echo "<label>Tramite</label>";
+		echo "<label>Trámite</label>";
 	
 	
 		if($numReg == 1 and $fila['tra_nombre'] =='Otro...'){

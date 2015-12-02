@@ -23,6 +23,7 @@ function canton($nombre, $valor) {
     include("config.inc.php");
 
     $consulta_canton = "select * from canton";
+    //echo $consulta_canton;
     $resultado_canton = pg_query($con, $consulta_canton) or die("Error en la Consulta SQL");
     $numReg = pg_num_rows($resultado_canton);
 
