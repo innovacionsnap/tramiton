@@ -1,12 +1,14 @@
-<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-<link href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
-<!-- ================== END PAGE LEVEL STYLE ================== -->
-
+<style type="text/css">
+    .table{
+        max-width: 100%;
+    }
+</style>
+    
 <!-- begin #content -->
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li><a href="../dashboard/index">Inicio</a></li>
+        <li><a href="<?php echo Yii::app()->baseUrl?>/dashboard/index">Inicio</a></li>
         <li class="active">Mis Empresas</li>
     </ol>
     <!-- end breadcrumb -->
@@ -49,7 +51,7 @@
                                             $id=Empresa::model()->codificaGet('emp='.$empresa['emp_id']);
                                             echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-edit (alias)"></i> Editar</button>', array('empresa/ingresarempresa/?'.$id), array('title' => 'Editar'));
                                             echo "&nbsp;&nbsp;";
-                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-trash-o"></i>Registrar caso</button>', array('ciudadano/index/?'.$id), array('title' => 'Registrar caso'));
+                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-pencil"></i> Registrar caso</button>', array('ciudadano/index/?'.$id), array('title' => 'Registrar caso'));
                                             ?>
                                         </td>
                                     
