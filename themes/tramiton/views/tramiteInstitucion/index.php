@@ -58,12 +58,14 @@ $usu_id = $this->_datosUser->usu_id;
                                                 </td>
                                                 <td>
                                                     <?php 
+                                                    $id_tramite=Empresa::model()->codificaGet('tra_id='.$dato['tra_id']);
+                                                    $id_usuario=Empresa::model()->codificaGet('usu_id='.$usu_id);
                                                 echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'
-                                            ,array("tramiteInstitucion/viewTramite_Institucion", 'tra_id' => $dato['tra_id'],'usu_id' =>$usu_id), array('title' => 'Mostrar'));
+                                            ,array("tramiteInstitucion/viewTramite_Institucion?".$id_tramite."and".$id_usuario), array('title' => 'Mostrar'));
                                             ?>
                                              <?php 
                                                 echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> AC</button>'
-                                            ,array("tramiteInstitucion/viewTramite_Accion_Correctiva", 'tra_id' => $dato['tra_id']), array('title' => 'Mostrar'));
+                                            ,array("tramiteInstitucion/viewTramite_Accion_Correctiva?".$id_tramite), array('title' => 'Mostrar'));
                                             ?>
                                                 </td>
 

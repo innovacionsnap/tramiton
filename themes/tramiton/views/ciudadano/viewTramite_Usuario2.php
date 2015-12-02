@@ -86,14 +86,17 @@
                                         <tr class="highlight">
                                             <td class="field">Soluciones</td>
                                             <td>
-                                                <?php foreach ($datosTramite_Solucion as $dato_tramite_solucion){ ?>
-                                                    <a href="../solucion/index?sol=<?php echo  $dato_tramite_solucion['sol_id'] ?>" class="solucion"><?php echo $dato_tramite_solucion["sol_titulo"] ?></a>
+                                                <?php
+                                                
+                                                    foreach ($datosTramite_Solucion as $dato_tramite_solucion){ 
+                                                        $id=Empresa::model()->codificaGet('sol='.$dato_tramite_solucion['sol_id']);?>
+                                                    <a href="../solucion/index?<?php echo $id;?>" class="solucion"><?php echo $dato_tramite_solucion["sol_titulo"] ?></a>
                                                     <div class="message">
                                                         <?php echo $dato_tramite_solucion["sol_descripcion"] ?>
                                                     </div>
                                                     <br>
 
-                                                     <a href="../solucion/index?sol=<?php echo  $dato_tramite_solucion['sol_id'] ?>" class="btn btn-info solucion" role="button">Responder</a>
+                                                     <a href="../solucion/index?<?php echo  $id; ?>" class="btn btn-info solucion" role="button">Responder</a>
                                                 <?php } ?>
 
                                             </td>

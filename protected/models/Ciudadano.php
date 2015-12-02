@@ -39,6 +39,7 @@ class Ciudadano extends CActiveRecord {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $id_usuario = $modelUser['usu_id'];
         //$usu_id = $this->_datosUser->usu_id;
+        Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
         $dato_datt_id = $_GET['datt_id'];
         //echo "UNO DE LOS CASOS: ".$dato_datt_id;
 
