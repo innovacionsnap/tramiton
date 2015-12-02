@@ -99,7 +99,8 @@
                 ?></span><i class="fa fa-thumbs-o-up fa-fw"></i>
         </div>
         <?php
-        $urlShare = Yii::app()->createAbsoluteUrl('solucion/index',array('sol' => $solucion['sol_id']));
+        $id=Empresa::model()->codificaGet('sol='.$solucion['sol_id']);
+        $urlShare = Yii::app()->createAbsoluteUrl('solucion/index?'.$id);
         ?>
         <div class="col-sm-5">
             <div style="float:right;">

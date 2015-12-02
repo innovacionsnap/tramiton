@@ -26,8 +26,10 @@
         <h1>Mis Empresas</h1>
         <?php foreach ($empresas as $empresa): ?>
             <div class="empresa">
-                <?php echo $empresa['emp_razon']; ?>
-                <div class="registro"><a href="../ciudadano/index?emp=<?php echo $empresa['emp_id']?>">Registrar caso</a></div>
+                <?php echo $empresa['emp_razon']; 
+                    $id=Empresa::model()->codificaGet('emp='.$empresa['emp_id']);
+                ?>
+                <div class="registro"><a href="../ciudadano/index?<?php echo $id;?>">Registrar caso</a></div>
             </div>
         <?php endforeach; ?>
     </div>

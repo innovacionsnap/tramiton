@@ -255,7 +255,8 @@ class SiteController extends Controller {
         $model = new ValidarCedula;
         $token = $model->obtieneToken();
         $datos = $model->consultaCedulaRegistroCivil($cedula, $token);
-        echo $datos;
+        $nombre=$model->nombre_ciudadano;
+        echo $datos.'?'.$nombre;
     }
 
     /**
