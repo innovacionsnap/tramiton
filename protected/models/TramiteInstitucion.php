@@ -42,6 +42,7 @@ order by total desc";
         //$id_usuario = $modelUser['usu_id'];
         $usu_id = $modelUser->usu_id;
         //$usu_id = $this->_datosUser->usu_id;
+         Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
         $tra_id = $_GET['tra_id'];
 
         $sql = "select datt.datt_id,tra.tra_id, tra.tra_nombre, datt.datt_experiencia,usu.usu_nombreusuario,datt_fecharegistro
@@ -66,6 +67,7 @@ and tra.tra_id = '$tra_id'";
         //$id_usuario = $modelUser['usu_id'];
         $usu_id = $modelUser->usu_id;
         //$usu_id = $this->_datosUser->usu_id;
+         Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
         $tra_id = $_GET['tra_id'];
 
         $sql = "select accc.accc_id, accc.accc_nombre,accc.accc_descripcion, accc.accc_fechaingreso, tra.tra_id

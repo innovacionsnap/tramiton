@@ -340,7 +340,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                 </li>
                                 <li>
                                     Problemática
-                                    <small>Idenficar el problema encontrado en la institución</small>
+                                    <small>Identificar el problema encontrado en la institución</small>
                                 </li>
                                 <li>
                                     Solución
@@ -386,8 +386,8 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 
                                         <div class="col-md-12">
                                             <div class="form-group block1">
-                                                <label>Unidad Prestadora</label>
-                                                <input type="text" id = "unidad_prestadora" onkeyup = "Validate(this)" name="unidad_prestadora" placeholder="Unidad Prestadora" class="form-control" data-parsley-group="wizard-step-1" required />
+                                                <label>Sucursal (Ej. Norte, Sur, etc)</label>
+                                                <input type="text" id = "unidad_prestadora" onkeyup = "Validate(this)" name="unidad_prestadora" placeholder="Sucursal" class="form-control" data-parsley-group="wizard-step-1" required />
 
                                             </div>
                                         </div>
@@ -453,7 +453,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                             <div class="form-group">
                                                 <label>Titulo de la solución</label>
                                                 <div class="controls">
-                                                    <input type="text"  id="titulo_solucion" onkeyup = "Validate(this)" name="titulo_solucion"  data-parsley-range="[20,99]" placeholder="Título de la problemática" class="form-control" data-parsley-group="wizard-step-3" required />
+                                                    <input type="text"  id="titulo_solucion" onkeyup = "Validate(this)" name="titulo_solucion"  data-parsley-range="[20,99]" placeholder="Título de la Solución" class="form-control" data-parsley-group="wizard-step-3" required />
                                                 </div>
                                             </div>
                                         </div>
@@ -463,7 +463,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                             <div class="form-group">
                                                 <label>Detalle de la solución</label>
                                                 <div class="controls">
-                                                    <textarea class="form-control" id="propuesta_solucion" onkeyup = "Validate(this)" name="propuesta_solucion" rows="4" data-parsley-range="[20,200]" placeholder="Solución" data-parsley-group="wizard-step-3" required></textarea>
+                                                    <textarea class="form-control" id="propuesta_solucion" onkeyup = "Validate(this)" name="propuesta_solucion" rows="4" data-parsley-range="[20,200]" placeholder="Detalle de la Solución" data-parsley-group="wizard-step-3" required></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -477,9 +477,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                             <!-- begin wizard step-4 -->
                             <div>
                                 <div class="jumbotron m-b-0 text-center">
-                                    <h1>Gracias por ingresar el tramite</h1>
-                                    <p>... </p>
-                                    <!--  <p><a class="btn btn-success btn-lg" role="button">Guardar y enviar</a></p> -->
+                                    <h1>Gracias por ingresar su caso</h1>
                                     <input type="submit" value="Publicar y Guardar" class="btn btn-success btn-lg"> 
                                     <input type="hidden" name="insertar_tramite" value="1">
                                     <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">

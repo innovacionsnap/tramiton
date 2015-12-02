@@ -48,12 +48,13 @@
                                         <?php foreach ($datosUsuarioTramite as $dato){?>
                                         <tr class="odd gradec">	
 										<?php	
+                                                                                $id=Empresa::model()->codificaGet('datt_id='.$dato['datt_id']);
 										echo  "<td>".$dato["datt_id"]."</td>";
 										echo  "<td>".$dato["ins_nombre"]."</td>";
 										echo  "<td>".$dato["datt_experiencia"]."</td>";
 										echo  "<td>";
 										    echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'
-										    ,array("ciudadano/viewTramite_Usuario2", 'datt_id' => $dato['datt_id']), array('title' => 'Mostrar'));
+										    ,array("ciudadano/viewTramite_Usuario2?".$id), array('title' => 'Mostrar'));
                                         echo "</td>";
                                          ?>
 										
