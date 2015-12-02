@@ -36,15 +36,24 @@
         <!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->    
         <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
+        <link href="<?php echo $baseUrl; ?>/assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
 
         <link type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/timeline.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.css?v=2.1.5" media="screen" />
         <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 
 
 
-        <!-- ================== END BASE JS ================== -->
 
+        <?php
+        $baseUrl = Yii::app()->theme->baseUrl;
+        ?>
+
+
+        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/lib/jquery-1.10.1.min.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.js?v=2.1.5"></script>
+        
         <script type="text/javascript">
             $(document).ready(function () {
                 /* COMBOBOX PROVINCIAS  */
@@ -65,17 +74,6 @@
 
             });
         </script>
-        <!-- ================== BEGIN BASE COMBOBOX JS ================== -->
-
-        <?php
-        $baseUrl = Yii::app()->theme->baseUrl;
-        ?>
-
-
-        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/lib/jquery-1.10.1.min.js"></script>
-        <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.js?v=2.1.5"></script>
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.css?v=2.1.5" media="screen" />
-
 
 
 
