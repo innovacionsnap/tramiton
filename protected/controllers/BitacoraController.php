@@ -26,7 +26,7 @@ class BitacoraController extends Controller {
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('index', 'actividad','viewActividad','participantes','actividad_detalle'),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano','bitacoraaq'),
+                'roles' => array('super_admin', 'ciudadano', 'bitacoraaq'),
             ),
             array('deny', // deny all users
                 #'roles' => array('*'),

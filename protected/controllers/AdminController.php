@@ -65,7 +65,11 @@ class AdminController extends Controller {
      * Accion del modulo de administración que muestra la lista de usuarios
      */
     public function actionIndex() {
-        $usuarios = Usuario::model()->findAll();
+        //$usuarios = Usuario::model()->findAll();
+        $criteria = New CDbCriteria;
+        $criteria->condition='usu_estado <> 100';
+
+        $usuarios = Usuario::model()->findAll($criteria);
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $this->_datosUser = $modelUser;
         $this->layout = 'main-admin';
@@ -116,7 +120,11 @@ class AdminController extends Controller {
     public function actionRolesUsuarios() {
         $modelRole = new RoleForm;
         $model=new Usuario('search');
-        $usuarios = Usuario::model()->findAll();
+        //$usuarios = Usuario::model()->findAll();
+        $criteria = New CDbCriteria;
+        $criteria->condition='usu_estado <> 100';
+
+        $usuarios = Usuario::model()->findAll($criteria);
         
         $dataProvider=new CActiveDataProvider('Usuario');
 		/*$this->render('index',array(

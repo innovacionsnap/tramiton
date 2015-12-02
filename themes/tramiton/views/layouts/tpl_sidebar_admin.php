@@ -51,7 +51,7 @@
                         array('label' => 'Seguimiento', 'url' => array('')),
                     )),
                 */
-                 array('label' => '<i class="fa fa-crosshairs"></i>Seguimiento<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('super_admin', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'), 
+                 array('label' => '<i class="fa fa-crosshairs"></i>Seguimiento<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('bitacoraaq', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'), 
                     'items' => array(
                         array('label' => 'Bitacora', 'url' => array('bitacora/index')),
                         //array('label' => 'Tareas generales', 'url' => array('')),

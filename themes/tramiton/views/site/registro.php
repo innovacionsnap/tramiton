@@ -15,14 +15,26 @@
     <!-- end news-feed -->
     <!-- begin right-content -->
     <div class="right-content">
+        
+        
+        <div class="row">
+            <div class="col-xs-12 col-sm-offset-2 col-sm-4 text-center">
+                <a href="<?php echo Yii::app()->baseUrl; ?>"><h4 class="text-blue-tramiton">Inicio <span class="glyphicon glyphicon-home" aria-hidden="true"></span></h4></a>
+            </div>
+            <div class="col-xs-12 col-sm-6 text-center">
+                <a href="<?php echo Yii::app()->baseUrl; ?>/site/login"><h4 class="text-blue-tramiton">Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></h4></a>
+            </div>
+        </div>
+        
+
         <!-- begin register-header -->
-        <h1 class="register-header" style="padding: 0px 60px 0;">
+        <h2 class="register-header" style="padding: 0px 60px 0px;">
             Regístrate 
             <!--<small>Crea tu cuenta en Tramiton.to y cuéntanos sobre los trámites mas absurdos.</small>-->
-        </h1>
-        <!-- end register-header -->
+        </h2>
+        <!-- end register-header -->    
         <!-- begin register-content -->
-        <div class="register-content">
+        <div class="register-content" style="padding-bottom:0px;">
             <?php
             $form = $this->beginWidget('CActiveForm', array
                 (
