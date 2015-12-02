@@ -8,7 +8,7 @@ class SolucionController extends Controller {
         return array(
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('index', 'RankingSoluciones', 'procesacomentario'),
-                'roles' => array('super_admin', 'ciudadano'),
+                'roles' => array('super_admin', 'ciudadano', 'bitacoraaq', 'institucion'),
             ),
             array('deny', // deny all users
                 'users' => array('*'),

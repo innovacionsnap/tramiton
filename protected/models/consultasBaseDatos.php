@@ -300,9 +300,9 @@ class consultasBaseDatos {
                 . "usu_mail = :email, "
                 . "usu_convencional = :fijo, "
                 . "usu_celular = :celular, "
-                . "usu_direccion = :direccion, "
-                . "usu_fechanacimiento = :fechaNac, "
-                . "usu_genero = :genero "
+                . "usu_direccion = :direccion "
+                //. "usu_fechanacimiento = :fechaNac, "
+                //. "usu_genero = :genero "
                 . "WHERE "
                 . "usu_id = :usrId";
         
@@ -314,8 +314,8 @@ class consultasBaseDatos {
                     ':fijo' => $datosPerfil->telfConvencional,
                     ':celular' => $datosPerfil->telfCelular,
                     ':direccion' => $datosPerfil->direccion,
-                    ':fechaNac' => $datosPerfil->fechaNacimiento,
-                    ':genero' => $datosPerfil->genero,
+                    //':fechaNac' => $datosPerfil->fechaNacimiento,
+                    //':genero' => $datosPerfil->genero,
                     ':usrId' => $usrId,
                 )
             );

@@ -22,7 +22,7 @@ class EmpresaController extends Controller {
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('empresa', 'ingresarEmpresa', 'guardarEmpresa'),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano', 'bitacora'),
+                'roles' => array('super_admin', 'ciudadano', 'bitacoraaq'),
             ),
             array('deny', // deny all users
 #'roles' => array('*'),
