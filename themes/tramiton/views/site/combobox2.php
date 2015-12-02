@@ -27,13 +27,13 @@ if ($_GET['buscar_institucion']=="institucion")
 	
 		$fila=pg_fetch_array($resultado_tramite);
 		echo "<div class='col-md-12'> <div class='form-group block1'>";
-		echo "<label>Tramite</label>";
+		echo "<label>Trámite</label>";
 	
 	
 		if($numReg == 1 and $fila['tra_nombre'] =='Otro...'){
-			 echo "<input type='text' name='otro_tramite' onkeyup = 'Validate(this)' placeholder='Escriba otro tramite' class='form-control' data-parsley-group='wizard-step-1' required />";
+			 echo "<input type='text' name='otro_tramite' onkeyup = 'Validate(this)' placeholder='Escriba otro tramite' class='campo-panel2 form-registro' data-parsley-group='wizard-step-1' required />";
 	    }else{
-	    	echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_tramite' id='id_tramite' required>";
+	    	echo "<select class='campo-panel2 form-registro' data-parsley-group='wizard-step-1' name='id_tramite' id='id_tramite' required>";
 			
 			while ($fila2=pg_fetch_array($resultado_tramite2)){
 				echo "<option value=".$fila2['ins_id'].">".$fila2['tra_nombre']."</option>";

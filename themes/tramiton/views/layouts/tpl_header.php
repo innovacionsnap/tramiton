@@ -42,8 +42,8 @@
         $cs = Yii::app()->getClientScript();
         Yii::app()->clientScript->registerCoreScript('jquery');
     ?>
-    <?php $linkcombo = $baseUrl . '/themes/tramiton/views/ciudadano/combobox.php' ?>
-    <?php $linkcombo2 = $baseUrl . '/themes/tramiton/views/ciudadano/combobox2.php' ?>
+    <?php $linkcombo = $baseUrl . '/themes/tramiton/views/site/combobox.php' ?>
+    <?php  $linkcombo2 = $baseUrl . '/themes/tramiton/views/site/combobox2.php' ?>
 
     <script type="text/javascript">
         $(document).ready(function () {
