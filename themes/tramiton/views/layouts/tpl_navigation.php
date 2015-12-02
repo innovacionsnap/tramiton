@@ -20,6 +20,7 @@
                 <li><a class="menu-central borde-derecha" href="#estadisticas" data-click="scroll-to-target">Estadisticas</a></li>
                 <li><a class="menu-central borde-derecha" href="#noticias" data-click="scroll-to-target">Noticias</a></li>
                 <li><a class="menu-central borde-derecha" href="#preguntas" data-click="scroll-to-target">Preguntas Frecuentes</a></li>
+                <li><a class="menu-central borde-derecha" href="/tramiton/site/registro">Registrar</a></li>
                 <li><a class="no-border" href="/tramiton/./#login-modal" data-toggle="modal" data-description="member area">Ingresar</a></li>
             </ul>
         </div>
