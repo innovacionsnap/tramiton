@@ -11,7 +11,7 @@
         <div class="col-lg-10 col-md-9 col-sm-6 text-right">
             <ol class="breadcrumb">
                 <li><a href="<?php echo $baseUrl.'/dashboard/index';?>">Inicio</a></li>
-                <li class="active">Profile Page</li>
+                <li class="active">Perfil</li>
             </ol>
         </div>
     </div> <!-- end row -->

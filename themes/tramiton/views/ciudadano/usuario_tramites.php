@@ -6,7 +6,7 @@
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li><a href="../dashboard/index">Home</a></li>
+				<li><a href="../dashboard/index">Inicio</a></li>
 				<li class="active">Mis trámites <?php // foreach ($datosUsuarioTramite as $dato){
 					//echo  $dato["ins_nombre"]."<br>";
 					//} ?></li>
@@ -54,7 +54,7 @@
 										echo  "<td>";
 										    echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'
 										    ,array("ciudadano/viewTramite_Usuario2", 'datt_id' => $dato['datt_id']), array('title' => 'Mostrar'));
-                                          
+                                        echo "</td>";
                                          ?>
 										
 										<?php } ?>

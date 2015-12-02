@@ -2,7 +2,8 @@
 <style>
     .empresa{
         margin-top: 3%;
-        margin-right: 16%;
+        margin-right: 2%;
+        margin-left: 2%;
     }
 
     #verifica {

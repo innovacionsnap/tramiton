@@ -54,8 +54,9 @@
                                             echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-pencil"></i> Registrar caso</button>', array('ciudadano/index/?'.$id), array('title' => 'Registrar caso'));
                                             ?>
                                         </td>
-                                    </tr>
+                                    
                                 <?php endforeach; ?>
+                                </tr>
 
                             </tbody>
 
@@ -72,58 +73,44 @@
 </div>
 <!-- end #content -->
 
-
-
-<?php
-/*$this->widget('bootstrap.widgets.TbModal', array(
-    'id' => 'myModal',
-    'header' => 'Modal Heading',
-    'content' => $this->renderPartial('_form_role', array('modelRole' => $modelRole, 'role' => $roles)),
-    'footer' => array(
-        TbHtml::button('Save Changes', array('data-dismiss' => 'modal', 'color' => TbHtml::BUTTON_COLOR_PRIMARY)),
-        TbHtml::button('Close', array('data-dismiss' => 'modal')),
-    ),
-));*/
-?>
-
 <!--  ================================================  -->
 <?php
-$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
-    'id' => 'mydialog',
-    // additional javascript options for the dialog plugin
-    'options' => array(
-        'title' => 'Dialog box 1',
-        'autoOpen' => false,
-    ),
-));
+// $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+//     'id' => 'mydialog',
+//     // additional javascript options for the dialog plugin
+//     'options' => array(
+//         'title' => 'Dialog box 1',
+//         'autoOpen' => false,
+//     ),
+// ));
 
 
 
-$this->endWidget('zii.widgets.jui.CJuiDialog');
+// $this->endWidget('zii.widgets.jui.CJuiDialog');
 ?>
 <!-- ============================================ -->
 
 <?php
 /** Start Widget * */
-$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
-    'id' => 'dialog-animation',
-    'options' => array(
-        'title' => 'Dialog box - Animation',
-        'autoOpen' => false,
-        'show' => array(
-            'effect' => 'blind',
-            'duration' => 1000,
-        ),
-        'hide' => array(
-            'effect' => 'explode',
-            'duration' => 500,
-        ),
-    ),
-));
+// $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+//     'id' => 'dialog-animation',
+//     'options' => array(
+//         'title' => 'Dialog box - Animation',
+//         'autoOpen' => false,
+//         'show' => array(
+//             'effect' => 'blind',
+//             'duration' => 1000,
+//         ),
+//         'hide' => array(
+//             'effect' => 'explode',
+//             'duration' => 500,
+//         ),
+//     ),
+// ));
 
 
 
-$this->endWidget('zii.widgets.jui.CJuiDialog');
+// $this->endWidget('zii.widgets.jui.CJuiDialog');
 
 /** End Widget * */
 

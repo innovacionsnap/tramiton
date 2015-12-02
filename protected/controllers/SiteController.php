@@ -412,7 +412,7 @@ class SiteController extends Controller {
 //Yii::app()->end();
                     $url = Yii::app()->createAbsoluteUrl('site/resetPassword', array('email' => $datosUser['usuMail'], 'codigoVerificacion' => $codigoVerificacion));
 
-                    $msgEmail = $this->renderPartial('_mailReestablecer', array('datosUser' => $datosUser, 'url' => $url),true);
+                    $msgEmail = $this->renderPartial('_mailRestablecer', array('datosUser' => $datosUser, 'url' => $url),true);
 //instanciamos el modelo para enviar el correo
                     $mail = new EnviarCorreo;
 
