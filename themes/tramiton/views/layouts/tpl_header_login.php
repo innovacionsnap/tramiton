@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en">
+<html lang="es">
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
@@ -35,6 +35,7 @@
     <link href="<?php echo $baseUrl; ?>/assets/css/main-registro.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/tramiton2/css/form.css" />
 	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
+	<link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/login.css">
 	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
