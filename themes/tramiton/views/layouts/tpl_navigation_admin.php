@@ -38,7 +38,7 @@
             </li>
             <li class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img src="<?php echo URL_IMG . $this->_datosUser->usu_imagen; ?>" alt="" /> 
+                    <img style="width:30px; height:30px; border-radius: 15px;" src="<?php echo URL_IMG . $this->_datosUser->usu_imagen; ?>" alt="" /> 
                     <span class="hidden-xs"><?php echo $this->_datosUser->usu_nombre ?></span> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu animated fadeInLeft">
