@@ -44,8 +44,11 @@ if (isset($insertar_accion)) {
             1, '$tra_id');
 ";
 					
-		echo "<Br>sqL DE TRAMITES: <BR>".$insertar_accion;
+		//echo "<Br>sqL DE TRAMITES: <BR>".$insertar_accion;
 			$resultado_insert = pg_query($con, $insertar_accion) or die("Error en la Consulta SQL");
+
+			header ("location: http://localhost/tramiton22/tramiteInstitucion/accion_correctiva?tra_id=$tra_id");
+
 			
 	
 }

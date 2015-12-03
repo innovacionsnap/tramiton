@@ -131,9 +131,9 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <!-- begin col-12 -->
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Titulo Solucion</label>
+                        <label>Titulo Solución</label>
                         <div class="controls">
-                            <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Titulo de la solución" class="campo-panel4 form-registro" />
+                            <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Título de la solución" class="campo-panel4 form-registro" />
                             <div id="titulo_solucion_error" style="display:none;"></div>
                         </div>
                     </div>
@@ -142,7 +142,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <!-- begin col-12 -->
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Detalle de solucion</label>
+                        <label>Detalle de solución</label>
                         <div class="controls">
                             <textarea class="campo-panel4 form-registro" id="propuesta_solucion" name="Detalle de la solución" rows="4" placeholder="Propuesta de la solución"></textarea>
                             <div id="propuesta_solucion_error" style="display:none;"></div>

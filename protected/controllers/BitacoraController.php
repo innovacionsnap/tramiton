@@ -63,9 +63,9 @@ class BitacoraController extends Controller {
           
         }
        
-        $this->layout = 'main-admin_form';
+        $this->layout = 'main-admin_form2';
         $this->_datosUser = $modelUser;
-        $this->renderPartial('actividad',compact('model'),false,true);
+        $this->render('actividad',compact('model'),false,true);
         //$this->render('formulario');
     }
      public function actionviewActividad() {
