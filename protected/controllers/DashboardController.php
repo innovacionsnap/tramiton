@@ -33,7 +33,7 @@ class DashboardController extends Controller {
                 'actions' => array('index', 'valor', 'totaltramite', 'timeline', 'ranktramite', 'visitasolucion', 'votossolucion', 'procesacomentario', 'getusuario', 'getcomentario',
                     'validalike', 'getLike', 'procesamegusta', 'procesavista', 'cargatimeline'),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano', 'bitacora', 'institucion'),
+                'roles' => array('super_admin', 'ciudadano', 'bitacoraaq', 'institucion'),
             ),
             array('deny', // deny all users
                 #'roles' => array('*'),
@@ -61,7 +61,7 @@ class DashboardController extends Controller {
         //$modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $limite = 0;
         $total = Solucion::model()->count();
-        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 15, 'offset' => $limite));
+        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 16, 'offset' => $limite));
         //$this->layout = 'main-admin';
         //$this->_datosUser = $modelUser;
         $this->renderPartial('timeline', compact('datosSolucion', 'total'), false, true);
@@ -76,7 +76,7 @@ class DashboardController extends Controller {
         }
         $html = '';
         $html.='<div class="row">';
-        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 15, 'offset' => $limite));
+        $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 16, 'offset' => $limite));
         foreach ($datosSolucion as $datoSolucion):
             $html.='<div class="col-contenido-solucion col-xs-12 col-sm-4 col-md-3">';
             $html.='<div class="contenido-solucion center-block">

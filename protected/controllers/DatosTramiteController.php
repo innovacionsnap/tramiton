@@ -11,7 +11,7 @@ class DatosTramiteController extends Controller {
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('index','ranking'),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano'),
+                'roles' => array('super_admin', 'ciudadano', 'bitacoraaq', 'institucion'),
             ),
             array('deny', // deny all users
                 #'roles' => array('*'),

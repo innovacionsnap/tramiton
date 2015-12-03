@@ -206,16 +206,20 @@ class Empresa extends CActiveRecord {
 
     public function decodificaGet($url) {
         $cad = explode("?", $url); //separo la url desde el ?
-        //var_dump($cad);
-        //Yii::app()->end();
         $url = $cad[1]; //capturo la url desde el separador ? en adelante
-        $url = base64_decode($url); //decodifico la cadena
+        
+        $cad_get = explode("and", $url);
+        if (count($cad_get)==1){
+            $url = base64_decode($cad_get[0]); //decodifico la cadena
+        }else{
+            $url = base64_decode($cad_get[0]).'&'.base64_decode($cad_get[1]); //decodifico la cadena
+        }
         $control = "qwerty"; //defino la llave con la que fue encriptada la cadena,, cambiarla por la que deseamos usar
-        $url = str_replace($control,"", "$url"); //quito la llave de la cadena
+        $url = str_replace($control,"","$url"); //quito la llave de la cadena
         
         //procedo a dejar cada variable en el $_GET
-        $cad_get = explode("&", $url); //separo la url por &
-        
+         //separo la url por &
+        $cad_get=  explode("&", $url);
         foreach ($cad_get as $value) {
             $val_get = explode("=", $value); //asigno los valosres al GET
             $_GET[$val_get[0]] = utf8_decode($val_get[1]);

@@ -38,7 +38,7 @@
             </li>
             <li class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img src="<?php echo URL_IMG . $this->_datosUser->usu_imagen; ?>" alt="" /> 
+                    <img style="width:30px; height:30px; border-radius: 15px;" src="<?php echo URL_IMG . $this->_datosUser->usu_imagen; ?>" alt="" /> 
                     <span class="hidden-xs"><?php echo $this->_datosUser->usu_nombre ?></span> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu animated fadeInLeft">
@@ -46,7 +46,7 @@
                     <li><?php echo CHtml::link('Editar Perfil', array('ciudadano/mostrarPerfil', 'key' => $this->_datosUser->usu_codigo_confirmacion)); ?></li>
                     <!--<li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Notificaciones</a></li>-->
                     <li><a href="../ciudadano/usuario_tramites">Mis Trámites</a></li>
-                    <li><a href="../empresa/empresa">Registrar Empresa</a></li>
+                    <li><a href="../empresa/empresa">Mis Empresas</a></li>
                     <li><a href="../empresa/index">Registrar Caso como Empresa</a></li>
                     <li role="separator" class="divider"></li>
                     <li><?php echo CHtml::link('Salir', array('site/logout')); ?></li>

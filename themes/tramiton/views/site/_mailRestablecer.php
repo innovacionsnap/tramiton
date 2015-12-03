@@ -50,7 +50,7 @@
                           <td style="line-height:40px" height="40"></td>
                         </tr>
                         <tr>
-                          <td align="right"><a href="<?php echo $url; ?>" target="_blank"><img src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/tramiton/images/boton_restablecer.png"></a></td>
+                          <td align="right"><a href="<?php echo $url; ?>" target="_blank"><img style="width:240px" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/tramiton/images/boton_restablecer.png"></a></td>
                         </tr>
                         <tr><td style="line-height:40px" height="40"></td></tr>
                         <tr>

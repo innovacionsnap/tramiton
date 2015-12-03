@@ -6,6 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+        <link rel="icon" href="<?php echo Yii::app()->theme->baseUrl; ?>/images/logos/favicon.ico" type="image/x-icon">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -33,7 +34,7 @@
     <link href="<?php echo $baseUrl; ?>/assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
     
     <link href="<?php echo $baseUrl; ?>/assets/css/main-registro.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/tramiton2/css/form.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="/tramiton2/css/form.css" /> -->
 	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 	<link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/login.css">
 	

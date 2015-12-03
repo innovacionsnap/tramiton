@@ -11,7 +11,7 @@
         <div class="col-lg-10 col-md-9 col-sm-6 text-right">
             <ol class="breadcrumb">
                 <li><a href="<?php echo $baseUrl.'/dashboard/index';?>">Inicio</a></li>
-                <li class="active">Profile Page</li>
+                <li class="active">Perfil</li>
             </ol>
         </div>
     </div> <!-- end row -->
@@ -22,10 +22,10 @@
                 <i class="fa fa-user hide"></i>
             </div>
             <div class="m-b-10">
-                <?php echo CHtml::link('Cambiar Imagen', array("ciudadano/updateImagen", 'usrId' => $modelUser->usu_id), array('class' => 'btn btn-warning btn-block btn-sm', 'title' => 'Cambiar Imagen')); ?>
+                <?php //echo CHtml::link('Cambiar Imagen', array("ciudadano/updateImagen", 'usrId' => $modelUser->usu_id), array('class' => 'btn btn-warning btn-block btn-sm', 'title' => 'Cambiar Imagen')); ?>
             </div>
             <div class="m-b-10">
-                <?php echo CHtml::link('Cambiar Contraseña', array("usuario/cambiaImagen", 'userId' => $modelUser->usu_id), array('class' => 'btn btn-info btn-block btn-sm', 'title' => 'Cambiar Imagen')); ?>
+                <?php //echo CHtml::link('Cambiar Contraseña', array("usuario/cambiaImagen", 'userId' => $modelUser->usu_id), array('class' => 'btn btn-info btn-block btn-sm', 'title' => 'Cambiar Imagen')); ?>
             </div>
         </div> <!-- end col -->
         <div class="col-lg-8 col-lg-offset-1 col-sm-7 col-xs-12">

@@ -9,8 +9,10 @@
             foreach ($noticias as $noticia):
                 ?>
                 <div class="modulo-slider">
-                    <?php echo $noticia['logs_usu_usuario'] . " "; ?> 
-                    <a href="../solucion/index?sol=<?php echo $noticia['logs_id_tabla_destino']; ?>" class="noticia-new" target="_blank"><?php echo substr($noticia['logs_accion'], 0, 80); ?></a>
+                    <?php echo $noticia['logs_usu_usuario'] . " "; 
+                        $id=Empresa::model()->codificaGet('sol='.$noticia['logs_id_tabla_destino']);
+                    ?> 
+                    <a href="../solucion/index?<?php echo $id; ?>" class="noticia-new" target="_blank"><?php echo substr($noticia['logs_accion'], 0, 80); ?></a>
                 </div>
             <?php endforeach; ?>
             <!-- fin modulo-noticias-slide -->

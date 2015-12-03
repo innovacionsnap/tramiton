@@ -22,7 +22,7 @@ class EmpresaController extends Controller {
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('empresa', 'ingresarEmpresa', 'guardarEmpresa'),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano', 'bitacora'),
+                'roles' => array('super_admin', 'ciudadano', 'bitacoraaq'),
             ),
             array('deny', // deny all users
 #'roles' => array('*'),
@@ -35,7 +35,7 @@ class EmpresaController extends Controller {
         $model = new Empresa();
         $usuario = Usuario::model()->findByPk(Yii::app()->user->id);
         $empresas = Empresa::model()->findAllByAttributes(array('usu_id' => ($usuario['usu_id'])));
-        $this->layout = 'main-admin_form';
+        $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $usuario;
         $this->render('index', array('empresas' => $empresas));
     }
