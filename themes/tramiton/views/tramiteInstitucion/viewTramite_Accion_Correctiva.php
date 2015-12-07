@@ -39,7 +39,7 @@ $usu_id = $this->_datosUser->usu_id;
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li><a href="javascript:;">Home</a></li>
+				<li><a href="javascript:;">Inicio</a></li>
                 <li><a href="index">Mi institución</a></li>
 				<li class="active">Acciones correctivas</li>
 			</ol>
@@ -53,7 +53,7 @@ $usu_id = $this->_datosUser->usu_id;
              // } 
 
              ?>
-            <div class="m-b"><a class="btn btn-success p-l-40 p-r-40 btn-sm actividad-new" href="<?php echo $baseUrl ?>/tramiteInstitucion/accion_correctiva?tra_id=<?php echo $_GET["tra_id"] ?>"> + Añadir </a> </div>
+            <div class="m-b-10"><a class="btn btn-success p-l-40 p-r-40 btn-sm actividad-new" href="<?php echo $baseUrl ?>/tramiteInstitucion/accion_correctiva?tra_id=<?php echo $_GET["tra_id"] ?>"> + Añadir </a> </div>
 
 			<!-- end page-header -->
 			

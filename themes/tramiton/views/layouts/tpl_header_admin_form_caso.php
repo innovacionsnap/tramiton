@@ -41,6 +41,7 @@
         <link type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/timeline.css">
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/login.css">
         <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 
 

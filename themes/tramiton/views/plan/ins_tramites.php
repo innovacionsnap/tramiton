@@ -6,7 +6,7 @@
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li><a href="javascript:;">Home</a></li>
+				<li><a href="javascript:;">Inicio</a></li>
 				<li class="active">Tramites</li>
 			</ol>
 			<!-- end breadcrumb -->

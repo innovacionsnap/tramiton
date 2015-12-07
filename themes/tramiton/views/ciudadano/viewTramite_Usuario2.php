@@ -22,7 +22,7 @@
         <div id="content" class="content">
             <!-- begin breadcrumb -->
             <ol class="breadcrumb pull-right">
-                <li><a href="../dashboard/index">Home</a></li>
+                <li><a href="../dashboard/index">Inicio</a></li>
                 <li class= "active"><a href="javascript:history.go(-1)">Regresar</a></li>
                 
             </ol>
@@ -96,7 +96,7 @@
                                                     </div>
                                                     <br>
 
-                                                     <a href="../solucion/index?<?php echo  $id; ?>" class="btn btn-info solucion" role="button">Responder</a>
+                                                     <a href="../solucion/index?<?php echo  $id; ?>" class="btn btn-blue-tramiton solucion" role="button">Responder</a>
                                                 <?php } ?>
 
                                             </td>
