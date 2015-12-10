@@ -24,7 +24,7 @@ class Bitacora extends CActiveRecord {
                 where tar.ins_id = ins.ins_id
         and cat.cat_id = tar.cat_id
                 and tar.tar_estado = 1
-                order by tar.tar_id desc";
+                order by cat.cat_nombre desc";
 //echo $sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         // recibe los datos
@@ -35,6 +35,7 @@ class Bitacora extends CActiveRecord {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $id_usuario = $modelUser['usu_id'];
         $tar_id_detalle = $_GET['tar_id'];
+        //echo $tar_id_detalle;
         
         $sql = "select tar.tar_id, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre, tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro
                 from tarea tar, institucion ins, categoria cat
@@ -43,7 +44,7 @@ class Bitacora extends CActiveRecord {
         and tar.tar_id = '$tar_id_detalle'
                 and tar.tar_estado = 1
                 order by tar.tar_id desc";
-       // echo "<br>".$sql;
+       //echo "<br>".$sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
@@ -54,34 +55,33 @@ class Bitacora extends CActiveRecord {
         //$id_usuario = $modelUser['usu_id'];
         $tar_id_detalle = $_GET['tar_id'];
         
-        $sql = "select taru.taru_categoria,usu.usu_nombre, usu.usu_nombreusuario
-from tarea_usuario taru, tarea tar, usuario usu
-where tar.tar_id = taru.tar_id
-and taru.usu_id = usu.usu_id
-and tar.tar_id = '$tar_id_detalle'
-and taru.taru_categoria = 2";
-        //echo "<br>Participantes:".$sql;
-        $dataReader = $this->connection->createCommand($sql)->query();
-        $rows = $this->connection->createCommand($sql)->queryAll();
-        return $rows;
+        $sql = "select usu.usu_nombre from tarea_usuario taru, tarea tar, usuario usu
+                where tar.tar_id = taru.tar_id 
+                and usu.usu_id = taru.usu_id
+                and tar.tar_id = '$tar_id_detalle'";
+                //echo "<br>Participantes:".$sql;
+                $dataReader = $this->connection->createCommand($sql)->query();
+                $rows = $this->connection->createCommand($sql)->queryAll();
+                return $rows;
     }
 
-    public function getTarea_Generador() {
+    public function getTarea_Creador() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
         $tar_id_detalle = $_GET['tar_id'];
         
-        $sql = "select taru.taru_categoria,usu.usu_nombre, usu.usu_nombreusuario
-from tarea_usuario taru, tarea tar, usuario usu
-where tar.tar_id = taru.tar_id
-and taru.usu_id = usu.usu_id
-and tar.tar_id = '$tar_id_detalle'
-and taru.taru_categoria = 1";
-        //echo "<br>".$sql;
-        $dataReader = $this->connection->createCommand($sql)->query();
-        $rows = $this->connection->createCommand($sql)->queryAll();
-        return $rows;
+        $sql = "select usu.usu_nombre from tarea_usuario taru, tarea tar, usuario usu
+                where tar.tar_id = taru.tar_id 
+                and usu.usu_id = taru.usu_id
+                and tar.tar_id = '$tar_id_detalle'
+                and taru.taru_creador= 1";
+               // echo "<br>Creador:".$sql;
+                $dataReader = $this->connection->createCommand($sql)->query();
+                $rows = $this->connection->createCommand($sql)->queryAll();
+                return $rows;
     }
+
+   
 
     public function getActividad() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);

@@ -61,7 +61,7 @@
                     <h4 class="panel-title">Datos principales</h4>
                 </div>
                 <div class="panel-body">
-                    <a href="../actividad/actividad" class="btn btn-info actividad" role="button">
+                    <a href="actividad" class="btn btn-info actividad" role="button">
                         <li class="fa fa-plus-circle">&nbsp;&nbsp;</li>Nuevo</a>
                     <hr>
                     <div class="table-responsive">

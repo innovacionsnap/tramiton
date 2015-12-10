@@ -13,6 +13,21 @@
        // }
     });
 });
+
+  $(document).ready(function() {
+    $(".actividad").fancybox({
+        'titleShow'         : false,
+        'width'             : '65%',
+        'height'            : '65%',
+        'autoScale'         : false,
+        'transitionIn'      : 'none',
+        'transitionOut'     : 'none',
+        'type'              : 'iframe',
+       // afterClose : function() {
+       //     location.reload();
+       // }
+    });
+});
 </script>   
 
 
@@ -49,9 +64,9 @@
                                                 
                                                     <h4>
                                                 <?php  foreach ($datosTarea_Actividad as $datosTarea_Actividad_detalle){ ?>
-                            <?php echo $datosTarea_Actividad_detalle["tar_nombre"] ?>
+                            <?php                       echo $datosTarea_Actividad_detalle["tar_nombre"] ?>
                                                 </h4>
-                                                <small><strong>Por:</strong> 
+                                                <small><strong>Elaborado por:</strong> 
                                                     <?php 
                                                     foreach ($datosTarea_Generador as $datosTarea_Generador_detalle)
                                                        echo $datosTarea_Generador_detalle["usu_nombre"]."  ";
@@ -84,7 +99,8 @@
                                             foreach ($datosTarea_Participantes as $datosTarea_Participantes_detalle){
                                                 echo $datosTarea_Participantes_detalle["usu_nombre"]." / ";
                                             } 
-                                        ?>
+                                        ?> <a href="participantes?tar_id=<?php echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="solucion" title="Añadir Paricipantes">
+                                            <li class="fa fa-plus-circle"></li></a>
 
                                             </td>
                                         </tr>
@@ -96,6 +112,8 @@
                                             <td class="field"></td>
                                             <td>
                                             <h4>Actividades</h4>
+                                            <a href="actividad" class="btn btn-info actividad" role="button">
+                                                <li class="fa fa-plus-circle">&nbsp;&nbsp;</li>Añadir</a>
                             <table class="table table-hover">
                                 <thead>
 
@@ -104,10 +122,7 @@
                                         <th>Descripción</th>
                                         <th>Estado</th>
                                         <th>Fecha Registro</th>
-                                        <th><?php
-                                            echo CHtml::link('<button type="button" class="fa fa-plus-circle"></i> Mostrar</button>'
-                                            ,array("/bitacora/viewActividad", 'tar_id' =>4), array('title' => 'Mostrar'));
-                                            ?></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -141,6 +156,7 @@
                                       <?php 
                                         } 
                                         ?>
+
                             </table>
                                                   
                                             </td>
