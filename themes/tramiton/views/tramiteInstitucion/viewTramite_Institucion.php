@@ -12,7 +12,7 @@ $usu_id = $this->_datosUser->usu_id;
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Tramites <small> de la institucion<br>Detalle trámite</small></h1>
+			<h1 class="page-header">Casos reportados <small> de la institucion<br>Detalle trámite</small></h1>
 
 			<!-- end page-header -->
 			

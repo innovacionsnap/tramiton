@@ -121,15 +121,18 @@ class SiteController extends Controller {
         Yii::app()->user->logout();
         $this->redirect(Yii::app()->homeUrl);
     }
-    
+
     /**
      * accion para insertar nuevos datos de formulario
      */
     public function actionRegistroCaso() {
-        var_dump($_POST); //Yii::app()->end();
-        $insertar_tramite = $_POST['insertar_tramite'];
+        //var_dump($_POST); //Yii::app()->end();
+        $cedula = $_POST['cedula_ciu'];
+        //echo $cedula;
+        $verifica_usuario = $this->verificaUsuario($cedula);
+        //$insertar_tramite = $_POST['insertar_tramite'];
 
-        if (isset($insertar_tramite)) {
+        /*if (isset($insertar_tramite)) {
             $cedula = $_POST['cedula_ciu'];
 
             //verifica si ya es usuario de tramitón
@@ -229,20 +232,22 @@ class SiteController extends Controller {
             }
 
             echo "<br>se insertaron lor problemas tambien<br>";
+        }*/
 
 
 
 
-            Yii::app()->end();
+        //Yii::app()->end();
 
 
-            if ($verifica_usuario == 1) {
-                //Debe Loguearse
-            } else {
-                echo "<br><br>no es usuario debe registrarse";
-                Yii::app()->end();
-                //Debe Registrarse
-            }
+        if ($verifica_usuario == 1) {
+            echo '<br><br><h4 align="center">Gracias por registrar su caso, para poder publicarlo debe iniciar sesión</h4>
+                    <h5 align="center"><a href="site/login">Iniciar sesión</a></h5>';
+        } else {
+            echo '<br><br><h4>Gracias por registrar su caso, para poder publicarlo debe crear una cuenta.</h4>
+                  <h5 align="center"><a href="site/registro">Crear Cuenta</a></h5>';
+            //Yii::app()->end();
+            //Debe Registrarse
         }
     }
 
@@ -251,15 +256,16 @@ class SiteController extends Controller {
      */
     public static function verificaUsuario($cedula) {
 
-        $total = Usuario::model()->findAllByAttributes(array('usu_cedula' => $cedula))->count();
-        if ($total > 0) {
-            $usuario = Usuario::model()->findAllByAttributes(array('usu_cedula' => $cedula));
-            $estado = $usuario['usu_estado'];
+        $usuario = Usuario::model()->findAllByAttributes(array('usu_cedula' => $cedula));
+        if (count($usuario) > 0) {
+            $estado = $usuario[0]['usu_estado'];
+            $idUsr = $usuario[0]['usu_id'];
+            //echo "estado del usuario: " . $estado;
             if ($estado == 2) {
                 return 1;
             } else {
-                $usuario['usu_estado'] = 2;
-                $usuario->save();
+                $updateEstado = new consultasBaseDatos;
+                $updateEstado->actualizaEstadoAprobado($idUsr);
                 return 1;
             }
         } else {
@@ -375,12 +381,12 @@ class SiteController extends Controller {
      * función que me permite realizar la accion de validación de cedula
      */
     public function actionValidaCedula() {
-        $cedula=$_POST['cedula'];
+        $cedula = $_POST['cedula'];
         $model = new ValidarCedula;
         $token = $model->obtieneToken();
         $datos = $model->consultaCedulaRegistroCivil($cedula, $token);
-        $nombre=$model->nombre_ciudadano;
-        echo $datos.'?'.$nombre;
+        $nombre = $model->nombre_ciudadano;
+        echo $datos . '?' . $nombre;
     }
 
     /**
@@ -536,7 +542,7 @@ class SiteController extends Controller {
 //Yii::app()->end();
                     $url = Yii::app()->createAbsoluteUrl('site/resetPassword', array('email' => $datosUser['usuMail'], 'codigoVerificacion' => $codigoVerificacion));
 
-                    $msgEmail = $this->renderPartial('_mailRestablecer', array('datosUser' => $datosUser, 'url' => $url),true);
+                    $msgEmail = $this->renderPartial('_mailRestablecer', array('datosUser' => $datosUser, 'url' => $url), true);
 //instanciamos el modelo para enviar el correo
                     $mail = new EnviarCorreo;
 

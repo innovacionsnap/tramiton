@@ -34,7 +34,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Cédula de Ciudadanía</label>
-                        <input size="20" type="text" maxlength="10" id = "cedula_ciu" class="campo-panel1 form-registro" placeholder="Ingrese su cédula de ciudadanía" autocomplete="off" <?php echo JS_ONLY_NUMS; ?>/>
+                        <input size="20" type="text" maxlength="10" id = "cedula_ciu" name="cedula_ciu" class="campo-panel1 form-registro" placeholder="Ingrese su cédula de ciudadanía" autocomplete="off" <?php echo JS_ONLY_NUMS; ?>/>
                         <div id="cedula_ciu_error" style="display:none;color:red;"></div>
                         <div id="verifica" style="max-height: 80px;"></div>
                     </div>
@@ -131,9 +131,9 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <!-- begin col-12 -->
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Titulo Solucion</label>
+                        <label>Titulo Solución</label>
                         <div class="controls">
-                            <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Titulo de la solución" class="campo-panel4 form-registro" />
+                            <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Título de la solución" class="campo-panel4 form-registro" />
                             <div id="titulo_solucion_error" style="display:none;"></div>
                         </div>
                     </div>
@@ -142,7 +142,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <!-- begin col-12 -->
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Detalle de solucion</label>
+                        <label>Detalle de solución</label>
                         <div class="controls">
                             <textarea class="campo-panel4 form-registro" id="propuesta_solucion" name="Detalle de la solución" rows="4" placeholder="Propuesta de la solución"></textarea>
                             <div id="propuesta_solucion_error" style="display:none;"></div>
@@ -157,11 +157,40 @@ Yii::app()->clientScript->registerCoreScript('jquery');
         <div id="panel5" class="panel-registro">
 
             <h4 id="gracias"></h4>
-            <input type="submit" value="Publicar y Guardar" class="btn-publicar"> 
+            <h3 align="center" id="msgValidacion"></h3>
+            <!--<input type="submit" value="Publicar y Guardar" class="btn-publicar"> -->
             <input type="hidden" name="insertar_tramite" value="1">
             <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
             <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
-            <div class="row botones_nav"></div>
+            <?php echo CHtml::ajaxSubmitButton(
+                'Guardar', 
+                array('registroCaso'),
+                array(
+                    //'update' => '#ejemploAjax4',
+                    'beforeSend' => "function(){
+                        $('#estados2').removeClass('loadingok');
+                        $('#estados2').addClass('loadingprogreso');
+                    }",
+                    'complete' => "function(){
+                        $('#estados2').removeClass('loadingprogreso');
+                    }",
+                    'success' => "function(data){
+                        jQuery('#gracias').hide();
+                        jQuery('#btnNav').hide();
+                        jQuery('#btnPublicarCaso').hide();
+                        jQuery('#msgValidacion').html(data);
+                        
+                        
+                    }",
+                    'error' => "function(){
+                        $('#estados2').addClass('loadingerror');
+                        $('#msgValidacion').html('ocurrio un error al recuperar datos');
+                    }",
+                ),
+                array('class' => 'btn-publicar', 'id' => 'btnPublicarCaso')
+            ); 
+            ?>            
+            <div id="btnNav" class="row botones_nav"></div>
         </div>
 
     </div>

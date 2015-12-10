@@ -11,7 +11,7 @@ $usu_id = $this->_datosUser->usu_id;
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Bitácora <small> de la institucion</small></h1>
+			<h1 class="page-header">Casos reportados<small> de la institución</small></h1>
 
 			<!-- end page-header -->
 			
@@ -36,8 +36,8 @@ $usu_id = $this->_datosUser->usu_id;
                                     <thead>
                                         <tr>
                                            
-                                            <th>N° de quejas</th>
-                                            <th>Tramite</th>
+                                            <th>N° de casos</th>
+                                            <th>Trámite</th>
                                             <th>Acciones</th>
                                            
                                         </tr>
