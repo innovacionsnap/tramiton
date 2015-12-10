@@ -1,0 +1,38 @@
+html{
+    position: relative;
+    min-height: 100%;
+}
+body{
+    margin-bottom: 105px;
+}
+.footer-page{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#col-snap-logo{
+	padding-top:30px;
+	padding-left:2%;
+}
+#col-ecu-logo{
+	padding-top: 30px !important;
+}
+#col-socials-networks{
+	padding-right:2%;
+}
+
+/*con 4 iconos*/
+/*@media(max-width: 383px){
+	#col-snap-logo{
+		padding-top: 45px !important;
+	}
+}
+*/
+/*con 3 iconos*/
+@media(max-width: 299px){
+	#col-snap-logo{
+		padding-top: 45px !important;
+	}
+}

@@ -29,6 +29,7 @@
         <!-- <link href="<?php echo $baseUrl; ?>/assets/css/style.css" rel="stylesheet" /> -->
         <link href="<?php echo $baseUrl; ?>/assets/css/style-responsive-admin.css" rel="stylesheet" />
         <link type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css" rel="stylesheet" />
+        <link type="text/css" href="<?php echo $baseUrl; ?>/assets/css/footer.css" rel="stylesheet" />
             <!-- ================== END Custom CSS=============== -->
 
         <!-- ================== END BASE CSS STYLE ================== -->

@@ -1,14 +1,3 @@
-body{
-	/*background-color: cyan;*/
-	padding-top: 43px;
-}
-#home{
-	/*background-color: blue;*/
-}#estadisticas{
-	/*background-color:yellow;*/
-}#preguntas{
-	/*background-color:#6b6767;*/
-}
 #home{
 	padding-left: 10px;
 	padding-right: 10px;
@@ -47,6 +36,9 @@ body{
     padding: 0px 2%;
 	color:red;
 }
+#noticias{
+    margin-bottom: 5px;
+}
 
 /*video{
     position: fixed;
@@ -72,10 +64,6 @@ video{
     //transform:translateX(-50%) translateY(-50%);
     //z-index:-1;
     //-webkit-filter:sepia(100%);
-}
-#footer{
-	padding-left: 10px;
-	padding-right: 10px;
 }
 .twitter{
     background-color:#325972 !important;
@@ -167,6 +155,7 @@ video{
 #row-lines{
 	padding: 0px !important;
 }
-/*.col-triangulo-ciudadano img, .col-triangulo-organizacion img, .col-triangulo-servidor img{
-    margin-right: 57%;
-}*/
+
+@media(max-width: 750px){
+    
+}

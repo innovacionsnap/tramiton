@@ -5,24 +5,27 @@
 
     <div class="navbar-header">
         <button class="navbar-toggle" style="float: left;" data-click="sidebar-toggled" type="button">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true" style="font-size: 25px;"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <font style="font-size: 9px;font-weight: bold;">MENÚ</font>
         </button>
-        <a class="navbar-brand no-margin-right" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_tramiton1.png" alt="" style="width:120px;"/></a>
-        <button id="navbar-toggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" > <!-- style="display:none;" -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <font style="font-size: 9px;font-weight: bold;">MENU</font>
+        <!-- <button class="navbar-toggle" style="float: left;" data-click="sidebar-toggled" type="button">
+            <span id="ghy-right" class="glyphicon glyphicon-menu-right" aria-hidden="true" style="font-size: 25px;"></span>
+        </button> -->
+        <a class="navbar-brand no-margin-right" href="#"><img id="logo-dashboard" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_tramiton1.png"/></a>
+        <button id="navbar-toggle-dashboard" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" > <!-- style="display:none;" -->
+            <h3><span class="glyphicon glyphicon-menu-down"></span></h3>
         </button>
     </div> <!-- end navbar-header -->
 
     <div class="collapse navbar-collapse" id="collapse-1">
-        <ul class="nav navbar-nav">
+        <!-- <ul class="nav navbar-nav">
             <li><a class="menu-central-dashboard borde-derecha" href="<?php echo Yii::app()->baseUrl; ?>/ciudadano/index">Participa</a></li>
             <li><a class="menu-central-dashboard borde-derecha" href="<?php echo Yii::app()->baseUrl; ?>/#que_es_tramiton" data-click="scroll-to-target">¿Qué es Tramitón?</a></li>
             <li><a class="menu-central-dashboard borde-derecha" href="#">Términos y Condiciones</a></li>
             <li><a class="menu-central-dashboard no-border" href="#">Ayuda</a></li>
-        </ul>
+        </ul> -->
         <ul id="dashboard-navbar" class="nav navbar-nav navbar-right">
             <li>
                 <div id="busqueda" class="navbar-form full-width">
@@ -39,7 +42,7 @@
             <li class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     <img style="width:30px; height:30px; border-radius: 15px;" src="<?php echo URL_IMG . $this->_datosUser->usu_imagen; ?>" alt="" /> 
-                    <span class="hidden-xs"><?php echo $this->_datosUser->usu_nombre ?></span> <b class="caret"></b>
+                    <span class="hidden-sm"><?php echo $this->_datosUser->usu_nombre ?></span> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu animated fadeInLeft">
                     <!-- <li class="arrow"></li> -->
@@ -58,3 +61,11 @@
   </div><!-- end container -->
 </nav>
 <!-- end #header -->
+<script>
+    $(document).ready(function () {
+        viewElements();
+    });
+    $(window).resize(function(){
+        viewElements();
+    });
+</script>

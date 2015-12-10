@@ -199,6 +199,19 @@ div.form .errorMessage {
 	
 }
 
+@media (max-width: 854px) {
+  .header.navbar .navbar-nav>li>a {
+    font-size: 12px;
+  }
+  
+}
+@media (max-width: 767px) {
+  .header.navbar .navbar-nav>li>a {
+    font-size: 13px;
+  }
+  
+}
+
 /* 5.14 Plugins - Bootstrap Wizard */
     
 .bwizard-steps {

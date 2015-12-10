@@ -40,6 +40,7 @@
         <link href="<?php echo $baseUrl; ?>/assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
         <!-- ================== END PAGE LEVEL STYLE ================== -->
         <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css">
+        <link type="text/css" href="<?php echo $baseUrl; ?>/assets/css/footer.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/perfil-usuario.css">
 
         <!-- ================== BEGIN BASE JS ================== -->
