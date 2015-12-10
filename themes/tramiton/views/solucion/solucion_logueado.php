@@ -20,12 +20,15 @@
         padding-top: 0px;
         padding-bottom: 0px;
     }
-    #footer, .pace, #headerTramiton{
+    .footer-page, .pace, #header-tramiton{
         display:none;
     }
     .page-header{
         margin-top: 10px;
         margin-bottom: 0px;
+    }
+    .word-w{
+        word-wrap: break-word;
     }
 </style>
 <div id="contenido" class="content" style="height: auto">
@@ -49,7 +52,7 @@
         </div>
             
         <div class="col-xs-3 col-sm-2">
-            <span class="pull-right text-muted" id="vista"><?php echo $vistas; ?></span>
+            <span class="pull-right text-muted" id="vista"><?php echo $vistas; ?><i class="fa fa-eye fa-fw"></i></span>
         </div>
     </div>
 
@@ -58,7 +61,7 @@
             <h5>Trámite:</h5>
         </div>
         <div class="col-sm-9">
-            <span><p><?php echo $nom_tramite; ?></p></span>
+            <span><p class="word-w"><?php echo $nom_tramite; ?></p></span>
         </div>
     </div>
 
@@ -68,7 +71,7 @@
         </div>
 
         <div class="col-sm-9">
-            <span><p><?php echo $experiencia['datt_experiencia'] ?></p></span>
+            <span><p class="word-w"><?php echo $experiencia['datt_experiencia'] ?></p></span>
         </div>
     </div>
 
@@ -77,7 +80,7 @@
             <h5>Solución Propuesta:</h5>
         </div>
         <div class="col-sm-9">
-            <span><p><?php echo $solucion['sol_descripcion']; ?></p></span>
+            <span><p class="word-w"><?php echo $solucion['sol_descripcion']; ?></p></span>
         </div>
     </div>
 
@@ -134,13 +137,13 @@
                 </div>
             </div> -->
             <div class="panel-body p-t-0" style="margin-top:5px; border-radius: 8px">
-                <h4>Comentarios</h4>
+                <h4 class="p-t-30">Comentarios</h4>
                 <div id="comentario-interno" data-scrollbar="true" style="max-height: 300px; padding-left: 20px; padding-right: 20px; background-color: #fff; border-radius:8px;overflow: auto">
                     <?php
                     foreach ($comentario as $dato):
                         $usuario_comentario = SolucionController::getUsuario($dato['usu_id']);
                         ?>
-                        <div class="row" style="border-bottom: 1px solid #f1f1f1; text-align: left; padding-top: 10px;"><p><font style="color:#348fe2;"><?php echo $usuario_comentario; ?></font style="word-wrap: break-word;"><font><?php echo " " . $dato['com_descripcion']; ?></font></p></div>
+                        <div class="row" style="border-bottom: 1px solid #f1f1f1; text-align: left; padding-top: 10px;"><p><font style="color:#348fe2;"><?php echo $usuario_comentario; ?></font style="word-wrap: break-word;"><font class="word-w"><?php echo " " . $dato['com_descripcion']; ?></font></p></div>
                     <?php endforeach; ?>
                 </div>
                 <!--<div id="comenta-interno" data-scrollbar="true" style="font-size: 12px;max-height: 100px;margin-bottom: 0px;padding-left: 16px;padding-right: 16px; overflow: auto"><?php //DashboardController::getComentario($datoSolucion['sol_id'])      ?></div>-->
@@ -152,7 +155,7 @@
                             <input type="hidden" name="solucion" id="solucion" value="<?php echo $solucion['sol_id']; ?>"/>
                             <input type="hidden" name="usuario" id="usuario" value="<?php echo $solucion['usu_id']; ?>" />
                             <textarea class="form-control tarea" name="comentario-interno" id="coment-interno" rows="1"></textarea></div>
-                        <div class="col-md-1"><?php echo CHtml::ajaxSubmitButton('Enviar', 'procesacomentario', array('update' => '#comentario-interno'), array('class' => 'btn btn-primary btn-xs m-r-5 btn-comentario')); ?></div>
+                        <div class="col-md-1"><?php echo CHtml::ajaxSubmitButton('Enviar', 'procesacomentario', array('update' => '#comentario-interno'), array('class' => 'btn btn-primary btn-xs m-r-5 btn-comentario center-block')); ?></div>
                     </div>
 
                     <?php echo CHtml::endForm(); ?>

@@ -59,12 +59,12 @@ body{
 
 .banner-2{
     max-width:201px;
-    background-color: #DA6925;
+    background-color: #f59c1a;
     height: 36px;
     margin-bottom: 10px;
     padding-top: 5px;
     text-align: center;
-
+    border-radius:10px;
 }
 .banner-2 a{
     color:#fff;
