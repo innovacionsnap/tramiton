@@ -1,12 +1,12 @@
 <style type="text/css">
-.loader {
-    background: rgba(0, 0, 0, 0) url("<?php echo (Yii::app()->theme->baseUrl . '/assets/img/spinner.gif'); ?>") no-repeat scroll 50% center;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 30;
-    width: 100%;
-}
+    .loader {
+        background: rgba(0, 0, 0, 0) url("<?php echo (Yii::app()->theme->baseUrl . '/assets/img/spinner.gif'); ?>") no-repeat scroll 50% center;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 30;
+        width: 100%;
+    }
 </style>
 <?php
 include("funcion_registro.php");
@@ -157,14 +157,15 @@ Yii::app()->clientScript->registerCoreScript('jquery');
         <div id="panel5" class="panel-registro">
 
             <h4 id="gracias"></h4>
-            <input type="submit" value="Publicar y Guardar" class="btn-publicar"> 
             <input type="hidden" name="insertar_tramite" value="1">
             <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
             <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
+            <input type="submit" value="Publicar y Guardar" class="btn-publicar"> 
             <div class="row botones_nav"></div>
         </div>
 
     </div>
+
 </form>
 
 
@@ -205,12 +206,12 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                     },
                     success: function (data) {
                         $("#verifica").removeClass('loader');
-                        var bandera=data.split('?');
+                        var bandera = data.split('?');
                         if (bandera[0] == 1) {
                             $('a.next-tab').show();
                             $('#cedula_ciu_error').hide();
-                            $('#gracias').html('Gracias '+bandera[1]+' por registrar su caso');
-                            $('#bienvenida').html('Bienvenido/a '+bandera[1]);
+                            $('#gracias').html('Gracias ' + bandera[1] + ' por registrar su caso');
+                            $('#bienvenida').html('Bienvenido/a ' + bandera[1]);
                         } else {
                             $('a.next-tab').hide();
                             $('#cedula_ciu_error').html("Cédula ingresada no válida");
@@ -250,7 +251,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 } else {
                     campo[i].style.backgroundColor = "#fff";
                     $('#' + idCampoError).hide();
-                    
+
                 }
 
             }
@@ -282,5 +283,6 @@ Yii::app()->clientScript->registerCoreScript('jquery');
             }
         });
 
+        
     });
 </script>
