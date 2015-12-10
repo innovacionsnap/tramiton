@@ -92,19 +92,21 @@ class DashboardController extends Controller {
             </div>
             <div class="compartir">
                     <a href="http://www.facebook.com/sharer.php?u=';
-            $html.=urlencode(Yii::app()->theme->baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
+            $id=Empresa::model()->codificaGet('sol='.$datoSolucion['sol_id']);
+            $urlShare = Yii::app()->createAbsoluteUrl('solucion/index?'.$id);
+            $html.=urlencode($urlShare) . '" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
                     <a href="http://twitter.com/share?url=';
 
-            $html.=urlencode(Yii::app()->theme->baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
+            $html.=urlencode($urlShare) . '" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
                     <a href="https://plus.google.com/share?url=';
-            $html.=urlencode(Yii::app()->theme->baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
+            $html.=urlencode($urlShare) . '" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
                 </div>
             <hr>
             <div class="cuerpo">
                 <p>';
 
             $sol_descripcion = substr($datoSolucion['sol_descripcion'], 0, 150);
-            $html.= $sol_descripcion . '<a href="../solucion/index?sol=' . $datoSolucion['sol_id'] . '" class="solucion-new" target="_blank"> Leer más >></a>
+            $html.= $sol_descripcion . '<a href="../solucion/index?' . $id . '" class="solucion-new" target="_blank"> Leer más >></a>
                 </p>
             </div>
             <hr>
