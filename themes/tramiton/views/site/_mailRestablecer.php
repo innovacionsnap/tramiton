@@ -50,7 +50,7 @@
                           <td style="line-height:40px" height="40"></td>
                         </tr>
                         <tr>
-                          <td align="right"><a href="<?php echo $url; ?>" target="_blank"><img style="width:240px" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/tramiton/images/boton_restablecer.png"></a></td>
+                          <td align="right"><a href="<?php echo $url; ?>" target="_blank" style="color: #fff; background-color: #C92D2D;border-color: #C92D2D; padding: 6px 12px;border-radius: 8px;font-size: 1.3em; text-decoration: none;">Restablecer contraseña</a></td>
                         </tr>
                         <tr><td style="line-height:40px" height="40"></td></tr>
                         <tr>

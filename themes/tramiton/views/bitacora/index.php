@@ -36,7 +36,7 @@
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li><a href="javascript:;">Home</a></li>
+        <li><a href="javascript:;">Inicio</a></li>
         <li class="active">Tramites</li>
     </ol>
     <!-- end breadcrumb -->
@@ -61,7 +61,7 @@
                     <h4 class="panel-title">Datos principales</h4>
                 </div>
                 <div class="panel-body">
-                    <a href="../solucion/index?sol=<?php //echo  $dato_tramite_solucion['sol_id'] ?>" class="btn btn-info actividad" role="button">
+                    <a href="actividad" class="btn btn-info actividad" role="button">
                         <li class="fa fa-plus-circle">&nbsp;&nbsp;</li>Nuevo</a>
                     <hr>
                     <div class="table-responsive">

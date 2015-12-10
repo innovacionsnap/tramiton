@@ -33,7 +33,7 @@
                     <h4 class="panel-title">Empresas registradas</h4>
                 </div>
                 <div class="panel-body">
-                    <?php echo CHtml::link('<button type="button" class="btn btn-primary">Nueva Empresa</button>', array("empresa/ingresarempresa"), array('title' => 'Nueva empresa'));?>
+                    <?php echo CHtml::link('<button type="button" class="btn btn-success">Nueva Empresa</button>', array("empresa/ingresarempresa"), array('title' => 'Nueva empresa'));?>
                     <hr>
                     <div class="table-responsive">
                         <table id="data-table" class="table table-striped table-bordered">

@@ -55,3 +55,11 @@
     <!-- end container -->
 </div>
 <!-- end #header -->
+<script>
+    $(document).ready(function () {
+        viewElements();
+    });
+    $(window).resize(function(){
+        viewElements();
+    });
+</script>

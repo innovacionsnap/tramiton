@@ -2,6 +2,8 @@
 <?php
     $baseUrl = Yii::app()->theme->baseUrl;
 
+    $baseUrlbasico = Yii::app()->baseUrl;
+
     include("config.inc.php");
 
    
@@ -29,7 +31,7 @@
     <meta content="" name="author" />
      
     <?php
-    $baseUrl = Yii::app()->theme->baseUrl;
+    //$baseUrl = Yii::app()->theme->baseUrl;
     
     ?>
     <!-- ================== BEGIN BASE CSS STYLE ================== -->
@@ -76,7 +78,7 @@
            
            
             <!-- begin row -->
-            <div class="row">
+            <div class="row" style="background:white;">
                 <!-- begin col-12 -->
                 <div class="col-md-12">
                     <!-- begin panel -->
@@ -132,7 +134,7 @@
                                                 <input type="hidden" name="insertar_accion" value="1">
                                                 <input type="hidden" name="id_usuario" value="<?php echo $usu_id ?>">
                                                 <input type="hidden" name="tra_id" value="<?php echo $tra_id ?>">
-                                                <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
+                                                <input type="hidden" name="url" value="<?php echo $baseUrlbasico ?>">
                                                 
                                      
                                     </div>

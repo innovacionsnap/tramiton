@@ -2,6 +2,7 @@
 
 //$insertar_tarea= $_POST['insertar_tarea'];
 $insertar_accion = $_POST['insertar_accion'];
+//$baseUrl = Yii::app()->baseUrl;
 
 //echo $insertar_participantes;
 
@@ -13,11 +14,11 @@ if (isset($insertar_accion)) {
 		$nombre_accc = $_POST['nombre_accc'];
 		$descripcion_accc = $_POST['descripcion_accc'];
 		
-		//$id_usuario = $_POST['id_usuario'];
+		$url = $_POST['url'];
 		$tra_id = $_POST['tra_id'];
 		$usu_id = $_POST['id_usuario'];
 
-
+		//echo $url;
 		
 		//$insertar_tarea = $_POST['insertar_tarea'];
 		
@@ -44,8 +45,11 @@ if (isset($insertar_accion)) {
             1, '$tra_id');
 ";
 					
-		echo "<Br>sqL DE TRAMITES: <BR>".$insertar_accion;
+		//echo "<Br>sqL DE TRAMITES: <BR>".$insertar_accion;
 			$resultado_insert = pg_query($con, $insertar_accion) or die("Error en la Consulta SQL");
+
+			header ("location: $url/tramiteInstitucion/accion_correctiva?tra_id=$tra_id");
+
 			
 	
 }

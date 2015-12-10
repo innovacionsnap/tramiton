@@ -6,13 +6,13 @@ $usu_id = $this->_datosUser->usu_id;
 		<div id="content" class="container-fluid">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li><a href="javascript:;">Home</a></li>
+				<li><a href="javascript:;">Inicio</a></li>
                 <li><a href="index">Mi institución</a></li>
                 <li class="active">Detalle trámite</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Tramites <small> de la institucion<br>Detalle trámite</small></h1>
+			<h1 class="page-header">Casos reportados <small> de la institucion<br>Detalle trámite</small></h1>
 
 			<!-- end page-header -->
 			

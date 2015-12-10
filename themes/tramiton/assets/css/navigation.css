@@ -1,3 +1,9 @@
+body{
+    padding-top: 43px;
+}
+#header-tramiton{
+    border-bottom: 4px solid #325972;
+}
 .no-margin-right{
     margin-right: 0px;
 }
@@ -20,15 +26,60 @@
     margin-right: 13px;
 }
 .menu-central{
-    /*margin-top: 10px;*/
-    /*margin-bottom: 10px;*/
-    /*padding: 0px 7px !important;*/
+    padding: 1px 3px;
 }
-.cont-menu-central a{
-    /*color:#707478;*/
-    /*font-weight: bold;*/
-    /*margin-right: 3px;*/
+
+@media (min-width: 768px) and (max-width: 802px){
+    .menu-central{
+        padding: 1px 3px !important;
+    }
+    #logo-home {
+       width: 145px !important;
+    }
+}
+
+#logo-home{
+    width: 152px;
 }
 #form-group-busqueda, #li-navbar-user{
     margin: 3px;
+}
+
+
+#logo-dashboard{
+    width: 141px;
+}
+
+
+
+
+@media (min-width: 854px) and (max-width: 750){
+    .menu-central{
+        padding: 1px 5px;
+    }
+    #logo-home{
+        width: 166px;
+    }
+}
+
+@media (max-width: 767px){
+    #navbar-toggle, #navbar-toggle-dashboard{
+        display: inline-block;
+    }
+    .menu-central, .menu-central-dashboard{
+        border: none;
+    }
+    #boton-busqueda{
+        margin-top: -13px;
+    }
+}
+@media (min-width: 768px){
+    #navbar-toggle, #navbar-toggle-dashboard{
+        display: none;
+    }
+}
+
+#navbar-toggle-dashboard{
+    margin: 0px;
+    padding: 0px 10px;
 }

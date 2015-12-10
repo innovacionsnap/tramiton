@@ -8,7 +8,7 @@
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li><a href="javascript:;">Home</a></li>
+				<li><a href="javascript:;">Inicio</a></li>
 				<li><a href="javascript:;">Extra</a></li>
 				<li class="active">Profile Page</li>
 			</ol>

@@ -32,6 +32,7 @@
         <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
         <link type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css" rel="stylesheet" />
+        <link type="text/css" href="<?php echo $baseUrl; ?>/assets/css/footer.css" rel="stylesheet" />
         <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 
 

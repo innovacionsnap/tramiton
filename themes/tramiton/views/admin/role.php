@@ -2,12 +2,12 @@
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li><a href="javascript:;">Home</a></li>
-        <li class="active">Tramites</li>
+        <li><a href="javascript:;">Inicio</a></li>
+        <li class="active">Roles</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">Tramites <small> de la institucion</small></h1>
+    <h1 class="page-header">Roles<small></small></h1>
 
     <!-- end page-header -->
 
@@ -102,42 +102,42 @@
 
 <!--  ================================================  -->
 <?php
-$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
-    'id' => 'mydialog',
+// $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+//     'id' => 'mydialog',
     // additional javascript options for the dialog plugin
-    'options' => array(
-        'title' => 'Dialog box 1',
-        'autoOpen' => false,
-    ),
-));
+//     'options' => array(
+//         'title' => 'Dialog box 1',
+//         'autoOpen' => false,
+//     ),
+// ));
 
 
 
-$this->endWidget('zii.widgets.jui.CJuiDialog');
+// $this->endWidget('zii.widgets.jui.CJuiDialog');
 ?>
 <!-- ============================================ -->
 
 <?php
 /** Start Widget * */
-$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
-    'id' => 'dialog-animation',
-    'options' => array(
-        'title' => 'Dialog box - Animation',
-        'autoOpen' => false,
-        'show' => array(
-            'effect' => 'blind',
-            'duration' => 1000,
-        ),
-        'hide' => array(
-            'effect' => 'explode',
-            'duration' => 500,
-        ),
-    ),
-));
+// $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+//     'id' => 'dialog-animation',
+//     'options' => array(
+//         'title' => 'Dialog box - Animation',
+//         'autoOpen' => false,
+//         'show' => array(
+//             'effect' => 'blind',
+//             'duration' => 1000,
+//         ),
+//         'hide' => array(
+//             'effect' => 'explode',
+//             'duration' => 500,
+//         ),
+//     ),
+// ));
 
 
 
-$this->endWidget('zii.widgets.jui.CJuiDialog');
+// $this->endWidget('zii.widgets.jui.CJuiDialog');
 
 /** End Widget * */
 
