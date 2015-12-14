@@ -1,6 +1,6 @@
 function viewElements(){
     $wid = $(window).width();
-    console.log("wid " + $wid );
+    // console.log("wid " + $wid );
 
     if($wid <=750){
         if( $wid >= 679){

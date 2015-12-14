@@ -110,21 +110,21 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <div class="row">
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <div class="number" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalParticipantes']?>"><?php echo $estadisticas['totalParticipantes']?></div>
+                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalParticipantes']?>"><?php echo $estadisticas['totalParticipantes']?></div>
                 <div class="title">Total Participantes</div>
             </div>
         </div>
         <!-- end col-3 -->
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <div class="number" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalTramites']?>"><?php echo $estadisticas['totalTramites']?></div>
+                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalTramites']?>"><?php echo $estadisticas['totalTramites']?></div>
                 <div class="title">Soluciones Registradas</div>
             </div>
         </div>
         <!-- begin col-3 -->
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <div class="number" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalAcciones']?>"><?php echo $estadisticas['totalAcciones']?></div>
+                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalAcciones']?>"><?php echo $estadisticas['totalAcciones']?></div>
                 <div class="title">Trámites con planes de mejora</div>
             </div>
         </div>
@@ -132,7 +132,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
         <!-- begin col-3 -->
         <!-- <div class="col-sm-3 milestone-col">
             <div class="milestone">
-                <div class="number" data-animation="true" data-animation-type="number" data-final-number="25">25</div>
+                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="25">25</div>
                 <div class="title">Trámites mejorados</div>
             </div>
         </div> -->

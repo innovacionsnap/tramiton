@@ -37,8 +37,8 @@ Yii::app()->clientScript->registerCoreScript('jquery');
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Cédula de Ciudadanía</label>
-                        <input size="20" type="text" maxlength="10" id = "cedula_ciu" name="cedula_ciu" class="campo-panel1 form-registro" placeholder="Ingrese su cédula de ciudadanía" autocomplete="off" <?php echo JS_ONLY_NUMS; ?>/>
+                        <label>Cédula de Identidad y/o Ciudadanía</label>
+                        <input size="20" type="text" maxlength="10" id = "cedula_ciu" name="cedula_ciu" class="campo-panel1 form-registro" placeholder="Ingrese su número de cédula de identidad y/o ciudadanía" autocomplete="off" <?php echo JS_ONLY_NUMS; ?>/>
                         <div id="cedula_ciu_error" style="display:none;color:red;"></div>
                         <div id="verifica" style="max-height: 80px;"></div>
                     </div>
@@ -135,7 +135,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <!-- begin col-12 -->
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Titulo Solución</label>
+                        <label>Título Solución</label>
                         <div class="controls">
                             <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Título de la solución" class="campo-panel4 form-registro" />
                             <div id="titulo_solucion_error" style="display:none;"></div>

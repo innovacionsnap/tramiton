@@ -40,6 +40,8 @@ body{
 
 #logo-home{
     width: 152px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 #form-group-busqueda, #li-navbar-user{
     margin: 3px;

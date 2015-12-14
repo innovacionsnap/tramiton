@@ -6,7 +6,7 @@
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li><a href="../dashboard/index">Inicio</a></li>
+                <li><a href="<?php echo Yii::app()->getBaseUrl(); ?>/dashboard/index">Inicio</a></li>
 				<li class="active">Mis trámites <?php // foreach ($datosUsuarioTramite as $dato){
 					//echo  $dato["ins_nombre"]."<br>";
 					//} ?></li>

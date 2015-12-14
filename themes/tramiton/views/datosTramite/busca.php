@@ -87,25 +87,25 @@
 
 <!-- ================== END PAGE LEVEL JS prueba ================== -->
 <script type="text/javascript">
-    $(document).ready(function () {
-        $(".caso-new").fancybox({
-            'titleShow': false,
-            'width': '65%',
-            'height': '65%',
-            'autoScale': false,
-            'transitionIn': 'none',
-            'transitionOut': 'none',
-            'type': 'iframe',
-            // afterClose : function() {
-            //     location.reload();
-            // }
-        });
+    // $(document).ready(function () {
+    //     $(".caso-new").fancybox({
+    //         'titleShow': false,
+    //         'width': '65%',
+    //         'height': '65%',
+    //         'autoScale': false,
+    //         'transitionIn': 'none',
+    //         'transitionOut': 'none',
+    //         'type': 'iframe',
+    //         // afterClose : function() {
+    //         //     location.reload();
+    //         // }
+    //     });
         
-        App.init();
-        // TableManageDefault.init();
+    //     App.init();
+    //     // TableManageDefault.init();
         
          
-    });
+    // });
 </script>
 
 

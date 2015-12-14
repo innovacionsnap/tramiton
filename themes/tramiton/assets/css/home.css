@@ -1,6 +1,7 @@
 #home{
 	padding-left: 10px;
 	padding-right: 10px;
+    height: 580px !important;
 }
 #row-arrows{
 	border-bottom: 3px solid #325972;
