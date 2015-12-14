@@ -128,7 +128,7 @@
             <div class="row m-b-5">
                 <div class="col-md-12">
                     <?php echo $form->checkBox($model, 'terminos', array('style', 'display:inline')); ?>&nbsp;&nbsp;
-                    Al dar click en aquí, usted acepta nuestros <a href="#">Términos</a> y acepta que ha leido nuestra <a href="#">Política de Datos</a>, incluido el <a href="#">Uso de Cookies</a>
+                    Al dar click aquí, usted acepta nuestros <a href="#">Términos</a> y acepta que ha leido nuestra <a href="#">Política de Datos</a>, incluido el <a href="#">Uso de Cookies</a>
                         <?php echo $form->error($model, 'terminos'); ?>
                 </div>
             </div>
