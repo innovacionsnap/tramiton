@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="row buttons">
-                <?php echo CHtml::submitButton('Guardar', array("class" => "btn btn-primary", "id" => "guarda_empresa")); ?>
+                <?php echo CHtml::submitButton('Guardar', array("class" => "btn btn-success", "id" => "guarda_empresa")); ?>
                 <?php echo CHtml::link('<button type="button" class="btn btn-danger">Cancelar</button>', array("empresa/empresa")); ?>
             </div>
 

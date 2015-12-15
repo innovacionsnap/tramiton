@@ -17,7 +17,7 @@
     <div class="right-content">
         <!-- begin login-header -->
         <div class="login-header">
-            <div class="row">
+            <div class="row" style="padding-bottom: 20px;">
                 <div class="col-xs-12 col-sm-offset-2 col-sm-4 text-center">
                     <a href="<?php echo Yii::app()->baseUrl; ?>"><h4 class="text-blue-tramiton">Inicio <span class="glyphicon glyphicon-home" aria-hidden="true"></span></h4></a>
                 </div>

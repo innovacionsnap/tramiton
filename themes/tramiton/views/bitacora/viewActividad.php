@@ -53,8 +53,12 @@
         <div id="content" class="content">
             <!-- begin breadcrumb -->
             <ol class="breadcrumb pull-right">
+<<<<<<< HEAD
                 <li><a href="../dashboard/index">Home</a></li>
                 <li><a href="index">Tareas</a></li>
+=======
+                <li><a href="../dashboard/index">Inicio</a></li>
+>>>>>>> 231bc88d5a57e0ecee3285c902332bd7b2d643ce
                 <li class= "active"><a href="javascript:history.go(-1)">Regresar</a></li>
                 
             </ol>

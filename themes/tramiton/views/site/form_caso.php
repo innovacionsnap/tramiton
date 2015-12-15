@@ -1,12 +1,16 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <style type="text/css">
-.loader {
-    background: rgba(0, 0, 0, 0) url("<?php echo (Yii::app()->theme->baseUrl . '/assets/img/spinner.gif'); ?>") no-repeat scroll 50% center;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 30;
-    width: 100%;
-}
+    .loader {
+        background: rgba(0, 0, 0, 0) url("<?php echo (Yii::app()->theme->baseUrl . '/assets/img/spinner.gif'); ?>") no-repeat scroll 50% center;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 30;
+        width: 100%;
+    }
+    #panel4 #btnNav a.next-tab{
+        display:none !important;
+    }
 </style>
 <?php
 include("funcion_registro.php");
@@ -33,8 +37,8 @@ Yii::app()->clientScript->registerCoreScript('jquery');
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Cédula de Ciudadanía</label>
-                        <input size="20" type="text" maxlength="10" id = "cedula_ciu" name="cedula_ciu" class="campo-panel1 form-registro" placeholder="Ingrese su cédula de ciudadanía" autocomplete="off" <?php echo JS_ONLY_NUMS; ?>/>
+                        <label>Cédula de Identidad y/o Ciudadanía</label>
+                        <input size="20" type="text" maxlength="10" id = "cedula_ciu" name="cedula_ciu" class="campo-panel1 form-registro" placeholder="Ingrese su número de cédula de identidad y/o ciudadanía" autocomplete="off" <?php echo JS_ONLY_NUMS; ?>/>
                         <div id="cedula_ciu_error" style="display:none;color:red;"></div>
                         <div id="verifica" style="max-height: 80px;"></div>
                     </div>
@@ -131,7 +135,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <!-- begin col-12 -->
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Titulo Solución</label>
+                        <label>Título Solución</label>
                         <div class="controls">
                             <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Título de la solución" class="campo-panel4 form-registro" />
                             <div id="titulo_solucion_error" style="display:none;"></div>
@@ -152,51 +156,64 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <!-- end col-12 -->
 
             </div>
-            <div class="row botones_nav"></div>
-        </div>
-        <div id="panel5" class="panel-registro">
-
-            <h4 id="gracias"></h4>
-            <h3 align="center" id="msgValidacion"></h3>
-            <!--<input type="submit" value="Publicar y Guardar" class="btn-publicar"> -->
-            <input type="hidden" name="insertar_tramite" value="1">
-            <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
-            <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
-            <?php echo CHtml::ajaxSubmitButton(
-                'Guardar', 
-                array('registroCaso'),
-                array(
-                    //'update' => '#ejemploAjax4',
-                    'beforeSend' => "function(){
+            <div class="row">
+                <!-- begin col-12 -->
+                <div class="col-md-12">
+                    <input type="hidden" name="insertar_tramite" value="1">
+                    <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
+                    <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
+                    <input class="campo-panel4" type="checkbox" name="terminos" checked disabled>Acepto los <a href="#">Términos</a> y acepta que ha leído la<a href="#">Política de Datos</a>, incluido el <a href="#">Uso de Cookies</a>
+                    <div id="captcha_registro" class="g-recaptcha" data-sitekey="6LepsRITAAAAABcXO7sqylkyiUj8AoHjdY2aVBVQ"></div>
+                    <div id="mensaje_captcha" style="display: none;"></div>
+                    <?php
+                    echo CHtml::ajaxSubmitButton(
+                            'Guardar', array('registroCaso'), array(
+                        //'update' => '#ejemploAjax4',
+                        'beforeSend' => "function(){
                         $('#estados2').removeClass('loadingok');
                         $('#estados2').addClass('loadingprogreso');
                     }",
-                    'complete' => "function(){
+                        'complete' => "function(){
                         $('#estados2').removeClass('loadingprogreso');
                     }",
-                    'success' => "function(data){
-                        jQuery('#gracias').hide();
-                        jQuery('#btnNav').hide();
-                        jQuery('#btnPublicarCaso').hide();
-                        jQuery('#msgValidacion').html(data);
+                        'success' => "function(data){
                         
-                        
+                        if (data==0){
+                            //alert(data);
+                            jQuery('#mensaje_captcha').html('No ha ingresado el captcha');
+                            jQuery('#mensaje_captcha').show();
+                        }else{
+                            jQuery('#mensaje_captcha').hide();                            
+                            jQuery('.next-tab')[3].click();
+                            jQuery('#btnNav').hide();
+                            jQuery('#msgValidacion').html(data);
+                           
+                        }
+                       
                     }",
-                    'error' => "function(){
+                        'error' => "function(){
+                    alert('error');
                         $('#estados2').addClass('loadingerror');
                         $('#msgValidacion').html('ocurrio un error al recuperar datos');
+                        
                     }",
-                ),
-                array('class' => 'btn-publicar', 'id' => 'btnPublicarCaso')
-            ); 
-            ?>            
+                            ), array('class' => 'btn-publicar', 'id' => 'btnPublicarCaso')
+                    );
+                    ?>  
+                </div>
+            </div>
             <div id="btnNav" class="row botones_nav"></div>
+
+        </div>
+        <div id="panel5" class="panel-registro">
+            <h3 align="center" id="gracias"></h3>
+            <h5 align="center" id="msgValidacion"></h5>
+
         </div>
 
     </div>
+
 </form>
-
-
 <script type="text/javascript">
     function hkp(evt)
     {
@@ -209,10 +226,11 @@ Yii::app()->clientScript->registerCoreScript('jquery');
         $('.panel-registro').each(function (i) {
             var total = $('.panel-registro').size() - 1;
 
-            if (i != total) {
+            if (i !== total) {
                 next = i + 2;
                 $(this).find('.botones_nav').append("<a href='#' class='next-tab' rel='panel" + next + "'>Siguiente &#187;</a>");
                 $('a.next-tab').hide();
+                
             }
             if (i != 0) {
                 prev = i;
@@ -234,12 +252,12 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                     },
                     success: function (data) {
                         $("#verifica").removeClass('loader');
-                        var bandera=data.split('?');
+                        var bandera = data.split('?');
                         if (bandera[0] == 1) {
                             $('a.next-tab').show();
                             $('#cedula_ciu_error').hide();
-                            $('#gracias').html('Gracias '+bandera[1]+' por registrar su caso');
-                            $('#bienvenida').html('Bienvenido/a '+bandera[1]);
+                            $('#gracias').html('Gracias ' + bandera[1] + ' por registrar su caso');
+                            $('#bienvenida').html('Bienvenido/a ' + bandera[1]);
                         } else {
                             $('a.next-tab').hide();
                             $('#cedula_ciu_error').html("Cédula ingresada no válida");
@@ -258,13 +276,14 @@ Yii::app()->clientScript->registerCoreScript('jquery');
             //alert(cedula);
             /**/
         });
-        $('.next-tab').click(function () {
+        $('.next-tab').click(function() {
             var panelToShow = $(this).attr('rel');
             var litoshow = parseInt(panelToShow.slice(5, 6));
             var num_actual = parseInt(panelToShow.slice(5, 6)) - 1;
             var actual = 'campo-panel' + (num_actual.toString());
             var campo = document.getElementsByClassName(actual);
             var contador = 0;
+            //Validar campos requeridos
             for (i = 0; i < campo.length; i++) {
                 var idCampo = $(campo[i]).attr("id");
                 var idCampoError = idCampo + "_error";
@@ -279,11 +298,11 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 } else {
                     campo[i].style.backgroundColor = "#fff";
                     $('#' + idCampoError).hide();
-                    
+
                 }
 
             }
-            if (contador == 0) {
+            if (contador == 0) { //campos están llenos
                 $('.tab-panels').find('.tabs li.active').removeClass('active');
                 $('.tab-panels').find('.tabs li').eq(litoshow - 1).addClass('active');
                 $('.tab-panels').find('.panel-registro.active').show(function () {

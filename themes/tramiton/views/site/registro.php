@@ -17,7 +17,7 @@
     <div class="right-content">
         
         
-        <div class="row">
+        <div class="row" style="padding-bottom: 10px;">
             <div class="col-xs-12 col-sm-offset-2 col-sm-4 text-center">
                 <a href="<?php echo Yii::app()->baseUrl; ?>"><h4 class="text-blue-tramiton">Inicio <span class="glyphicon glyphicon-home" aria-hidden="true"></span></h4></a>
             </div>
@@ -128,7 +128,7 @@
             <div class="row m-b-5">
                 <div class="col-md-12">
                     <?php echo $form->checkBox($model, 'terminos', array('style', 'display:inline')); ?>&nbsp;&nbsp;
-                    Al dar click en aquí, usted acepta nuestros <a href="#">Términos</a> y acepta que ha leido nuestra <a href="#">Política de Datos</a>, incluido el <a href="#">Uso de Cookies</a>
+                    Al dar click aquí, usted acepta nuestros <a href="#">Términos</a> y acepta que ha leido nuestra <a href="#">Política de Datos</a>, incluido el <a href="#">Uso de Cookies</a>
                         <?php echo $form->error($model, 'terminos'); ?>
                 </div>
             </div>

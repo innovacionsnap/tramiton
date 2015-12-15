@@ -6,8 +6,8 @@ $usu_id = $this->_datosUser->usu_id;
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li><a href="../dashboard/index">Home</a></li>
-				<li class="active">Mi institución </li>
+				<li><a href="javascript:;">Inicio</a></li>
+				<li class="active">Bitácora</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->

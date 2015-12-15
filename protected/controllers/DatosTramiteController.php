@@ -42,7 +42,7 @@ class DatosTramiteController extends Controller {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $modelDatosTramite = new DatosTramite();
         $casos = $modelDatosTramite->getCaso($_POST['busca']);
-        $this->layout = 'main-admin_form_caso';
+        $this->layout = 'main-admin_form';
         $this->_datosUser = $modelUser;
         $this->render('busca', compact('casos'));
     }

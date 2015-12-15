@@ -78,7 +78,7 @@ class DashboardController extends Controller {
         $html.='<div class="row">';
         $datosSolucion = Solucion::model()->findAllByAttributes(array('sol_estado' => 1), array('order' => 'sol_fecha desc, sol_id desc', 'limit' => 16, 'offset' => $limite));
         foreach ($datosSolucion as $datoSolucion):
-            $html.='<div class="col-contenido-solucion col-xs-12 col-sm-4 col-md-3">';
+            $html.='<div class="col-contenido-solucion col-xs-6 col-sm-4 col-md-3">';
             $html.='<div class="contenido-solucion center-block">
                         <div class="usuario">
                             <img src="';
@@ -92,19 +92,21 @@ class DashboardController extends Controller {
             </div>
             <div class="compartir">
                     <a href="http://www.facebook.com/sharer.php?u=';
-            $html.=urlencode(Yii::app()->theme->baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
+            $id=Empresa::model()->codificaGet('sol='.$datoSolucion['sol_id']);
+            $urlShare = Yii::app()->createAbsoluteUrl('solucion/index?'.$id);
+            $html.=urlencode($urlShare) . '" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
                     <a href="http://twitter.com/share?url=';
 
-            $html.=urlencode(Yii::app()->theme->baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
+            $html.=urlencode($urlShare) . '" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
                     <a href="https://plus.google.com/share?url=';
-            $html.=urlencode(Yii::app()->theme->baseUrl.'/solucion/index?sol=' . $datoSolucion['sol_id']) . '" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
+            $html.=urlencode($urlShare) . '" target="_blank"><i class="fa fa-adjust fa-google-plus plus"></i></a>
                 </div>
             <hr>
             <div class="cuerpo">
                 <p>';
 
             $sol_descripcion = substr($datoSolucion['sol_descripcion'], 0, 150);
-            $html.= $sol_descripcion . '<a href="../solucion/index?sol=' . $datoSolucion['sol_id'] . '" class="solucion-new" target="_blank"> Leer más >></a>
+            $html.= $sol_descripcion . '<a href="../solucion/index?' . $id . '" class="solucion-new" target="_blank"> Leer más >></a>
                 </p>
             </div>
             <hr>

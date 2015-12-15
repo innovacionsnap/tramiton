@@ -6,4 +6,5 @@ function bodyPadding(){
 	$("#body-admin-form-caso").css("padding-top", $navHeight + "px");
 	$("#body-admin-form").css("padding-top", $navHeight + "px");
 	$("#body-admin-role").css("padding-top", $navHeight + "px");
+	$("#body-home").css("padding-top", $navHeight + "px");
 }

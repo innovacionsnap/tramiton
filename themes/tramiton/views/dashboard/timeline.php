@@ -6,7 +6,7 @@ $baseUrl = Yii::app()->baseUrl;
     <div class="row">
     <?php $contador = 1; ?>
     <?php foreach ($datosSolucion as $datoSolucion): ?>
-    <div class="col-contenido-solucion col-xs-12 col-sm-4 col-md-3"> 
+    <div class="col-contenido-solucion col-xs-6 col-sm-4 col-md-3"> 
         <div class="contenido-solucion center-block">
             <div class="usuario">
                 <img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/users/' . DashboardController::getImagen($datoSolucion['usu_id'])); ?>" alt=""/>
@@ -99,6 +99,7 @@ $baseUrl = Yii::app()->baseUrl;
                     //$("#porvenir").height="0px";
                     $("#porvenir").removeClass('loader');
                     $("#linea-tiempo").append(html);
+                    viewElements();
                 }
             });
         } else {

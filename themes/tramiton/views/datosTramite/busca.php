@@ -2,7 +2,7 @@
     .content{
         margin-left: 50px;
         margin-right: 20px;
-        background-color: #ccccbc;
+        background-color: #ffffff;
      
     }
     #data-table td{
@@ -38,7 +38,7 @@
                 </div>
                 <div class="panel-body">
                     <?php //echo "<pre>"; print_r($tramites); echo "</pre>";?>
-                    <div class="table-default">
+                    <div class="table-responsive">
                         <table id="data-table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
@@ -80,32 +80,32 @@
     </div>
 </div>
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . 'assets/plugins/DataTables/js/jquery.dataTables.js', CClientScript::POS_END); ?>	
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . 'assets/js/table-manage-default.demo.min.js', CClientScript::POS_END); ?>	
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . 'assets/js/apps.min.js', CClientScript::POS_END); ?>	
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/assets/plugins/DataTables/js/jquery.dataTables.js', CClientScript::POS_END); ?>	
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/assets/js/table-manage-default.demo.min.js', CClientScript::POS_END); ?>	
+<?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/assets/js/apps.min.js', CClientScript::POS_END); ?>	
 
 
 <!-- ================== END PAGE LEVEL JS prueba ================== -->
 <script type="text/javascript">
-    $(document).ready(function () {
-        $(".caso-new").fancybox({
-            'titleShow': false,
-            'width': '65%',
-            'height': '65%',
-            'autoScale': false,
-            'transitionIn': 'none',
-            'transitionOut': 'none',
-            'type': 'iframe',
-            // afterClose : function() {
-            //     location.reload();
-            // }
-        });
+    // $(document).ready(function () {
+    //     $(".caso-new").fancybox({
+    //         'titleShow': false,
+    //         'width': '65%',
+    //         'height': '65%',
+    //         'autoScale': false,
+    //         'transitionIn': 'none',
+    //         'transitionOut': 'none',
+    //         'type': 'iframe',
+    //         // afterClose : function() {
+    //         //     location.reload();
+    //         // }
+    //     });
         
-        App.init();
-        TableManageDefault.init();
+    //     App.init();
+    //     // TableManageDefault.init();
         
          
-    });
+    // });
 </script>
 
 

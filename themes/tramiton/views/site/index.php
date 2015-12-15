@@ -96,15 +96,6 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 <!-- begin #participa -->
 <div class="container"></div>
-<!-- <div id="que_es_tramiton" class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12" id="text_tramiton">
-                <h1 id="titulo_tramiton" class="text-center">¿QUÉ ES EL TRAMITÓN?</h1>
-                <p id="definicion_tramiton" class="lead text-justify">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen</p>
-                <video src="<?php echo $baseUrl ?>/assets/mp4/tramiton.mp4" autoplay loop muted></video>
-        </div>
-    </div>
-</div> -->
 
 <div id="que_es_tramiton" class="container-fluid" style="height: 616px;">
     <iframe style="border: none;" height="100%" width="100%" scrolling="no" src="<?php echo (Yii::app()->theme->baseUrl . '/views/site/que_es_tramiton.php'); ?>"></iframe>
@@ -119,21 +110,21 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <div class="row">
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <div class="number" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalParticipantes']?>"><?php echo $estadisticas['totalParticipantes']?></div>
+                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalParticipantes']?>"><?php echo $estadisticas['totalParticipantes']?></div>
                 <div class="title">Total Participantes</div>
             </div>
         </div>
         <!-- end col-3 -->
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <div class="number" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalTramites']?>"><?php echo $estadisticas['totalTramites']?></div>
+                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalTramites']?>"><?php echo $estadisticas['totalTramites']?></div>
                 <div class="title">Soluciones Registradas</div>
             </div>
         </div>
         <!-- begin col-3 -->
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <div class="number" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalAcciones']?>"><?php echo $estadisticas['totalAcciones']?></div>
+                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalAcciones']?>"><?php echo $estadisticas['totalAcciones']?></div>
                 <div class="title">Trámites con planes de mejora</div>
             </div>
         </div>
@@ -141,7 +132,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
         <!-- begin col-3 -->
         <!-- <div class="col-sm-3 milestone-col">
             <div class="milestone">
-                <div class="number" data-animation="true" data-animation-type="number" data-final-number="25">25</div>
+                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="25">25</div>
                 <div class="title">Trámites mejorados</div>
             </div>
         </div> -->
@@ -188,7 +179,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 
 <!-- begin #noticias -->
-<div id="noticias" class="content has-bg twitter" data-scrollview="true">
+<div id="noticias" class="content has-bg twitter" data-scrollview="true" style="height: 620px;">
 
     <?php $twitter = SiteController::getTwitter();
     ?>
@@ -200,7 +191,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
         <!-- begin carousel -->
         <div class="carousel testimonials slide" data-ride="carousel" id="testimonials">
             <!-- begin carousel-inner -->
-            <div class="carousel-inner text-center">
+            <div class="carousel-inner text-center" style="height:300px;">
                 <!-- begin item -->
                 <?php
                 $len = count($twitter);

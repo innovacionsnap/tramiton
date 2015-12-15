@@ -78,7 +78,7 @@
            
            
             <!-- begin row -->
-            <div class="row">
+            <div class="row" style="background:white;">
                 <!-- begin col-12 -->
                 <div class="col-md-12">
                     <!-- begin panel -->
