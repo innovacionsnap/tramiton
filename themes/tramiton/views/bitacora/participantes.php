@@ -66,7 +66,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
             
                 <div class="panel-body">
 
-                    <form action="<?php echo Yii::app()->BaseUrl?>/bitacora/registrocasointerno" method="POST" data-parsley-validate="true" name="form-wizard">
+                    <form action="<?php echo Yii::app()->BaseUrl?>/bitacora/registroparticipante" method="POST" data-parsley-validate="true" name="form-wizard">
                         
                             
                             <!-- begin wizard step-1 -->
@@ -88,12 +88,14 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                                         EXCEPT
                                                         (select usu.usu_id, usu.usu_nombre from usuario usu ,tarea_usuario taru
                                                         where usu.usu_id = taru.usu_id
-                                                        and taru.tar_id = 73)';    
+                                                        and taru.tar_id ='. $tar_id.')'; 
+                                                       //    echo  $consulta_participante;
+
 
                                                     $consulta_participante = pg_query($con, $consulta_participante) or die("Error en la Consulta SQL");
                                                     $numReg = pg_num_rows($consulta_participante);
                                                   
-                                                    echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_categoria' id='id_categoria' required>";
+                                                    echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_participante' id='id_categoria' required>";
                                                     echo "<option value=''>Selecciona una categoria...</option>";
                                                     while ($fila=pg_fetch_array($consulta_participante)) 
                                                     {
@@ -109,21 +111,26 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                         <!-- begin col-12 -->
                                         <div class="col-md-6">
                                         <input type="submit" value="Enviar y Guardar" class="buttons btn-info">
+                                        <input type="hidden" name="insertar_participante" value="1">
+                                        <input type="hidden" name="tar_id" value="<?php echo $tar_id?>">
                                         </div>
                                         
                                 </fieldset>
                             </div>
+                     </form>
                             <!-- end wizard step-1 -->
                             <br>
 
                              <table class="table table-hover">
 
                                 <thead>
-                                     <h5>Usarios participantes</h5>
+                                    <tr>
+                                     <h5><strong>Usarios participantes</strong></h5>
+                                 </tr>
 
                                     <tr>
                                         <th>Nombre</th>
-                                        <th>Descripción</th>
+                                        <th>Acciones</th>
                                         
                                         <th></th>
                                     </tr>
@@ -134,13 +141,27 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                         foreach ($datosTarea_Participantes as $datosTarea_Participantes_detalle){
                                         ?>
                                     <tr class="odd gradeA">
-                                        
-                                        <td>
-                                        <?php  echo $datosTarea_Participantes_detalle["usu_nombre"] ;?>
-                                        </td>
-                                        
-                                      
-                                     
+                                        <form action="<?php echo Yii::app()->BaseUrl?>/bitacora/eliminarparticipante" method="POST" data-parsley-validate="true" name="form-wizard">
+                                                <td>
+                                                <?php  echo $datosTarea_Participantes_detalle["usu_nombre"] ;?>
+                                                </td>
+                                                <td>
+                                                <div>
+                                                    <?php
+                                                    if($datosTarea_Participantes_detalle["taru_creador"]==0){
+                                                    ?>    
+                                                        <input type="submit" value="Eliminar" class="buttons btn-info"></div>
+                                                        <input type="hidden" name="eliminar_participante" value="1">
+                                                        <input type="hidden" name="taru_id" value="<?php  echo $datosTarea_Participantes_detalle["taru_id"] ;?>">
+                                                        <input type="hidden" name="tar_id" value="<?php  echo $tar_id?>">
+                                                    <?php 
+                                                        }else{
+                                                            echo "Creador tarea";
+                                                        }
+                                                    ?>
+                                                
+                                                </td>
+                                        </form>
                                     </tr>
                                     <?php } ?>
                                       
@@ -154,7 +175,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                             
                             
                         </div>
-                    </form>
+                   
                 </div>
             </div>
             <!-- end panel -->
