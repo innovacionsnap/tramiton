@@ -303,7 +303,8 @@ class CiudadanoController extends Controller {
                 $model_dtramite->datt_calificado = 0;
                 $model_dtramite->datt_descripcionbreve = 'prueba decripcion';
                 $model_dtramite->datt_estado = 1;
-                $model_dtramite->can_id = 150;
+                //$model_dtramite->can_id = 150;
+                $model_dtramite->can_id = $idhijo;
                 $model_dtramite->datt_otronombreinstitucion = 'N/A';
                 $model_dtramite->datt_fecha_actualizacion = $hoy;
                 $model_dtramite->save();
