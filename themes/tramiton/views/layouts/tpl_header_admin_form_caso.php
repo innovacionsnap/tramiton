@@ -34,7 +34,9 @@
 
         <!-- ================== END BASE CSS STYLE ================== -->
 
-        <!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->    
+        <!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
+        <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+        <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap-wizard/css/bwizard.min.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
         <link href="<?php echo $baseUrl; ?>/assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
