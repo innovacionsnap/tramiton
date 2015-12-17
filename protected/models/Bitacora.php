@@ -55,7 +55,7 @@ class Bitacora extends CActiveRecord {
         //$id_usuario = $modelUser['usu_id'];
         $tar_id_detalle = $_GET['tar_id'];
         
-        $sql = "select usu.usu_nombre from tarea_usuario taru, tarea tar, usuario usu
+        $sql = "select usu.usu_nombre,taru.taru_id, taru.taru_creador from tarea_usuario taru, tarea tar, usuario usu
                 where tar.tar_id = taru.tar_id 
                 and usu.usu_id = taru.usu_id
                 and tar.tar_id = '$tar_id_detalle'";
@@ -65,17 +65,29 @@ class Bitacora extends CActiveRecord {
                 return $rows;
     }
 
+    public function getPermiso_Participantes() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $id_usuario = $modelUser['usu_id'];
+        $tar_id = $_GET['tar_id'];
+        
+        $sql = "select * from tarea_usuario where usu_id = $id_usuario  and tar_id = $tar_id";
+                //echo "<br>Permiso:".$sql;
+                $dataReader = $this->connection->createCommand($sql)->query();
+                $rows = $this->connection->createCommand($sql)->queryAll();
+                return $rows;
+    }
+
     public function getTarea_Creador() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
-        $tar_id_detalle = $_GET['tar_id'];
+        $tar_id = $_GET['tar_id'];
         
-        $sql = "select usu.usu_nombre from tarea_usuario taru, tarea tar, usuario usu
+        $sql = "select usu.usu_nombre, usu.usu_id from tarea_usuario taru, tarea tar, usuario usu
                 where tar.tar_id = taru.tar_id 
                 and usu.usu_id = taru.usu_id
-                and tar.tar_id = '$tar_id_detalle'
+                and tar.tar_id = '$tar_id'
                 and taru.taru_creador= 1";
-               // echo "<br>Creador:".$sql;
+               //echo "<br>Creador:".$sql;
                 $dataReader = $this->connection->createCommand($sql)->query();
                 $rows = $this->connection->createCommand($sql)->queryAll();
                 return $rows;
@@ -99,7 +111,26 @@ order by acc_fecharegistro desc
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
-  
+    
+    public function getActividad_Ver() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //$id_usuario = $modelUser['usu_id'];
+        $tar_id_detalle = $_GET['tar_id'];
+        $acc_id = $_GET['acc_id'];
+
+        //$tar_id_detalle = 3;
+        //$acc_id = 2;
+
+        $sql = "select acc.acc_id,acc.acc_nombre, acc.acc_descripcion, acc.acc_estado, acc.acc_fecharegistro, tar.tar_id
+from accion acc, tarea tar
+where acc.tar_id = tar.tar_id 
+and tar.tar_id = '$tar_id_detalle'
+and acc.acc_id ='$acc_id'";
+        //echo "<br>".$sql;
+        $dataReader = $this->connection->createCommand($sql)->query();
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
   
   
     

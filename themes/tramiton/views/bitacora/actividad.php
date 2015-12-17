@@ -151,12 +151,12 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 
                                         <div class="col-md-12">
                                             <div class="form-group block1">
-                                                <label>Usuario responsables:</label>
+                                                <label>Usuario responsable:</label>
                                                         
                                                         <?php
 
                                                             $consulta_usuario = 'select * from usuario usu, "AuthAssignment" aut where CAST(aut.userid as integer) = usu.usu_id and aut.itemname = \'bitacora\' ';   
-                                                            echo  $consulta_usuario;
+                                                            //echo  $consulta_usuario;
         
                                                             $resultado_usuario = pg_query($con, $consulta_usuario) or die("Error en la Consulta SQL");
                                                             $numReg = pg_num_rows($resultado_usuario);

@@ -39,6 +39,26 @@
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
 <!-- ================== END BASE JS ================== -->
 
+
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/ionRangeSlider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/masked-input/masked-input.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/password-indicator/js/password-indicator.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery-tag-it/js/tag-it.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-daterangepicker/moment.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/select2/dist/js/select2.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/form-plugins.demo.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/apps.min.js"></script>
+<!-- ================== END PAGE LEVEL JS ================== -->
+
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
 
 
@@ -57,6 +77,7 @@
 <script>
     $(document).ready(function () {
         App.init();
+        FormPlugins.init();
         FormWizardValidation.init();
         viewElements();
         bodyPadding();
