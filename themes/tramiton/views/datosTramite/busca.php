@@ -60,7 +60,8 @@
                                         <td class="sorting_1"><?php echo substr($caso['datt_experiencia'],0,500).' ...'; ?></td>
                                         <td class="sorting_1"><?php echo $caso['ins_nombre']; ?></td>
                                         <td class="sorting_1"><?php echo substr($caso['sol_descripcion'],0,500).' ...'; ?></td>
-                                        <td><a href="/tramiton/solucion/index?sol=<?php echo $caso['sol_id']; ?>" title="Mostrar caso" class="caso-new" target="_blank"><button class="btn btn-inverse active btn-xs m-r-5" type="button"><i class="fa fa-eye"></i> Mostrar caso</button></a></td>
+                                        <?php $id=Empresa::model()->codificaGet('sol='.$caso['sol_id']);?>
+                                        <td><a href="/tramiton/solucion/index?<?php echo $id; ?>" title="Mostrar caso" class="caso-new" target="_blank"><button class="btn btn-inverse active btn-xs m-r-5" type="button"><i class="fa fa-eye"></i> Mostrar caso</button></a></td>
                                         
                                     </tr>
 
@@ -87,25 +88,25 @@
 
 <!-- ================== END PAGE LEVEL JS prueba ================== -->
 <script type="text/javascript">
-    // $(document).ready(function () {
-    //     $(".caso-new").fancybox({
-    //         'titleShow': false,
-    //         'width': '65%',
-    //         'height': '65%',
-    //         'autoScale': false,
-    //         'transitionIn': 'none',
-    //         'transitionOut': 'none',
-    //         'type': 'iframe',
-    //         // afterClose : function() {
-    //         //     location.reload();
-    //         // }
-    //     });
+     $(document).ready(function () {
+         $(".caso-new").fancybox({
+             'titleShow': false,
+             'width': '65%',
+             'height': '65%',
+             'autoScale': false,
+             'transitionIn': 'none',
+             'transitionOut': 'none',
+             'type': 'iframe',
+             // afterClose : function() {
+             //     location.reload();
+             // }
+         });
         
-    //     App.init();
-    //     // TableManageDefault.init();
+        // App.init();
+        // TableManageDefault.init();
         
          
-    // });
+     });
 </script>
 
 
