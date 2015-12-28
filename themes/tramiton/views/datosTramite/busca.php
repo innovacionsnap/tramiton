@@ -61,7 +61,7 @@
                                         <td class="sorting_1"><?php echo $caso['ins_nombre']; ?></td>
                                         <td class="sorting_1"><?php echo substr($caso['sol_descripcion'],0,500).' ...'; ?></td>
                                         <?php $id=Empresa::model()->codificaGet('sol='.$caso['sol_id']);?>
-                                        <td><a href="/tramiton/solucion/index?<?php echo $id; ?>" title="Mostrar caso" class="caso-new" target="_blank"><button class="btn btn-inverse active btn-xs m-r-5" type="button"><i class="fa fa-eye"></i> Mostrar caso</button></a></td>
+                                        <td><a href="<?php echo Yii::app()->baseUrl; ?>/solucion/index?<?php echo $id; ?>" title="Mostrar caso" class="caso-new" target="_blank"><button class="btn btn-inverse active btn-xs m-r-5" type="button"><i class="fa fa-eye"></i> Mostrar caso</button></a></td>
                                         
                                     </tr>
 

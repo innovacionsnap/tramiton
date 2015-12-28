@@ -29,7 +29,7 @@
             'items' => array(
                 array('label' => '<i class="fa fa-home"></i>Inicio', 'url' => array('dashboard/index'), 'linkOptions' => array(),),
                 
-                array('label' => '<i class="fa fa-archive"></i>Tramites<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('ciudadano', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'), 
+                array('label' => '<i class="fa fa-archive"></i>Trámites<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('ciudadano', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'), 
                     'items' => array(
                         array('label' => 'Registro', 'url' => array('ciudadano/index')),
                         array('label' => 'Seguimiento', 'url' => array('ciudadano/usuario_tramites')),
@@ -53,7 +53,7 @@
                 */
                  array('label' => '<i class="fa fa-crosshairs"></i>Seguimiento<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('bitacora', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'), 
                     'items' => array(
-                        array('label' => 'Bitacora', 'url' => array('bitacora/index')),
+                        array('label' => 'Bitácora', 'url' => array('bitacora/index')),
                         //array('label' => 'Tareas generales', 'url' => array('')),
                         //array('label' => 'Tareas por usuario', 'url' => array('')),
                         //array('label' => 'Archivos', 'url' => array('')),
@@ -63,7 +63,7 @@
                         array('label' => 'Usuarios', 'url' => array('admin/index')),
                         //array('label' => 'Instituciones', 'url' => array('')),
                         array('label' => 'Roles', 'url' => array('admin/role')),
-                        array('label' => 'Asignacion de Roles', 'url' => array('admin/rolesUsuarios')),
+                        array('label' => 'Asignación de Roles', 'url' => array('admin/rolesUsuarios')),
                         //array('label' => 'Configuraciones', 'url' => array('')),
                     )),
                 
