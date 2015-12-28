@@ -58,6 +58,7 @@ class ValidarRegistro extends CFormModel {
                 'max' => 10,
                 'tooLong' => '<span style="color: #F00;">Máximo 10 digitos'
             ),
+            array('cedula', 'comprobar_cedula_usuario'),
             //validación username
             array('nombre_usuario', 'required', 'message' => '<span style="color: #F00;">El nombre de usuario es requerido</span>'),
             array(
@@ -185,6 +186,24 @@ class ValidarRegistro extends CFormModel {
         foreach ($usernames as $user) {
             if($this->nombre_usuario == $user['usu_nombreusuario']){
                 $this->addError('nombre_usuario', '<span style="color: #F00;">El nombre de usuario ingresado no esta disponible</span>');
+                break;
+            }
+        }
+    }
+    
+    
+    public function comprobar_cedula_usuario() {
+
+        $conexion = Yii::app()->db;
+        
+        $sqlConsultaCedulaUser = "select usu_cedula from usuario where usu_cedula = '$this->cedula'";
+        $resultado = $conexion->createCommand($sqlConsultaCedulaUser);
+        
+        $usernames = $resultado->query();
+        
+        foreach ($usernames as $user) {
+            if($this->cedula == $user['usu_cedula']){
+                $this->addError('cedula', '<span style="color: #F00;">El número de cedula ingresado ya está registrado</span>');
                 break;
             }
         }
