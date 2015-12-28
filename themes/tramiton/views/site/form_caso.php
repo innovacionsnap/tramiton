@@ -140,8 +140,8 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                     <div class="form-group">
                         <label>Título Solución</label>
                         <div class="controls">
-                            <div id="contador_2" class="contador">20 de 20 caracteres disponibles</div>
-                            <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Título de la solución" class="campo-panel4 form-registro comment" data="comment_2" maxlength="20" />
+                            <div id="contador_2" class="contador">100 de 100 caracteres disponibles</div>
+                            <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Título de la solución" class="campo-panel4 form-registro comment" data="comment_2" maxlength="100" />
                             <div id="titulo_solucion_error" style="display:none;"></div>
                         </div>
                     </div>
