@@ -29,7 +29,7 @@
         <ul id="dashboard-navbar" class="nav navbar-nav navbar-right">
             <li>
                 <div id="busqueda" class="navbar-form full-width">
-                    <?php echo CHtml::beginForm(array('datostramite/busca')) ?>
+                    <?php echo CHtml::beginForm(array('datosTramite/busca')) ?>
                                         
                         <div class="form-group has-feedback">
                             <input id="input-buscar-experiencia" name="busca" type="text" class="form-control" placeholder="Busque una experiencia" style="min-width:176px!important;"/>
