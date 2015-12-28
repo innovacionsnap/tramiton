@@ -12,7 +12,7 @@ include("config.inc.php");
 $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
 $id_usuario = $modelUser['usu_id'];
 $tar_id = $_GET['tar_id'];
-echo $tar_id;
+// echo $tar_id;
 
 ?>
 
