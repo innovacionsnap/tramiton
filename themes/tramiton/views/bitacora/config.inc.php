@@ -6,6 +6,7 @@ $dbuser="tuusuario";
 $dbpass="tuclave";
 $db = mysql_connect($dbhost,$dbuser,$dbpass);
  */
+
 $user = "tramites";
 $password = "tramiton2015";
 $dbname = "tramitonv2";
@@ -17,8 +18,8 @@ $con = pg_connect($cadenaConexion) or die("Error en la Conexión: ".pg_last_erro
 
 /*
 $user = "postgres";
-$password = "postgresql";
-$dbname = "tramitonV2";
+$password = "tramiton2015";
+$dbname = "tramitonv2";
 $port = "5432";
 $host = "localhost";
 $cadenaConexion = "host=$host port=$port dbname=$dbname user=$user password=$password";
