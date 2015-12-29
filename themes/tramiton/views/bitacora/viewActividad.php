@@ -53,12 +53,7 @@
         <div id="content" class="content">
             <!-- begin breadcrumb -->
             <ol class="breadcrumb pull-right">
-<<<<<<< HEAD
-                <li><a href="../dashboard/index">Home</a></li>
-                <li><a href="index">Tareas</a></li>
-=======
                 <li><a href="../dashboard/index">Inicio</a></li>
->>>>>>> 231bc88d5a57e0ecee3285c902332bd7b2d643ce
                 <li class= "active"><a href="javascript:history.go(-1)">Regresar</a></li>
                 
             </ol>
@@ -126,7 +121,7 @@
                                                     $creador_id = $datosTarea_Generador_detalle["usu_id"];  
                                                         if($creador_id==$id_usuario)  {
                                                             ?>
-                                                            <a href="participantes?tar_id=<?php echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="solucion" title="Añadir Paricipantes">
+                                                            <a href="Participantes?tar_id=<?php echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="solucion" title="Añadir Paricipantes">
                                             <li class="fa fa-plus-circle"></li></a>
                                                             
                                                             <?php 
