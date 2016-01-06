@@ -104,7 +104,7 @@ return array(
 
 
                 'db' => array (
-			//'connectionString' => 'pgsql:host=181.211.36.240;dbname=tramitonv2',
+			//'connectionString' => 'pgsql:host=192.168.0.204;dbname=dbtramitonv2',
 			'connectionString' => 'pgsql:host=192.168.0.204;dbname=tramitondbv2',
 			'emulatePrepare' => true,
 			'username' => 'tramites',
