@@ -338,8 +338,8 @@ class consultasBaseDatos {
 
     public function insertTemporalRegistro($datosRegistro) {
 
-        echo "<br><br>voy a insertar, estoy en el modelo";
-        var_dump($datosRegistro);
+        //echo "<br><br>voy a insertar, estoy en el modelo";
+        //var_dump($datosRegistro);
 
         $conexion = Yii::app()->db;
 
