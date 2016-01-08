@@ -13,7 +13,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
         <div class="col-md-5 col-md-pull-7">
             <div id="row-buttons" class="row">
-                <h2 class="text-center">Cómo registrar tu caso</h2>
+                <h2 class="text-center">¿Cómo registrar tu caso?</h2>
 
                 <div id="col-ciudadano" class="col-sm-4">
                     <a id="button-ciudadano" class="btn btn-primary boton-ciu center-block" href="#!" role="button">Ciudadano</a>
