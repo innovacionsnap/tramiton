@@ -149,6 +149,13 @@ $baseUrl = Yii::app()->theme->baseUrl;
         <?php
         $this->Widget('ext.highcharts.HighchartsWidget', array(
             'options' => array(
+                'chart' => array(
+                        'plotBackgroundColor' => '#ffffff',
+                        'plotBorderWidth' => null,
+                        'plotShadow' => false,
+                        'height' => 400,
+                        'type'=>'column'
+                      ),
                 'credits' => array('enabled' => false),
                 'title' => array('text' => ''),
                 'xAxis' => array(
