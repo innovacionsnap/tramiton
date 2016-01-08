@@ -73,10 +73,32 @@ video{
 .titulo-twitter{
     text-align: left !important;
 }
-.titulos{
-    color:#325972 !important;
-    text-align: left !important;
-    border-bottom: 3px solid #325972;
+#maincontainer {
+    width:100%;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+#leftcolumn{
+    color:#4a819d !important;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    float:left;
+    display:inline-block;
+    width: 250px;
+    height: 100%;
+}
+#contentwrapper{
+    float:left;
+    display:inline-block;
+    width: -moz-calc(100% - 250px);
+    width: -webkit-calc(100% - 250px);
+    width: calc(100% - 250px);
+    height: 100%;
+
+    border-bottom: 2px solid #325972;
+    padding-top: 30px !important;
+    margin-bottom: 20px;
 }
 #col-ciudadano, #col-organizacion, #col-servidor-publico, #col-otro{
 	padding-top: 1%;
@@ -138,7 +160,9 @@ video{
 
 .titulo-estadistica{
 	margin: 3% 10%;
-    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #00a7fe;
+    /*font-weight: bold;*/
 }
 .titulo-estadistica div hr{
     border-width:3px;
@@ -157,6 +181,15 @@ video{
 	padding: 0px !important;
 }
 
-@media(max-width: 750px){
-    
+.pregunta{
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 1.4em;
+    color: #4a819d;
+}
+
+.respuesta{
+    color: #4a819d;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.3em;
 }

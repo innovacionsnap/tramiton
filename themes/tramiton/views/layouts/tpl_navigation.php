@@ -15,7 +15,7 @@
 
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav nav-tramiton navbar-right">
-                <li><a class="menu-central borde-derecha" href="#home" data-click="scroll-to-target">Participa</a></li>
+                <li><a class="menu-central borde-derecha" href="#">Participa</a></li>
                 <li><a class="menu-central borde-derecha" href="#que_es_tramiton" data-click="scroll-to-target">¿Qué es Tramitón?</a></li>
                 <li><a class="menu-central borde-derecha" href="#estadisticas" data-click="scroll-to-target">Estadísticas</a></li>
                 <li><a class="menu-central borde-derecha" href="#noticias" data-click="scroll-to-target">Noticias</a></li>
