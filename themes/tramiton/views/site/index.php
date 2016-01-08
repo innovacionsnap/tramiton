@@ -123,7 +123,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
         </div>
         <!-- begin col-3 -->
         <div class="col-sm-4 milestone-col">
-            <div class="milestone">
+            <div class="milestone no-border">
                 <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalAcciones']?>"><?php echo $estadisticas['totalAcciones']?></div>
                 <div class="title">Trámites con planes de mejora</div>
             </div>
@@ -256,7 +256,10 @@ $baseUrl = Yii::app()->theme->baseUrl;
 <!--beign #preguntas frecuentes -->
 <!-- <div id = "preguntas" class = "content has-bg" data-scrollview = "true" > -->
 <div id = "preguntas" class="container" style="padding-top: 80px; padding-bottom:10px;" >
-    <h2 class = "content-title titulos">PREGUNTAS FRECUENTES</h2>
+    <div id="main-container">
+        <h2 id="leftcolumn">PREGUNTAS FRECUENTES</h2>
+        <div id="contentwrapper"></div>
+    </div>
     <!--begin panel-group -->
     <div class = "panel-group" id = "faq">
         <!--begin panel -->

@@ -548,18 +548,25 @@ body.page-navbar-fixed-top-sm {
 
 .milestone {
     text-align: center;
-    border-right: 4px solid #325972;
+}
+@media(min-width: 768px){
+    .milestone {
+        border-right: 1px solid #000000;
+    }
 }
 .milestone-col + .milestone-col {
     border-left: 1px solid rgba(255,255,255,0.2);
 }
 .milestone .number {
-    font-size: 42px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 4.3em;
     color: #325972;
-    font-weight: 500;
+    font-weight: bold;
 }
 .milestone .title {
+    font-family: 'Roboto Condensed', sans-serif;
     color: #8F8E8E;
+    font-size: 1.8em;
 }
 
 
