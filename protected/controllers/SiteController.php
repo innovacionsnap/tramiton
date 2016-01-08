@@ -236,10 +236,12 @@ class SiteController extends Controller {
 
 
         if ($verifica_usuario == 1) {
-            echo '<br><br><h4 align="center">para publicar su caso debe <a href="site/login">iniciar sesión</a></h4>';
+            echo '<br><br><h4 align="center">para publicar su caso debe <a href="site/login">Iniciar Sesión</a></h4>';
+            echo '<br><br><h3><a href="http://tramiton.to">Recargar la página</a></h3>';
           
         } else {
-            echo '<br><br><h4>para poder publicarlo debe <a href="site/registro">crear una cuenta.</a></h4>';
+            echo '<br><br><h4>para poder publicarlo debe <a href="site/registro">Crear una cuenta.</a></h4>';
+            echo '<br><br><h3><a href="http://tramiton.to">Recargar la página</a></h3>';
          
             //Yii::app()->end();
             //Debe Registrarse
