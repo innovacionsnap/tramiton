@@ -153,7 +153,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         <label>Detalle de solución</label>
                         <div class="controls">
                             <div id="contador_3" class="contador">1500 de 1500 caracteres disponibles</div>
-                            <textarea class="campo-panel4 form-registro comment" id="propuesta_solucion" name="Detalle de la solución" data="comment_3" rows="4" placeholder="Propuesta de la solución" maxlength="1500"></textarea>
+                            <textarea class="campo-panel4 form-registro comment" id="propuesta_solucion" name="propuesta_solucion" data="comment_3" rows="4" placeholder="Propuesta de la solución" maxlength="1500"></textarea>
                             <div id="propuesta_solucion_error" style="display:none;"></div>
                         </div>
                     </div>
