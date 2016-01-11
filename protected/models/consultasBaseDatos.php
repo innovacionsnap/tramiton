@@ -460,4 +460,27 @@ class consultasBaseDatos {
         return $totalAcciones;
     }
     
+    public function getAccionesCorrectivas10(){
+        $conexion = Yii::app()->db;
+        
+        $sqlAccionesTramite = "select count(ins.ins_id)as total , ins.ins_nombre as nombre
+        from acciones_correctivas accc, tramite tra, tramite_institucion trai, institucion ins
+        where tra.tra_id = accc.tra_id
+        and trai.tra_id = tra.tra_id
+        and ins.ins_id = trai.ins_id
+        group by ins.ins_id
+        order by total desc
+        limit 10";
+
+
+        $resultado = $conexion->createCommand($sqlAccionesTramite);
+        
+        //$totalAccionesnum;
+        $totalAccionesnom;
+        $totalAccionesnom= $resultado->query();
+               
+        return $totalAccionesnom;
+        //return $totalAccionesnum;
+    }
+    
 } 

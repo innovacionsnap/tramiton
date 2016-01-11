@@ -42,16 +42,22 @@ class SiteController extends Controller {
         $totalParticipantes = $modelEstadisticas->getTotalParticipantes();
         $totalTramites = $modelEstadisticas->getTramitesMencionados();
         $totalAcciones = $modelEstadisticas->getAccionesCorrectivasTram();
+        
+        //$totalAccionesnum = $modelEstadisticas->getAccionesCorrectivas10n();
+        $totalAccionesnom = $modelEstadisticas->getAccionesCorrectivas10();
+        
 
         $estadisticas = array(
             'totalParticipantes' => $totalParticipantes,
             'totalTramites' => $totalTramites,
-            'totalAcciones' => $totalAcciones
+            'totalAcciones' => $totalAcciones,
+        //    'totalAccionesnum' => $totalAccionesnum,
+          //  'totalAccionesnom' => $totalAccionesnom,    
         );
 
         $model = new ValidarCedula;
         $model_login = new LoginForm;
-        $this->render('index', array("model" => $model, "model_login" => $model_login, 'msg1' => $this->_msgerror, 'estadisticas' => $estadisticas));
+        $this->render('index', array("model" => $model, "model_login" => $model_login, 'msg1' => $this->_msgerror, 'estadisticas' => $estadisticas, 'totalAccionesnom' => $totalAccionesnom));
     }
 
     /**
