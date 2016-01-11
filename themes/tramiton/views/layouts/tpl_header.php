@@ -38,6 +38,10 @@
         <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/footer.css">
         <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/form-caso.css">
 
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
+    <!-- ================== END BASE JS ================== -->
+    
 	<?php
         $baseUrl = Yii::app()->baseUrl;
         $cs = Yii::app()->getClientScript();
@@ -46,9 +50,7 @@
     <?php $linkcombo = $baseUrl . '/themes/tramiton/views/site/combobox.php' ?>
     <?php  $linkcombo2 = $baseUrl . '/themes/tramiton/views/site/combobox2.php' ?>
     
-    <!-- ================== BEGIN BASE JS ================== -->
-    <script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
-    <!-- ================== END BASE JS ================== -->
+    
 
     <script type="text/javascript">
         $(document).ready(function () {
