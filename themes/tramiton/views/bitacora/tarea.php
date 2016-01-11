@@ -126,7 +126,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                                         
                                                         <?php
 
-                                                            $consulta_institucion = "SELECT * FROM institucion";    
+                                                            $consulta_institucion = "select * from institucion order by ins_funcion_ejecutiva desc,ins_nombre";
         
                                                             $resultado_institucion = pg_query($con, $consulta_institucion) or die("Error en la Consulta SQL");
                                                             $numReg = pg_num_rows($resultado_institucion);
