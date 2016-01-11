@@ -132,6 +132,8 @@ class SiteController extends Controller {
      * accion para insertar nuevos datos de formulario
      */
     public function actionRegistroCaso() {
+        
+        //var_dump($_POST); Yii::app()->end();
 
         if (!isset($_POST) || !isset($_POST['g-recaptcha-response']) || $_POST['g-recaptcha-response'] == '' || count($_POST['g-recaptcha-response']) == 0) {
             echo 0;
@@ -147,8 +149,8 @@ class SiteController extends Controller {
             $unidad_prestadora = $_POST['unidad_prestadora'];
             $idhijo = $_POST['idhijo']; // canton de la provincia seleccionada
 
-            if (isset($_POST['id_tramite2'])) {
-                $id_tramite = $_POST['id_tramite2'];
+            if (isset($_POST['id_tramite'])) {
+                $id_tramite = $_POST['id_tramite'];
             } else {
                 $id_tramite = 4173;
             }
