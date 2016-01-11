@@ -256,10 +256,11 @@ $baseUrl = Yii::app()->theme->baseUrl;
 <!--beign #preguntas frecuentes -->
 <!-- <div id = "preguntas" class = "content has-bg" data-scrollview = "true" > -->
 <div id = "preguntas" class="container" style="padding-top: 80px; padding-bottom:10px;" >
-    <div id="main-container">
+    <h2 class="content-title titulos">PREGUNTAS FRECUENTES</h2>
+    <!-- <div id="main-container">
         <h2 id="leftcolumn">PREGUNTAS FRECUENTES</h2>
         <div id="contentwrapper"></div>
-    </div>
+    </div> -->
     <!--begin panel-group -->
     <div class = "panel-group" id = "faq">
         <!--begin panel -->

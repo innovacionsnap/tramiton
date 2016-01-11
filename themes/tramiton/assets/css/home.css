@@ -73,6 +73,11 @@ video{
 .titulo-twitter{
     text-align: left !important;
 }
+.titulos{
+    color:#325972 !important;
+    text-align: left !important;
+    border-bottom: 3px solid #325972;
+}
 #maincontainer {
     width:100%;
     height: 100%;
