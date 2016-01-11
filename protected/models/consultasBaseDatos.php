@@ -347,8 +347,10 @@ class consultasBaseDatos {
         //$cedulaCiud = $datosRegistro['cedulaCiudadano'];
         //echo "cedula a encriptar" . $cedulaCiud;
         //Yii::app()->end();
+        
+        $datoCodigo = $datosRegistro['cedulaCiudadano'] . date("m/d/Y h:i:s a", time());
 
-        $codigoVerif = $userModel->getHash('sha1', $datosRegistro['cedulaCiudadano'], Yii::app()->params['hashKey']);
+        $codigoVerif = $userModel->getHash('sha1', $datoCodigo, Yii::app()->params['hashKey']);
 
         $sqlInsertTmpRegistro = "INSERT INTO tmp_registro_caso("
                 . "cedula, id_institucion, id_tramite, experiencia, titulo_solucion, "
