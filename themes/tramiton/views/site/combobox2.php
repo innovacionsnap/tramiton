@@ -1,5 +1,6 @@
 <?php
-include 'config.inc.php';
+include '../../../../protected/extensions/validacion/config.inc.php';    
+
 
 
 function dameURL(){

@@ -1,5 +1,5 @@
 <?php
-include 'config.inc.php';
+include '../../../../protected/extensions/validacion/config.inc.php';
 
 if ($_GET['buscar']=="hijos")
 {

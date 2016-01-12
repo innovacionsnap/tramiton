@@ -5,10 +5,10 @@
 
 $baseUrl = Yii::app()->theme->baseUrl;
 
-include("config.inc.php");
+include 'protected/extensions/validacion/config.inc.php';
+  
 
-   
-    
+
 $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
 $id_usuario = $modelUser['usu_id'];
 

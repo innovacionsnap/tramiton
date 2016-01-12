@@ -34,7 +34,7 @@ if (isset($insertar_tramite)) {
 
     $hoy = date("Y-m-d");
 
-    include 'config.inc.php';
+    include '../../../../protected/extensions/validacion/config.inc.php';
 
 /*
     $insert_tramite = "INSERT INTO datos_tramite(
