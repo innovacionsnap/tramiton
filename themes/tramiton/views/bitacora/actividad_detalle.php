@@ -4,7 +4,7 @@
 
 $baseUrl = Yii::app()->theme->baseUrl;
 
-include("config.inc.php");
+include 'protected/extensions/validacion/config.inc.php';
 
    
     
