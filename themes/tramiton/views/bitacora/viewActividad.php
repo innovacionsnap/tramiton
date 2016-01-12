@@ -42,6 +42,8 @@
             location.reload();
         }
     });
+
+   
 });
 </script>   
 <?php 
@@ -54,12 +56,12 @@
             <!-- begin breadcrumb -->
             <ol class="breadcrumb pull-right">
                 <li><a href="../dashboard/index">Inicio</a></li>
-                <li class= "active"><a href="javascript:history.go(-1)">Regresar</a></li>
+                <li class= "active"><a href="index">Regresar</a></li>
                 
             </ol>
             <!-- end breadcrumb -->
             <!-- begin page-header -->
-            <h1 class="page-header">Detalle Actividad <small></small></h1>
+            <h1 class="page-header">Detalle Tarea <small></small></h1>
             <!-- end page-header -->
             <!-- begin profile-container -->
             <div class="profile-container">
@@ -85,9 +87,12 @@
                                                 <small><strong>Elaborado por:</strong> 
                                                     <?php 
                                                     foreach ($datosTarea_Generador as $datosTarea_Generador_detalle)
-                                                       echo $datosTarea_Generador_detalle["usu_nombre"]."  ";
+                                                       echo $datosTarea_Generador_detalle["usu_nombre"]." &nbsp; Fecha:".$datosTarea_Generador_detalle["tar_fecharegistro"] ;
                                                     
                                                     ?></small>
+                                                
+                                         
+                                                </small>
                                             </th>
                                         </tr>
                                     </thead>
@@ -100,14 +105,46 @@
                                             <td colspan="2"></td>
                                         </tr>
                                         <tr>
-                                            <td class="field">Descripción</td>
+                                            <td class="field">Quipux / Correo</td>
                                             <td><?php echo $datosTarea_Actividad_detalle["tar_descripcion"] ?></td>
+                                        </tr>
+                                        <!--
+                                         <tr>
+                                            <td class="field">Meta</td>
+                                            <td><?php echo $datosTarea_Actividad_detalle["tar_meta"] ?></td>
+                                        </tr>
+                                        -->
+                                        <tr>
+                                            <td class="field">Estatus</td>
+                                            <td><?php
+
+                                                if ($datosTarea_Actividad_detalle["tar_estatus"] == 0){
+                                                    echo "Abierto";
+                                                }
+                                                if ($datosTarea_Actividad_detalle["tar_estatus"] == 1){
+                                                    echo "Cerrado";
+                                                }
+
+                                            ?></td>
                                         </tr>
                                         <tr>
                                             <td class="field">Institución</td>
                                             <td><?php echo $datosTarea_Actividad_detalle["ins_nombre"] ?></td>
                                         </tr>
                                         <?php } ?>
+                                         <tr>
+                                            <td class="field">Cumplimiento</td>
+
+                                            <td >
+                                                <?php 
+                                                $model=Bitacora::model();
+                                                $model->getNumeroActiviades($datosTarea_Actividad_detalle["tar_id"]);
+
+                                        //echo $contador_accion;
+                                        ?>
+
+                                            </td>
+                                            
                                         <tr>
                                             <td class="field">Participantes </td>
                                             <td>
@@ -159,7 +196,9 @@
                                         <th>Nombre</th>
                                         <th>Descripción</th>
                                         <th>Estado</th>
+                                        <th>Nivel</th>
                                         <th>Fecha Registro</th>
+                                        <th>Elaborado Por:</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -174,29 +213,39 @@
                                         <td>
                                         <a href="#" ><?php  echo $datosActividad_detalle["acc_descripcion"] ?></a>
                                         </td>
+                                        
                                         <td>
                                         <a href="#" >
                                         <?php  
                                             if ($datosActividad_detalle["acc_estado"]==1){?>
                                                 
-                                                Verde
+                                                <div><span style="background-color: green;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
                                             <?php 
                                             }
-                                            elseif ($datosActividad_detalle["acc_estado"]==2){
-                                                echo "naranja";}
-                                            if ($datosActividad_detalle["acc_estado"]==3){
-                                                echo "rojo";
+                                            elseif ($datosActividad_detalle["acc_estado"]==2){ ?>
+                                                <div><span style="background-color: orange;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                                            <?php
+                                            }
+                                            if ($datosActividad_detalle["acc_estado"]==3){ ?>
+                                                <div><span style="background-color: red;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                                            <?php 
                                             }
 
                                         
                                             # code...
                                          ?></a>
+                                        <td>
+                                        <a href="#" ><?php  echo $datosActividad_detalle["acc_nivel"] ?>%</a>
+                                        </td>
                                         </td>
                                         <td>
                                         <a href="<?php  echo $datosActividad_detalle["acc_id"] ?>" ><?php  echo $datosActividad_detalle["acc_fecharegistro"] ?></a>
                                         </td>
                                         <td>
-                                            <a href="actividad_detalle_ver?tar_id=<?php echo  $datosTarea_Actividad_detalle['tar_id'] ?>&acc_id=<?php  echo $datosActividad_detalle["acc_id"] ?>" class="btn btn-inverse active btn-xs m-r-5 actividad_d" role="button">
+                                        <a href="<?php  echo $datosActividad_detalle["acc_id"] ?>" ><?php  echo $datosActividad_detalle["usu_nombre"] ?></a>
+                                        </td>
+                                        <td>
+                                            <a href="actividad_detalle?tar_id=<?php echo  $datosTarea_Actividad_detalle['tar_id'] ?>&acc_id=<?php  echo $datosActividad_detalle["acc_id"] ?>" class="btn btn-inverse active btn-xs m-r-5" role="button">
                                                 <li class="fa fa-plus-circle">&nbsp;&nbsp;</li>Mostrar</a>
                                         </td>
                                      

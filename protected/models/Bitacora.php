@@ -19,25 +19,129 @@ class Bitacora extends CActiveRecord {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
         //$usu_id = $this->_datosUser->usu_id;
-        $sql = "select tar.tar_id, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre, tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro
+        $sql = "select tar.tar_id, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre,tar_estatus,tar_importancia, tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro,tar_nivel
                 from tarea tar, institucion ins, categoria cat
                 where tar.ins_id = ins.ins_id
-        and cat.cat_id = tar.cat_id
+                and tar.tar_tipo = 1 
+                and cat.cat_id = tar.cat_id
                 and tar.tar_estado = 1
-                order by cat.cat_nombre desc";
-//echo $sql;
+                order by tar.tar_id desc";
+    //echo $sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         // recibe los datos
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
+
+    public function getColor($id_tarea){
+        $sql="select acc_estado, count(acc_estado) as contador from accion 
+where tar_id = $id_tarea
+group by acc_estado;";
+
+//echo $sql;
+ //$dataReader = $this->connection->createCommand($sql)->query();
+        // recibe los datos
+        $command = Yii::app()->db->createCommand($sql);
+        $resultSet=$command->query();
+
+        $colores = array();
+        $verde = 0;
+        $amarillo = 0;
+        $rojo = 0;
+
+        //echo "Valor:";
+
+        foreach ($resultSet as $registro) {
+
+           if($registro['acc_estado'] == 1){
+                //echo $registro['contador'];
+                $verde = $registro['contador'];
+            }
+            if($registro['acc_estado'] == 2){
+                //echo "amarillo".$registro['contador'];
+                $amarillo = $registro['contador'];
+            }
+            if($registro['acc_estado'] == 3){
+                //echo $registro['contador'];
+                $rojo = $registro['contador'];
+            }
+      
+        }
+
+        $colores = array(
+                        'verde' => $verde,
+                        'amarillo' => $amarillo,
+                        'rojo' => $rojo
+                );
+
+        return $colores;
+
+    }
+
+    public function getNumeroActiviades ($tar_id){
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $id_usuario = $modelUser['usu_id'];
+
+       
+
+        $sql="select count(acc_id ) as acc_cuenta from accion 
+where tar_id = '$tar_id' ";
+
+        $command = Yii::app()->db->createCommand($sql);
+        $resultSet=$command->query();
+
+        $NumeroActividad = array();
+        $Nactividad = 0;
+
+         foreach ($resultSet as $registro) {
+            $numAcciones = $registro["acc_cuenta"]  ;      
+        }
+
+
+         // Suma de Acciones 
+
+
+        $sql2="select sum(acc_nivel) as acc_suma from accion 
+where tar_id = '$tar_id' ";
+
+        $command = Yii::app()->db->createCommand($sql2);
+        $resultSet2=$command->query();
+
+        $NumeroActividad = array();
+        $Nactividad = 0;
+
+         foreach ($resultSet2 as $registrosuma) {
+            $cuentaAcciones = $registrosuma["acc_suma"]  ;      
+        }
+
+
+        //calculo %
+
+            $porcentaj100 = $numAcciones * 100;
+        if ($cuentaAcciones!=0){
+             echo $porcentaje_real = ($cuentaAcciones * 100)/$porcentaj100." %";
+
+        }else{
+            echo "0 %";
+        }
+       
+
+
+
+
+
+    }
+
+    
+
+    
     public function getTarea_Actividad() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $id_usuario = $modelUser['usu_id'];
         $tar_id_detalle = $_GET['tar_id'];
         //echo $tar_id_detalle;
         
-        $sql = "select tar.tar_id, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre, tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro
+        $sql = "select tar.tar_id, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre, tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro, tar_nivel, tar_estatus
                 from tarea tar, institucion ins, categoria cat
                 where tar.ins_id = ins.ins_id
         and cat.cat_id = tar.cat_id
@@ -48,6 +152,10 @@ class Bitacora extends CActiveRecord {
         $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
+    }
+
+    public function getrojo(){
+        echo "rojo";
     }
 
     public function getTarea_Participantes() {
@@ -82,7 +190,7 @@ class Bitacora extends CActiveRecord {
         //$id_usuario = $modelUser['usu_id'];
         $tar_id = $_GET['tar_id'];
         
-        $sql = "select usu.usu_nombre, usu.usu_id from tarea_usuario taru, tarea tar, usuario usu
+        $sql = "select usu.usu_nombre, usu.usu_id, tar_fecharegistro from tarea_usuario taru, tarea tar, usuario usu
                 where tar.tar_id = taru.tar_id 
                 and usu.usu_id = taru.usu_id
                 and tar.tar_id = '$tar_id'
@@ -100,9 +208,10 @@ class Bitacora extends CActiveRecord {
         //$id_usuario = $modelUser['usu_id'];
         $tar_id_detalle = $_GET['tar_id'];
         
-        $sql = "select acc.acc_id,acc.acc_nombre, acc.acc_descripcion, acc.acc_estado, acc.acc_fecharegistro, tar.tar_id
-from accion acc, tarea tar
+        $sql = "select acc.acc_id,acc.acc_nombre, acc.acc_descripcion, acc.acc_estado, acc.acc_fecharegistro, tar.tar_id,usu.usu_nombre, acc.acc_nivel
+from accion acc, tarea tar, usuario usu
 where acc.tar_id = tar.tar_id 
+and usu.usu_id = acc.usu_id
 and tar.tar_id = '$tar_id_detalle'
 order by acc_fecharegistro desc
 ";

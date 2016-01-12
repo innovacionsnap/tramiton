@@ -185,26 +185,42 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                     <legend class="pull-left width-full"></legend>
                                     <!-- begin row -->
                                     <div class="row">
+
+                                        <!-- begin col-12 -->
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Prioridad</label>
+                                                    <select class='form-control' data-parsley-group='wizard-step-2' name='id_importancia' id='id_importancia' required>";
+                                                        <option value=''>----</option>
+                                                        <option value='1'>Baja</option>
+                                                        <option value='2'>Media</option>
+                                                        <option value='3'>Alta</option>
+                                                    </select>
+                                                
+                                            </div>
+                                        </div>
                                         <!-- begin col-4 -->
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                              <label>Tarea</label>
+                                              <label>Pendiente</label>
                                               <input type="text" id = "nombre_tarea" onkeyup = "Validate(this)" name="nombre_tarea" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-2" required />
 
                                             </div>
                                             <div class="form-group">
-                                              <label>Descripcion</label>
+                                              <label>Quipux / Correo</label>
                                                 <input type="text" id = "descripcion_tarea" onkeyup = "Validate(this)" name="descripcion_tarea" data-parsley-range="[2,200]" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-2" required />
 
                                             </div>
+
                                             
-                                            <label>Fechas</label>
+                                            
+                                            <label>Fecha Disposición / Cierre</label>
                                             <div class="input-group input-daterange">
-                                                <input type="text" class="form-control" name="start" placeholder="Fecha Inicio" />
+                                                <input type="text" class="form-control" name="start" placeholder="Fecha Disposicion" />
                                                 <span class="input-group-addon">a</span>
-                                                <input type="text" class="form-control" name="end" placeholder="Fecha Fin" />
+                                                <input type="text" class="form-control" name="end" placeholder="Fecha Cierre" />
                                             </div>
-                                            <label>Meta</label>
+                                            <label>Resolución / Comentarios</label>
                                             <div class="controls">
                                                  <textarea class="form-control" id="meta_tarea" onkeyup = "Validate(this)" name="meta_tarea" rows="4" data-parsley-range="[20,200]" placeholder="Escribir aqui" data-parsley-group="wizard-step-2" required></textarea>
                                             </div>
