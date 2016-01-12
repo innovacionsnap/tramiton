@@ -3,7 +3,7 @@
     <!-- begin news-feed -->
     <div class="news-feed">
         <div class="news-image">
-            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/login-bg/bg-9-tramiton.jpg" alt="" />
+            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/login-bg/bg_tramiton.png" alt="" />
         </div>
         <div class="news-caption">
             <h4 class="caption-title">Tramiton.to | Trámites Absurdos del Sector Público</h4>
