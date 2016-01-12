@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-lg-2 col-lg-offset-1 col-sm-3 col-sm-offset-1 col-xs-12">
             <div class="profile-image">
-                <img src="<?php echo URL_IMG . $modelUser->usu_imagen; ?>" />
+                <img class="center-block" src="<?php echo Yii::app()->theme->baseUrl . '/assets/img/users/' . $modelUser->usu_imagen; ?>" />
                 <i class="fa fa-user hide"></i>
             </div>
             <div class="m-b-10">
