@@ -1,11 +1,10 @@
 
-
 <?php
 /* Agregar funciones de combox provincia  */
 
 $baseUrl = Yii::app()->theme->baseUrl;
 
-include 'protected/extensions/validacion/config.inc.php';
+include("config.inc.php");
 
    
     
@@ -72,7 +71,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                             
                               
                             <!-- begin wizard step-1 -->
-                            <div class="wizard-step-1">
+                            <div>
                                 <fieldset>
                                     <legend class="pull-left width-full">Actividad</legend>
                                     <!-- begin row -->
@@ -92,11 +91,34 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>Estado</label>
-                                                <select class='form-control' data-parsley-group='wizard-step-1' name='estado_actividad' id='estado_actividad' required>";
+                                                <select class='form-control' name='estado_actividad' id='estado_actividad' required>";
                                                 <option value='' >Selecciona el estado</option>
                                                 <option value="1" class="label-success">Verde</option>
                                                 <option value="2" class="label-warning">Naranja</option>
                                                 <option value="3" class="label-danger">Rojo</option>
+                                                </select>
+                                                
+
+                                            </div>
+                                        </div>
+                                        <!-- end col-12 -->
+                                        <!-- begin col-12 -->
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Estado</label>
+                                                <select class='form-control'  name='nivel_actividad' id='nivel_actividad' required>";
+                                                <option value='' >Selecciona el estado</option>
+                                                <option value="0"  >0 %</option>
+                                                <option value="10" >10 %</option>
+                                                <option value="20" >20 %</option>
+                                                <option value="30" >30 %</option>
+                                                <option value="40" >40 %</option>
+                                                <option value="50" >50 %</option>
+                                                <option value="60" >60 %</option>
+                                                <option value="70" >70 %</option>
+                                                <option value="80" >80 %</option>
+                                                <option value="90" >90 %</option>
+                                                <option value="100" >100 %</option>
                                                 </select>
                                                 
 

@@ -144,6 +144,15 @@ class BitacoraController extends Controller {
             $nombre_tarea = $_POST['nombre_tarea'];
             $descripcion_tarea = $_POST['descripcion_tarea'];
             $start = $_POST['start'];
+            $id_importancia = $_POST['id_importancia'];
+            //$start = substr("abcdef", -1);
+            $dia_start = substr($start, 0,2);
+            //$dia_start = substr($start, 0,2);
+            //echo $dia_start;
+            //echo $min_start;
+            //echo $anio_start;
+
+
             $end = $_POST['end'];
             $meta_tarea = $_POST['meta_tarea'];
 
@@ -164,11 +173,15 @@ class BitacoraController extends Controller {
                 $model_dbitacora->tar_nombre = $nombre_tarea;
                 $model_dbitacora->tar_descripcion = $descripcion_tarea;
                 $model_dbitacora->tar_meta = $meta_tarea;
-                $model_dbitacora->tar_fechainicio = $start;
-                $model_dbitacora->tar_fechafin = $end;
+                $model_dbitacora->tar_fechainicio = $hoy;
+                $model_dbitacora->tar_fechafin = $hoy;
                 $model_dbitacora->tar_fecharegistro = $hoy;
                 $model_dbitacora->tar_estado = 1;
                 $model_dbitacora->ins_id = $id_institucion;
+                $model_dbitacora->tar_tipo = 1;
+                $model_dbitacora->tar_nivel = 1;
+                $model_dbitacora->tar_estatus = 0;
+                $model_dbitacora->tar_importancia = $id_importancia;
                 $model_dbitacora->cat_id = $id_categoria;
                 $model_dbitacora->save();
                 $tar_id = $model_dbitacora->primaryKey;
@@ -194,6 +207,7 @@ class BitacoraController extends Controller {
         }
         
     }
+
 
 
     // registro de participantes
@@ -294,7 +308,7 @@ class BitacoraController extends Controller {
             $nombre_actividad = $_POST["nombre_actividad"];
             $estado_actividad = $_POST["estado_actividad"];
             $descripcion_actividad = $_POST["descripcion_actividad"];
-
+            $nivel_actividad = $_POST["nivel_actividad"];
             
 
             //echo $id_categoria;
@@ -319,6 +333,7 @@ class BitacoraController extends Controller {
                 $model_accion ->acc_estado = $estado_actividad;
                 $model_accion ->tar_id = $tar_id ;
                 $model_accion ->usu_id = $id_usuario;
+                $model_accion ->acc_nivel = $nivel_actividad;
                 
                 $model_accion -> save();
 
@@ -334,5 +349,7 @@ class BitacoraController extends Controller {
         }
         
     }
+
+   // public function 
 
 }

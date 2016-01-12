@@ -41,7 +41,7 @@
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">Tareas <small></small></h1>
+    <h1 class="page-header">Bitácora Personal<small></small></h1>
 
     <!-- end page-header -->
 
@@ -69,11 +69,18 @@
                             <thead>
                                 <tr>
                                     <th>id</th>
-                                    <th>Categoria</th>
+                                    <!--<th>Categoria</th> 
                                     <th>Institucion</th>
-                                    <th>Nombre</th>
-                                    <th>Descripcion</th>
-                                    <th>Fechas</th>
+                                    -->
+                                    <th>Pendientes</th>
+                                    <th>Quipux / Correo</th>
+                                    <th>Estatus</th>
+                                    <th>Prioridad</th>
+                                    <th>%</th>
+                                    <th><div><span style="background-color: green;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div></th>
+                                    <th><div><span style="background-color: orange;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div></th>
+                                    <th><div><span style="background-color: red;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div></th>
+                                    <th>Cierre</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -81,10 +88,61 @@
                                 <?php  foreach ($datosTarea as $dato){ ?>
                                     <tr class="odd gradeX">
                                         <td><?php echo $dato["tar_id"]  ?></td>
-                                        <td><?php echo $dato["cat_nombre"] ?></td>
-                                        <td><?php  echo substr($dato["ins_nombre"],0,40);?></td>
+                                        <!--<td><?php echo $dato["cat_nombre"] ?></td> 
+                                        <td><?php  echo substr($dato["ins_nombre"],0,40);?>...</td>-->
                                         <td><?php echo $dato["tar_nombre"] ?></td>
                                         <td><?php echo $dato["tar_descripcion"] ?></td>
+                                        <td><?php //echo $dato["tar_estatus"]." ";
+                                                if ($dato["tar_estatus"] == 0){
+                                                    echo "Abierto";
+                                                }
+                                                if ($dato["tar_estatus"] == 1){
+                                                    echo "Cerrado";
+                                                }
+
+                                                 ?>
+                                        </td>
+                                        <td>
+                                            <?php //echo $dato["tar_importancia"];
+                                                if ($dato["tar_importancia"] == 1){
+                                                    echo "Baja";
+                                                }
+                                                if ($dato["tar_importancia"] == 2){
+                                                    echo "Media";
+                                                }
+                                                if ($dato["tar_importancia"]==3){
+                                                    echo "Alta";
+                                                }
+                                            ?>
+                                        </td>
+                                        <td> 
+                                        <?php 
+                                                $model=Bitacora::model();
+                                                $contador_accion=$model->getNumeroActiviades($dato["tar_id"]);
+
+                            
+                                    
+                                            
+                                        ?></td>
+                                        <?php $model=Bitacora::model();
+                                        $contador_colores=$model->getColor($dato["tar_id"]);//$rojo = Yii::app()->Bitacora; 
+                                        ?>
+                                        <td>
+                                        <?php
+                                        echo $contador_colores['verde'];
+                                        ?></td>
+                                        <td>
+                                            <?php
+                                            echo $contador_colores['amarillo'];
+                                            ?>
+
+                                        </td>
+                                        <td>
+                                            <?php
+                                            echo $contador_colores['rojo'];
+                                            ?>
+
+                                        </td>
                                         <td><small><?php echo $dato["tar_fecharegistro"] ?></small></td>
                                         <td>
                                             <?php
