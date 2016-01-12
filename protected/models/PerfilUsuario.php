@@ -31,7 +31,7 @@ class PerfilUsuario extends CFormModel {
             array(
                 'nombreUsuario',
                 'match',
-                'pattern' => '/^[a-zA-Z0-9]+$/',
+                'pattern' => '/^[a-zA-Z0-9.]+$/',
                 'message' => '<span style="color: #F00;">Solo ingrese letras y números</span>'
             ),
             array(
