@@ -338,8 +338,8 @@ class consultasBaseDatos {
 
     public function insertTemporalRegistro($datosRegistro) {
 
-        echo "<br><br>voy a insertar, estoy en el modelo";
-        var_dump($datosRegistro);
+        //echo "<br><br>voy a insertar, estoy en el modelo";
+        //var_dump($datosRegistro);
 
         $conexion = Yii::app()->db;
 
@@ -347,8 +347,10 @@ class consultasBaseDatos {
         //$cedulaCiud = $datosRegistro['cedulaCiudadano'];
         //echo "cedula a encriptar" . $cedulaCiud;
         //Yii::app()->end();
+        
+        $datoCodigo = $datosRegistro['cedulaCiudadano'] . date("m/d/Y h:i:s a", time());
 
-        $codigoVerif = $userModel->getHash('sha1', $datosRegistro['cedulaCiudadano'], Yii::app()->params['hashKey']);
+        $codigoVerif = $userModel->getHash('sha1', $datoCodigo, Yii::app()->params['hashKey']);
 
         $sqlInsertTmpRegistro = "INSERT INTO tmp_registro_caso("
                 . "cedula, id_institucion, id_tramite, experiencia, titulo_solucion, "
@@ -458,6 +460,29 @@ class consultasBaseDatos {
         }
                 
         return $totalAcciones;
+    }
+    
+    public function getAccionesCorrectivas10(){
+        $conexion = Yii::app()->db;
+        
+        $sqlAccionesTramite = "select count(ins.ins_id)as total , ins.ins_nombre as nombre
+        from acciones_correctivas accc, tramite tra, tramite_institucion trai, institucion ins
+        where tra.tra_id = accc.tra_id
+        and trai.tra_id = tra.tra_id
+        and ins.ins_id = trai.ins_id
+        group by ins.ins_id
+        order by total desc
+        limit 10";
+
+
+        $resultado = $conexion->createCommand($sqlAccionesTramite);
+        
+        //$totalAccionesnum;
+        $totalAccionesnom;
+        $totalAccionesnom= $resultado->query();
+               
+        return $totalAccionesnom;
+        //return $totalAccionesnum;
     }
     
 } 

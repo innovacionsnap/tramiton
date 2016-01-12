@@ -13,7 +13,7 @@
         <!-- <button class="navbar-toggle" style="float: left;" data-click="sidebar-toggled" type="button">
             <span id="ghy-right" class="glyphicon glyphicon-menu-right" aria-hidden="true" style="font-size: 25px;"></span>
         </button> -->
-        <a class="navbar-brand no-margin-right" href="#"><img id="logo-dashboard" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_tramiton1.png"/></a>
+        <a class="navbar-brand no-margin-right" href="<?php echo Yii::app()->baseUrl. '/dashboard/'; ?>"><img id="logo-dashboard" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_tramiton1.png"/></a>
         <button id="navbar-toggle-dashboard" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" > <!-- style="display:none;" -->
             <h3><span class="glyphicon glyphicon-menu-down"></span></h3>
         </button>
@@ -41,7 +41,7 @@
             </li>
             <li class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img style="width:30px; height:30px; border-radius: 15px;" src="<?php echo URL_IMG . $this->_datosUser->usu_imagen; ?>" alt="" /> 
+                    <img style="width:30px; height:30px; border-radius: 15px;" src="<?php echo Yii::app()->theme->baseUrl . '/assets/img/users/' . $this->_datosUser->usu_imagen; ?>" alt="" /> 
                     <span class="hidden-sm"><?php echo $this->_datosUser->usu_nombre ?></span> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu animated fadeInLeft">

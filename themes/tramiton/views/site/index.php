@@ -13,18 +13,18 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
         <div class="col-md-5 col-md-pull-7">
             <div id="row-buttons" class="row">
-                <h2 class="text-center">Cómo registrar tu caso</h2>
+                <h2 class="text-center">¿Cómo registrar tu caso?</h2>
 
                 <div id="col-ciudadano" class="col-sm-4">
-                    <a id="button-ciudadano" class="btn btn-primary boton-ciu center-block" href="#" role="button">Ciudadano</a>
+                    <a id="button-ciudadano" class="btn btn-primary boton-ciu center-block" href="#!" role="button">Ciudadano</a>
                 </div>
 
                 <div id="col-organizacion" class="col-sm-4">
-                    <a id="button-organizacion" class="btn btn-warning boton-org center-block" href="#" role="button">Organización</a>
+                    <a id="button-organizacion" class="btn btn-warning boton-org center-block" href="#!" role="button">Organización</a>
                 </div>
 
                 <div id="col-servidor-publico" class="col-sm-4">
-                    <a id="button-servidor-publico" class="btn btn-success boton-ser center-block" href="#" role="button">Servidor Público</a>
+                    <a id="button-servidor-publico" class="btn btn-success boton-ser center-block" href="#!" role="button">Servidor Público</a>
                 </div>
 
                 <div style="display:none;" id="col-otro" class="col-sm-6">
@@ -123,7 +123,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
         </div>
         <!-- begin col-3 -->
         <div class="col-sm-4 milestone-col">
-            <div class="milestone">
+            <div class="milestone no-border">
                 <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalAcciones']?>"><?php echo $estadisticas['totalAcciones']?></div>
                 <div class="title">Trámites con planes de mejora</div>
             </div>
@@ -143,12 +143,120 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <div class="row">
         <div class="col-md-12">
             
-            <h2 style="color:#325972;" class="text-center titulo-estadistica">TRÁMITES MÁS MENCIONADOS</h2>
+            <h2 style="color:#325972;" class="text-center titulo-estadistica">INSTITUCIONES CON MÁS ACCIONES CORRECTIVAS</h2>
             
         </div>
         <?php
+       $nombreac="serie1";
+       $nombreac2="serie2";
+       $nombreac3="serie3";
+       $nombreac4="serie4";
+       $nombreac5="serie5";
+       $nombreac6="serie6";
+       $nombreac7="serie7";
+       $nombreac8="serie8";
+       $nombreac9="serie9";
+       $nombreac10="serie10";
+       
+       $nacc=1;
+       $i=1;
+       
+       foreach ($totalAccionesnom as $nacc) {
+          
+            if($i==1)
+            {
+            $p5 = $nacc['total']+0;
+            $name= $nacc['nombre'];
+            $nombreac=array('name' => $name, 'data' => array($p5));
+            
+            }
+            
+            if($i==2)
+            {
+            $p5 = $nacc['total']+0;
+            $name= $nacc['nombre'];
+            $nombreac2=array('name' => $name, 'data' => array($p5));
+            
+            }
+            //$i++;
+            
+            if($i==3)
+            {
+            $p5 = $nacc['total']+0;
+            $name= $nacc['nombre'];
+            $nombreac3=array('name' => $name, 'data' => array($p5));
+            
+            }
+            if($i==4)
+            {
+            $p5 = $nacc['total']+0;
+            $name= $nacc['nombre'];
+            $nombreac4=array('name' => $name, 'data' => array($p5));
+            
+            }
+            if($i==5)
+            {
+            $p5 = $nacc['total']+0;
+            $name= $nacc['nombre'];
+            $nombreac5=array('name' => $name, 'data' => array($p5));
+            
+            }
+            if($i==6)
+            {
+            $p5 = $nacc['total']+0;
+            $name= $nacc['nombre'];
+            $nombreac6=array('name' => $name, 'data' => array($p5));
+            
+            }
+            
+            if($i==7)
+            {
+            $p5 = $nacc['total']+0;
+            $name= $nacc['nombre'];
+            $nombreac7=array('name' => $name, 'data' => array($p5));
+            
+            }
+            
+            if($i==8)
+            {
+            $p5 = $nacc['total']+0;
+            $name= $nacc['nombre'];
+            $nombreac8=array('name' => $name, 'data' => array($p5));
+            
+            }
+            
+            if($i==9)
+            {
+            $p5 = $nacc['total']+0;
+            $name= $nacc['nombre'];
+            $nombreac9=array('name' => $name, 'data' => array($p5));
+            
+            }
+            
+            if($i==10)
+            {
+            $p5 = $nacc['total']+0;
+            $name= $nacc['nombre'];
+            $nombreac10=array('name' => $name, 'data' => array($p5));
+            
+            }
+            $i++;
+                           
+        }
+        
         $this->Widget('ext.highcharts.HighchartsWidget', array(
             'options' => array(
+                'chart' => array(
+                        'plotBackgroundColor' => '#ffffff',
+                        'plotBorderWidth' => null,
+                        'plotShadow' => false,
+                        'height' => 400,
+                        'type'=>'column'
+                      ),
+                
+                
+                
+                
                 'credits' => array('enabled' => false),
                 'title' => array('text' => ''),
                 'xAxis' => array(
@@ -157,20 +265,33 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 'yAxis' => array(
                     'title' => array('text' => 'MENCIONES')
                 ),
+                
+                
+              //'series'  = $accion;
+        
                 'series' => array(
-                    array('name' => 'Renovacion Matricula Caducidad', 'data' => array(100)),
-                    array('name' => 'Renovacion cédula', 'data' => array(88)),
-                    array('name' => 'Papeleta votación', 'data' => array(70)),
-                    array('name' => 'Certificado de defunción', 'data' => array(60)),
-                    array('name' => 'Permiso de operación vehicular', 'data' => array(55)),
-                    array('name' => 'Préstamos Hipotecarios', 'data' => array(45)),
-                    array('name' => 'Citas médicas', 'data' => array(35)),
-                    array('name' => 'Certificado de antescedentes policiales', 'data' => array(20)),
-                    array('name' => 'Permiso de salida del país', 'data' => array(10)),
-                    array('name' => 'Préstamos Quirografarios', 'data' => array(5))
-                )
+                              
+                                  
+                    $nombreac,$nombreac2,$nombreac3,$nombreac4,$nombreac5,
+                    $nombreac6,$nombreac7,$nombreac8,$nombreac9,$nombreac10
+                    
+                    //array('name' => 'Renovacion Matricula Caducidad', 'data' => array(100)),
+                    //array('name' => 'Renovacion cédula', 'data' => array(88)),
+                    //array('name' => 'Papeleta votación', 'data' => array(70)),
+                    //array('name' => 'Certificado de defunción', 'data' => array(60)),
+                    //array('name' => 'Permiso de operación vehicular', 'data' => array(55)),
+                    //array('name' => 'Préstamos Hipotecarios', 'data' => array(45)),
+                    //array('name' => 'Citas médicas', 'data' => array(35)),
+                    //array('name' => 'Certificado de antescedentes policiales', 'data' => array(20)),
+                    //array('name' => 'Permiso de salida del país', 'data' => array(10)),
+                    //array('name' => 'Préstamos Quirografarios', 'data' => array(25)),
+                    //array('name' => $name, 'data' => array($p5))
+                    
+                    )
             )
         ));
+        
+        
         ?>
     </div>
     <!-- end row -->
@@ -249,7 +370,11 @@ $baseUrl = Yii::app()->theme->baseUrl;
 <!--beign #preguntas frecuentes -->
 <!-- <div id = "preguntas" class = "content has-bg" data-scrollview = "true" > -->
 <div id = "preguntas" class="container" style="padding-top: 80px; padding-bottom:10px;" >
-    <h2 class = "content-title titulos">PREGUNTAS FRECUENTES</h2>
+    <h2 class="content-title titulos">PREGUNTAS FRECUENTES</h2>
+    <!-- <div id="main-container">
+        <h2 id="leftcolumn">PREGUNTAS FRECUENTES</h2>
+        <div id="contentwrapper"></div>
+    </div> -->
     <!--begin panel-group -->
     <div class = "panel-group" id = "faq">
         <!--begin panel -->

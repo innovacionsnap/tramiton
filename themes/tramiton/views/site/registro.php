@@ -19,7 +19,7 @@
         
         <div class="row" style="padding-bottom: 10px;">
             <div class="col-xs-12 col-sm-offset-2 col-sm-4 text-center">
-                <a href="<?php echo Yii::app()->baseUrl; ?>"><h4 class="text-blue-tramiton">Inicio <span class="glyphicon glyphicon-home" aria-hidden="true"></span></h4></a>
+                <a href="<?php echo Yii::app()->baseUrl; ?>/"><h4 class="text-blue-tramiton">Inicio <span class="glyphicon glyphicon-home" aria-hidden="true"></span></h4></a>
             </div>
             <div class="col-xs-12 col-sm-6 text-center">
                 <a href="<?php echo Yii::app()->baseUrl; ?>/site/login"><h4 class="text-blue-tramiton">Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></h4></a>
@@ -67,7 +67,7 @@
             <?php echo $form->labelEx($model, 'email', array('class' => 'control-label')); ?>
             <div class="row m-b-5">
                 <div class="col-md-12">
-                    <?php echo $form->textField($model, 'email', array('class' => 'form-control', 'placeholder' => 'Correo Electrónico')); ?>
+                    <?php echo $form->textField($model, 'email', array('class' => 'form-control', 'placeholder' => 'Correo electrónico')); ?>
                     <?php echo $form->error($model, 'email'); ?>
                 </div>
             </div>
@@ -75,7 +75,7 @@
             <?php echo $form->labelEx($model, 'repetir_email', array('class' => 'control-label')); ?>
             <div class="row m-b-5">
                 <div class="col-md-12">
-                    <?php echo $form->textField($model, 'repetir_email', array('class' => 'form-control', 'placeholder' => 'Reingrese Correo Electrónico')); ?>
+                    <?php echo $form->textField($model, 'repetir_email', array('class' => 'form-control', 'placeholder' => 'Reingrese correo electrónico')); ?>
                     <?php echo $form->error($model, 'repetir_email'); ?>
                 </div>
             </div>
@@ -91,7 +91,7 @@
             <?php echo $form->labelEx($model, 'repetir_password', array('class' => 'control-label')); ?>
             <div class="row m-b-5">
                 <div class="col-md-12">
-                    <?php echo $form->passwordField($model, 'repetir_password', array('class' => 'form-control', 'placeholder' => 'Confirme Contraseña')); ?>
+                    <?php echo $form->passwordField($model, 'repetir_password', array('class' => 'form-control', 'placeholder' => 'Confirme contraseña')); ?>
                     <?php echo $form->error($model, 'repetir_password'); ?>
                 </div>
             </div>
@@ -128,7 +128,7 @@
             <div class="row m-b-5">
                 <div class="col-md-12">
                     <?php echo $form->checkBox($model, 'terminos', array('style', 'display:inline')); ?>&nbsp;&nbsp;
-                    Al dar click aquí, usted acepta nuestros <a href="#">Términos</a> y acepta que ha leido nuestra <a href="#">Política de Datos</a>, incluido el <a href="#">Uso de Cookies</a>
+                    Al dar click aquí, usted acepta nuestros <a href="#">términos</a> y acepta que ha leído nuestra <a href="#">política de datos</a>, incluido el <a href="#">uso de Cookies</a>
                         <?php echo $form->error($model, 'terminos'); ?>
                 </div>
             </div>

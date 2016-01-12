@@ -142,16 +142,16 @@ class ValidarRegistro extends CFormModel {
     public function attributeLabels() {
 
         return array(
-            'cedula' => 'Cédula de Identidad y Nombre de Usuario',
-            'nombre_usuario' => 'Nombre de Usuario',
-            'email' => 'Correo Elecrónico',
-            'repetir_email' => 'Confirme el Correo Electrónico',
+            'cedula' => 'Cédula de identidad y nombre de usuario',
+            'nombre_usuario' => 'Nombre de usuario',
+            'email' => 'Correo elecrónico',
+            'repetir_email' => 'Confirme el correo electrónico',
             'password' => 'Contraseña',
-            'repetir_password' => 'Confirme la Contraseña',
-            'terminos' => 'Términos y Condiciones',
+            'repetir_password' => 'Confirme la contraseña',
+            'terminos' => 'Términos y condiciones',
             //'captcha' => 'Ingrese las dos palabras separadas por un espacio',
             //'captcha'=>Yii::t('demo', 'Ingrese las dos palabras separadas por un espacio'),
-            'captcha'=>Yii::t('demo', 'Ingrese el codigo de verifición de la imagen'),
+            'captcha'=>Yii::t('demo', 'Ingrese el código de verifición de la imagen'),
         );
     }
     

@@ -53,7 +53,7 @@ function institucion($nombre,$valor)
 
 	include("config.inc.php");
 		
-	$consulta_institucion = "select * from institucion order by ins_nombre";
+	$consulta_institucion = "select * from institucion order by ins_funcion_ejecutiva desc,ins_nombre";
     $resultado_institucion = pg_query($con, $consulta_institucion) or die("Error en la Consulta SQL");
     $numReg = pg_num_rows($resultado_institucion);
 	echo "<div class='col-md-12'> <div class='form-group'>";

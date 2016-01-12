@@ -37,7 +37,7 @@
                       <tbody>
                         <tr>
                           <td align="justify">
-                            <p><b><?php echo $model->nombre_usuario; ?></b>, te damos la bienvenida a la Plataforma Tramitón. Para activar tu cuenta y finalizar el registro debes dar click en el siguiente botón:</p>
+                            <p><b><?php echo $model->nombre_usuario; ?></b>, te damos la bienvenida a la Plataforma Tramitón.<br />Para activar tu cuenta y finalizar el registro debes dar click en el siguiente botón:</p>
                           </td>
                         </tr>
                         <tr><td style="line-height:16px" height="16"></td></tr>
@@ -65,14 +65,14 @@
                         <tr><td style="line-height:40px" height="40"></td></tr>
                         <tr>
                           <td align="right">
-                            <p><b>02 3934-500 Ext. 419 / 424</b></p>
+                            <p><b>02 3934-500 Ext. 1207 / 1212</b></p>
                             <p><a href="mailto:tramiton@administracionpublica.gob.ec?Subject=Dudas%20Tramiton" target="_top"><b>tramiton@administracionpublica.gob.ec</b></a></p>
                           </td>
                         </tr>
                         <tr><td style="line-height:50px" height="50"></td></tr>
                         <tr>
                           <td align="right">
-                            <p>Atentamente<br>Equipo Tramiton</p>  
+                            <p>Atentamente,<br>Equipo Tramiton</p>  
                           </td>
                         </tr>
                       </tbody>
