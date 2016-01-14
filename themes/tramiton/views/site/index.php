@@ -7,18 +7,18 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="font-size: 150%;" aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Bienvenido a Tramitón</h4>
+        <h3 class="modal-title">Bienvenido a Tramitón</h3>
       </div>
       <div class="modal-body">
-        <p><h6>Elija si desea acceder al Tramitón Ciudadano o al Tramitón Productivo</h6></p>
+        <p><h5>Elija si desea acceder al Tramitón Ciudadano o al Tramitón Productivo</h5></p>
         <div class="row">
             <div class="col-xs-6" id="col-logo-2">
                 <a href="#"><img id="logo-ciudadano" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-ciudadano.png' ; ?>" alt="Tramitón" width="180" onclick="closeModal();"></a>
-                <p class="text-justify p-r-5 p-l-5 p-t-5">Participa incluyendo tus propuestas sobre trámites/servicios públicos complicados o ineficientes.</p>
+                <p class="text-justify p-r-5 p-l-5 p-t-5 black">Participa incluyendo tus propuestas sobre trámites/servicios públicos complicados o ineficientes.</p>
             </div>
             <div class="col-xs-6" id="col-logo-1">
                 <a href="http://productivo.tramiton.to"><img id="logo-productivo" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-productivo.png' ; ?>" alt="Tramitón productivo" width="180"></a>
-                <p class="text-justify p-r-5 p-l-5 p-t-5">Participa incluyendo tus propuestas sobre trámites/servicios públicos complicados o ineficientes que impactan en el sector productivo.</p>
+                <p class="text-justify p-r-5 p-l-5 p-t-5 black">Participa incluyendo tus propuestas sobre trámites/servicios públicos complicados o ineficientes que impactan en el sector productivo.</p>
             </div>
             
 

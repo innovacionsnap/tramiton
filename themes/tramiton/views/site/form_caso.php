@@ -96,7 +96,8 @@ Yii::app()->clientScript->registerCoreScript('jquery');
             <div class="row botones_nav"></div>
         </div>
         <div id="panel3" class="panel-registro">
-            <p>¿Qué problemas tuvo? <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Escoja las opciones que mejor describan los problemas encontrados"></i></p>
+            <p>¿Qué problemas tuvo? <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios de los problemas encontrados al momento de realizar el trámite"></i>
+            </p>
 
             <div class="row">
                 <!-- begin col-4 -->
