@@ -34,7 +34,7 @@ if ($_GET['buscar_institucion']=="institucion")
 		
 			$fila=pg_fetch_array($resultado_tramite);
 			echo "<div class='col-md-12'> <div class='form-group block1'>";
-			echo "<label>Trámite</label>";
+			echo "<label>Trámite <i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Seleccione el trámite realizado'></i> </label>";
 		
 		
 			if($numReg == 1 and $fila['tra_nombre'] =='Otro...'){

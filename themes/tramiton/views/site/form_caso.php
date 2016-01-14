@@ -40,6 +40,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Cédula de Identidad y/o Ciudadanía</label>
+                        <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Ingrese su número de cédula de identidad o ciudadanía"></i>
                         <input size="20" type="text" maxlength="10" id = "cedula_ciu" name="cedula_ciu" class="campo-panel1 form-registro" placeholder="Ingrese su número de cédula de identidad y/o ciudadanía" autocomplete="off" <?php echo JS_ONLY_NUMS; ?>/>
                         <div id="cedula_ciu_error" style="display:none;color:red;"></div>
                         <div id="verifica" style="max-height: 80px;"></div>
@@ -57,6 +58,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Institución</label>
+                        <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la institución donde realizó el trámite"></i>
                         <?php institucion("id_institucion", "0"); ?>  
 
                     </div>
@@ -69,6 +71,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Provincia</label>
+                        <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la provincia donde realizó el trámite"></i>
                         <?php provincia("id_provincia", "0") ?>
                     </div>
                 </div>
@@ -82,6 +85,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Sucursal (Ej. Norte, Sur, etc)</label>
+                        <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Indique la sucursal de la institución en la que realizó el trámite"></i>
                         <input type="text" id = "unidad_prestadora" name="unidad_prestadora" class="campo-panel2 form-registro " placeholder="Unidad Prestadora" class="form-control" />
                         <div id="unidad_prestadora_error" style="display:none;"></div>
 
@@ -92,6 +96,8 @@ Yii::app()->clientScript->registerCoreScript('jquery');
             <div class="row botones_nav"></div>
         </div>
         <div id="panel3" class="panel-registro">
+            <p>¿Qué problemas tuvo? <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Escoja las opciones que mejor describan los problemas encontrados"></i></p>
+
             <div class="row">
                 <!-- begin col-4 -->
                 <div class="col-md-4">
@@ -120,7 +126,8 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <!-- begin col-12 -->
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Detalle del problema</label>
+                        <label>Detalle del problema </label>
+                        <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Detalle el problema del trámite realizado"></i>
                         <div id="contador_1" class="contador">1500 de 1500 caracteres disponibles</div>
                         <textarea class="campo-panel3 form-registro comment" id = "experiencia" name="experiencia" data="comment_1" rows="4" placeholder="Experiencia" maxlength="1500"></textarea>
                         <div id="experiencia_error" style="display:none;"></div>
@@ -139,6 +146,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Título Solución</label>
+                        <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="De un título a la solución propuesta"></i>
                         <div class="controls">
                             <div id="contador_2" class="contador">100 de 100 caracteres disponibles</div>
                             <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Título de la solución" class="campo-panel4 form-registro comment" data="comment_2" maxlength="100" />
@@ -151,6 +159,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Detalle de solución</label>
+                        <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Detalle la solución propuesta"></i>
                         <div class="controls">
                             <div id="contador_3" class="contador">1500 de 1500 caracteres disponibles</div>
                             <textarea class="campo-panel4 form-registro comment" id="propuesta_solucion" name="propuesta_solucion" data="comment_3" rows="4" placeholder="Propuesta de la solución" maxlength="1500"></textarea>

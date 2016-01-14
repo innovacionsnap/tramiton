@@ -15,6 +15,7 @@ if ($_GET['buscar']=="hijos")
 	    $numReg = pg_num_rows($resultado_canton);
 		echo "<div class='col-md-10'> <div class='form-group'>";
 		echo "<label>Cantón:</label>";
+        echo "<i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Seleccione el cantón donde realizó el trámite'></i>";
 		echo "<select class='campo-panel2 form-registro' data-parsley-group='wizard-step-1' required name='idhijo' id='idhijo'>";
 		while ($fila=pg_fetch_array($resultado_canton)) 
 		{

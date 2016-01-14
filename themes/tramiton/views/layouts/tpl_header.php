@@ -51,7 +51,12 @@
     <?php  $linkcombo2 = $baseUrl . '/themes/tramiton/views/site/combobox2.php' ?>
     
     
-
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip(); 
+    });
+    </script>
+    
     <script type="text/javascript">
         $(document).ready(function () {
             /* COMBOBOX PROVINCIAS  */
