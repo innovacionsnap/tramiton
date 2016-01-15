@@ -72,7 +72,7 @@
                         <tr><td style="line-height:50px" height="50"></td></tr>
                         <tr>
                           <td align="right">
-                            <p>Atentamente,<br>Equipo Tramiton</p>  
+                            <p>Atentamente,<br>Equipo Tramitón</p>  
                           </td>
                         </tr>
                       </tbody>

@@ -67,7 +67,7 @@ class RecuperarPasswordForm extends CFormModel {
 
         foreach ($emails as $em) {
             if ($this->email != $em['usu_mail']) {
-                $this->addError('email', '<span style="color: #F00;">Correo Electrónico ingresado no se encuentra registrado en Tramiton</span>');
+                $this->addError('email', '<span style="color: #F00;">Correo Electrónico ingresado no se encuentra registrado en Tramitón</span>');
                 break;
             }
         }

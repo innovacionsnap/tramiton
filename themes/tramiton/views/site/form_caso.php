@@ -127,10 +127,10 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <!-- begin col-12 -->
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Detalle del problema </label>
+                        <label>Detalle brevemente su experiencia con el trámite con el Trámite </label>
                         <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Detalle el problema del trámite realizado"></i>
                         <div id="contador_1" class="contador">1500 de 1500 caracteres disponibles</div>
-                        <textarea class="campo-panel3 form-registro comment" id = "experiencia" name="experiencia" data="comment_1" rows="4" placeholder="Experiencia" maxlength="1500"></textarea>
+                        <textarea class="campo-panel3 form-registro comment" id = "experiencia" name="experiencia" data="comment_1" rows="4" placeholder="Detalle brevemente su experiencia con el trámite" maxlength="1500"></textarea>
                         <div id="experiencia_error" style="display:none;"></div>
 
                     </div>
@@ -150,7 +150,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="De un título a la solución propuesta"></i>
                         <div class="controls">
                             <div id="contador_2" class="contador">100 de 100 caracteres disponibles</div>
-                            <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Título de la solución" class="campo-panel4 form-registro comment" data="comment_2" maxlength="100" />
+                            <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Escriba un título claro y conciso para su propuesta de solución" class="campo-panel4 form-registro comment" data="comment_2" maxlength="100" />
                             <div id="titulo_solucion_error" style="display:none;"></div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Detalle la solución propuesta"></i>
                         <div class="controls">
                             <div id="contador_3" class="contador">1500 de 1500 caracteres disponibles</div>
-                            <textarea class="campo-panel4 form-registro comment" id="propuesta_solucion" name="propuesta_solucion" data="comment_3" rows="4" placeholder="Propuesta de la solución" maxlength="1500"></textarea>
+                            <textarea class="campo-panel4 form-registro comment" id="propuesta_solucion" name="propuesta_solucion" data="comment_3" rows="4" placeholder="Describa de manera clara y detallada su propuesta de solución" maxlength="1500"></textarea>
                             <div id="propuesta_solucion_error" style="display:none;"></div>
                         </div>
                     </div>
@@ -178,6 +178,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                     <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
                     <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
                     <input class="campo-panel4" type="checkbox" name="terminos" checked disabled>Acepto los <a href="#">Términos</a> y acepta que ha leído la<a href="#">Política de Datos</a>, incluido el <a href="#">Uso de Cookies</a>
+                    <p>Control de Seguridad:</p>
                     <div id="captcha_registro" class="g-recaptcha" data-sitekey="6LepsRITAAAAABcXO7sqylkyiUj8AoHjdY2aVBVQ"></div>
                     <div id="mensaje_captcha" style="display: none;"></div>
                     <?php

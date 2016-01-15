@@ -12,7 +12,7 @@ function provincia($nombre, $valor) {
     $numReg = pg_num_rows($resultado_provincia);
     //echo "<div class='col-md-10'>";
     echo "<select class='form-control' data-parsley-group='wizard-step-1' required name='$nombre' id='$nombre'>";
-    echo "<option value=''>Selecciona una Provincia...</option>";
+    echo "<option value=''>Selecciona una Provincia</option>";
     while ($fila = pg_fetch_array($resultado_provincia)) {
         echo "<option value='" . $fila["pro_id"] . "'";
         if ($fila["pro_id"] == $valor)
@@ -32,7 +32,7 @@ function canton($nombre, $valor) {
 
 
     echo "<select name='$nombre' id='$nombre'>";
-    echo "<option value=''>Selecciona un Canton...</option>";
+    echo "<option value=''>Selecciona un Canton</option>";
     while ($fila = pg_fetch_array($resultado_canton)) {
         echo "<option value='" . $fila["can_id"] . "'";
         if ($fila["can_id"] == $valor)
@@ -51,8 +51,9 @@ function institucion($nombre, $valor) {
     $numReg = pg_num_rows($resultado_institucion);
     //echo "<div class='col-md-12'>";
     //echo "<div class='form-group'>";
+    echo "<i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Seleccione la institución donde realizó el trámite'></i>";
     echo "<select class='form-control' data-parsley-group='wizard-step-1' required name='$nombre' id='$nombre'>";
-    echo "<option value=''>Selecciona una Institucion...</option>";
+    echo "<option value=''>Selecciona una Institución</option>";
     while ($fila = pg_fetch_array($resultado_institucion)) {
         echo "<option value='" . $fila["ins_id"] . "'";
         if ($fila["ins_id"] == $valor)
