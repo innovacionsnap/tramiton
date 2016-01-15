@@ -46,7 +46,7 @@ if ($_GET['buscar_institucion']=="institucion")
 	                         echo "<input type='text' name='otro_tramite' onkeyup = 'Validate(this)' placeholder='Escriba otro tramite' class='form-control' data-parsley-group='wizard-step-1' required />";
 				 
 	                        }     
-                                echo $fila['tra_nombre'];
+                                //echo $fila['tra_nombre'];
                         echo "</div>";                       
                                          }
 	
