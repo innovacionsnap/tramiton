@@ -26,7 +26,7 @@ class RecuperarPasswordForm extends CFormModel {
                 'email',
                 'message' => '<span style="color: #F00;">Favor ingrese una dirección de correo electrónico válida</span>'
             ),
-            //array('email', 'comprobar_email'),
+            array('email', 'comprobar_email'),
             
             //validar captcha
             array('captcha', 'required', 'message' => '<span style="color: #F00;">El código de verificación es requerido</span>', 'on'=>'recuperarPassword'),
@@ -59,17 +59,15 @@ class RecuperarPasswordForm extends CFormModel {
     public function comprobar_email() {
         
         $conexion = Yii::app()->db;
-        
         $sqlConsultaEmail = "select usu_mail from usuario where usu_mail = '$this->email'";
         $resultado = $conexion->createCommand($sqlConsultaEmail);
-        //echo "voy a validar el mail"; Yii::app()->end();
         $emails = $resultado->query();
-
+        $existe = FALSE;
         foreach ($emails as $em) {
-            if ($this->email != $em['usu_mail']) {
-                $this->addError('email', '<span style="color: #F00;">Correo Electrónico ingresado no se encuentra registrado en Tramiton</span>');
-                break;
-            }
+            $existe = TRUE;
+        }
+        if ($existe == FALSE) {
+            $this->addError('email', '<span style="color: #F00;">El correo electrónico ingresado no se encuentra registrado en Tramitón</span>');
         }
     }
 }
