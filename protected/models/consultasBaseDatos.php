@@ -372,7 +372,7 @@ class consultasBaseDatos {
                     ':idTramite' => $datosRegistro['idTramite'],
                     ':experiencia' => $datosRegistro['experienciaTram'],
                     ':tituloSolucion' => $datosRegistro['tituloSolucion'],
-                    ':idCanton' => $datosRegistro['idInstitucion'],
+                    ':idCanton' => $datosRegistro['idCanton'],
                     ':unidadPrestadora' => $datosRegistro['unidadPrestadora'],
                     ':verificacion' => $codigoVerif,
                     ':otroProblema' => $datosRegistro['otroProblema'],

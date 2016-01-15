@@ -149,8 +149,8 @@ class SiteController extends Controller {
             $unidad_prestadora = $_POST['unidad_prestadora'];
             $idhijo = $_POST['idhijo']; // canton de la provincia seleccionada
 
-            if (isset($_POST['id_tramite'])) {
-                $id_tramite = $_POST['id_tramite'];
+            if (isset($_POST['id_tramite2'])) {
+                $id_tramite = $_POST['id_tramite2'];
             } else {
                 $id_tramite = 4173;
             }

@@ -249,8 +249,8 @@ class CiudadanoController extends Controller {
     }
 
     public function actionRegistroCasoInterno() {
-        $insertar_tramite = $_POST['insertar_tramite'];
-
+        $insertar_tramite = $_POST['insertar_tramite'];        
+            
         if (isset($insertar_tramite)) {
             $id_institucion = $_POST['id_institucion'];
             $id_provincia = $_POST['id_provincia'];
