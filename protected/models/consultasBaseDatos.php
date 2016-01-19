@@ -84,10 +84,10 @@ class consultasBaseDatos {
         $sqlInsertUser = "INSERT INTO usuario(" .
                 "usu_cedula, usu_nombre, usu_direccion, usu_mail, usu_celular, usu_convencional, usu_nombreusuario, " .
                 "usu_contrasenia, usu_fechanacimiento, usu_estado, usu_lugar_nacimiento, usu_fecha_registro, usu_genero, " .
-                "usu_imagen, usu_codigo_confirmacion)" .
+                "usu_imagen, usu_codigo_confirmacion,usu_tramiton)" .
                 "values(:cedula, :nombreCiudadano, :direccion, :email, :celular, :convencional, :username, " .
                 ":contrasenia, :fechaNacimiento, 1, :lugarNacimiento, now(), :genero, " .
-                ":imagen, :codigoConfirmacion)";
+                ":imagen, :codigoConfirmacion,1)";
 
         // crea el la instrucción para mandar a la base de datos
         $command = Yii::app()->db->createCommand($sqlInsertUser);
