@@ -272,7 +272,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
             $i++;
                            
         }
-        
+
         $this->Widget('ext.highcharts.HighchartsWidget', array(
             'options' => array(
                 'chart' => array(

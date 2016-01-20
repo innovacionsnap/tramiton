@@ -421,7 +421,7 @@ class consultasBaseDatos {
 
         $resultado = $conexion->createCommand($sqlTotalParticipantes);
         
-        $totalParticipantes;
+        $totalParticipantes = 0;
         $fila = $resultado->query();
         foreach ($fila as $registro) {
             $totalParticipantes = $registro['total_participantes'];
@@ -437,7 +437,7 @@ class consultasBaseDatos {
 
         $resultado = $conexion->createCommand($sqlTramitesMencionados);
         
-        $totalTramites;
+        $totalTramites = 0;
         $fila = $resultado->query();
         foreach ($fila as $registro) {
             $totalTramites = $registro['total_tamites'];
@@ -453,7 +453,7 @@ class consultasBaseDatos {
 
         $resultado = $conexion->createCommand($sqlAccionesTramite);
         
-        $totalAcciones;
+        $totalAcciones = 0;
         $fila = $resultado->query();
         foreach ($fila as $registro) {
             $totalAcciones = $registro['total_acciones'];
