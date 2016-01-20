@@ -1,5 +1,5 @@
 <?php
-include 'config.inc.php';
+include '../../../../protected/extensions/validacion/config.inc.php';
 
 
 function dameURL(){
@@ -31,13 +31,14 @@ if ($_GET['buscar_institucion']=="institucion")
 		
 			$fila=pg_fetch_array($resultado_tramite);
 			echo "<div class='col-md-12'> <div class='form-group block1'>";
-			echo "<label>Trámite</label>";
+			echo "<label>Trámite </label>";
+            echo "<i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Seleccione el trámite realizado'></i>";
 		
-	                
+	                /*
 			if($numReg == 1 and $fila['tra_nombre'] =='Otro...'){
 				 echo "<input type='text' name='otro_tramite' onkeyup = 'Validate(this)' placeholder='Escriba otro tramite' class='form-control' data-parsley-group='wizard-step-1' required />";
 		    }else{
-		    	echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_tramite2' id='id_tramite2' required>";
+                     echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_tramite2' id='id_tramite2' required>";
 				
 				while ($fila2=pg_fetch_array($resultado_tramite2)){
 					echo "<option value=".$fila2['trai_id'].">".$fila2['tra_nombre']."</option>";
@@ -46,7 +47,7 @@ if ($_GET['buscar_institucion']=="institucion")
 			}
 			echo "</div>";		
 		
-	                /*
+	               */ 
 	                echo "<select class='form-control' data-parsley-group='wizard-step-1' name='id_tramite2' id='id_tramite2'  required>";
 	                while ($fila2=pg_fetch_array($resultado_tramite2)){
 					echo "<option value=".$fila2['trai_id'].">".$fila2['tra_nombre']." </option>";
@@ -55,16 +56,15 @@ if ($_GET['buscar_institucion']=="institucion")
 	                        if($numReg == 1) {//and $fila['tra_nombre'] ==='Otro...'){
 				echo "<br>";
 	                         echo "<input type='text' name='otro_tramite' onkeyup = 'Validate(this)' placeholder='Escriba otro tramite' class='form-control' data-parsley-group='wizard-step-1' required />";
-				  
-	                        }    
-				echo "</div>";
-                         * 
-                         */
-	}
+				 
+	                        }         
+                                echo "</div>";                        
+                         
+                }
 
 
 
-	
+
 	
 	
 }

@@ -6,7 +6,7 @@ $insertar_accion = $_POST['insertar_accion'];
 
 //echo $insertar_participantes;
 
-include 'config.inc.php';
+    include '../../../../protected/extensions/validacion/config.inc.php';    
 
 if (isset($insertar_accion)) {
 	

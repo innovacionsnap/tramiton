@@ -5,14 +5,14 @@
 
 function provincia($nombre, $valor) {
 
-    include("config.inc.php");
+    include 'protected/extensions/validacion/config.inc.php';
 
     $consulta_provincia = "select * from provincia";
     $resultado_provincia = pg_query($con, $consulta_provincia) or die("Error en la Consulta SQL");
     $numReg = pg_num_rows($resultado_provincia);
     //echo "<div class='col-md-10'>";
     echo "<select class='form-control' data-parsley-group='wizard-step-1' required name='$nombre' id='$nombre'>";
-    echo "<option value=''>Selecciona una Provincia...</option>";
+    echo "<option value=''>Selecciona una Provincia</option>";
     while ($fila = pg_fetch_array($resultado_provincia)) {
         echo "<option value='" . $fila["pro_id"] . "'";
         if ($fila["pro_id"] == $valor)
@@ -24,7 +24,7 @@ function provincia($nombre, $valor) {
 }
 
 function canton($nombre, $valor) {
-    include("config.inc.php");
+    include 'protected/extensions/validacion/config.inc.php';
 
     $consulta_canton = "select * from canton";
     $resultado_canton = pg_query($con, $consulta_canton) or die("Error en la Consulta SQL");
@@ -32,7 +32,7 @@ function canton($nombre, $valor) {
 
 
     echo "<select name='$nombre' id='$nombre'>";
-    echo "<option value=''>Selecciona un Canton...</option>";
+    echo "<option value=''>Selecciona un Canton</option>";
     while ($fila = pg_fetch_array($resultado_canton)) {
         echo "<option value='" . $fila["can_id"] . "'";
         if ($fila["can_id"] == $valor)
@@ -44,15 +44,16 @@ function canton($nombre, $valor) {
 
 function institucion($nombre, $valor) {
 
-    include("config.inc.php");
+    include 'protected/extensions/validacion/config.inc.php';
 
     $consulta_institucion = "select * from institucion order by ins_funcion_ejecutiva desc,ins_nombre";
     $resultado_institucion = pg_query($con, $consulta_institucion) or die("Error en la Consulta SQL");
     $numReg = pg_num_rows($resultado_institucion);
     //echo "<div class='col-md-12'>";
     //echo "<div class='form-group'>";
+    echo "<i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Seleccione la institución donde realizó el trámite'></i>";
     echo "<select class='form-control' data-parsley-group='wizard-step-1' required name='$nombre' id='$nombre'>";
-    echo "<option value=''>Selecciona una Institucion...</option>";
+    echo "<option value=''>Selecciona una Institución</option>";
     while ($fila = pg_fetch_array($resultado_institucion)) {
         echo "<option value='" . $fila["ins_id"] . "'";
         if ($fila["ins_id"] == $valor)
@@ -65,7 +66,7 @@ function institucion($nombre, $valor) {
 
 function tramite($nombre, $valor) {
 
-    include("config.inc.php");
+    include 'protected/extensions/validacion/config.inc.php';
 
     $consulta_tramite = "select ins.ins_id,ins.ins_nombre,tra.tra_nombre
 from tramite tra, tramite_institucion trai, institucion ins where tra.tra_id = trai.tra_id and trai.ins_id = ins.ins_id";
@@ -84,7 +85,7 @@ from tramite tra, tramite_institucion trai, institucion ins where tra.tra_id = t
 }
 
 function problema2() {
-    include("config.inc.php");
+    include 'protected/extensions/validacion/config.inc.php';
 
     $consulta_problema = "select DISTINCT pro_prob_id, prob_nombre from problema 
 where nivp_ip = 1
@@ -146,7 +147,7 @@ order by pro_prob_id limit 4 offset 0";
 }
 
 function problema3() {
-    include("config.inc.php");
+    include 'protected/extensions/validacion/config.inc.php';
 
     $consulta_problema = "select DISTINCT pro_prob_id, prob_nombre from problema
 	where nivp_ip = 1
@@ -209,7 +210,7 @@ function problema3() {
 }
 
 function problema4() {
-    include("config.inc.php");
+    include 'protected/extensions/validacion/config.inc.php';
 
     $consulta_problema = "select DISTINCT pro_prob_id, prob_nombre from problema
 	where nivp_ip = 1

@@ -1,3 +1,21 @@
+.modal-backdrop{
+    opacity: 0.9 !important;
+}
+
+.modal-content{
+    border-radius: 16px;
+}
+.modal-dialog-center {
+    margin-top: 115px;
+}
+#logo-productivo{
+    background-color: #0C8AC5;
+}
+#logo-ciudadano, #logo-productivo{
+    padding-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 #home{
 	padding-left: 10px;
 	padding-right: 10px;
@@ -197,4 +215,13 @@ video{
     color: #4a819d;
     font-family: 'Lato', sans-serif;
     font-size: 1.3em;
+}
+
+.ayuda{
+    color: #325972;
+    font-size: 150%;
+}
+
+.black{
+    color: black;
 }

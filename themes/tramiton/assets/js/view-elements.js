@@ -19,6 +19,7 @@ function viewElements(){
                 $(".col-contenido-solucion").addClass("col-xs-6").removeClass("col-xs-12");
             }
             else{
+
                 $(".dashboard-admin-banner").addClass("col-xs-12").removeClass("col-xs-6");
                 $(".col-contenido-solucion").addClass("col-xs-12").removeClass("col-xs-6");
             }
@@ -32,6 +33,16 @@ function viewElements(){
         else{
           $(".col-contenido-solucion").addClass("col-md-3").removeClass("col-md-4");
         }
+    }
+
+    // modal home
+    if($wid <= 435){
+        $("#col-logo-1").addClass("col-xs-12").removeClass("col-xs-6");
+        $("#col-logo-2").addClass("col-xs-12").removeClass("col-xs-6");
+    }
+    else{
+        $("#col-logo-1").addClass("col-xs-6").removeClass("col-xs-12");
+        $("#col-logo-2").addClass("col-xs-6").removeClass("col-xs-12");
     }
 }
 

@@ -53,7 +53,12 @@
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/body-padding.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/form-ciudadano.js"></script>
 
-<script>
+<script type="text/javascript">
+    function closeModal(){
+        $('#myModal').modal('hide');        
+    }
+
+    $('#myModal').modal('show');
     $(document).ready(function () {
         App.init();
         FormWizardValidation.init();

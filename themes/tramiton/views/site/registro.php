@@ -3,7 +3,7 @@
     <!-- begin news-feed -->
     <div class="news-feed">
         <div class="news-image">
-            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/login-bg/bg-9-tramiton.jpg" alt="" />
+            <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/login-bg/bg_tramiton.png" alt="" />
         </div>
         <div class="news-caption">
             <h4 class="caption-title">Tramiton.to | Trámites Absurdos del Sector Público</h4>
@@ -22,7 +22,7 @@
                 <a href="<?php echo Yii::app()->baseUrl; ?>/"><h4 class="text-blue-tramiton">Inicio <span class="glyphicon glyphicon-home" aria-hidden="true"></span></h4></a>
             </div>
             <div class="col-xs-12 col-sm-6 text-center">
-                <a href="<?php echo Yii::app()->baseUrl; ?>/site/login"><h4 class="text-blue-tramiton">Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></h4></a>
+                <a href="<?php echo Yii::app()->baseUrl; ?>/site/login"><h4 class="text-blue-tramiton">Ingresar <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></h4></a>
             </div>
         </div>
         

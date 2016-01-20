@@ -6,7 +6,7 @@
 function provincia($nombre,$valor)
 {
 
-	include("config.inc.php");
+	include 'protected/extensions/validacion/config.inc.php';
 		
 	$consulta_provincia = "select * from provincia";
     $resultado_provincia = pg_query($con, $consulta_provincia) or die("Error en la Consulta SQL");
@@ -27,8 +27,8 @@ function provincia($nombre,$valor)
 
 
 function canton($nombre,$valor)
-{
-	include("config.inc.php");
+{  
+    include 'protected/extensions/validacion/config.inc.php';
 		
 	$consulta_canton = "select * from canton";
     $resultado_canton = pg_query($con, $consulta_canton) or die("Error en la Consulta SQL");
@@ -50,8 +50,8 @@ function canton($nombre,$valor)
 
 function institucion($nombre,$valor)
 {
-
-	include("config.inc.php");
+	   
+    include 'protected/extensions/validacion/config.inc.php';
 		
 	$consulta_institucion = "select * from institucion order by ins_funcion_ejecutiva desc,ins_nombre";
     $resultado_institucion = pg_query($con, $consulta_institucion) or die("Error en la Consulta SQL");
@@ -73,8 +73,8 @@ function institucion($nombre,$valor)
 
 function tramite($nombre,$valor)
 {
-
-	include("config.inc.php");
+	    
+    include 'protected/extensions/validacion/config.inc.php';
 		
 	$consulta_tramite = "select ins.ins_id,ins.ins_nombre,tra.tra_nombre
 from tramite tra, tramite_institucion trai, institucion ins where tra.tra_id = trai.tra_id and trai.ins_id = ins.ins_id";
@@ -96,7 +96,7 @@ from tramite tra, tramite_institucion trai, institucion ins where tra.tra_id = t
 
 function problema2()
 {
-	include("config.inc.php");
+    include 'protected/extensions/validacion/config.inc.php';
 		
 	$consulta_problema = "select DISTINCT pro_prob_id, prob_nombre from problema 
 where nivp_ip = 1
@@ -160,8 +160,8 @@ order by pro_prob_id limit 4 offset 0";
 	}
 
 	function problema3()
-	{
-	include("config.inc.php");
+	{	
+        include 'protected/extensions/validacion/config.inc.php';
 
 	$consulta_problema = "select DISTINCT pro_prob_id, prob_nombre from problema
 	where nivp_ip = 1
@@ -225,8 +225,8 @@ order by pro_prob_id limit 4 offset 0";
 	}
 
 	function problema4()
-	{
-	include("config.inc.php");
+	{	
+        include 'protected/extensions/validacion/config.inc.php';
 
 	$consulta_problema = "select DISTINCT pro_prob_id, prob_nombre from problema
 	where nivp_ip = 1

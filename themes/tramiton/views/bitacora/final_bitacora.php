@@ -5,7 +5,7 @@ $insertar_participantes = $_POST['insertar_participantes'];
 
 //echo $insertar_participantes;
 
-include 'config.inc.php';
+include 'protected/extensions/validacion/config.inc.php';
 
 if (isset($insertar_tarea)) {
 	

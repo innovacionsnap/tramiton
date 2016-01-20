@@ -149,8 +149,8 @@ class SiteController extends Controller {
             $unidad_prestadora = $_POST['unidad_prestadora'];
             $idhijo = $_POST['idhijo']; // canton de la provincia seleccionada
 
-            if (isset($_POST['id_tramite'])) {
-                $id_tramite = $_POST['id_tramite'];
+            if (isset($_POST['id_tramite2'])) {
+                $id_tramite = $_POST['id_tramite2'];
             } else {
                 $id_tramite = 4173;
             }
@@ -244,11 +244,11 @@ class SiteController extends Controller {
 
 
         if ($verifica_usuario == 1) {
-            echo '<br><br><h4 align="center">para publicar su caso debe <a href="site/login">Iniciar Sesión</a></h4>';
+            echo '<br><br><h4 align="center">para publicar tu caso debe <a href="site/login">Iniciar Sesión</a></h4>';
             echo '<br><br><h3><a href="' . Yii::app()->baseUrl . '">Recargar la página</a></h3>';
           
         } else {
-            echo '<br><br><h4>para poder publicarlo debe <a href="site/registro">Crear una cuenta.</a></h4>';
+            echo '<br><br><h4>Para poder publicarlo debe <a href="site/registro">Crear una cuenta.</a></h4>';
             echo '<br><br><h3><a href="' . Yii::app()->baseUrl . '">Recargar la página</a></h3>';
          
             //Yii::app()->end();
@@ -328,7 +328,7 @@ class SiteController extends Controller {
                 $mail = new EnviarCorreo;
 
 //enviamos los parametros necesarios para enviar el correo
-                $asunto = utf8_decode('Confirmar Cuenta Tramiton');
+                $asunto = utf8_decode('Confirmar Cuenta Tramitón');
                 $mensajeEmail = utf8_decode($textoEmail);
 
 //llamamos la funcion para enviar el correo y pasamos los parametros necesarios
@@ -343,7 +343,7 @@ class SiteController extends Controller {
 
 //creamos el mensaje de notificación para el usuario
                 $this->_msgSuccess = $this->creaMensaje(
-                        'Gracias por tu registro!', 'En breve recibirás un correo electrónico con un enlace para poder activar tu cuenta'
+                        'Gracias por tu registro!', 'En breve recibirás un correo electrónico con un enlace para poder activar tu cuenta.'
                 );
 
 //redirigimos a la pagina de success y con el mensaje
@@ -561,7 +561,7 @@ class SiteController extends Controller {
                             // array(Yii::app()->params['adminEmail'], Yii::app()->name), array($datosUser['usuMail'], $datosUser['usuNombre']), $asunto, $msgEmail
                     );
 
-                    $mensaje = "Se ha generado una solicitad de cambio de contraseña, por favor revise su correo electrónico";
+                    $mensaje = "Se ha generado una solicitad de cambio de contraseña, por favor revise su correo electrónico.";
                     $this->_msgSuccess = $this->creaMensaje(
                             'Aviso!!!!', $mensaje
                     );
@@ -652,9 +652,9 @@ class SiteController extends Controller {
                                 'Aviso!!!', $mensaje
                         );
                     } else {
-                        $mensaje = "Se ha reestablecido tu contraseña correctamente, ya puedes iniciar sesión en Tramiton";
+                        $mensaje = "Se ha reestablecido tu contraseña correctamente, ya puedes iniciar sesión en Tramitón";
                         $this->_msgSuccess = $this->creaMensaje(
-                                'Felicitaciones!!!!', $mensaje, 'Ingresa a Tramiton', 'login', true
+                                'Felicitaciones!!!!', $mensaje, 'Ingresa a Tramitón', 'login', true
                         );
                     }
                     $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));

@@ -4,7 +4,7 @@
 
     $baseUrlbasico = Yii::app()->baseUrl;
 
-    include("config.inc.php");
+    include 'protected/extensions/validacion/config.inc.php';    
 
    
     //usuario 
