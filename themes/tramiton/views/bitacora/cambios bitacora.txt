@@ -1,0 +1,8 @@
+bitacora index
+
+----------- DB ---------------
+tar_tipo -> tipo de bitacora ------>ok
+tar_informe -> informe de cumplimiento -- debe ser al final  ---->ok 
+tar_fechacierre ->  cierre real de la tarea ----> ok
+tar_prioridad -> dar prioridad a la tarea --->ok
+tar_importancia -> dar el nivel de importancia ---> ok

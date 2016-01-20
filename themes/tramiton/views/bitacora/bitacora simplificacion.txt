@@ -1,0 +1,19 @@
+campos en tarea
+- Estrategia standar -- snap
+- Causa Raiz  -> institucion
+- Linea base de tramite -> institucion 
+- Verificacion  -> final inicial
+- justificar cambio de fecha -> snap
+- la fecha de las activiades son menores a fecha de la tarea -> snap
+- tramirte crea snap  
+--- institicion ingresa estrategia - causa  raiz
+
+--- 
+
+
+--- tramites de institucion solo GPR
+
+- Meta 
+
+----- detalle Tramite ----- 
+- Verificacion de los tramites priorizados

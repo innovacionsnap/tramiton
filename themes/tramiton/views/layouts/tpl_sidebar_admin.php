@@ -54,7 +54,7 @@
                  array('label' => '<i class="fa fa-crosshairs"></i>Seguimiento<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('bitacora', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'), 
                     'items' => array(
                         array('label' => 'Bitácora', 'url' => array('bitacora/index')),
-                        //array('label' => 'Tareas generales', 'url' => array('')),
+                        array('label' => 'Bitácora Trámites', 'url' => array('bitacora/indexTramite')),
                         //array('label' => 'Tareas por usuario', 'url' => array('')),
                         //array('label' => 'Archivos', 'url' => array('')),
                     )),

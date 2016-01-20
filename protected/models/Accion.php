@@ -13,6 +13,7 @@
  * @property integer $acc_estado
  * @property integer $tar_id
  * @property integer $usu_id
+ * @property integer $acc_nivel
  */
 class Accion extends CActiveRecord
 {
@@ -33,12 +34,12 @@ class Accion extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('acc_nombre, acc_estado', 'required'),
-			array('acc_estado, tar_id, usu_id', 'numerical', 'integerOnly'=>true),
-			array('acc_nombre, acc_descripcion', 'length', 'max'=>50),
-			array('acc_fechainicio, acc_fechafin, acc_fecharegistro', 'safe'),
+			array('acc_estado, tar_id, usu_id, acc_nivel', 'numerical', 'integerOnly'=>true),
+			array('acc_nombre', 'length', 'max'=>50),
+			array('acc_descripcion, acc_fechainicio, acc_fechafin, acc_fecharegistro', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('acc_id, acc_nombre, acc_descripcion, acc_fechainicio, acc_fechafin, acc_fecharegistro, acc_estado, tar_id, usu_id', 'safe', 'on'=>'search'),
+			array('acc_id, acc_nombre, acc_descripcion, acc_fechainicio, acc_fechafin, acc_fecharegistro, acc_estado, tar_id, usu_id, acc_nivel', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,6 +69,7 @@ class Accion extends CActiveRecord
 			'acc_estado' => 'Acc Estado',
 			'tar_id' => 'Tar',
 			'usu_id' => 'Usu',
+			'acc_nivel' => 'Acc Nivel',
 		);
 	}
 
@@ -98,6 +100,7 @@ class Accion extends CActiveRecord
 		$criteria->compare('acc_estado',$this->acc_estado);
 		$criteria->compare('tar_id',$this->tar_id);
 		$criteria->compare('usu_id',$this->usu_id);
+		$criteria->compare('acc_nivel',$this->acc_nivel);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

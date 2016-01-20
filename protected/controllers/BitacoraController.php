@@ -33,7 +33,12 @@ class BitacoraController extends Controller {
                     'RegistroParticipante',
                     'eliminarparticipante',
                     'registroaccion',
-                    'actividad_detalle_ver'),
+                    'IngresaAccion',
+                    'ActividadTramite',
+                    'actividad_detalle_ver',
+                    //tramites
+                    'indexTramite'
+                    ),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano', 'bitacora'),
             ),
@@ -59,6 +64,23 @@ class BitacoraController extends Controller {
         $this->render('index',compact('datosTarea'));
         //$this->render('formulario');
     }
+
+    // inicio bitacora tramites
+    public function actionindexTramite() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //creo una instancia del modelo Dashboard
+        $model = new Bitacora();
+        //$datosTotalTramites = $model->getTotalTramite();
+        //$datosRankingTramites = $model->getRankingTramite();
+        //$datosPublicacionesTramites = $model->getPublicacionesTramites();
+        $datosTarea = $model->getTareaTramite();
+        $this->layout = 'main-admin';
+        $this->_datosUser = $modelUser;
+        $this->render('indexTramite',compact('datosTarea'));
+        //$this->render('formulario');
+    }
+    // fin bitacora tramites
+    
     public function actionActividad() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //creo una instancia del modelo Bitacora
@@ -77,6 +99,28 @@ class BitacoraController extends Controller {
         $this->render('actividad',compact('model'),false,true);
         //$this->render('formulario');
     }
+
+    // inicio bitacora tramites
+    public function actionActividadTramite() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //creo una instancia del modelo Bitacora
+        $model = new Bitacora();
+        $dos = 0;
+        if(isset($_POST["Bitacora"])){
+          //$model->attibutes = $_POST[]
+          if ($model->validate()){
+            die("ingreso sin errores");  
+          }
+          
+        }
+       
+        $this->layout = 'main-admin_form2';
+        $this->_datosUser = $modelUser;
+        $this->render('actividadTramite',compact('model'),false,true);
+        //$this->render('formulario');
+    }
+    // fin bitacora tramites
+
      public function actionviewActividad() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //creo una instancia del modelo Ditacora
@@ -108,12 +152,54 @@ class BitacoraController extends Controller {
 
     public function actionActividad_detalle() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+
+       
+
+        if (empty($_GET)) {
+            $model = new Accion();
+        } else {
+            Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
+
+
+
+            if(empty($_GET['acc_id'])){
+               
+
+               $tar_id = $_GET['tar_id'];
+               $model = new Bitacora();
+
+               //$this->render('actividad_detalle', array('model'=>$model, 'tar_id'=>$tar_id));
+
+            }else{
+
+                $id_accion = $_GET['acc_id'];
+                $model = Accion::model()->findByPk($id_accion);
+                $tar_id = $_GET['tar_id'];
+
+                $this->_datosUser = $modelUser;
+               // $this->render('actividad_detalle', array('model'=>$model,'tar_id'=>$tar_id));
+
+            }
+        
+            
+            // echo "<pre>";
+            // //echo $tar_id;
+            // var_dump($tar_id);
+            // echo "<pre>";
+            
+            // yii::app()->end();
+            
+        }
+           // echo $tar_id;
+           // var_dump($tar_id);
+            //yii::app()->end();
+
         //creo una instancia del modelo Bitacora
-        $model = new Bitacora();
+        //$model = new Bitacora();
         //$datosTarea_Participantes = $model->getTarea_Participantes();
-        $this->_datosUser = $modelUser;
-        $this->render('actividad_detalle');
-        //$this->render('formulario');
+        //$this->_datosUser = $modelUser;
+        $this->render('actividad_detalle', array('model'=>$model,'tar_id'=>$tar_id));
+        //$this->render('actividad_detalle');
     }
 
 
@@ -294,17 +380,55 @@ class BitacoraController extends Controller {
 
     // registro de acciones - actividad
     public function actionRegistroAccion() {
-        $insertar_participante = $_POST['insertar_actividad_detalle'];
-        echo $insertar_participante;
+        //echo 'Inserta: '.$insertar_accion = ;
+      
+
+
+        if(isset($_POST['editar_accion']) ){
+            $tar_id = $_POST['tar_id'];
+            $accion_id = $_POST['acc_id'];
+            $nivel_actividad = $_POST['nivel_actividad'];
+
+            $descripcion_actividad = $_POST["descripcion_actividad"];
+            $estado_actividad = $_POST['estado_actividad'];
+            $nombre_actividad = $_POST['nombre_actividad'];
+                       
+            $sql1= "update accion set acc_descripcion ='$descripcion_actividad', acc_nivel = '$nivel_actividad' , acc_estado = '$estado_actividad', acc_nombre = '' where acc_id =  $accion_id ";
+
+            echo $sql1;
+
+    
+            $hoy = date("Y-m-d");
+
+            $conexion = Yii::app()->db;
+
+            $transaction = $conexion->beginTransaction();
+            
+            try {
+            
+                $conexion->createCommand($sql1)->execute();
+     
+                $transaction->commit();
+                header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividad?tar_id='.$tar_id.'');
+            
+                
+            } catch (Exception $e) {
+                echo $e;
+                echo "<div>Hubo un error</div>";
+                $transaction->rollBack();
+            }
+
+           
+        }
         
 
-        if (isset($insertar_participante)) {
+
+
+        if (isset($_POST['inserta_accion'])) {
             $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
             $id_usuario = $modelUser['usu_id'];
             $tar_id = $_POST['tar_id'];
 
-           
-            $tar_id = $_POST['tar_id'];
             $nombre_actividad = $_POST["nombre_actividad"];
             $estado_actividad = $_POST["estado_actividad"];
             $descripcion_actividad = $_POST["descripcion_actividad"];
@@ -339,7 +463,8 @@ class BitacoraController extends Controller {
 
                 
                 $transaction->commit();
-                header('Location:'.Yii::app()->baseURL.'/bitacora/actividad_detalle?tar_id='.$tar_id.'');
+                //header('Location:'.Yii::app()->baseURL.'/bitacora/actividad_detalle?tar_id='.$tar_id.'');
+                header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividad/?tar_id='.$tar_id);
                 
             } catch (Exception $e) {
                 echo $e;
@@ -347,9 +472,12 @@ class BitacoraController extends Controller {
                 $transaction->rollBack();
             }
         }
-        
+
     }
 
-   // public function 
+
+
+        
+    
 
 }
