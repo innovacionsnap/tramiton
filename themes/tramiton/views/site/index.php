@@ -289,10 +289,10 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 'credits' => array('enabled' => false),
                 'title' => array('text' => ''),
                 'xAxis' => array(
-                    'categories' => array('TRÁMITES')
+                    'categories' => array('INSTITUCIONES')
                 ),
                 'yAxis' => array(
-                    'title' => array('text' => 'MENCIONES')
+                    'title' => array('text' => 'ACCIONES CORRECTIVAS')
                 ),
                 
                 

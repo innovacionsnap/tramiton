@@ -355,11 +355,11 @@ class consultasBaseDatos {
         $sqlInsertTmpRegistro = "INSERT INTO tmp_registro_caso("
                 . "cedula, id_institucion, id_tramite, experiencia, titulo_solucion, "
                 . "id_canton, unidad_prestadora, verificacion, otro_problema, fecha_registro, "
-                . "propuesta_solucion, otro_tramite) "
+                . "propuesta_solucion, otro_tramite,registro_tipo) "
                 . "VALUES ("
                 . ":cedula, :idInstitucion, :idTramite, :experiencia, :tituloSolucion, "
                 . ":idCanton, :unidadPrestadora, :verificacion, :otroProblema, "
-                . "now(), :propuestaSolucion, :otroTramite)";
+                . "now(), :propuestaSolucion, :otroTramite,1)";
 
         // crea el la instrucción para mandar a la base de datos
         $command = $conexion->createCommand($sqlInsertTmpRegistro);
