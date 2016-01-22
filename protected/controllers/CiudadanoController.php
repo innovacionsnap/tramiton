@@ -234,6 +234,9 @@ class CiudadanoController extends Controller {
                 //if ($var === false) {
                 //echo "validacion no fue verdadera " . $var;
                 //Yii::app()->end();
+                // $banderaNotificacion = true;
+                // $titulo = "Titu";
+                // $texto = "Perfil actualizado con éxito";
                 $this->redirect($this->createUrl('ciudadano/mostrarPerfil'));
             } else {
                 
