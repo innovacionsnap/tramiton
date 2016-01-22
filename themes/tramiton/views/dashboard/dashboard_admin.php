@@ -109,3 +109,16 @@
     });
 </script>
 
+
+<?php
+    $numero = 4;
+    $banderaNotificacion = true;
+    $texto = "Tiene (".$numero.") soluciones por publicar";
+    $titulo = "oacero";
+ ?> 
+
+ <script type="text/javascript">
+    var banderaNotificacion = <?php echo json_encode($banderaNotificacion); ?>;
+    var texto = <?php echo json_encode($texto); ?>;
+    var titulo = <?php echo json_encode($titulo); ?>;
+ </script>

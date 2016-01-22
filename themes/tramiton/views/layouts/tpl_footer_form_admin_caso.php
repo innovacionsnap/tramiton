@@ -52,12 +52,14 @@
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/form-wizards-validation.demo.min.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/apps-admin.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/gritter/js/jquery.gritter.js"></script>
 
 <!-- ================== END PAGE LEVEL JS ================== -->
 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/home.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/view-elements.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/body-padding.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/notificacion.js"></script>
 
 
 <script>
@@ -66,6 +68,7 @@
         FormWizardValidation.init();
         viewElements();
         bodyPadding();
+        Notificaciones.init();
     });
     $(window).resize(function(){
         viewElements();

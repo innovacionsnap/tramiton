@@ -62,6 +62,7 @@
 <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.yiiactiveform.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/view-elements.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/body-padding.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/notificacion.js"></script>
 
 
 
@@ -72,6 +73,7 @@
         TableManageDefault.init();
         viewElements();
         bodyPadding();
+        Notificaciones.init();
     });
     $(window).resize(function(){
         viewElements();
