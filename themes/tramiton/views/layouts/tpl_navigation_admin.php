@@ -39,6 +39,57 @@
                     <?php echo CHtml::endForm(); ?>
                 </div>
             </li>
+            <li id="campana" class="dropdown">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14" aria-expanded="true">
+                    <i class="fa fa-bell-o"></i>
+                    <span class="label"><?php echo "4"; ?></span>
+                </a>
+                <ul class="dropdown-menu media-list pull-right animated fadeInDown">
+                    <li class="dropdown-header">Notificaciones <?php echo '('.'4'.')'; ?></li>
+                    <li class="media">
+                        <a href="javascript:;">
+                            <div class="media-left"><i class="fa fa-comments media-object bg-red"></i></div>
+                            <div class="media-body">
+                                <h6 class="media-heading">ciudadano</h6>
+                                <p>Comentó tu publicación</p>
+                                <div class="text-muted f-s-11">Hace 3 minutos</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media">
+                        <a href="javascript:;">
+                            <div class="media-left"><i class="fa fa-thumbs-o-up media-object bg-blue"></i></div>
+                            <div class="media-body">
+                                <h6 class="media-heading">A John Smith</h6>
+                                <p>Le gusta tu solución al trámite..</p>
+                                <div class="text-muted f-s-11">Hace 25 minutos</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media">
+                        <a href="javascript:;">
+                            <div class="media-left"><i class="fa fa-share media-object bg-green"></i></div>
+                            <div class="media-body">
+                                <h6 class="media-heading"> Nueva solución por registrar</h6>
+                                <div class="text-muted f-s-11">Hace una hora</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media">
+                        <a href="javascript:;">
+                            <div class="media-left"><i class="fa fa-comments media-object bg-red"></i></div>
+                            <div class="media-body">
+                                <h6 class="media-heading">admin</h6>
+                                <p>Comentó tu publicación</p>
+                                <div class="text-muted f-s-11">Hace 3 minutos</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="dropdown-footer text-center">
+                        <a href="javascript:;">Ver más</a>
+                    </li>
+                </ul>
+            </li>
             <li class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     <img style="width:30px; height:30px; border-radius: 15px;" src="<?php echo Yii::app()->theme->baseUrl . '/assets/img/users/' . $this->_datosUser->usu_imagen; ?>" alt="" /> 
