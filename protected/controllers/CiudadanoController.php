@@ -34,10 +34,12 @@ class CiudadanoController extends Controller {
                     'mostrarPerfil',
                     'updatePerfil',
                     'updateImagen',
-                    'registrocasointerno'
+                    'registrocasointerno',
+                    'casosTemporales',
+                    'viewCasoTemporal'
                 ),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano', 'institucion', 'bitacoraaq'),
+                'roles' => array('super_admin', 'ciudadano', 'institucion', 'bitacora'),
             ),
             array('deny', // deny all users
                 #'roles' => array('*'),
@@ -364,6 +366,32 @@ class CiudadanoController extends Controller {
                 $transaction->rollBack();
             }
         }
+    }
+    
+    /**
+     * Accion del modulo de administración que muestra la lista de usuarios
+     */
+    public function actionCasosTemporales() {
+        //$usuarios = Usuario::model()->findAll();
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelCasoTmp = new consultasBaseDatos;
+        
+        $casosTmp = $modelCasoTmp->getListaTemporales($modelUser->usu_cedula);
+  
+        $this->_datosUser = $modelUser;
+        $this->layout = 'main-admin';
+        $this->render('casosTemporales', array('casosTmp' => $casosTmp));
+    }
+    
+    /**
+     * Accion para mostrar el caso temporal registrado por el ciudadano y con la opción de publicarlo
+     */
+    public function actionViewCasoTemporal($idTmp) {
+        
+        $tmpId = Yii::app()->encriptaParam->decodificaParamGet($idTmp);
+              
+       
+        
     }
 
 }

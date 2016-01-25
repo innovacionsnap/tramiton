@@ -27,6 +27,16 @@
 <div id="content" class="container-fluid linea">
     <div class="row">
         <!-- begin col-8 -->
+        <?php
+        
+        /*if($verificaTmp['existe'] == TRUE){
+            echo "<strong>usted tiene registrados " . $verificaTmp['nroTmp'] . " casos temporales</strong>";
+            echo CHtml::link('Ver casos temporales',array('ciudadano/casosTemporales'));
+        }
+        */
+        
+        ?>
+        
         <div class="col-md-10">
             <!-- inicio mensajes -->
 

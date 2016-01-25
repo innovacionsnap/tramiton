@@ -33,7 +33,7 @@ class DashboardController extends Controller {
                 'actions' => array('index', 'valor', 'totaltramite', 'timeline', 'ranktramite', 'visitasolucion', 'votossolucion', 'procesacomentario', 'getusuario', 'getcomentario',
                     'validalike', 'getLike', 'procesamegusta', 'procesavista', 'cargatimeline'),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano', 'bitacoraaq', 'institucion'),
+                'roles' => array('super_admin', 'ciudadano', 'bitacora', 'institucion'),
             ),
             array('deny', // deny all users
                 #'roles' => array('*'),
@@ -49,12 +49,18 @@ class DashboardController extends Controller {
     public function actionIndex() {
         //echo "index dashboard";
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelVerificaTmp = new consultasBaseDatos;
+        
+        $verificaTmp = $modelVerificaTmp->verificaCasosTmp($modelUser->usu_cedula);
+        
+        //var_dump($verificaTmp);
+        
         //var_dump($modelUser);
         //Yii::app()->end();
         //$this->layout = 'main-admin';
         $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;
-        $this->render('dashboard_admin');
+        $this->render('dashboard_admin', array('verificaTmp' => $verificaTmp));
     }
 
     public function actionTimeline() {

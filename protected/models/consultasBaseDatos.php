@@ -485,4 +485,71 @@ class consultasBaseDatos {
         //return $totalAccionesnum;
     }
     
+    /**
+     * Función para verificar si tiene registros temporales ingresados
+     */
+    public function verificaCasosTmp($cedula) {
+        $conexion = Yii::app()->db;
+        
+        $existe = FALSE;
+        $nroTmp = 0;
+         
+        $sqlVerificaTmp = "select * from tmp_registro_caso "
+                . "where "
+                . "estado_publicado = 1 and "
+                . "cedula = '$cedula'";
+        
+        $resultado = $conexion->createCommand($sqlVerificaTmp);
+
+        $fila = $resultado->query();
+
+        //compueba si hay resultados, cambia el valor de existe y obtiene el codigo del usuario para asiganrle un rol
+        foreach ($fila as $registro) {
+            //var_dump($registro); Yii::app()->end();
+            $existe = TRUE;
+            $nroTmp++;
+        }
+        
+        $datosVerificacion = array(
+            'existe' => $existe,
+            'nroTmp' => $nroTmp
+        );
+        
+        return $datosVerificacion;
+        
+    }
+    
+    /**
+     * función para mostrar los registros temporales si los tuviere
+     */
+    public function getListaTemporales($cedula) {
+        $conexion = Yii::app()->db;
+        
+        $sqlListaTmp = "select "
+                . "tmprc.id_registro_caso, ins.ins_nombre, tram.tra_nombre, can.can_nombre, "
+                . "to_char(tmprc.fecha_registro, 'TMDay, DD TMMonth YYYY') AS fecha_registro "
+                . "from "
+                . "tmp_registro_caso tmprc, canton can, tramite_institucion train, "
+                . "institucion ins, tramite tram "
+                . "where "
+                . "tmprc.id_tramite = train.trai_id and "
+                . "tmprc.id_institucion = ins.ins_id and "
+                . "train.tra_id = tram.tra_id and "
+                . "tmprc.id_canton = can.can_id and "
+                . "tmprc.cedula = '$cedula' and "
+                . "tmprc.estado_publicado = 1";
+        
+        $resultado = $conexion->createCommand($sqlListaTmp);
+        
+        $temporales = $resultado->query();
+        
+        return $temporales;
+        
+    }
+
+
+
+    
+    
+    
 } 
