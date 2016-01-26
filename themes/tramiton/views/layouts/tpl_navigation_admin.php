@@ -21,8 +21,8 @@
 
     <div class="collapse navbar-collapse" id="collapse-1">
         <!-- <ul class="nav navbar-nav">
-            <li><a class="menu-central-dashboard borde-derecha" href="<?php echo Yii::app()->baseUrl; ?>/ciudadano/index">Participa</a></li>
-            <li><a class="menu-central-dashboard borde-derecha" href="<?php echo Yii::app()->baseUrl; ?>/#que_es_tramiton" data-click="scroll-to-target">¿Qué es Tramitón?</a></li>
+            <li><a class="menu-central-dashboard borde-derecha" href="<?php //echo Yii::app()->baseUrl; ?>/ciudadano/index">Participa</a></li>
+            <li><a class="menu-central-dashboard borde-derecha" href="<?php //echo Yii::app()->baseUrl; ?>/#que_es_tramiton" data-click="scroll-to-target">¿Qué es Tramitón?</a></li>
             <li><a class="menu-central-dashboard borde-derecha" href="#">Términos y Condiciones</a></li>
             <li><a class="menu-central-dashboard no-border" href="#">Ayuda</a></li>
         </ul> -->
@@ -39,13 +39,13 @@
                     <?php echo CHtml::endForm(); ?>
                 </div>
             </li>
-            <li id="campana" class="dropdown">
+            <!--<li id="campana" class="dropdown">
                 <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14" aria-expanded="true">
                     <i class="fa fa-bell-o"></i>
-                    <span class="label"><?php echo "4"; ?></span>
+                    <span class="label"><?php //echo "4"; ?></span>
                 </a>
                 <ul class="dropdown-menu media-list pull-right animated fadeInDown">
-                    <li class="dropdown-header">Notificaciones <?php echo '('.'4'.')'; ?></li>
+                    <li class="dropdown-header">Notificaciones <?php //echo '('.'4'.')'; ?></li>
                     <li class="media">
                         <a href="javascript:;">
                             <div class="media-left"><i class="fa fa-comments media-object bg-red"></i></div>
@@ -89,7 +89,7 @@
                         <a href="javascript:;">Ver más</a>
                     </li>
                 </ul>
-            </li>
+            </li>-->
             <li class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     <img style="width:30px; height:30px; border-radius: 15px;" src="<?php echo Yii::app()->theme->baseUrl . '/assets/img/users/' . $this->_datosUser->usu_imagen; ?>" alt="" /> 
@@ -98,7 +98,9 @@
                 <ul class="dropdown-menu animated fadeInLeft">
                     <!-- <li class="arrow"></li> -->
                     <li><?php echo CHtml::link('Editar Perfil', array('ciudadano/mostrarPerfil', 'key' => $this->_datosUser->usu_codigo_confirmacion)); ?></li>
-                    <!--<li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Notificaciones</a></li>-->
+                    <?php if($this->_casosTmp['existe'] == TRUE): ?>
+                    <li><a href="<?php echo Yii::app()->baseUrl;?>/ciudadano/casosTemporales"><span class="badge badge-danger pull-right"><?php echo $this->_casosTmp['nroTmp'] ?></span> Casos Temporales</a></li>
+                    <?php endif; ?>
                     <li><a href="<?php echo Yii::app()->baseUrl;?>/ciudadano/usuario_tramites">Mis Trámites</a></li>
                     <li><a href="<?php echo Yii::app()->baseUrl;?>/empresa/empresa">Mis Empresas</a></li>
                     <li><a href="<?php echo Yii::app()->baseUrl;?>/empresa/index">Registrar Caso como Empresa</a></li>

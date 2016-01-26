@@ -2,7 +2,7 @@
 
 class DashboardController extends Controller {
 
-    public $_menuActive;
+    public $_casosTmp;
     public $_datosUser;
 
     /* public function __construct() {
@@ -50,7 +50,6 @@ class DashboardController extends Controller {
         //echo "index dashboard";
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $modelVerificaTmp = new consultasBaseDatos;
-        
         $verificaTmp = $modelVerificaTmp->verificaCasosTmp($modelUser->usu_cedula);
         
         //var_dump($verificaTmp);
@@ -60,7 +59,8 @@ class DashboardController extends Controller {
         //$this->layout = 'main-admin';
         $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;
-        $this->render('dashboard_admin', array('verificaTmp' => $verificaTmp));
+        $this->_casosTmp = $verificaTmp;
+        $this->render('dashboard_admin', array('verificaTmp' => $verificaTmp, 'modelUser' => $modelUser));
     }
 
     public function actionTimeline() {
@@ -130,7 +130,12 @@ class DashboardController extends Controller {
 
     public function actionValor() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        
+        $modelVerificaTmp = new consultasBaseDatos;
+        $verificaTmp = $modelVerificaTmp->verificaCasosTmp($modelUser->usu_cedula);
+        
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $verificaTmp;
         $this->layout = 'main-admin';
         //$this->_datosUser = $modelUser;
         //$this->render('ranking_tramites');

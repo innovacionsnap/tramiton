@@ -1,7 +1,9 @@
 <?php
 class BitacoraController extends Controller {
-    public $_menuActive;
+   
     public $_datosUser;
+    public $_casosTmp;
+
     /* public function __construct() {
       $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
       $this->_datosUser = $modelUser;
@@ -53,6 +55,8 @@ class BitacoraController extends Controller {
      */
     public function actionIndex() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelVerificaTmp = new consultasBaseDatos;
+        $verificaTmp = $modelVerificaTmp->verificaCasosTmp($modelUser->usu_cedula);
         //creo una instancia del modelo Dashboard
         $model = new Bitacora();
         //$datosTotalTramites = $model->getTotalTramite();
@@ -61,6 +65,7 @@ class BitacoraController extends Controller {
         $datosTarea = $model->getTarea();
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $verificaTmp;
         $this->render('index',compact('datosTarea'));
         //$this->render('formulario');
     }

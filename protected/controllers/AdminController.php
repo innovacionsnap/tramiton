@@ -14,6 +14,7 @@
 class AdminController extends Controller {
 
     public $_datosUser;
+    public $_casosTmp;
 
     public function filters() {
         return array(
@@ -72,6 +73,7 @@ class AdminController extends Controller {
         $usuarios = Usuario::model()->findAll($criteria);
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin';
         $this->render('index', array('usuarios' => $usuarios));
     }
@@ -85,6 +87,7 @@ class AdminController extends Controller {
         $modelRole = new RoleForm;
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin';
         $this->render('role', array('modelRole' => $modelRole));
     }
@@ -94,6 +97,7 @@ class AdminController extends Controller {
 
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin';
 
         if (isset($_POST["ajax"]) and $_POST["ajax"] === "role-form") {
@@ -133,6 +137,7 @@ class AdminController extends Controller {
         
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin';
         $this->render('roleUsuarios', array(
                     'model' => $model, 
@@ -149,6 +154,7 @@ class AdminController extends Controller {
         $modelUserSelect = Usuario::model()->findByPk($usrId);
         $modelUserSesion = Usuario::model()->findByPk(Yii::app()->user->id);
         $this->_datosUser = $modelUserSesion;
+        $this->_casosTmp = $this->getDatosTemporal();
         //var_dump($modelUser);
         //Yii::app()->end();
         $this->layout = 'main-admin';
@@ -189,6 +195,7 @@ class AdminController extends Controller {
         $modelUserSesion = Usuario::model()->findByPk(Yii::app()->user->id);
         $modelMensajes = new MensajesAplicacion;
         $this->_datosUser = $modelUserSesion;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin';
         $this->render('viewRole', array('rolSelect' => $rolSelect, 'modelMensajes' => $modelMensajes, 'sw' => $sw));
     }
@@ -232,6 +239,7 @@ class AdminController extends Controller {
 
         $modelUserSesion = Usuario::model()->findByPk(Yii::app()->user->id);
         $this->_datosUser = $modelUserSesion;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin';
         $this->render("updateRole", array('modelRole' => $modelRole, 'rolSelect' => $rolSelect));
     }
@@ -242,8 +250,16 @@ class AdminController extends Controller {
         $modelRole = new RoleForm;
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin';
         $this->render('role', array('modelRole' => $modelRole));
+    }
+    
+    public function getDatosTemporal() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelVerificaTmp = new consultasBaseDatos;
+        $verificaTmp = $modelVerificaTmp->verificaCasosTmp($modelUser->usu_cedula);
+        return $verificaTmp;
     }
 
 }

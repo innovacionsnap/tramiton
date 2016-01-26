@@ -2,7 +2,7 @@
 
 class EmpresaController extends Controller {
 
-    public $_menuActive;
+    public $_casosTmp;
     public $_datosUser;
 
     public function actions() {
@@ -37,6 +37,7 @@ class EmpresaController extends Controller {
         $empresas = Empresa::model()->findAllByAttributes(array('usu_id' => ($usuario['usu_id'])));
         $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $usuario;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->render('index', array('empresas' => $empresas));
     }
 
@@ -47,6 +48,7 @@ class EmpresaController extends Controller {
         $empresas = Empresa::model()->findAllByAttributes(array('usu_id' => $id_usuario));
         $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->render('registro', array('empresas' => $empresas, 'model' => $model));
     }
 
@@ -65,6 +67,7 @@ class EmpresaController extends Controller {
         }
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->render('nueva_empresa', array('model' => $model, 'id_usuario' => $id_usuario));
     }
 
@@ -110,6 +113,13 @@ class EmpresaController extends Controller {
         } else {
             echo $nro_empresas;
         }
+    }
+    
+    public function getDatosTemporal() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelVerificaTmp = new consultasBaseDatos;
+        $verificaTmp = $modelVerificaTmp->verificaCasosTmp($modelUser->usu_cedula);
+        return $verificaTmp;
     }
 
 }

@@ -2,7 +2,7 @@
 
 class CiudadanoController extends Controller {
 
-    //public $_menuActive;
+    public $_casosTmp;
     public $_datosUser;
 
     public function filters() {
@@ -65,8 +65,10 @@ class CiudadanoController extends Controller {
         $datosTotalTramites = $model->getTotalTramite();
         $datosRankingTramites = $model->getRankingTramite();
         $datosPublicacionesTramites = $model->getPublicacionesTramites();
+        
         $this->layout = 'main-admin_form2';
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->render('form_ciudadano', compact('datosTotalTramites', 'datosRankingTramites', 'datosPublicacionesTramites', 'empresa'));
         //$this->render('formulario');
     }
@@ -78,7 +80,9 @@ class CiudadanoController extends Controller {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
         $datosUsuarioTramite = $model->getUsuarioTramite();
+        
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin_form';
         $this->render('usuario_tramites', compact('datosUsuarioTramite'));
     }
@@ -90,6 +94,7 @@ class CiudadanoController extends Controller {
         $datosTramite_Usuario = $model->getTramite_Usuario();
         $datosTramite_Solucion = $model->getTramite_Solucion();
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin_form';
         $this->render('viewTramite_Usuario', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion'));
     }
@@ -101,6 +106,7 @@ class CiudadanoController extends Controller {
         $datosTramite_Usuario = $model->getTramite_Usuario();
         $datosTramite_Solucion = $model->getTramite_Solucion();
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin_form_caso';
         $this->render('viewTramite_Usuario2', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion'));
     }
@@ -201,6 +207,7 @@ class CiudadanoController extends Controller {
         //Yii::app()->end();
 
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
 
         $this->layout = 'main-admin';
         //$this->layout = 'main-admin_form_caso';
@@ -246,6 +253,7 @@ class CiudadanoController extends Controller {
         }
 
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         //$this->layout = 'main-admin-user';
         $this->layout = 'main-admin';
         //$this->layout = 'main-prueba';
@@ -379,6 +387,7 @@ class CiudadanoController extends Controller {
         $casosTmp = $modelCasoTmp->getListaTemporales($modelUser->usu_cedula);
   
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin';
         $this->render('casosTemporales', array('casosTmp' => $casosTmp));
     }
@@ -390,8 +399,13 @@ class CiudadanoController extends Controller {
         
         $tmpId = Yii::app()->encriptaParam->decodificaParamGet($idTmp);
               
-       
-        
+    }
+    
+    public function getDatosTemporal() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelVerificaTmp = new consultasBaseDatos;
+        $verificaTmp = $modelVerificaTmp->verificaCasosTmp($modelUser->usu_cedula);
+        return $verificaTmp;
     }
 
 }

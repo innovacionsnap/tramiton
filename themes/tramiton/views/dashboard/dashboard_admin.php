@@ -121,14 +121,14 @@
 
 
 <?php
-    $numero = 4;
-    $banderaNotificacion = true;
-    $texto = "Tiene (".$numero.") soluciones por publicar";
-    $titulo = "oacero";
+    $nroCasosTmp = $verificaTmp['nroTmp'];
+    $banderaNotificacion = $verificaTmp['existe'];
+    $textoNotificacion = "Usted tiene (".$nroCasosTmp.") caso(s) temporales registrados";
+    $nombreUser = $modelUser->usu_nombreusuario;
  ?> 
 
  <script type="text/javascript">
     var banderaNotificacion = <?php echo json_encode($banderaNotificacion); ?>;
-    var texto = <?php echo json_encode($texto); ?>;
-    var titulo = <?php echo json_encode($titulo); ?>;
+    var texto = <?php echo json_encode($textoNotificacion); ?>;
+    var titulo = <?php echo json_encode($nombreUser); ?>;
  </script>
