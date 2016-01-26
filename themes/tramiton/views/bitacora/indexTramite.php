@@ -61,7 +61,7 @@
                     <h4 class="panel-title">Datos principales</h4>
                 </div>
                 <div class="panel-body">
-                    <a href="actividad" class="btn btn-info actividad" role="button">
+                    <a href="actividadTramite" class="btn btn-info actividad" role="button">
                         <li class="fa fa-plus-circle">&nbsp;&nbsp;</li>Nuevo</a>
                     <hr>
                     <div class="table-responsive">
@@ -75,12 +75,12 @@
                                     <th>Sector</th>
                                     <th>Institucion</th>
                                     <th>Servicio Trámite</th>
-                                    <th>Descripción Problema</th>
+                                    <th>Problema</th>
                                     <th>%</th>
-                                    <th><div><span style="background-color: green;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div></th>
+                                    <!-- <th><div><span style="background-color: green;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div></th>
                                     <th><div><span style="background-color: orange;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div></th>
                                     <th><div><span style="background-color: red;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div></th>
-                                    <th>Cierre</th>
+                                    <th>Cierre</th> -->
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -92,27 +92,21 @@
                                         <td><?php  echo substr($dato["ins_nombre"],0,40);?>...</td>-->
                                         <td><?php echo $dato["sec_nombre"] ?></td>
                                         <td><?php echo $dato["ins_nombre"] ?></td>
-                                        <td><?php //echo $dato["tar_estatus"]." ";
-                                                if ($dato["tar_estatus"] == 0){
-                                                    echo "Abierto";
-                                                }
-                                                if ($dato["tar_estatus"] == 1){
-                                                    echo "Cerrado";
-                                                }
-
-                                                 ?>
-                                        </td>
+                                        <td><?php 
+                                          $model=Bitacora::model();
+                                                $nombreTramite=$model->getInstitucion($dato["tar_nombre"]);
+                                         ?></td>
                                         <td>
                                             <?php //echo $dato["tar_importancia"];
-                                                if ($dato["tar_importancia"] == 1){
-                                                    echo "Baja";
+                                                if ($dato["tar_descripcion"] == ''){
+                                                    
+                                                    echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle"></i> </button>'
+                                            ,array("/bitacora/viewActividadTramite", 'tar_id' => $dato['tar_id']), array('title' => 'Mostrar'));  
+
+                                                }else{
+                                                    echo $dato["tar_descripcion"];
                                                 }
-                                                if ($dato["tar_importancia"] == 2){
-                                                    echo "Media";
-                                                }
-                                                if ($dato["tar_importancia"]==3){
-                                                    echo "Alta";
-                                                }
+                                               
                                             ?>
                                         </td>
                                         <td> 
@@ -127,7 +121,7 @@
                                         <?php $model=Bitacora::model();
                                         $contador_colores=$model->getColor($dato["tar_id"]);//$rojo = Yii::app()->Bitacora; 
                                         ?>
-                                        <td>
+                                       <!--  <td>
                                         <?php
                                         echo $contador_colores['verde'];
                                         ?></td>
@@ -143,11 +137,11 @@
                                             ?>
 
                                         </td>
-                                        <td><small><?php echo $dato["tar_fecharegistro"] ?></small></td>
+                                        <td><small><?php echo $dato["tar_fecharegistro"] ?></small></td> -->
                                         <td>
                                             <?php
                                             echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'
-                                            ,array("/bitacora/viewActividad", 'tar_id' => $dato['tar_id']), array('title' => 'Mostrar'));
+                                            ,array("/bitacora/viewActividadTramite", 'tar_id' => $dato['tar_id']), array('title' => 'Mostrar'));
                                             ?>
                                         </td>
                                     </tr>

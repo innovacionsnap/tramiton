@@ -12,6 +12,7 @@ include 'protected/extensions/validacion/config.inc.php';
 $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
 $id_usuario = $modelUser['usu_id'];
 $tar_id = $_GET['tar_id'];
+//$accion = $_GET['accion'];
 
 ?>
 
@@ -54,6 +55,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
         margin-bottom: 0px;
     }
 </style>
+
 <!-- begin #content -->
 <div id="content" class="content" style="margin-left: 50px; margin-right: 20px">
     
