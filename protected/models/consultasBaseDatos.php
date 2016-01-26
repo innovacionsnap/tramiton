@@ -417,7 +417,7 @@ class consultasBaseDatos {
     public function getTotalParticipantes(){
         $conexion = Yii::app()->db;
         
-        $sqlTotalParticipantes = "select count(*) as total_participantes from usuario where usu_estado <> 100";
+        $sqlTotalParticipantes = "select count(*) as total_participantes from usuario where usu_tramiton = 1";
 
         $resultado = $conexion->createCommand($sqlTotalParticipantes);
         
@@ -433,7 +433,7 @@ class consultasBaseDatos {
     public function getTramitesMencionados(){
         $conexion = Yii::app()->db;
         
-        $sqlTramitesMencionados = "select count(trai_id) as total_tamites from datos_tramite";
+        $sqlTramitesMencionados = "select count(trai_id) as total_tamites from datos_tramite where datt_productivo is null";
 
         $resultado = $conexion->createCommand($sqlTramitesMencionados);
         
@@ -449,7 +449,7 @@ class consultasBaseDatos {
     public function getAccionesCorrectivasTram(){
         $conexion = Yii::app()->db;
         
-        $sqlAccionesTramite = "select count(accc_id) as total_acciones from acciones_correctivas";
+        $sqlAccionesTramite = "select count(accc_id) as total_acciones from acciones_correctivas where accc_productivo=1";
 
         $resultado = $conexion->createCommand($sqlAccionesTramite);
         
@@ -470,6 +470,7 @@ class consultasBaseDatos {
         where tra.tra_id = accc.tra_id
         and trai.tra_id = tra.tra_id
         and ins.ins_id = trai.ins_id
+        and accc_productivo=1
         group by ins.ins_id
         order by total desc
         limit 10";
