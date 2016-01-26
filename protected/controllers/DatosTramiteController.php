@@ -2,7 +2,7 @@
 
 class DatosTramiteController extends Controller {
 
-    public $_menuActive;
+    public $_casosTmp;
     public $_datosUser;
     
     public function accessRules() {
@@ -26,6 +26,7 @@ class DatosTramiteController extends Controller {
         $tramites=$modelTramite->getTramite();
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->render('index',compact('tramites'));
     }
     
@@ -35,6 +36,7 @@ class DatosTramiteController extends Controller {
         $rankings=$modelTramite->getRanking();
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->render('ranking',compact('rankings'));
     }
     
@@ -44,7 +46,15 @@ class DatosTramiteController extends Controller {
         $casos = $modelDatosTramite->getCaso($_POST['busca']);
         $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->render('busca', compact('casos'));
+    }
+    
+    public function getDatosTemporal() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelVerificaTmp = new consultasBaseDatos;
+        $verificaTmp = $modelVerificaTmp->verificaCasosTmp($modelUser->usu_cedula);
+        return $verificaTmp;
     }
     
     // Uncomment the following methods and override them if needed
