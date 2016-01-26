@@ -86,3 +86,16 @@ body{
     margin: 0px;
     padding: 0px 10px;
 }
+#campana a{
+   padding-right: 20px;
+}
+@media(min-width:768px){
+    #campana{
+       padding-top: 8px;
+    }
+}
+@media(max-width: 767px){
+    #campana{
+        text-align: right; 
+    }
+}

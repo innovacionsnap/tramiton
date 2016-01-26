@@ -75,6 +75,10 @@ return array(
                 'bootstrap' => array(
                         'class' => 'bootstrap.components.TbApi',   
                 ),
+            
+                'encriptaParam' => array(
+                        'class' => 'application.components.EncriptaParam',   
+                ),
 		// uncomment the following to enable URLs in path-format
 		
 		'urlManager'=>array(
@@ -151,5 +155,6 @@ return array(
 		// this is used in contact page
 		'adminEmail' => 'tramiton@administracionpublica.gob.ec',
 		'hashKey' => '54d3d05adfb6d',
+                'beforeCode' => '56a2454ea7a99'
 	),
 );

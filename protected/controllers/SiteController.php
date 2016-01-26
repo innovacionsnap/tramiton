@@ -43,10 +43,8 @@ class SiteController extends Controller {
         $totalTramites = $modelEstadisticas->getTramitesMencionados();
         $totalAcciones = $modelEstadisticas->getAccionesCorrectivasTram();
         
-        //$totalAccionesnum = $modelEstadisticas->getAccionesCorrectivas10n();
         $totalAccionesnom = $modelEstadisticas->getAccionesCorrectivas10();
         
-
         $estadisticas = array(
             'totalParticipantes' => $totalParticipantes,
             'totalTramites' => $totalTramites,

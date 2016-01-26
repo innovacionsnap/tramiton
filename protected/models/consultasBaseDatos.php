@@ -355,11 +355,11 @@ class consultasBaseDatos {
         $sqlInsertTmpRegistro = "INSERT INTO tmp_registro_caso("
                 . "cedula, id_institucion, id_tramite, experiencia, titulo_solucion, "
                 . "id_canton, unidad_prestadora, verificacion, otro_problema, fecha_registro, "
-                . "propuesta_solucion, otro_tramite) "
+                . "propuesta_solucion, otro_tramite,registro_tipo) "
                 . "VALUES ("
                 . ":cedula, :idInstitucion, :idTramite, :experiencia, :tituloSolucion, "
                 . ":idCanton, :unidadPrestadora, :verificacion, :otroProblema, "
-                . "now(), :propuestaSolucion, :otroTramite)";
+                . "now(), :propuestaSolucion, :otroTramite,1)";
 
         // crea el la instrucción para mandar a la base de datos
         $command = $conexion->createCommand($sqlInsertTmpRegistro);
@@ -421,7 +421,7 @@ class consultasBaseDatos {
 
         $resultado = $conexion->createCommand($sqlTotalParticipantes);
         
-        $totalParticipantes;
+        $totalParticipantes = 0;
         $fila = $resultado->query();
         foreach ($fila as $registro) {
             $totalParticipantes = $registro['total_participantes'];
@@ -437,7 +437,7 @@ class consultasBaseDatos {
 
         $resultado = $conexion->createCommand($sqlTramitesMencionados);
         
-        $totalTramites;
+        $totalTramites = 0;
         $fila = $resultado->query();
         foreach ($fila as $registro) {
             $totalTramites = $registro['total_tamites'];
@@ -453,7 +453,7 @@ class consultasBaseDatos {
 
         $resultado = $conexion->createCommand($sqlAccionesTramite);
         
-        $totalAcciones;
+        $totalAcciones = 0;
         $fila = $resultado->query();
         foreach ($fila as $registro) {
             $totalAcciones = $registro['total_acciones'];
@@ -484,5 +484,72 @@ class consultasBaseDatos {
         return $totalAccionesnom;
         //return $totalAccionesnum;
     }
+    
+    /**
+     * Función para verificar si tiene registros temporales ingresados
+     */
+    public function verificaCasosTmp($cedula) {
+        $conexion = Yii::app()->db;
+        
+        $existe = FALSE;
+        $nroTmp = 0;
+         
+        $sqlVerificaTmp = "select * from tmp_registro_caso "
+                . "where "
+                . "estado_publicado = 1 and "
+                . "cedula = '$cedula'";
+        
+        $resultado = $conexion->createCommand($sqlVerificaTmp);
+
+        $fila = $resultado->query();
+
+        //compueba si hay resultados, cambia el valor de existe y obtiene el codigo del usuario para asiganrle un rol
+        foreach ($fila as $registro) {
+            //var_dump($registro); Yii::app()->end();
+            $existe = TRUE;
+            $nroTmp++;
+        }
+        
+        $datosVerificacion = array(
+            'existe' => $existe,
+            'nroTmp' => $nroTmp
+        );
+        
+        return $datosVerificacion;
+        
+    }
+    
+    /**
+     * función para mostrar los registros temporales si los tuviere
+     */
+    public function getListaTemporales($cedula) {
+        $conexion = Yii::app()->db;
+        
+        $sqlListaTmp = "select "
+                . "tmprc.id_registro_caso, ins.ins_nombre, tram.tra_nombre, can.can_nombre, "
+                . "to_char(tmprc.fecha_registro, 'TMDay, DD TMMonth YYYY') AS fecha_registro "
+                . "from "
+                . "tmp_registro_caso tmprc, canton can, tramite_institucion train, "
+                . "institucion ins, tramite tram "
+                . "where "
+                . "tmprc.id_tramite = train.trai_id and "
+                . "tmprc.id_institucion = ins.ins_id and "
+                . "train.tra_id = tram.tra_id and "
+                . "tmprc.id_canton = can.can_id and "
+                . "tmprc.cedula = '$cedula' and "
+                . "tmprc.estado_publicado = 1";
+        
+        $resultado = $conexion->createCommand($sqlListaTmp);
+        
+        $temporales = $resultado->query();
+        
+        return $temporales;
+        
+    }
+
+
+
+    
+    
     
 } 

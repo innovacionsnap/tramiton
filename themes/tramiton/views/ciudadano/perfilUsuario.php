@@ -167,3 +167,16 @@
     </div> <!-- end row -->
 </div>
 <!-- end #content -->
+
+<?php
+//     $numero = 4;
+//     $banderaNotificacion = true;
+//     $texto = "Notificación";
+//     $titulo = "Perfil actualizado con éxito";
+?> 
+
+<script type="text/javascript">
+//     var banderaNotificacion = <?php //echo json_encode($banderaNotificacion); ?>;
+//     var texto = <?php //echo json_encode($texto); ?>;
+//     var titulo = <?php //echo json_encode($titulo); ?>;
+</script>

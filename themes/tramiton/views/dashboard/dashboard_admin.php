@@ -27,6 +27,16 @@
 <div id="content" class="container-fluid linea">
     <div class="row">
         <!-- begin col-8 -->
+        <?php
+        
+        /*if($verificaTmp['existe'] == TRUE){
+            echo "<strong>usted tiene registrados " . $verificaTmp['nroTmp'] . " casos temporales</strong>";
+            echo CHtml::link('Ver casos temporales',array('ciudadano/casosTemporales'));
+        }
+        */
+        
+        ?>
+        
         <div class="col-md-10">
             <!-- inicio mensajes -->
 
@@ -109,3 +119,16 @@
     });
 </script>
 
+
+<?php
+    $nroCasosTmp = $verificaTmp['nroTmp'];
+    $banderaNotificacion = $verificaTmp['existe'];
+    $textoNotificacion = "Usted tiene (".$nroCasosTmp.") caso(s) temporales registrados";
+    $nombreUser = $modelUser->usu_nombreusuario;
+ ?> 
+
+ <script type="text/javascript">
+    var banderaNotificacion = <?php echo json_encode($banderaNotificacion); ?>;
+    var texto = <?php echo json_encode($textoNotificacion); ?>;
+    var titulo = <?php echo json_encode($nombreUser); ?>;
+ </script>
