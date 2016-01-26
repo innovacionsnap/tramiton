@@ -1,5 +1,5 @@
 var handleDashboardGritterNotification = function() {
-        // var bandera = true;
+        //var banderaNotificacion = false;
 
         if (banderaNotificacion){   
             $(window).load(function() {

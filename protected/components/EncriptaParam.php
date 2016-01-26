@@ -39,7 +39,7 @@ class EncriptaParam extends CApplicationComponent {
         
         $paramDecode = str_replace(Yii::app()->params['beforeCode'],"",$paramDecode);
         $paramDecode = str_replace(Yii::app()->params['hashKey'],"",$paramDecode);
-
+        
         return $paramDecode;
         
     }

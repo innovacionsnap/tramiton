@@ -131,4 +131,8 @@
     var banderaNotificacion = <?php echo json_encode($banderaNotificacion); ?>;
     var texto = <?php echo json_encode($textoNotificacion); ?>;
     var titulo = <?php echo json_encode($nombreUser); ?>;
- </script>
+
+    $(document).ready(function () {
+        Notificaciones.init();
+    });
+</script>
