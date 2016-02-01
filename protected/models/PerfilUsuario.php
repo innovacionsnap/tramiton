@@ -39,8 +39,8 @@ class PerfilUsuario extends CFormModel {
                 'length',
                 'min' => 6,
                 'tooShort' => '<span style="color: #F00;">Mínimo 6 caracteres</span>',
-                'max' => 15,
-                'tooLong' => '<span style="color: #F00;">Máximo 15 caracteres</span>'
+                'max' => 30,
+                'tooLong' => '<span style="color: #F00;">Máximo 30 caracteres</span>'
             ),
             array('nombreUsuario', 'comprobar_usuario'),
             

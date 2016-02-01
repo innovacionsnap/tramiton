@@ -40,9 +40,9 @@ if (isset($insertar_accion)) {
 		
 		$insertar_accion = "INSERT INTO acciones_correctivas(
             accc_id, accc_nombre, accc_descripcion, accc_fechaingreso, usu_id, 
-            estado, tra_id)
+            estado, tra_id,accc_productivo)
     VALUES (default, '$nombre_accc','$descripcion_accc', '$hoy', $usu_id, 
-            1, '$tra_id');
+            1, '$tra_id',1);
 ";
 					
 		//echo "<Br>sqL DE TRAMITES: <BR>".$insertar_accion;

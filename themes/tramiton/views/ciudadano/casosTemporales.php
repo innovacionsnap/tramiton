@@ -43,7 +43,7 @@
                                     <tbody>
                                         <?php
                                         setlocale(LC_ALL,"es_ES");
-                                        foreach ($casosTmp as $tmpCaso): ?>
+                                        foreach ($casosTemp as $tmpCaso): ?>
                                         <tr class="odd gradeX">
                                             <td><?php echo $tmpCaso['id_registro_caso']; ?></td>
                                             <td><?php echo $tmpCaso['ins_nombre']; ?></td>
