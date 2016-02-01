@@ -321,23 +321,31 @@ class BitacoraController extends Controller {
             $id_usuario_responsable = $_POST['id_usuario_responsable'];
             $nombre_tarea = $_POST['nombre_tarea'];
             $descripcion_tarea = $_POST['descripcion_tarea'];
-            $start = $_POST['start'];
+            $start = $_POST['start']."<br>";
+            $end = $_POST['end']."<br>";
             $id_importancia = $_POST['id_importancia'];
             //$start = substr("abcdef", -1);
-            $dia_start = substr($start, 0,2);
+
+            // echo $start."<br>";
+            // echo $dstart = substr($start, 0,2)."<br>";
+            // echo $mes_start = substr($start, 3,2)."<br>";
+           $d_start = substr($start, 6,4)."-".substr($start, 0,2)."-".substr($start, 3,2);
+           $d_end = substr($end, 6,4)."-".substr($end, 0,2)."-".substr($end, 3,2);
             //$dia_start = substr($start, 0,2);
             //echo $dia_start;
             //echo $min_start;
             //echo $anio_start;
 
 
-            $end = $_POST['end'];
+            
             $meta_tarea = $_POST['meta_tarea'];
 
             //echo $id_categoria;
            
 
             $hoy = date("Y-m-d");
+
+
 
             $conexion = Yii::app()->db;
             $transaction = $conexion->beginTransaction();
@@ -351,8 +359,8 @@ class BitacoraController extends Controller {
                 $model_dbitacora->tar_nombre = $nombre_tarea;
                 $model_dbitacora->tar_descripcion = $descripcion_tarea;
                 $model_dbitacora->tar_meta = $meta_tarea;
-                $model_dbitacora->tar_fechainicio = $hoy;
-                $model_dbitacora->tar_fechafin = $hoy;
+                $model_dbitacora->tar_fechainicio = $d_start;
+                $model_dbitacora->tar_fechafin = $d_end;
                 $model_dbitacora->tar_fecharegistro = $hoy;
                 $model_dbitacora->tar_estado = 1;
                 $model_dbitacora->ins_id = $id_institucion;
@@ -488,7 +496,7 @@ class BitacoraController extends Controller {
             $estado_actividad = $_POST['estado_actividad'];
             $nombre_actividad = $_POST['nombre_actividad'];
                        
-            $sql1= "update accion set acc_descripcion ='$descripcion_actividad', acc_nivel = '$nivel_actividad' , acc_estado = '$estado_actividad', acc_nombre = '' where acc_id =  $accion_id ";
+            $sql1= "update accion set acc_nombre = '$nombre_actividad',acc_descripcion ='$descripcion_actividad', acc_nivel = '$nivel_actividad' , acc_estado = '$estado_actividad' where acc_id =  $accion_id ";
 
             //echo $sql1;
 

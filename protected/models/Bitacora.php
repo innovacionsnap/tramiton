@@ -225,7 +225,7 @@ and tar.tar_id = '$tar_id_detalle' and tar.tar_estado = 1 order by tar.tar_id de
         //$id_usuario = $modelUser['usu_id'];
         $tar_id_detalle = $_GET['tar_id'];
         
-        $sql = "select acc.acc_id,sec.sec_nombre,acc.acc_nombre, acc.acc_descripcion, acc.acc_estado, acc.acc_fecharegistro, tar.tar_id,usu.usu_nombre, acc.acc_nivel 
+        $sql = "select usu.usu_id,acc.acc_id,sec.sec_nombre,acc.acc_nombre, acc.acc_descripcion, acc.acc_estado, acc.acc_fecharegistro, tar.tar_id,usu.usu_nombre, acc.acc_nivel 
 from accion acc, tarea tar, usuario usu, institucion ins, sector sec
 where acc.tar_id = tar.tar_id
 and sec.sec_id = ins.sec_id 
