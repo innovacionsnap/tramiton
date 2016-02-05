@@ -70,7 +70,7 @@ class SiteController extends Controller {
                 $this->render('error', $error);
         }
     }
-
+  
     /**
      * Displays the contact page
      */

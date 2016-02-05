@@ -384,7 +384,7 @@ class CiudadanoController extends Controller {
         $this->_datosUser = $modelUser;
         $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin';
-        $this->render('casosTemporales', array('casosTemp' => $casosTemp, 'verificaTmp' => $this->_casosTmp, 'modelUser' => $modelUser));
+        $this->render('casosTemporales', array('casosTemp' => $casosTemp));
     }
 
     /**
@@ -392,10 +392,17 @@ class CiudadanoController extends Controller {
      */
     public function actionViewCasoTemporal($idTmp) {
         $tmpId = Yii::app()->encriptaParam->decodificaParamGet($idTmp);
+        
+        $modelCasoTemporal = new consultasBaseDatos;
+        
+        $casoTemporal = $modelCasoTemporal->getCasoTemporalId($tmpId);
+        
+        //var_dump($casoTemporal); Yii::app()->end();
+        
         $this->layout = 'main-admin';
         $this->_datosUser = $this->getDatosUser();
         $this->_casosTmp = $this->getDatosTemporal();
-        $this->render('viewCasoTmp');
+        $this->render('viewCasoTmp', array('casoTemporal' => $casoTemporal));
     }
 
     public function getDatosTemporal() {
@@ -408,6 +415,10 @@ class CiudadanoController extends Controller {
     public function getDatosUser() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         return $modelUser;
+    }
+    
+    public function actionRegistraCasoTemporal($param) {
+        
     }
 
 }
