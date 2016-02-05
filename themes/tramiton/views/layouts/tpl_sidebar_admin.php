@@ -6,7 +6,7 @@
         <ul class="nav">
             <li class="nav-profile">
                 <div class="image">
-                    <a href="javascript:;"><img src="<?php echo URL_IMG . $this->_datosUser->usu_imagen; ?>" alt="" /></a>
+                    <a href="javascript:;"><img src="<?php echo Yii::app()->theme->baseUrl. '/assets/img/users/' . $this->_datosUser->usu_imagen; ?>" alt="" /></a>
                 </div>
                 <div class="info">
                     <h4 style="color:#fff;">Hola <?php echo Yii::app()->user->name ?></h4>
