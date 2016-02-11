@@ -417,7 +417,7 @@ class consultasBaseDatos {
     public function getTotalParticipantes(){
         $conexion = Yii::app()->db;
         
-        $sqlTotalParticipantes = "select count(*) as total_participantes from usuario where usu_estado <> 100";
+        $sqlTotalParticipantes = "select count(*) as total_participantes from usuario where usu_tramiton = 1";
 
         $resultado = $conexion->createCommand($sqlTotalParticipantes);
         
@@ -433,7 +433,7 @@ class consultasBaseDatos {
     public function getTramitesMencionados(){
         $conexion = Yii::app()->db;
         
-        $sqlTramitesMencionados = "select count(trai_id) as total_tamites from datos_tramite";
+        $sqlTramitesMencionados = "select count(trai_id) as total_tamites from datos_tramite where datt_productivo is null";
 
         $resultado = $conexion->createCommand($sqlTramitesMencionados);
         
@@ -449,7 +449,7 @@ class consultasBaseDatos {
     public function getAccionesCorrectivasTram(){
         $conexion = Yii::app()->db;
         
-        $sqlAccionesTramite = "select count(accc_id) as total_acciones from acciones_correctivas";
+        $sqlAccionesTramite = "select count(accc_id) as total_acciones from acciones_correctivas where accc_productivo=1";
 
         $resultado = $conexion->createCommand($sqlAccionesTramite);
         
@@ -470,6 +470,7 @@ class consultasBaseDatos {
         where tra.tra_id = accc.tra_id
         and trai.tra_id = tra.tra_id
         and ins.ins_id = trai.ins_id
+        and accc_productivo=1
         group by ins.ins_id
         order by total desc
         limit 10";
@@ -484,5 +485,115 @@ class consultasBaseDatos {
         return $totalAccionesnom;
         //return $totalAccionesnum;
     }
+    
+    /**
+     * Función para verificar si tiene registros temporales ingresados
+     */
+    public function verificaCasosTmp($cedula) {
+        $conexion = Yii::app()->db;
+        
+        $existe = FALSE;
+        $nroTmp = 0;
+         
+        $sqlVerificaTmp = "select * from tmp_registro_caso "
+                . "where "
+                . "estado_publicado = 1 and "
+                . "cedula = '$cedula'";
+        
+        $resultado = $conexion->createCommand($sqlVerificaTmp);
+
+        $fila = $resultado->query();
+
+        //compueba si hay resultados, cambia el valor de existe y obtiene el codigo del usuario para asiganrle un rol
+        foreach ($fila as $registro) {
+            //var_dump($registro); Yii::app()->end();
+            $existe = TRUE;
+            $nroTmp++;
+        }
+        
+        $datosVerificacion = array(
+            'existe' => $existe,
+            'nroTmp' => $nroTmp
+        );
+        
+        return $datosVerificacion;
+        
+    }
+    
+    /**
+     * función para mostrar los registros temporales si los tuviere
+     */
+    public function getListaTemporales($cedula) {
+        $conexion = Yii::app()->db;
+        
+        $sqlListaTmp = "select "
+                . "tmprc.id_registro_caso, ins.ins_nombre, tram.tra_nombre, can.can_nombre, "
+                . "to_char(tmprc.fecha_registro, 'TMDay, DD TMMonth YYYY') AS fecha_registro "
+                . "from "
+                . "tmp_registro_caso tmprc, canton can, tramite_institucion train, "
+                . "institucion ins, tramite tram "
+                . "where "
+                . "tmprc.id_tramite = train.trai_id and "
+                . "tmprc.id_institucion = ins.ins_id and "
+                . "train.tra_id = tram.tra_id and "
+                . "tmprc.id_canton = can.can_id and "
+                . "tmprc.cedula = '$cedula' and "
+                . "tmprc.estado_publicado = 1";
+        
+        $resultado = $conexion->createCommand($sqlListaTmp);
+        
+        $temporales = $resultado->query();
+        
+        return $temporales;
+        
+    }
+    
+    /**
+     * Función para obtener el caso temporal por el id del caso
+     */
+    public function getCasoTemporalId($idTmp) {
+        $conexion = Yii::app()->db;
+        
+        $sqlCasoTmpId = "select "
+                . "tmprc.id_registro_caso, ins.ins_nombre, tram.tra_nombre, can.can_nombre, "
+                . "tmprc.experiencia, tmprc.titulo_solucion, tmprc.propuesta_solucion, "
+                . "to_char(tmprc.fecha_registro, 'TMDay, DD TMMonth YYYY') AS fecha_registro "
+                . "from "
+                . "tmp_registro_caso tmprc, canton can, tramite_institucion train, "
+                . "institucion ins, tramite tram "
+                . "where "
+                . "tmprc.id_tramite = train.trai_id and "
+                . "tmprc.id_institucion = ins.ins_id and "
+                . "train.tra_id = tram.tra_id and "
+                . "tmprc.id_canton = can.can_id and "
+                . "tmprc.id_registro_caso = $idTmp";
+        
+        $resultado = $conexion->createCommand($sqlCasoTmpId);
+        
+        $casoTemporal = $resultado->query();
+        
+        $casoTemp = array();
+        
+        foreach ($casoTemporal as $casoTmp){
+            $casoTemp = array(
+                'idRegistroCaso' => $casoTmp['id_registro_caso'],
+                'nombreInstit' => $casoTmp['ins_nombre'],
+                'nombreTramite' => $casoTmp['tra_nombre'],
+                'nombreCanton' => $casoTmp['can_nombre'],
+                'experienciaUsr' => $casoTmp['experiencia'],
+                'tituloSolucion' => $casoTmp['titulo_solucion'],
+                'propuestaSolucion' => $casoTmp['propuesta_solucion'],
+                'fechaRegistro' => $casoTmp['fecha_registro'],
+            );
+        }
+        
+        return $casoTemp;
+        
+    }
+
+
+
+    
+    
     
 } 

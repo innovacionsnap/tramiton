@@ -72,8 +72,8 @@ class ValidarRegistro extends CFormModel {
                 'length',
                 'min' => 6,
                 'tooShort' => '<span style="color: #F00;">Mínimo 6 caracteres</span>',
-                'max' => 15,
-                'tooLong' => '<span style="color: #F00;">Máximo 15 caracteres</span>'
+                'max' => 30,
+                'tooLong' => '<span style="color: #F00;">Máximo 30 caracteres</span>'
             ),
             array('nombre_usuario', 'comprobar_usuario'),
             
@@ -99,7 +99,7 @@ class ValidarRegistro extends CFormModel {
             array(
                 'password',
                 'match',
-                'pattern' => '/^([a-z]+[0-9])|([0-9]+[a-z]+)/i',
+                'pattern' => '/^([a-z]+[0-9.])|([0-9.]+[a-z]+)/i',
                 'message' => '<span style="color: #F00;">Obligatorio ingresar números y letras</span>'
             ),
             array(

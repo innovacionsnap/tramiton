@@ -1,6 +1,7 @@
 campos en tarea
 - Estrategia standar -- snap
 - Causa Raiz  -> institucion
+- Problema Principal - > institucion
 - Linea base de tramite -> institucion 
 - Verificacion  -> final inicial
 - justificar cambio de fecha -> snap

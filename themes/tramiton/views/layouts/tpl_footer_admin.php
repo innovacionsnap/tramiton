@@ -73,7 +73,6 @@
         TableManageDefault.init();
         viewElements();
         bodyPadding();
-        Notificaciones.init();
     });
     $(window).resize(function(){
         viewElements();

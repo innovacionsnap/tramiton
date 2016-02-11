@@ -61,7 +61,7 @@
                 <div class="row">
                     <label class="col-sm-2 control-label" for="inputError"><?php echo $form->labelEx($modelPerfil, 'nombreUsuario'); ?></label>
                     <div class="col-sm-10">
-                        <?php echo $form->textField($modelPerfil, 'nombreUsuario', array('class' => 'form-control w-a input-xs', 'size' => 20, 'maxlength' => 20, 'value' => $modelUser->usu_nombreusuario)); ?>
+                        <?php echo $form->textField($modelPerfil, 'nombreUsuario', array('class' => 'form-control w-a input-xs', 'size' => 21, 'maxlength' => 30, 'value' => $modelUser->usu_nombreusuario)); ?>
                         <?php echo $form->error($modelPerfil, 'nombreUsuario'); ?>
                     </div>
                 </div>
@@ -176,7 +176,7 @@
 ?> 
 
 <script type="text/javascript">
-//     var banderaNotificacion = <?php echo json_encode($banderaNotificacion); ?>;
-//     var texto = <?php echo json_encode($texto); ?>;
-//     var titulo = <?php echo json_encode($titulo); ?>;
+//     var banderaNotificacion = <?php //echo json_encode($banderaNotificacion); ?>;
+//     var texto = <?php //echo json_encode($texto); ?>;
+//     var titulo = <?php //echo json_encode($titulo); ?>;
 </script>

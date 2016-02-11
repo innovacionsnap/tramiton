@@ -43,7 +43,7 @@ class Bitacora extends CActiveRecord {
         $sql = "select tar.tar_id, sec.sec_nombre, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre,tar_estatus,tar_importancia,tar.tar_tipo, 
         tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro,tar_nivel 
         from tarea tar, institucion ins, categoria cat, sector sec
-        where tar.ins_id = ins.ins_id and tar.tar_tipo = 1 
+        where tar.ins_id = ins.ins_id and tar.tar_tipo = 2 
         and sec.sec_id = ins.sec_id
         and cat.cat_id = tar.cat_id and tar.tar_estado = 1 order by tar.tar_id desc";
         
@@ -142,10 +142,10 @@ where tar_id = '$tar_id' ";
 
             $porcentaj100 = $numAcciones * 100;
         if ($cuentaAcciones!=0){
-             echo $porcentaje_real = ($cuentaAcciones * 100)/$porcentaj100." %";
+             echo $porcentaje_real = ($cuentaAcciones * 100)/$porcentaj100."%";
 
         }else{
-            echo "0 %";
+            echo "0%";
         }
        
 
@@ -158,13 +158,13 @@ where tar_id = '$tar_id' ";
         $tar_id_detalle = $_GET['tar_id'];
         //echo $tar_id_detalle;
         
-        $sql = "select tar.tar_id, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre, tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro, tar_nivel, tar_estatus
-                from tarea tar, institucion ins, categoria cat
-                where tar.ins_id = ins.ins_id
-        and cat.cat_id = tar.cat_id
-        and tar.tar_id = '$tar_id_detalle'
-                and tar.tar_estado = 1
-                order by tar.tar_id desc";
+        $sql = "select tar.tar_id, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre, tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,
+        tar.tar_fechafin, tar.tar_fecharegistro, tar_nivel, tar_estatus, sec.sec_nombre, tar.tar_estrategia, tar.tar_estandar, tar.tar_politica
+from tarea tar, institucion ins, categoria cat, sector sec
+where tar.ins_id = ins.ins_id 
+and cat.cat_id = tar.cat_id 
+and sec.sec_id = ins.sec_id
+and tar.tar_id = '$tar_id_detalle' and tar.tar_estado = 1 order by tar.tar_id desc";
        //echo "<br>".$sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
@@ -225,12 +225,14 @@ where tar_id = '$tar_id' ";
         //$id_usuario = $modelUser['usu_id'];
         $tar_id_detalle = $_GET['tar_id'];
         
-        $sql = "select acc.acc_id,acc.acc_nombre, acc.acc_descripcion, acc.acc_estado, acc.acc_fecharegistro, tar.tar_id,usu.usu_nombre, acc.acc_nivel
-from accion acc, tarea tar, usuario usu
-where acc.tar_id = tar.tar_id 
-and usu.usu_id = acc.usu_id
-and tar.tar_id = '$tar_id_detalle'
-order by acc_fecharegistro desc
+        $sql = "select usu.usu_id,acc.acc_id,sec.sec_nombre,acc.acc_nombre, acc.acc_descripcion, acc.acc_estado, acc.acc_fecharegistro, tar.tar_id,usu.usu_nombre, acc.acc_nivel 
+from accion acc, tarea tar, usuario usu, institucion ins, sector sec
+where acc.tar_id = tar.tar_id
+and sec.sec_id = ins.sec_id 
+and tar.ins_id = ins.ins_id 
+and usu.usu_id = acc.usu_id 
+and tar.tar_id = '$tar_id_detalle' order by acc_fecharegistro desc
+
 ";
         //echo "<br>".$sql;
         $dataReader = $this->connection->createCommand($sql)->query();
@@ -258,6 +260,86 @@ and acc.acc_id ='$acc_id'";
         return $rows;
     }
   
+
+  // bitacora institucion 
+
+     public function getInstitucion ($trai_id){
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $id_usuario = $modelUser['usu_id'];
+
+       
+
+        $sql="select trai.trai_id,ins.ins_id,ins.ins_nombre,tra.tra_nombre 
+from tramite tra, tramite_institucion trai, institucion ins 
+where tra.tra_id = trai.tra_id 
+and trai.ins_id = ins.ins_id 
+and trai.trai_id='$trai_id' ";
+
+
+        $command = Yii::app()->db->createCommand($sql);
+        $resultSet=$command->query();
+
+        $NumeroActividad = array();
+        $Nactividad = 0;
+
+         foreach ($resultSet as $registro) {
+          echo   $tramite_nombre = $registro["tra_nombre"] ;      
+        }
+        //return $tramite_nombre;
+    }
+
+    // bitacora institucion 
+
+     public function getSector ($tar_id){
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $id_usuario = $modelUser['usu_id'];
+
+       
+
+        $sql="select tar.tar_id, sec.sec_nombre, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre,tar_estatus,tar_importancia,tar.tar_tipo, 
+        tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro,tar_nivel 
+        from tarea tar, institucion ins, categoria cat, sector sec
+        where tar.ins_id = ins.ins_id and tar.tar_tipo = 2 
+        and sec.sec_id = ins.sec_id
+        and cat.cat_id = tar.cat_id and tar.tar_estado = 1 
+        and tar.tar_id = '$tar_id' ";
+
+
+        $command = Yii::app()->db->createCommand($sql);
+        $resultSet=$command->query();
+
+        $NumeroActividad = array();
+        $Nactividad = 0;
+
+         foreach ($resultSet as $registro) {
+          echo   $tramite_nombre = $registro["sec_nombre"] ;      
+        }
+        //return $tramite_nombre;
+    }
+
+
+     public function getInstitucion2($tar_id) {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //$id_usuario = $modelUser['usu_id'];
+        //$usu_id = $this->_datosUser->usu_id;
+        $sql = "select tar.tar_id, sec.sec_nombre, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre,tar_estatus,tar_importancia,tar.tar_tipo, 
+        tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro,tar_nivel 
+        from tarea tar, institucion ins, categoria cat, sector sec
+        where tar.ins_id = ins.ins_id and tar.tar_tipo = 2 
+        and sec.sec_id = ins.sec_id
+        and tar.tar_id = '$tar_id'
+        and cat.cat_id = tar.cat_id and tar.tar_estado = 1 order by tar.tar_id desc";
+
+        $command = Yii::app()->db->createCommand($sql);
+        $resultSet=$command->query();
+
+        $NumeroActividad = array();
+        $Nactividad = 0;
+
+         foreach ($resultSet as $registro) {
+          echo   $nombre_institucion = $registro["ins_nombre"] ;      
+        }
+    }
   
     
 }

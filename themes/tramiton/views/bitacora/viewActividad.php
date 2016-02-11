@@ -253,8 +253,13 @@
                                              if ( $datosActividad_detalle["acc_nivel"] == 100 ){
                                                 echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-smile-o (alias)"></i> Finalizado</button>', array('title' => 'Finalizado'));
                                              }else{
-                                                $id = Empresa::model()->codificaGet('acc_id='. $datosActividad_detalle["acc_id"].'&'.'tar_id='. $datosActividad_detalle["tar_id"]);
+                                                if ($datosActividad_detalle['usu_id']==$id_usuario){
+
+                                                    $id = Empresa::model()->codificaGet('acc_id='. $datosActividad_detalle["acc_id"].'&'.'tar_id='. $datosActividad_detalle["tar_id"]);
                                                 echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-edit (alias)"></i> Editar</button>', array('bitacora/actividad_detalle/?'.$id), array('title' => 'Editar'));
+
+                                                }
+                                                
                                              }
 
                                               

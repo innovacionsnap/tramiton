@@ -2,7 +2,7 @@
 
 class CiudadanoController extends Controller {
 
-    //public $_menuActive;
+    public $_casosTmp;
     public $_datosUser;
 
     public function filters() {
@@ -34,10 +34,12 @@ class CiudadanoController extends Controller {
                     'mostrarPerfil',
                     'updatePerfil',
                     'updateImagen',
-                    'registrocasointerno'
+                    'registrocasointerno',
+                    'casosTemporales',
+                    'viewCasoTemporal'
                 ),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano', 'institucion', 'bitacoraaq'),
+                'roles' => array('super_admin', 'ciudadano', 'institucion', 'bitacora'),
             ),
             array('deny', // deny all users
                 #'roles' => array('*'),
@@ -50,7 +52,7 @@ class CiudadanoController extends Controller {
      * Declares class-based actions.
      */
     public function actionIndex() {
-        
+
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         if (empty($_GET)) {
             $empresa = 0;
@@ -63,8 +65,10 @@ class CiudadanoController extends Controller {
         $datosTotalTramites = $model->getTotalTramite();
         $datosRankingTramites = $model->getRankingTramite();
         $datosPublicacionesTramites = $model->getPublicacionesTramites();
+
         $this->layout = 'main-admin_form2';
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->render('form_ciudadano', compact('datosTotalTramites', 'datosRankingTramites', 'datosPublicacionesTramites', 'empresa'));
         //$this->render('formulario');
     }
@@ -76,7 +80,9 @@ class CiudadanoController extends Controller {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
         $datosUsuarioTramite = $model->getUsuarioTramite();
+
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin_form';
         $this->render('usuario_tramites', compact('datosUsuarioTramite'));
     }
@@ -88,6 +94,7 @@ class CiudadanoController extends Controller {
         $datosTramite_Usuario = $model->getTramite_Usuario();
         $datosTramite_Solucion = $model->getTramite_Solucion();
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin_form';
         $this->render('viewTramite_Usuario', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion'));
     }
@@ -99,6 +106,7 @@ class CiudadanoController extends Controller {
         $datosTramite_Usuario = $model->getTramite_Usuario();
         $datosTramite_Solucion = $model->getTramite_Solucion();
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin_form_caso';
         $this->render('viewTramite_Usuario2', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion'));
     }
@@ -114,15 +122,14 @@ class CiudadanoController extends Controller {
     }
 
     public function actionMostrarPerfil($key) {
-        
+
         //$modelUser = Usuario::model()->findByPk($usrId);
         $modelUser = Usuario::model()->findByAttributes(array('usu_codigo_confirmacion' => $key));
         $modelPerfil = new PerfilUsuario;
         $modelMensaje = new MensajesAplicacion;
-        
+
         //echo "resultado busqueda por codigo encriptado";
         //var_dump($modelUser);
-        
         //echo "obtiene error: " . utf8_decode($modelMensaje->getMensaje(102));
         //Yii::app()->end();
 
@@ -136,7 +143,7 @@ class CiudadanoController extends Controller {
             $modelPerfil->attributes = $_POST['PerfilUsuario'];
             $var = $modelPerfil->validate();
             if ($modelPerfil->validate()) {
-                echo "validacion no fue verdadera " . $var;
+                //echo "validacion no fue verdadera " . $var;
                 Yii::app()->end();
                 //$this->redirect($this->createUrl('ciudadano/dashboard'));
             } else {
@@ -145,10 +152,12 @@ class CiudadanoController extends Controller {
 
                 $this->layout = 'main-admin_form_caso';
                 $this->_datosUser = $modelUser;
+                $this->_casosTmp = $this->getDatosTemporal();
                 $this->redirect(array('dashboard/index'));
             }
         }
         $this->layout = 'main-admin';
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->render('perfilUsuario', array('modelUser' => $modelUser, 'modelPerfil' => $modelPerfil));
     }
 
@@ -162,27 +171,24 @@ class CiudadanoController extends Controller {
 
         $msgs = array();
         //echo "<br><br><br><br><br><br><br><br>";
-        
         //var_dump($modelImgUpload);
-        
         //echo "tengo para los mensajes";
         //var_dump(is_null($_POST));
         //var_dump(isset($_POST));
         //var_dump(is_null($_POST['ImageUploadForm']));
         //var_dump($_POST);
         //var_dump($_POST['ImageUploadForm']);
-        
-        
         //Yii::app()->end();
-        if(isset($_POST['ImageUploadForm'])){
-        //if(isset($_POST)){
-        //if(empty($_POST)){
-            echo "<br>tengo algo por post";Yii::app()->end();
+        if (isset($_POST['ImageUploadForm'])) {
+            //if(isset($_POST)){
+            //if(empty($_POST)){
+            echo "<br>tengo algo por post";
+            Yii::app()->end();
             $modelImgUpload->attributes = $_POST['ImageUploadForm'];
             //$modelImgUpload->attributes = $_POST['imagenPerfil'];
             $images = CUploadedFile::getInstancesByName('imagenPerfil');
-            
-            if(count($images) === 0){
+
+            if (count($images) === 0) {
                 $msg = array(
                     'mensaje' => 'No has seleccionado ninguna imagen',
                 );
@@ -199,13 +205,12 @@ class CiudadanoController extends Controller {
         //Yii::app()->end();
 
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
 
         $this->layout = 'main-admin';
         //$this->layout = 'main-admin_form_caso';
         //$this->render('cambiaAvatar', array('modelUser' => $modelUser, 'modelImgUpload' => $modelImgUpload));
         $this->render('cambiaAvatar', array('modelImgUpload' => $modelImgUpload));
-        
-        
     }
 
     public function actionUpdatePerfil($usrId) {
@@ -244,6 +249,7 @@ class CiudadanoController extends Controller {
         }
 
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         //$this->layout = 'main-admin-user';
         $this->layout = 'main-admin';
         //$this->layout = 'main-prueba';
@@ -252,8 +258,8 @@ class CiudadanoController extends Controller {
     }
 
     public function actionRegistroCasoInterno() {
-        $insertar_tramite = $_POST['insertar_tramite'];        
-            
+        $insertar_tramite = $_POST['insertar_tramite'];
+
         if (isset($insertar_tramite)) {
             $id_institucion = $_POST['id_institucion'];
             $id_provincia = $_POST['id_provincia'];
@@ -334,15 +340,15 @@ class CiudadanoController extends Controller {
 
                 //Problemática
                 /*
-                if (strlen($_POST['problematica_otro'])>0) {
-                    $model_problema = new ProblemaTramite();
-                    $model_problema->prob_id = 41;
-                    $model_problema->datt_id = $id_dtramite;
-                    $model_problema->prot_estado_ = 0;
-                    $model_problema->prot_nombreotroproblema = $problematica_otro;
-                    $model_problema->save();
-                }
-                */
+                  if (strlen($_POST['problematica_otro'])>0) {
+                  $model_problema = new ProblemaTramite();
+                  $model_problema->prob_id = 41;
+                  $model_problema->datt_id = $id_dtramite;
+                  $model_problema->prot_estado_ = 0;
+                  $model_problema->prot_nombreotroproblema = $problematica_otro;
+                  $model_problema->save();
+                  }
+                 */
                 if (isset($_POST['problematica'])) {
                     $optionArray = $_POST['problematica'];
                     for ($i = 0; $i < count($optionArray); $i++) {
@@ -352,18 +358,67 @@ class CiudadanoController extends Controller {
                         $model_problema->prot_estado_ = 0;
                         $model_problema->save();
                     }
-                 
                 }
 
-                
+
                 $transaction->commit();
-                header('Location:'.Yii::app()->baseURL.'/dashboard/index');
+                header('Location:' . Yii::app()->baseURL . '/dashboard/index');
             } catch (Exception $e) {
                 echo $e;
                 echo "<div>Hubo un error</div>";
                 $transaction->rollBack();
             }
         }
+    }
+
+    /**
+     * Accion del modulo de administración que muestra la lista de usuarios
+     */
+    public function actionCasosTemporales() {
+        //$usuarios = Usuario::model()->findAll();
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelCasoTmp = new consultasBaseDatos;
+
+        $casosTemp = $modelCasoTmp->getListaTemporales($modelUser->usu_cedula);
+
+        $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
+        $this->layout = 'main-admin';
+        $this->render('casosTemporales', array('casosTemp' => $casosTemp));
+    }
+
+    /**
+     * Accion para mostrar el caso temporal registrado por el ciudadano y con la opción de publicarlo
+     */
+    public function actionViewCasoTemporal($idTmp) {
+        $tmpId = Yii::app()->encriptaParam->decodificaParamGet($idTmp);
+        
+        $modelCasoTemporal = new consultasBaseDatos;
+        
+        $casoTemporal = $modelCasoTemporal->getCasoTemporalId($tmpId);
+        
+        //var_dump($casoTemporal); Yii::app()->end();
+        
+        $this->layout = 'main-admin';
+        $this->_datosUser = $this->getDatosUser();
+        $this->_casosTmp = $this->getDatosTemporal();
+        $this->render('viewCasoTmp', array('casoTemporal' => $casoTemporal));
+    }
+
+    public function getDatosTemporal() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelVerificaTmp = new consultasBaseDatos;
+        $verificaTmp = $modelVerificaTmp->verificaCasosTmp($modelUser->usu_cedula);
+        return $verificaTmp;
+    }
+    
+    public function getDatosUser() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        return $modelUser;
+    }
+    
+    public function actionRegistraCasoTemporal($param) {
+        
     }
 
 }

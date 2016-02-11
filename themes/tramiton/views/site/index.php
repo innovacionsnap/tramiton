@@ -355,7 +355,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         $texto = $twitter[$i]['text'];
                     }
                     if (isset($twitter[$i]['entities']['media'])) {
-                        $imagen = '<br><br><img src="' . $twitter[$i]['entities']['media'][0]['media_url'] . '" width="200px" height="150px">';
+                        $urlImg = substr($twitter[$i]['entities']['media'][0]['media_url'], 4);
+                        $imagen = '<img src="https' . $urlImg . '" width="200px" height="150px">';
                     } else {
                         $imagen = '';
                     }

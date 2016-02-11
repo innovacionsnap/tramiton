@@ -16,7 +16,7 @@
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Roboto+Condensed|Lato' rel='stylesheet' type='text/css'>
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />

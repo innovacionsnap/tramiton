@@ -1,6 +1,6 @@
 <?php
 class TramiteInstitucionController extends Controller {
-    public $_menuActive;
+    public $_casosTmp;
     public $_datosUser;
     /* public function __construct() {
       $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
@@ -47,6 +47,7 @@ class TramiteInstitucionController extends Controller {
         //$datosTarea = $model->getTarea();
         $this->layout = 'main-admin';
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->render('index',compact('datosgetTramiteInstitucion'));
         //$this->render('formulario');
     }
@@ -59,6 +60,7 @@ class TramiteInstitucionController extends Controller {
        
         $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->render('viewTramite_Institucion',compact('datosgetTramiteInstitucionDetalle'));
         //$this->render('formulario');
     }
@@ -71,6 +73,7 @@ class TramiteInstitucionController extends Controller {
        
         $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->render('viewTramite_Accion_Correctiva', compact('datoAccioneCorrectiva'));
         //$this->render('formulario');
     }
@@ -83,7 +86,15 @@ class TramiteInstitucionController extends Controller {
               
         $this->layout = 'main-admin_form';
         $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
         $this->renderPartial('accion_correctiva',compact('model'),false,true);
         //$this->render('formulario');
+    }
+    
+    public function getDatosTemporal() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $modelVerificaTmp = new consultasBaseDatos;
+        $verificaTmp = $modelVerificaTmp->verificaCasosTmp($modelUser->usu_cedula);
+        return $verificaTmp;
     }
 }
