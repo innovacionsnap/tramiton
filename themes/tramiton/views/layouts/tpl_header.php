@@ -21,7 +21,7 @@
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/animate.min.css" rel="stylesheet" />
-	<link href="<?php echo $baseUrl; ?>/assets/css/theme/red.css" id="theme" rel="stylesheet" />
+	<link href="<?php echo $baseUrl; ?>/assets/css/theme/blue.css" id="theme" rel="stylesheet" />
         <!-- ================== END BASE CSS STYLE ================== -->
 	
 	

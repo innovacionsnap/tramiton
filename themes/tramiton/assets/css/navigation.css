@@ -1,7 +1,109 @@
-body{
-    padding-top: 43px;
+html{
+    max-width: 1200px !important;
+    margin: auto;
 }
+body{
+    padding-top: 206px !important;
+}
+#fila-logos{
+    height: 156px;
+    padding: 0px;
+    border-bottom: 1px solid #fff;
+}
+
+.borde-izquierda{
+    border-left: 1px solid #fff;
+}
+.col-tramiton, .col-redes-sociales{
+    height: 100%;
+}
+
+
+/*logo tramiton*/
+.col-tramiton{
+    float: left;
+    /*54px desde app web*/
+    margin-left: 54px;
+
+    padding: 50px 10px 0px 54px !important;
+}
+#logo-home{
+    width: 152px;
+}
+
+
+/*redes sociales*/
+.col-redes-sociales{
+    float: right;
+    color: #fff;
+    padding-top: 30px;
+    text-align: center;
+}
+.col-redes-sociales a{
+    color: white;
+}
+.col-redes-sociales i{
+    padding-bottom: 5px;
+}
+.col-redes-sociales i:hover{
+    color: #325972;
+}
+
+
+/*boton*/
+.icon-bar{
+    background-color: white !important;
+}
+
+
+
+/*menu*/
+#nav-admin{
+    height: 46px;
+    margin: 0px 52px 0px 54px;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+
+@media(max-width: 767px){
+    .azul{
+        background-color: #325972;
+    }
+    .collapse a{
+        text-align: right;
+    }
+    .navbar-toggle:hover, .navbar-toggle:focus{
+        background-color: #325972 !important;
+    }
+}
+
+
+#nav-admin .menu-central:hover, #nav-admin .menu-central:active{
+    color: cyan !important;
+}
+
+#fila-menu{
+    height: 50px;
+    padding: 0px;
+}
+#fila-menu .col-xs-12{
+    width: 100%;
+}
+
+
+
+
+/*fondo*/
+
 #header-tramiton{
+    background-image: url('http://localhost/tramiton/themes/tramiton/assets/img/header.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 206px;
+    max-width: 1200px;
+    margin: auto;
+
+
     border-bottom: 4px solid #325972;
 }
 .no-margin-right{
@@ -39,11 +141,7 @@ body{
     }
 }
 
-#logo-home{
-    width: 152px;
-    margin-top: 10px;
-    margin-left: 10px;
-}
+
 #form-group-busqueda, #li-navbar-user{
     margin: 3px;
 }

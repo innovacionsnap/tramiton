@@ -52,6 +52,7 @@
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/view-elements.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/body-padding.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/form-ciudadano.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/navigation.js"></script>
 
 <script type="text/javascript">
     function closeModal(){
