@@ -225,3 +225,17 @@ video{
 .black{
     color: black;
 }
+
+.linea{
+    border-bottom: 2px solid #325972;
+    margin: 20px 0px 30px 0px;
+}
+
+.img-respuesta{
+    float: right;
+}
+
+
+.col-pregunta-img{
+    height: 100%;
+}
