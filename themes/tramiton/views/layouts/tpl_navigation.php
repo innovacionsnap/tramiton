@@ -2,13 +2,13 @@
 <div id="header-tramiton" class="navbar navbar-default navbar-fixed-top header"> <!-- header-->
     <div id="fila-logos" class="row">
             <div class="col-tramiton borde-izquierda">
-                <a href="#"><img id="logo-home" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_tramiton1.png" alt="" /></a>
+                <a href="#"><img id="logo-home" class="center-block" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_tramiton1.png" alt="" /></a>
             </div>
         
-            <div class="col-redes-sociales borde-izquierda">
+            <div class="hidden-xs col-redes-sociales borde-izquierda">
                 <a target="_blank" href="https://www.facebook.com/AdmPublicaEcuador"><i class="fa fa-facebook fa-2x"></i></a><br>
                 <a target="_blank" href="https://twitter.com/tramitonEC"><i class="fa fa-twitter fa-2x"></i></a><br>
-                <a target="_blank" href="https://www.youtube.com/user/AdmPublicaEcuador"><i class="fa fa-youtube fa-2x"></a></i>
+                <a target="_blank" href="https://www.youtube.com/user/AdmPublicaEcuador"><i class="fa fa-youtube fa-2x"></i></a>
             </div>
     </div>
 
@@ -20,7 +20,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+                <!-- <font style="font-size: 9px;font-weight: bold;">MENÚ</font> -->
             </button>
+            <div class="visible-xs row-redes-sociales">
+                <a target="_blank" href="https://www.facebook.com/AdmPublicaEcuador"><i class="fa fa-facebook fa-2x"></i></a>
+                <a target="_blank" href="https://twitter.com/tramitonEC"><i class="fa fa-twitter fa-2x"></i></a>
+                <a target="_blank" href="https://www.youtube.com/user/AdmPublicaEcuador"><i class="fa fa-youtube fa-2x"></i></a>
+            </div>
         </div>
 
         <div class="collapse navbar-collapse azul">
@@ -31,7 +37,7 @@
                 <li><a class="menu-central " href="#noticias" data-click="scroll-to-target">NOTICIAS</a></li>
                 <li><a class="menu-central " href="#preguntas" data-click="scroll-to-target">PREGUNTAS FRECUENTES</a></li>
                 <li><a class="menu-central " href="<?php echo Yii::app()->baseUrl; ?>/site/registro">REGISTRAR</a></li>
-                <li><a class="menu-central" href="/tramiton/./#login-modal" data-toggle="modal" data-description="member area">INGRESAR</a></li>
+                <li><a class="menu-central p-b-10" href="/tramiton/./#login-modal" data-toggle="modal" data-description="member area">INGRESAR</a></li>
             </ul>
         </div>
 

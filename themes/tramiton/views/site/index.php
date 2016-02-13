@@ -329,15 +329,15 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 
 <!-- begin #noticias -->
-<div id="noticias" class="content has-bg twitter" data-scrollview="true" style="height: 620px;">
+<div id="noticias" class="content has-bg twitter" data-scrollview="true">
 
     <?php $twitter = SiteController::getTwitter();
     ?>
 
     <!-- begin container -->
-    <div class="container" data-animation="true" data-animation-type="fadeInUp">
-        <h2 class="content-title titulo-twitter">@TramitonEC <i class = "fa fa-twitter-square"></i></h2>
-        <hr>
+    <div class="container" data-animation="true" data-animation-type="fadeInUp" style="height:360px; width: 100%;">
+        <h4 class="content-title titulo-twitter">@TramitonEC   <i class = "fa fa-twitter"></i></h4>
+        <hr class="m-t-10">
         <!-- begin carousel -->
         <div class="carousel testimonials slide" data-ride="carousel" id="testimonials">
             <!-- begin carousel-inner -->
@@ -356,20 +356,20 @@ $baseUrl = Yii::app()->theme->baseUrl;
                     }
                     if (isset($twitter[$i]['entities']['media'])) {
                         $urlImg = substr($twitter[$i]['entities']['media'][0]['media_url'], 4);
-                        $imagen = '<br><br><img src="https' . $urlImg . '" width="200px" height="150px">';
+                        $imagen = '<br><br><img class="center-block" src="https' . $urlImg . '" width="280px">';
                     } else {
                         $imagen = '';
                     }
 
                     $html = '';
                     if ($i == 0) {
-                        $html.='<div class="item active"><div style ="display:inline-flex"><blockquote><i class = "fa fa-quote-left"></i>' . $texto . '<b> ' . $time . '</b>' . $imagen . '</blockquote>';
+                        $html.='<div class="item active"><div style ="display:inline-flex"><blockquote>' . $texto . '<b> ' . $time . '</b>' . $imagen . '</blockquote>';
                     } elseif ($i == 3 or $i == 6 or $i == 9) {
-                        $html.='</div></div><div class="item"><div style ="display:inline-flex"><blockquote><i class = "fa fa-quote-left"></i>' . $texto . '<b> ' . $time . '</b>' . $imagen . '</blockquote>';
+                        $html.='</div></div><div class="item"><div style ="display:inline-flex"><blockquote>' . $texto . '<b> ' . $time . '</b>' . $imagen . '</blockquote>';
                     } elseif ($i == 12) {
-                        $html.='<blockquote><i class = "fa fa-quote-left"></i>' . $texto . '<b> ' . $time . '</b>' . $imagen . '</blockquote></div></div>';
+                        $html.='<blockquote>' . $texto . '<b> ' . $time . '</b>' . $imagen . '</blockquote></div></div>';
                     } else {
-                        $html.='<blockquote><i class = "fa fa-quote-left"></i>' . $texto . '<b> ' . $time . '</b>' . $imagen . '</blockquote>';
+                        $html.='<blockquote>' . $texto . '<b> ' . $time . '</b>' . $imagen . '</blockquote>';
                     }
 
                     echo $html;
@@ -382,14 +382,25 @@ $baseUrl = Yii::app()->theme->baseUrl;
             </div>
             <!--end carousel-inner -->
             <!--begin carousel-indicators -->
-            <ol class = "carousel-indicators">
+            <!-- <ol class = "carousel-indicators">
                 <li data-target = "#testimonials" data-slide-to = "0" class = "active"></li>
                 <li data-target = "#testimonials" data-slide-to = "1" class = ""></li>
                 <li data-target = "#testimonials" data-slide-to = "2" class = ""></li>
                 <li data-target = "#testimonials" data-slide-to = "3" class = ""></li>
-
-            </ol>
+            </ol> -->
             <!--end carousel-indicators -->
+
+
+             <!-- Left and right controls -->
+              <a class="right carousel-control" href="#testimonials" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+              </a>
+              <a class="right carousel-control" href="#testimonials" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+              </a>
+             <!-- end Left and right controls -->
         </div>
         <!--end carousel -->
     </div>
@@ -435,10 +446,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
                 <!-- begin pregunta -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-3">
-                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/grupo.png">
-                    </div>
-                    <div class="col-xs-12 col-sm-9">
+                    <div class="col-xs-12 col-sm-9 col-sm-push-3">
                         <p class="pregunta text-right">¿Cuál es el beneficio que genera Tramitón?</p>
                         <br>
                         <p class="respuesta text-right">
@@ -450,6 +458,9 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         <p class="respuesta text-right">
                             Al facilitar los trámites se facilita la interacción entre los usuarios y las Instituciones Públicas lo cual es un factor clave para el fomento de innovación abierta en servicios. 
                         </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-sm-pull-9">
+                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/grupo.png">
                     </div>
                 </div>
                 <!-- end pregunta -->
@@ -473,15 +484,15 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
                 <!-- begin pregunta -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-3">
-                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/lista.png">
-                    </div>
-                    <div class="col-xs-12 col-sm-9">
+                    <div class="col-xs-12 col-sm-9 col-sm-push-3">
                         <p class="pregunta text-right">¿Los casos y propuestas de solución pueden registrarse continuamente?</p>
                         <br>
                         <p class="respuesta text-right">
                             Si, los ciudadanos pueden continuar registrando sus casos y experiencias.
                         </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-sm-pull-9">
+                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/lista.png">
                     </div>
                 </div>
                 <!-- end pregunta -->
@@ -505,10 +516,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
                 <!-- begin pregunta -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-3">
-                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/web.png">
-                    </div>
-                    <div class="col-xs-12 col-sm-9">
+                    <div class="col-xs-12 col-sm-9 col-sm-push-3">
                         <p class="pregunta text right">¿Cómo funciona Tramitón?</p>
                         <br>
                         <p class="respuesta text-right">
@@ -517,6 +525,9 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         <p class="respuesta text-right">
                             Adicionalmente un equipo técnico se encarga de contactar a las instituciones que han sido mencionadas en el Tramitón para buscar que se atiendan a todos los casos y se desarrollen acciones globales de solución. En base a la información entregada por los ciudadanos, las instituciones desarrollan planes de mejora con acciones en el corto mediano plazo para mejorar el servicio público. El objetivo es llegar a una estrategia de mejoramiento e innovación de los servicios de forma participativa y colaborativa, siempre con el fin de favorecer la calidad y calidez de los servicios público. Las herramientas TIC son el apoyo informático con el cual contamos, así que en todos los casos en los que se requiera y sea posible aplicarlas se buscará hacerlo.
                         </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-sm-pull-9">
+                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/web.png">
                     </div>
                 </div>
                 <!-- end pregunta -->
@@ -544,15 +555,15 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
                 <!-- begin pregunta -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-3">
-                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/candado.png">
-                    </div>
-                    <div class="col-xs-12 col-sm-9">
+                    <div class="col-xs-12 col-sm-9 col-sm-push-3">
                         <p class="pregunta text-right">¿Es pública toda la información registrada en Tramitón?</p>
                         <br>
                         <p class="respuesta text-right">
                             Todos los datos registrados en Tramitón (datos personales y de experiencia con el trámite), serán de uso exclusivo de la Secretaría Nacional de la Administración Pública – SNAP. El ciudadano(a) el momento de su registro, podrá seleccionar si desea hacer públicos sus datos (información personal, sociodemográfica y de contacto) o mantenerlos en privado. En caso de hacer públicos sus datos, la(s) institución(es) relacionadas en su propuesta de solución podrán contactarlo de manera directa para gestionar su caso, según aplique y la institución considere pertinente. En ningún caso dichos datos, serán publicados en la Plataforma Tramitón o demás portales web de la Administración Publica Central y Dependiente de la Función Ejecutiva.
                         </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-sm-pull-9">
+                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/candado.png">
                     </div>
                 </div>
                 <!-- end pregunta -->

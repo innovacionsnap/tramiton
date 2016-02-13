@@ -90,6 +90,11 @@ video{
 
 .titulo-twitter{
     text-align: left !important;
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
+}
+.m-t-10{
+    margin-top: 10px;
 }
 .titulos{
     color:#325972 !important;
@@ -238,4 +243,23 @@ video{
 
 .col-pregunta-img{
     height: 100%;
+}
+
+
+.carousel-control.left, .carousel-control.right{
+    background-image: none !important;
+}
+.glyphicon-chevron-right, .glyphicon-chevron-left{
+    position: relative !important;
+    top: -53px !important;
+    font-size: 25px !important;
+}
+.glyphicon-chevron-left{
+    left: 0px !important;
+    margin-right: 20px;
+    margin-left: -10px;
+}
+
+.glyphicon-chevron-right{
+    right: 0px !important;
 }

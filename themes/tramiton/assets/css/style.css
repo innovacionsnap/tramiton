@@ -335,7 +335,7 @@ body.page-navbar-fixed-top-sm {
 /* 3.1 General Content Setting */
 
 .content {
-    padding: 60px 15px 75px;
+    padding: 10px 15px;
 }
 .content .content-title {
     text-align: center;
@@ -351,9 +351,7 @@ body.page-navbar-fixed-top-sm {
     font-size: 28px;
     line-height: 30px;
 }
-.content.has-bg {
-    padding-bottom: 60px;
-    overflow: hidden;
+.content.has-bg {overflow: hidden;
     position: relative;
 }
 .content.has-bg .content-bg {
@@ -770,14 +768,16 @@ body.page-navbar-fixed-top-sm {
     padding-bottom: 50px;
 }
 .testimonials .item {
-    padding-top: 15px;
+    padding-top: 0px;
 }
 .testimonials .carousel-indicators {
     bottom: 0;
 }
 .testimonials blockquote {
+    padding: 0px 20px;
+    font-size: 1.3em !important;
     border: none;
-    text-align: center;
+    text-align: justify;
     color: #fff;
     position: relative;
     font-weight: 300;
@@ -788,7 +788,7 @@ body.page-navbar-fixed-top-sm {
     font-size: 28px;
     position: absolute;
     margin-left: 15px;
-    margin-top: 15px;
+    /*margin-top: 15px;*/
     color: #8F8E8E;
 }
 .testimonials blockquote .fa-quote-left {

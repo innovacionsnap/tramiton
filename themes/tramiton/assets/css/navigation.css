@@ -70,12 +70,55 @@ body{
         background-color: #325972;
     }
     .collapse a{
-        text-align: right;
+        /*text-align: right;*/
     }
     .navbar-toggle:hover, .navbar-toggle:focus{
         background-color: #325972 !important;
     }
+    .navbar-toggle{
+        float: left;
+    }
+    .col-tramiton, .col-redes-sociales, #nav-admin{
+        border: none;
+    }
+    .col-tramiton{
+        width: 100%;
+        margin: auto;
+        padding: 0px !important;
+    }
+    .col-tramiton img{
+        margin-top: 50px;
+    }
+    .row-redes-sociales{
+        margin-left: 58px;
+        text-align: right;
+    }
+    .row-redes-sociales i{
+        padding: 10px 0px 0px 5px;
+        color: white;
+    }
+    .row-redes-sociales i:hover{
+        color: cyan;
+    }
+    .navbar-header{
+        border-bottom: none;
+    }
 }
+
+@media(max-width: 1083px) and (min-width: 768px){
+    #fila-logos{
+        height: 129px !important;
+    }
+    #nav-admin{
+        height: 73px !important;
+    }
+}
+/*@media(max-width: 965px){
+    .nav-tramiton li a{
+        text-transform: lowercase;
+    }
+}*/
+
 
 
 #nav-admin .menu-central:hover, #nav-admin .menu-central:active{
