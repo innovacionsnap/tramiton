@@ -78,6 +78,6 @@
         });
     </script>
 </head>
-<body id="body-home" data-spy="scroll" data-target=".navbar-collapse" data-offset="100">
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="100">
 	<!-- begin #page-container -->
     <!-- <div id="page-container" class="fade"> -->
