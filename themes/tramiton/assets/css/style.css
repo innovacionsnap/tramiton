@@ -153,7 +153,7 @@ p {
     line-height: 20px;
 }
 .row {
-    margin: 0 -15px;
+    margin: 0px 0px;
 }
 .row > [class*="col-"] {
     padding-left: 15px;
@@ -191,7 +191,7 @@ body.page-navbar-fixed-top-sm {
     transition: all .2s linear;
 }
 .header.navbar .navbar-nav > li > a {
-    font-size: 12px;
+    /*font-size: 12px;*/
     line-height: 20px;
     color: #2d353c;
     font-weight: 600;
@@ -230,8 +230,8 @@ body.page-navbar-fixed-top-sm {
 /* 2.3 Navbar Mobile Toggle */
 
 .navbar-toggle {
-    margin-top: 18px;
-    margin-bottom: 18px;
+    /*margin-top: 18px;*/
+    /*margin-bottom: 18px;*/
     -webkit-transition: all .2s linear;
     -moz-transition: all .2s linear;
     transition: all .2s linear;
@@ -335,7 +335,7 @@ body.page-navbar-fixed-top-sm {
 /* 3.1 General Content Setting */
 
 .content {
-    padding: 60px 15px 75px;
+    padding: 10px 15px;
 }
 .content .content-title {
     text-align: center;
@@ -351,9 +351,7 @@ body.page-navbar-fixed-top-sm {
     font-size: 28px;
     line-height: 30px;
 }
-.content.has-bg {
-    padding-bottom: 60px;
-    overflow: hidden;
+.content.has-bg {overflow: hidden;
     position: relative;
 }
 .content.has-bg .content-bg {
@@ -770,14 +768,16 @@ body.page-navbar-fixed-top-sm {
     padding-bottom: 50px;
 }
 .testimonials .item {
-    padding-top: 15px;
+    padding-top: 0px;
 }
 .testimonials .carousel-indicators {
     bottom: 0;
 }
 .testimonials blockquote {
+    padding: 0px 20px;
+    font-size: 1.3em !important;
     border: none;
-    text-align: center;
+    text-align: justify;
     color: #fff;
     position: relative;
     font-weight: 300;
@@ -788,7 +788,7 @@ body.page-navbar-fixed-top-sm {
     font-size: 28px;
     position: absolute;
     margin-left: 15px;
-    margin-top: 15px;
+    /*margin-top: 15px;*/
     color: #8F8E8E;
 }
 .testimonials blockquote .fa-quote-left {
@@ -1040,8 +1040,8 @@ body.page-navbar-fixed-top-sm {
 
 /* 15.1 Predefined Classes */
 
-.row { margin: 0 -10px; }
-.row > [class*="col-"] {  padding: 0 10px; }
+/*.row { margin: 0 -10px; }*/
+/*.row > [class*="col-"] {  padding: 0 10px; }*/
 
 .row.row-space-0 { margin: 0; }
 .row.row-space-2 { margin: 0 -1px; }

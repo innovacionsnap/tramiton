@@ -18,12 +18,12 @@
 }
 
 .header.navbar .navbar-nav>li>a {
-  margin-top: 20px;
+  margin-top: 11px;
   font-size: 15px;
   line-height: 20px;
-  color: #2d353c;
+  color: #fff;
   font-weight: 600;
-  padding: 1px 5px;
+  padding: 1px 15px;
 }
 
 .tramiton-container-home-1 {
@@ -171,7 +171,7 @@ div.form .errorMessage {
 @media (min-width: 768px) {
 	
 	.navbar-nav {
-	    /*width: 100%;*/
+	    width: 100%;
 	    text-align: center;
 	}
 	
@@ -191,7 +191,7 @@ div.form .errorMessage {
 	
 }
 
-@media (max-width: 992px) {
+/*@media (max-width: 992px) {
 	
 	.header.navbar .navbar-nav>li>a {
 	  font-size: 13px;
@@ -210,7 +210,7 @@ div.form .errorMessage {
     font-size: 13px;
   }
   
-}
+}*/
 
 /* 5.14 Plugins - Bootstrap Wizard */
     

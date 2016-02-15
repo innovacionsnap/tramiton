@@ -27,54 +27,66 @@
                     </div>
                     <h4 class="panel-title">Detalle caso temporal</h4>
                 </div>
+                <?php echo $casoTemporal['idRegistroCaso'];  ?>
                 <div class="panel-body">
-                    <div class="col-md-12">
-                        <h4>Vista de Rol</h4>
-                        
-                        <?php
-                        //if($sw == 0):
-                        ?>
-                        <br>
-                        <h5><?php //echo $modelMensajes->getMensaje(104) ?></h5>
-                        <br>
-                        <?php //echo CHtml::link('<button type="button" class="btn btn-primary btn-xs m-r-5"> Regresar</button>', array('admin/role'), array('title' => 'Cancelar')); ?>
-                        <?php //else: ?>
+                    <div class="col-md-8">
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <td><strong>Nombre</strong></td>
-                                    <td><?php //echo $rolSelect['nombre']; ?></td>
+                                    <td><strong>Institución</strong></td>
+                                    <td><?php echo $casoTemporal['nombreInstit']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Descripción</strong></td>
-                                    <td><?php //echo $rolSelect['descripcion']; ?></td>
+                                    <td><strong>Trámite</strong></td>
+                                    <td><?php echo $casoTemporal['nombreTramite']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Experiencia</strong></td>
+                                    <td><?php echo $casoTemporal['experienciaUsr']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Título de Solución</strong></td>
+                                    <td><?php echo $casoTemporal['tituloSolucion']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Detalle de la Solución</strong></td>
+                                    <td><?php echo $casoTemporal['propuestaSolucion']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ubicación</strong></td>
+                                    <td><?php echo $casoTemporal['nombreCanton']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Fecha de registro</strong></td>
+                                    <td><?php echo $casoTemporal['fechaRegistro']; ?></td>
                                 </tr>
                             </tbody>
                         </table>
+                        problemas
+                        <?php
+                        $problemas = array(
+                            'catProblemaId' => '1',
+                            'catProblemaNom' => 'Alto Costo',
+                            'problemas' => array(
+                                'idProblema1' => array(
+                                    'problemaId' => '5',
+                                    'problemaNom' => 'alto costo de la vida'
+                                ),
+                                'idProblema2' => array(
+                                    'problemaId' => '2',
+                                    'problemaNom' => 'cuesta mucha plata'
+                                ),
+                                'idProblema3' => array(
+                                    'problemaId' => '12',
+                                    'problemaNom' => 'cuesta mucha plata por las cosas'
+                                ),
+
+                            )
+                        );
                         
-                        <hr>
-                        <?php 
-                        /*if($rolSelect['nombre'] != 'super_admin'){
-                            if ($rolSelect['elimina'] == TRUE && $rolSelect['existe'] == FALSE){ 
-                                echo "<h5>" . $modelMensajes->getMensaje(201) . "</h5>";
-                                echo CHtml::link('<button type="button" class="btn btn-primary btn-xs m-r-5"> Eliminar</button>', array('admin/deleteRole', 'role' => $rolSelect['nombre']), array('title' => 'Eliminar'));
-                                echo "&nbsp;&nbsp;";
-                                echo CHtml::link('<button type="button" class="btn btn-danger btn-xs m-r-5"> Cancelar</button>', array('admin/role'), array('title' => 'Cancelar'));
-                            }
-                            else if($rolSelect['elimina'] == TRUE && $rolSelect['existe'] == TRUE){
-                                echo "<h5>" . $modelMensajes->getMensaje(103) . "</h5>";
-                                echo CHtml::link('<button type="button" class="btn btn-primary btn-xs m-r-5"> Regresar</button>', array('admin/role'), array('title' => 'Cancelar'));
-                            }
-                            else{
-                                echo CHtml::link('<button type="button" class="btn btn-primary btn-xs m-r-5"> Regresar</button>', array('admin/role'), array('title' => 'Cancelar'));
-                            }
-                        }
-                        else{
-                            echo "<h5>No puede eliminar el ROL de Super Administrador</h5>";
-                            echo CHtml::link('<button type="button" class="btn btn-primary btn-xs m-r-5"> Regresar</button>', array('admin/role'), array('title' => 'Cancelar'));
-                        }*/
+                        var_dump($problemas);
                         ?>
-                        <?php //endif; ?>
+
                     </div>
                 </div>
             </div>

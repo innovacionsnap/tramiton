@@ -16,12 +16,12 @@
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Roboto+Condensed|Lato' rel='stylesheet' type='text/css'>
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/animate.min.css" rel="stylesheet" />
-	<link href="<?php echo $baseUrl; ?>/assets/css/theme/red.css" id="theme" rel="stylesheet" />
+	<link href="<?php echo $baseUrl; ?>/assets/css/theme/blue.css" id="theme" rel="stylesheet" />
         <!-- ================== END BASE CSS STYLE ================== -->
 	
 	
@@ -78,6 +78,6 @@
         });
     </script>
 </head>
-<body id="body-home" data-spy="scroll" data-target=".navbar-collapse" data-offset="100">
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="100">
 	<!-- begin #page-container -->
     <!-- <div id="page-container" class="fade"> -->

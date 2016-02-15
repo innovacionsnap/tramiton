@@ -55,6 +55,7 @@ class SiteController extends Controller {
 
         $model = new ValidarCedula;
         $model_login = new LoginForm;
+        $this->layout = 'main-home';
         $this->render('index', array("model" => $model, "model_login" => $model_login, 'msg1' => $this->_msgerror, 'estadisticas' => $estadisticas, 'totalAccionesnom' => $totalAccionesnom));
     }
 
@@ -70,7 +71,7 @@ class SiteController extends Controller {
                 $this->render('error', $error);
         }
     }
-
+  
     /**
      * Displays the contact page
      */

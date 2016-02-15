@@ -547,6 +547,49 @@ class consultasBaseDatos {
         return $temporales;
         
     }
+    
+    /**
+     * Función para obtener el caso temporal por el id del caso
+     */
+    public function getCasoTemporalId($idTmp) {
+        $conexion = Yii::app()->db;
+        
+        $sqlCasoTmpId = "select "
+                . "tmprc.id_registro_caso, ins.ins_nombre, tram.tra_nombre, can.can_nombre, "
+                . "tmprc.experiencia, tmprc.titulo_solucion, tmprc.propuesta_solucion, "
+                . "to_char(tmprc.fecha_registro, 'TMDay, DD TMMonth YYYY') AS fecha_registro "
+                . "from "
+                . "tmp_registro_caso tmprc, canton can, tramite_institucion train, "
+                . "institucion ins, tramite tram "
+                . "where "
+                . "tmprc.id_tramite = train.trai_id and "
+                . "tmprc.id_institucion = ins.ins_id and "
+                . "train.tra_id = tram.tra_id and "
+                . "tmprc.id_canton = can.can_id and "
+                . "tmprc.id_registro_caso = $idTmp";
+        
+        $resultado = $conexion->createCommand($sqlCasoTmpId);
+        
+        $casoTemporal = $resultado->query();
+        
+        $casoTemp = array();
+        
+        foreach ($casoTemporal as $casoTmp){
+            $casoTemp = array(
+                'idRegistroCaso' => $casoTmp['id_registro_caso'],
+                'nombreInstit' => $casoTmp['ins_nombre'],
+                'nombreTramite' => $casoTmp['tra_nombre'],
+                'nombreCanton' => $casoTmp['can_nombre'],
+                'experienciaUsr' => $casoTmp['experiencia'],
+                'tituloSolucion' => $casoTmp['titulo_solucion'],
+                'propuestaSolucion' => $casoTmp['propuesta_solucion'],
+                'fechaRegistro' => $casoTmp['fecha_registro'],
+            );
+        }
+        
+        return $casoTemp;
+        
+    }
 
 
 

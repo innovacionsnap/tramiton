@@ -97,11 +97,11 @@ class DashboardController extends Controller {
                 <span title="Vistas"><i class="fa fa-eye fa-fw"></i>' . $this->getVista($datoSolucion['sol_id']) . '</span>
             </div>
             <div class="compartir">
-                    <a href="http://www.facebook.com/sharer.php?u=';
+                    <a href="https://www.facebook.com/sharer.php?u=';
             $id=Empresa::model()->codificaGet('sol='.$datoSolucion['sol_id']);
             $urlShare = Yii::app()->createAbsoluteUrl('solucion/index?'.$id);
             $html.=urlencode($urlShare) . '" target="_blank"><i class="fa fa-adjust fa-facebook facebook"></i></a>
-                    <a href="http://twitter.com/share?url=';
+                    <a href="https://twitter.com/share?url=';
 
             $html.=urlencode($urlShare) . '" target="_blank"><i class="fa fa-adjust fa-twitter twitter"></i></a>
                     <a href="https://plus.google.com/share?url=';
