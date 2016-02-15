@@ -549,7 +549,7 @@ class BitacoraController extends Controller {
             $tar_id = $_POST['tar_id'];
             $accion_id = $_POST['acc_id'];
             $nivel_actividad = $_POST['nivel_actividad'];
-            $_POST['tramite'];
+            //$_POST['tramite'];
 
 
             $descripcion_actividad = $_POST["descripcion_actividad"];
@@ -558,7 +558,7 @@ class BitacoraController extends Controller {
                        
             $sql1= "update accion set acc_nombre = '$nombre_actividad',acc_descripcion ='$descripcion_actividad', acc_nivel = '$nivel_actividad' , acc_estado = '$estado_actividad' where acc_id =  $accion_id ";
 
-            //echo $sql1;
+            echo $sql1;
 
     
             $hoy = date("Y-m-d");
@@ -573,7 +573,7 @@ class BitacoraController extends Controller {
      
                 $transaction->commit();
                 if(isset($_POST['tramite'])){
-                    header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividadTramite?tar_id='.$tar_id.'');
+                   // header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividadTramite?tar_id='.$tar_id.'');
 
                 }else {
                     header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividad?tar_id='.$tar_id.'');

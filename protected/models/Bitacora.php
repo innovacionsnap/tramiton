@@ -165,7 +165,7 @@ where tar_id = '$tar_id' ";
         $sql = "select tar.tar_id, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre, tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,
         tar.tar_fechafin, tar.tar_fecharegistro, tar_nivel, tar_estatus, sec.sec_nombre, tar.tar_estrategia, tar.tar_estandar, tar.tar_politica,
         tar.tar_requisitos_ini,tar.tar_requisitos_fin, tar.tar_funcionarios_ini,tar.tar_funcionarios_fin,tar.tar_tiempo_ini, tar.tar_tiempo_fin, 
-        tar.tar_intera_ini, tar.tar_intera_fin, tar.tar_politica_tipo, tar.tar_politica_motivo, tar.tar_politica_fecha
+        tar.tar_intera_ini, tar.tar_intera_fin, tar.tar_politica_tipo, tar.tar_politica_motivo, tar.tar_politica_fecha,tar.tar_politica_difusion
 from tarea tar, institucion ins, categoria cat, sector sec
 where tar.ins_id = ins.ins_id 
 and cat.cat_id = tar.cat_id 

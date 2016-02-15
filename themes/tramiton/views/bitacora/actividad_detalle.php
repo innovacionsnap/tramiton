@@ -20,7 +20,7 @@ $tar_id = $_GET['tar_id'];
 if(isset($_GET['acc_id'])){
 
     $acc_id = $_GET['acc_id'];
-    $tramite = $_GET['tramite'];
+    $tramite = $_GET['tar_id'];
     $modelaccion = Accion::model()->findByPk($acc_id);
     $nombre_accion = $modelaccion["acc_nombre"];
     $descripcion_accion = $modelaccion["acc_descripcion"];
@@ -171,10 +171,11 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                     <input type="hidden" name="editar_accion" value ="1">
                                     <input type="hidden" name="tar_id" value="<?php echo $tar_id?>">
                                     <input type="hidden" name="acc_id" value ="<?php if(isset($_GET['acc_id'])){ echo $acc_id; }?>">
-                                    <input type="hidden" name="tramite" value ="<?php if(isset($_GET['tramite'])){ echo "1"; }?>">
+                                    <!-- <input type="hidden" name="tramite" value ="<?php if(isset($_GET['acc_id'])){ echo "1"; }?>"> -->
 
                                 <?php 
                                      }else{
+
                                 ?>
                                     <input type="hidden" name="tar_id" value="<?php echo $tar_id?>">
                                     <input type="hidden" name="inserta_accion" value="1">

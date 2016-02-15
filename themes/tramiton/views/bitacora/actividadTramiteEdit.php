@@ -124,14 +124,48 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 
                                         <?php if (isset($_GET['tar_id']) and $_GET['accion']==2){ ?>
 
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                
+                                                <label>Tipo</label>
+                                                <select class='form-control'  name='tar_estandar' id='tar_estandar' required>";
+                                                <option value='' >Seleccione una opción</option>
+                                                <option value="1" >Leyes y normas con fuerza o condición de ley</option>
+                                                <option value="2" >Decretos</option>
+                                                <option value="3" >Normas administrativas</option>
+                                                
+                                                </select>
+                                                
+                                              </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Fecha</label>
+                                                <input type="text" class="form-control" name="start" placeholder="Fecha Disposicion" />
+                                              </div>
+                                        </div>
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Reforma Legal</label>
-                                                <textarea value"DOS" class="form-control" id = "tar_politica" onkeyup = "Validate(this)" name="tar_politica" rows="4" data-parsley-range="[20,200]" placeholder="Detalle la reforma Legal" required><?php if(isset($_GET['tar_id'])){ echo $politica_tarea; } ?></textarea>
+                                                <label>Motivo</label>
+                                                <input type="text" id = "descripcion_tarea" onkeyup = "Validate(this)" name="descripcion_tarea" data-parsley-range="[2,200]" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-2" required />
                                                 
+                                              </div>
+                                        </div>
 
-                                            </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Difusión</label>
+                                                <input type="text" id = "descripcion_tarea" onkeyup = "Validate(this)" name="descripcion_tarea" data-parsley-range="[2,200]" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-2" required />
+                                              </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Cuerpo Legal</label>
+                                                <textarea value"DOS" class="form-control" id = "tar_politica" onkeyup = "Validate(this)" name="tar_politica" rows="4" data-parsley-range="[20,200]" placeholder="Detalle la reforma Legal" required><?php if(isset($_GET['tar_id'])){ echo $politica_tarea; } ?></textarea>
+                                              </div>
                                         </div>
 
                                         <?php } ?>

@@ -131,8 +131,7 @@
                                         <tr class="highlight">
                                             <td class="field">Cuerpo Legal:</td>
                                             <td><?php echo $datosTarea_Actividad_detalle["tar_politica"] ?>
-                                                 <a href="Participantes?tar_id=<?php echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="solucion" title="Añadir Paricipantes">
-                                            <li class="fa fa-plus-circle"></li></a>
+                                                 
                                             <?php
                                                 $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&accion=2');
                                                 echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle"></i></button>', array('bitacora/actividadTramiteEdit/?'.$id), array('title' => 'Editar Reforma Legal'));
@@ -141,9 +140,8 @@
                                         </tr>
                                         <tr>
                                             <td class="field">Tipo:</td>
-                                            <td><?php echo $datosTarea_Actividad_detalle["tar_politica"] ?>
-                                                 <a href="Participantes?tar_id=<?php echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="solucion" title="Añadir Paricipantes">
-                                            <li class="fa fa-plus-circle"></li></a>
+                                            <td><?php echo $datosTarea_Actividad_detalle["tar_politica_tipo"] ?>
+                                                
                                             <?php
                                                 $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&accion=2');
                                                 echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle"></i></button>', array('bitacora/actividadTramiteEdit/?'.$id), array('title' => 'Editar Reforma Legal'));
@@ -152,9 +150,8 @@
                                         </tr>
                                         <tr>
                                             <td class="field">Motivo:</td>
-                                            <td><?php echo $datosTarea_Actividad_detalle["tar_politica"] ?>
-                                                 <a href="Participantes?tar_id=<?php echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="solucion" title="Añadir Paricipantes">
-                                            <li class="fa fa-plus-circle"></li></a>
+                                            <td><?php echo $datosTarea_Actividad_detalle["tar_politica_motivo"] ?>
+                                                 
                                             <?php
                                                 $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&accion=2');
                                                 echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle"></i></button>', array('bitacora/actividadTramiteEdit/?'.$id), array('title' => 'Editar Reforma Legal'));
@@ -163,9 +160,8 @@
                                         </tr>
                                         <tr>
                                             <td class="field">Fecha:</td>
-                                            <td><?php echo $datosTarea_Actividad_detalle["tar_politica"] ?>
-                                                 <a href="Participantes?tar_id=<?php echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="solucion" title="Añadir Paricipantes">
-                                            <li class="fa fa-plus-circle"></li></a>
+                                            <td><?php echo $datosTarea_Actividad_detalle["tar_politica_fecha"] ?>
+                                                
                                             <?php
                                                 $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&accion=2');
                                                 echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle"></i></button>', array('bitacora/actividadTramiteEdit/?'.$id), array('title' => 'Editar Reforma Legal'));
@@ -174,9 +170,8 @@
                                         </tr>
                                         <tr>
                                             <td class="field">Difusión:</td>
-                                            <td><?php echo $datosTarea_Actividad_detalle["tar_politica"] ?>
-                                                 <a href="Participantes?tar_id=<?php echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="solucion" title="Añadir Paricipantes">
-                                            <li class="fa fa-plus-circle"></li></a>
+                                            <td><?php echo $datosTarea_Actividad_detalle["tar_politica_difusion"] ?>
+                                                 
                                             <?php
                                                 $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&accion=2');
                                                 echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle"></i></button>', array('bitacora/actividadTramiteEdit/?'.$id), array('title' => 'Editar Reforma Legal'));
