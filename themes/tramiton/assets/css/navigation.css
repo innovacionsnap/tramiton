@@ -1,8 +1,19 @@
+/*padding para navigation*/
+#home{
+    padding-top: 206px !important;
+}
+#que_es_tramiton, #estadisticas{
+    padding-top: 156px !important;
+}
+#noticias-1{
+    margin-bottom: 154px;
+}
+
 html{
     max-width: 1200px !important;
     margin: auto;
 }
-body{
+#body-home{
     padding-top: 206px !important;
 }
 #fila-logos{
@@ -51,14 +62,14 @@ body{
 
 
 /*boton*/
-.icon-bar{
+.icon-white{
     background-color: white !important;
 }
 
 
 
 /*menu*/
-#nav-admin{
+#nav-admin-home{
     height: 46px;
     margin: 0px 52px 0px 54px;
     border-left: 1px solid #fff;
@@ -72,13 +83,13 @@ body{
     .collapse a{
         /*text-align: right;*/
     }
-    .navbar-toggle:hover, .navbar-toggle:focus{
+    #navbar-toggle-home:hover, #navbar-toggle-home:focus{
         background-color: #325972 !important;
     }
-    .navbar-toggle{
+    #navbar-toggle-home{
         float: left;
     }
-    .col-tramiton, .col-redes-sociales, #nav-admin{
+    .col-tramiton, .col-redes-sociales, #nav-admin-home{
         border: none;
     }
     .col-tramiton{
@@ -100,7 +111,7 @@ body{
     .row-redes-sociales i:hover{
         color: cyan;
     }
-    .navbar-header{
+    #navbar-header-home{
         border-bottom: none;
     }
 }
@@ -109,7 +120,7 @@ body{
     #fila-logos{
         height: 129px !important;
     }
-    #nav-admin{
+    #nav-admin-home{
         height: 73px !important;
     }
 }
@@ -121,7 +132,7 @@ body{
 
 
 
-#nav-admin .menu-central:hover, #nav-admin .menu-central:active{
+#nav-admin-home .menu-central:hover, #nav-admin-home .menu-central:active{
     color: cyan !important;
 }
 
@@ -206,7 +217,7 @@ body{
 }
 
 @media (max-width: 767px){
-    #navbar-toggle, #navbar-toggle-dashboard{
+    #navbar-toggle-home, #navbar-toggle-dashboard{
         display: inline-block;
     }
     .menu-central, .menu-central-dashboard{
@@ -217,7 +228,7 @@ body{
     }
 }
 @media (min-width: 768px){
-    #navbar-toggle, #navbar-toggle-dashboard{
+    #navbar-toggle-home, #navbar-toggle-dashboard{
         display: none;
     }
 }

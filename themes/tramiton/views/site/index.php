@@ -327,7 +327,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 </div>
 <!-- end #milestone -->
 
-
+<div id="noticias-1" class="container"></div>
 <!-- begin #noticias -->
 <div id="noticias" class="content has-bg twitter" data-scrollview="true">
 

@@ -39,9 +39,9 @@ $('.col-redes-sociales i').hover(
 
 $('.col-tramiton img').hover(
 	function() {
-    	$('#logo-home').attr("src",'themes/tramiton/images/logo_tramiton2.png');
+    	$('#logo-home').attr("src",'themes/tramiton/images/logo_tramiton3.png');
   	}, function() {
-    	$('#logo-home').attr("src",'themes/tramiton/images/logo_tramiton1.png');
+    	$('#logo-home').attr("src",'themes/tramiton/images/logo_tramiton2.png');
 	}
 );
 

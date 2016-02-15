@@ -2,7 +2,7 @@
 <div id="header-tramiton" class="navbar navbar-default navbar-fixed-top header"> <!-- header-->
     <div id="fila-logos" class="row">
             <div class="col-tramiton borde-izquierda">
-                <a href="#"><img id="logo-home" class="center-block" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_tramiton1.png" alt="" /></a>
+                <a href="#"><img id="logo-home" class="center-block" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_tramiton2.png" alt="" /></a>
             </div>
         
             <div class="hidden-xs col-redes-sociales borde-izquierda">
@@ -12,14 +12,14 @@
             </div>
     </div>
 
-    <div id="nav-admin">
+    <div id="nav-admin-home">
 
-        <div class="navbar-header">
-            <button  id="navbar-toggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <div id="navbar-header-home" class="navbar-header">
+            <button  id="navbar-toggle-home" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Palanca de navegación</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar icon-white"></span>
+                <span class="icon-bar icon-white"></span>
+                <span class="icon-bar icon-white"></span>
                 <!-- <font style="font-size: 9px;font-weight: bold;">MENÚ</font> -->
             </button>
             <div class="visible-xs row-redes-sociales">
@@ -34,7 +34,7 @@
                 <li><a class="menu-central " href="#">PARTICIPA</a></li>
                 <li><a class="menu-central " href="#que_es_tramiton" data-click="scroll-to-target">¿QUÉ ES EL TRAMITÓN?</a></li>
                 <li><a class="menu-central " href="#estadisticas" data-click="scroll-to-target">ESTADÍSTICAS</a></li>
-                <li><a class="menu-central " href="#noticias" data-click="scroll-to-target">NOTICIAS</a></li>
+                <li><a class="menu-central " href="#noticias-1" data-click="scroll-to-target">NOTICIAS</a></li>
                 <li><a class="menu-central " href="#preguntas" data-click="scroll-to-target">PREGUNTAS FRECUENTES</a></li>
                 <li><a class="menu-central " href="<?php echo Yii::app()->baseUrl; ?>/site/registro">REGISTRAR</a></li>
                 <li><a class="menu-central p-b-10" href="/tramiton/./#login-modal" data-toggle="modal" data-description="member area">INGRESAR</a></li>
