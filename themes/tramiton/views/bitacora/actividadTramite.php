@@ -139,7 +139,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                             </div>
                                         </div> -->
                                         <!-- end col-12 -->
-                                        <!-- begin col-12 -->
+                                        <!-- begin col-12 -->   
                                        
                                             <!-- end col-12 -->
                                             <!-- begin col-4 -->
@@ -154,14 +154,29 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 
                                         <p id="pidhijo2">
                                         <!-- end col-4 -->
-                                       
-                                <div class="jumbotron m-b-0 text-center">
-                                   <!--  <h1>Gracias por ingresar su tarea</h1> -->
+                                        <div class="col-md-12">
+                                         <label>Fecha Inicio / Cierre</label>
+                                            <div class="input-group input-daterange">
+                                                <input type="text" class="form-control" name="start" placeholder="Fecha Inicio" />
+                                                <span class="input-group-addon">a</span>
+                                                <input type="text" class="form-control" name="end" placeholder="Fecha Cierre" />
+                                            </div>
+                                        </div>
+
+                                 </fieldset>      
+                                <div class="text-center">
+                                  
                                  
                                         <input type="submit" value="Enviar y Guardar" class="btn btn-success btn-lg">
                                         <input type="hidden" name="insertar_tarea" value="1">
                                         <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
                                         <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
+                                </div>
+
+
+                                
+                                
+
                              
                             <!-- end wizard step-4 -->
                         

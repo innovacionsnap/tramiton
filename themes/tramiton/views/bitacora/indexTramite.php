@@ -76,11 +76,9 @@
                                     <th>Institucion</th>
                                     <th>Servicio Trámite</th>
                                     <th>Problema</th>
+                                    <th>Estandar</th>
                                     <th>%</th>
-                                    <!-- <th><div><span style="background-color: green;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div></th>
-                                    <th><div><span style="background-color: orange;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div></th>
-                                    <th><div><span style="background-color: red;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div></th>
-                                    <th>Cierre</th> -->
+                                    <th>F. Cierre</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -100,8 +98,7 @@
                                             <?php //echo $dato["tar_importancia"];
                                                 if ($dato["tar_descripcion"] == ''){
                                                     
-                                                    echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle"></i> </button>'
-                                            ,array("/bitacora/viewActividadTramite", 'tar_id' => $dato['tar_id']), array('title' => 'Mostrar'));  
+                                                    echo "n/a";  
 
                                                 }else{
                                                     echo $dato["tar_descripcion"];
@@ -109,35 +106,28 @@
                                                
                                             ?>
                                         </td>
+                                        <td>
+                                            <?php //echo $datosTarea_Actividad_detalle["tar_estandar"]
+
+                                                $model=Bitacora::model();
+                                                $nombreTramite=$model->getEstandar($dato["tar_estandar"]);
+
+
+                                            ?>
+                                        </td>
                                         <td> 
                                         <?php 
                                                 $model=Bitacora::model();
                                                 $contador_accion=$model->getNumeroActiviades($dato["tar_id"]);
 
-                            
-                                    
                                             
                                         ?></td>
-                                        <?php $model=Bitacora::model();
-                                        $contador_colores=$model->getColor($dato["tar_id"]);//$rojo = Yii::app()->Bitacora; 
-                                        ?>
-                                       <!--  <td>
-                                        <?php
-                                        echo $contador_colores['verde'];
-                                        ?></td>
-                                        <td>
-                                            <?php
-                                            echo $contador_colores['amarillo'];
-                                            ?>
 
-                                        </td>
-                                        <td>
-                                            <?php
-                                            echo $contador_colores['rojo'];
-                                            ?>
-
-                                        </td>
-                                        <td><small><?php echo $dato["tar_fecharegistro"] ?></small></td> -->
+                                         <td> 
+                                            <?php echo $dato["tar_fechafin"] ?>
+                                         </td>
+                                        
+                                        
                                         <td>
                                             <?php
                                             echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'

@@ -20,7 +20,7 @@ class Bitacora extends CActiveRecord {
         //$id_usuario = $modelUser['usu_id'];
         //$usu_id = $this->_datosUser->usu_id;
         $sql = "select tar.tar_id, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre,tar_estatus,tar_importancia, tar.tar_descripcion, 
-                tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro,tar_nivel, tar.tar_tipo
+                tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro,tar_nivel, tar.tar_tipo, tar.tar_estandar
                 from tarea tar, institucion ins, categoria cat
                 where tar.ins_id = ins.ins_id
                 and tar.tar_tipo = 1 
@@ -41,7 +41,8 @@ class Bitacora extends CActiveRecord {
         //$id_usuario = $modelUser['usu_id'];
         //$usu_id = $this->_datosUser->usu_id;
         $sql = "select tar.tar_id, sec.sec_nombre, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre,tar_estatus,tar_importancia,tar.tar_tipo, 
-        tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro,tar_nivel 
+        tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro,tar_nivel, tar.tar_estandar,tar.tar_politica_tipo,
+        tar.tar_politica_motivo, tar.tar_politica_fecha, tar.tar_politica_difusion
         from tarea tar, institucion ins, categoria cat, sector sec
         where tar.ins_id = ins.ins_id and tar.tar_tipo = 2 
         and sec.sec_id = ins.sec_id
@@ -101,6 +102,9 @@ group by acc_estado;";
 
     }
 
+
+
+
     public function getNumeroActiviades ($tar_id){
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $id_usuario = $modelUser['usu_id'];
@@ -159,7 +163,9 @@ where tar_id = '$tar_id' ";
         //echo $tar_id_detalle;
         
         $sql = "select tar.tar_id, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre, tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,
-        tar.tar_fechafin, tar.tar_fecharegistro, tar_nivel, tar_estatus, sec.sec_nombre, tar.tar_estrategia, tar.tar_estandar, tar.tar_politica
+        tar.tar_fechafin, tar.tar_fecharegistro, tar_nivel, tar_estatus, sec.sec_nombre, tar.tar_estrategia, tar.tar_estandar, tar.tar_politica,
+        tar.tar_requisitos_ini,tar.tar_requisitos_fin, tar.tar_funcionarios_ini,tar.tar_funcionarios_fin,tar.tar_tiempo_ini, tar.tar_tiempo_fin, 
+        tar.tar_intera_ini, tar.tar_intera_fin, tar.tar_politica_tipo, tar.tar_politica_motivo, tar.tar_politica_fecha,tar.tar_politica_difusion
 from tarea tar, institucion ins, categoria cat, sector sec
 where tar.ins_id = ins.ins_id 
 and cat.cat_id = tar.cat_id 
@@ -290,6 +296,26 @@ and trai.trai_id='$trai_id' ";
 
     // bitacora institucion 
 
+     public function getIndicadores() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        
+
+        $tar_id = $_GET['tar_id'];
+        //$acc_id = $_GET['acc_id'];
+
+        $sql = "select ind.ind_id,ind.ind_nombre,tain.tain_id, ind.ind_descripcion, ind.ind_id,tain.tain_valor
+from indicador ind, tarea_indica tain
+where ind.ind_id = tain.ind_id
+and tain.tar_id = '$tar_id' order by ind.ind_nombre";
+        //echo "<br>".$sql;
+        $dataReader = $this->connection->createCommand($sql)->query();
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
+   
+
+    // bitacora institucion 
+
      public function getSector ($tar_id){
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $id_usuario = $modelUser['usu_id'];
@@ -341,5 +367,16 @@ and trai.trai_id='$trai_id' ";
         }
     }
   
+
+  public function getEstandar($tar_estandar) {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //$id_usuario = $modelUser['usu_id'];
+        //$usu_id = $this->_datosUser->usu_id;
+        if ($tar_estandar ==1){echo "Automatización";}
+        if ($tar_estandar ==2){echo "Levantamiento - Optimización";}
+        if ($tar_estandar ==3){echo "Reforma Legal";}
+        if ($tar_estandar ==4){echo "Interoperabilidad";}
+        
+    }
     
 }

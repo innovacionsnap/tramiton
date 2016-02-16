@@ -43,7 +43,8 @@ class BitacoraController extends Controller {
                     'RegistroTramite',
                     'viewActividadTramite',
                     'problemaTramite',
-                    'ActividadTramiteEdit'
+                    'ActividadTramiteEdit',
+                    'Indicadores'
                     ),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano', 'bitacora'),
@@ -141,11 +142,12 @@ class BitacoraController extends Controller {
         $datosTarea_Generador = $model->getTarea_Creador();        
         $datosActividad = $model->getActividad();
         $datosPermiso_Participantes = $model ->getPermiso_Participantes();
+        $datosIndicador = $model-> getIndicadores();
         $this->_datosUser = $modelUser;
         $this->layout = 'main-admin_form_caso';
         
         $this->_datosUser = $modelUser;
-        $this->render('viewActividadTramite',compact('datosTarea_Actividad','datosTarea_Participantes', 'datosActividad','datosTarea_Generador','datosPermiso_Participantes'),false,true);
+        $this->render('viewActividadTramite',compact('datosTarea_Actividad','datosTarea_Participantes', 'datosActividad','datosTarea_Generador','datosPermiso_Participantes','datosIndicador'),false,true);
       
     }
 
@@ -237,6 +239,62 @@ class BitacoraController extends Controller {
         //$datosTarea_Participantes = $model->getTarea_Participantes();
         //$this->_datosUser = $modelUser;
         $this->render('actividad_detalle', array('model'=>$model,'tar_id'=>$tar_id));
+        //$this->render('actividad_detalle');
+    }
+
+
+
+    // bitacora Tramite 
+
+     public function actionIndicadores() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+
+       
+
+        if (empty($_GET)) {
+            $model = new Accion();
+        } else {
+            Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
+
+
+
+            if(empty($_GET['acc_id'])){
+               
+
+               $tar_id = $_GET['tar_id'];
+               $model = new Bitacora();
+
+               //$this->render('actividad_detalle', array('model'=>$model, 'tar_id'=>$tar_id));
+
+            }else{
+
+                $id_accion = $_GET['acc_id'];
+                $model = Accion::model()->findByPk($id_accion);
+                $tar_id = $_GET['tar_id'];
+
+                $this->_datosUser = $modelUser;
+               // $this->render('actividad_detalle', array('model'=>$model,'tar_id'=>$tar_id));
+
+            }
+        
+            
+            // echo "<pre>";
+            // //echo $tar_id;
+            // var_dump($tar_id);
+            // echo "<pre>";
+            
+            // yii::app()->end();
+            
+        }
+           // echo $tar_id;
+           // var_dump($tar_id);
+            //yii::app()->end();
+
+        //creo una instancia del modelo Bitacora
+        //$model = new Bitacora();
+        //$datosTarea_Participantes = $model->getTarea_Participantes();
+        //$this->_datosUser = $modelUser;
+        $this->render('Indicadores', array('model'=>$model,'tar_id'=>$tar_id));
         //$this->render('actividad_detalle');
     }
 
@@ -491,6 +549,8 @@ class BitacoraController extends Controller {
             $tar_id = $_POST['tar_id'];
             $accion_id = $_POST['acc_id'];
             $nivel_actividad = $_POST['nivel_actividad'];
+            //$_POST['tramite'];
+
 
             $descripcion_actividad = $_POST["descripcion_actividad"];
             $estado_actividad = $_POST['estado_actividad'];
@@ -498,7 +558,7 @@ class BitacoraController extends Controller {
                        
             $sql1= "update accion set acc_nombre = '$nombre_actividad',acc_descripcion ='$descripcion_actividad', acc_nivel = '$nivel_actividad' , acc_estado = '$estado_actividad' where acc_id =  $accion_id ";
 
-            //echo $sql1;
+            echo $sql1;
 
     
             $hoy = date("Y-m-d");
@@ -512,7 +572,13 @@ class BitacoraController extends Controller {
                 $conexion->createCommand($sql1)->execute();
      
                 $transaction->commit();
-                header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividad?tar_id='.$tar_id.'');
+                if(isset($_POST['tramite'])){
+                   // header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividadTramite?tar_id='.$tar_id.'');
+
+                }else {
+                    header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividad?tar_id='.$tar_id.'');
+                }
+                
             
                 
             } catch (Exception $e) {
@@ -584,33 +650,32 @@ class BitacoraController extends Controller {
     // registro de tareas
     public function actionRegistroTramite() {
         
-        //echo $_POST['editar_tarea'];
-        
+      
 
         if (isset($_POST['insertar_tarea'])) {
             $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
             $id_usuario = $modelUser['usu_id'];
 
-           //$id_categoria = $_POST['id_categoria'];
+          
             $id_institucion = $_POST['id_institucion'];
-            //$id_usuario_responsable = $_POST['id_usuario_responsable'];
             $nombre_tarea = $_POST['id_tramite2'];
-            //$descripcion_tarea = $_POST['descripcion_tarea'];
-            //$start = $_POST['start'];
-            //$id_importancia = $_POST['id_importancia'];
-            //$start = substr("abcdef", -1);
-            //$dia_start = substr($start, 0,2);
-            //$dia_start = substr($start, 0,2);
-            //echo $dia_start;
-            //echo $min_start;
-            //echo $anio_start;
-
-
-            //$end = $_POST['end'];
-            //$meta_tarea = $_POST['meta_tarea'];
-
-            //echo $id_categoria;
+            $start = $_POST['start'];
            
+            $mes_start = substr($start, 0,2);
+            $dia_start = substr($start, 3,2);
+            $anio_start = substr($start, 6,4);
+           
+            $tar_fechainicio = $anio_start."-".$mes_start."-".$dia_start;
+
+
+            $end = $_POST['end'];
+            $mes_end = substr($end, 0,2);
+            $dia_end = substr($end, 3,2);
+            $anio_end = substr($end, 6,4);
+
+            $tar_fin = $anio_end."-".$mes_end."-".$dia_end;
+
+            
 
             $hoy = date("Y-m-d");
 
@@ -626,8 +691,8 @@ class BitacoraController extends Controller {
                 $model_dbitacora->tar_nombre = $nombre_tarea;
                 //$model_dbitacora->tar_descripcion = $descripcion_tarea;
                 //$model_dbitacora->tar_meta = $meta_tarea;
-                //$model_dbitacora->tar_fechainicio = $hoy;
-                //$model_dbitacora->tar_fechafin = $hoy;
+                $model_dbitacora->tar_fechainicio = $tar_fechainicio;
+                $model_dbitacora->tar_fechafin = $tar_fin;
                 $model_dbitacora->tar_fecharegistro = $hoy;
                 $model_dbitacora->tar_estado = 1;
                 $model_dbitacora->ins_id = $id_institucion;
@@ -650,7 +715,7 @@ class BitacoraController extends Controller {
 
                 
                 $transaction->commit();
-                header('Location:'.Yii::app()->baseURL.'/bitacora/indexTramite');
+                 header('Location:'.Yii::app()->baseURL.'/bitacora/indexTramite');
                 
             } catch (Exception $e) {
                 echo $e;
@@ -681,9 +746,42 @@ class BitacoraController extends Controller {
                echo  $sql1= "update tarea set tar_estrategia ='$tar_estrategia' where tar_id =  $tar_id ";
             }
 
+            if ($accion==4){
+                 $tar_estandar = $_POST['tar_estandar'];
+               echo  $sql1= "update tarea set tar_estandar ='$tar_estandar' where tar_id =  $tar_id ";
+            }
+
             if ($accion==5){
                  $tar_meta = $_POST['tar_meta'];
                echo  $sql1= "update tarea set tar_meta ='$tar_meta' where tar_id =  $tar_id ";
+            }
+
+            if ($accion==6){
+                 $requisito_inicial = $_POST['requisito_inicial'];
+                 $funcionario_inicial = $_POST['funcionario_inicial'];
+                 $tiempo_inicial = $_POST['tiempo_inicial'];
+                 $intera_inicial = $_POST['intera_inicial'];
+                 
+                 $sql1= "update tarea set 
+                    tar_requisitos_ini ='$requisito_inicial',
+                    tar_funcionarios_ini = '$funcionario_inicial',
+                    tar_tiempo_ini = '$tiempo_inicial',
+                    tar_intera_ini = '$intera_inicial'
+                     where tar_id =  $tar_id ";
+            }
+
+            if ($accion==7){
+                 $requisito_fin = $_POST['requisito_fin'];
+                 $funcionario_fin = $_POST['funcionario_fin'];
+                 $tiempo_fin = $_POST['tiempo_fin'];
+                 $intera_fin = $_POST['intera_fin'];
+                 
+                 $sql1= "update tarea set 
+                    tar_requisitos_fin ='$requisito_fin',
+                    tar_funcionarios_fin = '$funcionario_fin',
+                    tar_tiempo_fin = '$tiempo_fin',
+                    tar_intera_fin = '$intera_fin'
+                     where tar_id =  $tar_id ";
             }
 
             
