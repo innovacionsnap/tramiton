@@ -109,12 +109,12 @@
                                             <td class="field">Quipux / Correo</td>
                                             <td><?php echo $datosTarea_Actividad_detalle["tar_descripcion"] ?></td>
                                         </tr>
-                                        <!--
+                                        
                                          <tr>
-                                            <td class="field">Meta</td>
-                                            <td><?php //echo $datosTarea_Actividad_detalle["tar_meta"] ?></td>
+                                            <td class="field">Resolucion / Comentario</td>
+                                            <td><?php echo $datosTarea_Actividad_detalle["tar_meta"] ?></td>
                                         </tr>
-                                        -->
+                                        
                                         <tr>
                                             <td class="field">Estatus</td>
                                             <td><?php
