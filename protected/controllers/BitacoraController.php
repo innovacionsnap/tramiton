@@ -44,7 +44,8 @@ class BitacoraController extends Controller {
                     'viewActividadTramite',
                     'problemaTramite',
                     'ActividadTramiteEdit',
-                    'Indicadores'
+                    'Indicadores',
+                    'Reforma_Legal'
                     ),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano', 'bitacora'),
@@ -141,13 +142,15 @@ class BitacoraController extends Controller {
         $datosTarea_Participantes = $model->getTarea_Participantes();
         $datosTarea_Generador = $model->getTarea_Creador();        
         $datosActividad = $model->getActividad();
+        $datosReforma = $model->getReformaLegal();
         $datosPermiso_Participantes = $model ->getPermiso_Participantes();
         $datosIndicador = $model-> getIndicadores();
         $this->_datosUser = $modelUser;
         $this->layout = 'main-admin_form_caso';
         
         $this->_datosUser = $modelUser;
-        $this->render('viewActividadTramite',compact('datosTarea_Actividad','datosTarea_Participantes', 'datosActividad','datosTarea_Generador','datosPermiso_Participantes','datosIndicador'),false,true);
+        $this->render('viewActividadTramite',compact('datosTarea_Actividad','datosTarea_Participantes', 'datosActividad','datosTarea_Generador'
+            ,'datosPermiso_Participantes','datosIndicador','datosReforma'),false,true);
       
     }
 
@@ -298,27 +301,43 @@ class BitacoraController extends Controller {
         //$this->render('actividad_detalle');
     }
 
-
-
-    public function actionActividadTramiteEdit() {
+    public function actionReforma_Legal() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-
-       
-
-        if (empty($_GET)) {
+     if (empty($_GET)) {
             $model = new Accion();
         } else {
             Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
 
-
-
             if(empty($_GET['acc_id'])){
-               
-
                $tar_id = $_GET['tar_id'];
                $model = new Bitacora();
+            }else{
 
-               //$this->render('actividad_detalle', array('model'=>$model, 'tar_id'=>$tar_id));
+                $id_accion = $_GET['acc_id'];
+                $model = Accion::model()->findByPk($id_accion);
+                $tar_id = $_GET['tar_id'];
+
+                $this->_datosUser = $modelUser;
+    
+            }
+         
+        }
+          
+        $this->render('reforma_legal', array('model'=>$model,'tar_id'=>$tar_id));
+      
+    }
+
+
+    public function actionActividadTramiteEdit() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+         if (empty($_GET)) {
+            $model = new Accion();
+        } else {
+            Empresa::model()->decodificaGet($_SERVER["REQUEST_URI"]);
+
+            if(empty($_GET['acc_id'])){
+               $tar_id = $_GET['tar_id'];
+               $model = new Bitacora();
 
             }else{
 
@@ -327,27 +346,11 @@ class BitacoraController extends Controller {
                 $tar_id = $_GET['tar_id'];
 
                 $this->_datosUser = $modelUser;
-               // $this->render('actividad_detalle', array('model'=>$model,'tar_id'=>$tar_id));
 
             }
-        
-            
-            // echo "<pre>";
-            // //echo $tar_id;
-            // var_dump($tar_id);
-            // echo "<pre>";
-            
-            // yii::app()->end();
             
         }
-           // echo $tar_id;
-           // var_dump($tar_id);
-            //yii::app()->end();
-
-        //creo una instancia del modelo Bitacora
-        //$model = new Bitacora();
-        //$datosTarea_Participantes = $model->getTarea_Participantes();
-        //$this->_datosUser = $modelUser;
+           
         $this->render('ActividadTramiteEdit', array('model'=>$model,'tar_id'=>$tar_id));
         //$this->render('actividad_detalle');
     }
@@ -379,8 +382,9 @@ class BitacoraController extends Controller {
             $id_usuario_responsable = $_POST['id_usuario_responsable'];
             $nombre_tarea = $_POST['nombre_tarea'];
             $descripcion_tarea = $_POST['descripcion_tarea'];
-            $start = $_POST['start']."<br>";
-            $end = $_POST['end']."<br>";
+
+            $start = $_POST['start'];
+            $end = $_POST['end'];
             $id_importancia = $_POST['id_importancia'];
             //$start = substr("abcdef", -1);
 
@@ -808,6 +812,112 @@ class BitacoraController extends Controller {
         
     }
 
+    //--- begin Reforma Legal --//
+
+
+    public function actionRegistroReforma() {
+        //echo 'Inserta: '.$insertar_accion = ;
+      
+
+
+        if(isset($_POST['editar_accion']) ){
+            $tar_id = $_POST['tar_id'];
+            $accion_id = $_POST['acc_id'];
+            $nivel_actividad = $_POST['nivel_actividad'];
+            //$_POST['tramite'];
+
+
+            $descripcion_actividad = $_POST["descripcion_actividad"];
+            $estado_actividad = $_POST['estado_actividad'];
+            $nombre_actividad = $_POST['nombre_actividad'];
+                       
+            $sql1= "update accion set acc_nombre = '$nombre_actividad',acc_descripcion ='$descripcion_actividad', acc_nivel = '$nivel_actividad' , acc_estado = '$estado_actividad' where acc_id =  $accion_id ";
+
+            echo $sql1;
+
+    
+            $hoy = date("Y-m-d");
+
+            $conexion = Yii::app()->db;
+
+            $transaction = $conexion->beginTransaction();
+            
+            try {
+            
+                $conexion->createCommand($sql1)->execute();
+     
+                $transaction->commit();
+                if(isset($_POST['tramite'])){
+                   // header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividadTramite?tar_id='.$tar_id.'');
+
+                }else {
+                    header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividad?tar_id='.$tar_id.'');
+                }
+                
+            
+                
+            } catch (Exception $e) {
+                echo $e;
+                echo "<div>Hubo un error</div>";
+                $transaction->rollBack();
+            }
+
+           
+        }
+        
+
+
+
+        if (isset($_POST['inserta_accion'])) {
+            $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+            $id_usuario = $modelUser['usu_id'];
+            $tar_id = $_POST['tar_id'];
+
+            $nombre_actividad = $_POST["nombre_actividad"];
+            $estado_actividad = $_POST["estado_actividad"];
+            $descripcion_actividad = $_POST["descripcion_actividad"];
+            $nivel_actividad = $_POST["nivel_actividad"];
+            
+
+            //echo $id_categoria;
+           
+
+            $hoy = date("Y-m-d");
+
+            $conexion = Yii::app()->db;
+            $transaction = $conexion->beginTransaction();
+            
+            try {
+                
+               
+
+                $model_accion = new Accion();
+
+                $model_accion ->acc_nombre = $nombre_actividad;
+                $model_accion ->acc_descripcion = $descripcion_actividad;
+                $model_accion ->acc_fechainicio = $hoy;
+                $model_accion ->acc_fechafin = $hoy;
+                $model_accion ->acc_fecharegistro = $hoy;
+                $model_accion ->acc_estado = $estado_actividad;
+                $model_accion ->tar_id = $tar_id ;
+                $model_accion ->usu_id = $id_usuario;
+                $model_accion ->acc_nivel = $nivel_actividad;
+                
+                $model_accion -> save();
+
+                
+                $transaction->commit();
+                //header('Location:'.Yii::app()->baseURL.'/bitacora/actividad_detalle?tar_id='.$tar_id.'');
+                header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividad/?tar_id='.$tar_id);
+                
+            } catch (Exception $e) {
+                echo $e;
+                echo "<div>Hubo un error</div>";
+                $transaction->rollBack();
+            }
+        }
+
+    }
 
 
     // ---- end Bitacora Tramites ------//

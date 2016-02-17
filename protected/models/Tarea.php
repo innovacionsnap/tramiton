@@ -35,7 +35,6 @@ class Tarea extends CActiveRecord
 		return array(
 			array('tar_nombre, tar_estado', 'required'),
 			array('tar_estado, ins_id, cat_id', 'numerical', 'integerOnly'=>true),
-			array('tar_nombre, tar_descripcion, tar_meta', 'length', 'max'=>150),
 			array('tar_fechainicio, tar_fechafin, tar_fecharegistro', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

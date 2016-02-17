@@ -41,8 +41,7 @@ class Bitacora extends CActiveRecord {
         //$id_usuario = $modelUser['usu_id'];
         //$usu_id = $this->_datosUser->usu_id;
         $sql = "select tar.tar_id, sec.sec_nombre, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre,tar_estatus,tar_importancia,tar.tar_tipo, 
-        tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro,tar_nivel, tar.tar_estandar,tar.tar_politica_tipo,
-        tar.tar_politica_motivo, tar.tar_politica_fecha, tar.tar_politica_difusion
+        tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro,tar_nivel, tar.tar_estandar
         from tarea tar, institucion ins, categoria cat, sector sec
         where tar.ins_id = ins.ins_id and tar.tar_tipo = 2 
         and sec.sec_id = ins.sec_id
@@ -163,9 +162,9 @@ where tar_id = '$tar_id' ";
         //echo $tar_id_detalle;
         
         $sql = "select tar.tar_id, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre, tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,
-        tar.tar_fechafin, tar.tar_fecharegistro, tar_nivel, tar_estatus, sec.sec_nombre, tar.tar_estrategia, tar.tar_estandar, tar.tar_politica,
+        tar.tar_fechafin, tar.tar_fecharegistro, tar_nivel, tar_estatus, sec.sec_nombre, tar.tar_estrategia, tar.tar_estandar,
         tar.tar_requisitos_ini,tar.tar_requisitos_fin, tar.tar_funcionarios_ini,tar.tar_funcionarios_fin,tar.tar_tiempo_ini, tar.tar_tiempo_fin, 
-        tar.tar_intera_ini, tar.tar_intera_fin, tar.tar_politica_tipo, tar.tar_politica_motivo, tar.tar_politica_fecha,tar.tar_politica_difusion
+        tar.tar_intera_ini, tar.tar_intera_fin
 from tarea tar, institucion ins, categoria cat, sector sec
 where tar.ins_id = ins.ins_id 
 and cat.cat_id = tar.cat_id 
@@ -238,6 +237,24 @@ and sec.sec_id = ins.sec_id
 and tar.ins_id = ins.ins_id 
 and usu.usu_id = acc.usu_id 
 and tar.tar_id = '$tar_id_detalle' order by acc_fecharegistro desc
+
+";
+        //echo "<br>".$sql;
+        $dataReader = $this->connection->createCommand($sql)->query();
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
+
+
+    public function getReformaLegal() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //$id_usuario = $modelUser['usu_id'];
+        $tar_id = $_GET['tar_id'];
+        
+        $sql = "select rl.rl_id, rl.rl_cuerpo, rl.rl_fecha, rl.rl_difusion, rl.tar_id, rl.rl_tipo, rl.rl_motivo
+from ref_legal rl, tarea tar
+where rl.tar_id = tar.tar_id 
+and tar.tar_id = '$tar_id' order by rl_cuerpo desc
 
 ";
         //echo "<br>".$sql;
@@ -376,6 +393,28 @@ and tain.tar_id = '$tar_id' order by ind.ind_nombre";
         if ($tar_estandar ==2){echo "Levantamiento - Optimización";}
         if ($tar_estandar ==3){echo "Reforma Legal";}
         if ($tar_estandar ==4){echo "Interoperabilidad";}
+        
+    }
+
+    public function getTipoRl($rl_tipo) {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //$id_usuario = $modelUser['usu_id'];
+        //$usu_id = $this->_datosUser->usu_id;
+        if ($rl_tipo ==1){echo "Leyes y normas con fuerza o condición de ley";}
+        if ($rl_tipo ==2){echo "Decretos";}
+        if ($rl_tipo ==3){echo "Reforma Legal";}
+        if ($rl_tipo ==4){echo "Normas administrativas";}
+        
+    }
+
+    public function getMotivo($rl_motivo) {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //$id_usuario = $modelUser['usu_id'];
+        //$usu_id = $this->_datosUser->usu_id;
+        if ($rl_motivo ==1){echo "Eliminación del trámite";}
+        if ($rl_motivo ==2){echo "Simplificación de requisitos";}
+        if ($rl_motivo ==3){echo "Disminución tiempo de respuesta y/o interacciones";}
+        if ($rl_motivo ==4){echo "Mejoramiento de procesos internos";}
         
     }
     

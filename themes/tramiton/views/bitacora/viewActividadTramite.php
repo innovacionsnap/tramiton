@@ -128,56 +128,7 @@
                                             ?>
                                             </td>
                                         </tr>
-                                        <tr class="highlight">
-                                            <td class="field">Cuerpo Legal:</td>
-                                            <td><?php echo $datosTarea_Actividad_detalle["tar_politica"] ?>
-                                                 
-                                            <?php
-                                                $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&accion=2');
-                                                echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle"></i></button>', array('bitacora/actividadTramiteEdit/?'.$id), array('title' => 'Editar Reforma Legal'));
-                                            ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="field">Tipo:</td>
-                                            <td><?php echo $datosTarea_Actividad_detalle["tar_politica_tipo"] ?>
-                                                
-                                            <?php
-                                                $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&accion=2');
-                                                echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle"></i></button>', array('bitacora/actividadTramiteEdit/?'.$id), array('title' => 'Editar Reforma Legal'));
-                                            ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="field">Motivo:</td>
-                                            <td><?php echo $datosTarea_Actividad_detalle["tar_politica_motivo"] ?>
-                                                 
-                                            <?php
-                                                $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&accion=2');
-                                                echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle"></i></button>', array('bitacora/actividadTramiteEdit/?'.$id), array('title' => 'Editar Reforma Legal'));
-                                            ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="field">Fecha:</td>
-                                            <td><?php echo $datosTarea_Actividad_detalle["tar_politica_fecha"] ?>
-                                                
-                                            <?php
-                                                $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&accion=2');
-                                                echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle"></i></button>', array('bitacora/actividadTramiteEdit/?'.$id), array('title' => 'Editar Reforma Legal'));
-                                            ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="field">Difusión:</td>
-                                            <td><?php echo $datosTarea_Actividad_detalle["tar_politica_difusion"] ?>
-                                                 
-                                            <?php
-                                                $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&accion=2');
-                                                echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle"></i></button>', array('bitacora/actividadTramiteEdit/?'.$id), array('title' => 'Editar Reforma Legal'));
-                                            ?>
-                                            </td>
-                                        </tr>
+                                       
                                        
                                         <tr class= "highlight">
                                             <td class="field">Estratégia</td>
@@ -305,103 +256,7 @@
 
                                     </tbody>
 
-                                    
-                                        <table class="table table-hover">
-                                            <thead>
-                                                    <tr>
-                                                        <td>
-                                                       
-                                                        <h4>Actividades</h4>
-                                                       
-                                                            <!-- <a href="actividad_detalle/?tar_id=<?php // echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="btn btn-info actividad" role="button">
-                                                            <li class="fa fa-plus-circle">&nbsp;&nbsp;</li>Añadir</a> -->
-
-                                                        <?php
-                                                            $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"]);
-                                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle (alias)"></i> Añadir</button>', array('bitacora/actividad_detalle/?'.$id), array('title' => 'Añadir'));
-                                                        ?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    <th>Nombre</th>
-                                                    <th>Descripción</th>
-                                                    <th>Estado</th>
-                                                    <th>Nivel</th>
-                                                    <th>Fecha Registro</th>
-                                                    <th>Elaborado Por:</th>
-                                                    <th>Acciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>    
-                                                 <?php  foreach ($datosActividad as $datosActividad_detalle) {?>
-                                                <tr class="odd gradeA">
-                                                   
-                                                    <td>
-                                                        <?php  echo $datosActividad_detalle["acc_nombre"] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php  echo $datosActividad_detalle["acc_descripcion"] ?>
-                                                    </td>
-                                                    
-                                                    <td>
-                                                    
-                                                    <?php  
-                                                        if ($datosActividad_detalle["acc_estado"]==1){?>
-                                                            
-                                                            <div><span style="background-color: green;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                                                        <?php 
-                                                        }
-                                                        elseif ($datosActividad_detalle["acc_estado"]==2){ ?>
-                                                            <div><span style="background-color: orange;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                                                        <?php
-                                                        }
-                                                        if ($datosActividad_detalle["acc_estado"]==3){ ?>
-                                                            <div><span style="background-color: red;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-                                                        <?php 
-                                                        }
-
-                                                    
-                                                        # code...
-                                                     ?>
-                                                    <td>
-                                                        <?php   echo $datosActividad_detalle["acc_nivel"] ?>%
-                                                    </td>
-                                                 
-                                                    <td>
-                                                        <?php  echo $datosActividad_detalle["acc_fecharegistro"] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php  echo $datosActividad_detalle["usu_nombre"] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php 
-                                                         //$id = $datosActividad_detalle["acc_id"];
-                                                         //$id2 = $datosTarea_Actividad_detalle['tar_id'];
-                                                         if ( $datosActividad_detalle["acc_nivel"] == 100 ){
-                                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-smile-o (alias)"></i> Finalizado</button>', array('title' => 'Finalizado'));
-                                                         }else{
-                                                            $id = Empresa::model()->codificaGet('acc_id='. $datosActividad_detalle["acc_id"].'&'.'tar_id='. $datosActividad_detalle["tar_id"].'&'.'tramite=1');
-                                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-edit (alias)"></i> Editar</button>', array('bitacora/actividad_detalle/?'.$id), array('title' => 'Editar'));
-                                                         }
-
-                                                          
-                                                        ?>
-                                                       <!--  <a href="actividad_detalle?tar_id=<?php //echo  $datosTarea_Actividad_detalle['tar_id'] ?>&acc_id=<?php  //echo $datosActividad_detalle["acc_id"] ?>" class="btn btn-inverse active btn-xs m-r-5" role="button">
-                                                            <li class="fa fa-plus-circle">&nbsp;&nbsp;</li>Mostrar</a> -->
-                                                    </td>
-                                                 
-                                                </tr>
-                                                  <?php 
-                                                    } 
-                                                    ?>
-
-                                        </table>
-                                                  
-                                            </td>
-                                        </tr> 
-                                    
-                                </table>
+                                       
                             </div>
                             <!-- end table -->
                         </div>
@@ -410,10 +265,195 @@
                     <!-- end profile-right -->
                 </div>
                 <!-- end profile-section -->
-                
+
             </div>
             <!-- end profile-container -->
             <!-- fin view -->
+
+             <!-- BEGIN TABLA DE REFORMA LEGAL -->
+
+                    <table class="table table-hover">
+                        <thead>
+                                <tr>
+                                    <td>
+                                   
+                                    <h4>Reforma Legal</h4>
+                                   
+                                        <!-- <a href="actividad_detalle/?tar_id=<?php // echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="btn btn-info actividad" role="button">
+                                        <li class="fa fa-plus-circle">&nbsp;&nbsp;</li>Añadir</a> -->
+
+                                    <?php
+                                        $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"]);
+                                        echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle (alias)"></i> Añadir</button>', array('bitacora/reforma_legal/?'.$id), array('title' => 'Añadir'));
+                                    ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                <th>Cuerpo Legal</th>
+                                <th>Tipo</th>
+                                <th>Motivo</th>
+                                <th>Fecha</th>
+                                <th>Difusión</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>    
+                             <?php  foreach ($datosReforma as $datosReforma_d) {?>
+                            <tr class="odd gradeA">
+                               
+                                <td>
+                                    <?php  echo $datosReforma_d["rl_cuerpo"] ?>
+                                </td>
+                                <td>
+                                    <?php // echo $datosReforma_d["rl_tipo"];
+
+                                    $model=Bitacora::model();
+                                    $nombreTramite=$model->getTipoRl($datosReforma_d["rl_tipo"]);
+
+
+                                     ?>
+                                </td>
+                                
+                                <td>
+                                    <?php   //echo $datosReforma_d["rl_motivo"] ;
+
+                                     $model=Bitacora::model();
+                                    $nombreTramite=$model->getMotivo($datosReforma_d["rl_motivo"]);
+                                    ?>
+                                </td>
+                             
+                                <td>
+                                    <?php  echo $datosReforma_d["rl_fecha"] ?>
+                                </td>
+                                 <td>
+                                    <?php  echo $datosReforma_d["rl_difusion"] ?>
+                                </td>
+                                <td>
+                                    <?php 
+                                     // //$id = $datosActividad_detalle["acc_id"];
+                                     // //$id2 = $datosTarea_Actividad_detalle['tar_id'];
+                                     // if ( $datosActividad_detalle["acc_nivel"] == 100 ){
+                                     //    echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-smile-o (alias)"></i> Finalizado</button>', array('title' => 'Finalizado'));
+                                     // }else{
+                                     //    $id = Empresa::model()->codificaGet('acc_id='. $datosActividad_detalle["acc_id"].'&'.'tar_id='. $datosActividad_detalle["tar_id"].'&'.'tramite=1');
+                                     //    echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-edit (alias)"></i> Editar</button>', array('bitacora/actividad_detalle/?'.$id), array('title' => 'Editar'));
+                                     // }
+
+                                      
+                                    ?>
+                                   <!--  <a href="actividad_detalle?tar_id=<?php //echo  $datosTarea_Actividad_detalle['tar_id'] ?>&acc_id=<?php  //echo $datosActividad_detalle["acc_id"] ?>" class="btn btn-inverse active btn-xs m-r-5" role="button">
+                                        <li class="fa fa-plus-circle">&nbsp;&nbsp;</li>Mostrar</a> -->
+                                </td>
+                             
+                            </tr>
+                              <?php 
+                                } 
+                                ?>
+
+                    </table>
+
+
+
+                    <!-- END TABLA DE REFORMA LEGAL -->
+
+                
+                    <table class="table table-hover">
+                        <thead>
+                                <tr>
+                                    <td>
+                                   
+                                    <h4>Actividades</h4>
+                                   
+                                        <!-- <a href="actividad_detalle/?tar_id=<?php // echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="btn btn-info actividad" role="button">
+                                        <li class="fa fa-plus-circle">&nbsp;&nbsp;</li>Añadir</a> -->
+
+                                    <?php
+                                        $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"]);
+                                        echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle (alias)"></i> Añadir</button>', array('bitacora/actividad_detalle/?'.$id), array('title' => 'Añadir'));
+                                    ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Estado</th>
+                                <th>Nivel</th>
+                                <th>Fecha Registro</th>
+                                <th>Elaborado Por:</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>    
+                             <?php  foreach ($datosActividad as $datosActividad_detalle) {?>
+                            <tr class="odd gradeA">
+                               
+                                <td>
+                                    <?php  echo $datosActividad_detalle["acc_nombre"] ?>
+                                </td>
+                                <td>
+                                    <?php  echo $datosActividad_detalle["acc_descripcion"] ?>
+                                </td>
+                                
+                                <td>
+                                
+                                <?php  
+                                    if ($datosActividad_detalle["acc_estado"]==1){?>
+                                        
+                                        <div><span style="background-color: green;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                                    <?php 
+                                    }
+                                    elseif ($datosActividad_detalle["acc_estado"]==2){ ?>
+                                        <div><span style="background-color: orange;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                                    <?php
+                                    }
+                                    if ($datosActividad_detalle["acc_estado"]==3){ ?>
+                                        <div><span style="background-color: red;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                                    <?php 
+                                    }
+
+                                
+                                    # code...
+                                 ?>
+                                <td>
+                                    <?php   echo $datosActividad_detalle["acc_nivel"] ?>%
+                                </td>
+                             
+                                <td>
+                                    <?php  echo $datosActividad_detalle["acc_fecharegistro"] ?>
+                                </td>
+                                <td>
+                                    <?php  echo $datosActividad_detalle["usu_nombre"] ?>
+                                </td>
+                                <td>
+                                    <?php 
+                                     //$id = $datosActividad_detalle["acc_id"];
+                                     //$id2 = $datosTarea_Actividad_detalle['tar_id'];
+                                     if ( $datosActividad_detalle["acc_nivel"] == 100 ){
+                                        echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-smile-o (alias)"></i> Finalizado</button>', array('title' => 'Finalizado'));
+                                     }else{
+                                        $id = Empresa::model()->codificaGet('acc_id='. $datosActividad_detalle["acc_id"].'&'.'tar_id='. $datosActividad_detalle["tar_id"].'&'.'tramite=1');
+                                        echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-edit (alias)"></i> Editar</button>', array('bitacora/actividad_detalle/?'.$id), array('title' => 'Editar'));
+                                     }
+
+                                      
+                                    ?>
+                                   <!--  <a href="actividad_detalle?tar_id=<?php //echo  $datosTarea_Actividad_detalle['tar_id'] ?>&acc_id=<?php  //echo $datosActividad_detalle["acc_id"] ?>" class="btn btn-inverse active btn-xs m-r-5" role="button">
+                                        <li class="fa fa-plus-circle">&nbsp;&nbsp;</li>Mostrar</a> -->
+                                </td>
+                             
+                            </tr>
+                              <?php 
+                                } 
+                                ?>
+
+                    </table>
+                              
+                        </td>
+                    </tr> 
+                
+            </table>
         </div>
         <!-- end #content -->
         

@@ -203,12 +203,12 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                               <label>Pendiente</label>
-                                              <input type="text" id = "nombre_tarea" onkeyup = "Validate(this)" name="nombre_tarea"data-parsley-range="[2,200]" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-2" required />
+                                              <input type="text" id = "nombre_tarea" onkeyup = "Validate(this)" name="nombre_tarea"data-parsley-range="[2,300]" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-2" required />
 
                                             </div>
                                             <div class="form-group">
                                               <label>Quipux / Correo</label>
-                                                <input type="text" id = "descripcion_tarea" onkeyup = "Validate(this)" name="descripcion_tarea" data-parsley-range="[2,200]" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-2" required />
+                                                <input type="text" id = "descripcion_tarea" onkeyup = "Validate(this)" name="descripcion_tarea" data-parsley-range="[2,500]" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-2" required />
 
                                             </div>
 
