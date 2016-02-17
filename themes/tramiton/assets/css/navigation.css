@@ -2,12 +2,15 @@
 #home{
     padding-top: 206px !important;
 }
-#que_es_tramiton, #estadisticas{
+/*#que_es_tramiton{
+    padding-top: 156px !important;
+}
+#estadisticas{
     padding-top: 156px !important;
 }
 #noticias-1{
     margin-bottom: 160px;
-}
+}*/
 
 html{
     max-width: 1200px !important;
