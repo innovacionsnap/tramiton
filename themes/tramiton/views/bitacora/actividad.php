@@ -222,7 +222,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                             </div>
                                             <label>Resolución / Comentarios</label>
                                             <div class="controls">
-                                                 <textarea class="form-control" id="meta_tarea" onkeyup = "Validate(this)" name="meta_tarea" rows="4" data-parsley-range="[20,500]" placeholder="Escribir aqui" data-parsley-group="wizard-step-2" required></textarea>
+                                                 <textarea class="form-control" id="meta_tarea" onkeyup = "Validate(this)" name="meta_tarea" rows="4" data-parsley-range="[20,1000]" placeholder="Escribir aqui" data-parsley-group="wizard-step-2" required></textarea>
                                             </div>
                                      
 

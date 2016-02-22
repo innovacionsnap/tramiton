@@ -45,7 +45,8 @@ class BitacoraController extends Controller {
                     'problemaTramite',
                     'ActividadTramiteEdit',
                     'Indicadores',
-                    'Reforma_Legal'
+                    'Reforma_Legal',
+                    'RegistroReforma'
                     ),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano', 'bitacora'),
@@ -868,16 +869,17 @@ class BitacoraController extends Controller {
 
 
 
-        if (isset($_POST['inserta_accion'])) {
+        if (isset($_POST['inserta_reforma'])) {
             $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
             $id_usuario = $modelUser['usu_id'];
             $tar_id = $_POST['tar_id'];
 
-            $nombre_actividad = $_POST["nombre_actividad"];
-            $estado_actividad = $_POST["estado_actividad"];
-            $descripcion_actividad = $_POST["descripcion_actividad"];
-            $nivel_actividad = $_POST["nivel_actividad"];
+            $cuerpo_legal = $_POST["cuerpo_legal"];
+            $motivo_reforma = $_POST["motivo_reforma"];
+            $tipo_reforma = $_POST["tipo_reforma"];
+            $difusion_reforma = $_POST["difusion_reforma"];
             
+
 
             //echo $id_categoria;
            
@@ -891,24 +893,22 @@ class BitacoraController extends Controller {
                 
                
 
-                $model_accion = new Accion();
+                $model_accion = new RefLegal();
 
-                $model_accion ->acc_nombre = $nombre_actividad;
-                $model_accion ->acc_descripcion = $descripcion_actividad;
-                $model_accion ->acc_fechainicio = $hoy;
-                $model_accion ->acc_fechafin = $hoy;
-                $model_accion ->acc_fecharegistro = $hoy;
-                $model_accion ->acc_estado = $estado_actividad;
-                $model_accion ->tar_id = $tar_id ;
-                $model_accion ->usu_id = $id_usuario;
-                $model_accion ->acc_nivel = $nivel_actividad;
+                $model_accion ->rl_cuerpo = $cuerpo_legal;
+                $model_accion ->rl_fecha = $hoy;
+                $model_accion ->tar_id = $tar_id;
+                $model_accion ->rl_tipo = $tipo_reforma;
+                $model_accion ->rl_motivo = $motivo_reforma;
+                $model_accion ->rl_difusion = $difusion_reforma;
+           
                 
                 $model_accion -> save();
 
                 
                 $transaction->commit();
                 //header('Location:'.Yii::app()->baseURL.'/bitacora/actividad_detalle?tar_id='.$tar_id.'');
-                header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividad/?tar_id='.$tar_id);
+                header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividadTramite/?tar_id='.$tar_id);
                 
             } catch (Exception $e) {
                 echo $e;

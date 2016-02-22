@@ -17,15 +17,20 @@ $tar_id = $_GET['tar_id'];
 //$acc_id = $_GET['acc_id'];
 
 
-if(isset($_GET['acc_id'])){
+if(isset($_GET['reforma_id'])){
 
-    $acc_id = $_GET['acc_id'];
+    $rl_id = $_GET['reforma_id'];
     $tramite = $_GET['tar_id'];
-    $modelaccion = Accion::model()->findByPk($acc_id);
-    $nombre_accion = $modelaccion["acc_nombre"];
-    $descripcion_accion = $modelaccion["acc_descripcion"];
-    $estado = $modelaccion["acc_estado"];
-    $nivel = $modelaccion["acc_nivel"];
+    $modelaccion = RefLegal::model()->findByPk($rl_id);
+    $rl_cuerpo = $modelaccion["rl_cuerpo"];
+    $rl_fecha = $modelaccion["rl_fecha"];
+    $rl_tipo = $modelaccion["rl_tipo"];
+    $rl_motivo = $modelaccion["rl_motivo"];
+    $rl_difusion = $modelaccion["rl_difusion"];
+
+    // $descripcion_accion = $modelaccion["acc_descripcion"];
+    // $estado = $modelaccion["acc_estado"];
+    // $nivel = $modelaccion["acc_nivel"];
     //$nivel_color = "";
 
    
@@ -85,7 +90,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <div class="panel-body">
 
 
-                    <form action="<?php echo Yii::app()->BaseUrl?>/bitacora/registroaccion" method="POST" data-parsley-validate="true" name="form-wizard">
+                    <form action="<?php echo Yii::app()->BaseUrl?>/bitacora/RegistroReforma" method="POST" data-parsley-validate="true" name="form-wizard">
                          <!-- begin wizard step-1 -->
                             <div>
                                 <fieldset>
@@ -96,7 +101,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Cuerpo Legal</label>
-                                                <textarea class="form-control" id = "cuerpo_legal" onkeyup = "Validate(this)" name="cuerpo_legal" rows="4" data-parsley-range="[20,200]" placeholder="Detalle actividad" required><?php if(isset($_GET['acc_id'])){ echo $descripcion_accion; } ?></textarea>
+                                                <textarea class="form-control" id = "cuerpo_legal" onkeyup = "Validate(this)" name="cuerpo_legal" rows="4" data-parsley-range="[20,200]" placeholder="Detalle actividad" required><?php if(isset($_GET['reforma_id'])){ echo $rl_cuerpo; } ?></textarea>
                                            </div>
                                         </div>
                                         <!-- end col-12 -->
@@ -105,10 +110,10 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Tipo</label>
-                                                <select class='form-control'  name='nivel_actividad' id='nivel_actividad' required>";
+                                                <select class='form-control'  name='tipo_reforma' id='tipo_reforma' required>";
                                                     <option value='' >Selecciona un tipo</option>
-                                                    <option <?php if(isset($_GET['acc_id'])){?>value = "<?php echo $nivel; ?>" selected = "selected" <?php } ?> >
-                                                        <?php if(isset($_GET['acc_id'])){ echo $nivel." %";}?></option> 
+                                                    <option <?php if(isset($_GET['reforma_id'])){?>value = "<?php echo $rl_tipo; ?>" selected = "selected" <?php } ?> >
+                                                        <?php if(isset($_GET['reforma_id'])){ echo $rl_tipo;}?></option> 
                                                     <option value="1"  >Leyes y normas con fuerza o condición de ley</option>
                                                     <option value="2" >Decretos</option>
                                                     <option value="3" >Normas administrativas</option>
@@ -121,10 +126,10 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Motivo Reforma</label>
-                                                <select class='form-control'  name='nivel_actividad' id='nivel_actividad' required>";
+                                                <select class='form-control'  name='motivo_reforma' id='motivo_reforma' required>";
                                                     <option value='' >Selecciona un motivo</option>
-                                                    <option <?php if(isset($_GET['acc_id'])){?>value = "<?php echo $nivel; ?>" selected = "selected" <?php } ?> >
-                                                        <?php if(isset($_GET['acc_id'])){ echo $nivel." %";}?></option> 
+                                                    <option <?php if(isset($_GET['reforma_id'])){?>value = "<?php echo $rl_motivo; ?>" selected = "selected" <?php } ?> >
+                                                        <?php if(isset($_GET['reforma_id'])){ echo $rl_motivo;}?></option> 
 
                                                     <option value="1" >Eliminación del trámite</option>
                                                     <option value="2" >Simplificación de requisitos</option>
@@ -140,7 +145,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                         <div class="col-md-6">
                                          <label>Fecha Inicio / Cierre</label>
                                             <div class="input-group input-daterange">
-                                                <input type="text" class="form-control" name="start" placeholder="Fecha Inicio" />
+                                                <input type="text" class="form-control" name="start" placeholder="Fecha Inicio" value = "<?php if(isset($_GET['reforma_id'])){ echo $rl_fecha; } ?>" />
                                                 <span class="input-group-addon">a</span>
                                                 <input type="text" class="form-control" name="end" placeholder="Fecha Cierre" />
                                             </div>
@@ -151,12 +156,12 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                              <label>Difusición</label>
                                          <div class="radio">
                                             <label>
-                                                <input type="radio" name="radiorequired" value="1" id="radio-required" data-parsley-required="true" />Si
+                                                <input type="radio" name="difusion_reforma" value="1" id="difusion_reforma" value="1" <?php if(isset($_GET['reforma_id'])){ if($rl_difusion==1){echo "checked";} } ?> />Si
                                             </label>
                                         </div>
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="radiorequired" value="2" id="radio-required2" value="bar" /> No
+                                                <input type="radio" name="difusion_reforma" value="2" id="difusion_reforma" value="0" <?php if(isset($_GET['reforma_id'])){ if($rl_difusion==0){echo "checked";} } ?> /> No
                                             </label>
                                         </div>
                                         </div>
@@ -183,7 +188,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 
                                 ?>
                                     <input type="hidden" name="tar_id" value="<?php echo $tar_id?>">
-                                    <input type="hidden" name="inserta_accion" value="1">
+                                    <input type="hidden" name="inserta_reforma" value="1">
 
                                 <?php
                                      }

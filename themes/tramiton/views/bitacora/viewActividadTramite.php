@@ -331,14 +331,10 @@
                                 </td>
                                 <td>
                                     <?php 
-                                     // //$id = $datosActividad_detalle["acc_id"];
-                                     // //$id2 = $datosTarea_Actividad_detalle['tar_id'];
-                                     // if ( $datosActividad_detalle["acc_nivel"] == 100 ){
-                                     //    echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-smile-o (alias)"></i> Finalizado</button>', array('title' => 'Finalizado'));
-                                     // }else{
-                                     //    $id = Empresa::model()->codificaGet('acc_id='. $datosActividad_detalle["acc_id"].'&'.'tar_id='. $datosActividad_detalle["tar_id"].'&'.'tramite=1');
-                                     //    echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-edit (alias)"></i> Editar</button>', array('bitacora/actividad_detalle/?'.$id), array('title' => 'Editar'));
-                                     // }
+                                     
+                                         $id = Empresa::model()->codificaGet('reforma_id='. $datosReforma_d["rl_id"].'&'.'tar_id='. $datosReforma_d["tar_id"].'&'.'reforma=1');
+                                         echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-edit (alias)"></i> Editar</button>', array('bitacora/reforma_legal/?'.$id), array('title' => 'Editar'));
+                                 
 
                                       
                                     ?>
