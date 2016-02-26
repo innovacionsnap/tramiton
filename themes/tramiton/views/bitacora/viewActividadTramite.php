@@ -15,7 +15,7 @@
 });
 
   $(document).ready(function() {
-    $(".actividad").fancybox({
+    $(".interopera").fancybox({
         'titleShow'         : false,
         'width'             : '65%',
         'height'            : '65%',
@@ -91,7 +91,8 @@
                                                 <small><strong>Elaborado por:</strong> 
                                                     <?php 
                                                      foreach ($datosTarea_Generador as $datosTarea_Generador_detalle)
-                                                        echo $datosTarea_Generador_detalle["usu_nombre"]." &nbsp; Fecha:".$datosTarea_Generador_detalle["tar_fecharegistro"] ;
+                                                        echo $datosTarea_Generador_detalle["usu_nombre"]." &nbsp; <br><strong>Fecha Registro:</strong>".$datosTarea_Generador_detalle["tar_fecharegistro"] ;
+                                                        echo "<br><strong>Fecha Cierre:</strong>&nbsp;&nbsp;&nbsp;&nbsp;".$datosTarea_Actividad_detalle["tar_fechafin"];
                                                     
                                                     ?></small>
                                                </th>
@@ -119,8 +120,7 @@
                                         <tr>
                                             <td class="field">Problema</td>
                                             <td><?php echo $datosTarea_Actividad_detalle["tar_descripcion"] ?>
-                                                 <a href="actividadTramiteEdit?tar_id=<?php echo  $datosTarea_Actividad_detalle['tar_id']?>&accion=1" class="" title="Problema">
-                                            <li class="fa fa-plus-circle"></li></a>
+                                                 
 
                                             <?php
                                                 $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&accion=1');
@@ -160,8 +160,7 @@
                                          <tr>
                                             <td class="field">Meta</td>
                                             <td><?php echo $datosTarea_Actividad_detalle["tar_meta"] ?>
-                                                 <a href="Participantes?tar_id=<?php echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="solucion" title="Añadir Paricipantes">
-                                            <li class="fa fa-plus-circle"></li></a>
+                                                 
                                             <?php
                                                 $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&accion=5');
                                                 echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle"></i></button>', array('bitacora/actividadTramiteEdit/?'.$id), array('title' => 'Editar Reforma Legal'));
@@ -170,6 +169,23 @@
                                         </tr>
                                         
                                         <?php } ?>
+
+                                          <tr>
+                                            <td class="field">Interoperabilidad</td>
+                                            <td>
+                                                <?php 
+                                            foreach ($datosInteropera as $datosInteroperaD){
+                                                 echo $datosInteroperaD["ins_nombre"]." / ";
+                                             } 
+                                        ?> 
+                                            
+                                            <a href="interopera?tar_id=<?php echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="interopera" title="Añadir Paricipantes">
+                                            <li class="fa fa-plus-circle"></li></a>
+                                               
+                                            
+
+                                            </td>
+                                        </tr>
                                          <tr>
                                             <td class="field">Cumplimiento</td>
 
@@ -292,7 +308,7 @@
                                 <th>Cuerpo Legal</th>
                                 <th>Tipo</th>
                                 <th>Motivo</th>
-                                <th>Fecha</th>
+                                <th>Fecha Emision</th>
                                 <th>Difusión</th>
                                 <th>Acciones</th>
                             </tr>
@@ -327,7 +343,7 @@
                                     <?php  echo $datosReforma_d["rl_fecha"] ?>
                                 </td>
                                  <td>
-                                    <?php  echo $datosReforma_d["rl_difusion"] ?>
+                                    <?php if ($datosReforma_d["rl_difusion"]==1){ echo "Si";} if ($datosReforma_d["rl_difusion"]==2){ echo "No";} ?>
                                 </td>
                                 <td>
                                     <?php 
@@ -361,11 +377,9 @@
                                    
                                     <h4>Actividades</h4>
                                    
-                                        <!-- <a href="actividad_detalle/?tar_id=<?php // echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="btn btn-info actividad" role="button">
-                                        <li class="fa fa-plus-circle">&nbsp;&nbsp;</li>Añadir</a> -->
 
                                     <?php
-                                        $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"]);
+                                        $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&'.'acc_tipo=2'.'&'.'accion=insert');
                                         echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle (alias)"></i> Añadir</button>', array('bitacora/actividad_detalle/?'.$id), array('title' => 'Añadir'));
                                     ?>
                                     </td>
@@ -424,12 +438,11 @@
                                 </td>
                                 <td>
                                     <?php 
-                                     //$id = $datosActividad_detalle["acc_id"];
-                                     //$id2 = $datosTarea_Actividad_detalle['tar_id'];
+                                     
                                      if ( $datosActividad_detalle["acc_nivel"] == 100 ){
                                         echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-smile-o (alias)"></i> Finalizado</button>', array('title' => 'Finalizado'));
                                      }else{
-                                        $id = Empresa::model()->codificaGet('acc_id='. $datosActividad_detalle["acc_id"].'&'.'tar_id='. $datosActividad_detalle["tar_id"].'&'.'tramite=1');
+                                        $id = Empresa::model()->codificaGet('acc_id='. $datosActividad_detalle["acc_id"].'&'.'tar_id='. $datosActividad_detalle["tar_id"].'&'.'acc_tipo=2'.'&'.'accion=edit');
                                         echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-edit (alias)"></i> Editar</button>', array('bitacora/actividad_detalle/?'.$id), array('title' => 'Editar'));
                                      }
 

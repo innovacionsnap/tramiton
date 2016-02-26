@@ -13,8 +13,10 @@ include("config.inc.php");
 $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
 $id_usuario = $modelUser['usu_id'];
 $tar_id = $_GET['tar_id'];
+$accion = $_GET['accion'];
+$acc_tipo = $_GET['acc_tipo'];
 
-//$acc_id = $_GET['acc_id'];
+
 
 
 if(isset($_GET['acc_id'])){
@@ -161,33 +163,60 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                     <!-- end row -->
                                 </fieldset>
                                 
-                             
+                               
                                 <input type="submit" value="Enviar y Guardar" class="btn btn-success btn-lg">
-                                
-                                
-                                <?php 
-                                    if(isset($_GET['acc_id'])){ ?>
 
-                                    <input type="hidden" name="editar_accion" value ="1">
-                                    <input type="hidden" name="tar_id" value="<?php echo $tar_id?>">
-                                    <input type="hidden" name="acc_id" value ="<?php if(isset($_GET['acc_id'])){ echo $acc_id; }?>">
-                                    <!-- <input type="hidden" name="tramite" value ="<?php if(isset($_GET['acc_id'])){ echo "1"; }?>"> -->
 
                                 <?php 
-                                     }else{
+                                    // insert 1 y 2
+                                if($accion=='insert' and $acc_tipo==1){?>
 
-                                ?>
-                                    <input type="hidden" name="tar_id" value="<?php echo $tar_id?>">
-                                    <input type="hidden" name="inserta_accion" value="1">
+                                    <input type="hidden" name="insert" value="1">
+                                    <input type="hidden" name="acc_tipo" value="<?php echo $acc_tipo?>">
+                                    <input type="hidden" name="tar_id" value="<?php echo $tar_id ?>">
 
                                 <?php
-                                     }
+                                }
+
+                                if($accion=='insert' and $acc_tipo==2){ ?>
+
+                                    <input type="hidden" name="insert" value="1">
+                                    <input type="hidden" name="acc_tipo" value="<?php echo $acc_tipo?>">
+                                    <input type="hidden" name="tar_id" value="<?php echo $tar_id ?>">
+
+                                <?php 
+                                }
+                              
+
+
+                                    // edit 1 y 2
+                                if($accion=='edit' and $acc_tipo==1){?>
+
+                                    
+                                    <input type="hidden" name="edit" value="1">
+                                    <input type="hidden" name="acc_tipo" value="<?php echo $acc_tipo?>">
+                                    <input type="hidden" name="tar_id" value="<?php echo $tar_id ?>">
+                                    <input type="hidden" name="acc_id" value="<?php echo $acc_id ?>">
+
+                                <?php
+                                }
+
+                                if($accion=='edit' and $acc_tipo==2){ ?>
+
+                                    <input type="hidden" name="edit" value="1">
+                                    <input type="hidden" name="acc_tipo" value="<?php echo $acc_tipo?>">
+                                    <input type="hidden" name="tar_id" value="<?php echo $tar_id ?>">
+                                    <input type="hidden" name="acc_id" value="<?php echo $acc_id ?>">
+
+                                <?php 
+                                }
                                 ?>
                                 
+
                                 
-                                <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
-                                <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
-                            </div>
+                                
+                               
+                             </div>
                             <!-- end wizard step-1 -->
                     </form>
                 </div>

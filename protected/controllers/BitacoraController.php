@@ -38,6 +38,7 @@ class BitacoraController extends Controller {
                     'IngresaAccion',
                     'ActividadTramite',
                     'actividad_detalle_ver',
+                    'interopera',
                     //tramites
                     'indexTramite',
                     'RegistroTramite',
@@ -46,7 +47,9 @@ class BitacoraController extends Controller {
                     'ActividadTramiteEdit',
                     'Indicadores',
                     'Reforma_Legal',
-                    'RegistroReforma'
+                    'RegistroReforma',
+                    'RegistroInteropera',
+                    'EliminarInteropera'
                     ),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano', 'bitacora'),
@@ -143,6 +146,7 @@ class BitacoraController extends Controller {
         $datosTarea_Participantes = $model->getTarea_Participantes();
         $datosTarea_Generador = $model->getTarea_Creador();        
         $datosActividad = $model->getActividad();
+        $datosInteropera = $model->getInteropera();
         $datosReforma = $model->getReformaLegal();
         $datosPermiso_Participantes = $model ->getPermiso_Participantes();
         $datosIndicador = $model-> getIndicadores();
@@ -151,7 +155,7 @@ class BitacoraController extends Controller {
         
         $this->_datosUser = $modelUser;
         $this->render('viewActividadTramite',compact('datosTarea_Actividad','datosTarea_Participantes', 'datosActividad','datosTarea_Generador'
-            ,'datosPermiso_Participantes','datosIndicador','datosReforma'),false,true);
+            ,'datosPermiso_Participantes','datosIndicador','datosReforma','datosInteropera'),false,true);
       
     }
 
@@ -163,6 +167,7 @@ class BitacoraController extends Controller {
         
         $datosTarea_Actividad = $model->getTarea_Actividad();
         $datosTarea_Participantes = $model->getTarea_Participantes();
+        $datosInteropera = $model->getInteropera();
         $datosTarea_Generador = $model->getTarea_Creador();        
         $datosActividad = $model->getActividad();
         $datosPermiso_Participantes = $model ->getPermiso_Participantes();
@@ -170,7 +175,7 @@ class BitacoraController extends Controller {
         $this->layout = 'main-admin_form_caso';
         
         $this->_datosUser = $modelUser;
-        $this->render('viewActividad',compact('datosTarea_Actividad','datosTarea_Participantes', 'datosActividad','datosTarea_Generador','datosPermiso_Participantes'),false,true);
+        $this->render('viewActividad',compact('datosTarea_Actividad','datosTarea_Participantes', 'datosActividad','datosTarea_Generador','datosPermiso_Participantes','datosInteropera'),false,true);
       
     }
 
@@ -181,6 +186,16 @@ class BitacoraController extends Controller {
         $datosTarea_Participantes = $model->getTarea_Participantes();
         $this->_datosUser = $modelUser;
         $this->render('participantes',compact('datosTarea_Participantes'),false,true);
+        //$this->render('formulario');
+    }
+
+    public function actionInteropera() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //creo una instancia del modelo Bitacora
+        $model = new Bitacora();
+        $datosInteropera = $model->getInteropera();
+        $this->_datosUser = $modelUser;
+        $this->render('interopera',compact('datosInteropera'),false,true);
         //$this->render('formulario');
     }
 
@@ -510,6 +525,8 @@ class BitacoraController extends Controller {
         
     }
 
+
+
     // eliminar participantes
     public function actionEliminarParticipante() {
         $eliminar_participante = $_POST['eliminar_participante'];
@@ -544,26 +561,108 @@ class BitacoraController extends Controller {
         
     }
 
+    // registro interoperabilidad
+
+    public function actionRegistroInteropera() {
+        $interopera = $_POST['interopera'];
+        //echo $interopera;
+        
+
+        if (isset($interopera)) {
+            $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+            //$id_usuario = $modelUser['usu_id'];
+
+            $id_institucion = $_POST['id_institucion'];
+            $tar_id = $_POST['tar_id'];
+
+            
+
+            //echo $id_categoria;
+           
+
+            $hoy = date("Y-m-d");
+
+            $conexion = Yii::app()->db;
+            $transaction = $conexion->beginTransaction();
+            
+            try {
+                
+               
+
+                $model_dtarea_usuario = new TareaInteropera();
+
+                $model_dtarea_usuario ->tar_id = $tar_id;
+                $model_dtarea_usuario ->tarin_estado = 1;
+                $model_dtarea_usuario ->ins_id = $id_institucion;
+                $model_dtarea_usuario -> save();
+
+                
+                $transaction->commit();
+                header('Location:'.Yii::app()->baseURL.'/bitacora/interopera?tar_id='.$tar_id.'');
+                
+            } catch (Exception $e) {
+                echo $e;
+                echo "<div>Hubo un error</div>";
+                $transaction->rollBack();
+            }
+        }
+        
+    }
+
+
+    // eliminar interopera
+    public function actionEliminarInteropera() {
+        $eliminar_interopera = $_POST['eliminar_interopera'];
+        $tarin_id = $_POST['tarin_id'];
+        $tar_id = $_POST['tar_id'];
+        
+
+        if (isset($eliminar_interopera)) {
+            $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+           
+            $sql1= "delete from tarea_interopera where tarin_id = $tarin_id";
+            echo $sql1;
+            $hoy = date("Y-m-d");
+
+            $conexion = Yii::app()->db;
+            $transaction = $conexion->beginTransaction();
+            
+            try {
+            
+                $conexion->createCommand($sql1)->execute();
+     
+                $transaction->commit();
+                header('Location:'.Yii::app()->baseURL.'/bitacora/interopera?tar_id='.$tar_id.'');
+            
+                
+            } catch (Exception $e) {
+                echo $e;
+                echo "<div>Hubo un error</div>";
+                $transaction->rollBack();
+            }
+        }
+        
+        
+    }
+
     // registro de acciones - actividad
     public function actionRegistroAccion() {
         //echo 'Inserta: '.$insertar_accion = ;
       
 
 
-        if(isset($_POST['editar_accion']) ){
+        if(isset($_POST['edit']) ){
             $tar_id = $_POST['tar_id'];
+            $acc_tipo = $_POST['acc_tipo'];
             $accion_id = $_POST['acc_id'];
             $nivel_actividad = $_POST['nivel_actividad'];
-            //$_POST['tramite'];
-
-
             $descripcion_actividad = $_POST["descripcion_actividad"];
             $estado_actividad = $_POST['estado_actividad'];
             $nombre_actividad = $_POST['nombre_actividad'];
                        
             $sql1= "update accion set acc_nombre = '$nombre_actividad',acc_descripcion ='$descripcion_actividad', acc_nivel = '$nivel_actividad' , acc_estado = '$estado_actividad' where acc_id =  $accion_id ";
 
-            echo $sql1;
+            //echo $sql1;
 
     
             $hoy = date("Y-m-d");
@@ -577,11 +676,13 @@ class BitacoraController extends Controller {
                 $conexion->createCommand($sql1)->execute();
      
                 $transaction->commit();
-                if(isset($_POST['tramite'])){
-                   // header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividadTramite?tar_id='.$tar_id.'');
-
-                }else {
-                    header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividad?tar_id='.$tar_id.'');
+                
+                if($acc_tipo==1){
+                    
+                    header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividad/?tar_id='.$tar_id);
+                }
+                if($acc_tipo==2){
+                   header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividadTramite/?tar_id='.$tar_id);
                 }
                 
             
@@ -598,7 +699,7 @@ class BitacoraController extends Controller {
 
 
 
-        if (isset($_POST['inserta_accion'])) {
+        if (isset($_POST['insert'])) {
             $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
             $id_usuario = $modelUser['usu_id'];
             $tar_id = $_POST['tar_id'];
@@ -607,6 +708,8 @@ class BitacoraController extends Controller {
             $estado_actividad = $_POST["estado_actividad"];
             $descripcion_actividad = $_POST["descripcion_actividad"];
             $nivel_actividad = $_POST["nivel_actividad"];
+            $acc_tipo = $_POST['acc_tipo'];
+
             
 
             //echo $id_categoria;
@@ -632,13 +735,20 @@ class BitacoraController extends Controller {
                 $model_accion ->tar_id = $tar_id ;
                 $model_accion ->usu_id = $id_usuario;
                 $model_accion ->acc_nivel = $nivel_actividad;
+                $model_accion ->acc_tipo = $acc_tipo;
                 
                 $model_accion -> save();
 
                 
                 $transaction->commit();
-                //header('Location:'.Yii::app()->baseURL.'/bitacora/actividad_detalle?tar_id='.$tar_id.'');
-                header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividad/?tar_id='.$tar_id);
+                if($acc_tipo==1){
+                    
+                    header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividad/?tar_id='.$tar_id);
+                }
+                if($acc_tipo==2){
+                   header('Location:'.Yii::app()->baseURL.'/bitacora/viewActividadTramite/?tar_id='.$tar_id);
+                }
+                
                 
             } catch (Exception $e) {
                 echo $e;
@@ -741,10 +851,10 @@ class BitacoraController extends Controller {
                 $sql1= "update tarea set tar_descripcion ='$tar_descripcion' where tar_id =  $tar_id ";
             }
 
-            if ($accion==2){
-                 $tar_politica = $_POST['tar_politica'];
-                $sql1= "update tarea set tar_politica ='$tar_politica' where tar_id =  $tar_id ";
-            }
+            // if ($accion==2){
+            //      $tar_politica = $_POST['tar_politica'];
+            //     $sql1= "update tarea set tar_politica ='$tar_politica' where tar_id =  $tar_id ";
+            // }
 
             if ($accion==3){
                  $tar_estrategia = $_POST['tar_estrategia'];

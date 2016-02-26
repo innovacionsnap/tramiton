@@ -103,7 +103,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                                 <label>Cuerpo Legal</label>
                                                 <textarea class="form-control" id = "cuerpo_legal" onkeyup = "Validate(this)" name="cuerpo_legal" rows="4" data-parsley-range="[20,200]" placeholder="Detalle actividad" required><?php if(isset($_GET['reforma_id'])){ echo $rl_cuerpo; } ?></textarea>
                                            </div>
-                                        </div>
+                                         </div>
                                         <!-- end col-12 -->
 
                                          <!-- begin col-12 -->

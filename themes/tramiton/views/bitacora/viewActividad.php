@@ -183,11 +183,8 @@
                                                 
                                             </h4>
                                            
-                                                <!-- <a href="actividad_detalle/?tar_id=<?php // echo  $datosTarea_Actividad_detalle['tar_id'] ?>" class="btn btn-info actividad" role="button">
-                                                <li class="fa fa-plus-circle">&nbsp;&nbsp;</li>Añadir</a> -->
-
                                             <?php
-                                                $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"]);
+                                                $id = Empresa::model()->codificaGet('tar_id='. $datosTarea_Actividad_detalle["tar_id"].'&'.'acc_tipo=1'.'&'.'accion=insert');
                                                 echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-plus-circle (alias)"></i> Añadir</button>', array('bitacora/actividad_detalle/?'.$id), array('title' => 'Añadir'));
                                             ?>
                                             
@@ -255,7 +252,7 @@
                                              }else{
                                                 if ($datosActividad_detalle['usu_id']==$id_usuario){
 
-                                                    $id = Empresa::model()->codificaGet('acc_id='. $datosActividad_detalle["acc_id"].'&'.'tar_id='. $datosActividad_detalle["tar_id"]);
+                                                    $id = Empresa::model()->codificaGet('acc_id='. $datosActividad_detalle["acc_id"].'&'.'tar_id='. $datosActividad_detalle["tar_id"].'&'.'acc_tipo=1'.'&'.'accion=edit');
                                                 echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-edit (alias)"></i> Editar</button>', array('bitacora/actividad_detalle/?'.$id), array('title' => 'Editar'));
 
                                                 }

@@ -28,7 +28,7 @@ if(isset($_GET['tar_id'])){
     $modeltarea = Tarea::model()->findByPk($tar_id);
     $nombre_tarea = $modeltarea["tar_nombre"];
     $problema_tarea = $modeltarea["tar_descripcion"];
-    $politica_tarea = $modeltarea["tar_politica"];
+    ////$politica_tarea = $modeltarea["tar_politica"];
     $estrategia_tarea = $modeltarea["tar_estrategia"];
     $meta_tarea = $modeltarea["tar_meta"];
     $requisito_inicial = $modeltarea["tar_requisitos_ini"];
@@ -164,7 +164,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Cuerpo Legal</label>
-                                                <textarea value"DOS" class="form-control" id = "tar_politica" onkeyup = "Validate(this)" name="tar_politica" rows="4" data-parsley-range="[20,200]" placeholder="Detalle la reforma Legal" required><?php if(isset($_GET['tar_id'])){ echo $politica_tarea; } ?></textarea>
+                                                <textarea value"DOS" class="form-control" id = "tar_politica" onkeyup = "Validate(this)" name="tar_politica" rows="4" data-parsley-range="[20,200]" placeholder="Detalle la reforma Legal" required><?php //if(isset($_GET['tar_id'])){ echo $politica_tarea; } ?></textarea>
                                               </div>
                                         </div>
 
