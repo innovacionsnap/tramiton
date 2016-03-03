@@ -45,7 +45,7 @@ class TramiteInstitucionController extends Controller {
         //$datosRankingTramites = $model->getRankingTramite();
         //$datosPublicacionesTramites = $model->getPublicacionesTramites();
         //$datosTarea = $model->getTarea();
-        $this->layout = 'main-admin';
+        $this->layout = 'main-admin-asc';
         $this->_datosUser = $modelUser;
         $this->_casosTmp = $this->getDatosTemporal();
         $this->render('index',compact('datosgetTramiteInstitucion'));
@@ -70,11 +70,11 @@ class TramiteInstitucionController extends Controller {
         //creo una instancia del modelo Dashboard
         $model = new TramiteInstitucion();
         $datoAccioneCorrectiva = $model->getAccioneCorrectiva();
-       
+        $rol=$modelUser['rol_id'];
         $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;
         $this->_casosTmp = $this->getDatosTemporal();
-        $this->render('viewTramite_Accion_Correctiva', compact('datoAccioneCorrectiva'));
+        $this->render('viewTramite_Accion_Correctiva', compact('datoAccioneCorrectiva','rol'));
         //$this->render('formulario');
     }
 

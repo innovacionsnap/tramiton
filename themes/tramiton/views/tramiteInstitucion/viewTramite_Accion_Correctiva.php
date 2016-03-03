@@ -51,10 +51,12 @@ $usu_id = $this->_datosUser->usu_id;
              //foreach ($datoAccioneCorrectiva as $datoAccioneCorrectivaDetalle){
              //  $tra_id = $datoAccioneCorrectivaDetalle["tra_id"];
              // } 
-
+                if ($rol!=2){
+                    echo '<div class="m-b-10"><a class="btn btn-success p-l-40 p-r-40 btn-sm actividad-new" href="'.$baseUrl.'/tramiteInstitucion/accion_correctiva?tra_id='.$_GET["tra_id"].'"> + Añadir </a> </div>';
+                }
              ?>
-            <div class="m-b-10"><a class="btn btn-success p-l-40 p-r-40 btn-sm actividad-new" href="<?php echo $baseUrl ?>/tramiteInstitucion/accion_correctiva?tra_id=<?php echo $_GET["tra_id"] ?>"> + Añadir </a> </div>
-
+                        
+            
 			<!-- end page-header -->
 			
 		<!-- begin row -->

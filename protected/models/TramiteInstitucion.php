@@ -21,19 +21,19 @@ class TramiteInstitucion extends CActiveRecord {
         //$id_usuario = $modelUser['usu_id'];
         $usu_id = $modelUser->usu_id;
         //$usu_id = $this->_datosUser->usu_id;
-        $sql = "select tra.tra_id, count(tra.tra_id) as total, tra.tra_nombre
+        $sql = "select tra.tra_id, ins.ins_nombre,tra.tra_nombre, count(tra.tra_id) as total 
 from datos_tramite datt, tramite_institucion trai, tramite tra, institucion ins, institucion_usuario insu
 where trai.trai_id = datt.trai_id
 and insu.ins_id = ins.ins_id
 and tra.tra_id = trai.tra_id
 and  ins.ins_id = trai.ins_id
-and insu.usu_id = '$usu_id'
-group by tra.tra_id
-order by total desc";
+and insu.usu_id ='$usu_id'
+group by tra.tra_id,ins.ins_nombre
+order by ins_nombre asc";
 //echo $sql;
-        $dataReader = $this->connection->createCommand($sql)->query();
+        //$dataReader = $this->connection->createCommand($sql)->query();
         // recibe los datos
-        $rows = $this->connection->createCommand($sql)->queryAll();
+        $rows = $this->connection->createCommand($sql)->query();
         return $rows;
     }
 

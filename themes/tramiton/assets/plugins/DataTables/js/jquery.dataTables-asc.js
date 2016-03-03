@@ -9584,7 +9584,7 @@
 		 *      } );
 		 *    } );
 		 */
-		"aaSorting": [[0,'desc']],
+		"aaSorting": [[0,'asc']],
 	
 	
 		/**
