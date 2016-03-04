@@ -2,6 +2,10 @@
 #home{
     padding-top: 206px !important;
 }
+
+body{
+    background-color: red;
+}
 /*#que_es_tramiton{
     padding-top: 156px !important;
 }
@@ -12,10 +16,10 @@
     margin-bottom: 160px;
 }*/
 
-html{
+/*html{
     max-width: 1200px !important;
     margin: auto;
-}
+}*/
 #body-home{
     padding-top: 206px !important;
 }
@@ -156,11 +160,12 @@ html{
     background-repeat: no-repeat;
     background-position: top;
     height: 206px;
-    max-width: 1200px;
+    /*max-width: 1200px;*/
     margin: auto;
 
 
     border-bottom: 4px solid #325972;
+    background-color: blue;
 }
 .no-margin-right{
     margin-right: 0px;

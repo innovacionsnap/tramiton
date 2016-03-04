@@ -15,6 +15,8 @@
 	?>
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Roboto+Condensed|Lato' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 

@@ -21,7 +21,9 @@
 //     	$(this).removeClass("fa-youtube-square").addClass("fa-youtube");
 // 	}
 // );
-$('#header-tramiton').css("background-image","url('themes/tramiton/assets/img/header.png')");
+
+
+// $('#header-tramiton').css("background-image","url('themes/tramiton/assets/img/header.png')");
 
 ;
 

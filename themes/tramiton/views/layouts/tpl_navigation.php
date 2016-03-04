@@ -31,13 +31,13 @@
 
         <div class="collapse navbar-collapse azul">
             <ul class="nav navbar-nav nav-tramiton">
-                <li><a class="menu-central " href="#">PARTICIPA</a></li>
-                <li><a class="menu-central " href="#que_es_tramiton" data-click="scroll-to-target">¿QUÉ ES EL TRAMITÓN?</a></li>
-                <li><a class="menu-central " href="#estadisticas" data-click="scroll-to-target">ESTADÍSTICAS</a></li>
-                <li><a class="menu-central " href="#noticias-1" data-click="scroll-to-target">NOTICIAS</a></li>
-                <li><a class="menu-central " href="#preguntas" data-click="scroll-to-target">PREGUNTAS FRECUENTES</a></li>
-                <li><a class="menu-central " href="<?php echo Yii::app()->baseUrl; ?>/site/registro">REGISTRAR</a></li>
-                <li><a class="menu-central p-b-10" href="/tramiton/./#login-modal" data-toggle="modal" data-description="member area">INGRESAR</a></li>
+                <li><a class="menu-central " href="#">Participa</a></li>
+                <li><a class="menu-central " href="#que_es_tramiton" data-click="scroll-to-target">¿Qué es el Tramitón?</a></li>
+                <li><a class="menu-central " href="#estadisticas" data-click="scroll-to-target">Estadísticas</a></li>
+                <li><a class="menu-central " href="#noticias-1" data-click="scroll-to-target">Noticias</a></li>
+                <li><a class="menu-central " href="#preguntas" data-click="scroll-to-target">Preguntas frecuentes</a></li>
+                <li><a class="menu-central " href="<?php echo Yii::app()->baseUrl; ?>/site/registro">Registrar</a></li>
+                <li><a class="menu-central p-b-10" href="/tramiton/./#login-modal" data-toggle="modal" data-description="member area">Ingresar</a></li>
             </ul>
         </div>
 

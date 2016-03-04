@@ -2,6 +2,9 @@
 $baseUrl = Yii::app()->theme->baseUrl;
 ?>
 
+
+
+
 <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
   <div class="modal-dialog modal-dialog-center">
     <div class="modal-content">
@@ -33,14 +36,14 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 <div id="home" class="container-fluid">
     <div class="row">
-        <div class="col-md-7 col-md-push-5"> 
+        <div class="col-xs-12"> 
             <h2 class="text-center">Registra tu caso</h2>
             <?php
             $this->renderPartial('form_caso', true, false);
             ?>
         </div>
 
-        <div class="col-md-5 col-md-pull-7">
+        <!-- <div class="col-md-5 col-md-pull-7">
             <div id="row-buttons" class="row">
                 <h2 class="text-center">¿Cómo registrar tu caso?</h2>
 
@@ -84,7 +87,6 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <div class="col-xs-12" style="padding-bottom: 10px;">
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
-                        <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe> -->
                     </div>
                 </div>
             </div> 
@@ -99,7 +101,6 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <div class="col-xs-12" style="padding-bottom: 10px;">
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
-                        <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe> -->
                     </div>
                 </div>
             </div> 
@@ -113,22 +114,20 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <div class="col-xs-12" style="padding-bottom: 10px;">
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
-                        <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yuZs0p4e2xk"></iframe> -->
                     </div>
                 </div>
             </div> 
                          
-            <!-- <span><?php /*$data=SiteController::validaCedula('1716475015'); var_dump($data);*/?> </span> -->
-        </div>
+        </div> -->
     </div>
 </div>
 
 <!-- begin #participa -->
 <div class="container"></div>
 
-<div id="que_es_tramiton" class="container-fluid" style="height: 616px;">
-    <iframe style="border: none;" height="100%" width="100%" scrolling="no" src="<?php echo (Yii::app()->theme->baseUrl . '/views/site/que_es_tramiton.php'); ?>"></iframe>
-</div>
+<!-- <div id="que_es_tramiton" class="container-fluid" style="height: 616px;">
+    <iframe style="border: none;" height="100%" width="100%" scrolling="no" src="<?php //echo (Yii::app()->theme->baseUrl . '/views/site/que_es_tramiton.php'); ?>"></iframe>
+</div> -->
 
 <!-- end participa -->
 
@@ -327,86 +326,19 @@ $baseUrl = Yii::app()->theme->baseUrl;
 </div>
 <!-- end #milestone -->
 
-<div id="noticias-1" class="container"></div>
-<!-- begin #noticias -->
-<div id="noticias" class="content has-bg twitter" data-scrollview="true">
-
-    <?php $twitter = SiteController::getTwitter();
-    ?>
-
-    <!-- begin container -->
-    <div class="container" data-animation="true" data-animation-type="fadeInUp" style="height:360px; width: 100%;">
-        <h4 class="content-title titulo-twitter">@TramitonEC   <i class = "fa fa-twitter"></i></h4>
-        <hr class="m-t-10">
-        <!-- begin carousel -->
-        <div class="carousel testimonials slide" data-ride="carousel" id="testimonials">
-            <!-- begin carousel-inner -->
-            <div class="carousel-inner text-center" style="height:300px;">
-                <!-- begin item -->
-                <?php
-                $len = count($twitter);
-
-                for ($i = 0; $i < $len; $i++) {
-                    if (isset($twitter[$i]['retweeted_status'])) {
-                        $texto = '@TramitonEC ha retwitteado: ' . $twitter[$i]['text'];
-                        $time = date('d M', strtotime($twitter[$i]['retweeted_status']['created_at']));
-                    } else {
-                        $time = date('d M', strtotime($twitter[$i]['created_at']));
-                        $texto = $twitter[$i]['text'];
-                    }
-                    if (isset($twitter[$i]['entities']['media'])) {
-                        $urlImg = substr($twitter[$i]['entities']['media'][0]['media_url'], 4);
-                        $imagen = '<br><br><img class="center-block" src="https' . $urlImg . '" width="280px">';
-                    } else {
-                        $imagen = '';
-                    }
-
-                    $html = '';
-                    if ($i == 0) {
-                        $html.='<div class="item active"><div style ="display:inline-flex"><blockquote>' . $texto . '<b> ' . $time . '</b>' . $imagen . '</blockquote>';
-                    } elseif ($i == 3 or $i == 6 or $i == 9) {
-                        $html.='</div></div><div class="item"><div style ="display:inline-flex"><blockquote>' . $texto . '<b> ' . $time . '</b>' . $imagen . '</blockquote>';
-                    } elseif ($i == 12) {
-                        $html.='<blockquote>' . $texto . '<b> ' . $time . '</b>' . $imagen . '</blockquote></div></div>';
-                    } else {
-                        $html.='<blockquote>' . $texto . '<b> ' . $time . '</b>' . $imagen . '</blockquote>';
-                    }
-
-                    echo $html;
-                }
-                echo '</div></div>';
-                ?>
-
-                <!--end item -->
-
-            </div>
-            <!--end carousel-inner -->
-            <!--begin carousel-indicators -->
-            <!-- <ol class = "carousel-indicators">
-                <li data-target = "#testimonials" data-slide-to = "0" class = "active"></li>
-                <li data-target = "#testimonials" data-slide-to = "1" class = ""></li>
-                <li data-target = "#testimonials" data-slide-to = "2" class = ""></li>
-                <li data-target = "#testimonials" data-slide-to = "3" class = ""></li>
-            </ol> -->
-            <!--end carousel-indicators -->
 
 
-             <!-- Left and right controls -->
-              <a class="right carousel-control" href="#testimonials" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-              </a>
-              <a class="right carousel-control" href="#testimonials" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Siguiente</span>
-              </a>
-             <!-- end Left and right controls -->
-        </div>
-        <!--end carousel -->
+<div class="row">
+    <div class="col-xs-12 text-right">
+
+<a class="twitter-timeline" href="https://twitter.com/TramitonEC" data-widget-id="705865349623881729">Tweets por el @TramitonEC.</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
     </div>
-    <!--end containter -->
 </div>
-<!--end #noticias -->
+
+
+
 
 <!--beign #preguntas frecuentes -->
 <!-- <div id = "preguntas" class = "content has-bg" data-scrollview = "true" > -->
@@ -572,6 +504,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <!--end panel -->
 </div>
 <!--end #preguntas frecuentes -->
+
+</div>
 
 <!--Modal login -->
 <div class = "modal fade" id = "login-modal">

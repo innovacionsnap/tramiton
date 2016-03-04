@@ -118,9 +118,9 @@ Website: http://www.seantheme.com/color-admin-v1.7/frontend/
 
 body {
     background: #fff;
-    font-family: 'Open Sans', "Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*font-family: 'Open Sans', "Helvetica Neue",Helvetica,Arial,sans-serif;*/
     color: #707478;
-    font-size: 12px;
+    /*font-size: 12px;*/
 }
 .ie8 body {
     font-family: Arial,sans-serif;

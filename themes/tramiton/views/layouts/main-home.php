@@ -1,11 +1,15 @@
-<!-- Require the header -->
-<?php require_once('tpl_header.php');?>
-<?php //Yii::app()->bootstrap->register(); ?>
-<!-- Require the navigation -->
-<?php require_once('tpl_navigation.php');?>
+<?php 
+// Require the header
+require_once('tpl_header.php');
 
-<!-- Include content pages -->
-<?php echo $content; ?>
+//Yii::app()->bootstrap->register();
+// Require the navigation 
 
-<!-- Require the footer -->
-<?php require_once('tpl_footer.php');?>
+require_once('tpl_navigation.php');
+
+// Include content pages 
+echo $content;
+
+// Require the footer 
+require_once('tpl_footer_home.php');
+?>
