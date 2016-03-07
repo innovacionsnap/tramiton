@@ -20,9 +20,8 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #home{
-	padding-left: 10px;
-	padding-right: 10px;
-    height: 580px !important;
+  background-color: red;
+    overflow: auto;
 }
 #row-arrows{
 	border-bottom: 3px solid #325972;
@@ -34,9 +33,6 @@
 #row-triangulos{
     padding: 0px;
 }
-.row{
-	padding: 10px 0px;
-}
 #que_es_tramiton{
 	//padding: 37px 0px;
 	padding: 0px;
@@ -44,8 +40,37 @@
 	//background-color: pink;
 	position:relative;
 }
+
+@media(min-width: 767px){
+  body .container{
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #text_tramiton{
-	//position: absolute;    		
+	//position: absolute;
 }
 #titulo_tramiton{
     //font-size: 50px;
@@ -133,15 +158,15 @@ video{
 }
 #col-ciudadano, #col-organizacion, #col-servidor-publico, #col-otro{
 	padding-top: 1%;
-	
+
 }
 
 .boton-ciu, .boton-org, .boton-ser, .boton-otr{
     font-weight: bold;
-    color: #fff;  
+    color: #fff;
 
-    border-radius: 8px;      
-    
+    border-radius: 8px;
+
     height: 30px;
 
     width: 130px;
@@ -170,7 +195,7 @@ video{
 .boton-org{
     background-color: #ee9d46 !important;
     border: 1px solid #ee9d46 !important;
-}		    
+}
 .boton-org:hover{
     background-color: #f5f5f5 !important;
     color:#ee9d46
@@ -183,7 +208,7 @@ video{
 .boton-ser{
     background-color: #349876 !important;
     border: 1px solid #349876 !important;
-}		    
+}
 .boton-ser:hover{
     background-color: #f5f5f5 !important;
     color:#349876

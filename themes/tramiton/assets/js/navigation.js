@@ -23,7 +23,7 @@
 // );
 
 
-// $('#header-tramiton').css("background-image","url('themes/tramiton/assets/img/header.png')");
+$('#df').css("background-image","url('themes/tramiton/assets/img/header_.png')");
 
 ;
 

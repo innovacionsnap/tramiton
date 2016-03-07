@@ -56,7 +56,7 @@ $("#button-servidor-publico").click(function(){
     $("#col-triangulo-servidor").show();
 
     $("#row-arrows").css("border-bottom","3px solid #349876");
-    
+
 
     $("#row-img-ciudadano").hide();
     $("#row-vid-ciudadano").hide();
@@ -75,6 +75,7 @@ $("#button-servidor-publico").click(function(){
     // $("#col-otro").fadeIn(1000);
     // $("#col-servidor-publico").addClass("col-sm-6").removeClass("col-sm-4");
 });
+
 
 $("#button-otro").click(function(){
     // $("#col-otro").hide();

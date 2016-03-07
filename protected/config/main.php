@@ -2,7 +2,7 @@
 
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
-//alias para integrar bootstrap a yii 
+//alias para integrar bootstrap a yii
 //Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
 Yii::setPathOfAlias('hash', dirname(__FILE__).'/../components');
 
@@ -15,10 +15,10 @@ return array(
 
 	// preloading 'log' component
 	'preload'=>array('log'),
-    
+
         'aliases' => array(
                 'bootstrap' => realpath(__DIR__ . '/../extensions/bootstrap'), // change if necessary
-                
+
                 //alias para la excepcion
                 //Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.
                 'vendor.twbs.bootstrap.dist' => realpath(__DIR__ . '/../extensions/bootstrap'),
@@ -28,7 +28,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-                //importacion de las clases para el bootstrap modal 
+                //importacion de las clases para el bootstrap modal
                 'bootstrap.behaviors.*',
                 'bootstrap.components.*',
                 'bootstrap.form.*',
@@ -42,45 +42,45 @@ return array(
                         'generatorPaths'=>array(
                             'bootstrap.gii',
                         ),
-                ), 
-                
+                ),
+
 		// uncomment the following to enable the Gii tool
-		
+
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'12345',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
-		
+
 	),
 
 	// application components
 	'components'=>array(
-            
+
                 'authManager'=>array(
                     'class' => 'CDbAuthManager',
                     'connectionID' => 'db'
                 ),
-            
+
                 'hash'=>array(
                         'class'=>'hash.Hash',
-                ), 
-            
+                ),
+
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
-            
+
                 'bootstrap' => array(
-                        'class' => 'bootstrap.components.TbApi',   
+                        'class' => 'bootstrap.components.TbApi',
                 ),
-            
+
                 'encriptaParam' => array(
-                        'class' => 'application.components.EncriptaParam',   
+                        'class' => 'application.components.EncriptaParam',
                 ),
 		// uncomment the following to enable URLs in path-format
-		
+
 		'urlManager'=>array(
 			'urlFormat'=>'path',
                         'showScriptName'=>false,
@@ -90,12 +90,12 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-		
+
 		/*'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),*/
                 //conexion a la base de datos
-			
+
                 /*'db' => array (
 			'connectionString' => 'pgsql:host=localhost;dbname=tramitondbv2',
 			'emulatePrepare' => true,
@@ -103,21 +103,21 @@ return array(
 			'password' => 'postgres',
 			'charset' => 'utf8',
                 ),*/
-                
-			
+
+
 
 
                 'db' => array (
 			//'connectionString' => 'pgsql:host=192.168.0.204;dbname=dbtramitonv2',
-			'connectionString' => 'pgsql:host=192.168.0.204;dbname=tramitondbv2',
+			'connectionString' => 'pgsql:host=localhost;dbname=tramitondbv2',
 			'emulatePrepare' => true,
-			'username' => 'tramites',
-			'password' => 'tramiton2015',
+			'username' => 'postgres',
+			'password' => '26v2t0d45',
 			'charset' => 'utf8',
                 ),
-            
 
-            
+
+
 		// uncomment the following to use a MySQL database
 		/*
 		'db'=>array(

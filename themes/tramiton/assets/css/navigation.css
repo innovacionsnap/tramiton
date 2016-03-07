@@ -1,10 +1,6 @@
-/*padding para navigation*/
-#home{
-    padding-top: 206px !important;
-}
 
 body{
-    background-color: red;
+    /*background-color: red;*/
 }
 /*#que_es_tramiton{
     padding-top: 156px !important;
@@ -20,9 +16,6 @@ body{
     max-width: 1200px !important;
     margin: auto;
 }*/
-#body-home{
-    padding-top: 206px !important;
-}
 #fila-logos{
     height: 156px;
     padding: 0px;
@@ -79,8 +72,8 @@ body{
 #nav-admin-home{
     height: 46px;
     margin: 0px 52px 0px 54px;
-    border-left: 1px solid #fff;
-    border-right: 1px solid #fff;
+    /*border-left: 1px solid #fff;
+    border-right: 1px solid #fff;*/
 }
 
 @media(max-width: 767px){
@@ -157,15 +150,18 @@ body{
 /*fondo*/
 
 #header-tramiton{
-    background-repeat: no-repeat;
-    background-position: top;
-    height: 206px;
-    /*max-width: 1200px;*/
+    height: 201px;
+    padding: 0px;
     margin: auto;
+    /*border-bottom: 4px solid #325972;*/
+    background: transparent;
+}
 
 
-    border-bottom: 4px solid #325972;
-    background-color: blue;
+#df{
+  background-size: cover;
+  background-position: top;
+  border-bottom: 4px solid #325972;
 }
 .no-margin-right{
     margin-right: 0px;
@@ -255,6 +251,6 @@ body{
 }
 @media(max-width: 767px){
     #campana{
-        text-align: right; 
+        text-align: right;
     }
 }

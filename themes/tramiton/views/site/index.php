@@ -23,7 +23,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <a href="http://productivo.tramiton.to"><img id="logo-productivo" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-productivo.png' ; ?>" alt="Tramitón productivo" width="180"></a>
                 <p class="text-center p-r-5 p-l-5 p-t-5">¿Conoces de trámites o servicios públicos complicados o ineficientes que impactan en el sector productivo?</p>
             </div>
-            
+
 
         </div>
       </div>
@@ -34,9 +34,9 @@ $baseUrl = Yii::app()->theme->baseUrl;
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="home" class="container-fluid">
+<div id="home" class="container">
     <div class="row">
-        <div class="col-xs-12"> 
+        <div class="col-xs-12">
             <h2 class="text-center">Registra tu caso</h2>
             <?php
             $this->renderPartial('form_caso', true, false);
@@ -89,7 +89,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
-            </div> 
+            </div>
 
             <div id="row-img-organizacion" class="row" style="display: none;">
                 <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/organizacion_1.png" alt="Home" /></span></div>
@@ -103,7 +103,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
-            </div> 
+            </div>
 
             <div id="row-img-servidor" class="row" style="display: none;">
                 <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/servidor_1.png" alt="Home" /></span></div>
@@ -116,24 +116,39 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
-            </div> 
-                         
+            </div>
+
         </div> -->
     </div>
 </div>
 
 <!-- begin #participa -->
-<div class="container"></div>
-
-<!-- <div id="que_es_tramiton" class="container-fluid" style="height: 616px;">
+<!-- <div class="container"></div>
+<div id="que_es_tramiton" class="container" style="height: 616px;">
     <iframe style="border: none;" height="100%" width="100%" scrolling="no" src="<?php //echo (Yii::app()->theme->baseUrl . '/views/site/que_es_tramiton.php'); ?>"></iframe>
 </div> -->
-
 <!-- end participa -->
+
+<div id="que_es_tramiton_1" class="container-fluid" style="background:blue;">
+</div>
+<style media="screen">
+  #que_es_tramiton_1{
+    background-image: url("<?php echo $baseUrl; ?>/assets/img/que_es_tramiton_1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-color: blue;
+
+    max-height: 900px;
+    max-width: 1800px;
+    overflow: auto;
+  }
+</style>
+
 
 <!-- begin #milestone -->
 <!-- <div id="estadisticas" class="content has-bg" data-scrollview="true" > -->
-<div id="estadisticas" class="container" style="padding-top: 28px;padding-bottom: 28px;">
+<div id="estadisticas" class="container" style="background: green;">
     <!-- begin row -->
     <div class="row">
         <div class="col-sm-4 milestone-col">
@@ -165,14 +180,14 @@ $baseUrl = Yii::app()->theme->baseUrl;
             </div>
         </div> -->
         <!-- end col-3 -->
-        
+
     </div>
     <!-- begin row -->
     <div class="row">
         <div class="col-md-12">
-            
+
             <h2 style="color:#325972;" class="text-center titulo-estadistica">INSTITUCIONES CON MÁS ACCIONES CORRECTIVAS</h2>
-            
+
         </div>
         <?php
        $nombreac="serie1";
@@ -185,91 +200,91 @@ $baseUrl = Yii::app()->theme->baseUrl;
        $nombreac8="serie8";
        $nombreac9="serie9";
        $nombreac10="serie10";
-       
+
        $nacc=1;
        $i=1;
-       
+
        foreach ($totalAccionesnom as $nacc) {
-          
+
             if($i==1)
             {
             $p5 = $nacc['total']+0;
             $name= $nacc['nombre'];
             $nombreac=array('name' => $name, 'data' => array($p5));
-            
+
             }
-            
+
             if($i==2)
             {
             $p5 = $nacc['total']+0;
             $name= $nacc['nombre'];
             $nombreac2=array('name' => $name, 'data' => array($p5));
-            
+
             }
             //$i++;
-            
+
             if($i==3)
             {
             $p5 = $nacc['total']+0;
             $name= $nacc['nombre'];
             $nombreac3=array('name' => $name, 'data' => array($p5));
-            
+
             }
             if($i==4)
             {
             $p5 = $nacc['total']+0;
             $name= $nacc['nombre'];
             $nombreac4=array('name' => $name, 'data' => array($p5));
-            
+
             }
             if($i==5)
             {
             $p5 = $nacc['total']+0;
             $name= $nacc['nombre'];
             $nombreac5=array('name' => $name, 'data' => array($p5));
-            
+
             }
             if($i==6)
             {
             $p5 = $nacc['total']+0;
             $name= $nacc['nombre'];
             $nombreac6=array('name' => $name, 'data' => array($p5));
-            
+
             }
-            
+
             if($i==7)
             {
             $p5 = $nacc['total']+0;
             $name= $nacc['nombre'];
             $nombreac7=array('name' => $name, 'data' => array($p5));
-            
+
             }
-            
+
             if($i==8)
             {
             $p5 = $nacc['total']+0;
             $name= $nacc['nombre'];
             $nombreac8=array('name' => $name, 'data' => array($p5));
-            
+
             }
-            
+
             if($i==9)
             {
             $p5 = $nacc['total']+0;
             $name= $nacc['nombre'];
             $nombreac9=array('name' => $name, 'data' => array($p5));
-            
+
             }
-            
+
             if($i==10)
             {
             $p5 = $nacc['total']+0;
             $name= $nacc['nombre'];
             $nombreac10=array('name' => $name, 'data' => array($p5));
-            
+
             }
             $i++;
-                           
+
         }
 
         $this->Widget('ext.highcharts.HighchartsWidget', array(
@@ -281,10 +296,10 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         'height' => 400,
                         'type'=>'column'
                       ),
-                
-                
-                
-                
+
+
+
+
                 'credits' => array('enabled' => false),
                 'title' => array('text' => ''),
                 'xAxis' => array(
@@ -293,16 +308,16 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 'yAxis' => array(
                     'title' => array('text' => 'ACCIONES CORRECTIVAS')
                 ),
-                
-                
+
+
               //'series'  = $accion;
-        
+
                 'series' => array(
-                              
-                                  
+
+
                     $nombreac,$nombreac2,$nombreac3,$nombreac4,$nombreac5,
                     $nombreac6,$nombreac7,$nombreac8,$nombreac9,$nombreac10
-                    
+
                     //array('name' => 'Renovacion Matricula Caducidad', 'data' => array(100)),
                     //array('name' => 'Renovacion cédula', 'data' => array(88)),
                     //array('name' => 'Papeleta votación', 'data' => array(70)),
@@ -314,12 +329,12 @@ $baseUrl = Yii::app()->theme->baseUrl;
                     //array('name' => 'Permiso de salida del país', 'data' => array(10)),
                     //array('name' => 'Préstamos Quirografarios', 'data' => array(25)),
                     //array('name' => $name, 'data' => array($p5))
-                    
+
                     )
             )
         ));
-        
-        
+
+
         ?>
     </div>
     <!-- end row -->
@@ -327,22 +342,22 @@ $baseUrl = Yii::app()->theme->baseUrl;
 <!-- end #milestone -->
 
 
-
-<div class="row">
+<div id="noticias" class="container" style="background-color: cyan;">
+  <div class="row">
     <div class="col-xs-12 text-right">
-
-<a class="twitter-timeline" href="https://twitter.com/TramitonEC" data-widget-id="705865349623881729">Tweets por el @TramitonEC.</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
+      <a class="twitter-timeline" href="https://twitter.com/TramitonEC" data-widget-id="705865349623881729">Tweets por el @TramitonEC.</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
+  </div>
 </div>
+
 
 
 
 
 <!--beign #preguntas frecuentes -->
 <!-- <div id = "preguntas" class = "content has-bg" data-scrollview = "true" > -->
-<div id = "preguntas" class="container" style="padding-top: 80px; padding-bottom:10px;" >
+<div id = "preguntas" class="container" style="background: brown;" >
     <!-- <h2 class="content-title titulos">PREGUNTAS FRECUENTES</h2> -->
 
     <!--begin panel -->
@@ -361,10 +376,10 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         <p class="pregunta">¿Qué institución lidera el proyecto Tramitón?</p>
                         <br>
                         <p class="respuesta">
-                            La Secretaría Nacional de la Administración Pública en el marco de sus competencias y como órgano rector para el mejoramiento de la 
-                            eficiencia de las entidades de la Administración Pública Central, Institucional y dependiente de la Función Ejecutiva, a través de políticas y procesos 
-                            que optimicen la calidad, calidez y la transparencia del Servicio Público, bajo el liderazgo de la Dirección Nacional de Innovación trabaja en la 
-                            organización y ejecución de la convocatoria al concurso denominado “Tramitón”, el mismo que busca fomentar la participación ciudadana para estimular la 
+                            La Secretaría Nacional de la Administración Pública en el marco de sus competencias y como órgano rector para el mejoramiento de la
+                            eficiencia de las entidades de la Administración Pública Central, Institucional y dependiente de la Función Ejecutiva, a través de políticas y procesos
+                            que optimicen la calidad, calidez y la transparencia del Servicio Público, bajo el liderazgo de la Dirección Nacional de Innovación trabaja en la
+                            organización y ejecución de la convocatoria al concurso denominado “Tramitón”, el mismo que busca fomentar la participación ciudadana para estimular la
                             generación de ideas que propongan soluciones creativas, innovadoras y viables a los trámites actuales del servicio público a nivel nacional y que requieren ser mejorados.
                             Para dicho efecto, la ciudadanía podrá acceder a un formulario en línea para registro, postulación y propuesta de solución al peor trámite.
                         </p>
@@ -388,7 +403,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                             Por esta razón la gestión pública procura la disminución progresiva y simplificación de trámites para acceder a servicios eficientes, transparentes y de calidad.
                         </p>
                         <p class="respuesta text-right">
-                            Al facilitar los trámites se facilita la interacción entre los usuarios y las Instituciones Públicas lo cual es un factor clave para el fomento de innovación abierta en servicios. 
+                            Al facilitar los trámites se facilita la interacción entre los usuarios y las Instituciones Públicas lo cual es un factor clave para el fomento de innovación abierta en servicios.
                         </p>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-sm-pull-9">
@@ -452,7 +467,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         <p class="pregunta text right">¿Cómo funciona Tramitón?</p>
                         <br>
                         <p class="respuesta text-right">
-                            Los ciudadanos pueden ingresar a la plataforma y describir un caso en el uso de un servicio público, lo califica y propone una solución. El análisis a dicha participación se realiza en función de los componentes del servicio, pertinencia del caso, factibilidad de implementación y coherencia en la descripción del caso y propuesta de la solución. 
+                            Los ciudadanos pueden ingresar a la plataforma y describir un caso en el uso de un servicio público, lo califica y propone una solución. El análisis a dicha participación se realiza en función de los componentes del servicio, pertinencia del caso, factibilidad de implementación y coherencia en la descripción del caso y propuesta de la solución.
                         </p>
                         <p class="respuesta text-right">
                             Adicionalmente un equipo técnico se encarga de contactar a las instituciones que han sido mencionadas en el Tramitón para buscar que se atiendan a todos los casos y se desarrollen acciones globales de solución. En base a la información entregada por los ciudadanos, las instituciones desarrollan planes de mejora con acciones en el corto mediano plazo para mejorar el servicio público. El objetivo es llegar a una estrategia de mejoramiento e innovación de los servicios de forma participativa y colaborativa, siempre con el fin de favorecer la calidad y calidez de los servicios público. Las herramientas TIC son el apoyo informático con el cual contamos, así que en todos los casos en los que se requiera y sea posible aplicarlas se buscará hacerlo.
