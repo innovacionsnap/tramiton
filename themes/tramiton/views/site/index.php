@@ -17,11 +17,11 @@ $baseUrl = Yii::app()->theme->baseUrl;
         <div class="row">
             <div class="col-xs-6" id="col-logo-2">
                 <a href="#"><img id="logo-ciudadano" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-ciudadano.png' ; ?>" alt="Tramitón" width="180" onclick="closeModal();"></a>
-                <p class="text-center p-r-5 p-l-5 p-t-5">¿Conoces de trámites o servicios públicos complicados o ineficientes?</p>
+                <p class="p-r-5 p-l-5 p-t-5">¿Conoces de trámites o servicios públicos complicados o ineficientes?</p>
             </div>
             <div class="col-xs-6" id="col-logo-1">
                 <a href="http://productivo.tramiton.to"><img id="logo-productivo" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-productivo.png' ; ?>" alt="Tramitón productivo" width="180"></a>
-                <p class="text-center p-r-5 p-l-5 p-t-5">¿Conoces de trámites o servicios públicos complicados o ineficientes que impactan en el sector productivo?</p>
+                <p class="p-r-5 p-l-5 p-t-5">¿Conoces de trámites o servicios públicos complicados o ineficientes que impactan en el sector productivo?</p>
             </div>
 
 
@@ -122,34 +122,17 @@ $baseUrl = Yii::app()->theme->baseUrl;
     </div>
 </div>
 
-<!-- begin #participa -->
-<!-- <div class="container"></div>
+<div class="container"></div>
 <div id="que_es_tramiton" class="container" style="height: 616px;">
-    <iframe style="border: none;" height="100%" width="100%" scrolling="no" src="<?php //echo (Yii::app()->theme->baseUrl . '/views/site/que_es_tramiton.php'); ?>"></iframe>
-</div> -->
-<!-- end participa -->
-
-<div id="que_es_tramiton_1" class="container-fluid" style="background:blue; height: 600px;">
+    <iframe style="border: none;" height="100%" width="100%" scrolling="no" src="<?php echo (Yii::app()->theme->baseUrl . '/views/site/que_es_tramiton.php'); ?>"></iframe>
 </div>
-<style media="screen">
-  #que_es_tramiton_1{
-    background-image: url("<?php echo $baseUrl; ?>/assets/img/que_es_tramiton_1.png");
-    background-repeat: no-repeat;
-    background-position: center;
 
-    background-color: blue;
 
-    max-height: 900px;
-    max-width: 1800px;
-    overflow: auto;
-  }
-</style>
 
 
 <!-- begin #milestone -->
 <!-- <div id="estadisticas" class="content has-bg" data-scrollview="true" > -->
 <div id="estadisticas" class="container" style="background: green;">
-    <!-- begin row -->
     <div class="row">
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
@@ -157,30 +140,18 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <div class="title">Total Participantes</div>
             </div>
         </div>
-        <!-- end col-3 -->
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
                 <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalTramites']?>"><?php echo $estadisticas['totalTramites']?></div>
                 <div class="title">Soluciones Registradas</div>
             </div>
         </div>
-        <!-- begin col-3 -->
         <div class="col-sm-4 milestone-col">
             <div class="milestone no-border">
                 <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalAcciones']?>"><?php echo $estadisticas['totalAcciones']?></div>
                 <div class="title">Trámites con planes de mejora</div>
             </div>
         </div>
-        <!-- end col-3 -->
-        <!-- begin col-3 -->
-        <!-- <div class="col-sm-3 milestone-col">
-            <div class="milestone">
-                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="25">25</div>
-                <div class="title">Trámites mejorados</div>
-            </div>
-        </div> -->
-        <!-- end col-3 -->
-
     </div>
     <!-- begin row -->
     <div class="row">
@@ -342,7 +313,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 <!-- end #milestone -->
 
 
-<div id="noticias" class="container" style="background-color: cyan;">
+<div id="noticias-1" class="container" style="background-color: cyan;">
   <div class="row">
     <div class="col-xs-12 text-right">
       <a class="twitter-timeline" href="https://twitter.com/TramitonEC" data-widget-id="705865349623881729">Tweets por el @TramitonEC.</a>
@@ -357,11 +328,11 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 <!--beign #preguntas frecuentes -->
 <!-- <div id = "preguntas" class = "content has-bg" data-scrollview = "true" > -->
-<div id = "preguntas" class="container" style="background: brown;" >
+<div id = "preguntas" class="container p-0" style="background: brown;" >
     <!-- <h2 class="content-title titulos">PREGUNTAS FRECUENTES</h2> -->
 
     <!--begin panel -->
-    <div class = "panel panel-inverse">
+    <div class = "panel panel-inverse m-b-0">
         <div class = "panel-heading">
             <h2 class = "panel-title">
                 <a data-toggle = "collapse" href = "#faq-2">PREGUNTAS FRECUENTES</a>

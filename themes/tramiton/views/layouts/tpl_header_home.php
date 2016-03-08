@@ -9,13 +9,13 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="Registra tus tramites absurdos" name="description" />
 	<meta content="SNAP" name="author" />
-	
+
 	<?php
-	  $baseUrl = Yii::app()->theme->baseUrl; 
+	  $baseUrl = Yii::app()->theme->baseUrl;
 	  $cs = Yii::app()->getClientScript();
 	  Yii::app()->clientScript->registerCoreScript('jquery');
 	?>
-	
+
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -25,11 +25,11 @@
 	<link href="<?php echo $baseUrl; ?>/assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/theme/default.css" id="theme" rel="stylesheet" />
         <!-- ================== END BASE CSS STYLE ================== -->
-	
+
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
-	
+
 </head>
 <body data-spy="scroll" data-target="#header-navbar" data-offset="51">
 <!-- begin #page-container -->

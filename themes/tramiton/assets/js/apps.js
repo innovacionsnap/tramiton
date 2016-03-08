@@ -1,4 +1,4 @@
-/*   
+/*
 Template Name: Color Admin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.4
 Version: 1.7.0
 Author: Sean Ngu
@@ -6,7 +6,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/frontend/
     ----------------------------
         APPS CONTENT TABLE
     ----------------------------
-    
+
     <!-- ======== GLOBAL SCRIPT SETTING ======== -->
     01. Handle Home Content Height
     02. Handle Header Navigation State
@@ -18,7 +18,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/frontend/
     08. Handle Tooltip Activation
     09. Handle Theme Panel Expand
     10. Handle Theme Page Control
-	
+
     <!-- ======== APPLICATION SETTING ======== -->
     Application Controller
 */
@@ -28,7 +28,7 @@ Website: http://www.seantheme.com/color-admin-v1.7/frontend/
 /* 01. Handle Home Content Height
 ------------------------------------------------ */
 var handleHomeContentHeight = function() {
-    $('#home').height($(window).height());
+    // $('#home').height($(window).height());
 };
 
 
@@ -79,7 +79,7 @@ var handlePageScrollContentAnimation = function() {
         var myElement = $(this);
 
         var elementWatcher = scrollMonitor.create( myElement, 60 );
-        
+
         elementWatcher.enterViewport(function() {
             $(myElement).find('[data-animation=true]').each(function() {
                 var targetAnimation = $(this).attr('data-animation-type');
@@ -116,7 +116,7 @@ var handleHeaderScrollToAction = function() {
         $('html, body').animate({
             scrollTop: $(target).offset().top - headerHeight
         }, 500);
-        
+
         if ($(this).attr('data-toggle') == 'dropdown') {
             var targetLi = $(this).closest('li.dropdown');
             if ($(targetLi).hasClass('open')) {
@@ -128,7 +128,7 @@ var handleHeaderScrollToAction = function() {
     });
     $(document).click(function(e) {
         if (!e.isPropagationStopped()) {
-            $('.dropdown.open').removeClass('open'); 
+            $('.dropdown.open').removeClass('open');
         }
     });
 };
@@ -161,7 +161,7 @@ var handleThemePanelExpand = function() {
 /* 10. Handle Theme Page Control
 ------------------------------------------------ */
 var handleThemePageControl = function() {
-    
+
     if ($.cookie && $.cookie('theme')) {
         if ($('.theme-list').length !== 0) {
             $('.theme-list [data-theme]').closest('li').removeClass('active');
@@ -170,7 +170,7 @@ var handleThemePageControl = function() {
         var cssFileSrc = 'assets/css/theme/' + $.cookie('theme') + '.css';
         $('#theme').attr('href', cssFileSrc);
     }
-    
+
     $('.theme-list [data-theme]').live('click', function() {
         var cssFileSrc = 'assets/css/theme/' + $(this).attr('data-theme') + '.css';
         $('#theme').attr('href', cssFileSrc);
@@ -185,7 +185,7 @@ var handleThemePageControl = function() {
 ------------------------------------------------ */
 var App = function () {
 	"use strict";
-	
+
 	return {
 		//main function
 		init: function () {
