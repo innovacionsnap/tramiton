@@ -1,21 +1,47 @@
+<footer>
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-4 col-xs-12">
+              <img title="Secretaría Nacional de la Administración Pública" alt="Secretaría Nacional de la Administración Pública" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_presidencia.png" longdesc="longdesc/logdesc.html">
+          </div>
+          <div class="col-sm-4 col-xs-12 text-center">
+              Av. 10 de Agosto OE1-14 y Ramírez Dávalos Código Postal: 170520 / Quito - Ecuador
+              <br>Teléfono: (593 2) 393 4500
+          </div>
+          <div class="col-sm-4 col-xs-12 text-right">
+            <img title="Ecuador Ama la Vida" alt="Ecuador Ama la Vida" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ecuadoramalavida_logo.png" width="138" height="37" longdesc="longdesc/logdesc.html">
+          </div>
+      </div>
+    </div>
+</footer>
+
+<style media="screen">
+  footer{
+    background-image: url("<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/colores.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+  }
+</style>
+
 <!-- begin #footer -->
-<div class="footer-page">
+<!-- <div class="footer-page">
     <div class="row" style="padding-top:10px; background: url('<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/footer.png') repeat-x">
         <div id="col-snap-logo" class="col-xs-4">
             <a><img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_snap.png" /></a>
         </div>
         <div id="col-ecu-logo" class="col-xs-4" align="right">
             <a><img class="center-block" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_pais.png" /></a>
-        </div>
+        </div> -->
 <!--         <div id="col-socials-networks" class="col-xs-4" align="right">
-    
+
                     <a style="display: none;" target="_blank" href="http://ilab.gob.ec/"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_plataforma_innovacion.png'); ?>"></a>
                     <a target="_blank" href="https://www.facebook.com/AdmPublicaEcuador"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_facebook.png'); ?>"></a>
                     <a target="_blank" href="https://twitter.com/tramitonEC"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_twitter.png'); ?>"></a>
                     <a target="_blank" href="https://www.youtube.com/user/AdmPublicaEcuador"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/uoy.png'); ?>"></a>
         </div> -->
-    </div>
-</div>
+    <!-- </div>
+</div> -->
 
 <!-- end #footer -->
 
@@ -56,7 +82,7 @@
 
 <script type="text/javascript">
     function closeModal(){
-        $('#myModal').modal('hide');        
+        $('#myModal').modal('hide');
     }
 
     $('#myModal').modal('show');

@@ -19,7 +19,7 @@ body{
 #fila-logos{
     height: 156px;
     padding: 0px;
-    border-bottom: 1px solid #fff;
+    /*border-bottom: 1px solid #fff;*/
 }
 
 .borde-izquierda{
@@ -161,7 +161,7 @@ body{
 #df{
   background-size: cover;
   background-position: top;
-  border-bottom: 4px solid #325972;
+  /*border-bottom: 4px solid #325972;*/
 }
 .no-margin-right{
     margin-right: 0px;

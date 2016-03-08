@@ -129,7 +129,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 </div> -->
 <!-- end participa -->
 
-<div id="que_es_tramiton_1" class="container-fluid" style="background:blue;">
+<div id="que_es_tramiton_1" class="container-fluid" style="background:blue; height: 600px;">
 </div>
 <style media="screen">
   #que_es_tramiton_1{

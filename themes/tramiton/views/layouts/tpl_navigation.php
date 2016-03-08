@@ -1,8 +1,8 @@
 <!-- begin #header -->
 <div id="df" class="container-fluid">
 
-  <div id="header-tramiton" class="navbar navbar-default header container"> <!-- header-->
-    <div id="fila-logos" class="row borde-izquierda">
+  <div id="header-tramiton" class="navbar navbar-default header container no-border"> <!-- header-->
+    <div id="fila-logos" class="row">
       <div class="col-tramiton">
         <a href="#"><img id="logo-home" class="center-block" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_tramiton2.png" alt="" /></a>
       </div>

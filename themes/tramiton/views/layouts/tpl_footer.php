@@ -8,7 +8,7 @@
             <a><img class="center-block" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_pais.png" /></a>
         </div>
         <div id="col-socials-networks" class="col-xs-4" align="right">
-    
+
                     <a style="display: none;" target="_blank" href="http://ilab.gob.ec/"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_plataforma_innovacion.png'); ?>"></a>
                     <a target="_blank" href="https://www.facebook.com/AdmPublicaEcuador"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_facebook.png'); ?>"></a>
                     <a target="_blank" href="https://twitter.com/tramitonEC"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_twitter.png'); ?>"></a>
@@ -56,7 +56,7 @@
 
 <script type="text/javascript">
     function closeModal(){
-        $('#myModal').modal('hide');        
+        $('#myModal').modal('hide');
     }
 
     $('#myModal').modal('show');

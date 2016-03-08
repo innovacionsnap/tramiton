@@ -1,5 +1,5 @@
 
-/* 
+/*
  * Custom Styles Tramiton
  * Author: Jorge Pantoja
  * Secretaría Nacional de la Administración Pública
@@ -21,7 +21,8 @@
   margin-top: 11px;
   font-size: 15px;
   line-height: 20px;
-  color: #fff;
+  /*color: #fff;*/
+  color: P#325972
   font-weight: 600;
   padding: 1px 15px;
 }
@@ -57,7 +58,7 @@
 }
 
 .content-title {
-	
+
 }
 
 #about {
@@ -76,7 +77,7 @@
   font-weight: lighter;
   text-transform: uppercase;
   text-align: center;
-  font-size: 18px;	
+  font-size: 18px;
   background-color: #272e38;
   margin-bottom: 0px;
 }
@@ -111,7 +112,7 @@
     margin-top: 0px !important;
     margin-bottom: 0px !important;
   }
-  
+
 .btn {
   padding: 10px 45px;
   font-size: 13px;
@@ -169,51 +170,51 @@ div.form .errorMessage {
  */
 
 @media (min-width: 768px) {
-	
+
 	.navbar-nav {
 	    width: 100%;
 	    text-align: center;
 	}
-	
+
 	.navbar-nav > li {
 	  float: none;
 	  display: inline-block;
 	}
-	
+
 	.navbar-nav .dropdown-menu>li.active>a, .navbar-nav .dropdown-menu>li>a:focus, .navbar-nav .dropdown-menu>li>a:hover {
 	  background: #FFFFFF;
 	  color: #ff5b57;
 	}
-	
+
 	.navbar-nav .dropdown-menu>li>a {
 	  color: #000000;
 	}
-	
+
 }
 
 /*@media (max-width: 992px) {
-	
+
 	.header.navbar .navbar-nav>li>a {
 	  font-size: 13px;
 	}
-	
+
 }
 
 @media (max-width: 854px) {
   .header.navbar .navbar-nav>li>a {
     font-size: 12px;
   }
-  
+
 }
 @media (max-width: 767px) {
   .header.navbar .navbar-nav>li>a {
     font-size: 13px;
   }
-  
+
 }*/
 
 /* 5.14 Plugins - Bootstrap Wizard */
-    
+
 .bwizard-steps {
     font-size: 14px !important;
     border-radius: 3px !important;
