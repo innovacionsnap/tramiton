@@ -3,7 +3,7 @@ html{
     min-height: 100%;
 }
 body{
-    margin-bottom: 105px;
+    /*margin-bottom: 105px;*/
 }
 .footer-page{
     position: absolute;
@@ -35,4 +35,10 @@ body{
 	#col-snap-logo{
 		padding-top: 45px !important;
 	}
+}
+
+
+/*footer de home*/
+footer{
+  position: static !important;
 }

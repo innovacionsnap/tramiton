@@ -1,7 +1,7 @@
 <!-- begin #header -->
 <div id="df" class="container-fluid">
 
-  <div id="header-tramiton" class="navbar navbar-default header container no-border"> <!-- header-->
+  <div id="header-tramiton" class="navbar navbar-default header container"> <!-- header-->
     <div id="fila-logos" class="row">
       <div class="col-tramiton">
         <a href="#"><img id="logo-home" class="center-block" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/logo_tramiton2.png" alt="" /></a>
@@ -36,10 +36,10 @@
           <li><a class="menu-central " href="#">Participa</a></li>
           <li><a class="menu-central " href="#que_es_tramiton" data-click="scroll-to-target">¿Qué es el Tramitón?</a></li>
           <li><a class="menu-central " href="#estadisticas" data-click="scroll-to-target">Estadísticas</a></li>
-          <li><a class="menu-central " href="#noticias-1" data-click="scroll-to-target">Noticias</a></li>
+          <li><a class="menu-central " href="#noticias-2" data-click="scroll-to-target">Noticias</a></li>
           <li><a class="menu-central " href="#preguntas" data-click="scroll-to-target">Preguntas frecuentes</a></li>
-          <li><a class="menu-central " href="<?php echo Yii::app()->baseUrl; ?>/site/registro">Registrar</a></li>
-          <li><a class="menu-central p-b-10" href="/tramiton/./#login-modal" data-toggle="modal" data-description="member area">Ingresar</a></li>
+          <li><a class="menu-central " href="<?php echo Yii::app()->baseUrl; ?>/site/registro">Regístrate</a></li>
+          <li><a class="menu-central p-b-10" href="/tramiton/./#login-modal" data-toggle="modal" data-description="member area">Ingresa</a></li>
         </ul>
       </div>
 

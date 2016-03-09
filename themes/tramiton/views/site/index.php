@@ -3,8 +3,6 @@ $baseUrl = Yii::app()->theme->baseUrl;
 ?>
 
 
-
-
 <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
   <div class="modal-dialog modal-dialog-center">
     <div class="modal-content">
@@ -34,96 +32,26 @@ $baseUrl = Yii::app()->theme->baseUrl;
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="home" class="container">
+<div id="home" class="container borde-izq-gris borde-der-gris p-l-15 p-r-15">
     <div class="row">
-        <div class="col-xs-12">
+        <div id="col-formulario" class="col-sm-8  text-center">
             <h2 class="text-center">Registra tu caso</h2>
             <?php
             $this->renderPartial('form_caso', true, false);
             ?>
         </div>
+        <div id="col-video" class="col-xs-12 col-sm-4">
+                  <div class="embed-responsive embed-responsive-16by9">
+                      <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
+                  </div>
+          </div>
 
-        <!-- <div class="col-md-5 col-md-pull-7">
-            <div id="row-buttons" class="row">
-                <h2 class="text-center">¿Cómo registrar tu caso?</h2>
 
-                <div id="col-ciudadano" class="col-sm-4">
-                    <a id="button-ciudadano" class="btn btn-primary boton-ciu center-block" href="#!" role="button">Ciudadano</a>
-                </div>
-
-                <div id="col-organizacion" class="col-sm-4">
-                    <a id="button-organizacion" class="btn btn-warning boton-org center-block" href="#!" role="button">Organización</a>
-                </div>
-
-                <div id="col-servidor-publico" class="col-sm-4">
-                    <a id="button-servidor-publico" class="btn btn-success boton-ser center-block" href="#!" role="button">Servidor Público</a>
-                </div>
-
-                <div style="display:none;" id="col-otro" class="col-sm-6">
-                    <a id="button-otro" class="btn btn-primary boton-otro" href="#" role="button">Otro</a>
-                </div>
-            </div>
-
-            <div id="row-arrows" class="row">
-            </div>
-            <div id="row-triangulos" class="row">
-                <div id="col-triangulo-ciudadano" class="col-xs-4">
-                    <img class="center-block" src="<?php echo $baseUrl; ?>/assets/img/triangulo_ciudadano.png" alt="arrow">
-                </div>
-                <div id="col-triangulo-organizacion" class="col-xs-4" style="display:none;">
-                    <img class="center-block" src="<?php echo $baseUrl; ?>/assets/img/triangulo_organizacion.png" alt="arrow">
-                </div>
-                <div id="col-triangulo-servidor" class="col-xs-4" style="display:none;">
-                    <img class="center-block" src="<?php echo $baseUrl; ?>/assets/img/triangulo_servidor.png" alt="arrow">
-                </div>
-            </div>
-
-            <div id="row-img-ciudadano" class="row">
-                <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/ciudadano_1.png" alt="Home" /></span></div>
-                <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/ciudadano_2.png" alt="Home" /></span></div>
-                <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/ciudadano_3.png" alt="Home" /></span></div>
-            </div>
-            <div id="row-vid-ciudadano" class="row">
-                <div class="col-xs-12" style="padding-bottom: 10px;">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div id="row-img-organizacion" class="row" style="display: none;">
-                <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/organizacion_1.png" alt="Home" /></span></div>
-                <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/organizacion_2.png" alt="Home" /></span></div>
-                <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/organizacion_3.png" alt="Home" /></span></div>
-            </div>
-
-            <div id="row-vid-organizacion" class="row" style="display: none;">
-                <div class="col-xs-12" style="padding-bottom: 10px;">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div id="row-img-servidor" class="row" style="display: none;">
-                <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/servidor_1.png" alt="Home" /></span></div>
-                <div class="col-xs-4"><span><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/servidor_2.png" alt="Home" /></span></div>
-                <div class="col-xs-4"><span><a href="http://tramiton.to/interno" target="-blank"><img class="img-responsive center-block" src="<?php echo $baseUrl; ?>/assets/img/servidor_3.png" alt="Home" /></a></span></div>
-            </div>
-            <div id="row-vid-servidor" class="row" style="display: none;">
-                <div class="col-xs-12" style="padding-bottom: 10px;">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-
-        </div> -->
+        </div>
     </div>
 </div>
 
-<div class="container"></div>
-<div id="que_es_tramiton" class="container" style="height: 616px;">
+<div id="que_es_tramiton" class="container borde-izq-gris borde-der-gris p-t-30" style="height: 616px;">
     <iframe style="border: none;" height="100%" width="100%" scrolling="no" src="<?php echo (Yii::app()->theme->baseUrl . '/views/site/que_es_tramiton.php'); ?>"></iframe>
 </div>
 
@@ -132,7 +60,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 <!-- begin #milestone -->
 <!-- <div id="estadisticas" class="content has-bg" data-scrollview="true" > -->
-<div id="estadisticas" class="container" style="background: green;">
+<div id="estadisticas" class="container borde-izq-gris borde-der-gris p-t-30 p-r-30 p-l-30">
     <div class="row">
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
@@ -154,173 +82,176 @@ $baseUrl = Yii::app()->theme->baseUrl;
         </div>
     </div>
     <!-- begin row -->
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row m-t-30">
+        <div class="col-xs-12 col-sm-7">
+          <h2 style="color:#325972;" class="text-center titulo-estadistica m-t-0">Instituciones con más acciones correctivas</h2>
+          <?php
+         $nombreac="serie1";
+         $nombreac2="serie2";
+         $nombreac3="serie3";
+         $nombreac4="serie4";
+         $nombreac5="serie5";
+         $nombreac6="serie6";
+         $nombreac7="serie7";
+         $nombreac8="serie8";
+         $nombreac9="serie9";
+         $nombreac10="serie10";
 
-            <h2 style="color:#325972;" class="text-center titulo-estadistica">INSTITUCIONES CON MÁS ACCIONES CORRECTIVAS</h2>
+         $nacc=1;
+         $i=1;
 
+         foreach ($totalAccionesnom as $nacc) {
+
+              if($i==1)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac=array('name' => $name, 'data' => array($p5));
+
+              }
+
+              if($i==2)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac2=array('name' => $name, 'data' => array($p5));
+
+              }
+              //$i++;
+
+              if($i==3)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac3=array('name' => $name, 'data' => array($p5));
+
+              }
+              if($i==4)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac4=array('name' => $name, 'data' => array($p5));
+
+              }
+              if($i==5)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac5=array('name' => $name, 'data' => array($p5));
+
+              }
+              if($i==6)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac6=array('name' => $name, 'data' => array($p5));
+
+              }
+
+              if($i==7)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac7=array('name' => $name, 'data' => array($p5));
+
+              }
+
+              if($i==8)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac8=array('name' => $name, 'data' => array($p5));
+
+              }
+
+              if($i==9)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac9=array('name' => $name, 'data' => array($p5));
+
+              }
+
+              if($i==10)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac10=array('name' => $name, 'data' => array($p5));
+
+              }
+              $i++;
+
+          }
+
+          $this->Widget('ext.highcharts.HighchartsWidget', array(
+              'options' => array(
+                  'chart' => array(
+                          'plotBackgroundColor' => '#ffffff',
+                          'plotBorderWidth' => null,
+                          'plotShadow' => false,
+                          'height' => 400,
+                          'type'=>'column'
+                        ),
+
+
+
+
+                  'credits' => array('enabled' => false),
+                  'title' => array('text' => ''),
+                  'xAxis' => array(
+                      'categories' => array('INSTITUCIONES')
+                  ),
+                  'yAxis' => array(
+                      'title' => array('text' => 'ACCIONES CORRECTIVAS')
+                  ),
+
+
+                //'series'  = $accion;
+
+                  'series' => array(
+
+
+                      $nombreac,$nombreac2,$nombreac3,$nombreac4,$nombreac5,
+                      $nombreac6,$nombreac7,$nombreac8,$nombreac9,$nombreac10
+
+                      //array('name' => 'Renovacion Matricula Caducidad', 'data' => array(100)),
+                      //array('name' => 'Renovacion cédula', 'data' => array(88)),
+                      //array('name' => 'Papeleta votación', 'data' => array(70)),
+                      //array('name' => 'Certificado de defunción', 'data' => array(60)),
+                      //array('name' => 'Permiso de operación vehicular', 'data' => array(55)),
+                      //array('name' => 'Préstamos Hipotecarios', 'data' => array(45)),
+                      //array('name' => 'Citas médicas', 'data' => array(35)),
+                      //array('name' => 'Certificado de antescedentes policiales', 'data' => array(20)),
+                      //array('name' => 'Permiso de salida del país', 'data' => array(10)),
+                      //array('name' => 'Préstamos Quirografarios', 'data' => array(25)),
+                      //array('name' => $name, 'data' => array($p5))
+
+                      )
+              )
+          ));
+
+
+          ?>
         </div>
-        <?php
-       $nombreac="serie1";
-       $nombreac2="serie2";
-       $nombreac3="serie3";
-       $nombreac4="serie4";
-       $nombreac5="serie5";
-       $nombreac6="serie6";
-       $nombreac7="serie7";
-       $nombreac8="serie8";
-       $nombreac9="serie9";
-       $nombreac10="serie10";
 
-       $nacc=1;
-       $i=1;
-
-       foreach ($totalAccionesnom as $nacc) {
-
-            if($i==1)
-            {
-            $p5 = $nacc['total']+0;
-            $name= $nacc['nombre'];
-            $nombreac=array('name' => $name, 'data' => array($p5));
-
-            }
-
-            if($i==2)
-            {
-            $p5 = $nacc['total']+0;
-            $name= $nacc['nombre'];
-            $nombreac2=array('name' => $name, 'data' => array($p5));
-
-            }
-            //$i++;
-
-            if($i==3)
-            {
-            $p5 = $nacc['total']+0;
-            $name= $nacc['nombre'];
-            $nombreac3=array('name' => $name, 'data' => array($p5));
-
-            }
-            if($i==4)
-            {
-            $p5 = $nacc['total']+0;
-            $name= $nacc['nombre'];
-            $nombreac4=array('name' => $name, 'data' => array($p5));
-
-            }
-            if($i==5)
-            {
-            $p5 = $nacc['total']+0;
-            $name= $nacc['nombre'];
-            $nombreac5=array('name' => $name, 'data' => array($p5));
-
-            }
-            if($i==6)
-            {
-            $p5 = $nacc['total']+0;
-            $name= $nacc['nombre'];
-            $nombreac6=array('name' => $name, 'data' => array($p5));
-
-            }
-
-            if($i==7)
-            {
-            $p5 = $nacc['total']+0;
-            $name= $nacc['nombre'];
-            $nombreac7=array('name' => $name, 'data' => array($p5));
-
-            }
-
-            if($i==8)
-            {
-            $p5 = $nacc['total']+0;
-            $name= $nacc['nombre'];
-            $nombreac8=array('name' => $name, 'data' => array($p5));
-
-            }
-
-            if($i==9)
-            {
-            $p5 = $nacc['total']+0;
-            $name= $nacc['nombre'];
-            $nombreac9=array('name' => $name, 'data' => array($p5));
-
-            }
-
-            if($i==10)
-            {
-            $p5 = $nacc['total']+0;
-            $name= $nacc['nombre'];
-            $nombreac10=array('name' => $name, 'data' => array($p5));
-
-            }
-            $i++;
-
-        }
-
-        $this->Widget('ext.highcharts.HighchartsWidget', array(
-            'options' => array(
-                'chart' => array(
-                        'plotBackgroundColor' => '#ffffff',
-                        'plotBorderWidth' => null,
-                        'plotShadow' => false,
-                        'height' => 400,
-                        'type'=>'column'
-                      ),
-
-
-
-
-                'credits' => array('enabled' => false),
-                'title' => array('text' => ''),
-                'xAxis' => array(
-                    'categories' => array('INSTITUCIONES')
-                ),
-                'yAxis' => array(
-                    'title' => array('text' => 'ACCIONES CORRECTIVAS')
-                ),
-
-
-              //'series'  = $accion;
-
-                'series' => array(
-
-
-                    $nombreac,$nombreac2,$nombreac3,$nombreac4,$nombreac5,
-                    $nombreac6,$nombreac7,$nombreac8,$nombreac9,$nombreac10
-
-                    //array('name' => 'Renovacion Matricula Caducidad', 'data' => array(100)),
-                    //array('name' => 'Renovacion cédula', 'data' => array(88)),
-                    //array('name' => 'Papeleta votación', 'data' => array(70)),
-                    //array('name' => 'Certificado de defunción', 'data' => array(60)),
-                    //array('name' => 'Permiso de operación vehicular', 'data' => array(55)),
-                    //array('name' => 'Préstamos Hipotecarios', 'data' => array(45)),
-                    //array('name' => 'Citas médicas', 'data' => array(35)),
-                    //array('name' => 'Certificado de antescedentes policiales', 'data' => array(20)),
-                    //array('name' => 'Permiso de salida del país', 'data' => array(10)),
-                    //array('name' => 'Préstamos Quirografarios', 'data' => array(25)),
-                    //array('name' => $name, 'data' => array($p5))
-
-                    )
-            )
-        ));
-
-
-        ?>
+        <div id="noticias-2" class="col-xs-12 col-sm-5 text-center">
+          <a class="twitter-timeline" href="https://twitter.com/TramitonEC" data-widget-id="705865349623881729">Tweets por el @TramitonEC.</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
     </div>
     <!-- end row -->
 </div>
 <!-- end #milestone -->
 
 
-<div id="noticias-1" class="container" style="background-color: cyan;">
+<!-- <div id="noticias-1" class="container borde-izq-gris borde-der-gris">
   <div class="row">
     <div class="col-xs-12 text-right">
       <a class="twitter-timeline" href="https://twitter.com/TramitonEC" data-widget-id="705865349623881729">Tweets por el @TramitonEC.</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
   </div>
-</div>
+</div> -->
 
 
 
@@ -328,15 +259,15 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 <!--beign #preguntas frecuentes -->
 <!-- <div id = "preguntas" class = "content has-bg" data-scrollview = "true" > -->
-<div id = "preguntas" class="container p-0" style="background: brown;" >
+<div id = "preguntas" class="container p-0 borde-izq-gris borde-der-gris borde-inf-gris p-b-30 p-t-30">
     <!-- <h2 class="content-title titulos">PREGUNTAS FRECUENTES</h2> -->
 
     <!--begin panel -->
-    <div class = "panel panel-inverse m-b-0">
+    <div class = "panel panel-inverse m-b-0 no-border">
         <div class = "panel-heading">
-            <h2 class = "panel-title">
-                <a data-toggle = "collapse" href = "#faq-2">PREGUNTAS FRECUENTES</a>
-            </h2>
+            <h3 class = "panel-title">
+                <a data-toggle = "collapse" href = "#faq-2">Preguntas frecuentes</a>
+            </h3>
         </div>
         <div id = "faq-2" class = "panel-collapse collapse">
             <div class = "panel-body">

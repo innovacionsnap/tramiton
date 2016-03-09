@@ -7,27 +7,28 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	
+
 	<?php
-	  $baseUrl = Yii::app()->theme->baseUrl; 
+	  $baseUrl = Yii::app()->theme->baseUrl;
 	  $cs = Yii::app()->getClientScript();
 	  Yii::app()->clientScript->registerCoreScript('jquery');
 	?>
-	
+
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Roboto+Condensed|Lato' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
 
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/animate.min.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/theme/blue.css" id="theme" rel="stylesheet" />
-        <!-- ================== END BASE CSS STYLE ================== -->
-	
-	
-	
+	<!-- ================== END BASE CSS STYLE ================== -->
+
+	<!-- BEGIN FONTS -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Roboto+Condensed|Lato' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<!-- END FONTS -->
+
 	<!-- ================== Custom CSS ================== -->
 	<link href="<?php echo $baseUrl; ?>/assets/css/style.css" rel="stylesheet" />
 	<link href="<?php echo $baseUrl; ?>/assets/css/style-responsive-admin.css" rel="stylesheet" />
@@ -43,7 +44,7 @@
     <!-- ================== BEGIN BASE JS ================== -->
     <script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
     <!-- ================== END BASE JS ================== -->
-    
+
 	<?php
         $baseUrl = Yii::app()->baseUrl;
         $cs = Yii::app()->getClientScript();
@@ -51,14 +52,14 @@
     ?>
     <?php $linkcombo = $baseUrl . '/themes/tramiton/views/site/combobox.php' ?>
     <?php  $linkcombo2 = $baseUrl . '/themes/tramiton/views/site/combobox2.php' ?>
-    
-    
+
+
     <script>
     $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip(); 
+        $('[data-toggle="tooltip"]').tooltip();
     });
     </script>
-    
+
     <script type="text/javascript">
         $(document).ready(function () {
             /* COMBOBOX PROVINCIAS  */

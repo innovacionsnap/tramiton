@@ -13,8 +13,8 @@
 </head>
 <body>
     <header>
-        <h1>¿QUÉ ES EL TRAMITÓN?</h1>
-        <p>Tramitón es un proyecto de innovación social que fomenta la participación y colaboración ciudadana en la
+        <h1 class="raleway">¿Qué es el Tramitón?</h1>
+        <p class="raleway">Tramitón es un proyecto de innovación social que fomenta la participación y colaboración ciudadana en la
          simplificación de los trámites para impulsar la calidad, eficiencia, eficacia y calidez en la gestión pública.</p>
     </header>
 

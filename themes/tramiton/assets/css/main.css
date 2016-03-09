@@ -1,10 +1,3 @@
-
-/*
- * Custom Styles Tramiton
- * Author: Jorge Pantoja
- * Secretaría Nacional de la Administración Pública
- */
-
 /*
  * Common (Desktop and Mobile)
  */
@@ -22,7 +15,7 @@
   font-size: 15px;
   line-height: 20px;
   /*color: #fff;*/
-  color: P#325972
+  color: #325972;
   font-weight: 600;
   padding: 1px 15px;
 }

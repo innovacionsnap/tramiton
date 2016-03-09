@@ -35,7 +35,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
         </ul>
 
         <div id="panel1" class="panel-registro active">
-            <h4 id="bienvenida">Ingresar su documento de identificación</h4>
+            <h4 id="bienvenida">Ingresa tu documento de identificación</h4>
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -59,7 +59,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                     <div class="form-group">
                         <label>Institución</label>
                         <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la institución donde realizó el trámite"></i>
-                        <?php institucion("id_institucion", "0"); ?>  
+                        <?php institucion("id_institucion", "0"); ?>
 
                     </div>
                 </div>
@@ -193,29 +193,29 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         $('#estados2').removeClass('loadingprogreso');
                     }",
                         'success' => "function(data){
-                        
+
                         if (data==0){
                             //alert(data);
                             jQuery('#mensaje_captcha').html('No ha ingresado el captcha');
                             jQuery('#mensaje_captcha').show();
                         }else{
-                            jQuery('#mensaje_captcha').hide();                            
+                            jQuery('#mensaje_captcha').hide();
                             jQuery('.next-tab')[3].click();
                             jQuery('#btnNav').hide();
                             jQuery('#msgValidacion').html(data);
-                           
+
                         }
-                       
+
                     }",
                         'error' => "function(){
                     alert('error');
                         $('#estados2').addClass('loadingerror');
                         $('#msgValidacion').html('ocurrio un error al recuperar datos');
-                        
+
                     }",
                             ), array('class' => 'btn-publicar', 'id' => 'btnPublicarCaso')
                     );
-                    ?>  
+                    ?>
                 </div>
             </div>
             <div id="btnNav" class="row botones_nav"></div>

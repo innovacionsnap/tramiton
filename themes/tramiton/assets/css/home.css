@@ -1,4 +1,4 @@
-*{
+body{
     font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 .modal-backdrop{
@@ -20,9 +20,14 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #home{
-  background-color: red;
     overflow: auto;
 }
+@media(min-width:767px){
+  #col-video{
+    margin-top: 132px;
+  }
+}
+
 #row-arrows{
 	border-bottom: 3px solid #325972;
 	margin-right: 1%;
@@ -40,7 +45,23 @@
 	//background-color: pink;
 	position:relative;
 }
+.borde-izq-gris{
+  border-left: 1px solid #CCC;
+}
 
+.borde-izq-blanco{
+  border-left: 1px solid rgba(255,255,255,0.6);
+}
+.borde-der-gris{
+  border-right: 1px solid #CCC;
+}
+.borde-der-blanco{
+  border-right: 1px solid rgba(255,255,255,0.6);
+}
+
+.borde-inf-gris{
+  border-bottom: 1px solid #CCC;
+}
 
 
 
@@ -281,4 +302,14 @@ video{
 
 .glyphicon-chevron-right{
     right: 0px !important;
+}
+
+
+#noticias-2 iframe{
+  height: 470px !important;
+}
+
+
+.raleway{
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }

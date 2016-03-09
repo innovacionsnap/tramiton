@@ -1,5 +1,5 @@
 <footer>
-    <div class="container">
+    <div class="container borde-izq-gris borde-der-gris">
       <div class="row">
           <div class="col-sm-4 col-xs-12">
               <img title="Secretaría Nacional de la Administración Pública" alt="Secretaría Nacional de la Administración Pública" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_presidencia.png" longdesc="longdesc/logdesc.html">
@@ -16,6 +16,9 @@
 </footer>
 
 <style media="screen">
+footer .row{
+  padding: 0.8em 0;
+}
 @media(max-width:767px){
   footer [class*='col-']{
     text-align: center !important;
