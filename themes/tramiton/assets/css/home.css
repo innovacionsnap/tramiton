@@ -50,16 +50,6 @@ body{
   border-left: 1px solid rgba(255,255,255,0.6);
 }
 
-@media(min-width:767){
-  #home, #que_es_tramiton, #estadisticas, #preguntas{
-    border-left: 1px solid #CCC;
-    border-right: 1px solid #CCC;
-  }
-  #preguntas{
-    border-bottom: 1px solid rgba(255,255,255,0.6);
-  }
-}
-
 .borde-der-blanco{
   border-right: 1px solid rgba(255,255,255,0.6);
 }
@@ -332,6 +322,28 @@ video{
   height: 900px;
 }
 
-#home, #estadisticas, #preguntas, #que_es_tramiton{
-  max-width: 90%;
+
+@media(min-width: 767px){
+  #fila-logos{
+    border-bottom: 1px solid #fff;
+  }
+  #home, #estadisticas, #preguntas, #que_es_tramiton, footer .container-fluid, #header-tramiton{
+    max-width: 90%;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+  }
+  footer .container-fluid{
+    border-top: 1px solid #CCC;
+  }
+  #preguntas{
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+  }
+}
+
+
+
+@media(max-width:766px){
+  #header-tramiton{
+    border: none;
+  }
 }

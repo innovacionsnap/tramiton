@@ -30,7 +30,7 @@ footer .container-fluid{
     background-position: center bottom;
     background-size: 100% 5px;
 
-    max-width: 90%;
+    /*max-width: 90%;*/
 }
     footer{
     position: absolute;
