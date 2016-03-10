@@ -32,10 +32,10 @@ $baseUrl = Yii::app()->theme->baseUrl;
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="home" class="container-fluid p-l-15 p-r-15">
+<div id="home" class="container-fluid p-t-30 p-l-15 p-r-15">
     <div class="row">
         <div id="col-formulario" class="col-sm-8  text-center">
-            <h2 class="text-center">Registra tu caso</h2>
+            <h4 class="text-center">Registra tu caso</h4>
             <?php
             $this->renderPartial('form_caso', true, false);
             ?>
