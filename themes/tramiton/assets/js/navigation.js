@@ -24,6 +24,7 @@
 
 
 $('#df').css("background-image","url('themes/tramiton/assets/img/header_.png')");
+// $('header#head').css("background-image","url('themes/tramiton/assets/img/header_.png')");
 
 ;
 

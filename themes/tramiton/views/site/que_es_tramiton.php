@@ -21,7 +21,7 @@
     <div class="wrapper">
         <!-- <div style="-webkit-filter:sepia(100%);" class="screen" id="screen-1" data-video="../../assets/mp4/tramiton.mp4"> -->
         <div class="screen" id="screen-1">
-            <img src="../../assets/img/que_es_tramiton_1.png" class="big-image" />
+            <!-- <img src="../../assets/img/que_es_tramiton_1.png" class="big-image" /> -->
             <!-- <h1 class="video-title">#1 Bird</h1> -->
         </div>
     </div>

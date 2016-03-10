@@ -44,6 +44,18 @@ function viewElements(){
         $("#col-logo-1").addClass("col-xs-6").removeClass("col-xs-12");
         $("#col-logo-2").addClass("col-xs-6").removeClass("col-xs-12");
     }
+
+    // if($wid <= 767){
+    //   $("#header-tramiton").css("border","none").css("max-width","100%");
+    //   $("#home, #que_es_tramiton, #estadisticas, #preguntas, footer .container-fluid").removeClass("borde-izq-gris").removeClass("borde-der-gris").css("max-width","100%");
+    // }
+    // else{
+    //   $("#header-tramiton").addClass("borde-izq-blanco").addClass("borde-der-blanco").css("max-width","90%");
+    //
+    //   $("#home, #que_es_tramiton, #estadisticas, #preguntas, footer .container-fluid").addClass("borde-izq-gris").addClass("borde-der-gris").css("max-width","90%");
+    //
+    // }
+
 }
 
 $('#navbar-toggle-dashboard').click(function(){

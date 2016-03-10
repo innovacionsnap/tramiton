@@ -32,7 +32,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="home" class="container borde-izq-gris borde-der-gris p-l-15 p-r-15">
+<div id="home" class="container-fluid p-l-15 p-r-15">
     <div class="row">
         <div id="col-formulario" class="col-sm-8  text-center">
             <h2 class="text-center">Registra tu caso</h2>
@@ -51,7 +51,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
     </div>
 </div>
 
-<div id="que_es_tramiton" class="container borde-izq-gris borde-der-gris p-t-30" style="height: 616px;">
+<div id="que_es_tramiton" class="container-fluid p-t-30" style="height: 616px;">
     <iframe style="border: none;" height="100%" width="100%" scrolling="no" src="<?php echo (Yii::app()->theme->baseUrl . '/views/site/que_es_tramiton.php'); ?>"></iframe>
 </div>
 
@@ -60,7 +60,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 <!-- begin #milestone -->
 <!-- <div id="estadisticas" class="content has-bg" data-scrollview="true" > -->
-<div id="estadisticas" class="container borde-izq-gris borde-der-gris p-t-30 p-r-30 p-l-30">
+<div id="estadisticas" class="container-fluid p-t-30 p-r-30 p-l-30">
     <div class="row">
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
@@ -244,7 +244,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 <!-- end #milestone -->
 
 
-<!-- <div id="noticias-1" class="container borde-izq-gris borde-der-gris">
+<!-- <div id="noticias-1" class="container >
   <div class="row">
     <div class="col-xs-12 text-right">
       <a class="twitter-timeline" href="https://twitter.com/TramitonEC" data-widget-id="705865349623881729">Tweets por el @TramitonEC.</a>
@@ -259,7 +259,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 <!--beign #preguntas frecuentes -->
 <!-- <div id = "preguntas" class = "content has-bg" data-scrollview = "true" > -->
-<div id = "preguntas" class="container p-0 borde-izq-gris borde-der-gris borde-inf-gris p-b-30 p-t-30">
+<div id = "preguntas" class="container-fluid p-0 borde-inf-gris p-b-30 p-t-30">
     <!-- <h2 class="content-title titulos">PREGUNTAS FRECUENTES</h2> -->
 
     <!--begin panel -->

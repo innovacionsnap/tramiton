@@ -1,26 +1,17 @@
 
-body{
-    /*background-color: red;*/
+#df .inner{
+  background: rgba(0, 0, 0, 0.4);
 }
-/*#que_es_tramiton{
-    padding-top: 156px !important;
-}
-#estadisticas{
-    padding-top: 156px !important;
-}
-#noticias-1{
-    margin-bottom: 160px;
-}*/
-
-/*html{
-    max-width: 1200px !important;
-    margin: auto;
-}*/
 #fila-logos{
     height: 156px;
     padding: 0px;
-    border-bottom: 1px solid #fff;
 }
+@media(min-width: 767){
+  #fila-logos{
+    border-bottom: 1px solid #fff !important;
+  }
+}
+
 
 .borde-izquierda{
     border-left: 1px solid #fff;
@@ -74,6 +65,7 @@ body{
 #nav-admin-home{
     height: 46px;
     margin: 0px 52px 0px 54px;
+    /*overflow: auto;*/
     /*border-left: 1px solid #fff;
     border-right: 1px solid #fff;*/
 }
@@ -152,12 +144,14 @@ body{
 /*fondo*/
 
 #header-tramiton{
-    height: 201px;
+    /*height: 201px;*/
     padding: 0px;
     margin: auto;
     border-top: 0px;
     border-radius: 0px;
     background: transparent;
+
+    max-width: 90%;
 }
 
 
@@ -243,17 +237,4 @@ body{
 #navbar-toggle-dashboard{
     margin: 0px;
     padding: 0px 10px;
-}
-#campana a{
-   padding-right: 20px;
-}
-@media(min-width:768px){
-    #campana{
-       padding-top: 8px;
-    }
-}
-@media(max-width: 767px){
-    #campana{
-        text-align: right;
-    }
 }

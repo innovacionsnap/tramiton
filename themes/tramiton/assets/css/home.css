@@ -45,16 +45,21 @@ body{
 	//background-color: pink;
 	position:relative;
 }
-.borde-izq-gris{
-  border-left: 1px solid #CCC;
-}
 
 .borde-izq-blanco{
   border-left: 1px solid rgba(255,255,255,0.6);
 }
-.borde-der-gris{
-  border-right: 1px solid #CCC;
+
+@media(min-width:767){
+  #home, #que_es_tramiton, #estadisticas, #preguntas{
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+  }
+  #preguntas{
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+  }
 }
+
 .borde-der-blanco{
   border-right: 1px solid rgba(255,255,255,0.6);
 }
@@ -312,4 +317,21 @@ video{
 
 .raleway{
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+
+
+#que_es_tramiton iframe{
+  background-image: url('../img/que_es_tramiton_1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  background-position: center;
+}
+#que_es_tramiton {
+  height: 900px;
+}
+
+#home, #estadisticas, #preguntas, #que_es_tramiton{
+  max-width: 90%;
 }

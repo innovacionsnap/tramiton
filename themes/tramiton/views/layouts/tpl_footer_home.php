@@ -1,5 +1,5 @@
 <footer>
-    <div class="container borde-izq-gris borde-der-gris">
+    <div class="container-fluid borde-izq-gris borde-der-gris">
       <div class="row">
           <div class="col-sm-4 col-xs-12">
               <img title="Secretaría Nacional de la Administración Pública" alt="Secretaría Nacional de la Administración Pública" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_presidencia.png" longdesc="longdesc/logdesc.html">
@@ -24,11 +24,13 @@ footer .row{
     text-align: center !important;
   }
 }
-footer .container{
+footer .container-fluid{
     background-image: url("<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/colores.png");
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 100% 5px;
+
+    max-width: 90%;
 }
     footer{
     position: absolute;
