@@ -323,7 +323,7 @@ video{
 }
 
 
-@media(min-width: 767px){
+@media(min-width: 768px){
 
 
   .separator{
@@ -347,7 +347,7 @@ video{
 
 
 
-@media(max-width:766px){
+@media(max-width:767px){
   #header-tramiton{
     border: none;
   }
