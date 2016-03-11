@@ -4,7 +4,7 @@
           <div class="col-sm-4 col-xs-12">
               <img title="Secretaría Nacional de la Administración Pública" alt="Secretaría Nacional de la Administración Pública" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_presidencia.png" longdesc="longdesc/logdesc.html">
           </div>
-          <div class="col-sm-4 col-xs-12 text-center m-b-10 f-12">
+          <div id="direccion" class="col-sm-4 col-xs-12 text-center m-b-10 f-12">
               Av. 10 de Agosto OE1-14 y Ramírez Dávalos Código Postal: 170520 / Quito - Ecuador
               <br>Teléfono: (593 2) 393 4500
           </div>
@@ -16,8 +16,17 @@
 </footer>
 
 <style media="screen">
+@media(max-width:766px){
+  #direccion{
+    padding-top: 1em;
+    padding-bottom: 0.8em;
+  }
+}
 .f-12{
   font-size: 12px;
+}
+.f-21{
+  font-size: 21px;
 }
 footer .row{
   padding: 0.8em 0;

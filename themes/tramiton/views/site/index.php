@@ -32,7 +32,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="home" class="container-fluid p-t-30 p-l-15 p-r-15">
+<div id="home" class="container-fluid p-t-30 p-l-15 p-r-15 p-b-30">
     <div class="row">
         <div id="col-formulario" class="col-sm-8  text-center">
             <h4 class="text-center">Registra tu caso</h4>
@@ -51,7 +51,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
     </div>
 </div>
 
-<div id="que_es_tramiton" class="container-fluid p-t-30" style="height: 616px;">
+<div id="que_es_tramiton" class="container-fluid" style="height: 616px;">
     <iframe style="border: none;" height="100%" width="100%" scrolling="no" src="<?php echo (Yii::app()->theme->baseUrl . '/views/site/que_es_tramiton.php'); ?>"></iframe>
 </div>
 

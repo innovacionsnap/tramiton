@@ -324,11 +324,14 @@ video{
 
 
 @media(min-width: 767px){
+  #header-tramiton{
+    max-width: 91%;
+  }
   #fila-logos{
     border-bottom: 1px solid #fff;
   }
-  #home, #estadisticas, #preguntas, #que_es_tramiton, footer .container-fluid, #header-tramiton{
-    max-width: 90%;
+  #home, #estadisticas, #preguntas, footer .container-fluid, #header-tramiton{
+    max-width: 93%;
     border-left: 1px solid #CCC;
     border-right: 1px solid #CCC;
   }
