@@ -1,3 +1,13 @@
+#df .menu-central{
+  background: none;
+  color: white;
+  font-weight: bold;
+}
+
+.separator{
+  background: rgba(255,255,255,0.6);
+  height: 1px;
+}
 
 #df .inner{
   background: rgba(0, 0, 0, 0.4);
@@ -8,7 +18,7 @@
 }
 @media(min-width: 767){
   #fila-logos{
-    border-bottom: 1px solid #fff !important;
+    /*border-bottom: 1px solid #fff !important;*/
   }
 }
 
@@ -63,16 +73,24 @@
 
 /*menu*/
 #nav-admin-home{
-    height: 46px;
-    margin: 0px 52px 0px 54px;
+    /*height: 46px;*/
+    /*margin: 0px 52px 0px 54px;*/
     /*overflow: auto;*/
     /*border-left: 1px solid #fff;
     border-right: 1px solid #fff;*/
 }
 
 @media(max-width: 767px){
+    #container-menu{
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+    .separator{
+      margin-right: 15px !important;
+      margin-left: 15px !important;
+    }
     .azul{
-        background-color: #325972;
+        /*background-color: #325972;*/
     }
     .collapse a{
         /*text-align: right;*/
@@ -110,19 +128,21 @@
     }
 }
 
-@media(max-width: 1083px) and (min-width: 768px){
+/*@media(max-width: 1083px) and (min-width: 768px){
     #fila-logos{
         height: 129px !important;
     }
     #nav-admin-home{
         height: 73px !important;
     }
-}
+}*/
 /*@media(max-width: 965px){
     .nav-tramiton li a{
         text-transform: lowercase;
     }
 }*/
+
+
 
 
 
@@ -186,10 +206,10 @@
 
 @media (min-width: 768px) and (max-width: 802px){
     .menu-central{
-        padding: 1px 3px !important;
+        /*padding: 1px 3px !important;*/
     }
     #logo-home {
-       width: 145px !important;
+       /*width: 145px !important;*/
     }
 }
 

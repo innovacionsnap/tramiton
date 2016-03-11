@@ -324,14 +324,16 @@ video{
 
 
 @media(min-width: 767px){
-  #header-tramiton{
+
+
+  .separator{
+    width: 100%;
+  }
+  #header-tramiton, #nav-admin-home{
     max-width: 92%;
   }
-  #fila-logos{
-    border-bottom: 1px solid #fff;
-  }
   #home, #estadisticas, #preguntas, footer .container-fluid, #header-tramiton{
-    max-width: 93%;
+    max-width: 92%;
     border-left: 1px solid #CCC;
     border-right: 1px solid #CCC;
   }
