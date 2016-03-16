@@ -85,6 +85,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                           <div id="div-sucursal" class="form-group">
                               <label>Sucursal (Ej. Norte, Sur, etc) <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Indique la sucursal de la institución en la que realizó el trámite"></i></label>
                               <input disabled type="text" id = "unidad_prestadora" name="unidad_prestadora" class="campo-panel1 form-registro " class="form-control" />
+                              <div id='unidad_prestadora_error' style='display:none;'></div>
                           </div>
                         </div>
 
