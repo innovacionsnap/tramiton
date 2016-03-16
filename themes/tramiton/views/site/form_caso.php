@@ -55,7 +55,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                 <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la institución donde realizó el trámite"></i>
                                 <?php institucion("id_institucion", "0"); ?>
                             </div>
-                            <div id="pidhijo2" class="form-group"></div>
+                            <div id="pidhijo2"></div>
 
                             <div class="carl-institucion form-group">
                               <label>Trámite <i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Seleccione el trámite realizado'></i> </label>
