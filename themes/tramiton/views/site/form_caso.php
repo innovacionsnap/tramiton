@@ -36,7 +36,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
         <div id="panel1" class="panel-registro active">
             <h4 id="bienvenida">Ingresa tu documento de identificación</h4>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 p-0">
                     <div class="form-group">
                         <label>Cédula de Identidad y/o Ciudadanía</label>
                         <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Ingrese su número de cédula de identidad o ciudadanía"></i>
@@ -44,85 +44,81 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         <div id="cedula_ciu_error" style="display:none;color:red;"></div>
                         <div id="verifica" style="max-height: 80px;"></div>
                     </div>
-                    <h3>Institución</h3>
-                    <span>Identificar la Institución donde realizó el trámite</span>
+                    <div>
+                      <h3 style="display: inline">Institución</h3>
+                      <span class="m-l-10">Identificar la Institución donde realizó el trámite</span>
+                    </div>
                     <div class="row">
-
-                        <!-- begin col-12 -->
-                        <div class="col-md-12">
+                        <div class="col-md-6 p-l-0 p-r-15">
                             <div class="form-group">
                                 <label>Institución</label>
                                 <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la institución donde realizó el trámite"></i>
                                 <?php institucion("id_institucion", "0"); ?>
+                            </div>
+                            <div id="pidhijo2" class="form-group"></div>
 
+                            <div class="carl-institucion form-group">
+                              <label>Trámite <i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Seleccione el trámite realizado'></i> </label>
+                              <select disabled class="form-registro" name="">
+                                <option value=''>Selecciona un trámite</option>
+                              </select>
+                            </div>
+                            <div class="carl-institucion form-group">
+                              <label>Descricipción de otro trámite <i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Describa el trámite realizado'></i> </label>
+                              <input disabled type="text" class="form-registro">
                             </div>
                         </div>
-                        <!-- end col-12 -->
-                        <!-- begin col-12 -->
-                        <p id="pidhijo2">
-                            <!-- end col-12 -->
-                            <!-- begin col-4 -->
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Provincia</label>
-                                <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la provincia donde realizó el trámite"></i>
-                                <?php provincia("id_provincia", "0") ?>
-                            </div>
+                        <div class="col-md-6 p-0">
+                          <div class="form-group">
+                              <label>Provincia</label>
+                              <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la provincia donde realizó el trámite"></i>
+                              <?php provincia("id_provincia", "0") ?>
+                          </div>
+                          <div id="pidhijo" class="form-group"></div>
+
+                          <div class="carl-provincia form-group">
+                            <label>Cantón <i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Seleccione el cantón donde realizó el trámite'></i></label>
+                            <select class='campo-panel2 form-registro' data-parsley-group='wizard-step-1'>
+                              <option>Seleccione un cantón</option>
+                            </select>
+                          </div>
+                          <div id="div-sucursal" class="form-group">
+                              <label>Sucursal (Ej. Norte, Sur, etc) <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Indique la sucursal de la institución en la que realizó el trámite"></i></label>
+                              <input disabled type="text" id = "unidad_prestadora" name="unidad_prestadora" class="campo-panel1 form-registro " class="form-control" />
+                          </div>
                         </div>
-                        <!-- end col-4 -->
-                        <!-- begin col-12 -->
-                        <p id="pidhijo">
-                            <!-- end col-12 -->
 
-                            <!-- begin col-12 -->
 
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Sucursal (Ej. Norte, Sur, etc)</label>
-                                <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Indique la sucursal de la institución en la que realizó el trámite"></i>
-                                <input disabled type="text" id = "unidad_prestadora" name="unidad_prestadora" class="campo-panel1 form-registro " placeholder="Unidad Prestadora" class="form-control" />
-                                <div id="unidad_prestadora_error" style="display:none;"></div>
-
-                            </div>
-                        </div>
-                        <!-- end col-12 -->
                     </div>
-                    
+
                 </div>
                 <div class="row botones_nav"></div>
             </div>
         </div>
-        
+
         <div id="panel2" class="panel-registro">
             <p>¿Qué problemas tuvo? <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios de los problemas encontrados al momento de realizar el trámite"></i>
             </p>
 
             <div class="row">
-                <!-- begin col-4 -->
                 <div class="col-md-4">
                     <div class="form-group">
                         <?php echo problema2() ?>
 
                     </div>
                 </div>
-                <!-- end col-4 -->
-                <!-- begin col-4 -->
                 <div class="col-md-4">
                     <div class="form-group">
                         <?php echo problema3() ?>
 
                     </div>
                 </div>
-                <!-- end col-4 -->
-                <!-- begin col-4 -->
                 <div class="col-md-4">
                     <div class="form-group">
                         <?php echo problema4() ?>
 
                     </div>
                 </div>
-                <!-- end col-4 -->
-                <!-- begin col-12 -->
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Detalle brevemente su experiencia con el trámite con el Trámite </label>
@@ -133,7 +129,6 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 
                     </div>
                 </div>
-                <!-- end col-6 -->
 
             </div>
             <div class="row botones_nav"></div>
@@ -141,7 +136,6 @@ Yii::app()->clientScript->registerCoreScript('jquery');
         <div id="panel3" class="panel-registro">
 
             <div class="row">
-                <!-- begin col-12 -->
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Título Solución</label>
@@ -153,8 +147,6 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         </div>
                     </div>
                 </div>
-                <!-- end col-12 -->
-                <!-- begin col-12 -->
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Detalle de solución</label>
@@ -166,11 +158,9 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         </div>
                     </div>
                 </div>
-                <!-- end col-12 -->
 
             </div>
             <div class="row">
-                <!-- begin col-12 -->
                 <div class="col-md-12">
                     <input type="hidden" name="insertar_tramite" value="1">
                     <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
@@ -206,7 +196,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 
                     }",
                         'error' => "function(){
-                    alert('error');
+                          // alert('error');
                         $('#estados2').addClass('loadingerror');
                         $('#msgValidacion').html('ocurrio un error al recuperar datos');
 

@@ -66,6 +66,8 @@
             $("#id_provincia").change(function (event)
             {
                 var idpadre = $(this).find(':selected').val();
+								$('.carl-provincia').css("display","none");
+								$('div-sucursal').prop('disabled',false);
                 $("#pidhijo").html("<img src='<?php echo $baseUrl ?>/themes/tramiton/views/ciudadano/loading.gif' />");
                 $("#pidhijo").load('<?php echo $linkcombo ?>?buscar=hijos&id_provincia=' + idpadre);
             });
@@ -74,6 +76,7 @@
             $("#id_institucion").change(function (event)
             {
                 var id_institucion = $(this).find(':selected').val();
+								$('.carl-institucion').css("display","none");
                 $("#pidhijo2").html("<img src='<?php echo $baseUrl ?>/themes/tramiton/views/ciudadano/loading.gif' />");
                 $("#pidhijo2").load('<?php echo $linkcombo2 ?>?buscar_institucion=institucion&id_institucion=' + id_institucion);
             });
