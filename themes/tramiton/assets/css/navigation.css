@@ -35,9 +35,9 @@
 .col-tramiton{
     float: left;
     /*54px desde app web*/
-    margin-left: 54px;
+    /*margin-left: 0px;*/
 
-    padding: 50px 10px 0px 54px !important;
+    padding: 50px 0px 0px 30px !important;
 }
 #logo-home{
     width: 152px;
@@ -201,7 +201,7 @@
     padding-right: 28px;
 }
 .menu-central{
-    padding: 1px 3px;
+    padding: 10px 45px !important;
 }
 
 @media (min-width: 768px) and (max-width: 802px){

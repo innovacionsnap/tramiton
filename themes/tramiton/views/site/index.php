@@ -32,10 +32,10 @@ $baseUrl = Yii::app()->theme->baseUrl;
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="home" class="container-fluid p-t-30 p-l-15 p-r-15 p-b-30">
+<div id="home" class="container-fluid p-t-10 p-l-15 p-r-15 p-b-30">
     <div class="row">
-        <div id="col-formulario" class="col-sm-7  text-center">
-            <h4 class="text-left m-0">Registra tu caso</h4>
+      <h4 class="text-left p-l-15" style="font-weight: bold;">Registra tu caso</h4>
+        <div id="col-formulario" class="col-sm-7">
             <?php
             $this->renderPartial('form_caso', true, false);
             ?>
@@ -82,7 +82,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
     </div>
     <!-- begin row -->
     <div class="row m-t-30">
-        <div class="col-xs-12">
+        <div class="col-xs-12 p-0">
           <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con más acciones correctivas</h2>
           <?php
          $nombreac="serie1";
@@ -255,14 +255,14 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 <!--beign #preguntas frecuentes -->
 <!-- <div id = "preguntas" class = "content has-bg" data-scrollview = "true" > -->
-<div id = "preguntas" class="container-fluid p-0 borde-inf-gris p-b-30 p-t-30">
+<div id = "preguntas" class="container-fluid p-0 borde-inf-gris p-b-30 p-t-30 ">
     <!-- <h2 class="content-title titulos">PREGUNTAS FRECUENTES</h2> -->
 
     <!--begin panel -->
     <div class = "panel panel-inverse m-b-0 no-border">
         <div class = "panel-heading">
             <h3 class = "panel-title">
-                <a data-toggle = "collapse" href = "#faq-2">Preguntas frecuentes</a>
+                <a data-toggle = "collapse" href = "#faq-2" class="p-l-15 f-18">Preguntas frecuentes</a>
             </h3>
         </div>
         <div id = "faq-2" class = "panel-collapse collapse">
