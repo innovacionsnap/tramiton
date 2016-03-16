@@ -22,11 +22,11 @@ body{
 #home{
     overflow: auto;
 }
-@media(min-width:767px){
+/*@media(min-width:767px){
   #col-video{
     margin-top: 132px;
   }
-}
+}*/
 
 #row-arrows{
 	border-bottom: 3px solid #325972;

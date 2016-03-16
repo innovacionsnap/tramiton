@@ -10,7 +10,7 @@
     /*display: inline-block;*/
     background: #325972;
     /*margin: 0;*/
-    
+
     margin-bottom: 3px;
 
     padding: 3px 10px;
@@ -32,7 +32,7 @@
     background: #F5F5F5;
     padding: 30px;
     border-radius: 0 0 10px 10px;
-    min-height: 374px;
+    min-height: 421px;
 }
 
 .tab-panels .panel-registro.active {
