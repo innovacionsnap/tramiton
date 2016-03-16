@@ -41,8 +41,11 @@ $(function () {
                         $('#cedula_ciu_error').hide();
                         $('#gracias').html('Gracias ' + bandera[1] + ' por registrar su caso');
                         $('#bienvenida').html('Bienvenido/a ' + bandera[1]);
-                        $('#col-video').hide();
-                        $('#col-formulario').addClass('col-sm-offset-2');
+                       // $('#col-video').hide();
+                        //$('#col-formulario').addClass('col-sm-offset-2');
+                        document.getElementById("id_institucion").disabled=false;
+                        document.getElementById("id_provincia").disabled=false;
+                        document.getElementById("unidad_prestadora").disabled=false;
                     } else {
                         $('a.next-tab').hide();
                         $('#cedula_ciu_error').html("Cédula ingresada no válida");

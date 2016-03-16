@@ -7,7 +7,7 @@ function provincia($nombre, $valor) {
     $resultado_provincia = pg_query($con, $consulta_provincia) or die("Error en la Consulta SQL");
     $numReg = pg_num_rows($resultado_provincia);
     //echo "<div class='col-md-10'>";
-    echo "<select class='campo-panel2 form-registro' name='$nombre' id='$nombre'>";
+    echo "<select disabled class='campo-panel1 form-registro' name='$nombre' id='$nombre'>";
     echo "<option value=''>Selecciona una Provincia</option>";
     while ($fila = pg_fetch_array($resultado_provincia)) {
         echo "<option value='" . $fila["pro_id"] . "'";
@@ -28,7 +28,7 @@ function canton($nombre, $valor) {
     $numReg = pg_num_rows($resultado_canton);
 
 
-    echo "<select class= 'campo-panel2' name='$nombre' id='$nombre'>";
+    echo "<select class= 'campo-panel1' name='$nombre' id='$nombre'>";
     echo "<option value=''>Selecciona un Cantón</option>";
     while ($fila = pg_fetch_array($resultado_canton)) {
         echo "<option value='" . $fila["can_id"] . "'";
@@ -48,7 +48,7 @@ function institucion($nombre, $valor) {
     $numReg = pg_num_rows($resultado_institucion);
     //echo "<div class='col-md-12'>";
     //echo "<div class='form-group'>";
-    echo "<select class='campo-panel2 form-registro' name='$nombre' id='$nombre'>";
+    echo "<select disabled class='campo-panel1 form-registro' name='$nombre' id='$nombre'>";
     echo "<option value=''>Selecciona una Institución</option>";
     while ($fila = pg_fetch_array($resultado_institucion)) {
         echo "<option value='" . $fila["ins_id"] . "'";
@@ -69,7 +69,7 @@ from tramite tra, tramite_institucion trai, institucion ins where tra.tra_id = t
     $resultado_tramite = pg_query($con, $consulta_tramite) or die("Error en la Consulta SQL");
     $numReg = pg_num_rows($resultado_tramite);
 
-    echo "<select class='campo-panel2' name='$nombre' id='$nombre'>";
+    echo "<select class='campo-panel1' name='$nombre' id='$nombre'>";
     echo "<option value=''>Selecciona un trámite...</option>";
     while ($fila = pg_fetch_array($resultado_tramite)) {
         echo "<option value='" . $fila["ins_id"] . "'";

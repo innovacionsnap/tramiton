@@ -28,7 +28,6 @@ Yii::app()->clientScript->registerCoreScript('jquery');
     <div class="tab-panels">
         <ul class="tabs nav nav-pills nav-justified">
             <li role="presentation" rel="panel1" class="active text-center">Identificación</li>
-            <li role="presentation" rel="panel2" class="text-center">Institución</li>
             <li role="presentation" rel="panel3" class="text-center">Problemática</li>
             <li role="presentation" rel="panel4" class="text-center">Solución</li>
             <li role="presentation" rel="panel5" class="text-center">Finalizar</li>
@@ -45,57 +44,56 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         <div id="cedula_ciu_error" style="display:none;color:red;"></div>
                         <div id="verifica" style="max-height: 80px;"></div>
                     </div>
+                    <h3>Institución</h3>
+                    <span>Identificar la Institución donde realizó el trámite</span>
+                    <div class="row">
+
+                        <!-- begin col-12 -->
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Institución</label>
+                                <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la institución donde realizó el trámite"></i>
+                                <?php institucion("id_institucion", "0"); ?>
+
+                            </div>
+                        </div>
+                        <!-- end col-12 -->
+                        <!-- begin col-12 -->
+                        <p id="pidhijo2">
+                            <!-- end col-12 -->
+                            <!-- begin col-4 -->
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provincia</label>
+                                <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la provincia donde realizó el trámite"></i>
+                                <?php provincia("id_provincia", "0") ?>
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                        <!-- begin col-12 -->
+                        <p id="pidhijo">
+                            <!-- end col-12 -->
+
+                            <!-- begin col-12 -->
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Sucursal (Ej. Norte, Sur, etc)</label>
+                                <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Indique la sucursal de la institución en la que realizó el trámite"></i>
+                                <input disabled type="text" id = "unidad_prestadora" name="unidad_prestadora" class="campo-panel1 form-registro " placeholder="Unidad Prestadora" class="form-control" />
+                                <div id="unidad_prestadora_error" style="display:none;"></div>
+
+                            </div>
+                        </div>
+                        <!-- end col-12 -->
+                    </div>
+                    
                 </div>
                 <div class="row botones_nav"></div>
             </div>
         </div>
+        
         <div id="panel2" class="panel-registro">
-            <h3>Institución</h3>
-            <span>Identificar la Institución donde realizó el trámite</span>
-            <div class="row">
-
-                <!-- begin col-12 -->
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Institución</label>
-                        <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la institución donde realizó el trámite"></i>
-                        <?php institucion("id_institucion", "0"); ?>
-
-                    </div>
-                </div>
-                <!-- end col-12 -->
-                <!-- begin col-12 -->
-                <p id="pidhijo2">
-                    <!-- end col-12 -->
-                    <!-- begin col-4 -->
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provincia</label>
-                        <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la provincia donde realizó el trámite"></i>
-                        <?php provincia("id_provincia", "0") ?>
-                    </div>
-                </div>
-                <!-- end col-4 -->
-                <!-- begin col-12 -->
-                <p id="pidhijo">
-                    <!-- end col-12 -->
-
-                    <!-- begin col-12 -->
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Sucursal (Ej. Norte, Sur, etc)</label>
-                        <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Indique la sucursal de la institución en la que realizó el trámite"></i>
-                        <input type="text" id = "unidad_prestadora" name="unidad_prestadora" class="campo-panel2 form-registro " placeholder="Unidad Prestadora" class="form-control" />
-                        <div id="unidad_prestadora_error" style="display:none;"></div>
-
-                    </div>
-                </div>
-                <!-- end col-12 -->
-            </div>
-            <div class="row botones_nav"></div>
-        </div>
-        <div id="panel3" class="panel-registro">
             <p>¿Qué problemas tuvo? <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios de los problemas encontrados al momento de realizar el trámite"></i>
             </p>
 
@@ -130,7 +128,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         <label>Detalle brevemente su experiencia con el trámite con el Trámite </label>
                         <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Detalle el problema del trámite realizado"></i>
                         <div id="contador_1" class="contador">1500 de 1500 caracteres disponibles</div>
-                        <textarea class="campo-panel3 form-registro comment" id = "experiencia" name="experiencia" data="comment_1" rows="4" placeholder="Detalle brevemente su experiencia con el trámite" maxlength="1500"></textarea>
+                        <textarea class="campo-panel2 form-registro comment" id = "experiencia" name="experiencia" data="comment_1" rows="4" placeholder="Detalle brevemente su experiencia con el trámite" maxlength="1500"></textarea>
                         <div id="experiencia_error" style="display:none;"></div>
 
                     </div>
@@ -140,7 +138,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
             </div>
             <div class="row botones_nav"></div>
         </div>
-        <div id="panel4" class="panel-registro">
+        <div id="panel3" class="panel-registro">
 
             <div class="row">
                 <!-- begin col-12 -->
@@ -150,7 +148,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="De un título a la solución propuesta"></i>
                         <div class="controls">
                             <div id="contador_2" class="contador">100 de 100 caracteres disponibles</div>
-                            <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Escriba un título claro y conciso para su propuesta de solución" class="campo-panel4 form-registro comment" data="comment_2" maxlength="100" />
+                            <input type="text"  id="titulo_solucion" name="titulo_solucion" placeholder="Escriba un título claro y conciso para su propuesta de solución" class="campo-panel3 form-registro comment" data="comment_2" maxlength="100" />
                             <div id="titulo_solucion_error" style="display:none;"></div>
                         </div>
                     </div>
@@ -163,7 +161,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Detalle la solución propuesta"></i>
                         <div class="controls">
                             <div id="contador_3" class="contador">1500 de 1500 caracteres disponibles</div>
-                            <textarea class="campo-panel4 form-registro comment" id="propuesta_solucion" name="propuesta_solucion" data="comment_3" rows="4" placeholder="Describa de manera clara y detallada su propuesta de solución" maxlength="1500"></textarea>
+                            <textarea class="campo-panel3 form-registro comment" id="propuesta_solucion" name="propuesta_solucion" data="comment_3" rows="4" placeholder="Describa de manera clara y detallada su propuesta de solución" maxlength="1500"></textarea>
                             <div id="propuesta_solucion_error" style="display:none;"></div>
                         </div>
                     </div>
@@ -200,7 +198,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                             jQuery('#mensaje_captcha').show();
                         }else{
                             jQuery('#mensaje_captcha').hide();
-                            jQuery('.next-tab')[3].click();
+                            jQuery('.next-tab')[2].click();
                             jQuery('#btnNav').hide();
                             jQuery('#msgValidacion').html(data);
 
@@ -221,7 +219,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
             <div id="btnNav" class="row botones_nav"></div>
 
         </div>
-        <div id="panel5" class="panel-registro">
+        <div id="panel4" class="panel-registro">
             <h3 align="center" id="gracias"></h3>
             <h5 align="center" id="msgValidacion"></h5>
 
@@ -230,5 +228,5 @@ Yii::app()->clientScript->registerCoreScript('jquery');
     </div>
 
 </form>
-<script src="<?php echo Yii::app()->baseUrl;?>/themes/tramiton/assets/js/form-caso.js"></script>
+<script src="<?php echo Yii::app()->baseUrl; ?>/themes/tramiton/assets/js/form-caso.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
