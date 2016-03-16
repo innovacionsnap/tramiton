@@ -34,18 +34,17 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 <div id="home" class="container-fluid p-t-30 p-l-15 p-r-15 p-b-30">
     <div class="row">
-        <div id="col-formulario" class="col-sm-8  text-center">
-            <h4 class="text-center">Registra tu caso</h4>
+        <div id="col-formulario" class="col-sm-7  text-center">
+            <h4 class="text-left m-0">Registra tu caso</h4>
             <?php
             $this->renderPartial('form_caso', true, false);
             ?>
         </div>
-        <div id="col-video" class="col-xs-12 col-sm-4">
-                  <div class="embed-responsive embed-responsive-16by9">
-                      <iframe src="https://www.youtube.com/embed/XXPq4UQXgBY" frameborder="0" allowfullscreen></iframe>
-                  </div>
-          </div>
 
+        <div id="noticias-2" class="col-sm-5 text-center">
+          <a class="twitter-timeline" href="https://twitter.com/TramitonEC" data-widget-id="705865349623881729">Tweets por el @TramitonEC.</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
 
         </div>
     </div>
@@ -83,8 +82,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
     </div>
     <!-- begin row -->
     <div class="row m-t-30">
-        <div class="col-xs-12 col-sm-7">
-          <h2 style="color:#325972;" class="text-center titulo-estadistica m-t-0">Instituciones con más acciones correctivas</h2>
+        <div class="col-xs-12">
+          <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con más acciones correctivas</h2>
           <?php
          $nombreac="serie1";
          $nombreac2="serie2";
@@ -234,10 +233,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
           ?>
         </div>
 
-        <div id="noticias-2" class="col-xs-12 col-sm-5 text-center">
-          <a class="twitter-timeline" href="https://twitter.com/TramitonEC" data-widget-id="705865349623881729">Tweets por el @TramitonEC.</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-        </div>
+
     </div>
     <!-- end row -->
 </div>

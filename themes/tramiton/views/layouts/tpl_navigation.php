@@ -47,7 +47,7 @@
             <li><a class="menu-central " href="#">Participa</a></li>
             <li><a class="menu-central " href="#que_es_tramiton" data-click="scroll-to-target">¿Qué es el Tramitón?</a></li>
             <li><a class="menu-central " href="#estadisticas" data-click="scroll-to-target">Estadísticas</a></li>
-            <li><a class="menu-central " href="#noticias-2" data-click="scroll-to-target">Noticias</a></li>
+            <!-- <li><a class="menu-central " href="#noticias-2" data-click="scroll-to-target">Noticias</a></li> -->
             <li><a class="menu-central " href="#preguntas" data-click="scroll-to-target">Preguntas frecuentes</a></li>
             <li><a class="menu-central " href="<?php echo Yii::app()->baseUrl; ?>/site/registro">Regístrate</a></li>
             <li><a class="menu-central p-b-10" href="/tramiton/./#login-modal" data-toggle="modal" data-description="member area">Ingresa</a></li>
