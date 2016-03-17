@@ -262,15 +262,15 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <div class = "panel panel-inverse m-b-0 no-border">
         <div class = "panel-heading">
             <h3 class = "panel-title">
-                <a data-toggle = "collapse" href = "#faq-2" class="p-l-15 f-18">Preguntas frecuentes</a>
+                <a data-toggle = "collapse" href = "#acordeon-preguntas" class="p-l-15 f-18">Preguntas frecuentes</a>
             </h3>
         </div>
-        <div id = "faq-2" class = "panel-collapse collapse">
+        <div id = "acordeon-preguntas" class = "panel-collapse collapse">
             <div class = "panel-body">
 
                 <!-- begin pregunta -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-9">
+                    <div class="col-xs-12 col-sm-8">
                         <p class="pregunta">¿Qué institución lidera el proyecto Tramitón?</p>
                         <br>
                         <p class="respuesta">
@@ -282,8 +282,9 @@ $baseUrl = Yii::app()->theme->baseUrl;
                             Para dicho efecto, la ciudadanía podrá acceder a un formulario en línea para registro, postulación y propuesta de solución al peor trámite.
                         </p>
                     </div>
-                    <div class="col-xs-12 col-sm-3">
-                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/assets/img/logo_snap.png">
+                    <div class="col-xs-12 col-sm-4 frame r-0">
+                        <span class="helper hiden-xs"></span>
+                        <img src="<?php echo $baseUrl; ?>/assets/img/logo_snap.png">
                     </div>
                 </div>
                 <!-- end pregunta -->
@@ -292,20 +293,21 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <!-- begin pregunta -->
                 <div class="row">
                     <div class="col-xs-12 col-sm-9 col-sm-push-3">
-                        <p class="pregunta text-right">¿Cuál es el beneficio que genera Tramitón?</p>
+                        <p class="pregunta derecha">¿Cuál es el beneficio que genera Tramitón?</p>
                         <br>
-                        <p class="respuesta text-right">
+                        <p class="respuesta derecha">
                             De acuerdo al artículo 227 de la Constitución, la Administración Pública constituye un servicio a la colectividad que se rige por los principios de eficacia, eficiencia, calidad, jerarquía, desconcentración, descentralización, coordinación, participación, planificación, transparencia y evaluación. Así también el Estado ecuatoriano requiere implantar procesos de investigación formal para el mejoramiento e innovación de los servicios públicos para la generación de mayor valor agregado en la atención a los usuarios. Es así, que se establece la convocatoria al concurso nacional “Tramitón”, para fomentar la participación e involucramiento de las y los ciudadanos con la identificación de aquellos trámites susceptibles de mejora y propuestas innovadoras que logren mejorar la eficiencia de la gestión y uso de recursos del Estado.
                         </p>
-                        <p class="respuesta text-right">
+                        <p class="respuesta derecha">
                             Por esta razón la gestión pública procura la disminución progresiva y simplificación de trámites para acceder a servicios eficientes, transparentes y de calidad.
                         </p>
-                        <p class="respuesta text-right">
+                        <p class="respuesta derecha">
                             Al facilitar los trámites se facilita la interacción entre los usuarios y las Instituciones Públicas lo cual es un factor clave para el fomento de innovación abierta en servicios.
                         </p>
                     </div>
-                    <div class="col-xs-12 col-sm-3 col-sm-pull-9">
-                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/grupo.png">
+                    <div class="col-xs-12 col-sm-3 frame l-0 col-sm-pull-9 derecha">
+                        <span class="helper hiden-xs"></span>
+                        <img src="<?php echo $baseUrl; ?>/images/preguntas/grupo.png">
                     </div>
                 </div>
                 <!-- end pregunta -->
@@ -320,8 +322,9 @@ $baseUrl = Yii::app()->theme->baseUrl;
                             Tramitón fue lanzado a la ciudadanía el 21 de junio de 2014, bajo la figura de Concurso Nacional con convocatoria abierta hasta el 31 de agosto de 2014, con la motivación de entregar premios de Tren Crucero a los ciudadanos con las mejores propuestas de solución para la mejora de trámites de la gestión pública.
                         </p>
                     </div>
-                    <div class="col-xs-12 col-sm-3">
-                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/calendario.png">
+                    <div class="col-xs-12 col-sm-3 frame r-0">
+                        <span class="helper hiden-xs"></span>
+                        <img src="<?php echo $baseUrl; ?>/images/preguntas/calendario.png">
                     </div>
                 </div>
                 <!-- end pregunta -->
@@ -329,15 +332,16 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
                 <!-- begin pregunta -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-9 col-sm-push-3">
-                        <p class="pregunta text-right">¿Los casos y propuestas de solución pueden registrarse continuamente?</p>
+                    <div class="col-xs-12 col-sm-3 col-sm-push-9 derecha">
+                        <p class="pregunta derecha">¿Los casos y propuestas de solución pueden registrarse continuamente?</p>
                         <br>
-                        <p class="respuesta text-right">
+                        <p class="respuesta derecha">
                             Si, los ciudadanos pueden continuar registrando sus casos y experiencias.
                         </p>
                     </div>
-                    <div class="col-xs-12 col-sm-3 col-sm-pull-9">
-                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/lista.png">
+                    <div class="col-xs-12 col-sm-9 col-sm-pull-3 derecha">
+                        <!-- <span class hiden-xs="helper"></span> -->
+                        <img src="<?php echo $baseUrl; ?>/images/preguntas/lista.png">
                     </div>
                 </div>
                 <!-- end pregunta -->
@@ -352,8 +356,9 @@ $baseUrl = Yii::app()->theme->baseUrl;
                             El Tramitón es su primer convocatoria lo hizo bajo figura de un concurso, sin embargo, una vez concluida la misma, continua abierta la plataforma para el acceso a la ciudadanía, con el fin de continuar con la interacción con los usuarios ya que genera información importante para el seguimiento con respecto a los planes de acción para el mejoramiento de los trámites y posterior análisis de datos y planteamiento de propuestas para la innovación de los servicios.
                         </p>
                     </div>
-                    <div class="col-xs-12 col-sm-3">
-                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/hojas.png">
+                    <div class="col-xs-12 col-sm-3 frame r-0">
+                        <span class="helper hiden-xs"></span>
+                        <img src="<?php echo $baseUrl; ?>/images/preguntas/hojas.png">
                     </div>
                 </div>
                 <!-- end pregunta -->
@@ -364,15 +369,16 @@ $baseUrl = Yii::app()->theme->baseUrl;
                     <div class="col-xs-12 col-sm-9 col-sm-push-3">
                         <p class="pregunta text right">¿Cómo funciona Tramitón?</p>
                         <br>
-                        <p class="respuesta text-right">
+                        <p class="respuesta derecha">
                             Los ciudadanos pueden ingresar a la plataforma y describir un caso en el uso de un servicio público, lo califica y propone una solución. El análisis a dicha participación se realiza en función de los componentes del servicio, pertinencia del caso, factibilidad de implementación y coherencia en la descripción del caso y propuesta de la solución.
                         </p>
-                        <p class="respuesta text-right">
+                        <p class="respuesta derecha">
                             Adicionalmente un equipo técnico se encarga de contactar a las instituciones que han sido mencionadas en el Tramitón para buscar que se atiendan a todos los casos y se desarrollen acciones globales de solución. En base a la información entregada por los ciudadanos, las instituciones desarrollan planes de mejora con acciones en el corto mediano plazo para mejorar el servicio público. El objetivo es llegar a una estrategia de mejoramiento e innovación de los servicios de forma participativa y colaborativa, siempre con el fin de favorecer la calidad y calidez de los servicios público. Las herramientas TIC son el apoyo informático con el cual contamos, así que en todos los casos en los que se requiera y sea posible aplicarlas se buscará hacerlo.
                         </p>
                     </div>
-                    <div class="col-xs-12 col-sm-3 col-sm-pull-9">
-                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/web.png">
+                    <div class="col-xs-12 col-sm-3 frame l-0 col-sm-pull-9 derecha">
+                        <span class="helper hiden-xs"></span>
+                        <img src="<?php echo $baseUrl; ?>/images/preguntas/web.png">
                     </div>
                 </div>
                 <!-- end pregunta -->
@@ -380,7 +386,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
                 <!-- begin pregunta -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-9">
+                    <div class="col-xs-12 col-sm-3">
                         <p class="pregunta">¿Quiénes pueden registrarse?</p>
                         <br>
                         <p class="respuesta">
@@ -391,8 +397,9 @@ $baseUrl = Yii::app()->theme->baseUrl;
                             </ul>
                         </p>
                     </div>
-                    <div class="col-xs-12 col-sm-3">
-                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/cedula.png">
+                    <div class="col-xs-12 col-sm-9 frame r-0">
+                        <span class="helper hiden-xs"></span>
+                        <img src="<?php echo $baseUrl; ?>/images/preguntas/cedula.png">
                     </div>
                 </div>
                 <!-- end pregunta -->
@@ -401,14 +408,15 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <!-- begin pregunta -->
                 <div class="row">
                     <div class="col-xs-12 col-sm-9 col-sm-push-3">
-                        <p class="pregunta text-right">¿Es pública toda la información registrada en Tramitón?</p>
+                        <p class="pregunta derecha">¿Es pública toda la información registrada en Tramitón?</p>
                         <br>
-                        <p class="respuesta text-right">
+                        <p class="respuesta derecha">
                             Todos los datos registrados en Tramitón (datos personales y de experiencia con el trámite), serán de uso exclusivo de la Secretaría Nacional de la Administración Pública – SNAP. El ciudadano(a) el momento de su registro, podrá seleccionar si desea hacer públicos sus datos (información personal, sociodemográfica y de contacto) o mantenerlos en privado. En caso de hacer públicos sus datos, la(s) institución(es) relacionadas en su propuesta de solución podrán contactarlo de manera directa para gestionar su caso, según aplique y la institución considere pertinente. En ningún caso dichos datos, serán publicados en la Plataforma Tramitón o demás portales web de la Administración Publica Central y Dependiente de la Función Ejecutiva.
                         </p>
                     </div>
-                    <div class="col-xs-12 col-sm-3 col-sm-pull-9">
-                        <img class="center-block img-responsive" src="<?php echo $baseUrl; ?>/images/preguntas/candado.png">
+                    <div class="col-xs-12 col-sm-3 frame l-0 col-sm-pull-9 derecha">
+                        <span class="helper hiden-xs"></span>
+                        <img src="<?php echo $baseUrl; ?>/images/preguntas/candado.png">
                     </div>
                 </div>
                 <!-- end pregunta -->
