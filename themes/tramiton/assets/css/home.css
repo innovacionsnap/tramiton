@@ -325,20 +325,37 @@ video{
 }
 
 
-@media(min-width: 768px){
+@media only screen and (min-width: 992px){
+  #header-tramiton, #nav-admin-home{
+    max-width: 93% !important;
+  }
+  #home, #estadisticas, #preguntas, footer .container-fluid, #header-tramiton{
+    max-width: 93% !important;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+  }
+  .col-redes-sociales{
+    width: 3.5% !important;
+  }
+}
 
+@media screen and (min-width: 768px) and (max-width: 991px){
+  #header-tramiton, #nav-admin-home{
+    max-width: 88% !important;
+  }
+  #home, #estadisticas, #preguntas, footer .container-fluid, #header-tramiton{
+    max-width: 88% !important;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+  }
+  .col-redes-sociales{
+    width: 6% !important;
+  }
 
   .separator{
     width: 100%;
   }
-  #header-tramiton, #nav-admin-home{
-    max-width: 92%;
-  }
-  #home, #estadisticas, #preguntas, footer .container-fluid, #header-tramiton{
-    max-width: 92%;
-    border-left: 1px solid #CCC;
-    border-right: 1px solid #CCC;
-  }
+
   footer .container-fluid{
     border-top: 1px solid #CCC;
   }
