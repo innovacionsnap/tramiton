@@ -52,4 +52,16 @@ class TramiteController extends Controller {
       );
       }
      */
+    public function actionGetTramites(){
+       $html='';
+       $institucion=$_POST['ins_id'];
+       $tramites=  Tramite::model()->getTramites($institucion);
+       $html='<option value="">Selecciona un trámite</option>';
+       foreach ($tramites as $tramite):
+           $html.='<option value="'.$tramite['tra_id'].'">'.$tramite['tra_nombre'].'</option>';
+       endforeach;
+       echo $html;
+       
+       
+    }
 }

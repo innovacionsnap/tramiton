@@ -146,7 +146,7 @@ class SiteController extends Controller {
             $id_institucion = $_POST['id_institucion'];
             $id_provincia = $_POST['id_provincia'];
             $unidad_prestadora = $_POST['unidad_prestadora'];
-            $idhijo = $_POST['idhijo']; // canton de la provincia seleccionada
+            $idhijo = $_POST['id_canton']; // canton de la provincia seleccionada
 
             if (isset($_POST['id_tramite2'])) {
                 $id_tramite = $_POST['id_tramite2'];
@@ -707,5 +707,15 @@ class SiteController extends Controller {
         $json_clientes = json_decode($twit, true);
         return $json_clientes;
     }
+    
+    public static function comboInstitucion(){
+        $model=  Institucion::model()->findAllByAttributes(array('ins_funcion_ejecutiva' => 1), array('order' => 'ins_nombre asc'));
+        return $model;
+    }
+    public static function comboProvincia(){
+        $model= Provincia::model()->findAllByAttributes(array('pro_estado' => 1), array('order' => 'pro_nombre asc'));
+        return $model;
+    }
+    
 
 }
