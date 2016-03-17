@@ -362,3 +362,54 @@ video{
 .f-18{
   font-size: 18px;
 }
+
+
+
+/*para centrar verticalmente la img de preguntas*/
+@media(min-width: 768px ){
+
+
+  .frame{
+    position: absolute;
+    height: 100%;
+    white-space: nowrap;
+  }
+  .r-0{
+    right: 0;
+  }
+
+  .l-0{
+    left: 0;
+  }
+
+  .helper{
+    vertical-align: middle;
+    display: inline-block;
+    height: 100%;
+  }
+
+  .frame img {
+    vertical-align: middle;
+    max-width: 215px;
+    height: auto;
+  }
+  .derecha{
+    text-align: right !important;
+  }
+  #acordeon-preguntas .row{
+    position: relative;
+  }
+
+}
+
+@media(max-width: 767px){
+  .respuesta{
+    text-align: justify;
+  }
+  #acordeon-preguntas img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 215px;
+  }
+}
