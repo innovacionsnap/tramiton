@@ -45,8 +45,8 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         <div id="verifica" style="max-height: 80px;"></div>
                     </div>
                     <div>
-                      <h3 style="display: inline">Institución</h3>
-                      <span class="m-l-10">Identificar la Institución donde realizó el trámite</span>
+                      <h3 class="f-18" style="display: inline">Institución</h3>
+                      <label class="m-l-10">Identificar la Institución donde realizó el trámite</label>
                     </div>
                     <div class="row">
                         <div class="col-md-6 p-l-0 p-r-15">
