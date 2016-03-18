@@ -41,11 +41,11 @@ $(function () {
                         $('#cedula_ciu_error').hide();
                         $('#gracias').html('Gracias ' + bandera[1] + ' por registrar su caso');
                         $('#bienvenida').html('Bienvenido/a ' + bandera[1]);
-                       // $('#col-video').hide();
-                        //$('#col-formulario').addClass('col-sm-offset-2');
-                        document.getElementById("id_institucion").disabled=false;
-                        document.getElementById("id_provincia").disabled=false;
-                        document.getElementById("unidad_prestadora").disabled=false;
+                        document.getElementById("id_institucion").disabled = false;
+                        document.getElementById("id_tramite2").disabled = false;
+                        document.getElementById("id_provincia").disabled = false;
+                        document.getElementById("id_canton").disabled = false;
+                        document.getElementById("unidad_prestadora").disabled = false;
                     } else {
                         $('a.next-tab').hide();
                         $('#cedula_ciu_error').html("Cédula ingresada no válida");
@@ -125,6 +125,55 @@ $(function () {
         var chars = $(this).val().length;
         var diff = max_chars - chars;
         $('#contador_' + nro_comment).html(diff + ' de ' + max_chars + ' caracteres disponibles');
+    });
+
+    $('#id_institucion').change(function (event)
+    {
+        var id_institucion = $(this).find(':selected').val();
+        $.ajax({
+                type: "POST",
+                url: 'tramite/gettramites',
+                data: {ins_id: id_institucion},
+                beforeSend: function () {
+                    $("#verifica").addClass('loader');
+                },
+                success: function (data) {
+                    $("#verifica").removeClass('loader');
+                    $("#id_tramite2").html(data);
+                }
+            });
+        
+    });
+    $('#id_tramite2').change(function (event)
+    {
+        var id_tramite = $(this).find(':selected').val();
+        if (id_tramite==3752){
+            document.getElementById("otro_tramite").disabled = false;
+        }else{
+            $('#otro_tramite').val('');
+            document.getElementById("otro_tramite").disabled = true;
+        }
+        
+        
+        
+    });
+    
+    $('#id_provincia').change(function (event)
+    {
+        var id_provincia = $(this).find(':selected').val();
+        $.ajax({
+                type: "POST",
+                url: 'canton/getcantones',
+                data: {pro_id: id_provincia},
+                beforeSend: function () {
+                    $("#verifica").addClass('loader');
+                },
+                success: function (data) {
+                    $("#verifica").removeClass('loader');
+                    $("#id_canton").html(data);
+                }
+            });
+        
     });
 
 });
