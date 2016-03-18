@@ -301,7 +301,7 @@ video{
 
 
 #noticias-2 iframe{
-  height: 497px !important;
+  height: 461px !important;
   /*height: 100% !important;
   width: 100% !important;*/
 }
@@ -325,20 +325,37 @@ video{
 }
 
 
-@media(min-width: 768px){
+@media only screen and (min-width: 992px){
+  #header-tramiton, #nav-admin-home{
+    max-width: 93% !important;
+  }
+  #home, #estadisticas, #preguntas, footer .container-fluid, #header-tramiton{
+    max-width: 93% !important;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+  }
+  .col-redes-sociales{
+    width: 3.5% !important;
+  }
+}
 
+@media screen and (min-width: 768px) and (max-width: 991px){
+  #header-tramiton, #nav-admin-home{
+    max-width: 88% !important;
+  }
+  #home, #estadisticas, #preguntas, footer .container-fluid, #header-tramiton{
+    max-width: 88% !important;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+  }
+  .col-redes-sociales{
+    width: 6% !important;
+  }
 
   .separator{
     width: 100%;
   }
-  #header-tramiton, #nav-admin-home{
-    max-width: 92%;
-  }
-  #home, #estadisticas, #preguntas, footer .container-fluid, #header-tramiton{
-    max-width: 92%;
-    border-left: 1px solid #CCC;
-    border-right: 1px solid #CCC;
-  }
+
   footer .container-fluid{
     border-top: 1px solid #CCC;
   }
@@ -361,4 +378,55 @@ video{
 
 .f-18{
   font-size: 18px;
+}
+
+
+
+/*para centrar verticalmente la img de preguntas*/
+@media(min-width: 768px ){
+
+
+  .frame{
+    position: absolute;
+    height: 100%;
+    white-space: nowrap;
+  }
+  .r-0{
+    right: 0;
+  }
+
+  .l-0{
+    left: 0;
+  }
+
+  .helper{
+    vertical-align: middle;
+    display: inline-block;
+    height: 100%;
+  }
+
+  .frame img {
+    vertical-align: middle;
+    max-width: 200px;
+    height: auto;
+  }
+  .derecha{
+    text-align: right !important;
+  }
+  #acordeon-preguntas .row{
+    position: relative;
+  }
+
+}
+
+@media(max-width: 767px){
+  .respuesta{
+    text-align: justify;
+  }
+  #acordeon-preguntas img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 215px;
+  }
 }

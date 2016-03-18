@@ -2,7 +2,7 @@
 <div class="footer-page">
     <div class="row" style="padding-top:10px; background: url('<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/footer.png') repeat-x">
         <div id="col-snap-logo" class="col-xs-4">
-            <a><img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_snap.png" /></a>
+            <a><img height="38" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_snap.png" /></a>
         </div>
         <div id="col-ecu-logo" class="col-xs-4" align="right">
             <a><img class="center-block" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_pais.png" /></a>
@@ -24,8 +24,8 @@
 </div>
 <!-- end page container -->
 <!-- ================== BEGIN BASE JS ================== -->
-<!--  JS PARA QUE FUNCIONE FANCYBOX 
-<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery/jquery-1.9.1.min.js"></script> 
+<!--  JS PARA QUE FUNCIONE FANCYBOX
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
 -->
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>

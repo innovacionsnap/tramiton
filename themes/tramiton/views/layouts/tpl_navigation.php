@@ -6,7 +6,7 @@
     <!-- first container-fluid -->
     <div class="container-fluid p-0">
 
-      <div class="hidden-xs col-redes-sociales p-r-10">
+      <div class="hidden-xs col-redes-sociales">
         <a target="_blank" href="https://twitter.com/tramitonEC"><i class="fa fa-twitter f-21"></i></a><br>
         <a target="_blank" href="https://www.facebook.com/AdmPublicaEcuador"><i class="fa fa-facebook f-21"></i></a><br>
         <a target="_blank" href="https://www.youtube.com/user/AdmPublicaEcuador"><i class="fa fa-youtube f-21"></i></a>
