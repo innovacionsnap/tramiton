@@ -15,7 +15,7 @@
     }
 </style>
 <?php
-include "funcion_registro.php";
+include("funcion_registro.php");
 define("JS_ONLY_NUMS", " onKeypress=\"hkp(event); if ((_KeyCode < 48 && _KeyCode != 0 && _KeyCode != 8) || _KeyCode > 57) return false;\"");
 $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
 $id_usuario = $modelUser['usu_id'];
@@ -45,60 +45,48 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                         <div id="verifica" style="max-height: 80px;"></div>
                     </div>
                     <div>
-                        <h3 style="display: inline">Institución</h3>
-                        <span class="m-l-10">Identificar la Institución donde realizó el trámite</span>
+                      <h3 class="f-18" style="display: inline">Institución</h3>
+                      <label class="m-l-10">Identificar la Institución donde realizó el trámite</label>
                     </div>
                     <div class="row">
                         <div class="col-md-6 p-l-0 p-r-15">
                             <div class="form-group">
                                 <label>Institución</label>
                                 <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la institución donde realizó el trámite"></i>
-                                <select disabled id="id_institucion" class="campo-panel1 form-registro" name="id_institucion">
-                                    <option value=''>Seleccione una Institución</option>
-                                    <?php
-                                    $instituciones = SiteController::comboInstitucion();
-                                    foreach ($instituciones as $institucion):
-                                        echo '<option value="' . $institucion['ins_id'] . '">' . $institucion['ins_nombre'] . '</option>';
-                                    endforeach;
-                                    ?>
-                                </select>
+                                <?php institucion("id_institucion", "0"); ?>
                             </div>
-                            <div class="form-group">
-                                <label>Trámite <i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Seleccione el trámite realizado'></i> </label>
-                                <select disabled id="id_tramite2" class="campo-panel1 form-registro" name="id_tramite2">
-                                    <option value=''>Selecciona un trámite</option>
-                                </select>
+                            <div id="pidhijo2"></div>
+
+                            <div class="carl-institucion form-group">
+                              <label>Trámite <i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Seleccione el trámite realizado'></i> </label>
+                              <select disabled class="form-registro" name="">
+                                <option value=''>Seleccione un trámite</option>
+                              </select>
                             </div>
-                            <div class="form-group">
-                                <label>Descricipción de otro trámite <i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Describa el trámite realizado'></i> </label>
-                                <input disabled type='text' id="otro_tramite" name='otro_tramite' onkeyup = 'Validate(this)' placeholder='Escriba otro tramite' class='form-control' data-parsley-group='wizard-step-1' required />
+                            <div class="carl-institucion form-group">
+                              <label>Descricipción de otro trámite <i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Describa el trámite realizado'></i> </label>
+                              <input disabled type="text" class="form-registro">
                             </div>
                         </div>
                         <div class="col-md-6 p-0">
-                            <div class="form-group">
-                                <label>Provincia</label>
-                                <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la provincia donde realizó el trámite"></i>
-                                <select disabled id="id_provincia" class="campo-panel1 form-registro" name="id_provincia">
-                                    <option value=''>Seleccione una Provincia</option>
-                                    <?php
-                                    $provincias = SiteController::comboProvincia();
-                                    foreach ($provincias as $provincia):
-                                        echo '<option value="' . $provincia['pro_id'] . '">' . $provincia['pro_nombre'] . '</option>';
-                                    endforeach;
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Cantón <i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Seleccione el cantón donde realizó el trámite'></i></label>
-                                <select disabled id="id_canton" name="id_canton" class='campo-panel1 form-registro' data-parsley-group='wizard-step-1'>
-                                    <option value="">Seleccione un cantón</option>
-                                </select>
-                            </div>
-                            <div id="div-sucursal" class="form-group">
-                                <label>Sucursal (Ej. Norte, Sur, etc) <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Indique la sucursal de la institución en la que realizó el trámite"></i></label>
-                                <input disabled type="text" id = "unidad_prestadora" name="unidad_prestadora" class="campo-panel1 form-registro " class="form-control" />
-                                <div id='unidad_prestadora_error' style='display:none;'></div>
-                            </div>
+                          <div class="form-group">
+                              <label>Provincia</label>
+                              <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Seleccione la provincia donde realizó el trámite"></i>
+                              <?php provincia("id_provincia", "0") ?>
+                          </div>
+                          <div id="pidhijo" class="form-group"></div>
+
+                          <div class="carl-provincia form-group">
+                            <label>Cantón <i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Seleccione el cantón donde realizó el trámite'></i></label>
+                            <select class='campo-panel2 form-registro' data-parsley-group='wizard-step-1'>
+                              <option>Seleccione un cantón</option>
+                            </select>
+                          </div>
+                          <div id="div-sucursal" class="form-group">
+                              <label>Sucursal (Ej. Norte, Sur, etc) <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Indique la sucursal de la institución en la que realizó el trámite"></i></label>
+                              <input disabled type="text" id = "unidad_prestadora" name="unidad_prestadora" class="campo-panel1 form-registro " class="form-registro" />
+                              <div id='unidad_prestadora_error' style='display:none;'></div>
+                          </div>
                         </div>
 
 
@@ -233,4 +221,3 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 </form>
 <script src="<?php echo Yii::app()->baseUrl; ?>/themes/tramiton/assets/js/form-caso.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
-
