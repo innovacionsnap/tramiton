@@ -13,6 +13,7 @@ $(function () {
             next = i + 2;
             $(this).find('.botones_nav').append("<a href='#' class='next-tab' rel='panel" + next + "'>Siguiente &#187;</a>");
             $('a.next-tab').hide();
+            
 
         }
         if (i != 0) {

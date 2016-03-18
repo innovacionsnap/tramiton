@@ -7,7 +7,7 @@
         top: 30;
         width: 100%;
     }
-    #panel4 #btnNav a.next-tab{
+    #panel3 #btnNav a.next-tab{
         display:none !important;
     }
     .contador{
