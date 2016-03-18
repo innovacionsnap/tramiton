@@ -71,7 +71,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                             </div>
                             <div class="form-group">
                                 <label>Descricipción de otro trámite <i class='fa fa-question-circle ayuda' data-toggle='tooltip' data-placement='right' title='Describa el trámite realizado'></i> </label>
-                                <input disabled type='text' id="otro_tramite" name='otro_tramite' onkeyup = 'Validate(this)' placeholder='Escriba otro tramite' class='form-control' data-parsley-group='wizard-step-1' required />
+                                <input disabled type='text' id="otro_tramite" name='otro_tramite' onkeyup = 'Validate(this)' placeholder='Escriba otro tramite' class='form-registro' data-parsley-group='wizard-step-1' required />
                             </div>
                         </div>
                         <div class="col-md-6 p-0">
@@ -233,4 +233,3 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 </form>
 <script src="<?php echo Yii::app()->baseUrl; ?>/themes/tramiton/assets/js/form-caso.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
-
