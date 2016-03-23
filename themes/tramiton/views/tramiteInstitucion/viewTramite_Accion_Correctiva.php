@@ -1,4 +1,4 @@
-<?php 
+<?php
 //$usu_id = $modelUser->usu_id;
 $baseUrl = Yii::app()->baseUrl;
 $usu_id = $this->_datosUser->usu_id;
@@ -33,7 +33,7 @@ $usu_id = $this->_datosUser->usu_id;
        }
     });
 });
-</script>   
+</script>
 
 <!-- begin #content -->
 		<div id="content" class="content">
@@ -50,16 +50,14 @@ $usu_id = $this->_datosUser->usu_id;
             //echo $_GET["tra_id"];
              //foreach ($datoAccioneCorrectiva as $datoAccioneCorrectivaDetalle){
              //  $tra_id = $datoAccioneCorrectivaDetalle["tra_id"];
-             // } 
-             //var_dump($_GET); Yii::app()->end();
                 if ($rol!=2){
                     echo '<div class="m-b-10"><a class="btn btn-success p-l-40 p-r-40 btn-sm actividad-new" href="'.$baseUrl.'/tramiteInstitucion/accion_correctiva?traiId=' . Yii::app()->encriptaParam->decodificaParamGet($_GET["traiId"]) . '&traId=' . Yii::app()->encriptaParam->decodificaParamGet($_GET["traId"]) . '"> + Añadir </a> </div>';
                 }
              ?>
-                        
-            
+
+
 			<!-- end page-header -->
-			
+
 		<!-- begin row -->
 			<div class="row">
 			    <!-- begin col-12 -->
@@ -86,14 +84,14 @@ $usu_id = $this->_datosUser->usu_id;
                                             <th>Fecha Ingreso</th>
                                         </tr>
                                     </thead>
-                                    
+
                                     <tbody>
                                         <?php
                                             foreach ($datoAccioneCorrectiva as $datoAccioneCorrectivaDetalle){
                                            ?>
                                             <tr class="odd gradeA">
                                                 <td>
-                                               <?php  
+                                               <?php
                                                  if( $datoAccioneCorrectivaDetalle["accc_id"]!=''){
                                                     echo $datoAccioneCorrectivaDetalle["accc_id"];
                                                  }
@@ -112,9 +110,9 @@ $usu_id = $this->_datosUser->usu_id;
                                            <?php
                                             }
                                            ?>
-                                       
+
                                     </tbody>
-                                      
+
                                 </table>
                             </div>
                         </div>
