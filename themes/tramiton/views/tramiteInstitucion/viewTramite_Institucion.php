@@ -6,9 +6,9 @@ $usu_id = $this->_datosUser->usu_id;
 		<div id="content" class="container-fluid">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li><a href="javascript:;">Inicio</a></li>
-                <li><a href="index">Mi institución</a></li>
-                <li class="active">Detalle trámite</li>
+				<li><?php echo CHtml::link('Inicio',array('dashboard/index')); ?></li>
+                <li><?php echo CHtml::link('Mi Institución',array('tramiteInstitucion/index')); ?></li>
+               
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
@@ -37,11 +37,11 @@ $usu_id = $this->_datosUser->usu_id;
                                     <thead>
                                         <tr>
                                            
-                                            <th>Id Tramite</th>
-                                            <th>Nombre</th>
+                                            <th>Nro. Caso</th>
+                                            <th>Nombre Trámite</th>
                                             <th>Experiencia</th>
-                                            <th>F. Registro</th>
-                                            <th>Acciones</th>
+                                            <th>Fecha Registro</th>
+                                            <th>Eventos</th>
                                            
                                         </tr>
                                     </thead>
@@ -54,7 +54,7 @@ $usu_id = $this->_datosUser->usu_id;
                                             <tr class="odd gradeA">
                                               
                                                 <td>
-                                               <?php  echo $datoTramiteDetalle["tra_id"] ?>
+                                               <?php  echo $datoTramiteDetalle["datt_id"] ?>
                                                 </td>
                                                 <td>
                                                <?php  echo $datoTramiteDetalle["tra_nombre"] ?>

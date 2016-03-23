@@ -27,20 +27,20 @@ class consultasBaseDatos {
         $resultado = $conexion->createCommand($sqlUpdate);
         $resultado->execute();
     }
-    
+
     /**
      * función para verificar que un role no este asignado a un usuario
      */
     public function verificaRoleUser($role) {
         $conexion = Yii::app()->db;
-        
+
         $sqlUserRole = "select * from \"AuthAssignment\" where itemname = '$role'";
 
         $resultado = $conexion->createCommand($sqlUserRole);
-        
+
         $existe = false;
         $fila = $resultado->query();
-        
+
         foreach ($fila as $registro) {
             $existe = true;
         }
@@ -70,13 +70,12 @@ class consultasBaseDatos {
         $datoCodigo = $cedula . $username . $mail . $password . date("m/d/Y h:i:s a", time());
         //genera código de verificación
         $this->codigoVerificacion = $userModel->getHash('md5', $datoCodigo, HASH_KEY);
-        
+
         $imagen = 'default_image_profile.jpg';
-        
-        if($datosCiudadano->genero === 'MASCULINO'){
+
+        if ($datosCiudadano->genero === 'MASCULINO') {
             $imagen = 'hombre.png';
-        }
-        else{
+        } else {
             $imagen = 'mujer.png';
         }
 
@@ -187,7 +186,7 @@ class consultasBaseDatos {
         $sqlVerificaEmailUser = "SELECT usu_id, usu_nombreusuario, usu_cedula, usu_mail, usu_contrasenia, "
                 . "usu_nombre, usu_estado FROM usuario "
                 . "WHERE usu_mail = '$email' and usu_estado <> 11";
-        
+
         //echo "<br>consulta: " . $sqlVerificaEmailUser . "<br>";
 
         $resultado = $conexion->createCommand($sqlVerificaEmailUser);
@@ -218,7 +217,7 @@ class consultasBaseDatos {
         if ($existe == TRUE) {
             $userModel = new Usuario;
             $this->codigoVerificacion = $userModel->getHash('md5', $datoCodigo, HASH_KEY);
-            
+
             /*
              * despues de validar que existe el usuario actualiza el codigo de verificació por uno nuevo
              * ese codigo se envía al usuario para continuar el proceso y se actualiza el estado
@@ -231,14 +230,12 @@ class consultasBaseDatos {
                     . "WHERE "
                     . "usu_id = $codUser AND "
                     . "usu_mail = '$email'";
-            
+
             $resultado = $conexion->createCommand($sqlUpdateUser);
             $resultado->execute();
-            
-        }
-        else{
+        } else {
             $sqlEstadoUser = "SELECT usu_estado FROM usuario WHERE usu_mail = '$email'";
-            
+
             $resultado = $conexion->createCommand($sqlEstadoUser);
 
             $fila = $resultado->query();
@@ -246,10 +243,10 @@ class consultasBaseDatos {
                 $datosUser['usuEstado'] = $registro['usu_estado'];
             }
         }
-        
+
         return $datosUser;
     }
-    
+
     /**
      * Realiza la acción de reestablecer la contraseña por una nueva ingresada por el usuario
      * debido a que está encriptada el usuario debe ingresar una nueva.
@@ -262,12 +259,12 @@ class consultasBaseDatos {
     public function cambiaPassword($email, $codigoVerificacion, $nuevoPassword) {
         //conexión al objeto base de datos
         $conexion = Yii::app()->db;
-        
+
         //instancia de modelo Usuario para encriptacion de clave
         $userModel = new Usuario;
         //encriptación de la clave ingresada por el usuario
         $nuevoPassword = $userModel->getHash('sha1', $nuevoPassword, Yii::app()->params['hashKey']);
-        
+
         //Instrucción de actualización de nueva contraseña y estado
         $sqlUpdatePasswd = "UPDATE usuario SET "
                 . "usu_contrasenia = '$nuevoPassword',"
@@ -276,25 +273,24 @@ class consultasBaseDatos {
                 . "usu_mail = '$email' AND "
                 . "usu_codigo_confirmacion = '$codigoVerificacion' AND "
                 . "usu_estado = 11";
-        
+
         //echo $sqlUpdatePasswd; Yii::app()->end();
-        
+
         $resultado = $conexion->createCommand($sqlUpdatePasswd);
         return $resultado->execute();
         //echo "<br><br> retorno update " . $var; Yii::app()->end();
     }
-    
+
     /**
      * Funcion para actualizar el perfil del usuario
      */
     public function updatePerfilUsuario($usrId, $datosPerfil) {
-        
+
         //echo "<br> estoy en el modelo listo para actualizar " . $datosPerfil->nombreUsuario;
-        
         //var_dump($datosPerfil);
         //Yii::app()->end();
         $conexion = Yii::app()->db;
-        
+
         $sqlUpdatePerfilUsr = "UPDATE usuario SET "
                 . "usu_nombreusuario = :username, "
                 . "usu_mail = :email, "
@@ -305,26 +301,26 @@ class consultasBaseDatos {
                 //. "usu_genero = :genero "
                 . "WHERE "
                 . "usu_id = :usrId";
-        
+
         $resultado = $conexion->createCommand($sqlUpdatePerfilUsr);
         return $resultado->execute(
-                array(
-                    ':username' => $datosPerfil->nombreUsuario,
-                    ':email' => $datosPerfil->email,
-                    ':fijo' => $datosPerfil->telfConvencional,
-                    ':celular' => $datosPerfil->telfCelular,
-                    ':direccion' => $datosPerfil->direccion,
-                    //':fechaNac' => $datosPerfil->fechaNacimiento,
-                    //':genero' => $datosPerfil->genero,
-                    ':usrId' => $usrId,
-                )
-            );
+                        array(
+                            ':username' => $datosPerfil->nombreUsuario,
+                            ':email' => $datosPerfil->email,
+                            ':fijo' => $datosPerfil->telfConvencional,
+                            ':celular' => $datosPerfil->telfCelular,
+                            ':direccion' => $datosPerfil->direccion,
+                            //':fechaNac' => $datosPerfil->fechaNacimiento,
+                            //':genero' => $datosPerfil->genero,
+                            ':usrId' => $usrId,
+                        )
+        );
     }
-    
+
     public function obtieneUsuario($idUsr) {
         
     }
-    
+
     public function actualizaEstadoAprobado($idUsr) {
         $conexion = Yii::app()->db;
 
@@ -347,7 +343,7 @@ class consultasBaseDatos {
         //$cedulaCiud = $datosRegistro['cedulaCiudadano'];
         //echo "cedula a encriptar" . $cedulaCiud;
         //Yii::app()->end();
-        
+
         $datoCodigo = $datosRegistro['cedulaCiudadano'] . date("m/d/Y h:i:s a", time());
 
         $codigoVerif = $userModel->getHash('sha1', $datoCodigo, Yii::app()->params['hashKey']);
@@ -413,93 +409,92 @@ class consultasBaseDatos {
                 )
         );
     }
-    
-    public function getTotalParticipantes(){
+
+    public function getTotalParticipantes() {
         $conexion = Yii::app()->db;
-        
+
         $sqlTotalParticipantes = "select count(*) as total_participantes from usuario where usu_tramiton = 1";
 
         $resultado = $conexion->createCommand($sqlTotalParticipantes);
-        
+
         $totalParticipantes = 0;
         $fila = $resultado->query();
         foreach ($fila as $registro) {
             $totalParticipantes = $registro['total_participantes'];
         }
-                
+
         return $totalParticipantes;
     }
-    
-    public function getTramitesMencionados(){
+
+    public function getTramitesMencionados() {
         $conexion = Yii::app()->db;
-        
+
         $sqlTramitesMencionados = "select count(trai_id) as total_tamites from datos_tramite where datt_productivo is null";
 
         $resultado = $conexion->createCommand($sqlTramitesMencionados);
-        
+
         $totalTramites = 0;
         $fila = $resultado->query();
         foreach ($fila as $registro) {
             $totalTramites = $registro['total_tamites'];
         }
-                
+
         return $totalTramites;
     }
-    
-    public function getAccionesCorrectivasTram(){
+
+    public function getAccionesCorrectivasTram() {
         $conexion = Yii::app()->db;
-        
+
         $sqlAccionesTramite = "select count(accc_id) as total_acciones from acciones_correctivas where accc_productivo=1";
 
         $resultado = $conexion->createCommand($sqlAccionesTramite);
-        
+
         $totalAcciones = 0;
         $fila = $resultado->query();
         foreach ($fila as $registro) {
             $totalAcciones = $registro['total_acciones'];
         }
-                
+
         return $totalAcciones;
     }
-    
-    public function getAccionesCorrectivas10(){
+
+    public function getAccionesCorrectivas10() {
         $conexion = Yii::app()->db;
-        
-        $sqlAccionesTramite = "select count(ins.ins_id)as total , ins.ins_nombre as nombre
-        from acciones_correctivas accc, tramite tra, tramite_institucion trai, institucion ins
-        where tra.tra_id = accc.tra_id
-        and trai.tra_id = tra.tra_id
-        and ins.ins_id = trai.ins_id
-        and accc_productivo=1
-        group by ins.ins_id
-        order by total desc
-        limit 10";
+
+        $sqlAccionesTramite = "select count(ins.ins_id)as total , ins.ins_nombre as nombre "
+                . "from acciones_correctivas accc, tramite_institucion trai, institucion ins "
+                . "where trai.trai_id = accc.trai_id "
+                . "and ins.ins_id = trai.ins_id "
+                . "and accc_productivo=1 "
+                . "group by ins.ins_id "
+                . "order by total desc "
+                . "limit 10";
 
 
         $resultado = $conexion->createCommand($sqlAccionesTramite);
-        
+
         //$totalAccionesnum;
         $totalAccionesnom;
-        $totalAccionesnom= $resultado->query();
-               
+        $totalAccionesnom = $resultado->query();
+
         return $totalAccionesnom;
         //return $totalAccionesnum;
     }
-    
+
     /**
      * Función para verificar si tiene registros temporales ingresados
      */
     public function verificaCasosTmp($cedula) {
         $conexion = Yii::app()->db;
-        
+
         $existe = FALSE;
         $nroTmp = 0;
-         
+
         $sqlVerificaTmp = "select * from tmp_registro_caso "
                 . "where "
                 . "estado_publicado = 1 and "
                 . "cedula = '$cedula'";
-        
+
         $resultado = $conexion->createCommand($sqlVerificaTmp);
 
         $fila = $resultado->query();
@@ -510,22 +505,22 @@ class consultasBaseDatos {
             $existe = TRUE;
             $nroTmp++;
         }
-        
+
         $datosVerificacion = array(
-            'existe' => $existe,
+            //'existe' => $existe,
+            'existe' => FALSE,
             'nroTmp' => $nroTmp
         );
-        
+
         return $datosVerificacion;
-        
     }
-    
+
     /**
      * función para mostrar los registros temporales si los tuviere
      */
     public function getListaTemporales($cedula) {
         $conexion = Yii::app()->db;
-        
+
         $sqlListaTmp = "select "
                 . "tmprc.id_registro_caso, ins.ins_nombre, tram.tra_nombre, can.can_nombre, "
                 . "to_char(tmprc.fecha_registro, 'TMDay, DD TMMonth YYYY') AS fecha_registro "
@@ -539,21 +534,20 @@ class consultasBaseDatos {
                 . "tmprc.id_canton = can.can_id and "
                 . "tmprc.cedula = '$cedula' and "
                 . "tmprc.estado_publicado = 1";
-        
+
         $resultado = $conexion->createCommand($sqlListaTmp);
-        
+
         $temporales = $resultado->query();
-        
+
         return $temporales;
-        
     }
-    
+
     /**
      * Función para obtener el caso temporal por el id del caso
      */
     public function getCasoTemporalId($idTmp) {
         $conexion = Yii::app()->db;
-        
+
         $sqlCasoTmpId = "select "
                 . "tmprc.id_registro_caso, ins.ins_nombre, tram.tra_nombre, can.can_nombre, "
                 . "tmprc.experiencia, tmprc.titulo_solucion, tmprc.propuesta_solucion, "
@@ -567,14 +561,14 @@ class consultasBaseDatos {
                 . "train.tra_id = tram.tra_id and "
                 . "tmprc.id_canton = can.can_id and "
                 . "tmprc.id_registro_caso = $idTmp";
-        
+
         $resultado = $conexion->createCommand($sqlCasoTmpId);
-        
+
         $casoTemporal = $resultado->query();
-        
+
         $casoTemp = array();
-        
-        foreach ($casoTemporal as $casoTmp){
+
+        foreach ($casoTemporal as $casoTmp) {
             $casoTemp = array(
                 'idRegistroCaso' => $casoTmp['id_registro_caso'],
                 'nombreInstit' => $casoTmp['ins_nombre'],
@@ -586,14 +580,8 @@ class consultasBaseDatos {
                 'fechaRegistro' => $casoTmp['fecha_registro'],
             );
         }
-        
+
         return $casoTemp;
-        
     }
 
-
-
-    
-    
-    
-} 
+}

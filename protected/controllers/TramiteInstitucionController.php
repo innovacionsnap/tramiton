@@ -26,7 +26,7 @@ class TramiteInstitucionController extends Controller {
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('index', 'viewTramite_Institucion','viewTramite_Accion_Correctiva','accion_correctiva'),
                 //'users' => array('admin', 'oacero'),
-                'roles' => array('super_admin', 'ciudadano', 'institucion', 'bitacoraaq'),
+                'roles' => array('super_admin', 'ciudadano', 'institucion', 'bitacora'),
             ),
             array('deny', // deny all users
                 #'roles' => array('*'),
@@ -52,11 +52,16 @@ class TramiteInstitucionController extends Controller {
         //$this->render('formulario');
     }
     
-    public function actionviewTramite_Institucion() {
+    public function actionviewTramite_Institucion($traiId) {
+        
+        $traiId = Yii::app()->encriptaParam->decodificaParamGet($traiId);
+        
+        //echo "tramite institucion: " . $traiId; Yii::app()->end();
+        
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //creo una instancia del modelo Dashboard
         $model = new TramiteInstitucion();
-        $datosgetTramiteInstitucionDetalle = $model->getTramiteInstitucionDetalle();
+        $datosgetTramiteInstitucionDetalle = $model->getTramiteInstitucionDetalle($traiId, $modelUser->usu_id);
        
         $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;
@@ -65,11 +70,15 @@ class TramiteInstitucionController extends Controller {
         //$this->render('formulario');
     }
 
-    public function actionviewTramite_Accion_Correctiva() {
+    public function actionviewTramite_Accion_Correctiva($traiId, $traId) {
+        
+        $traiId = Yii::app()->encriptaParam->decodificaParamGet($traiId);
+        $traId = Yii::app()->encriptaParam->decodificaParamGet($traId);
+        
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //creo una instancia del modelo Dashboard
         $model = new TramiteInstitucion();
-        $datoAccioneCorrectiva = $model->getAccioneCorrectiva();
+        $datoAccioneCorrectiva = $model->getAccioneCorrectiva($traiId);
         $rol=$modelUser['rol_id'];
         $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;
