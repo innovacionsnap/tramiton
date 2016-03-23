@@ -1,4 +1,4 @@
-<?php 
+<?php
 //$usu_id = $modelUser->usu_id;
 $baseUrl = Yii::app()->baseUrl;
 $usu_id = $this->_datosUser->usu_id;
@@ -33,7 +33,7 @@ $usu_id = $this->_datosUser->usu_id;
        }
     });
 });
-</script>   
+</script>
 
 <!-- begin #content -->
 		<div id="content" class="content">
@@ -50,15 +50,15 @@ $usu_id = $this->_datosUser->usu_id;
             //echo $_GET["tra_id"];
              //foreach ($datoAccioneCorrectiva as $datoAccioneCorrectivaDetalle){
              //  $tra_id = $datoAccioneCorrectivaDetalle["tra_id"];
-             // } 
+             // }
                 if ($rol!=2){
                     echo '<div class="m-b-10"><a class="btn btn-success p-l-40 p-r-40 btn-sm actividad-new" href="'.$baseUrl.'/tramiteInstitucion/accion_correctiva?tra_id='.$_GET["tra_id"].'"> + Añadir </a> </div>';
                 }
              ?>
-                        
-            
+
+
 			<!-- end page-header -->
-			
+
 		<!-- begin row -->
 			<div class="row">
 			    <!-- begin col-12 -->
@@ -79,26 +79,26 @@ $usu_id = $this->_datosUser->usu_id;
                                 <table id="data-table" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                           
+
                                             <th>Id AC</th>
                                             <th>Nombre</th>
                                             <th>Descripcion</th>
                                             <th>F. Ingreso</th>
-                                            
-                                           
+
+
                                         </tr>
                                     </thead>
-                                    
+
                                     <tbody>
-                                        
+
                                         <?php
                                             foreach ($datoAccioneCorrectiva as $datoAccioneCorrectivaDetalle){
                                            ?>
                                             <tr class="odd gradeA">
 
-                                              
+
                                                 <td>
-                                               <?php  
+                                               <?php
                                                  if( $datoAccioneCorrectivaDetalle["accc_id"]!=''){
                                                     echo $datoAccioneCorrectivaDetalle["accc_id"];
                                                  }
@@ -113,22 +113,14 @@ $usu_id = $this->_datosUser->usu_id;
                                                 <td>
                                                <?php  echo $datoAccioneCorrectivaDetalle["accc_fechaingreso"] ?>
                                                 </td>
-                                              
-                                                <td>
-                                                    <?php
-                                                   //echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'
-                                            //,array("ciudadano/viewTramite_Usuario2", 'datt_id' => $datoTramiteDetalle['datt_id']), array('title' => 'Mostrar'));
-                                            ?>
-                                             
-                                                </td>
 
                                             </tr>
                                            <?php
                                             }
                                            ?>
-                                       
+
                                     </tbody>
-                                      
+
                                 </table>
                             </div>
                         </div>
