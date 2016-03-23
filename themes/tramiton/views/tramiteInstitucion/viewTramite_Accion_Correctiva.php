@@ -39,20 +39,19 @@ $usu_id = $this->_datosUser->usu_id;
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li><a href="javascript:;">Inicio</a></li>
+				<li><?php echo CHtml::link('Inicio',array('dashboard/index')); ?></li>
                 <li><a href="index">Mi institución</a></li>
 				<li class="active">Acciones correctivas</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Tramites <small> de la institucion<br>Acciones correctivas</small></h1>
+			<h1 class="page-header">Acciones correctivas <small> <br>Casos de la Institución</small></h1>
             <?php
             //echo $_GET["tra_id"];
              //foreach ($datoAccioneCorrectiva as $datoAccioneCorrectivaDetalle){
              //  $tra_id = $datoAccioneCorrectivaDetalle["tra_id"];
-             // }
                 if ($rol!=2){
-                    echo '<div class="m-b-10"><a class="btn btn-success p-l-40 p-r-40 btn-sm actividad-new" href="'.$baseUrl.'/tramiteInstitucion/accion_correctiva?tra_id='.$_GET["tra_id"].'"> + Añadir </a> </div>';
+                    echo '<div class="m-b-10"><a class="btn btn-success p-l-40 p-r-40 btn-sm actividad-new" href="'.$baseUrl.'/tramiteInstitucion/accion_correctiva?traiId=' . Yii::app()->encriptaParam->decodificaParamGet($_GET["traiId"]) . '&traId=' . Yii::app()->encriptaParam->decodificaParamGet($_GET["traId"]) . '"> + Añadir </a> </div>';
                 }
              ?>
 
@@ -79,24 +78,18 @@ $usu_id = $this->_datosUser->usu_id;
                                 <table id="data-table" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-
                                             <th>Id AC</th>
-                                            <th>Nombre</th>
+                                            <th>Nombre Acción</th>
                                             <th>Descripcion</th>
-                                            <th>F. Ingreso</th>
-
-
+                                            <th>Fecha Ingreso</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-
                                         <?php
                                             foreach ($datoAccioneCorrectiva as $datoAccioneCorrectivaDetalle){
                                            ?>
                                             <tr class="odd gradeA">
-
-
                                                 <td>
                                                <?php
                                                  if( $datoAccioneCorrectivaDetalle["accc_id"]!=''){
@@ -113,7 +106,6 @@ $usu_id = $this->_datosUser->usu_id;
                                                 <td>
                                                <?php  echo $datoAccioneCorrectivaDetalle["accc_fechaingreso"] ?>
                                                 </td>
-
                                             </tr>
                                            <?php
                                             }

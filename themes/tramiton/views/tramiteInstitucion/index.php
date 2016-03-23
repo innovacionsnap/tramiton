@@ -6,8 +6,8 @@ $usu_id = $this->_datosUser->usu_id;
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li><a href="javascript:;">Inicio</a></li>
-        <li class="active">Bitácora</li>
+        <li><?php echo CHtml::link('Inicio',array('dashboard/index')); ?></li>
+        <li class="active">Mi Institución</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
@@ -61,14 +61,17 @@ $usu_id = $this->_datosUser->usu_id;
 
                                         <td>
                                             <?php
-                                            $id_tramite = Empresa::model()->codificaGet('tra_id=' . $dato['tra_id']);
-                                            $id_usuario = Empresa::model()->codificaGet('usu_id=' . $usu_id);
+                                            $traiId = Yii::app()->encriptaParam->codificaParamGet($dato['trai_id']); 
+                                            $traId = Yii::app()->encriptaParam->codificaParamGet($dato['tra_id']); 
+                                            //$id_tramite = Empresa::model()->codificaGet('tra_id=' . $dato['tra_id']);
+                                            //$id_usuario = Empresa::model()->codificaGet('usu_id=' . $usu_id);
                                             echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'
-                                                    , array("tramiteInstitucion/viewTramite_Institucion?" . $id_tramite . "and" . $id_usuario), array('title' => 'Mostrar'));
+                                                    , array('tramiteInstitucion/viewTramite_Institucion', 'traiId' => $traiId), array('title' => 'Mostrar'));
                                             ?>
                                             <?php
                                             echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> AC</button>'
-                                                    , array("tramiteInstitucion/viewTramite_Accion_Correctiva?" . $id_tramite), array('title' => 'Mostrar'));
+                                                    , array("tramiteInstitucion/viewTramite_Accion_Correctiva", 'traiId' => $traiId, 'traId' => $traId), array('title' => 'Acciones Correctivas'));
+                                                    //, array("tramiteInstitucion/viewTramite_Accion_Correctiva?" . $id_tramite), array('title' => 'Acciones Correctivas'));
                                             ?>
                                         </td>
 

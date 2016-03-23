@@ -13,7 +13,14 @@
         $usu_id = $modelUser->usu_id;
         //echo "Este es jejej:".$usu_id;
 
-        $tra_id = $_GET['tra_id'];
+        $traId = $_GET['traId'];
+        $traiId = $_GET['traiId'];
+        
+        
+        //$traiId = Yii::app()->encriptaParam->decodificaParamGet($traiId);
+        
+        //echo "traId: " . Yii::app()->encriptaParam->decodificaParamGet($traId);
+        //echo "<br>traiId: " . Yii::app()->encriptaParam->decodificaParamGet($traiId);
 
 ?>
 
@@ -133,7 +140,8 @@
                                                 <input type="submit" value="Enviar y Guardar" class="btn btn-success btn">
                                                 <input type="hidden" name="insertar_accion" value="1">
                                                 <input type="hidden" name="id_usuario" value="<?php echo $usu_id ?>">
-                                                <input type="hidden" name="tra_id" value="<?php echo $tra_id ?>">
+                                                <input type="hidden" name="tra_id" value="<?php echo $traId ?>">
+                                                <input type="hidden" name="trai_id" value="<?php echo $traiId ?>">
                                                 <input type="hidden" name="url" value="<?php echo $baseUrlbasico ?>">
                                                 
                                      
