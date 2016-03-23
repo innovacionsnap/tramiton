@@ -455,13 +455,13 @@ $baseUrl = Yii::app()->theme->baseUrl;
       </div>
       <div class="modal-body">
         <div class="row">
-            <div class="col-xs-12 col-sm-6 text-center" id="col-logo-2">
+            <div class="col-xs-12 col-sm-6 text-center p-t-10" id="col-logo-2">
               <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 500%; display:block; color: #C4161C;"></i>Listado de trámites simplificados <br>
-              <button type="button" class="btn btn-info m-b-10">Descargar <i class="fa fa-download fa-4"></i></button>
+              <a  role="button" class="btn btn-info" href="docs/LISTADO_TRAMITES_SIMPLIFICADOS_400_PNST2015.pdf" target="_blank">Descargar <i class="fa fa-download fa-4"></i></a>
             </div>
-            <div class="col-xs-12 col-sm-6 text-center" id="col-logo-1">
-              <i class="fa fa-file-pdf-o f-14  m-b-10" style="font-size: 500%; display:block; color: #C4161C;"></i>Detalle de trámites simplificados <br>
-              <button type="button" class="btn btn-info m-b-10">Descargar <i class="fa fa-download fa-4"></i></button>
+            <div class="col-xs-12 col-sm-6 text-center p-t-10" id="col-logo-1">
+              <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 500%; display:block; color: #C4161C;"></i>Detalle de trámites simplificados <br>
+              <a  role="button" class="btn btn-info" href="docs/LISTADO_TRAMITES_SIMPLIFICADOS_SECTORES_INSTITUCIONES_PNST2015.pdf" target="_blank">Descargar <i class="fa fa-download fa-4"></i></a>
             </div>
 
 
