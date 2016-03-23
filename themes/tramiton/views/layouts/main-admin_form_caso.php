@@ -10,4 +10,4 @@
 <?php echo $content; ?>
 
 <!-- Require the footer -->
-<?php require_once('tpl_footer_admin_asc.php'); ?>
+<?php require_once('tpl_footer_fancy.php'); ?>
