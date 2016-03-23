@@ -50,15 +50,15 @@
         $cs = Yii::app()->getClientScript();
         Yii::app()->clientScript->registerCoreScript('jquery');
         ?>
-        
+
         <script>
             $(document).ready(function () {
                 $('[data-toggle="tooltip"]').tooltip();
             });
         </script>
 
-        
+
     </head>
-    <body data-spy="scroll" data-target=".navbar-collapse" data-offset="100">
+    <body id="body-home" data-spy="scroll" data-target=".navbar-collapse" data-offset="100" class="p-b-0">
         <!-- begin #page-container -->
         <!-- <div id="page-container" class="fade"> -->
