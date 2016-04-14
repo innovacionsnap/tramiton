@@ -266,6 +266,13 @@ class CiudadanoController extends Controller {
             $unidad_prestadora = $_POST['unidad_prestadora'];
             $idhijo = $_POST['idhijo'];
             $empresa = $_POST['empresa'];
+            $modelInstitucion = Institucion::model()->findByPk($id_institucion);
+            $ins_productivo=  $modelInstitucion->ins_productivo;
+            if ($ins_productivo==2){
+                $productivo='S';
+            }else{
+                $productivo='';
+            }
             //$id_tramite = isset ($_POST['id_tramite']);
 
             if (isset($_POST['id_tramite2'])) {
@@ -316,6 +323,7 @@ class CiudadanoController extends Controller {
                 $model_dtramite->can_id = $idhijo;
                 $model_dtramite->datt_otronombreinstitucion = 'N/A';
                 $model_dtramite->datt_fecha_actualizacion = $hoy;
+                $model_dtramite->datt_productivo=$productivo;
                 $model_dtramite->save();
                 $id_dtramite = $model_dtramite->primaryKey;
 
@@ -336,6 +344,7 @@ class CiudadanoController extends Controller {
                 $model_solucion->sol_vistas = 0;
                 $model_solucion->sol_fecha = $hoy;
                 $model_solucion->sol_estado = 1;
+                $model_solucion->sol_productivo = $productivo;
                 $model_solucion->save();
 
                 //Problemática
