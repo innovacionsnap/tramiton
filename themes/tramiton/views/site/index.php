@@ -80,200 +80,157 @@ $baseUrl = Yii::app()->theme->baseUrl;
             </div>
         </div>
     </div>
-
-    <div class="row">
-      <?php
-      $nombreac="serie1";
-      $nombreac2="serie2";
-      $nombreac3="serie3";
-      $nombreac4="serie4";
-      $nombreac5="serie5";
-      $nombreac6="serie6";
-      $nombreac7="serie7";
-      $nombreac8="serie8";
-      $nombreac9="serie9";
-      $nombreac10="serie10";
-
-      $nacc=1;
-      $i=1;
-
-      foreach ($totalAccionesnom as $nacc) {
-
-           if($i==1)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac=array('name' => $name, 'y' => 59.33);
-
-           }
-
-           if($i==2)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac2=array('name' => $name, 'data' => array($p5));
-
-           }
-           //$i++;
-
-           if($i==3)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac3=array('name' => $name, 'data' => array($p5));
-
-           }
-           if($i==4)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac4=array('name' => $name, 'data' => array($p5));
-
-           }
-           if($i==5)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac5=array('name' => $name, 'data' => array($p5));
-
-           }
-           if($i==6)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac6=array('name' => $name, 'data' => array($p5));
-
-           }
-
-           if($i==7)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac7=array('name' => $name, 'data' => array($p5));
-
-           }
-
-           if($i==8)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac8=array('name' => $name, 'data' => array($p5));
-
-           }
-
-           if($i==9)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac9=array('name' => $name, 'data' => array($p5));
-
-           }
-
-           if($i==10)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac10=array('name' => $name, 'data' => array($p5));
-
-           }
-           $i++;
-
-       }
-
-
-      $this->Widget('ext.highcharts.HighchartsWidget', array(
-   'options' => "{
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false,
-                type: 'pie'
-            },
-            title: {
-                text: 'Browser market shares January, 2015 to May, 2015'
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: false
-                    },
-                    showInLegend: true
-                }
-            },
-            series: [{
-                name: 'Brands',
-                colorByPoint: true,
-                data: [{
-                    name: '" . $nombreac['name'] . "',
-                    y: " . $nombreac['y'] . "
-                }, {
-                    name: 'Chrome',
-                    y: 24.03,
-                    sliced: true,
-                    selected: true
-                }, {
-                    name: 'Firefox',
-                    y: 10.38
-                }, {
-                    name: 'Safari',
-                    y: 3.77
-                }, {
-                    name: 'Opera',
-                    y: 0.91
-                }, {
-                    name: 'Proprietary or Undetectable',
-                    y: 0.2
-                }]
-            }]
-        }"
-));
-       ?>
-    </div>
-
-    <!-- <div class="row"> -->
-      <?php
-
-
-      // $this->Widget('ext.highcharts.HighchartsWidget', array(
-      //   'options' => array(
-      //     'chart' => array('plotBackgroundColor' => null, 'plotBorderWidth' => null, 'plotShadow' => false, 'type' => 'pie'),
-      //     'title' => array('text' => 'Fruit Consumption'),
-      //     'tooltip' => array('pointFormat' => '{series.name}: <b>{point.percentage:.1f}%</b>'),
-      //     'plotOptions' => array('pie' => array(
-      //       'allowPointSelect' => true,
-      //       'cursor' => 'pointer',
-      //       'dataLabels' => array('enabled' => false),
-      //       'showInLegend' => true
-      //     )),
-      //     'series' => array(
-      //       'name' => 'Instituciones',
-      //       'colorByPoint' => true,
-      //       'data' => array(
-      //         array('name' => 'qwer', 'y' => 56.24, 'sliced' => true, 'selected' => true),
-      //         array('name' => 'asfd', 'y' => 5.24),
-      //         array('name' => 'zxcv', 'y' => 10.24)
-      //       )
-      //     )
-      //
-      //
-      //   )
-      // ));
-
-
-       ?>
-    <!-- </div> -->
-
-
     <!-- begin row -->
     <div class="row m-t-30">
         <div class="col-xs-12 p-0">
           <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con más acciones correctivas</h2>
+          <?php
+         $nombreac="serie1";
+         $nombreac2="serie2";
+         $nombreac3="serie3";
+         $nombreac4="serie4";
+         $nombreac5="serie5";
+         $nombreac6="serie6";
+         $nombreac7="serie7";
+         $nombreac8="serie8";
+         $nombreac9="serie9";
+         $nombreac10="serie10";
 
+         $nacc=1;
+         $i=1;
+
+         foreach ($totalAccionesnom as $nacc) {
+
+              if($i==1)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac=array('name' => $name, 'data' => array($p5));
+
+              }
+
+              if($i==2)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac2=array('name' => $name, 'data' => array($p5));
+
+              }
+              //$i++;
+
+              if($i==3)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac3=array('name' => $name, 'data' => array($p5));
+
+              }
+              if($i==4)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac4=array('name' => $name, 'data' => array($p5));
+
+              }
+              if($i==5)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac5=array('name' => $name, 'data' => array($p5));
+
+              }
+              if($i==6)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac6=array('name' => $name, 'data' => array($p5));
+
+              }
+
+              if($i==7)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac7=array('name' => $name, 'data' => array($p5));
+
+              }
+
+              if($i==8)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac8=array('name' => $name, 'data' => array($p5));
+
+              }
+
+              if($i==9)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac9=array('name' => $name, 'data' => array($p5));
+
+              }
+
+              if($i==10)
+              {
+              $p5 = $nacc['total']+0;
+              $name= $nacc['nombre'];
+              $nombreac10=array('name' => $name, 'data' => array($p5));
+
+              }
+              $i++;
+
+          }
+
+          $this->Widget('ext.highcharts.HighchartsWidget', array(
+              'options' => array(
+                  'chart' => array(
+                          'plotBackgroundColor' => '#ffffff',
+                          'plotBorderWidth' => null,
+                          'plotShadow' => false,
+                          'height' => 400,
+                          'type'=>'column'
+                        ),
+
+
+
+
+                  'credits' => array('enabled' => false),
+                  'title' => array('text' => ''),
+                  'xAxis' => array(
+                      'categories' => array('INSTITUCIONES')
+                  ),
+                  'yAxis' => array(
+                      'title' => array('text' => 'ACCIONES CORRECTIVAS')
+                  ),
+
+
+                //'series'  = $accion;
+
+                  'series' => array(
+
+
+                      $nombreac,$nombreac2,$nombreac3,$nombreac4,$nombreac5,
+                      $nombreac6,$nombreac7,$nombreac8,$nombreac9,$nombreac10
+
+                      //array('name' => 'Renovacion Matricula Caducidad', 'data' => array(100)),
+                      //array('name' => 'Renovacion cédula', 'data' => array(88)),
+                      //array('name' => 'Papeleta votación', 'data' => array(70)),
+                      //array('name' => 'Certificado de defunción', 'data' => array(60)),
+                      //array('name' => 'Permiso de operación vehicular', 'data' => array(55)),
+                      //array('name' => 'Préstamos Hipotecarios', 'data' => array(45)),
+                      //array('name' => 'Citas médicas', 'data' => array(35)),
+                      //array('name' => 'Certificado de antescedentes policiales', 'data' => array(20)),
+                      //array('name' => 'Permiso de salida del país', 'data' => array(10)),
+                      //array('name' => 'Préstamos Quirografarios', 'data' => array(25)),
+                      //array('name' => $name, 'data' => array($p5))
+
+                      )
+              )
+          ));
+
+
+          ?>
         </div>
 
 
