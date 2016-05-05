@@ -64,19 +64,19 @@ $baseUrl = Yii::app()->theme->baseUrl;
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
                 <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalParticipantes']?>"><?php echo $estadisticas['totalParticipantes']?></div>
-                <div class="title">Total Participantes</div>
+                <div class="title">Personas registradas</div>
             </div>
         </div>
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
                 <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalTramites']?>"><?php echo $estadisticas['totalTramites']?></div>
-                <div class="title">Soluciones Registradas</div>
+                <div class="title">Tramites y soluciones propuestas</div>
             </div>
         </div>
         <div class="col-sm-4 milestone-col">
             <div class="milestone no-border">
                 <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalAcciones']?>"><?php echo $estadisticas['totalAcciones']?></div>
-                <div class="title">Trámites con planes de mejora</div>
+                <div class="title">Planes de mejora institucionales a trámites</div>
             </div>
         </div>
     </div>
