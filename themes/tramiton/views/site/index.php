@@ -103,9 +103,22 @@ $baseUrl = Yii::app()->theme->baseUrl;
       $nombreac8="serie8";
       $nombreac9="serie9";
       $nombreac10="serie10";
+      
+      
+      $nombreps="serie1";
+      $nombreps2="serie2";
+      $nombreps3="serie3";
+      $nombreps4="serie4";
+      $nombreps5="serie5";
+      $nombreps6="serie6";
+      $nombreps7="serie7";
+      $nombreps8="serie8";
+      $nombreps9="serie9";
+      $nombreps10="serie10";
 
       $nacc=1;
       $i=1;
+      $j = 1;
 
       foreach ($totalAccionesnom as $nacc) {
 
@@ -189,6 +202,90 @@ $baseUrl = Yii::app()->theme->baseUrl;
            $i++;
 
        }
+       
+       //******************************************
+       foreach ($totalPropuestaSolu as $nacc1) {
+
+           if($j==1)
+           {
+           $p51 = $nacc1['total']+0;
+           $name= $nacc1['ins_nombre'];
+           $nombreps=array('name' => $name, 'data' => array($p51));
+
+           }
+
+           if($j==2)
+           {
+           $p51 = $nacc1['total']+0;
+           $name= $nacc1['ins_nombre'];
+           $nombreps2=array('name' => $name, 'data' => array($p51));
+
+           }
+           //$i++;
+
+           if($j==3)
+           {
+           $p51 = $nacc1['total']+0;
+           $name= $nacc1['ins_nombre'];
+           $nombreps3=array('name' => $name, 'data' => array($p51));
+
+           }
+           if($j==4)
+           {
+           $p51 = $nacc1['total']+0;
+           $name= $nacc1['ins_nombre'];
+           $nombreps4=array('name' => $name, 'data' => array($p51));
+
+           }
+           if($j==5)
+           {
+           $p51 = $nacc1['total']+0;
+           $name= $nacc1['ins_nombre'];
+           $nombreps5=array('name' => $name, 'data' => array($p51));
+
+           }
+           if($j==6)
+           {
+           $p51 = $nacc1['total']+0;
+           $name= $nacc1['ins_nombre'];
+           $nombreps6=array('name' => $name, 'data' => array($p51));
+
+           }
+
+           if($j==7)
+           {
+           $p51 = $nacc1['total']+0;
+           $name= $nacc1['ins_nombre'];
+           $nombreps7=array('name' => $name, 'data' => array($p51));
+
+           }
+
+           if($j==8)
+           {
+           $p51 = $nacc1['total']+0;
+           $name= $nacc1['ins_nombre'];
+           $nombreps8=array('name' => $name, 'data' => array($p51));
+
+           }
+
+           if($j==9)
+           {
+           $p51 = $nacc1['total']+0;
+           $name= $nacc1['ins_nombre'];
+           $nombreps9=array('name' => $name, 'data' => array($p51));
+
+           }
+
+           if($j==10)
+           {
+           $p51 = $nacc1['total']+0;
+           $name= $nacc1['ins_nombre'];
+           $nombreps10=array('name' => $name, 'data' => array($p51));
+
+           }
+           $j++;
+
+       }
 
        $this->Widget('ext.highcharts.HighchartsWidget', array(
            'options' => array(
@@ -209,7 +306,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                    'categories' => array('INSTITUCIONES')
                ),
                'yAxis' => array(
-                   'title' => array('text' => 'ACCIONES CORRECTIVAS')
+                   'title' => array('text' => '# PORPUESTAS SOLUCION')
                ),
 
 
@@ -218,8 +315,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
                'series' => array(
 
 
-                   $nombreac,$nombreac2,$nombreac3,$nombreac4,$nombreac5,
-                   $nombreac6,$nombreac7,$nombreac8,$nombreac9,$nombreac10
+                   $nombreps,$nombreps2,$nombreps3,$nombreps4,$nombreps5,
+                   $nombreps6,$nombreps7,$nombreps8,$nombreps9,$nombreps10
 
                    //array('name' => 'Renovacion Matricula Caducidad', 'data' => array(100)),
                    //array('name' => 'Renovacion cédula', 'data' => array(88)),
@@ -242,7 +339,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <!-- begin row -->
     <div class="col-md-6 m-t-30">
         <div class="col-xs-12 p-0">
-          <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con más acciones correctivas</h2>
+          <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con acciones correctivas</h2>
           <?php
 
 
