@@ -13,7 +13,7 @@ $(function () {
             next = i + 2;
             $(this).find('.botones_nav').append("<a href='#' class='next-tab' rel='panel" + next + "'>Siguiente &#187;</a>");
             $('a.next-tab').hide();
-
+            
 
         }
         if (i != 0) {
@@ -72,7 +72,6 @@ $(function () {
         var actual = 'campo-panel' + (num_actual.toString());
         var campo = document.getElementsByClassName(actual);
         var contador = 0;
-
         //Validar campos requeridos
         for (i = 0; i < campo.length; i++) {
             var idCampo = $(campo[i]).attr("id");
@@ -144,7 +143,7 @@ $(function () {
                     $("#id_tramite2").html(data);
                 }
             });
-
+        
     });
     $('#id_tramite2').change(function (event)
     {
@@ -155,11 +154,11 @@ $(function () {
             $('#otro_tramite').val('');
             document.getElementById("otro_tramite").disabled = true;
         }
-
-
-
+        
+        
+        
     });
-
+    
     $('#id_provincia').change(function (event)
     {
         var id_provincia = $(this).find(':selected').val();
@@ -175,7 +174,7 @@ $(function () {
                     $("#id_canton").html(data);
                 }
             });
-
+        
     });
 
 });

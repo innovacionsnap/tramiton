@@ -27,70 +27,13 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 <form action="" method="POST" name="form-wizard">
     <div class="tab-panels">
         <ul class="tabs nav nav-pills nav-justified">
-            <li role="presentation" rel="panel1" class="active text-center">Login/Registro</li>
-            <li role="presentation" rel="panel1" class="text-center">Identificación</li>
+            <li role="presentation" rel="panel1" class="active text-center">Identificación</li>
             <li role="presentation" rel="panel3" class="text-center">Problemática</li>
             <li role="presentation" rel="panel4" class="text-center">Solución</li>
             <li role="presentation" rel="panel5" class="text-center">Finalizar</li>
         </ul>
 
-
-
-        <div id="panel0" class="panel-registro active">
-            <h4 id="bienvenida">Ingresa al sistema</h4>
-            <div class="row">
-                <div class="col-md-12 p-0">
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Usuario <i class="fa fa-user" aria-hidden="true"></i>
-                          <!-- <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Ingrese su número de cédula de identidad o ciudadanía"></i> -->
-                        <label>
-                          <input type="text" size="20" name="name"  maxlength="15" id = "cedula_ciu" value="" class="campo-panel1 form-registro" placeholder="Ingrese su usuario">
-
-                        <!-- <input size="20" type="text" maxlength="10" id = "cedula_ciu" name="cedula_ciu" class="campo-panel1 form-registro" placeholder="Ingrese su usuario" autocomplete="off" <?php echo JS_ONLY_NUMS; ?>/> -->
-
-                        <div id="cedula_ciu_error" style="display:none;color:red;"></div>
-                        <div id="verifica" style="max-height: 80px;"></div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Contraseña <i class="fa fa-key" aria-hidden="true"></i>
-                          <!-- <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Ingrese su número de cédula de identidad o ciudadanía"></i> -->
-                        <label>
-                          <input type="password" name="name" value="" class="campo-panel1 form-registro"placeholder="Ingrese su contraseña">
-
-                        <!-- <input size="20" type="text" maxlength="10" id = "cedula_ciu" name="cedula_ciu" class="campo-panel1 form-registro" placeholder="Ingrese su contraseña" autocomplete="off" <?php echo JS_ONLY_NUMS; ?>/> -->
-                        <div id="cedula_ciu_error" style="display:none;color:red;"></div>
-                        <div id="verifica" style="max-height: 80px;"></div>
-                    </div>
-                  </div>
-
-
-
-                </div>
-                <div class="row botones_nav">
-                  <div class="col-sm-12 text-center m-b-10">
-                    <a role="button" id="cambio" class="btn btn-info">Inicia sesión</a>
-                  </div>
-                  <div class="col-sm-12 text-center">
-                    ¿No dispones de una cuenta en Tramitón?<a id="cambio" href="site/registro" class='' > Regístrate aquí </a>
-
-                  </div>
-                </div>
-            </div>
-        </div>
-
-        <script type="text/javascript">
-          $('#cambio').click(function cambio(){
-            $("#panel0").removeClass("active");
-            $("#panel1").addClass("active");
-
-          })
-        </script>
-
-
-        <div id="panel1" class="panel-registro">
+        <div id="panel1" class="panel-registro active">
             <h4 id="bienvenida">Ingresa tu documento de identificación</h4>
             <div class="row">
                 <div class="col-md-12 p-0">
