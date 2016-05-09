@@ -2,10 +2,6 @@
 $baseUrl = Yii::app()->theme->baseUrl;
 ?>
 
-<?php
-//if(Yii::app()->user->id){
-?>
-
 <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
   <div class="modal-dialog modal-dialog-center">
     <div class="modal-content">
@@ -34,7 +30,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<?php// } ?>
+
 <div id="home" class="container-fluid p-t-10 p-l-15 p-r-15 p-b-30">
     <div class="row">
       <!--<h4 class="text-left p-l-15" style="font-weight: bold;">Registra tu caso</h4>-->
