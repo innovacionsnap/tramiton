@@ -104,18 +104,7 @@ footer .container-fluid{
         bodyPadding();
     });
 
-
-    var cssLink = document.createElement("link")
-cssLink.href = "<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/twitter-plugin.css";
-cssLink.rel = "stylesheet";
-cssLink.type = "text/css";
-frames['twitter-widget-0'].document.body.appendChild(cssLink);
-
 </script>
-
-
-
-
 <!-- begin track con google analytic -->
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
