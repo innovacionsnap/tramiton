@@ -8,6 +8,7 @@ class SiteController extends Controller {
     public $_msgSuccess;
     public $_msgerror;
     public $_datosUser;
+    public $_loginActive;
 
     public function actions() {
         return array(
@@ -36,6 +37,17 @@ class SiteController extends Controller {
 // using the default layout 'protected/views/layouts/main.php'
         Yii::import('application.controllers.DashboardController');
         $total_soluciones = DashboardController::getTotalSoluciones();
+        
+        $loginActive = FALSE; //Yii::app()->user->id;
+        
+        if(Yii::app()->user->id){
+            $loginActive = TRUE;
+            //echo "tiene valor: " . $loginActive;
+        }
+        
+        
+        //echo "valor del login " . $idUsr; 
+        //Yii::app()->end();
 
         $modelEstadisticas = new consultasBaseDatos;
 
@@ -44,6 +56,7 @@ class SiteController extends Controller {
         $totalAcciones = $modelEstadisticas->getAccionesCorrectivasTram();
         
         $totalAccionesnom = $modelEstadisticas->getAccionesCorrectivas10();
+        $totalPropuestaSolu = $modelEstadisticas->getPropuestasSolución10();
         
         $estadisticas = array(
             'totalParticipantes' => $totalParticipantes,
@@ -55,8 +68,18 @@ class SiteController extends Controller {
 
         $model = new ValidarCedula;
         $model_login = new LoginForm;
+        $this->_loginActive = $loginActive;
         $this->layout = 'main-home';
-        $this->render('index', array("model" => $model, "model_login" => $model_login, 'msg1' => $this->_msgerror, 'estadisticas' => $estadisticas, 'totalAccionesnom' => $totalAccionesnom));
+        $this->render('index', array(
+                "model" => $model, 
+                "model_login" => $model_login, 
+                'msg1' => $this->_msgerror, 
+                'estadisticas' => $estadisticas, 
+                'totalAccionesnom' => $totalAccionesnom, 
+                'loginActive' => $loginActive,
+                'totalPropuestaSolu' => $totalPropuestaSolu
+            )
+        );
     }
 
     /**
@@ -117,6 +140,7 @@ class SiteController extends Controller {
                 //$this->redirect(array('index'));
                 $this->redirect(Yii::app()->user->returnUrl);
         }
+        
         $this->layout = 'main-login';
         $this->render('login', array('model_login' => $model));
     }

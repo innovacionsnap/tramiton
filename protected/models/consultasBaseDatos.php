@@ -458,28 +458,30 @@ class consultasBaseDatos {
         return $totalAcciones;
     }
 
-    public function getAccionesCorrectivas10() {
+    
+    public function getPropuestasSolución10() {
         $conexion = Yii::app()->db;
-
-        $sqlAccionesTramite = "select count(ins.ins_id)as total , ins.ins_nombre as nombre "
-                . "from acciones_correctivas accc, tramite_institucion trai, institucion ins "
-                . "where trai.trai_id = accc.trai_id "
-                . "and ins.ins_id = trai.ins_id "
-                . "and accc_productivo=1 "
-                . "group by ins.ins_id "
+        
+        $sqlPropuestasSolucion = "select count(trai.ins_id) as total, ins.ins_nombre "
+                . "from datos_tramite dt, tramite_institucion trai, institucion ins "
+                . "where datt_productivo is null and "
+                . "dt.trai_id = trai.trai_id and "
+                . "trai.ins_id = ins.ins_id "
+                . "group by trai.ins_id, ins.ins_nombre "
                 . "order by total desc "
                 . "limit 10";
 
 
-        $resultado = $conexion->createCommand($sqlAccionesTramite);
+        $resultado = $conexion->createCommand($sqlPropuestasSolucion);
 
         //$totalAccionesnum;
-        $totalAccionesnom;
-        $totalAccionesnom = $resultado->query();
+        //$totalPropuestaSol;
+        $totalPropuestaSol = $resultado->query();
 
-        return $totalAccionesnom;
+        return $totalPropuestaSol;
         //return $totalAccionesnum;
     }
+    
 
     /**
      * Función para verificar si tiene registros temporales ingresados
