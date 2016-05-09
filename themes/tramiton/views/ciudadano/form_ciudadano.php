@@ -432,7 +432,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Detalle del problema</label>
-                                                <textarea class="form-control" id = "experiencia" onkeyup = "Validate(this)" name="experiencia" rows="4" data-parsley-range="[20,200]" placeholder="Experiencia" data-parsley-group="wizard-step-2" required></textarea>
+                                                <textarea class="form-control" id = "experiencia" onkeyup = "Validate(this)" name="experiencia" rows="4" data-parsley-range="[20,1500]" placeholder="Experiencia" data-parsley-group="wizard-step-2" required></textarea>
 
                                             </div>
                                         </div>
@@ -464,7 +464,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                                             <div class="form-group">
                                                 <label>Detalle de la solución</label>
                                                 <div class="controls">
-                                                    <textarea class="form-control" id="propuesta_solucion" onkeyup = "Validate(this)" name="propuesta_solucion" rows="4" data-parsley-range="[20,200]" placeholder="Detalle de la Solución" data-parsley-group="wizard-step-3" required></textarea>
+                                                    <textarea class="form-control" id="propuesta_solucion" onkeyup = "Validate(this)" name="propuesta_solucion" rows="4" data-parsley-range="[20,1500]" placeholder="Detalle de la Solución" data-parsley-group="wizard-step-3" required></textarea>
                                                 </div>
                                             </div>
                                         </div>
