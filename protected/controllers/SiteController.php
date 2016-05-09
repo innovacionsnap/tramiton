@@ -56,6 +56,7 @@ class SiteController extends Controller {
         $totalAcciones = $modelEstadisticas->getAccionesCorrectivasTram();
         
         $totalAccionesnom = $modelEstadisticas->getAccionesCorrectivas10();
+        $totalPropuestaSolu = $modelEstadisticas->getPropuestasSolución10();
         
         $estadisticas = array(
             'totalParticipantes' => $totalParticipantes,
@@ -69,7 +70,16 @@ class SiteController extends Controller {
         $model_login = new LoginForm;
         $this->_loginActive = $loginActive;
         $this->layout = 'main-home';
-        $this->render('index', array("model" => $model, "model_login" => $model_login, 'msg1' => $this->_msgerror, 'estadisticas' => $estadisticas, 'totalAccionesnom' => $totalAccionesnom, 'loginActive' => $loginActive));
+        $this->render('index', array(
+                "model" => $model, 
+                "model_login" => $model_login, 
+                'msg1' => $this->_msgerror, 
+                'estadisticas' => $estadisticas, 
+                'totalAccionesnom' => $totalAccionesnom, 
+                'loginActive' => $loginActive,
+                'totalPropuestaSolu' => $totalPropuestaSolu
+            )
+        );
     }
 
     /**
