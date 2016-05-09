@@ -45,6 +45,12 @@
         <script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
         <!-- ================== END BASE JS ================== -->
 
+        <!-- JS of highcharts -->
+        <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
+        <!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/highcharts-more.js"></script>
+        <!-- end JS of highcharts -->
+
         <?php
         $baseUrl = Yii::app()->baseUrl;
         $cs = Yii::app()->getClientScript();
