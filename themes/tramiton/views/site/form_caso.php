@@ -43,26 +43,18 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                   <div class="col-sm-6">
                     <div class="form-group">
                         <label>Usuario <i class="fa fa-user" aria-hidden="true"></i>
-                          <!-- <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Ingrese su número de cédula de identidad o ciudadanía"></i> -->
                         <label>
-                          <input type="text" size="20" name="name"  maxlength="15" id = "cedula_ciu" value="" class="campo-panel1 form-registro" placeholder="Ingrese su usuario">
+                          <input type="text" name="name" value="">
+                          <!-- <input type="text" size="20"  maxlength="15"  value="" class=" form-registro" placeholder="Ingrese su usuario"> -->
 
                         <!-- <input size="20" type="text" maxlength="10" id = "cedula_ciu" name="cedula_ciu" class="campo-panel1 form-registro" placeholder="Ingrese su usuario" autocomplete="off" <?php echo JS_ONLY_NUMS; ?>/> -->
 
-                        <div id="cedula_ciu_error" style="display:none;color:red;"></div>
-                        <div id="verifica" style="max-height: 80px;"></div>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
-                        <label>Contraseña <i class="fa fa-key" aria-hidden="true"></i>
-                          <!-- <i class="fa fa-question-circle ayuda" data-toggle="tooltip" data-placement="right" title="Ingrese su número de cédula de identidad o ciudadanía"></i> -->
-                        <label>
-                          <input type="password" name="name" value="" class="campo-panel1 form-registro"placeholder="Ingrese su contraseña">
-
-                        <!-- <input size="20" type="text" maxlength="10" id = "cedula_ciu" name="cedula_ciu" class="campo-panel1 form-registro" placeholder="Ingrese su contraseña" autocomplete="off" <?php echo JS_ONLY_NUMS; ?>/> -->
-                        <div id="cedula_ciu_error" style="display:none;color:red;"></div>
-                        <div id="verifica" style="max-height: 80px;"></div>
+                        <label>Contraseña <i class="fa fa-key" aria-hidden="true"></i><label>
+                          <input type="password" name="name" value="">
                     </div>
                   </div>
 
