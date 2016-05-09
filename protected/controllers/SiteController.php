@@ -113,7 +113,9 @@ class SiteController extends Controller {
             $model->attributes = $_POST['LoginForm'];
 // validate user input and redirect to the previous page if valid
             if ($model->validate() && $model->login())
-                $this->redirect(array('dashboard/index'));
+                //$this->redirect(array('dashboard/index'));
+                //$this->redirect(array('index'));
+                $this->redirect(Yii::app()->user->returnUrl);
         }
         $this->layout = 'main-login';
         $this->render('login', array('model_login' => $model));
@@ -130,6 +132,128 @@ class SiteController extends Controller {
     /**
      * accion para insertar nuevos datos de formulario
      */
+    public function actionRegistroCasoLogin(){
+        $insertar_tramite = $_POST['insertar_tramite'];
+
+        if (isset($insertar_tramite)) {
+            $id_institucion = $_POST['id_institucion'];
+            $id_provincia = $_POST['id_provincia'];
+            $unidad_prestadora = $_POST['unidad_prestadora'];
+            $idhijo = $_POST['id_canton'];
+            //$idhijo = $_POST['idhijo'];
+            //$empresa = $_POST['empresa'];
+            $empresa = 0;
+            //$id_tramite = isset ($_POST['id_tramite']);
+
+            if (isset($_POST['id_tramite2'])) {
+                $id_tramite = $_POST['id_tramite2'];
+            } else {
+                $id_tramite = 4173;
+            }
+            $experiencia = $_POST['experiencia'];
+            $titulo_solucion = $_POST['titulo_solucion'];
+
+
+            if (isset($_POST['otro_tramite'])) {
+                $otro_tramite = $_POST['otro_tramite'];
+            } else {
+                $otro_tramite = "n/a";
+            }
+
+            $propuesta_solucion = $_POST['propuesta_solucion'];
+            $id_usuario = $_POST['id_usuario'];
+            //$problematica_otro = $_POST['problematica_otro'];
+            $url = $_POST['url'];
+
+            $insertar_tramite = $_POST['insertar_tramite'];
+
+            $hoy = date("Y-m-d");
+
+            $conexion = Yii::app()->db;
+            $transaction = $conexion->beginTransaction();
+            try {
+                //Datos trámite
+                $model_dtramite = new DatosTramite();
+                $model_dtramite->par_id = 1500;
+                $model_dtramite->usu_id = $id_usuario;
+                $model_dtramite->trai_id = $id_tramite;
+                $model_dtramite->datt_unidadprestadora = $unidad_prestadora;
+                $model_dtramite->datt_experiencia = $experiencia;
+                $model_dtramite->datt_fechainicio = $hoy;
+                $model_dtramite->datt_fechafin = $hoy;
+                $model_dtramite->datt_fecharegistro = $hoy;
+                $model_dtramite->datt_ipingreso = '0.0.0.0';
+                $model_dtramite->datt_edicion = '2015';
+                $model_dtramite->datt_codigoconfirmacion = 'N/A';
+                $model_dtramite->datt_otronombretramite = $otro_tramite;
+                $model_dtramite->datt_calificado = 0;
+                $model_dtramite->datt_descripcionbreve = 'prueba decripcion';
+                $model_dtramite->datt_estado = 1;
+                //$model_dtramite->can_id = 150;
+                $model_dtramite->can_id = $idhijo;
+                $model_dtramite->datt_otronombreinstitucion = 'N/A';
+                $model_dtramite->datt_fecha_actualizacion = $hoy;
+                $model_dtramite->save();
+                $id_dtramite = $model_dtramite->primaryKey;
+
+                //Empresa_Trámite
+                if ($empresa != 0) {
+                    $model_empresa = new EmpresaTramite();
+                    $model_empresa->emp_id = $empresa;
+                    $model_empresa->datt_id = $id_dtramite;
+                    $model_empresa->save();
+                }
+
+                //Solución
+                $model_solucion = new Solucion();
+                $model_solucion->datt_id = $id_dtramite;
+                $model_solucion->usu_id = Yii::app()->user->id;
+                //$model_solucion->usu_id = 2;
+                $model_solucion->sol_titulo = $titulo_solucion;
+                $model_solucion->sol_descripcion = $propuesta_solucion;
+                $model_solucion->sol_vistas = 0;
+                $model_solucion->sol_fecha = $hoy;
+                $model_solucion->sol_estado = 1;
+                $model_solucion->save();
+
+                //Problemática
+                /*
+                  if (strlen($_POST['problematica_otro'])>0) {
+                  $model_problema = new ProblemaTramite();
+                  $model_problema->prob_id = 41;
+                  $model_problema->datt_id = $id_dtramite;
+                  $model_problema->prot_estado_ = 0;
+                  $model_problema->prot_nombreotroproblema = $problematica_otro;
+                  $model_problema->save();
+                  }
+                 */
+                if (isset($_POST['problematica'])) {
+                    $optionArray = $_POST['problematica'];
+                    for ($i = 0; $i < count($optionArray); $i++) {
+                        $model_problema = new ProblemaTramite();
+                        $model_problema->prob_id = $optionArray[$i];
+                        $model_problema->datt_id = $id_dtramite;
+                        $model_problema->prot_estado_ = 0;
+                        $model_problema->save();
+                    }
+                }
+
+
+                $transaction->commit();
+                //echo '<br><br><h4 align="center">Gracias por ingresar su caso</h4>';
+                echo '<br><br><h4>Para revisar mas casos publicados ingrese a su <a href="dashboard/index">escritorio</a></h4>';
+                //header('Location:' . Yii::app()->baseURL);
+            } catch (Exception $e) {
+                echo $e;
+                echo "<div>Hubo un error</div>";
+                $transaction->rollBack();
+            }
+        }
+    }
+
+
+
+
     public function actionRegistroCaso() {
         
         //var_dump($_POST); Yii::app()->end();

@@ -507,8 +507,8 @@ class consultasBaseDatos {
         }
 
         $datosVerificacion = array(
-            //'existe' => $existe,
-            'existe' => FALSE,
+            'existe' => $existe,
+            //'existe' => FALSE,
             'nroTmp' => $nroTmp
         );
 
@@ -548,6 +548,7 @@ class consultasBaseDatos {
     public function getCasoTemporalId($idTmp) {
         $conexion = Yii::app()->db;
 
+        //consulta para obtener datos del trámit temporal
         $sqlCasoTmpId = "select "
                 . "tmprc.id_registro_caso, ins.ins_nombre, tram.tra_nombre, can.can_nombre, "
                 . "tmprc.experiencia, tmprc.titulo_solucion, tmprc.propuesta_solucion, "
@@ -580,6 +581,13 @@ class consultasBaseDatos {
                 'fechaRegistro' => $casoTmp['fecha_registro'],
             );
         }
+        
+        //obtengo los problemas seleccionados en el caso temporal
+        $idCasoTmp = $casoTemp['idRegistroCaso'];
+        $sqlProblemaTmp = "select * from tmp_problema_registro_caso where id_registro_caso = $idCasoTmp";
+        
+        echo "problems: " .$sqlProblemaTmp; Yii::app()->end();
+        
 
         return $casoTemp;
     }

@@ -36,7 +36,7 @@
                                             <th>Trámite</th>
                                             <th>Ubicación</th>
                                             <th>Fecha de Registro</th>
-                                            <th>Acciones</th>
+                                            <th>Eventos</th>
                                             
                                         </tr>
                                     </thead>

@@ -184,7 +184,8 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                     <div id="mensaje_captcha" style="display: none;"></div>
                     <?php
                     echo CHtml::ajaxSubmitButton(
-                            'Guardar', array('registroCaso'), array(
+                            //'Guardar', array('registroCaso'), array(
+                            'Guardar', array('registroCasoLogin'), array(
                         //'update' => '#ejemploAjax4',
                         'beforeSend' => "function(){
                         $('#estados2').removeClass('loadingok');
