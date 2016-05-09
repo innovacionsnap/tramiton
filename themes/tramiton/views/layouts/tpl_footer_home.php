@@ -87,12 +87,23 @@ footer .container-fluid{
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/form-ciudadano.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/navigation.js"></script>
 
+<?php
+    $login = $this->_loginActive;
+    //echo "logion value php: " . $login; Yii::app()->end();
+?>
+
 <script type="text/javascript">
     function closeModal(){
         $('#myModal').modal('hide');
     }
-
-    $('#myModal').modal('show');
+    var login = <?php echo json_encode($login); ?>
+    
+    //console.log("valor login: " + login);
+    //alert(login);
+    
+    if(!login)
+        $('#myModal').modal('show');
+    
     $(document).ready(function () {
         App.init();
         FormWizardValidation.init();

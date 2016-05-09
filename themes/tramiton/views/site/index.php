@@ -36,14 +36,15 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 <div id="home" class="container-fluid p-t-10 p-l-15 p-r-15 p-b-30">
     <div class="row">
-      <!-- <h4 class="text-left p-l-15" style="font-weight: bold;">Registra tu caso</h4> -->
+        <h4 class="text-left p-l-15" style="font-weight: bold;"> </h4> 
         <div id="col-formulario" class="col-sm-7">
           <?php
-            if(true){
-              $this->renderPartial('form_login', true, false);
+            if($loginActive){
+                $this->renderPartial('form_caso', true, false);
+              //$this->renderPartial('form_login', true, false);
             }
             else{
-              $this->renderPartial('form_caso', true, false);
+              $this->renderPartial('_form_login', array('model_login' => $model_login));
             }
           ?>
         </div>
