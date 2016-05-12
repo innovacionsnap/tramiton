@@ -17,6 +17,7 @@
         <!-- begin sidebar nav -->
 
         <?php
+        echo "url: " . Yii::app()->baseUrl;
         $this->widget('zii.widgets.CMenu', array(
             'htmlOptions' => array('class' => 'nav'),
             'submenuHtmlOptions' => array('class' => 'sub-menu'),
@@ -27,7 +28,8 @@
             'itemCssClass' => '',
             'encodeLabel' => false,
             'items' => array(
-                array('label' => '<i class="fa fa-home"></i>Inicio', 'url' => array('dashboard/index'), 'linkOptions' => array(),),
+                array('label' => '<i class="fa fa-home"></i>Inicio', 'url' => array('./'), 'linkOptions' => array(),),
+                array('label' => '<i class="fa fa-desktop"></i>Escritorio', 'url' => array('dashboard/index'), 'linkOptions' => array(),),
                 
                 array('label' => '<i class="fa fa-archive"></i>Trámites<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('ciudadano', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'), 
                     'items' => array(
