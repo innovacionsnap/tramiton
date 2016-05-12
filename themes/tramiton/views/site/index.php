@@ -89,7 +89,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
         </div>
     </div>
 
-    <div class="col-md-6 m-t-30">
+    <div class="col-md-12 m-t-30">
       <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con propuestas de solución</h2>
 
       <?php
@@ -337,7 +337,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
     </div>
 
     <!-- begin row -->
-    <div class="col-md-6 m-t-30">
+    <div class="col-md-12 m-t-30">
         <div class="col-xs-12 p-0">
           <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con acciones correctivas</h2>
           <?php
