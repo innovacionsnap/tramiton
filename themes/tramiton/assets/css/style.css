@@ -1657,8 +1657,8 @@ a.text-white:focus {
 
 .btn.btn-success {
     color: #fff;
-    background: #00acac;
-    border-color: #00acac;
+    background: #325972;
+    border-color: #325972;
 }
 .btn.btn-success:hover,
 .btn.btn-success:focus,
@@ -1862,7 +1862,7 @@ fieldset[disabled] .form-control:focus {
     border: 1px solid #ccd0d4;
 }
 .form-control:focus {
-    border-color: #9fa2a5;
+    border-color: #56b4ef;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
