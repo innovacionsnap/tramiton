@@ -30,6 +30,12 @@ $usu_id = $this->_datosUser->usu_id;
                     </div>
                     <h4 class="panel-title">Datos principales</h4>
                 </div>
+                <?php
+                $totalCasos = 0;
+                foreach ($sumaCasosTotal as $suma){
+                    $totalCasos += $suma["total"];
+                }
+                ?>
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table id="data-table" class="table table-striped table-bordered">
@@ -37,7 +43,7 @@ $usu_id = $this->_datosUser->usu_id;
                                 <tr>
                                     <th>Institución</th>
                                     <th>Trámite</th>
-                                    <th>N° de casos</th>
+                                    <th>N° de casos<br>(<?php echo $totalCasos; ?>)</th>
                                     <th>Acciones</th>
 
                                 </tr>

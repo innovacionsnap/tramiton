@@ -530,8 +530,8 @@ class consultasBaseDatos {
         }
 
         $datosVerificacion = array(
-            'existe' => $existe,
-            //'existe' => FALSE,
+            //'existe' => $existe,
+            'existe' => FALSE,
             'nroTmp' => $nroTmp
         );
 

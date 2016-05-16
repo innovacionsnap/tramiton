@@ -42,13 +42,14 @@ class TramiteInstitucionController extends Controller {
         //creo una instancia del modelo Dashboard
         $model = new TramiteInstitucion();
         $datosgetTramiteInstitucion = $model->getTramiteInstitucion();
+        $sumaCasosTotal = $model->getTramiteInstitucion();;
         //$datosRankingTramites = $model->getRankingTramite();
         //$datosPublicacionesTramites = $model->getPublicacionesTramites();
         //$datosTarea = $model->getTarea();
         $this->layout = 'main-admin-asc';
         $this->_datosUser = $modelUser;
         $this->_casosTmp = $this->getDatosTemporal();
-        $this->render('index',compact('datosgetTramiteInstitucion'));
+        $this->render('index',compact('datosgetTramiteInstitucion', 'sumaCasosTotal'));
         //$this->render('formulario');
     }
     
