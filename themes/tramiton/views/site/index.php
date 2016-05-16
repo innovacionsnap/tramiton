@@ -90,7 +90,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
     </div>
 
     <div class="col-md-12 m-t-30">
-      <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con propuestas de solución</h2>
+      <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con acciones correctivas</h2>
 
       <?php
       $nombreac="serie1";
@@ -103,18 +103,6 @@ $baseUrl = Yii::app()->theme->baseUrl;
       $nombreac8="serie8";
       $nombreac9="serie9";
       $nombreac10="serie10";
-
-
-      $nombreps="serie1";
-      $nombreps2="serie2";
-      $nombreps3="serie3";
-      $nombreps4="serie4";
-      $nombreps5="serie5";
-      $nombreps6="serie6";
-      $nombreps7="serie7";
-      $nombreps8="serie8";
-      $nombreps9="serie9";
-      $nombreps10="serie10";
 
       $nacc=1;
       $i=1;
@@ -203,89 +191,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
        }
 
-       //******************************************
-       foreach ($totalPropuestaSolu as $nacc1) {
 
-           if($j==1)
-           {
-           $p51 = $nacc1['total']+0;
-           $name= $nacc1['ins_nombre'];
-           $nombreps=array('name' => $name, 'data' => array($p51));
-
-           }
-
-           if($j==2)
-           {
-           $p51 = $nacc1['total']+0;
-           $name= $nacc1['ins_nombre'];
-           $nombreps2=array('name' => $name, 'data' => array($p51));
-
-           }
-           //$i++;
-
-           if($j==3)
-           {
-           $p51 = $nacc1['total']+0;
-           $name= $nacc1['ins_nombre'];
-           $nombreps3=array('name' => $name, 'data' => array($p51));
-
-           }
-           if($j==4)
-           {
-           $p51 = $nacc1['total']+0;
-           $name= $nacc1['ins_nombre'];
-           $nombreps4=array('name' => $name, 'data' => array($p51));
-
-           }
-           if($j==5)
-           {
-           $p51 = $nacc1['total']+0;
-           $name= $nacc1['ins_nombre'];
-           $nombreps5=array('name' => $name, 'data' => array($p51));
-
-           }
-           if($j==6)
-           {
-           $p51 = $nacc1['total']+0;
-           $name= $nacc1['ins_nombre'];
-           $nombreps6=array('name' => $name, 'data' => array($p51));
-
-           }
-
-           if($j==7)
-           {
-           $p51 = $nacc1['total']+0;
-           $name= $nacc1['ins_nombre'];
-           $nombreps7=array('name' => $name, 'data' => array($p51));
-
-           }
-
-           if($j==8)
-           {
-           $p51 = $nacc1['total']+0;
-           $name= $nacc1['ins_nombre'];
-           $nombreps8=array('name' => $name, 'data' => array($p51));
-
-           }
-
-           if($j==9)
-           {
-           $p51 = $nacc1['total']+0;
-           $name= $nacc1['ins_nombre'];
-           $nombreps9=array('name' => $name, 'data' => array($p51));
-
-           }
-
-           if($j==10)
-           {
-           $p51 = $nacc1['total']+0;
-           $name= $nacc1['ins_nombre'];
-           $nombreps10=array('name' => $name, 'data' => array($p51));
-
-           }
-           $j++;
-
-       }
 
        $this->Widget('ext.highcharts.HighchartsWidget', array(
            'options' => array(
@@ -306,7 +212,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                    'categories' => array('INSTITUCIONES')
                ),
                'yAxis' => array(
-                   'title' => array('text' => '# PORPUESTAS SOLUCION')
+                   'title' => array('text' => 'ACCIONES CORRECTIVAS')
                ),
 
 
@@ -315,8 +221,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
                'series' => array(
 
 
-                   $nombreps,$nombreps2,$nombreps3,$nombreps4,$nombreps5,
-                   $nombreps6,$nombreps7,$nombreps8,$nombreps9,$nombreps10
+                   $nombreac,$nombreac2,$nombreac3,$nombreac4,$nombreac5,
+                   $nombreac6,$nombreac7,$nombreac8,$nombreac9,$nombreac10
 
                    //array('name' => 'Renovacion Matricula Caducidad', 'data' => array(100)),
                    //array('name' => 'Renovacion cédula', 'data' => array(88)),
@@ -339,10 +245,85 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <!-- begin row -->
     <div class="col-md-12 m-t-30">
         <div class="col-xs-12 p-0">
-          <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con acciones correctivas</h2>
+          <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con propuestas de solución</h2>
+
           <?php
+          $nombreps="serie1";
+          $nombreps2="serie2";
+          $nombreps3="serie3";
+          $nombreps4="serie4";
+          $nombreps5="serie5";
+          $nombreps6="serie6";
+          $nombreps7="serie7";
+          $nombreps8="serie8";
+          $nombreps9="serie9";
+          $nombreps10="serie10";
 
+          $j = 1;
+           foreach ($totalPropuestaSolu as $nacc1) {
 
+               if($j==1){
+               $p51 = $nacc1['total']+0;
+               $name= $nacc1['ins_nombre'];
+               $nombreps=array('name' => $name, 'data' => array($p51), 'color' => '#FF9800' );
+               }
+
+               if($j==2){
+               $p51 = $nacc1['total']+0;
+               $name= $nacc1['ins_nombre'];
+               $nombreps2=array('name' => $name, 'data' => array($p51), 'color' => '#B6B6B6');
+               }
+
+               if($j==3){
+               $p51 = $nacc1['total']+0;
+               $name= $nacc1['ins_nombre'];
+               $nombreps3=array('name' => $name, 'data' => array($p51), 'color' => '#5D4037');
+
+               }
+               if($j==4){
+               $p51 = $nacc1['total']+0;
+               $name= $nacc1['ins_nombre'];
+               $nombreps4=array('name' => $name, 'data' => array($p51), 'color' => '#00BCD4');
+               }
+
+               if($j==5){
+               $p51 = $nacc1['total']+0;
+               $name= $nacc1['ins_nombre'];
+               $nombreps5=array('name' => $name, 'data' => array($p51), 'color' => '#9C27B0');
+               }
+
+               if($j==6){
+               $p51 = $nacc1['total']+0;
+               $name= $nacc1['ins_nombre'];
+               $nombreps6=array('name' => $name, 'data' => array($p51), 'color' => '#009688');
+               }
+
+               if($j==7){
+               $p51 = $nacc1['total']+0;
+               $name= $nacc1['ins_nombre'];
+               $nombreps7=array('name' => $name, 'data' => array($p51), 'color' => '#607D8B');
+               }
+
+               if($j==8){
+               $p51 = $nacc1['total']+0;
+               $name= $nacc1['ins_nombre'];
+               $nombreps8=array('name' => $name, 'data' => array($p51), 'color' => '#F44336');
+               }
+
+               if($j==9){
+               $p51 = $nacc1['total']+0;
+               $name= $nacc1['ins_nombre'];
+               $nombreps9=array('name' => $name, 'data' => array($p51), 'color' => '#CDDC39');
+               }
+
+               if($j==10){
+               $p51 = $nacc1['total']+0;
+               $name= $nacc1['ins_nombre'];
+               $nombreps10=array('name' => $name, 'data' => array($p51), 'color' => '#8BC34A');
+               }
+               $j++;
+
+           }
           $this->Widget('ext.highcharts.HighchartsWidget', array(
               'options' => array(
                   'chart' => array(
@@ -353,26 +334,20 @@ $baseUrl = Yii::app()->theme->baseUrl;
                           'type'=>'column'
                         ),
 
-
-
-
                   'credits' => array('enabled' => false),
                   'title' => array('text' => ''),
                   'xAxis' => array(
                       'categories' => array('INSTITUCIONES')
                   ),
                   'yAxis' => array(
-                      'title' => array('text' => 'ACCIONES CORRECTIVAS')
+                      'title' => array('text' => '# PORPUESTAS SOLUCION')
                   ),
-
-
-                //'series'  = $accion;
 
                   'series' => array(
 
 
-                      $nombreac,$nombreac2,$nombreac3,$nombreac4,$nombreac5,
-                      $nombreac6,$nombreac7,$nombreac8,$nombreac9,$nombreac10
+                      $nombreps,$nombreps2,$nombreps3,$nombreps4,$nombreps5,
+                      $nombreps6,$nombreps7,$nombreps8,$nombreps9,$nombreps10
 
                       //array('name' => 'Renovacion Matricula Caducidad', 'data' => array(100)),
                       //array('name' => 'Renovacion cédula', 'data' => array(88)),
@@ -389,6 +364,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                       )
               )
           ));
+
 
 
           ?>
