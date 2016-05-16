@@ -146,10 +146,16 @@
 
 
 
-
 #nav-admin-home .menu-central:hover, #nav-admin-home .menu-central:active{
     color: cyan !important;
 }
+
+.otro{
+  color: #00BCD4 !important;
+}
+/*#nav-admin-home .otro:hover, #nav-admin-home .otro:active{
+    color: #B2EBF2 !important;
+}*/
 
 #fila-menu{
     height: 50px;
