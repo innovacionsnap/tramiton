@@ -71,9 +71,9 @@ $form = $this->beginWidget('CActiveForm', array(
   /*Para alinear verticalmente el panel del login ubicado en home*/
   .panel-login-home-body{
     position: relative;
-    height: 304px;
+    height: 442px;
     top: 50%;
-    margin-top: -157px;
+    margin-top: -200px;
   }
   .panel-login-home{
     position: relative;
