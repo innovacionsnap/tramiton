@@ -76,4 +76,7 @@ body{
     background: #0C8AC5;
     border-radius: 14px;
     margin-bottom: 10px;
+    max-width: 201px;
+    margin: auto;
+    margin-bottom: 10px;
 }
