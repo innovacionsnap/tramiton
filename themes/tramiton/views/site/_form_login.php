@@ -28,6 +28,7 @@ $form = $this->beginWidget('CActiveForm', array(
 ?>
 <div class="panel panel-default panel-login-home">
   <div class="panel-body panel-login-home-body">
+    <h2 class="text-center azul" >Inicia sesión</h2>
     <div class="form-group m-b-15">
       <div class="form-group has-feedback">
         <?php echo $form->labelEx($model_login, 'username', array('class' => 'control-label')); ?>
