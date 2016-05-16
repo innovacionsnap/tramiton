@@ -36,10 +36,11 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 <div id="home" class="container-fluid p-t-10 p-l-15 p-r-15 p-b-30">
     <div class="row">
-        <h4 class="text-left p-l-15" style="font-weight: bold;"> </h4>
         <?php if($loginActive){
+          echo '<h4 class="text-left p-l-15" style="font-weight: bold;">Registra tu caso</h4>';
           echo '<div id="col-formulario" class="col-sm-7">';
         }else {
+          echo '<h4 class="text-left p-l-15" style="font-weight: bold;"></h4>';
           echo '<div id="col-formulario" class="col-sm-5">';
         }
         ?>
