@@ -37,7 +37,12 @@ $baseUrl = Yii::app()->theme->baseUrl;
 <div id="home" class="container-fluid p-t-10 p-l-15 p-r-15 p-b-30">
     <div class="row">
         <h4 class="text-left p-l-15" style="font-weight: bold;"> </h4>
-        <div id="col-formulario" class="col-sm-5">
+        <?php if($loginActive){
+          echo '<div id="col-formulario" class="col-sm-7">';
+        }else {
+          echo '<div id="col-formulario" class="col-sm-5">';
+        }
+        ?>
           <?php
             if($loginActive){
                 $this->renderPartial('form_caso', true, false);
@@ -49,7 +54,13 @@ $baseUrl = Yii::app()->theme->baseUrl;
           ?>
         </div>
 
-        <div id="noticias-2" class="col-sm-7 text-center">
+        <?php
+        if($loginActive){
+          echo '<div id="noticias-2" class="col-sm-5 text-center">';
+        }else{
+          echo '<div id="noticias-2" class="col-sm-7 text-center">';
+        }
+         ?>
           <a class="twitter-timeline" href="https://twitter.com/TramitonEC" data-widget-id="705865349623881729">Tweets por el @TramitonEC.</a>
           <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         </div>
