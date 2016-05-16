@@ -9,9 +9,9 @@
             foreach ($noticias as $noticia):
                 ?>
                 <div class="modulo-slider">
-                    <?php echo $noticia['logs_usu_usuario'] . " "; 
+                    <?php echo $noticia['logs_usu_usuario'] . " ";
                         $id=Empresa::model()->codificaGet('sol='.$noticia['logs_id_tabla_destino']);
-                    ?> 
+                    ?>
                     <a href="../solucion/index?<?php echo $id; ?>" class="noticia-new" target="_blank"><?php echo substr($noticia['logs_accion'], 0, 80); ?></a>
                 </div>
             <?php endforeach; ?>
@@ -28,15 +28,15 @@
     <div class="row">
         <!-- begin col-8 -->
         <?php
-        
+
         /*if($verificaTmp['existe'] == TRUE){
             echo "<strong>usted tiene registrados " . $verificaTmp['nroTmp'] . " casos temporales</strong>";
             echo CHtml::link('Ver casos temporales',array('ciudadano/casosTemporales'));
         }
         */
-        
+
         ?>
-        
+
         <div class="col-md-10">
             <!-- inicio mensajes -->
 
@@ -47,10 +47,10 @@
         <div class="col-md-2 banner-lateral">
             <div class="row">
                 <div class="dashboard-admin-banner col-xs-6 col-md-12">
-                    <div class="banner-1 center-block" style="    background-repeat: no-repeat;background-image:url('<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/estadisticas.png')">
-                        <img class="center-block img-responsive" src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/flecha-arriba.png'); ?>">
-                        <h2 class="center-block">1999</h2>
-                        <p>Casos por día</p>
+                    <div class="banner-3 productivo">
+                      <a target="_blank" href="http://productivo.tramiton.to">
+                        <img class="center-block img-responsive" src="<?php echo (Yii::app()->theme->baseUrl . '/images/logo-tramiton-productivo.png'); ?>">
+                      </a>
                     </div>
                 </div>
                 <div class="dashboard-admin-banner col-xs-6 col-md-12">
@@ -58,7 +58,7 @@
                     <div class="banner-3"><a target="_blank" href="http://www.sri.gob.ec/web/guest/calculadora-plusvalia"><img class="center-block img-responsive" src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/plusvalia.png'); ?>"></a></div>
                 </div>
             </div> <!-- end row -->
-            
+
             <div class="row">
                 <div class="dashboard-admin-banner col-xs-6 col-md-12">
                     <div class="banner-4"><a target="_blank" href="http://www.sri.gob.ec/web/guest/calculadora-herencias"><img class="center-block img-responsive" src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/herencias.png'); ?>"></a></div>
@@ -125,7 +125,7 @@
     $banderaNotificacion = $verificaTmp['existe'];
     $textoNotificacion = "Usted tiene (".$nroCasosTmp.") caso(s) temporales registrados";
     $nombreUser = $modelUser->usu_nombreusuario;
- ?> 
+ ?>
 
  <script type="text/javascript">
     var banderaNotificacion = <?php echo json_encode($banderaNotificacion); ?>;
