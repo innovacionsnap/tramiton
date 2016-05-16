@@ -581,10 +581,6 @@ $baseUrl = Yii::app()->theme->baseUrl;
 <div class = "modal fade" id = "login-modal">
     <div class = "modal-dialog snap_modal_contenedor">
         <div class = "modal-content">
-            <div class = "modal-header">
-                <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true">×</button>
-                <h4 class = "modal-title">Ingrese al sistema</h4>
-            </div>
             <div class = "modal-body">
                 <?php $this->renderPartial('_form_login', array('model_login' => $model_login))
                 ?>
