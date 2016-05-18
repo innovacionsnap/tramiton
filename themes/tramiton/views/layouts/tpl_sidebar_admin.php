@@ -17,7 +17,6 @@
         <!-- begin sidebar nav -->
 
         <?php
-        echo "url: " . Yii::app()->baseUrl;
         $this->widget('zii.widgets.CMenu', array(
             'htmlOptions' => array('class' => 'nav'),
             'submenuHtmlOptions' => array('class' => 'sub-menu'),
