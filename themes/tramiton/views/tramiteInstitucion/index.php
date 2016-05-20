@@ -43,7 +43,7 @@ $usu_id = $this->_datosUser->usu_id;
                                 <tr>
                                     <th>Institución</th>
                                     <th>Trámite</th>
-                                    <th>N° de casos<br>(<?php echo $totalCasos; ?>)</th>
+                                    <th>N° de casos<br><?php //echo "(" . $totalCasos . ")"?></th>
                                     <th>Acciones</th>
 
                                 </tr>

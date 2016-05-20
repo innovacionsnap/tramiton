@@ -121,11 +121,11 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Nombre</label>
-                                                        <input type="text" id = "nombre_accc" onkeyup = "Validate(this)" name="nombre_accc" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-1" required />
+                                                        <input type="text" id = "nombre_accc" onkeyup = "Validate(this)" name="nombre_accc" data-parsley-range="[20,100]" placeholder="Escribir aqui" class="form-control" data-parsley-group="wizard-step-1" required />
                                                     </div>
                                                     <div class="form-group ">
                                                         <label>Descripcion</label>
-                                                        <textarea class="form-control" id="descripcion_accc" onkeyup = "Validate(this)" name="descripcion_accc" rows="4" data-parsley-range="[20,200]" placeholder="Escribir aqui" data-parsley-group="wizard-step-1" required></textarea>
+                                                        <textarea class="form-control" id="descripcion_accc" onkeyup = "Validate(this)" name="descripcion_accc" rows="4" data-parsley-range="[50,500]" placeholder="Escribir aqui" data-parsley-group="wizard-step-1" required></textarea>
                                                                     
                                                     </div>  
                                                   
