@@ -10,7 +10,7 @@ class TramiteInstitucion extends CActiveRecord {
 
     public function __construct() {
         //Yii::app()->db->connectionString
-        // 
+        //
         $this->connection = new CDbConnection(Yii::app()->db->connectionString, Yii::app()->db->username, Yii::app()->db->password);
         $this->connection->active = TRUE;
     }
@@ -24,7 +24,7 @@ class TramiteInstitucion extends CActiveRecord {
         //$id_usuario = $modelUser['usu_id'];
         $usu_id = $modelUser->usu_id;
         //$usu_id = $this->_datosUser->usu_id;
-        $sql = "select tra.tra_id, ins.ins_nombre,tra.tra_nombre, count(tra.tra_id) as total, datt.trai_id 
+        $sql = "select tra.tra_id, ins.ins_nombre,tra.tra_nombre, count(tra.tra_id) as total, datt.trai_id
 from datos_tramite datt, tramite_institucion trai, tramite tra, institucion ins, institucion_usuario insu
 where trai.trai_id = datt.trai_id
 and insu.ins_id = ins.ins_id
@@ -34,6 +34,28 @@ and insu.usu_id ='$usu_id'
 group by tra.tra_id,ins.ins_nombre, datt.trai_id
 order by ins_nombre asc";
 //echo $sql;
+        //$dataReader = $this->connection->createCommand($sql)->query();
+        // recibe los datos
+        $rows = $this->connection->createCommand($sql)->query();
+        return $rows;
+    }
+
+    public function getInstitucionAccionCorrectiva() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //$id_usuario = $modelUser['usu_id'];
+        $usu_id = $modelUser->usu_id;
+        //$usu_id = $this->_datosUser->usu_id;
+        $sql = 'select ti.trai_id, tra.tra_id, ins.ins_nombre, tra.tra_nombre,
+        acc.accc_nombre, acc.accc_fechaingreso, acc.accc_descripcion
+        FROM institucion ins, tramite tra, tramite_institucion ti, acciones_correctivas as acc
+        WHERE acc.trai_id = ti.trai_id
+        AND ti.tra_id = tra.tra_id
+        AND ti.ins_id = ins.ins_id
+        AND ins.ins_funcion_ejecutiva = 1
+        ';
+
+        // echo $sql; Yii::app()->end();
+
         //$dataReader = $this->connection->createCommand($sql)->query();
         // recibe los datos
         $rows = $this->connection->createCommand($sql)->query();

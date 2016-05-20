@@ -30,30 +30,31 @@
             'items' => array(
                 array('label' => '<i class="fa fa-home"></i>Inicio', 'url' => array('./'), 'linkOptions' => array(),),
                 array('label' => '<i class="fa fa-desktop"></i>Escritorio', 'url' => array('dashboard/index'), 'linkOptions' => array(),),
-                
-                array('label' => '<i class="fa fa-archive"></i>Trámites<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('ciudadano', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'), 
+
+                array('label' => '<i class="fa fa-archive"></i>Trámites<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('ciudadano', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
                     'items' => array(
                         array('label' => 'Registro', 'url' => array('ciudadano/index')),
                         array('label' => 'Seguimiento', 'url' => array('ciudadano/usuario_tramites')),
                         //array('label' => 'Mis comentarios', 'url' => array('')),
                     )),
-                array('label' => '<i class="fa fa-institution alias"></i>Instituciones<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('institucion', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'), 
+                array('label' => '<i class="fa fa-institution alias"></i>Instituciones<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('institucion', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
                     'items' => array(
                         array('label' => 'Mi Institución', 'url' => array('tramiteInstitucion/index')),
+                        array('label' => 'Instituciones con acciones correctivas', 'url' => array('tramiteInstitucion/institucionesAC')),
                         //array('label' => 'Acciones Correctivas', 'url' => array('')),
                         //array('label' => 'Seguimiento de Trámites', 'url' => array('')),
                         //array('label' => 'Servicios', 'url' => array('')),
                         //array('label' => 'Usuarios', 'url' => array('')),
                     )),
                 /*
-                array('label' => '<i class="fa fa-cubes"></i>Procesos<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('super_admin', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'), 
+                array('label' => '<i class="fa fa-cubes"></i>Procesos<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('super_admin', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
                     'items' => array(
                         array('label' => 'Aprobar Tranferencias', 'url' => array('')),
                         array('label' => 'Aprobar Acciones Correctivas', 'url' => array('')),
                         array('label' => 'Seguimiento', 'url' => array('')),
                     )),
                 */
-                 array('label' => '<i class="fa fa-crosshairs"></i>Seguimiento<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('bitacora', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'), 
+                 array('label' => '<i class="fa fa-crosshairs"></i>Seguimiento<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('bitacora', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
                     'items' => array(
                         array('label' => 'Bitácora', 'url' => array('bitacora/index')),
                         array('label' => 'Bitácora Trámites', 'url' => array('bitacora/indexTramite')),
@@ -68,7 +69,7 @@
                         array('label' => 'Asignación de Roles', 'url' => array('admin/rolesUsuarios')),
                         //array('label' => 'Configuraciones', 'url' => array('')),
                     )),
-                
+
                 array('label' => '<i class="fa fa-sign-out"></i>Salir (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest, 'linkOptions' => array("data-description" => "member area")),
             ),
         ));
@@ -82,7 +83,7 @@
 
                     <i class="fa fa-home"></i>
                     <span>Inicio</span>
-                </a>    
+                </a>
             </li>
             <li class="has-sub active">
                 <a href="javascript:;">
@@ -99,7 +100,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <span class="badge pull-right"></span>
-                    <i class="fa fa-user"></i> 
+                    <i class="fa fa-user"></i>
                     <span>Usuario-2</span>
                 </a>
                 <ul class="sub-menu">
@@ -111,7 +112,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <span class="badge pull-right"></span>
-                    <i class="fa fa-user"></i> 
+                    <i class="fa fa-user"></i>
                     <span>Usuario-3</span>
                 </a>
                 <ul class="sub-menu">
@@ -124,7 +125,7 @@
                 <li class="has-sub <?php //echo $this->_menuActive == 1 ? 'active' : ''; ?>">
                     <a href="javascript:;">
                         <span class="badge pull-right"></span>
-                        <i class="fa fa-cogs"></i> 
+                        <i class="fa fa-cogs"></i>
                         <span>Administración</span>
                     </a>
                     <ul class="sub-menu">
@@ -144,4 +145,3 @@
     <!-- end sidebar scrollbar -->
 </div>
 <div class="sidebar-bg"></div>
-
