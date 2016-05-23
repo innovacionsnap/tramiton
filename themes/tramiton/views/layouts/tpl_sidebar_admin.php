@@ -17,6 +17,11 @@
         <!-- begin sidebar nav -->
 
         <?php
+        
+        $sw = FALSE;
+        if($this->_datosUser->rol_id == 2){
+            $sw = TRUE;
+        }
         $this->widget('zii.widgets.CMenu', array(
             'htmlOptions' => array('class' => 'nav'),
             'submenuHtmlOptions' => array('class' => 'sub-menu'),
@@ -39,7 +44,7 @@
                 array('label' => '<i class="fa fa-institution alias"></i>Instituciones<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('institucion', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
                     'items' => array(
                         array('label' => 'Mi Institución', 'url' => array('tramiteInstitucion/index')),
-                        array('label' => 'Instituciones con acciones correctivas', 'url' => array('tramiteInstitucion/institucionesAC')),
+                        array('label' => 'Instituciones con acciones correctivas', 'url' => array('tramiteInstitucion/institucionesAC'), 'visible' => $sw),
                         //array('label' => 'Acciones Correctivas', 'url' => array('')),
                         //array('label' => 'Seguimiento de Trámites', 'url' => array('')),
                         //array('label' => 'Servicios', 'url' => array('')),
