@@ -28,6 +28,7 @@ $form = $this->beginWidget('CActiveForm', array(
 ?>
 <div class="panel panel-default panel-login-home">
   <div class="panel-body panel-login-home-body">
+    <h2 class="text-center azul" >Inicia sesión</h2>
     <div class="form-group m-b-15">
       <div class="form-group has-feedback">
         <?php echo $form->labelEx($model_login, 'username', array('class' => 'control-label')); ?>
@@ -70,9 +71,9 @@ $form = $this->beginWidget('CActiveForm', array(
   /*Para alinear verticalmente el panel del login ubicado en home*/
   .panel-login-home-body{
     position: relative;
-    height: 304px;
+    height: 442px;
     top: 50%;
-    margin-top: -157px;
+    margin-top: -200px;
   }
   .panel-login-home{
     position: relative;

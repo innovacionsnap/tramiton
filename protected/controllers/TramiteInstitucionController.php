@@ -24,7 +24,7 @@ class TramiteInstitucionController extends Controller {
               'users' => array('@'),
               ), */
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('index', 'viewTramite_Institucion','viewTramite_Accion_Correctiva','accion_correctiva'),
+                'actions' => array('index', 'institucionesAC','viewTramite_Institucion','viewTramite_Accion_Correctiva', 'viewTramite_Accion_Correctiva_2','accion_correctiva'),
                 //'users' => array('admin', 'oacero'),
                 'roles' => array('super_admin', 'ciudadano', 'institucion', 'bitacora'),
             ),
@@ -42,27 +42,46 @@ class TramiteInstitucionController extends Controller {
         //creo una instancia del modelo Dashboard
         $model = new TramiteInstitucion();
         $datosgetTramiteInstitucion = $model->getTramiteInstitucion();
+        $sumaCasosTotal = $model->getTramiteInstitucion();;
         //$datosRankingTramites = $model->getRankingTramite();
         //$datosPublicacionesTramites = $model->getPublicacionesTramites();
         //$datosTarea = $model->getTarea();
         $this->layout = 'main-admin-asc';
         $this->_datosUser = $modelUser;
         $this->_casosTmp = $this->getDatosTemporal();
-        $this->render('index',compact('datosgetTramiteInstitucion'));
+        $this->render('index',compact('datosgetTramiteInstitucion', 'sumaCasosTotal'));
         //$this->render('formulario');
     }
-    
+
+    public function actionInstitucionesAC(){
+      $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+      //creo una instancia del modelo Dashboard
+      $model = new TramiteInstitucion();
+      $datosGetInstitucionAccionCorrectiva = $model->getInstitucionAccionCorrectiva();
+
+      // $sumaCasosTotal = $model->getTramiteInstitucion();;
+
+      //$datosRankingTramites = $model->getRankingTramite();
+      //$datosPublicacionesTramites = $model->getPublicacionesTramites();
+      //$datosTarea = $model->getTarea();
+      $this->layout = 'main-admin-asc';
+      $this->_datosUser = $modelUser;
+      // $this->_casosTmp = $this->getDatosTemporal();
+      $this->render('institucionesAC',compact('datosGetInstitucionAccionCorrectiva'));
+      //$this->render('formulario');
+    }
+
     public function actionviewTramite_Institucion($traiId) {
-        
+
         $traiId = Yii::app()->encriptaParam->decodificaParamGet($traiId);
-        
+
         //echo "tramite institucion: " . $traiId; Yii::app()->end();
-        
+
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //creo una instancia del modelo Dashboard
         $model = new TramiteInstitucion();
         $datosgetTramiteInstitucionDetalle = $model->getTramiteInstitucionDetalle($traiId, $modelUser->usu_id);
-       
+
         $this->layout = 'main-admin_form_caso';
         $this->_datosUser = $modelUser;
         $this->_casosTmp = $this->getDatosTemporal();
@@ -71,10 +90,10 @@ class TramiteInstitucionController extends Controller {
     }
 
     public function actionviewTramite_Accion_Correctiva($traiId, $traId) {
-        
+
         $traiId = Yii::app()->encriptaParam->decodificaParamGet($traiId);
         $traId = Yii::app()->encriptaParam->decodificaParamGet($traId);
-        
+
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //creo una instancia del modelo Dashboard
         $model = new TramiteInstitucion();
@@ -87,19 +106,36 @@ class TramiteInstitucionController extends Controller {
         //$this->render('formulario');
     }
 
+    public function actionviewTramite_Accion_Correctiva_2($traiId, $traId) {
+
+        $traiId = Yii::app()->encriptaParam->decodificaParamGet($traiId);
+        $traId = Yii::app()->encriptaParam->decodificaParamGet($traId);
+
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //creo una instancia del modelo Dashboard
+        $model = new TramiteInstitucion();
+        $datoAccioneCorrectiva = $model->getAccioneCorrectiva($traiId);
+        $rol=$modelUser['rol_id'];
+        $this->layout = 'main-admin_form_caso';
+        $this->_datosUser = $modelUser;
+        $this->_casosTmp = $this->getDatosTemporal();
+        $this->render('viewTramite_Accion_Correctiva_2', compact('datoAccioneCorrectiva','rol'));
+        //$this->render('formulario');
+    }
+
       public function actionaccion_correctiva() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //creo una instancia del modelo Bitacora
         $model = new Bitacora();
         $dos = 0;
-              
+
         $this->layout = 'main-admin_form';
         $this->_datosUser = $modelUser;
         $this->_casosTmp = $this->getDatosTemporal();
         $this->renderPartial('accion_correctiva',compact('model'),false,true);
         //$this->render('formulario');
     }
-    
+
     public function getDatosTemporal() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $modelVerificaTmp = new consultasBaseDatos;

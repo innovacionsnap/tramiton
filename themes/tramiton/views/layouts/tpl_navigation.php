@@ -51,14 +51,14 @@
             <!-- <li><a class="menu-central " href="#noticias-2" data-click="scroll-to-target">Noticias</a></li> -->
             <li><a class="menu-central " href="#preguntas" data-click="scroll-to-target">Preguntas frecuentes</a></li>
             <?php if(Yii::app()->user->isGuest): ?>
-            <li><a class="menu-central " href="<?php echo Yii::app()->baseUrl; ?>/site/registro">Regístrate</a></li>
+            <li><a class="menu-central otro" href="<?php echo Yii::app()->baseUrl; ?>/site/registro">Regístrate</a></li>
             <?php else: ?>
-            <li><a class="menu-central " href="<?php echo Yii::app()->baseUrl; ?>/dashboard/index">Escritorio</a></li>
+            <li><a class="menu-central otro" href="<?php echo Yii::app()->baseUrl; ?>/dashboard/index">Escritorio</a></li>
             <?php endif; ?>
             <?php if(Yii::app()->user->isGuest): ?>
-            <li><a class="menu-central p-b-10" href="/tramiton/./#login-modal" data-toggle="modal" data-description="member area">Ingresa</a></li>
+            <li><a class="menu-central otro p-b-10" href="/tramiton/./#login-modal" data-toggle="modal" data-description="member area">Ingresa</a></li>
             <?php else: ?>
-            <li><a class="menu-central " href="<?php echo Yii::app()->baseUrl; ?>/site/logout">Cerrar Sesión (<?php echo Yii::app()->user->name ?>)</a></li>
+            <li><a class="menu-central otro" href="<?php echo Yii::app()->baseUrl; ?>/site/logout">Cerrar Sesión (<?php echo Yii::app()->user->name ?>)</a></li>
             <?php endif; ?>
           </ul>
         </div>
