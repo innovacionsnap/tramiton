@@ -1,6 +1,6 @@
 <?php
 /**
- * el comentario del dashboard
+ * el comentario del dashboard 2
  */
 
 class Dashboard extends CActiveRecord {
