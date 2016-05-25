@@ -31,6 +31,12 @@ class consultasBaseDatos {
     /**
      * función para verificar que un role no este asignado a un usuario
      */
+
+    /**
+     * Verifica que un role no esté asignado a un usuario
+     * @param  [type] $role [description]
+     * @return [type]       [description]
+     */
     public function verificaRoleUser($role) {
         $conexion = Yii::app()->db;
 
@@ -49,7 +55,7 @@ class consultasBaseDatos {
 
     /**
      * Función que permite insertar un nuevo registro en la tabla de usuarios
-     * 
+     *
      * @return true Verdadero si se inserta el nuevo registro correctamente
      * @param string $cedula Cedula de identidad del nuevo usuario
      * @param string $mail Correo electrónico del nuevo usuario
@@ -113,7 +119,7 @@ class consultasBaseDatos {
 
     /**
      * función para activar cuenta de usuario
-     * 
+     *
      * @return string $mensaje Contiene si fue posible o no activar la cuenta
      * @param string $email Correo electrónico del usuario a activar la cuenta
      * @param string $codigoVerificacion Código enviado por email para activación de cuenta
@@ -123,7 +129,7 @@ class consultasBaseDatos {
         //instancia a base de datos
         $conexion = Yii::app()->db;
 
-        //variables locales 
+        //variables locales
         $mensaje = "";
         $codUsuario = -1;
         $existe = FALSE;
@@ -222,7 +228,7 @@ class consultasBaseDatos {
              * despues de validar que existe el usuario actualiza el codigo de verificació por uno nuevo
              * ese codigo se envía al usuario para continuar el proceso y se actualiza el estado
              * codigo 11 => solicitó cambio de contraseña
-             * codigo 12 => se realizó el cambio de contraseña  
+             * codigo 12 => se realizó el cambio de contraseña
              */
             $sqlUpdateUser = "UPDATE usuario SET "
                     . "usu_codigo_confirmacion = '$this->codigoVerificacion',"
@@ -250,7 +256,7 @@ class consultasBaseDatos {
     /**
      * Realiza la acción de reestablecer la contraseña por una nueva ingresada por el usuario
      * debido a que está encriptada el usuario debe ingresar una nueva.
-     * 
+     *
      * @return true si se realiza la actualización correctamente
      * @param string $email Correo electrónico del usuario para verificar
      * @param string $codigoVerificacion Código de verificación enviado al correo al momento de solicitar restauración de clave
@@ -318,7 +324,7 @@ class consultasBaseDatos {
     }
 
     public function obtieneUsuario($idUsr) {
-        
+
     }
 
     public function actualizaEstadoAprobado($idUsr) {
@@ -480,10 +486,10 @@ class consultasBaseDatos {
         return $totalAccionesnom;
         //return $totalAccionesnum;
     }
-    
+
     public function getPropuestasSolución10() {
         $conexion = Yii::app()->db;
-        
+
         $sqlPropuestasSolucion = "select count(trai.ins_id) as total, ins.ins_nombre "
                 . "from datos_tramite dt, tramite_institucion trai, institucion ins "
                 . "where datt_productivo is null and "
@@ -604,13 +610,13 @@ class consultasBaseDatos {
                 'fechaRegistro' => $casoTmp['fecha_registro'],
             );
         }
-        
+
         //obtengo los problemas seleccionados en el caso temporal
         $idCasoTmp = $casoTemp['idRegistroCaso'];
         $sqlProblemaTmp = "select * from tmp_problema_registro_caso where id_registro_caso = $idCasoTmp";
-        
+
         echo "problems: " .$sqlProblemaTmp; Yii::app()->end();
-        
+
 
         return $casoTemp;
     }
