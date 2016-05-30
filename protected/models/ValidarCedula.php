@@ -53,7 +53,10 @@ class ValidarCedula extends CFormModel {
             'cedula_participacion' => 'Cédula de identidad',
         );
     }
-
+/**
+ * Obtiene el token para poder realizar la consulta de ciudadano por cédula
+ * @return int
+ */
     public function obtieneToken() {
         //arreglo con credenciales para obtener el token de utilizacion del ws
         $argumento = array(
@@ -70,7 +73,12 @@ class ValidarCedula extends CFormModel {
             return $token;
         }
     }
-
+/**
+ * Consulta los datos del ciudadano mediante su número de cédula
+ * @param string $cedula número de cédula a consultar
+ * @param string $token1 token 
+ * @return int|string
+ */
     public function consultaCedulaRegistroCivil($cedula, $token1) {
         $cedula = $cedula;
         $autorizaWs = $token1;

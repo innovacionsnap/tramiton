@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "empresa".
+ * Clase modelo para la tabla "empresa".
  *
- * The followings are the available columns in table 'empresa':
+ * Columnas disponibles de la tabla 'empresa':
  * @property integer $emp_id
  * @property integer $usu_id
  * @property string $emp_ruc
@@ -15,7 +15,7 @@
  * @property string $emp_web
  * @property string $emp_email
  *
- * The followings are the available model relations:
+ * Los siguientes son las relaciones de la tabla:
  * @property Usuario $usu
  */
 class Empresa extends CActiveRecord {
@@ -23,14 +23,14 @@ class Empresa extends CActiveRecord {
     public $captcha;
 
     /**
-     * @return string the associated database table name
+     * @return string El nombre asociado a la tabla de la base de datos
      */
     public function tableName() {
         return 'empresa';
     }
 
     /**
-     * @return array validation rules for model attributes.
+     * @return array Reglas de validación de atributos del modelo.
      */
     public function rules() {
         // NOTE: you should only define rules for those attributes that
@@ -50,7 +50,7 @@ class Empresa extends CActiveRecord {
     }
 
     /**
-     * @return array relational rules.
+     * @return array Reglas de relaciones.
      */
     public function relations() {
         // NOTE: you may need to adjust the relation name and the related
@@ -61,7 +61,7 @@ class Empresa extends CActiveRecord {
     }
 
     /**
-     * @return array customized attribute labels (name=>label)
+     * @return array Etiquetas de atributos personalizadas (name=>label)
      */
     public function attributeLabels() {
         return array(
@@ -79,16 +79,16 @@ class Empresa extends CActiveRecord {
     }
 
     /**
-     * Retrieves a list of models based on the current search/filter conditions.
+     * Recupera una lista de modelos basados en las condiciones de búsqueda / filtro actuales.
+            *
+            * Caso de uso típico:
+            * - Inicializar los campos del modelo con los valores de los filtros del formulario.
+            * - Ejecutar este método para obtener ejemplo CActiveDataProvider que filtrará
+            * Los modelos de acuerdo a los datos en los campos del modelo.
+            * - Proveedor de datos Pass para CGridView, CListView o cualquier tipo de artilugio similar.
      *
-     * Typical usecase:
-     * - Initialize the model fields with values from filter form.
-     * - Execute this method to get CActiveDataProvider instance which will filter
-     * models according to data in model fields.
-     * - Pass data provider to CGridView, CListView or any similar widget.
-     *
-     * @return CActiveDataProvider the data provider that can return the models
-     * based on the search/filter conditions.
+     * @return CActiveDataProvider el proveedor de datos que puede devolver los modelos
+      * Basado en las condiciones de búsqueda / filtro.
      */
     public function search() {
         // @todo Please modify the following code to remove attributes that should not be searched.
@@ -112,15 +112,18 @@ class Empresa extends CActiveRecord {
     }
 
     /**
-     * Returns the static model of the specified AR class.
-     * Please note that you should have this exact method in all your CActiveRecord descendants!
-     * @param string $className active record class name.
-     * @return Empresa the static model class
+     * Devuelve el modelo estático de la clase AR especificado.
+      * Tenga en cuenta que usted debe tener este método exacto en todos sus descendientes CActiveRecord!
+      * @param String $ className nombre de la clase registro activo.
+      * @return Empresa la clase modelo estático
      */
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
-
+/**
+ * Función que permite obtener el token para la consulta de ruc
+ * @return int
+ */
     public function obtieneToken() {
         //arreglo con credenciales para obtener el token de utilizacion del ws
         $argumento = array(
@@ -137,7 +140,12 @@ class Empresa extends CActiveRecord {
             return $token;
         }
     }
-
+/**
+ * Función que permite consultar la información tributaria de la empresa
+ * @param string $ruc
+ * @param string $token1
+ * @return \Empresa|int
+ */
     public function consultaRucSri($ruc, $token1) {
         $autorizaWs = $token1;
         $respuesta = "";
@@ -195,7 +203,11 @@ class Empresa extends CActiveRecord {
             return $respuesta = 2;
         }
     }
-
+/**
+ * Función que permite encriptar una url
+ * @param string $url
+ * @return string
+ */
     public function codificaGet($url) {
         $url = utf8_encode($url);
         $control = "qwerty"; //defino la llave para encriptar la cadena, cambiarla por la que deseamos usar
@@ -203,28 +215,29 @@ class Empresa extends CActiveRecord {
         $url = base64_encode($url); //codifico la cadena
         return($url);
     }
-
+/**
+ * Función que permite desencriptar una url
+ * @param string $url
+ */
     public function decodificaGet($url) {
         $cad = explode("?", $url); //separo la url desde el ?
         $url = $cad[1]; //capturo la url desde el separador ? en adelante
-        
+
         $cad_get = explode("and", $url);
-        if (count($cad_get)==1){
+        if (count($cad_get) == 1) {
             $url = base64_decode($cad_get[0]); //decodifico la cadena
-        }else{
-            $url = base64_decode($cad_get[0]).'&'.base64_decode($cad_get[1]); //decodifico la cadena
+        } else {
+            $url = base64_decode($cad_get[0]) . '&' . base64_decode($cad_get[1]); //decodifico la cadena
         }
         $control = "qwerty"; //defino la llave con la que fue encriptada la cadena,, cambiarla por la que deseamos usar
-        $url = str_replace($control,"","$url"); //quito la llave de la cadena
-        
+        $url = str_replace($control, "", "$url"); //quito la llave de la cadena
         //procedo a dejar cada variable en el $_GET
-         //separo la url por &
-        $cad_get=  explode("&", $url);
+        //separo la url por &
+        $cad_get = explode("&", $url);
         foreach ($cad_get as $value) {
             $val_get = explode("=", $value); //asigno los valosres al GET
             $_GET[$val_get[0]] = utf8_decode($val_get[1]);
         }
-        
     }
 
 }

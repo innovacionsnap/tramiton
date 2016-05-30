@@ -18,7 +18,11 @@ class DashboardController extends Controller {
         );
     }
 
-    //Reglas para accesos a las acciones de cotrolador de acuerdo a Roles
+    
+    /**
+     * Reglas para accesos a las acciones de cotrolador de acuerdo a Roles
+     * @return array
+     */
     public function accessRules() {
         return array(
             /* array('allow', // allow all users to perform 'index' and 'view' actions
@@ -42,12 +46,12 @@ class DashboardController extends Controller {
         );
     }
 
+        
     /**
-     * Declares class-based actions.
+     * Acción que permite renderizar la vista index
      */
-    //public function actionIndex($param = false) {
     public function actionIndex() {
-        //echo "index dashboard";
+        
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $modelVerificaTmp = new consultasBaseDatos;
         $verificaTmp = $modelVerificaTmp->verificaCasosTmp($modelUser->usu_cedula);
@@ -62,7 +66,9 @@ class DashboardController extends Controller {
         $this->_casosTmp = $verificaTmp;
         $this->render('dashboard_admin', array('verificaTmp' => $verificaTmp, 'modelUser' => $modelUser));
     }
-
+/**
+ * Acción que permite renderizar en el dashboard el timeline de casos registrados
+ */
     public function actionTimeline() {
         //$modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $limite = 0;
@@ -73,7 +79,9 @@ class DashboardController extends Controller {
         $this->renderPartial('timeline', compact('datosSolucion', 'total'), false, true);
         //$this->renderPartial('prueba', compact('datosSolucion','total'),false,true);
     }
-
+/**
+ * Acción que permite cargar dinámicamente el timeline de casos registrados
+ */
     public function actionCargaTimeline() {
         if (isset($_GET['lim'])) {
             $limite = $_GET['lim'];
@@ -127,7 +135,9 @@ class DashboardController extends Controller {
         $html.='</div>';
         echo $html;
     }
-
+/**
+ * 
+ */
     public function actionValor() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         
@@ -140,43 +150,61 @@ class DashboardController extends Controller {
         //$this->_datosUser = $modelUser;
         //$this->render('ranking_tramites');
     }
-
+/**
+ * Acción que permite obtener el número total de casos registrados
+ */
     public function actionTotalTramite() {
         $model = new Dashboard();
         $datosTotalTramites = $model->getTotalTramite();
         echo $datosTotalTramites[0]['total_tramites'];
     }
-
+/**
+ * Acción que permite obtener el porcentaje de los 10 trámites más reportados 
+ */
     public function actionRankTramite() {
         $model = new Dashboard();
         $datosRankingTramites = $model->getRankingTramite();
         echo $datosRankingTramites[0]['ranking_tramites'] . ' %';
     }
-
+/**
+ * Acción que permite obtener el porcentaje de las 10 soluciones más vsitadas
+ */
     public function actionVisitaSolucion() {
         $model = new Dashboard();
         $datosRankingSolucion = $model->getRankingSolucion();
         echo($datosRankingSolucion[0]['visita_solucion'] . ' %');
     }
-
+/**
+ * Acción que permite obtener el porcentaje de soluciones con más likes
+ */
     public function actionVotosSolucion() {
         $model = new Dashboard();
         $datosRankingLikes = $model->getRankingLike();
         echo ($datosRankingLikes[0]['votos_solucion']);
     }
-
+/**
+ * Función que permite obtener el nombre de usuario a partir del id de usuario
+ * @param int $usu_id
+ * @return string
+ */
     public static function getUsuario($usu_id) {
         $usuario = Usuario::model()->findByPk($usu_id);
         $nombre_usuario = $usuario->usu_nombreusuario;
         return $nombre_usuario;
     }
-
+/**
+ * Función que permite obtener el nombre de la imagen de un usuario específico
+ * @param int $usu_id
+ * @return string
+ */
     public static function getImagen($usu_id) {
         $usuario = Usuario::model()->findByPk($usu_id);
         $usu_imagen = $usuario->usu_imagen;
         return $usu_imagen;
     }
-
+/**
+ * Acción que permite agregar comentarios a un a solución específica
+ */
     public function actionProcesaComentario() {
         $comentario = new Comentario();
         $comentario_enviado = $_POST['comentario_' . $_POST['contador']];
@@ -192,7 +220,10 @@ class DashboardController extends Controller {
             $this->getComentario($solucion);
         }
     }
-
+/**
+ * Función que permite obtener los comentarios de una solución dada
+ * @param int $solucion
+ */
     public static function getComentario($solucion) {
         $comentarios = Comentario::model()->findAll($condition = 'sol_id=' . $solucion);
         foreach ($comentarios as $dato):
@@ -201,13 +232,21 @@ class DashboardController extends Controller {
             echo $html;
         endforeach;
     }
-
+/**
+ * Función que permite obtener el número de comentarios de una solución dada
+ * @param int $solucion
+ * @return int
+ */
     public static function getNumComentarios($solucion) {
         $comentarios = Comentario::model()->findAll($condition = 'sol_id=' . $solucion);
         $num_comentarios = count($comentarios);
         return $num_comentarios;
     }
-
+/**
+ * Función que permite validar en qué estado se encuentra un like de una solución y un usuario específicos
+ * @param int $solucion
+ * @return boolean
+ */
     public static function validaLike($solucion) {
         $usuario = Yii::app()->user->id;
         $like = Megusta::model()->findAll('sol_id=' . $solucion . 'And usu_id=' . $usuario);
@@ -224,19 +263,28 @@ class DashboardController extends Controller {
             return true;
         }
     }
-
+/**
+ * Función que permite obtener el número de likes de una solución específica
+ * @param int $solucion
+ * @return int
+ */
     public static function getLike($solucion) {
         $like = Megusta::model()->findAll('sol_id=' . $solucion . 'And mgu_estado=\'1\'');
         $num_likes = count($like);
         return $num_likes;
     }
-
+/**
+ * Función que permite obtener el número total de soluciones activas
+ * @return int
+ */
     public static function getTotalSoluciones() {
         $solucion = Solucion::model()->findAll('sol_estado=1');
         $total_soluciones = count($solucion);
         return $total_soluciones;
     }
-
+/**
+ * Acción que permite registrar likes en una solución específica
+ */
     public function actionProcesaMegusta() {
         $solucion = $_GET['sol'];
         $usuario = Yii::app()->user->id;
@@ -265,12 +313,18 @@ class DashboardController extends Controller {
             }
         }
     }
-
+/**
+ * Función que permite obtener el número de vistas de una solución específca
+ * @param int $id
+ * @return int
+ */
     public static function getVista($id) {
         $sol = Solucion::model()->find('sol_id=' . $id);
         return $sol->sol_vistas;
     }
-
+/**
+ * Acción que permite registrar una vista para una solución específica
+ */
     public function actionprocesaVista() {
         $id = $_GET['sol'];
 
@@ -282,7 +336,10 @@ class DashboardController extends Controller {
             echo $vista;
         }
     }
-
+/**
+ * Función que permite obtener las noticias del dashboard
+ * @return array
+ */
     public static function getNoticias() {
         $noticias = LogSistema::model()->findAllByAttributes(array('logs_tipo_publicacion' => "p_usuario"), array('order' => 'logs_fechahora desc, logs_id desc', 'limit' => 10));
         return $noticias;

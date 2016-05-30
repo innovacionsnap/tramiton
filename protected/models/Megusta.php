@@ -106,7 +106,10 @@ class Megusta extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-        
+        /**
+         * Función que permite obtener los 10 trámites más votados
+         * @return type
+         */
         public function getVotosSolucion() {
         
        $sql = 'select tra_nombre, sol_descripcion, count(mgu_id) as likes

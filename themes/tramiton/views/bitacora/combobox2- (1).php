@@ -1,7 +1,10 @@
 <?php
 include '../../../../protected/extensions/validacion/config.inc.php';
 
-
+/**
+ * 
+ * @return string
+ */
 function dameURL(){
 $actual_link="http://".$_SERVER['HTTP_HOST'].":".$_SERVER['SERVER_PORT'].$_SERVER['PHP_SELF'];
 return $actual_link;

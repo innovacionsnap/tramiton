@@ -18,7 +18,10 @@ class TramiteInstitucion extends CActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
-
+/**
+ * Función que permite obtener los trámites por institución de un usuario específico
+ * @return array
+ */
     public function getTramiteInstitucion() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
@@ -39,7 +42,10 @@ order by ins_nombre asc";
         $rows = $this->connection->createCommand($sql)->query();
         return $rows;
     }
-
+/**
+ * Función que permite obtener las acciones correctivas de los trámites
+ * @return array
+ */
     public function getInstitucionAccionCorrectiva() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
@@ -61,7 +67,12 @@ order by ins_nombre asc";
         $rows = $this->connection->createCommand($sql)->query();
         return $rows;
     }
-
+/**
+ * Función que permite obtener la experiencia de un usuario con respecto a un trámite específico
+ * @param int $traiId
+ * @param int $usrId
+ * @return array
+ */
     public function getTramiteInstitucionDetalle($traiId, $usrId) {
 
         $sql = "select datt.datt_id,tra.tra_id, tra.tra_nombre, datt.datt_experiencia,usu.usu_nombreusuario,datt_fecharegistro "
@@ -79,7 +90,11 @@ order by ins_nombre asc";
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
-
+/**
+ * Función que permite obtener las acciones correctivas de un trámite específico
+ * @param int $traiId
+ * @return array
+ */
     public function getAccioneCorrectiva($traiId) {
         //$modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];

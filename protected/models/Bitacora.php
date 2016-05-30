@@ -1,21 +1,29 @@
 <?php
+
 class Bitacora extends CActiveRecord {
+
     private $connection;
     // datos formulario de tarea
     public $nombre_tarea;
     public $descripcion_tarea;
     public $meta_tarea;
+
     public function __construct() {
         //Yii::app()->db->connectionString
         // 
         $this->connection = new CDbConnection(Yii::app()->db->connectionString, Yii::app()->db->username, Yii::app()->db->password);
         $this->connection->active = TRUE;
     }
+
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
-    
-     public function getTarea() {
+
+    /**
+     * Función que permite obetener un listado de tareas de tipo 1
+     * @return array
+     */
+    public function getTarea() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
         //$usu_id = $this->_datosUser->usu_id;
@@ -27,7 +35,7 @@ class Bitacora extends CActiveRecord {
                 and cat.cat_id = tar.cat_id
                 and tar.tar_estado = 1
                 order by tar.tar_id desc";
-     //echo $sql;
+        //echo $sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         // recibe los datos
         $rows = $this->connection->createCommand($sql)->queryAll();
@@ -35,7 +43,10 @@ class Bitacora extends CActiveRecord {
     }
 
     // inicio tramites
-
+    /**
+     * Función que permite obetener un listado de tareas de tipo 2
+     * @return type
+     */
     public function getTareaTramite() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
@@ -46,26 +57,31 @@ class Bitacora extends CActiveRecord {
         where tar.ins_id = ins.ins_id and tar.tar_tipo = 2 
         and sec.sec_id = ins.sec_id
         and cat.cat_id = tar.cat_id and tar.tar_estado = 1 order by tar.tar_id desc";
-        
+
         //echo $sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         // recibe los datos
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
+
     // fin tramites
 
-
-    public function getColor($id_tarea){
-        $sql="select acc_estado, count(acc_estado) as contador from accion 
+    /**
+     * Función que permite obetener el color del estado de cada acción
+     * @param int $id_tarea
+     * @return string
+     */
+    public function getColor($id_tarea) {
+        $sql = "select acc_estado, count(acc_estado) as contador from accion 
 where tar_id = $id_tarea
 group by acc_estado;";
 
 //echo $sql;
- //$dataReader = $this->connection->createCommand($sql)->query();
+        //$dataReader = $this->connection->createCommand($sql)->query();
         // recibe los datos
         $command = Yii::app()->db->createCommand($sql);
-        $resultSet=$command->query();
+        $resultSet = $command->query();
 
         $colores = array();
         $verde = 0;
@@ -76,91 +92,90 @@ group by acc_estado;";
 
         foreach ($resultSet as $registro) {
 
-           if($registro['acc_estado'] == 1){
+            if ($registro['acc_estado'] == 1) {
                 //echo $registro['contador'];
                 $verde = $registro['contador'];
             }
-            if($registro['acc_estado'] == 2){
+            if ($registro['acc_estado'] == 2) {
                 //echo "amarillo".$registro['contador'];
                 $amarillo = $registro['contador'];
             }
-            if($registro['acc_estado'] == 3){
+            if ($registro['acc_estado'] == 3) {
                 //echo $registro['contador'];
                 $rojo = $registro['contador'];
             }
-      
         }
 
         $colores = array(
-                        'verde' => $verde,
-                        'amarillo' => $amarillo,
-                        'rojo' => $rojo
-                );
+            'verde' => $verde,
+            'amarillo' => $amarillo,
+            'rojo' => $rojo
+        );
 
         return $colores;
-
     }
 
-
-
-
-    public function getNumeroActiviades ($tar_id){
+    /**
+     * Función que permite obetener el porcentaje de acciones
+     * @param int $tar_id
+     */
+    public function getNumeroActiviades($tar_id) {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $id_usuario = $modelUser['usu_id'];
 
-       
 
-        $sql="select count(acc_id ) as acc_cuenta from accion 
+
+        $sql = "select count(acc_id ) as acc_cuenta from accion 
 where tar_id = '$tar_id' ";
 
         $command = Yii::app()->db->createCommand($sql);
-        $resultSet=$command->query();
+        $resultSet = $command->query();
 
         $NumeroActividad = array();
         $Nactividad = 0;
 
-         foreach ($resultSet as $registro) {
-            $numAcciones = $registro["acc_cuenta"]  ;      
+        foreach ($resultSet as $registro) {
+            $numAcciones = $registro["acc_cuenta"];
         }
 
 
-         // Suma de Acciones 
+        // Suma de Acciones 
 
 
-        $sql2="select sum(acc_nivel) as acc_suma from accion 
+        $sql2 = "select sum(acc_nivel) as acc_suma from accion 
 where tar_id = '$tar_id' ";
 
         $command = Yii::app()->db->createCommand($sql2);
-        $resultSet2=$command->query();
+        $resultSet2 = $command->query();
 
         $NumeroActividad = array();
         $Nactividad = 0;
 
-         foreach ($resultSet2 as $registrosuma) {
-            $cuentaAcciones = $registrosuma["acc_suma"]  ;      
+        foreach ($resultSet2 as $registrosuma) {
+            $cuentaAcciones = $registrosuma["acc_suma"];
         }
 
 
         //calculo %
 
-            $porcentaj100 = $numAcciones * 100;
-        if ($cuentaAcciones!=0){
-             echo $porcentaje_real = ($cuentaAcciones * 100)/$porcentaj100."%";
-
-        }else{
+        $porcentaj100 = $numAcciones * 100;
+        if ($cuentaAcciones != 0) {
+            echo $porcentaje_real = ($cuentaAcciones * 100) / $porcentaj100 . "%";
+        } else {
             echo "0%";
         }
-       
-
     }
 
-      
+    /**
+     * Función que permite obetener un listado de actividades por tarea
+     * @return array
+     */
     public function getTarea_Actividad() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $id_usuario = $modelUser['usu_id'];
         $tar_id_detalle = $_GET['tar_id'];
         //echo $tar_id_detalle;
-        
+
         $sql = "select tar.tar_id, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre, tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,
         tar.tar_fechafin, tar.tar_fecharegistro, tar_nivel, tar_estatus, sec.sec_nombre, tar.tar_estrategia, tar.tar_estandar,
         tar.tar_requisitos_ini,tar.tar_requisitos_fin, tar.tar_funcionarios_ini,tar.tar_funcionarios_fin,tar.tar_tiempo_ini, tar.tar_tiempo_fin, 
@@ -170,79 +185,96 @@ where tar.ins_id = ins.ins_id
 and cat.cat_id = tar.cat_id 
 and sec.sec_id = ins.sec_id
 and tar.tar_id = '$tar_id_detalle' and tar.tar_estado = 1 order by tar.tar_id desc";
-       //echo "<br>".$sql;
+        //echo "<br>".$sql;
         $dataReader = $this->connection->createCommand($sql)->query();
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
 
-    public function getrojo(){
+    /**
+     * Función que permite obtener el color rojo
+     */
+    public function getrojo() {
         echo "rojo";
     }
 
+    /**
+     * Función que permite obetener un listado de participantes por tarea
+     * @return array
+     */
     public function getTarea_Participantes() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
         $tar_id_detalle = $_GET['tar_id'];
-        
+
         $sql = "select usu.usu_nombre,taru.taru_id, taru.taru_creador from tarea_usuario taru, tarea tar, usuario usu
                 where tar.tar_id = taru.tar_id 
                 and usu.usu_id = taru.usu_id
                 and tar.tar_id = '$tar_id_detalle'";
-                //echo "<br>Participantes:".$sql;
-                $dataReader = $this->connection->createCommand($sql)->query();
-                $rows = $this->connection->createCommand($sql)->queryAll();
-                return $rows;
+        //echo "<br>Participantes:".$sql;
+        $dataReader = $this->connection->createCommand($sql)->query();
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
     }
-
+/**
+ * Función que permite obetener un listado de instituciones que interoperan con la tarea
+ * @return array
+ */
     public function getInteropera() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
         $tar_id_detalle = $_GET['tar_id'];
-        
+
         $sql = "select ins.ins_nombre, ins.ins_id, tari.tarin_id from tarea_interopera tari, institucion ins, tarea tar where ins.ins_id = tari.ins_id
                 and tar.tar_id = tari.tar_id and tar.tar_id = '$tar_id_detalle'";
-                //echo "<br>Participantes:".$sql;
-                $dataReader = $this->connection->createCommand($sql)->query();
-                $rows = $this->connection->createCommand($sql)->queryAll();
-                return $rows;
+        //echo "<br>Participantes:".$sql;
+        $dataReader = $this->connection->createCommand($sql)->query();
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
     }
-
+/**
+ * Función que permite obetener el permiso de un usuario asignado a una tarea específica
+ * @return array
+ */
     public function getPermiso_Participantes() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $id_usuario = $modelUser['usu_id'];
         $tar_id = $_GET['tar_id'];
-        
-        $sql = "select * from tarea_usuario where usu_id = $id_usuario  and tar_id = $tar_id";
-                //echo "<br>Permiso:".$sql;
-                $dataReader = $this->connection->createCommand($sql)->query();
-                $rows = $this->connection->createCommand($sql)->queryAll();
-                return $rows;
-    }
 
+        $sql = "select * from tarea_usuario where usu_id = $id_usuario  and tar_id = $tar_id";
+        //echo "<br>Permiso:".$sql;
+        $dataReader = $this->connection->createCommand($sql)->query();
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
+/**
+ * Función que permite obetener el usuario creador de la tarea
+ * @return array
+ */
     public function getTarea_Creador() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
         $tar_id = $_GET['tar_id'];
-        
+
         $sql = "select usu.usu_nombre, usu.usu_id, tar_fecharegistro from tarea_usuario taru, tarea tar, usuario usu
                 where tar.tar_id = taru.tar_id 
                 and usu.usu_id = taru.usu_id
                 and tar.tar_id = '$tar_id'
                 and taru.taru_creador= 1";
-               //echo "<br>Creador:".$sql;
-                $dataReader = $this->connection->createCommand($sql)->query();
-                $rows = $this->connection->createCommand($sql)->queryAll();
-                return $rows;
+        //echo "<br>Creador:".$sql;
+        $dataReader = $this->connection->createCommand($sql)->query();
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
     }
-
-   
-
+/**
+ * Función que permite obetener un listado de las actividades de una tarea
+ * @return array
+ */
     public function getActividad() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
         $tar_id_detalle = $_GET['tar_id'];
-        
+
         $sql = "select usu.usu_id,acc.acc_id,sec.sec_nombre,acc.acc_nombre, acc.acc_descripcion, acc.acc_estado, acc.acc_fecharegistro, tar.tar_id,usu.usu_nombre, acc.acc_nivel 
 from accion acc, tarea tar, usuario usu, institucion ins, sector sec
 where acc.tar_id = tar.tar_id
@@ -257,13 +289,15 @@ and tar.tar_id = '$tar_id_detalle' order by acc_fecharegistro desc
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
-
-
+/**
+ * Función que permite obetener la reforma legal de una tarea específica
+ * @return array
+ */
     public function getReformaLegal() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
         $tar_id = $_GET['tar_id'];
-        
+
         $sql = "select rl.rl_id, rl.rl_cuerpo, rl.rl_fecha, rl.rl_difusion, rl.tar_id, rl.rl_tipo, rl.rl_motivo
 from ref_legal rl, tarea tar
 where rl.tar_id = tar.tar_id 
@@ -275,7 +309,10 @@ and tar.tar_id = '$tar_id' order by rl_cuerpo desc
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
-    
+/**
+ * Función que permite obtener una actividad específica de una tarea específica
+ * @return array
+ */
     public function getActividad_Ver() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
@@ -295,17 +332,19 @@ and acc.acc_id ='$acc_id'";
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
-  
 
-  // bitacora institucion 
-
-     public function getInstitucion ($trai_id){
+    // bitacora institucion 
+/**
+ * Función que permite obtener una institución de un trámite específico
+ * @param int $trai_id
+ */
+    public function getInstitucion($trai_id) {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $id_usuario = $modelUser['usu_id'];
 
-       
 
-        $sql="select trai.trai_id,ins.ins_id,ins.ins_nombre,tra.tra_nombre 
+
+        $sql = "select trai.trai_id,ins.ins_id,ins.ins_nombre,tra.tra_nombre 
 from tramite tra, tramite_institucion trai, institucion ins 
 where tra.tra_id = trai.tra_id 
 and trai.ins_id = ins.ins_id 
@@ -313,22 +352,25 @@ and trai.trai_id='$trai_id' ";
 
 
         $command = Yii::app()->db->createCommand($sql);
-        $resultSet=$command->query();
+        $resultSet = $command->query();
 
         $NumeroActividad = array();
         $Nactividad = 0;
 
-         foreach ($resultSet as $registro) {
-          echo   $tramite_nombre = $registro["tra_nombre"] ;      
+        foreach ($resultSet as $registro) {
+            echo $tramite_nombre = $registro["tra_nombre"];
         }
         //return $tramite_nombre;
     }
 
     // bitacora institucion 
-
-     public function getIndicadores() {
+/**
+ * Función que permite obtener los indicadores de una tarea específica
+ * @return array
+ */
+    public function getIndicadores() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
-        
+
 
         $tar_id = $_GET['tar_id'];
         //$acc_id = $_GET['acc_id'];
@@ -342,17 +384,19 @@ and tain.tar_id = '$tar_id' order by ind.ind_nombre";
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
-   
 
     // bitacora institucion 
-
-     public function getSector ($tar_id){
+/**
+ * Función que permite obtener el sector de una tarea específica
+ * @param int $tar_id
+ */
+    public function getSector($tar_id) {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $id_usuario = $modelUser['usu_id'];
 
-       
 
-        $sql="select tar.tar_id, sec.sec_nombre, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre,tar_estatus,tar_importancia,tar.tar_tipo, 
+
+        $sql = "select tar.tar_id, sec.sec_nombre, cat.cat_nombre,ins.ins_nombre, tar.tar_nombre,tar_estatus,tar_importancia,tar.tar_tipo, 
         tar.tar_descripcion, tar.tar_meta, tar.tar_fechainicio,tar.tar_fechafin, tar.tar_fecharegistro,tar_nivel 
         from tarea tar, institucion ins, categoria cat, sector sec
         where tar.ins_id = ins.ins_id and tar.tar_tipo = 2 
@@ -362,19 +406,21 @@ and tain.tar_id = '$tar_id' order by ind.ind_nombre";
 
 
         $command = Yii::app()->db->createCommand($sql);
-        $resultSet=$command->query();
+        $resultSet = $command->query();
 
         $NumeroActividad = array();
         $Nactividad = 0;
 
-         foreach ($resultSet as $registro) {
-          echo   $tramite_nombre = $registro["sec_nombre"] ;      
+        foreach ($resultSet as $registro) {
+            echo $tramite_nombre = $registro["sec_nombre"];
         }
         //return $tramite_nombre;
     }
-
-
-     public function getInstitucion2($tar_id) {
+/**
+ * Función que permite obtener la información de una institución a través de una tarea específica
+ * @param int $tar_id
+ */
+    public function getInstitucion2($tar_id) {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
         //$usu_id = $this->_datosUser->usu_id;
@@ -387,48 +433,77 @@ and tain.tar_id = '$tar_id' order by ind.ind_nombre";
         and cat.cat_id = tar.cat_id and tar.tar_estado = 1 order by tar.tar_id desc";
 
         $command = Yii::app()->db->createCommand($sql);
-        $resultSet=$command->query();
+        $resultSet = $command->query();
 
         $NumeroActividad = array();
         $Nactividad = 0;
 
-         foreach ($resultSet as $registro) {
-          echo   $nombre_institucion = $registro["ins_nombre"] ;      
+        foreach ($resultSet as $registro) {
+            echo $nombre_institucion = $registro["ins_nombre"];
         }
     }
-  
-
-  public function getEstandar($tar_estandar) {
+/**
+ * Función que permite escojer el tipo de estándar de una tarea
+ * @param int $tar_estandar
+ */
+    public function getEstandar($tar_estandar) {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
         //$usu_id = $this->_datosUser->usu_id;
-        if ($tar_estandar ==1){echo "Automatización";}
-        if ($tar_estandar ==2){echo "Levantamiento - Optimización";}
-        if ($tar_estandar ==3){echo "Reforma Legal";}
-        if ($tar_estandar ==4){echo "Interoperabilidad";}
-        
+        if ($tar_estandar == 1) {
+            echo "Automatización";
+        }
+        if ($tar_estandar == 2) {
+            echo "Levantamiento - Optimización";
+        }
+        if ($tar_estandar == 3) {
+            echo "Reforma Legal";
+        }
+        if ($tar_estandar == 4) {
+            echo "Interoperabilidad";
+        }
     }
-
+/**
+ * Función que permite escojer el tipo de reforma legal
+ * @param int $rl_tipo
+ */
     public function getTipoRl($rl_tipo) {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
         //$usu_id = $this->_datosUser->usu_id;
-        if ($rl_tipo ==1){echo "Leyes y normas con fuerza o condición de ley";}
-        if ($rl_tipo ==2){echo "Decretos";}
-        if ($rl_tipo ==3){echo "Reforma Legal";}
-        if ($rl_tipo ==4){echo "Normas administrativas";}
-        
+        if ($rl_tipo == 1) {
+            echo "Leyes y normas con fuerza o condición de ley";
+        }
+        if ($rl_tipo == 2) {
+            echo "Decretos";
+        }
+        if ($rl_tipo == 3) {
+            echo "Reforma Legal";
+        }
+        if ($rl_tipo == 4) {
+            echo "Normas administrativas";
+        }
     }
-
+/**
+ * Función que permite escojer el motivo de la reforma legal
+ * @param int $rl_motivo
+ */
     public function getMotivo($rl_motivo) {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //$id_usuario = $modelUser['usu_id'];
         //$usu_id = $this->_datosUser->usu_id;
-        if ($rl_motivo ==1){echo "Eliminación del trámite";}
-        if ($rl_motivo ==2){echo "Simplificación de requisitos";}
-        if ($rl_motivo ==3){echo "Disminución tiempo de respuesta y/o interacciones";}
-        if ($rl_motivo ==4){echo "Mejoramiento de procesos internos";}
-        
+        if ($rl_motivo == 1) {
+            echo "Eliminación del trámite";
+        }
+        if ($rl_motivo == 2) {
+            echo "Simplificación de requisitos";
+        }
+        if ($rl_motivo == 3) {
+            echo "Disminución tiempo de respuesta y/o interacciones";
+        }
+        if ($rl_motivo == 4) {
+            echo "Mejoramiento de procesos internos";
+        }
     }
-    
+
 }

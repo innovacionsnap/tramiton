@@ -115,7 +115,10 @@ class Solucion extends CActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
-
+/**
+ * Función que permite obtener los trámites que más casos registrados tienen
+ * @return array
+ */
     public function getRanking() {
         
        $sql = 'select ins_nombre, tra_nombre, sol_descripcion,sol_vistas 
@@ -130,7 +133,11 @@ order by sol_vistas desc limit 10';
         $rows = Yii::app()->db->createCommand($sql)->queryAll();
         return $rows;
     }
-    
+    /**
+     * Función que permite obtener el nombre de un trámite específico
+     * @param int $id_trains
+     * @return array
+     */
     public function getTramite($id_trains){
         $sql= 'select tra_nombre 
                from tramite t, tramite_institucion ti 

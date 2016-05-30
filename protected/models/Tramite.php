@@ -101,7 +101,11 @@ class Tramite extends CActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
-
+/**
+ * Función que permite obtener todos los trámites de una institución específica
+ * @param int $institucion
+ * @return array
+ */
     public function getTramites($institucion) {
 
        $sql = 'select t.tra_id,t.tra_nombre from tramite t, tramite_institucion ti, institucion i where t.tra_id=ti.tra_id and ti.ins_id=i.ins_id and i.ins_id='.$institucion.' order by tra_nombre';

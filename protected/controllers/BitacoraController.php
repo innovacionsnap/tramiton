@@ -80,6 +80,7 @@ class BitacoraController extends Controller {
      * llama a la vista index de bitacora
      * @return void
      */
+    
     public function actionIndex() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $modelVerificaTmp = new consultasBaseDatos;

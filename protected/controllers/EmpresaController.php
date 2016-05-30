@@ -40,7 +40,9 @@ class EmpresaController extends Controller {
         $this->_casosTmp = $this->getDatosTemporal();
         $this->render('index', array('empresas' => $empresas));
     }
-
+/**
+ * Acción que permite renderizar la vista de empresas
+ */
     public function actionEmpresa() {
         $id_usuario = Yii::app()->user->id;
         $modelUser = Usuario::model()->findByPk($id_usuario);
@@ -51,7 +53,9 @@ class EmpresaController extends Controller {
         $this->_casosTmp = $this->getDatosTemporal();
         $this->render('registro', array('empresas' => $empresas, 'model' => $model));
     }
-
+/**
+ * Acción que permite renderizar el formulario para empresa nueva
+ */
     public function actionIngresarEmpresa() {
 // uncomment the following code to enable ajax-based validation
         $id_usuario = Yii::app()->user->id;
@@ -70,7 +74,9 @@ class EmpresaController extends Controller {
         $this->_casosTmp = $this->getDatosTemporal();
         $this->render('nueva_empresa', array('model' => $model, 'id_usuario' => $id_usuario));
     }
-
+/**
+ * Acción que permite guardar o actualizar una empresa
+ */
     public function actionGuardarEmpresa() {
         $empresa = array();
         $empresa = $_POST['Empresa'];
@@ -93,7 +99,9 @@ class EmpresaController extends Controller {
             }
         }
     }
-
+/**
+ * Función que permite validar un número de RUC
+ */
     public function actionvalidaRuc() {
         $ruc = $_POST['ruc'];
         $empresa = Empresa::model()->findByAttributes(array('emp_ruc' => $ruc));
@@ -114,7 +122,10 @@ class EmpresaController extends Controller {
             echo $nro_empresas;
         }
     }
-    
+    /**
+     * 
+     * @return type
+     */
     public function getDatosTemporal() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $modelVerificaTmp = new consultasBaseDatos;

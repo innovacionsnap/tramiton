@@ -52,7 +52,9 @@ class TramiteInstitucionController extends Controller {
         $this->render('index',compact('datosgetTramiteInstitucion', 'sumaCasosTotal'));
         //$this->render('formulario');
     }
-
+/**
+ * Acción que permite renderizar la vista de acciones correctivas institucionesAC
+ */
     public function actionInstitucionesAC(){
       $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
       //creo una instancia del modelo Dashboard
@@ -70,7 +72,10 @@ class TramiteInstitucionController extends Controller {
       $this->render('institucionesAC',compact('datosGetInstitucionAccionCorrectiva'));
       //$this->render('formulario');
     }
-
+/**
+ * Acción que permite renderizar una vista con los trámites de las instituciones
+ * @param int $traiId
+ */
     public function actionviewTramite_Institucion($traiId) {
 
         $traiId = Yii::app()->encriptaParam->decodificaParamGet($traiId);
@@ -88,7 +93,11 @@ class TramiteInstitucionController extends Controller {
         $this->render('viewTramite_Institucion',compact('datosgetTramiteInstitucionDetalle'));
         //$this->render('formulario');
     }
-
+/**
+ * Acción que permite renderizar una vista de las acciones correctivas de un trámite específico
+ * @param int $traiId
+ * @param int $traId
+ */
     public function actionviewTramite_Accion_Correctiva($traiId, $traId) {
 
         $traiId = Yii::app()->encriptaParam->decodificaParamGet($traiId);
@@ -105,7 +114,11 @@ class TramiteInstitucionController extends Controller {
         $this->render('viewTramite_Accion_Correctiva', compact('datoAccioneCorrectiva','rol'));
         //$this->render('formulario');
     }
-
+/**
+ * Acción que permite renderizar una vista de acciones correctivas de un trámite específico
+ * @param int $traiId
+ * @param int $traId
+ */
     public function actionviewTramite_Accion_Correctiva_2($traiId, $traId) {
 
         $traiId = Yii::app()->encriptaParam->decodificaParamGet($traiId);
@@ -122,7 +135,9 @@ class TramiteInstitucionController extends Controller {
         $this->render('viewTramite_Accion_Correctiva_2', compact('datoAccioneCorrectiva','rol'));
         //$this->render('formulario');
     }
-
+/**
+ * Acción que permite renderizar una vista de las acciones correctivas realizadas
+ */
       public function actionaccion_correctiva() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         //creo una instancia del modelo Bitacora
