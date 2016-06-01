@@ -23,7 +23,11 @@ class MensajesAplicacion {
         '201' => '¿Está seguro que desea eliminar este registro?'
         
     );
-    
+    /**
+     * Función que permite obtener un mensaje de aplicación
+     * @param string $codigo
+     * @return string
+     */
     public function getMensaje($codigo) {
         return $this->mensajesApp[$codigo];
     }

@@ -36,7 +36,6 @@
  */
 class DatosTramite extends CActiveRecord {
 
-    
     /**
      * @return string the associated database table name
      */
@@ -159,6 +158,10 @@ class DatosTramite extends CActiveRecord {
         return parent::model($className);
     }
 
+    /**
+     * Función que permite obtener un trámite de un caso
+     * @return array
+     */
     public function getTramite() {
         $sql = 'select datt_fecharegistro, tra_nombre, ins_nombre, sec_nombre, usu_nombreusuario 
 from tramite_institucion a, institucion b, datos_tramite c, sector d, usuario e, tramite f
@@ -169,12 +172,16 @@ where a.ins_id=b.ins_id and
       a.tra_id=f.tra_id and f.tra_estado=1 and
       b.ins_funcion_ejecutiva=1
 order by tra_nombre';
-        $rows =Yii::app()->db->createCommand($sql)->queryAll();
+        $rows = Yii::app()->db->createCommand($sql)->queryAll();
         return $rows;
     }
-    
+
+    /**
+     * Función que permite obtener el top 10 de las instituciones con más propuestas de mejora
+     * @return array
+     */
     public function getRanking() {
-        
+
         $sql = 'select d.ins_nombre,count(sol_id)as soluciones 
 from datos_tramite a, tramite_institucion b, solucion c, institucion d 
 where a.trai_id=b.trai_id and 
@@ -188,26 +195,36 @@ limit 10';
         $rows = Yii::app()->db->createCommand($sql)->queryAll();
         return $rows;
     }
-    
+
+    /**
+     * Función que permite obtener un caso con su solución propuesta
+     * @param string $cadena
+     * @return array
+     */
     public function getCaso($cadena) {
         $sql = "select d.datt_id, datt_experiencia, i.ins_id,ins_nombre, sol_id, sol_descripcion
 from datos_tramite d, institucion i, tramite_institucion ti, solucion s
 where ins_funcion_ejecutiva =1 and
-SP_ASCII(datt_experiencia) ilike SP_ASCII('%".$cadena."%') and
+SP_ASCII(datt_experiencia) ilike SP_ASCII('%" . $cadena . "%') and
 d.trai_id=ti.trai_id and
 i.ins_id=ti.ins_id and
 d.datt_id=s.datt_id;";
-        $rows =Yii::app()->db->createCommand($sql)->queryAll();
+        $rows = Yii::app()->db->createCommand($sql)->queryAll();
         return $rows;
     }
+
+    /**
+     * Función que permite obtener el nombre del trámite de casos registrados
+     * @return array
+     */
     public static function getTramiteMencionado() {
-        $sql="select t.tra_nombre,count(datt_id)total from datos_tramite d, tramite_institucion ti, tramite t 
+        $sql = "select t.tra_nombre,count(datt_id)total from datos_tramite d, tramite_institucion ti, tramite t 
 where d.trai_id=ti.trai_id and
 ti.tra_id=t.tra_id and
 ti.tra_id<>3752
 group by d.trai_id, t.tra_nombre order by total desc
 limit 10";
-        $rows=Yii::app()->db->createCommand($sql)->queryAll();
+        $rows = Yii::app()->db->createCommand($sql)->queryAll();
         return $rows;
     }
 

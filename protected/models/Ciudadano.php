@@ -14,7 +14,10 @@ class Ciudadano extends CActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
-
+/**
+ * Función que permite obtener los casos de un usuario específico
+ * @return array
+ */
     public function getUsuarioTramite() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $id_usuario = $modelUser['usu_id'];
@@ -34,7 +37,10 @@ class Ciudadano extends CActiveRecord {
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
-
+/**
+ * Función que permite obtener un caso específico
+ * @return array
+ */
     public function getTramite_Usuario() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $id_usuario = $modelUser['usu_id'];
@@ -61,7 +67,10 @@ class Ciudadano extends CActiveRecord {
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
-
+/**
+ * Función que permite obtener todas las soluciones de un caso específico
+ * @return array
+ */
     public function getTramite_Solucion() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
 
@@ -74,7 +83,10 @@ class Ciudadano extends CActiveRecord {
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
-
+/**
+ * Función que permite obtener los comentarios de una solución
+ * @return array
+ */
     public function getdatosTramite_Solucion_Comentario() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
 

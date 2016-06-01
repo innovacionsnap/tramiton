@@ -72,7 +72,9 @@ class CiudadanoController extends Controller {
         $this->render('form_ciudadano', compact('datosTotalTramites', 'datosRankingTramites', 'datosPublicacionesTramites', 'empresa'));
         //$this->render('formulario');
     }
-
+/**
+ * Acción que permite obtener los casos de un usuario
+ */
     public function actionUsuario_Tramites() {
 
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
@@ -86,7 +88,9 @@ class CiudadanoController extends Controller {
         $this->layout = 'main-admin_form';
         $this->render('usuario_tramites', compact('datosUsuarioTramite'));
     }
-
+/**
+ * Acción que permite mostrar los casos de usuarios
+ */
     public function actionviewTramite_Usuario() {
 
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
@@ -98,7 +102,9 @@ class CiudadanoController extends Controller {
         $this->layout = 'main-admin_form';
         $this->render('viewTramite_Usuario', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion'));
     }
-
+/**
+ * Acción que permite mostrar los casos de usuarios
+ */
     public function actionviewTramite_Usuario2() {
 
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
@@ -110,7 +116,10 @@ class CiudadanoController extends Controller {
         $this->layout = 'main-admin_form_caso';
         $this->render('viewTramite_Usuario2', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion'));
     }
-
+/**
+ * Acción que permite obtener los comentarios de una solución
+ * 
+ */
     public function actionviewTramite_Usuario_Comentario() {
 
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
@@ -120,7 +129,10 @@ class CiudadanoController extends Controller {
 
         $this->renderPartial('viewTramite_Usuario_Comentario', compact('datosTramite_Solucion_Comentario'));
     }
-
+/**
+ * Acción que permite mostrar un perfil de usuario
+ * @param string $key
+ */
     public function actionMostrarPerfil($key) {
 
         //$modelUser = Usuario::model()->findByPk($usrId);
@@ -160,7 +172,10 @@ class CiudadanoController extends Controller {
         $this->_casosTmp = $this->getDatosTemporal();
         $this->render('perfilUsuario', array('modelUser' => $modelUser, 'modelPerfil' => $modelPerfil));
     }
-
+/**
+ * Acción que permite actualizar una imagen de usuario
+ * @param int $usrId
+ */
     public function actionUpdateImagen($usrId) {
 
         //echo "voy a actualizar la imagen del avatar";
@@ -212,7 +227,10 @@ class CiudadanoController extends Controller {
         //$this->render('cambiaAvatar', array('modelUser' => $modelUser, 'modelImgUpload' => $modelImgUpload));
         $this->render('cambiaAvatar', array('modelImgUpload' => $modelImgUpload));
     }
-
+/**
+ * Acción que permite actualizar el perfil de usuario
+ * @param int $usrId
+ */
     public function actionUpdatePerfil($usrId) {
         //echo "llegue a actualizar el perfil"; Yii::app()->end();
 
@@ -256,7 +274,9 @@ class CiudadanoController extends Controller {
         //$this->render('perfilPrueba', array('modelUser' => $modelUser, 'modelPerfil' => $modelPerfil));
         $this->render('perfilUsuario', array('modelUser' => $modelUser, 'modelPerfil' => $modelPerfil));
     }
-
+/**
+ * Acción que permite Registrar un caso una vez iniciado sesión
+ */
     public function actionRegistroCasoInterno() {
         $insertar_tramite = $_POST['insertar_tramite'];
 
@@ -381,7 +401,7 @@ class CiudadanoController extends Controller {
     }
 
     /**
-     * Accion del modulo de administración que muestra la lista de usuarios
+     * Accion del módulo de administración que muestra la lista de usuarios
      */
     public function actionCasosTemporales() {
         //$usuarios = Usuario::model()->findAll();
@@ -397,7 +417,7 @@ class CiudadanoController extends Controller {
     }
 
     /**
-     * Accion para mostrar el caso temporal registrado por el ciudadano y con la opción de publicarlo
+     * Acción para mostrar el caso temporal registrado por el ciudadano y con la opción de publicarlo
      */
     public function actionViewCasoTemporal($idTmp) {
         $tmpId = Yii::app()->encriptaParam->decodificaParamGet($idTmp);

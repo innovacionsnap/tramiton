@@ -5,7 +5,9 @@ class CantonController extends Controller {
     public function actionIndex() {
         $this->render('index');
     }
-
+/**
+ * Función que permite obtener el listado de cantones de una provincia específica
+ */
     public function actionGetCantones() {
         $html = '';
         $provincia = $_POST['pro_id'];

@@ -17,12 +17,19 @@ class SectorController extends Controller{
         $sector = Sector::model()->findAll();
         $this->render('index', array('sector' => $sector));
     }
-    
+    /**
+     * Acción que permite ver los diferentes sectores
+     * @param int $id
+     */
     public function actionView($id) {
         $model = Sector::model()->findByPk($id);
         $this->render('view', array('model' => $model));
     }
     
+    /**
+     * Acción que permite editar un sector específico
+     * @param int $id
+     */
     public function actionEdit($id) {
         $model = Sector::model()->findByPk($id);
         

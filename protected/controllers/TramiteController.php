@@ -52,6 +52,9 @@ class TramiteController extends Controller {
       );
       }
      */
+    /**
+     * Acción que permite visualizar los trámites de una institución específica
+     */
     public function actionGetTramites(){
        $html='';
        $institucion=$_POST['ins_id'];

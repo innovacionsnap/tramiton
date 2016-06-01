@@ -68,7 +68,9 @@ class PerfilUsuario extends CFormModel {
             'imagenPerfil' => 'Imagen',
         );
     }
-    
+    /**
+     * Función que permite verificar si un nombre de usuario se encuentra ya registrado
+     */
     public function comprobar_usuario() {
 
         $conexion = Yii::app()->db;

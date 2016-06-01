@@ -7,7 +7,9 @@ class MegustaController extends Controller {
     public function actionIndex() {
         $this->render('index');
     }
-
+/**
+ * Acción que permite obtener las soluc´ones que poseen más cantidad de likes
+ */
     public function actionRankingLikes() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $megusta = new Megusta();

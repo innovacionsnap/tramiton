@@ -16,6 +16,9 @@ class SolucionController extends Controller {
         );
     }
 
+    /**
+     * Acción que permite renderizar la vista de soluciones registradas (timeline)
+     */
     public function actionIndex() {
         $model_solucion = new Solucion();
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
@@ -32,18 +35,20 @@ class SolucionController extends Controller {
             //$imagen_usuario = $dashboardController->getImagen($solucion['usu_id']);
             //$usuario_solucion = $dashboardController->getUsuario($solucion['usu_id']);
             $vistas = $this->procesaVista($id);
-            $comentario = $this->getComentario($id,'inicio');
+            $comentario = $this->getComentario($id, 'inicio');
             if (Yii::app()->user->isGuest == 1) {
                 $this->layout = 'main';
-            } else{
-               // $this->layout='main-admin';
-               // $this->_datosUser = $modelUser;
+            } else {
+                // $this->layout='main-admin';
+                // $this->_datosUser = $modelUser;
             }
             $this->render('solucion', array('solucion' => $solucion, 'imagen_usuario' => $imagen_usuario, 'usuario_solucion' => $usuario_solucion, 'comentario' => $comentario, 'vistas' => $vistas, 'experiencia' => $experiencia, 'tramite' => $tramite));
-            
         }
     }
 
+    /**
+     * Acción que permite registrar comentarios a una solución específica
+     */
     public function actionProcesaComentario() {
         $comentario = new Comentario();
         $comentario_enviado = $_POST['comentario-interno'];
@@ -60,17 +65,33 @@ class SolucionController extends Controller {
         }
     }
 
+    /**
+     * Función que permite obtener el nombre de usuario mediante el id de usuario
+     * @param int $usu_id
+     * @return string
+     */
     public function getUsuario($usu_id) {
         $usuario = Usuario::model()->findByPk($usu_id);
         $nombre_usuario = $usuario->usu_nombreusuario;
         return $nombre_usuario;
     }
 
+    /**
+     * Función que permite obtener una solución mediante su id
+     * @param int $id
+     * @return object
+     */
     public function getSolucion($id) {
         $solucion = Solucion::model()->find('sol_id=' . $id);
         return $solucion;
     }
 
+    /**
+     * Función que permite obtener los comentarios de una solución específica
+     * @param int $solucion
+     * @param string $bandera
+     * @return array
+     */
     public function getComentario($solucion, $bandera) {
         $comentarios = Comentario::model()->findAll($condition = 'sol_id=' . $solucion);
         if ($bandera == 'inicio') {
@@ -86,11 +107,21 @@ class SolucionController extends Controller {
         /**/
     }
 
+    /**
+     * Función que permite obtener el número de vistas de una solución específica
+     * @param int $id
+     * @return int
+     */
     public function getVista($id) {
         $sol = Solucion::model()->find('sol_id=' . $id);
         return $sol->sol_vistas . ' Vistas';
     }
 
+    /**
+     * Función que permite registrar vistas a una solución específica
+     * @param int $id
+     * @return int
+     */
     public function procesaVista($id) {
         $sol = Solucion::model()->find('sol_id=' . $id);
         $vista = $sol->sol_vistas + 1;
@@ -100,7 +131,9 @@ class SolucionController extends Controller {
             return $vista;
         }
     }
-
+/**
+ * Acción que permite visualizar el ranking de las 10 soluciones más votadas
+ */
     public function actionRankingSoluciones() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $solucion = new Solucion();

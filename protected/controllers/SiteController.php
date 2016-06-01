@@ -29,23 +29,22 @@ class SiteController extends Controller {
     }
 
     /**
-     * This is the default 'index' action that is invoked
-     * when an action is not explicitly requested by users.
+     * Acción que permite visualizar la pantalla inicial del sistema
      */
     public function actionIndex() {
 // renders the view file 'protected/views/site/index.php'
 // using the default layout 'protected/views/layouts/main.php'
         Yii::import('application.controllers.DashboardController');
         $total_soluciones = DashboardController::getTotalSoluciones();
-        
+
         $loginActive = FALSE; //Yii::app()->user->id;
-        
-        if(Yii::app()->user->id){
+
+        if (Yii::app()->user->id) {
             $loginActive = TRUE;
             //echo "tiene valor: " . $loginActive;
         }
-        
-        
+
+
         //echo "valor del login " . $idUsr; 
         //Yii::app()->end();
 
@@ -54,16 +53,16 @@ class SiteController extends Controller {
         $totalParticipantes = $modelEstadisticas->getTotalParticipantes();
         $totalTramites = $modelEstadisticas->getTramitesMencionados();
         $totalAcciones = $modelEstadisticas->getAccionesCorrectivasTram();
-        
+
         $totalAccionesnom = $modelEstadisticas->getAccionesCorrectivas10();
         $totalPropuestaSolu = $modelEstadisticas->getPropuestasSolución10();
-        
+
         $estadisticas = array(
             'totalParticipantes' => $totalParticipantes,
             'totalTramites' => $totalTramites,
             'totalAcciones' => $totalAcciones,
-        //    'totalAccionesnum' => $totalAccionesnum,
-          //  'totalAccionesnom' => $totalAccionesnom,    
+                //    'totalAccionesnum' => $totalAccionesnum,
+                //  'totalAccionesnom' => $totalAccionesnom,    
         );
 
         $model = new ValidarCedula;
@@ -71,14 +70,14 @@ class SiteController extends Controller {
         $this->_loginActive = $loginActive;
         $this->layout = 'main-home';
         $this->render('index', array(
-                "model" => $model, 
-                "model_login" => $model_login, 
-                'msg1' => $this->_msgerror, 
-                'estadisticas' => $estadisticas, 
-                'totalAccionesnom' => $totalAccionesnom, 
-                'loginActive' => $loginActive,
-                'totalPropuestaSolu' => $totalPropuestaSolu
-            )
+            "model" => $model,
+            "model_login" => $model_login,
+            'msg1' => $this->_msgerror,
+            'estadisticas' => $estadisticas,
+            'totalAccionesnom' => $totalAccionesnom,
+            'loginActive' => $loginActive,
+            'totalPropuestaSolu' => $totalPropuestaSolu
+                )
         );
     }
 
@@ -94,9 +93,9 @@ class SiteController extends Controller {
                 $this->render('error', $error);
         }
     }
-  
+
     /**
-     * Displays the contact page
+     * Acción que muestra un formulario de contacto
      */
     public function actionContact() {
         $model = new ContactForm;
@@ -119,7 +118,7 @@ class SiteController extends Controller {
     }
 
     /**
-     * Displays the login page
+     * Acción que permite visualizar un formulario de login del sistema
      */
     public function actionLogin() {
         $model = new LoginForm;
@@ -136,17 +135,17 @@ class SiteController extends Controller {
             $model->attributes = $_POST['LoginForm'];
 // validate user input and redirect to the previous page if valid
             if ($model->validate() && $model->login())
-                //$this->redirect(array('dashboard/index'));
-                //$this->redirect(array('index'));
+            //$this->redirect(array('dashboard/index'));
+            //$this->redirect(array('index'));
                 $this->redirect(Yii::app()->user->returnUrl);
         }
-        
+
         $this->layout = 'main-login';
         $this->render('login', array('model_login' => $model));
     }
 
     /**
-     * Logs out the current user and redirect to homepage.
+     * Acción que hace logout y redirecciona a la página principal
      */
     public function actionLogout() {
         Yii::app()->user->logout();
@@ -154,9 +153,9 @@ class SiteController extends Controller {
     }
 
     /**
-     * accion para insertar nuevos datos de formulario
+     * Acción para insertar nuevos datos de formulario
      */
-    public function actionRegistroCasoLogin(){
+    public function actionRegistroCasoLogin() {
         $insertar_tramite = $_POST['insertar_tramite'];
 
         if (isset($insertar_tramite)) {
@@ -275,11 +274,11 @@ class SiteController extends Controller {
         }
     }
 
-
-
-
+    /**
+     * Acción que permite registrar un caso desde la pantalla de inicio
+     */
     public function actionRegistroCaso() {
-        
+
         //var_dump($_POST); Yii::app()->end();
 
         if (!isset($_POST) || !isset($_POST['g-recaptcha-response']) || $_POST['g-recaptcha-response'] == '' || count($_POST['g-recaptcha-response']) == 0) {
@@ -289,7 +288,6 @@ class SiteController extends Controller {
             $verifica_usuario = $this->verificaUsuario($cedula);
 
             //************************inicio de insercion de temporales****************
-            
             //realiza post de todo el formulario y almacena en variables
             $id_institucion = $_POST['id_institucion'];
             $id_provincia = $_POST['id_provincia'];
@@ -393,18 +391,17 @@ class SiteController extends Controller {
         if ($verifica_usuario == 1) {
             echo '<br><br><h4 align="center">para publicar tu caso debe <a href="site/login">Iniciar Sesión</a></h4>';
             echo '<br><br><h3><a href="' . Yii::app()->baseUrl . '">Recargar la página</a></h3>';
-          
         } else {
             echo '<br><br><h4>Para poder publicarlo debe <a href="site/registro">Crear una cuenta.</a></h4>';
             echo '<br><br><h3><a href="' . Yii::app()->baseUrl . '">Recargar la página</a></h3>';
-         
+
             //Yii::app()->end();
             //Debe Registrarse
         }
     }
 
     /**
-     * accion para el registro de un nuevo usuario         
+     * Acción para el registro de un nuevo usuario         
      */
     public static function verificaUsuario($cedula) {
 
@@ -426,7 +423,7 @@ class SiteController extends Controller {
     }
 
     /**
-     * accion para el registro de un nuevo usuario         
+     * Acción para el registro de un nuevo usuario         
      */
     public function actionRegistro() {
 
@@ -530,7 +527,7 @@ class SiteController extends Controller {
     }
 
     /**
-     * función que me permite realizar la accion de validación de cedula
+     * Función que me permite realizar la accion de validación de cedula
      */
     public function actionValidaCedula() {
         $cedula = $_POST['cedula'];
@@ -581,7 +578,7 @@ class SiteController extends Controller {
     }
 
     /**
-     * Accion para mandar mensajes de exito o error
+     * Acción para mandar mensajes de exito o error
      */
     public function actionSuccess() {
 
@@ -611,7 +608,7 @@ class SiteController extends Controller {
     }
 
     /**
-     * acción para solicitar recuperación de contraseña
+     * Acción para solicitar recuperación de contraseña
      */
     public function actionRecuperarPassword() {
 
@@ -832,7 +829,10 @@ class SiteController extends Controller {
             }
         }
     }
-
+/**
+ * Función que permite visualizar las noticias de twitter
+ * @return type
+ */
     public static function getTwitter() {
         include("themes/tramiton/assets/lib/TwitterAPIExchange.php");
 
@@ -855,15 +855,21 @@ class SiteController extends Controller {
         $json_clientes = json_decode($twit, true);
         return $json_clientes;
     }
-    
-    public static function comboInstitucion(){
-        $model=  Institucion::model()->findAllByAttributes(array('ins_funcion_ejecutiva' => 1), array('order' => 'ins_nombre asc'));
+/**
+ * Función que permite visualizar el listado de Instituciones
+ * @return object
+ */
+    public static function comboInstitucion() {
+        $model = Institucion::model()->findAllByAttributes(array('ins_funcion_ejecutiva' => 1), array('order' => 'ins_nombre asc'));
         return $model;
     }
-    public static function comboProvincia(){
-        $model= Provincia::model()->findAllByAttributes(array('pro_estado' => 1), array('order' => 'pro_nombre asc'));
+/**
+ * Función que permite visualizar el listado de Provincias
+ * @return object
+ */
+    public static function comboProvincia() {
+        $model = Provincia::model()->findAllByAttributes(array('pro_estado' => 1), array('order' => 'pro_nombre asc'));
         return $model;
     }
-    
 
 }

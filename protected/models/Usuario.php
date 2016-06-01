@@ -161,7 +161,11 @@ class Usuario extends CActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
-
+/**
+ * Función que permite validar una contraseña ingresada
+ * @param string $password
+ * @return string
+ */
     public function validatePassword($password) {
         
         //echo "clave  enviada: " . $this->getHash('sha1', $password, HASH_KEY);
@@ -172,7 +176,13 @@ class Usuario extends CActiveRecord {
     public function validaActivaCuenta(){
         
     }
-
+/**
+ * Función que permite encriptar la contraseña ingresada
+ * @param string $algoritmo
+ * @param string $data
+ * @param string $key
+ * @return string
+ */
     public static function getHash($algoritmo, $data, $key) {
         $hash = hash_init($algoritmo, HASH_HMAC, $key);
         hash_update($hash, $data);

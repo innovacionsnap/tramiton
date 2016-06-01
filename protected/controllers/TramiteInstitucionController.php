@@ -35,7 +35,7 @@ class TramiteInstitucionController extends Controller {
         );
     }
     /**
-     * Declares class-based actions.
+     * Acción que permite visualizar los casos de una institución
      */
     public function actionIndex() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);

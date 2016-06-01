@@ -55,7 +55,9 @@ class RecuperarPasswordForm extends CFormModel {
         );
     }
     
-    //funciones para validar disponibilidad de correo electronico y nombre de usuario
+    /**
+     * Función para validar disponibilidad de correo electrónico y nombre de usuario
+     */
     public function comprobar_email() {
         
         $conexion = Yii::app()->db;

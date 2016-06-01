@@ -19,7 +19,9 @@ class DatosTramiteController extends Controller {
             ),
         );
     }
-
+/**
+ * Acción que permite visualizar la vista de casos registrados
+ */
     public function actionIndex() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $modelTramite= new DatosTramite();
@@ -29,7 +31,9 @@ class DatosTramiteController extends Controller {
         $this->_casosTmp = $this->getDatosTemporal();
         $this->render('index',compact('tramites'));
     }
-    
+    /**
+     * Acción que permite visualizar el ranking de los 10 trámites más mencionados
+     */
     public function actionRanking(){
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $modelTramite= new DatosTramite();
@@ -39,7 +43,9 @@ class DatosTramiteController extends Controller {
         $this->_casosTmp = $this->getDatosTemporal();
         $this->render('ranking',compact('rankings'));
     }
-    
+    /**
+     * Acción que permite buscar un caso específico
+     */
     public function actionBusca() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $modelDatosTramite = new DatosTramite();
@@ -49,7 +55,10 @@ class DatosTramiteController extends Controller {
         $this->_casosTmp = $this->getDatosTemporal();
         $this->render('busca', compact('casos'));
     }
-    
+    /**
+     * 
+     * @return type
+     */
     public function getDatosTemporal() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $modelVerificaTmp = new consultasBaseDatos;

@@ -156,7 +156,9 @@ class ValidarRegistro extends CFormModel {
     }
     
     
-    //funciones para validar disponibilidad de correo electronico y nombre de usuario
+    /**
+     * Función para validar disponibilidad de correo electrónico
+     */
     public function comprobar_email() {
         
         $conexion = Yii::app()->db;
@@ -173,7 +175,9 @@ class ValidarRegistro extends CFormModel {
             }
         }
     }
-
+/**
+ * Función para validar disponibilidad de nombre de usuario
+ */
     public function comprobar_usuario() {
 
         $conexion = Yii::app()->db;
@@ -191,7 +195,9 @@ class ValidarRegistro extends CFormModel {
         }
     }
     
-    
+    /**
+     * Función que permite verificar si un número de cédula ya se encuentra registrado en el sistema
+     */
     public function comprobar_cedula_usuario() {
 
         $conexion = Yii::app()->db;

@@ -18,8 +18,7 @@ class PlanController extends Controller {
     }
 
     /**
-     * This is the default 'index' action that is invoked
-     * when an action is not explicitly requested by users.
+     * Acción que permite renderizar el listado de instituciones registradas
      */
 
     public function actionInstituciones() {
@@ -32,6 +31,9 @@ class PlanController extends Controller {
         $this->_datosUser = $modelUser;
         $this->render('instituciones');
     }
+    /**
+     * Acción que permite renderizar los trámites por institución
+     */
     public function actionIns_Tramites() {
 
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);

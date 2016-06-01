@@ -104,13 +104,16 @@ class PermisoRol extends CActiveRecord
 		return parent::model($className);
 	}
         
-        /*
+        /**
          * Función que consulta los roles existentes de la base de datos
          */
         public function getListaRoles() {
             return CHtml::listData(Role::model()->findAll('rol_estado=?', array(1)), 'rol_id', 'rol_nombre');
         }
-        
+        /**
+         * Función que permite consultar los permisos existentes en la base de datos
+         * @return array
+         */
         public function getListaPermisos() {
             return CHtml::listData(Permiso::model()->findAll(), 'per_id', 'per_permiso_desc');
         }
