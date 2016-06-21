@@ -59,6 +59,7 @@ class ValidarRegistro extends CFormModel {
                 'tooLong' => '<span style="color: #F00;">Máximo 10 digitos'
             ),
             array('cedula', 'comprobar_cedula_usuario'),
+            array('cedula', 'validar_cedula'),
             //validación username
             array('nombre_usuario', 'required', 'message' => '<span style="color: #F00;">El nombre de usuario es requerido</span>'),
             array(
@@ -207,6 +208,21 @@ class ValidarRegistro extends CFormModel {
                 break;
             }
         }
+    }
+    
+    public function validar_cedula() {
+        $modelDatosCiud = new ValidarCedula;
+        $token = $modelDatosCiud->obtieneToken();
+        //obtenemos los datos del ciudadano directamente del registro civil
+        $datosCiudadano = $modelDatosCiud->consultaCedulaRegistroCivil($this->cedula, $token);
+        
+        //comprobamos el resultado de la consulta al ws
+        if($datosCiudadano != 1){
+            $this->addError('cedula', '<span style="color: #F00;">El número de cedula ingresado no es válido</span>');
+            //break;
+        }
+                
+        
     }
 
 }

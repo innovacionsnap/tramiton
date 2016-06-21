@@ -98,6 +98,13 @@ order by ins_nombre asc";
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
+    
+    public function getIdOtroTramite($id_institución){
+        $sql='select trai_id from tramite_institucion where tra_id=3752 and ins_id='.$id_institución;
+        $row=$this->connection->createCommand($sql)->queryAll();
+        return $row;
+    }
+    
 
     /*
       public function getTarea_Actividad() {

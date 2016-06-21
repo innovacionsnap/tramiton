@@ -271,7 +271,7 @@ class CiudadanoController extends Controller {
             if ($ins_productivo==2){
                 $productivo='S';
             }else{
-                $productivo='';
+                $productivo='N';
             }
             //$id_tramite = isset ($_POST['id_tramite']);
 

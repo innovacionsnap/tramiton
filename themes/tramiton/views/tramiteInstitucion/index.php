@@ -43,7 +43,7 @@ $usu_id = $this->_datosUser->usu_id;
                                 <tr>
                                     <th>Institución</th>
                                     <th>Trámite</th>
-                                    <th>N° de casos<br><?php //echo "(" . $totalCasos . ")"?></th>
+                                    <th>N° de casos<br><?php echo "(" . $totalCasos . ")"?></th>
                                     <th>Acciones</th>
 
                                 </tr>
@@ -75,7 +75,7 @@ $usu_id = $this->_datosUser->usu_id;
                                                     , array('tramiteInstitucion/viewTramite_Institucion', 'traiId' => $traiId), array('title' => 'Mostrar'));
                                             ?>
                                             <?php
-                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> AC</button>'
+                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-check-square-o"></i> Acción Correctiva</button>'
                                                     , array("tramiteInstitucion/viewTramite_Accion_Correctiva", 'traiId' => $traiId, 'traId' => $traId), array('title' => 'Acciones Correctivas'));
                                                     //, array("tramiteInstitucion/viewTramite_Accion_Correctiva?" . $id_tramite), array('title' => 'Acciones Correctivas'));
                                             ?>

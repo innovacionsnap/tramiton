@@ -429,7 +429,7 @@ class consultasBaseDatos {
     public function getTramitesMencionados() {
         $conexion = Yii::app()->db;
 
-        $sqlTramitesMencionados = "select count(trai_id) as total_tamites from datos_tramite where datt_productivo is null";
+        $sqlTramitesMencionados = "select count(trai_id) as total_tamites from datos_tramite where datt_productivo = 'N'";
 
         $resultado = $conexion->createCommand($sqlTramitesMencionados);
 
@@ -486,7 +486,7 @@ class consultasBaseDatos {
         
         $sqlPropuestasSolucion = "select count(trai.ins_id) as total, ins.ins_nombre "
                 . "from datos_tramite dt, tramite_institucion trai, institucion ins "
-                . "where datt_productivo is null and "
+                . "where datt_productivo = 'N' and "
                 . "dt.trai_id = trai.trai_id and "
                 . "trai.ins_id = ins.ins_id "
                 . "group by trai.ins_id, ins.ins_nombre "

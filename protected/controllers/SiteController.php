@@ -167,13 +167,20 @@ class SiteController extends Controller {
             //$idhijo = $_POST['idhijo'];
             //$empresa = $_POST['empresa'];
             $empresa = 0;
-            //$id_tramite = isset ($_POST['id_tramite']);
-
-            if (isset($_POST['id_tramite2'])) {
-                $id_tramite = $_POST['id_tramite2'];
-            } else {
-                $id_tramite = 4173;
+            $modelInstitucion = Institucion::model()->findByPk($id_institucion);
+            $ins_productivo=  $modelInstitucion->ins_productivo;
+            if ($ins_productivo==2){
+                $productivo='S';
+            }else{
+                $productivo='N';
             }
+            
+            $modelTraInstitucion = TramiteInstitucion::model();
+            $tramite_institucion=$modelTraInstitucion->getIdOtroTramite($id_institucion);
+            foreach ($tramite_institucion as $tramite):
+                $id_tramite=$tramite['trai_id'];
+            endforeach;
+            
             $experiencia = $_POST['experiencia'];
             $titulo_solucion = $_POST['titulo_solucion'];
 
@@ -217,6 +224,7 @@ class SiteController extends Controller {
                 $model_dtramite->can_id = $idhijo;
                 $model_dtramite->datt_otronombreinstitucion = 'N/A';
                 $model_dtramite->datt_fecha_actualizacion = $hoy;
+                $model_solucion->sol_productivo = $productivo;
                 $model_dtramite->save();
                 $id_dtramite = $model_dtramite->primaryKey;
 
