@@ -177,11 +177,12 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                 <div class="col-md-12">
                     <input type="hidden" name="insertar_tramite" value="1">
                     <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
-                    <input type="hidden" name="url" value="<?php echo $baseUrl ?>">
+                    <input type="hidden" name="url" value="<?php echo $baseUrl ?>"><br>
                     <input class="campo-panel4" type="checkbox" name="terminos" checked disabled>Acepto los <a href="#">Términos</a> y acepta que ha leído la<a href="#">Política de Datos</a>, incluido el <a href="#">Uso de Cookies</a>
-                    <p>Control de Seguridad:</p>
+                    <br><br>
+                    <!--<p>Control de Seguridad:</p>
                     <div id="captcha_registro" class="g-recaptcha" data-sitekey="6LepsRITAAAAABcXO7sqylkyiUj8AoHjdY2aVBVQ"></div>
-                    <div id="mensaje_captcha" style="display: none;"></div>
+                    <div id="mensaje_captcha" style="display: none;"></div>-->
                     <?php
                     echo CHtml::ajaxSubmitButton(
                             //'Guardar', array('registroCaso'), array(
@@ -196,17 +197,12 @@ Yii::app()->clientScript->registerCoreScript('jquery');
                     }",
                         'success' => "function(data){
 
-                        if (data==0){
-                            //alert(data);
-                            jQuery('#mensaje_captcha').html('No ha ingresado el captcha');
-                            jQuery('#mensaje_captcha').show();
-                        }else{
-                            jQuery('#mensaje_captcha').hide();
+                        
                             jQuery('.next-tab')[2].click();
                             jQuery('#btnNav').hide();
                             jQuery('#msgValidacion').html(data);
 
-                        }
+                        
 
                     }",
                         'error' => "function(){

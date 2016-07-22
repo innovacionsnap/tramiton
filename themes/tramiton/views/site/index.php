@@ -594,22 +594,34 @@ $baseUrl = Yii::app()->theme->baseUrl;
 <div class="modal fade" tabindex="-1" role="dialog" id="tramites-simplificados-modal">
   <div class="modal-dialog modal-dialog-center">
     <div class="modal-content">
+      <!--  tramites 2016  -->  
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="font-size: 150%;" aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Trámites simplificados 2015</h3>
+        <h4 class="modal-title">Trámites simplificados 2016</h4>
+      </div>
+        <div class="modal-body">
+            <div class="row" style="alignment-adjust: central">
+            <div class="col-xs-12 col-sm-6 text-center p-t-10" id="col-logo-1">
+              <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 200%; display:block; color: #C4161C;"></i>Detalle de trámites simplificados <br>
+              <a  role="button" class="btn btn-info" href="docs/LISTADO_PNST_MAYO_2016.pdf" target="_blank">Descargar <i class="fa fa-download fa-4"></i></a>
+            </div>
+        </div>
+      </div>
+      <!--  tramites 2016  --> 
+      <hr/>
+      <div class="modal-header">
+        <h4 class="modal-title">Trámites simplificados 2015</h4>
       </div>
       <div class="modal-body">
         <div class="row">
             <div class="col-xs-12 col-sm-6 text-center p-t-10" id="col-logo-2">
-              <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 500%; display:block; color: #C4161C;"></i>Listado de trámites simplificados <br>
+              <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 200%; display:block; color: #C4161C;"></i>Listado de trámites simplificados <br>
               <a  role="button" class="btn btn-info" href="docs/LISTADO_TRAMITES_SIMPLIFICADOS_400_PNST2015.pdf" target="_blank">Descargar <i class="fa fa-download fa-4"></i></a>
             </div>
             <div class="col-xs-12 col-sm-6 text-center p-t-10" id="col-logo-1">
-              <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 500%; display:block; color: #C4161C;"></i>Detalle de trámites simplificados <br>
+              <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 200%; display:block; color: #C4161C;"></i>Detalle de trámites simplificados <br>
               <a  role="button" class="btn btn-info" href="docs/LISTADO_TRAMITES_SIMPLIFICADOS_SECTORES_INSTITUCIONES_PNST2015.pdf" target="_blank">Descargar <i class="fa fa-download fa-4"></i></a>
             </div>
-
-
         </div>
       </div>
       <div class="modal-footer">

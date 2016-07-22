@@ -37,15 +37,15 @@ class SiteController extends Controller {
 // using the default layout 'protected/views/layouts/main.php'
         Yii::import('application.controllers.DashboardController');
         $total_soluciones = DashboardController::getTotalSoluciones();
-        
+
         $loginActive = FALSE; //Yii::app()->user->id;
-        
-        if(Yii::app()->user->id){
+
+        if (Yii::app()->user->id) {
             $loginActive = TRUE;
             //echo "tiene valor: " . $loginActive;
         }
-        
-        
+
+
         //echo "valor del login " . $idUsr; 
         //Yii::app()->end();
 
@@ -54,16 +54,16 @@ class SiteController extends Controller {
         $totalParticipantes = $modelEstadisticas->getTotalParticipantes();
         $totalTramites = $modelEstadisticas->getTramitesMencionados();
         $totalAcciones = $modelEstadisticas->getAccionesCorrectivasTram();
-        
+
         $totalAccionesnom = $modelEstadisticas->getAccionesCorrectivas10();
         $totalPropuestaSolu = $modelEstadisticas->getPropuestasSolución10();
-        
+
         $estadisticas = array(
             'totalParticipantes' => $totalParticipantes,
             'totalTramites' => $totalTramites,
             'totalAcciones' => $totalAcciones,
-        //    'totalAccionesnum' => $totalAccionesnum,
-          //  'totalAccionesnom' => $totalAccionesnom,    
+                //    'totalAccionesnum' => $totalAccionesnum,
+                //  'totalAccionesnom' => $totalAccionesnom,    
         );
 
         $model = new ValidarCedula;
@@ -71,14 +71,14 @@ class SiteController extends Controller {
         $this->_loginActive = $loginActive;
         $this->layout = 'main-home';
         $this->render('index', array(
-                "model" => $model, 
-                "model_login" => $model_login, 
-                'msg1' => $this->_msgerror, 
-                'estadisticas' => $estadisticas, 
-                'totalAccionesnom' => $totalAccionesnom, 
-                'loginActive' => $loginActive,
-                'totalPropuestaSolu' => $totalPropuestaSolu
-            )
+            "model" => $model,
+            "model_login" => $model_login,
+            'msg1' => $this->_msgerror,
+            'estadisticas' => $estadisticas,
+            'totalAccionesnom' => $totalAccionesnom,
+            'loginActive' => $loginActive,
+            'totalPropuestaSolu' => $totalPropuestaSolu
+                )
         );
     }
 
@@ -94,7 +94,7 @@ class SiteController extends Controller {
                 $this->render('error', $error);
         }
     }
-  
+
     /**
      * Displays the contact page
      */
@@ -136,11 +136,11 @@ class SiteController extends Controller {
             $model->attributes = $_POST['LoginForm'];
 // validate user input and redirect to the previous page if valid
             if ($model->validate() && $model->login())
-                //$this->redirect(array('dashboard/index'));
-                //$this->redirect(array('index'));
+            //$this->redirect(array('dashboard/index'));
+            //$this->redirect(array('index'));
                 $this->redirect(Yii::app()->user->returnUrl);
         }
-        
+
         $this->layout = 'main-login';
         $this->render('login', array('model_login' => $model));
     }
@@ -156,7 +156,8 @@ class SiteController extends Controller {
     /**
      * accion para insertar nuevos datos de formulario
      */
-    public function actionRegistroCasoLogin(){
+    public function actionRegistroCasoLogin() {
+        //echo "estoy aqui voy a registrar"; 
         $insertar_tramite = $_POST['insertar_tramite'];
 
         if (isset($insertar_tramite)) {
@@ -167,20 +168,23 @@ class SiteController extends Controller {
             //$idhijo = $_POST['idhijo'];
             //$empresa = $_POST['empresa'];
             $empresa = 0;
+            $productivo = 'N';
             $modelInstitucion = Institucion::model()->findByPk($id_institucion);
-            $ins_productivo=  $modelInstitucion->ins_productivo;
-            if ($ins_productivo==2){
-                $productivo='S';
-            }else{
-                $productivo='N';
+            $ins_productivo = $modelInstitucion->ins_productivo;
+
+            if ($ins_productivo == 2) {
+                $productivo = 'S';
+            } 
+            
+            if (isset($_POST['id_tramite2'])) {
+                $id_tramite = $_POST['id_tramite2'];
+            } else {
+                $modelTraInstitucion = TramiteInstitucion::model();
+                $tramite_institucion = $modelTraInstitucion->getIdOtroTramite($id_institucion);
+                foreach ($tramite_institucion as $tramite):
+                    $id_tramite = $tramite['trai_id'];
+                endforeach;
             }
-            
-            $modelTraInstitucion = TramiteInstitucion::model();
-            $tramite_institucion=$modelTraInstitucion->getIdOtroTramite($id_institucion);
-            foreach ($tramite_institucion as $tramite):
-                $id_tramite=$tramite['trai_id'];
-            endforeach;
-            
             $experiencia = $_POST['experiencia'];
             $titulo_solucion = $_POST['titulo_solucion'];
 
@@ -214,7 +218,7 @@ class SiteController extends Controller {
                 $model_dtramite->datt_fechafin = $hoy;
                 $model_dtramite->datt_fecharegistro = $hoy;
                 $model_dtramite->datt_ipingreso = '0.0.0.0';
-                $model_dtramite->datt_edicion = '2015';
+                $model_dtramite->datt_edicion = date('Y');;
                 $model_dtramite->datt_codigoconfirmacion = 'N/A';
                 $model_dtramite->datt_otronombretramite = $otro_tramite;
                 $model_dtramite->datt_calificado = 0;
@@ -224,10 +228,10 @@ class SiteController extends Controller {
                 $model_dtramite->can_id = $idhijo;
                 $model_dtramite->datt_otronombreinstitucion = 'N/A';
                 $model_dtramite->datt_fecha_actualizacion = $hoy;
-                $model_solucion->sol_productivo = $productivo;
+                $model_dtramite->datt_productivo = $productivo;
                 $model_dtramite->save();
                 $id_dtramite = $model_dtramite->primaryKey;
-
+                //Yii::app()->end();
                 //Empresa_Trámite
                 if ($empresa != 0) {
                     $model_empresa = new EmpresaTramite();
@@ -246,6 +250,7 @@ class SiteController extends Controller {
                 $model_solucion->sol_vistas = 0;
                 $model_solucion->sol_fecha = $hoy;
                 $model_solucion->sol_estado = 1;
+                $model_solucion->sol_productivo = $productivo;
                 $model_solucion->save();
 
                 //Problemática
@@ -274,20 +279,19 @@ class SiteController extends Controller {
                 $transaction->commit();
                 //echo '<br><br><h4 align="center">Gracias por ingresar su caso</h4>';
                 echo '<br><br><h4>Para revisar mas casos publicados ingrese a su <a href="dashboard/index">escritorio</a></h4>';
+                //Yii::app()->end();
                 //header('Location:' . Yii::app()->baseURL);
             } catch (Exception $e) {
                 echo $e;
                 echo "<div>Hubo un error</div>";
+                //Yii::app()-end();
                 $transaction->rollBack();
             }
         }
     }
 
-
-
-
     public function actionRegistroCaso() {
-        
+
         //var_dump($_POST); Yii::app()->end();
 
         if (!isset($_POST) || !isset($_POST['g-recaptcha-response']) || $_POST['g-recaptcha-response'] == '' || count($_POST['g-recaptcha-response']) == 0) {
@@ -297,7 +301,6 @@ class SiteController extends Controller {
             $verifica_usuario = $this->verificaUsuario($cedula);
 
             //************************inicio de insercion de temporales****************
-            
             //realiza post de todo el formulario y almacena en variables
             $id_institucion = $_POST['id_institucion'];
             $id_provincia = $_POST['id_provincia'];
@@ -401,11 +404,10 @@ class SiteController extends Controller {
         if ($verifica_usuario == 1) {
             echo '<br><br><h4 align="center">para publicar tu caso debe <a href="site/login">Iniciar Sesión</a></h4>';
             echo '<br><br><h3><a href="' . Yii::app()->baseUrl . '">Recargar la página</a></h3>';
-          
         } else {
             echo '<br><br><h4>Para poder publicarlo debe <a href="site/registro">Crear una cuenta.</a></h4>';
             echo '<br><br><h3><a href="' . Yii::app()->baseUrl . '">Recargar la página</a></h3>';
-         
+
             //Yii::app()->end();
             //Debe Registrarse
         }
@@ -863,15 +865,15 @@ class SiteController extends Controller {
         $json_clientes = json_decode($twit, true);
         return $json_clientes;
     }
-    
-    public static function comboInstitucion(){
-        $model=  Institucion::model()->findAllByAttributes(array('ins_funcion_ejecutiva' => 1), array('order' => 'ins_nombre asc'));
+
+    public static function comboInstitucion() {
+        $model = Institucion::model()->findAllByAttributes(array('ins_funcion_ejecutiva' => 1), array('order' => 'ins_nombre asc'));
         return $model;
     }
-    public static function comboProvincia(){
-        $model= Provincia::model()->findAllByAttributes(array('pro_estado' => 1), array('order' => 'pro_nombre asc'));
+
+    public static function comboProvincia() {
+        $model = Provincia::model()->findAllByAttributes(array('pro_estado' => 1), array('order' => 'pro_nombre asc'));
         return $model;
     }
-    
 
 }

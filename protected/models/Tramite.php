@@ -104,11 +104,19 @@ class Tramite extends CActiveRecord {
 
     public function getTramites($institucion) {
 
-       $sql = 'select t.tra_id,t.tra_nombre from tramite t, tramite_institucion ti, institucion i where t.tra_id=ti.tra_id and ti.ins_id=i.ins_id and i.ins_id='.$institucion.' order by tra_nombre';
+       $sql = 'select ti.trai_id, t.tra_id,t.tra_nombre from tramite t, tramite_institucion ti, institucion i where t.tra_id=ti.tra_id and ti.ins_id=i.ins_id and i.ins_id='.$institucion.' order by tra_nombre';
         //$sql = "select * from tramite";
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
         //return $institucion;
+    }
+    
+    public function getOtroTramite($idTramiteInstitucion) {
+        
+        $sql = "select tra_id from tramite_institucion where trai_id = $idTramiteInstitucion";
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+        
     }
 
 }

@@ -145,15 +145,38 @@ $(function () {
             });
         
     });
+    
     $('#id_tramite2').change(function (event)
     {
-        var id_tramite = $(this).find(':selected').val();
+        var trai_id = $(this).find(':selected').val();
+        $.ajax({
+            type: "POST",
+            url: 'tramite/getOtroTramite',
+            data: {trai_id: trai_id},
+            beforeSend: function () {
+                $("#verifica").addClass('loader');
+            },
+            success: function (data) {
+                $("#verifica").removeClass('loader');
+                //3752 es el codigo del otro trámite en la base de datos
+                var codOtro = data;
+                if (codOtro == 3752) {
+                    document.getElementById("otro_tramite").disabled = false;
+                }
+                else{
+                    document.getElementById("otro_tramite").disabled = true;
+                    $('#otro_tramite').val('');
+                }
+            }
+        });
+        
+        /*var id_tramite = $(this).find(':selected').val();
         if (id_tramite==3752){
             document.getElementById("otro_tramite").disabled = false;
         }else{
             $('#otro_tramite').val('');
             document.getElementById("otro_tramite").disabled = true;
-        }
+        }*/
         
         
         

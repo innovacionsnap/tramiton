@@ -58,10 +58,20 @@ class TramiteController extends Controller {
        $tramites=  Tramite::model()->getTramites($institucion);
        $html='<option value="">Selecciona un trámite</option>';
        foreach ($tramites as $tramite):
-           $html.='<option value="'.$tramite['tra_id'].'">'.$tramite['tra_nombre'].'</option>';
+           $html.='<option value="'.$tramite['trai_id'].'">'.$tramite['tra_nombre'].'</option>';
        endforeach;
        echo $html;
        
        
+    }
+    
+    public function actionGetOtrotramite() {
+        $idTram = 0;
+        $trai = $_POST['trai_id'];
+        $otroTram = Tramite::model()->getOtroTramite($trai);
+        foreach ($otroTram as $otro):
+            $idTram = $otro['tra_id'];
+        endforeach;
+        echo $idTram;
     }
 }
