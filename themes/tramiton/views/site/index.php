@@ -4,70 +4,78 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 
 <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
-  <div class="modal-dialog modal-dialog-center">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="font-size: 150%;" aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Bienvenido a Tramitón</h3>
-      </div>
-      <div class="modal-body">
-        <p><h5>Elija si desea acceder al Tramitón Ciudadano o al Tramitón Productivo</h5></p>
-        <div class="row">
-            <div class="col-xs-6" id="col-logo-2">
-                <a href="#"><img id="logo-ciudadano" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-ciudadano.png' ; ?>" alt="Tramitón" width="180" onclick="closeModal();"></a>
-                <p class="p-r-5 p-l-5 p-t-5">¿Conoces de trámites o servicios públicos complicados o ineficientes?</p>
+    <div class="modal-dialog modal-dialog-center">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="font-size: 150%;" aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Bienvenido a Tramitón</h3>
             </div>
-            <div class="col-xs-6" id="col-logo-1">
-                <a href="http://productivo.tramiton.to"><img id="logo-productivo" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-productivo.png' ; ?>" alt="Tramitón productivo" width="180"></a>
-                <p class="p-r-5 p-l-5 p-t-5">¿Conoces de trámites o servicios públicos complicados o ineficientes que impactan en el sector productivo?</p>
-            </div>
+            <div class="modal-body">
+                <p><h5>Elija si desea acceder al Tramitón Ciudadano o al Tramitón Productivo</h5></p>
+                <div class="row">
+                    <div class="col-xs-6" id="col-logo-2">
+                        <a href="#"><img id="logo-ciudadano" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-ciudadano.png'; ?>" alt="Tramitón" width="180" onclick="closeModal();"></a>
+                        <p class="p-r-5 p-l-5 p-t-5">¿Conoces de trámites o servicios públicos complicados o ineficientes?</p>
+                    </div>
+                    <div class="col-xs-6" id="col-logo-1">
+                        <a href="http://productivo.tramiton.to"><img id="logo-productivo" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-productivo.png'; ?>" alt="Tramitón productivo" width="180"></a>
+                        <p class="p-r-5 p-l-5 p-t-5">¿Conoces de trámites o servicios públicos complicados o ineficientes que impactan en el sector productivo?</p>
+                    </div>
 
 
-        </div>
-      </div>
-      <div class="modal-footer">
-        <p><h6>Toda la información registrada en este portal será confidencial</h6></p>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p><h6>Toda la información registrada en este portal será confidencial</h6></p>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 <!-- $bandera -->
 
 <div id="home" class="container-fluid p-t-10 p-l-15 p-r-15 p-b-30">
     <div class="row">
-        <?php if($loginActive){
-          echo '<h4 class="text-left p-l-15" style="font-weight: bold;">Registra tu caso</h4>';
-          echo '<div id="col-formulario" class="col-sm-7">';
-        }else {
-          echo '<h4 class="text-left p-l-15" style="font-weight: bold;"></h4>';
-          echo '<div id="col-formulario" class="col-sm-5">';
+        <?php
+        if ($loginActive) {
+            echo '<h4 class="text-left p-l-15" style="font-weight: bold;">Registra tu caso</h4>';
+            echo '<div id="col-formulario" class="col-sm-7">';
+        } else {
+            echo '<h4 class="text-left p-l-15" style="font-weight: bold;"></h4>';
+            echo '<div id="col-formulario" class="col-sm-5">';
         }
         ?>
-          <?php
-            if($loginActive){
-                $this->renderPartial('form_caso', true, false);
-              //$this->renderPartial('form_login', true, false);
-            }
-            else{
-              $this->renderPartial('_form_login', array('model_login' => $model_login));
-            }
-          ?>
-        </div>
-
         <?php
-        if($loginActive){
-          echo '<div id="noticias-2" class="col-sm-5 text-center">';
-        }else{
-          echo '<div id="noticias-2" class="col-sm-7 text-center">';
+        if ($loginActive) {
+            $this->renderPartial('form_caso', true, false);
+            //$this->renderPartial('form_login', true, false);
+        } else {
+            $this->renderPartial('_form_login', array('model_login' => $model_login));
         }
-         ?>
-          <a class="twitter-timeline" href="https://twitter.com/TramitonEC" data-widget-id="705865349623881729">Tweets por el @TramitonEC.</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-        </div>
-
-        </div>
+        ?>
     </div>
+
+    <?php
+    if ($loginActive) {
+        echo '<div id="noticias-2" class="col-sm-5 text-center">';
+    } else {
+        echo '<div id="noticias-2" class="col-sm-7 text-center">';
+    }
+    ?>
+    <a class="twitter-timeline" href="https://twitter.com/TramitonEC" data-widget-id="705865349623881729">Tweets por el @TramitonEC.</a>
+    <script>!function (d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                  if (!d.getElementById(id)) {
+                      js = d.createElement(s);
+                      js.id = id;
+                      js.src = p + "://platform.twitter.com/widgets.js";
+                      fjs.parentNode.insertBefore(js, fjs);
+                  }
+              }(document, "script", "twitter-wjs");</script>
+</div>
+
+</div>
+</div>
 </div>
 
 <div id="que_es_tramiton" class="container-fluid" style="height: 616px;">
@@ -83,303 +91,262 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <div class="row">
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalParticipantes']?>"><?php echo $estadisticas['totalParticipantes']?></div>
+                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalParticipantes'] ?>"><?php echo $estadisticas['totalParticipantes'] ?></div>
                 <div class="title">Personas registradas</div>
             </div>
         </div>
         <div class="col-sm-4 milestone-col">
             <div class="milestone">
-                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalTramites']?>"><?php echo $estadisticas['totalTramites']?></div>
+                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalTramites'] ?>"><?php echo $estadisticas['totalTramites'] ?></div>
                 <div class="title">Tramites y soluciones propuestas</div>
             </div>
         </div>
         <div class="col-sm-4 milestone-col">
             <div class="milestone no-border">
-                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalAcciones']?>"><?php echo $estadisticas['totalAcciones']?></div>
+                <div class="number contentAnimated" data-animation="true" data-animation-type="number" data-final-number="<?php echo $estadisticas['totalAcciones'] ?>"><?php echo $estadisticas['totalAcciones'] ?></div>
                 <div class="title">Planes de mejora institucionales a trámites</div>
             </div>
         </div>
     </div>
 
     <div class="col-md-12 m-t-30">
-      <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con acciones correctivas</h2>
+        <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con acciones correctivas</h2>
 
-      <?php
-      $nombreac="serie1";
-      $nombreac2="serie2";
-      $nombreac3="serie3";
-      $nombreac4="serie4";
-      $nombreac5="serie5";
-      $nombreac6="serie6";
-      $nombreac7="serie7";
-      $nombreac8="serie8";
-      $nombreac9="serie9";
-      $nombreac10="serie10";
+        <?php
+        $nombreac = "serie1";
+        $nombreac2 = "serie2";
+        $nombreac3 = "serie3";
+        $nombreac4 = "serie4";
+        $nombreac5 = "serie5";
+        $nombreac6 = "serie6";
+        $nombreac7 = "serie7";
+        $nombreac8 = "serie8";
+        $nombreac9 = "serie9";
+        $nombreac10 = "serie10";
 
-      $nacc=1;
-      $i=1;
-      $j = 1;
+        $nacc = 1;
+        $i = 1;
+        $j = 1;
 
-      foreach ($totalAccionesnom as $nacc) {
+        foreach ($totalAccionesnom as $nacc) {
 
-           if($i==1)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac=array('name' => $name, 'data' => array($p5));
+            if ($i == 1) {
+                $p5 = $nacc['total'] + 0;
+                $name = $nacc['nombre'];
+                $nombreac = array('name' => $name, 'data' => array($p5));
+            }
 
-           }
+            if ($i == 2) {
+                $p5 = $nacc['total'] + 0;
+                $name = $nacc['nombre'];
+                $nombreac2 = array('name' => $name, 'data' => array($p5));
+            }
+            //$i++;
 
-           if($i==2)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac2=array('name' => $name, 'data' => array($p5));
+            if ($i == 3) {
+                $p5 = $nacc['total'] + 0;
+                $name = $nacc['nombre'];
+                $nombreac3 = array('name' => $name, 'data' => array($p5));
+            }
+            if ($i == 4) {
+                $p5 = $nacc['total'] + 0;
+                $name = $nacc['nombre'];
+                $nombreac4 = array('name' => $name, 'data' => array($p5));
+            }
+            if ($i == 5) {
+                $p5 = $nacc['total'] + 0;
+                $name = $nacc['nombre'];
+                $nombreac5 = array('name' => $name, 'data' => array($p5));
+            }
+            if ($i == 6) {
+                $p5 = $nacc['total'] + 0;
+                $name = $nacc['nombre'];
+                $nombreac6 = array('name' => $name, 'data' => array($p5));
+            }
 
-           }
-           //$i++;
+            if ($i == 7) {
+                $p5 = $nacc['total'] + 0;
+                $name = $nacc['nombre'];
+                $nombreac7 = array('name' => $name, 'data' => array($p5));
+            }
 
-           if($i==3)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac3=array('name' => $name, 'data' => array($p5));
+            if ($i == 8) {
+                $p5 = $nacc['total'] + 0;
+                $name = $nacc['nombre'];
+                $nombreac8 = array('name' => $name, 'data' => array($p5));
+            }
 
-           }
-           if($i==4)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac4=array('name' => $name, 'data' => array($p5));
+            if ($i == 9) {
+                $p5 = $nacc['total'] + 0;
+                $name = $nacc['nombre'];
+                $nombreac9 = array('name' => $name, 'data' => array($p5));
+            }
 
-           }
-           if($i==5)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac5=array('name' => $name, 'data' => array($p5));
-
-           }
-           if($i==6)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac6=array('name' => $name, 'data' => array($p5));
-
-           }
-
-           if($i==7)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac7=array('name' => $name, 'data' => array($p5));
-
-           }
-
-           if($i==8)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac8=array('name' => $name, 'data' => array($p5));
-
-           }
-
-           if($i==9)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac9=array('name' => $name, 'data' => array($p5));
-
-           }
-
-           if($i==10)
-           {
-           $p5 = $nacc['total']+0;
-           $name= $nacc['nombre'];
-           $nombreac10=array('name' => $name, 'data' => array($p5));
-
-           }
-           $i++;
-
-       }
+            if ($i == 10) {
+                $p5 = $nacc['total'] + 0;
+                $name = $nacc['nombre'];
+                $nombreac10 = array('name' => $name, 'data' => array($p5));
+            }
+            $i++;
+        }
 
 
 
-       $this->Widget('ext.highcharts.HighchartsWidget', array(
-           'options' => array(
-               'chart' => array(
-                       'plotBackgroundColor' => '#ffffff',
-                       'plotBorderWidth' => null,
-                       'plotShadow' => false,
-                       'height' => 400,
-                       'type'=>'column'
-                     ),
+        $this->Widget('ext.highcharts.HighchartsWidget', array(
+            'options' => array(
+                'chart' => array(
+                    'plotBackgroundColor' => '#ffffff',
+                    'plotBorderWidth' => null,
+                    'plotShadow' => false,
+                    'height' => 400,
+                    'type' => 'column'
+                ),
+                'credits' => array('enabled' => false),
+                'title' => array('text' => ''),
+                'xAxis' => array(
+                    'categories' => array('INSTITUCIONES')
+                ),
+                'yAxis' => array(
+                    'title' => array('text' => 'ACCIONES CORRECTIVAS')
+                ),
+                //'series'  = $accion;
+                'series' => array(
+                    $nombreac, $nombreac2, $nombreac3, $nombreac4, $nombreac5,
+                    $nombreac6, $nombreac7, $nombreac8, $nombreac9, $nombreac10
 
-
-
-
-               'credits' => array('enabled' => false),
-               'title' => array('text' => ''),
-               'xAxis' => array(
-                   'categories' => array('INSTITUCIONES')
-               ),
-               'yAxis' => array(
-                   'title' => array('text' => 'ACCIONES CORRECTIVAS')
-               ),
-
-
-             //'series'  = $accion;
-
-               'series' => array(
-
-
-                   $nombreac,$nombreac2,$nombreac3,$nombreac4,$nombreac5,
-                   $nombreac6,$nombreac7,$nombreac8,$nombreac9,$nombreac10
-
-                   //array('name' => 'Renovacion Matricula Caducidad', 'data' => array(100)),
-                   //array('name' => 'Renovacion cédula', 'data' => array(88)),
-                   //array('name' => 'Papeleta votación', 'data' => array(70)),
-                   //array('name' => 'Certificado de defunción', 'data' => array(60)),
-                   //array('name' => 'Permiso de operación vehicular', 'data' => array(55)),
-                   //array('name' => 'Préstamos Hipotecarios', 'data' => array(45)),
-                   //array('name' => 'Citas médicas', 'data' => array(35)),
-                   //array('name' => 'Certificado de antescedentes policiales', 'data' => array(20)),
-                   //array('name' => 'Permiso de salida del país', 'data' => array(10)),
-                   //array('name' => 'Préstamos Quirografarios', 'data' => array(25)),
-                   //array('name' => $name, 'data' => array($p5))
-
-                   )
-           )
-       ));
-    ?>
+                //array('name' => 'Renovacion Matricula Caducidad', 'data' => array(100)),
+                //array('name' => 'Renovacion cédula', 'data' => array(88)),
+                //array('name' => 'Papeleta votación', 'data' => array(70)),
+                //array('name' => 'Certificado de defunción', 'data' => array(60)),
+                //array('name' => 'Permiso de operación vehicular', 'data' => array(55)),
+                //array('name' => 'Préstamos Hipotecarios', 'data' => array(45)),
+                //array('name' => 'Citas médicas', 'data' => array(35)),
+                //array('name' => 'Certificado de antescedentes policiales', 'data' => array(20)),
+                //array('name' => 'Permiso de salida del país', 'data' => array(10)),
+                //array('name' => 'Préstamos Quirografarios', 'data' => array(25)),
+                //array('name' => $name, 'data' => array($p5))
+                )
+            )
+        ));
+        ?>
     </div>
 
     <!-- begin row -->
     <div class="col-md-12 m-t-30">
         <div class="col-xs-12 p-0">
-          <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con propuestas de solución</h2>
+            <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0">Instituciones con propuestas de solución</h2>
 
-          <?php
-          $nombreps="serie1";
-          $nombreps2="serie2";
-          $nombreps3="serie3";
-          $nombreps4="serie4";
-          $nombreps5="serie5";
-          $nombreps6="serie6";
-          $nombreps7="serie7";
-          $nombreps8="serie8";
-          $nombreps9="serie9";
-          $nombreps10="serie10";
+        <?php
+        $nombreps = "serie1";
+        $nombreps2 = "serie2";
+        $nombreps3 = "serie3";
+        $nombreps4 = "serie4";
+        $nombreps5 = "serie5";
+        $nombreps6 = "serie6";
+        $nombreps7 = "serie7";
+        $nombreps8 = "serie8";
+        $nombreps9 = "serie9";
+        $nombreps10 = "serie10";
 
-          $j = 1;
-           foreach ($totalPropuestaSolu as $nacc1) {
+        $j = 1;
+        foreach ($totalPropuestaSolu as $nacc1) {
 
-               if($j==1){
-               $p51 = $nacc1['total']+0;
-               $name= $nacc1['ins_nombre'];
-               $nombreps=array('name' => $name, 'data' => array($p51), 'color' => '#FF9800' );
-               }
+            if ($j == 1) {
+                $p51 = $nacc1['total'] + 0;
+                $name = $nacc1['ins_nombre'];
+                $nombreps = array('name' => $name, 'data' => array($p51), 'color' => '#FF9800');
+            }
 
-               if($j==2){
-               $p51 = $nacc1['total']+0;
-               $name= $nacc1['ins_nombre'];
-               $nombreps2=array('name' => $name, 'data' => array($p51), 'color' => '#B6B6B6');
-               }
+            if ($j == 2) {
+                $p51 = $nacc1['total'] + 0;
+                $name = $nacc1['ins_nombre'];
+                $nombreps2 = array('name' => $name, 'data' => array($p51), 'color' => '#B6B6B6');
+            }
 
-               if($j==3){
-               $p51 = $nacc1['total']+0;
-               $name= $nacc1['ins_nombre'];
-               $nombreps3=array('name' => $name, 'data' => array($p51), 'color' => '#5D4037');
+            if ($j == 3) {
+                $p51 = $nacc1['total'] + 0;
+                $name = $nacc1['ins_nombre'];
+                $nombreps3 = array('name' => $name, 'data' => array($p51), 'color' => '#5D4037');
+            }
+            if ($j == 4) {
+                $p51 = $nacc1['total'] + 0;
+                $name = $nacc1['ins_nombre'];
+                $nombreps4 = array('name' => $name, 'data' => array($p51), 'color' => '#00BCD4');
+            }
 
-               }
-               if($j==4){
-               $p51 = $nacc1['total']+0;
-               $name= $nacc1['ins_nombre'];
-               $nombreps4=array('name' => $name, 'data' => array($p51), 'color' => '#00BCD4');
-               }
+            if ($j == 5) {
+                $p51 = $nacc1['total'] + 0;
+                $name = $nacc1['ins_nombre'];
+                $nombreps5 = array('name' => $name, 'data' => array($p51), 'color' => '#9C27B0');
+            }
 
-               if($j==5){
-               $p51 = $nacc1['total']+0;
-               $name= $nacc1['ins_nombre'];
-               $nombreps5=array('name' => $name, 'data' => array($p51), 'color' => '#9C27B0');
-               }
+            if ($j == 6) {
+                $p51 = $nacc1['total'] + 0;
+                $name = $nacc1['ins_nombre'];
+                $nombreps6 = array('name' => $name, 'data' => array($p51), 'color' => '#009688');
+            }
 
-               if($j==6){
-               $p51 = $nacc1['total']+0;
-               $name= $nacc1['ins_nombre'];
-               $nombreps6=array('name' => $name, 'data' => array($p51), 'color' => '#009688');
-               }
+            if ($j == 7) {
+                $p51 = $nacc1['total'] + 0;
+                $name = $nacc1['ins_nombre'];
+                $nombreps7 = array('name' => $name, 'data' => array($p51), 'color' => '#607D8B');
+            }
 
-               if($j==7){
-               $p51 = $nacc1['total']+0;
-               $name= $nacc1['ins_nombre'];
-               $nombreps7=array('name' => $name, 'data' => array($p51), 'color' => '#607D8B');
-               }
+            if ($j == 8) {
+                $p51 = $nacc1['total'] + 0;
+                $name = $nacc1['ins_nombre'];
+                $nombreps8 = array('name' => $name, 'data' => array($p51), 'color' => '#F44336');
+            }
 
-               if($j==8){
-               $p51 = $nacc1['total']+0;
-               $name= $nacc1['ins_nombre'];
-               $nombreps8=array('name' => $name, 'data' => array($p51), 'color' => '#F44336');
-               }
+            if ($j == 9) {
+                $p51 = $nacc1['total'] + 0;
+                $name = $nacc1['ins_nombre'];
+                $nombreps9 = array('name' => $name, 'data' => array($p51), 'color' => '#CDDC39');
+            }
 
-               if($j==9){
-               $p51 = $nacc1['total']+0;
-               $name= $nacc1['ins_nombre'];
-               $nombreps9=array('name' => $name, 'data' => array($p51), 'color' => '#CDDC39');
-               }
+            if ($j == 10) {
+                $p51 = $nacc1['total'] + 0;
+                $name = $nacc1['ins_nombre'];
+                $nombreps10 = array('name' => $name, 'data' => array($p51), 'color' => '#8BC34A');
+            }
+            $j++;
+        }
+        $this->Widget('ext.highcharts.HighchartsWidget', array(
+            'options' => array(
+                'chart' => array(
+                    'plotBackgroundColor' => '#ffffff',
+                    'plotBorderWidth' => null,
+                    'plotShadow' => false,
+                    'height' => 400,
+                    'type' => 'column'
+                ),
+                'credits' => array('enabled' => false),
+                'title' => array('text' => ''),
+                'xAxis' => array(
+                    'categories' => array('INSTITUCIONES')
+                ),
+                'yAxis' => array(
+                    'title' => array('text' => '# PORPUESTAS SOLUCION')
+                ),
+                'series' => array(
+                    $nombreps, $nombreps2, $nombreps3, $nombreps4, $nombreps5,
+                    $nombreps6, $nombreps7, $nombreps8, $nombreps9, $nombreps10
 
-               if($j==10){
-               $p51 = $nacc1['total']+0;
-               $name= $nacc1['ins_nombre'];
-               $nombreps10=array('name' => $name, 'data' => array($p51), 'color' => '#8BC34A');
-               }
-               $j++;
-
-           }
-          $this->Widget('ext.highcharts.HighchartsWidget', array(
-              'options' => array(
-                  'chart' => array(
-                          'plotBackgroundColor' => '#ffffff',
-                          'plotBorderWidth' => null,
-                          'plotShadow' => false,
-                          'height' => 400,
-                          'type'=>'column'
-                        ),
-
-                  'credits' => array('enabled' => false),
-                  'title' => array('text' => ''),
-                  'xAxis' => array(
-                      'categories' => array('INSTITUCIONES')
-                  ),
-                  'yAxis' => array(
-                      'title' => array('text' => '# PORPUESTAS SOLUCION')
-                  ),
-
-                  'series' => array(
-
-
-                      $nombreps,$nombreps2,$nombreps3,$nombreps4,$nombreps5,
-                      $nombreps6,$nombreps7,$nombreps8,$nombreps9,$nombreps10
-
-                      //array('name' => 'Renovacion Matricula Caducidad', 'data' => array(100)),
-                      //array('name' => 'Renovacion cédula', 'data' => array(88)),
-                      //array('name' => 'Papeleta votación', 'data' => array(70)),
-                      //array('name' => 'Certificado de defunción', 'data' => array(60)),
-                      //array('name' => 'Permiso de operación vehicular', 'data' => array(55)),
-                      //array('name' => 'Préstamos Hipotecarios', 'data' => array(45)),
-                      //array('name' => 'Citas médicas', 'data' => array(35)),
-                      //array('name' => 'Certificado de antescedentes policiales', 'data' => array(20)),
-                      //array('name' => 'Permiso de salida del país', 'data' => array(10)),
-                      //array('name' => 'Préstamos Quirografarios', 'data' => array(25)),
-                      //array('name' => $name, 'data' => array($p5))
-
-                      )
-              )
-          ));
-
-
-
-          ?>
+                //array('name' => 'Renovacion Matricula Caducidad', 'data' => array(100)),
+                //array('name' => 'Renovacion cédula', 'data' => array(88)),
+                //array('name' => 'Papeleta votación', 'data' => array(70)),
+                //array('name' => 'Certificado de defunción', 'data' => array(60)),
+                //array('name' => 'Permiso de operación vehicular', 'data' => array(55)),
+                //array('name' => 'Préstamos Hipotecarios', 'data' => array(45)),
+                //array('name' => 'Citas médicas', 'data' => array(35)),
+                //array('name' => 'Certificado de antescedentes policiales', 'data' => array(20)),
+                //array('name' => 'Permiso de salida del país', 'data' => array(10)),
+                //array('name' => 'Préstamos Quirografarios', 'data' => array(25)),
+                //array('name' => $name, 'data' => array($p5))
+                )
+            )
+        ));
+        ?>
         </div>
 
 
@@ -540,10 +507,10 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         <br>
                         <p class="respuesta">
                             Podrán registrarse en Tramitón ciudadanos Ecuatorianos o extranjeros residentes en Ecuador que cumplan con los siguientes requisitos:
-                            <ul>
-                                <li class="respuesta">Ser mayor de 16 años de edad</li>
-                                <li class="respuesta">Contar con cédula de identidad</li>
-                            </ul>
+                        <ul>
+                            <li class="respuesta">Ser mayor de 16 años de edad</li>
+                            <li class="respuesta">Contar con cédula de identidad</li>
+                        </ul>
                         </p>
                     </div>
                     <div class="col-xs-12 col-sm-4 frame r-0 text-center">
@@ -571,9 +538,9 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <!-- end pregunta -->
             </div>
         </div>
-    <!--end panel -->
-</div>
-<!--end #preguntas frecuentes -->
+        <!--end panel -->
+    </div>
+    <!--end #preguntas frecuentes -->
 
 </div>
 
@@ -582,8 +549,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <div class = "modal-dialog snap_modal_contenedor">
         <div class = "modal-content">
             <div class = "modal-body">
-                <?php $this->renderPartial('_form_login', array('model_login' => $model_login))
-                ?>
+<?php $this->renderPartial('_form_login', array('model_login' => $model_login))
+?>
             </div>
 
         </div>
@@ -592,41 +559,51 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 
 <div class="modal fade" tabindex="-1" role="dialog" id="tramites-simplificados-modal">
-  <div class="modal-dialog modal-dialog-center">
-    <div class="modal-content">
-      <!--  tramites 2016  -->  
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="font-size: 150%;" aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Trámites simplificados 2016</h4>
-      </div>
-        <div class="modal-body">
-            <div class="row" style="alignment-adjust: central">
-            <div class="col-xs-12 col-sm-6 text-center p-t-10" id="col-logo-1">
-              <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 200%; display:block; color: #C4161C;"></i>Detalle de trámites simplificados <br>
-              <a  role="button" class="btn btn-info" href="docs/LISTADO_PNST_MAYO_2016.pdf" target="_blank">Descargar <i class="fa fa-download fa-4"></i></a>
+    <div class="modal-dialog modal-dialog-center">
+        <div class="modal-content">
+            <!--  Plan de simplificacion  -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="font-size: 150%;" aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Simplificación de Trámites</h4>
             </div>
-        </div>
-      </div>
-      <!--  tramites 2016  --> 
-      <hr/>
-      <div class="modal-header">
-        <h4 class="modal-title">Trámites simplificados 2015</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 text-center p-t-10" id="col-logo-2">
-              <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 200%; display:block; color: #C4161C;"></i>Listado de trámites simplificados <br>
-              <a  role="button" class="btn btn-info" href="docs/LISTADO_TRAMITES_SIMPLIFICADOS_400_PNST2015.pdf" target="_blank">Descargar <i class="fa fa-download fa-4"></i></a>
+            <div class="modal-body">
+                <h4>Plan de Simplificación de Trámites</h4>
+                <div class="row" style="alignment-adjust: central">
+                    <div class="col-xs-12 col-sm-12 text-center p-t-10" id="col-logo-1">
+                        Informe del Plan de Simplificación de Trámites año 2016 <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 150%; color: #C4161C;"></i>
+                        <a  role="button" class="" href="docs/PLAN_DE_SIMPLIFICACION.pdf" target="_blank">Descargar </a>
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-12 col-sm-6 text-center p-t-10" id="col-logo-1">
-              <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 200%; display:block; color: #C4161C;"></i>Detalle de trámites simplificados <br>
-              <a  role="button" class="btn btn-info" href="docs/LISTADO_TRAMITES_SIMPLIFICADOS_SECTORES_INSTITUCIONES_PNST2015.pdf" target="_blank">Descargar <i class="fa fa-download fa-4"></i></a>
+            <hr/>
+            <!--  tramites 2016  -->  
+            <div class="modal-body">
+                <h4>Trámites simplificados 2016</h4>
+                <div class="row" style="alignment-adjust: central">
+                    <div class="col-xs-12 col-sm-12 text-center p-t-10" id="col-logo-1">
+                        Detalle de trámites simplificados <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 150%; color: #C4161C;"></i>
+                        <a  role="button" class="" href="docs/LISTADO_PNST_MAYO_2016.pdf" target="_blank">Descargar </a>
+                    </div>
+                </div>
             </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <!-- <p><h6>Toda la información registrada en este portal será confidencial</h6></p> -->
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
+            <!--  tramites 2015  --> 
+            <hr/>
+            <div class="modal-body">
+                <h4>Trámites simplificados 2015</h4>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center p-t-10" id="col-logo-2">
+                        Listado de trámites simplificados <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 150%; color: #C4161C;"></i>
+                        <a  role="button" class="" href="docs/LISTADO_TRAMITES_SIMPLIFICADOS_400_PNST2015.pdf" target="_blank">Descargar </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 text-center p-t-10" id="col-logo-1">
+                        Detalle de trámites simplificados <i class="fa fa-file-pdf-o f-14 m-b-10" style="font-size: 150%; color: #C4161C;"></i>
+                        <a  role="button" class="" href="docs/LISTADO_TRAMITES_SIMPLIFICADOS_SECTORES_INSTITUCIONES_PNST2015.pdf" target="_blank">Descargar </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <!-- <p><h6>Toda la información registrada en este portal será confidencial</h6></p> -->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
