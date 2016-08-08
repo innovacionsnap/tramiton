@@ -11,17 +11,20 @@ $baseUrl = Yii::app()->theme->baseUrl;
         <h3 class="modal-title">Bienvenido a Tramitón</h3>
       </div>
       <div class="modal-body">
-        <p><h5>Elija si desea acceder al Tramitón Ciudadano o al Tramitón Productivo</h5></p>
+        <p><h5>Elija si desea acceder al Tramitón Ciudadano, Productivo o Gubernamental</h5></p>
         <div class="row">
-            <div class="col-xs-6" id="col-logo-2">
-                <a href="#"><img id="logo-ciudadano" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-ciudadano.png' ; ?>" alt="Tramitón" width="180" onclick="closeModal();"></a>
+            <div class="col-xs-4" id="col-logo-2">
+                <a href="#"><img id="logo-ciudadano" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-ciudadano.png' ; ?>" alt="Tramitón" width="170" onclick="closeModal();"></a>
                 <p class="p-r-5 p-l-5 p-t-5">¿Conoces de trámites o servicios públicos complicados o ineficientes?</p>
             </div>
-            <div class="col-xs-6" id="col-logo-1">
-                <a href="http://productivo.tramiton.to"><img id="logo-productivo" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-productivo.png' ; ?>" alt="Tramitón productivo" width="180"></a>
+            <div class="col-xs-4" id="col-logo-1">
+                <a href="http://productivo.tramiton.to"><img id="logo-productivo" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-productivo.png' ; ?>" alt="Tramitón productivo" width="170"></a>
                 <p class="p-r-5 p-l-5 p-t-5">¿Conoces de trámites o servicios públicos complicados o ineficientes que impactan en el sector productivo?</p>
             </div>
-
+            <div class="col-xs-4" id="col-logo-2">
+                <a href="http://interno.tramiton.to"><img id="logo-ciudadano" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-gubernamental.png' ; ?>" alt="Tramitón Gubernamental" width="170"></a>
+                <p class="p-r-5 p-l-5 p-t-5">¿Quieres que las instituciones públicas brinden un mejor servicio a los servidores públicos?</p>
+            </div>
 
         </div>
       </div>
