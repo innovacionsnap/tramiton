@@ -6,6 +6,7 @@
           </div>
           <div id="direccion" class="col-sm-4 col-xs-12 text-center m-b-10 f-12">
               Av. 10 de Agosto OE1-14 y Ramírez Dávalos Código Postal: 170520 / Quito - Ecuador
+              <br>Teléfono: (593 2) 393 4500<br>Correo: <a href="mailto:tramiton@administracionpublica.gob.ec">tramiton@administracionpublica.gob.ec</a>
           </div>
           <div class="col-sm-4 col-xs-12 text-right">
             <img title="Ecuador Ama la Vida" alt="Ecuador Ama la Vida" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/ecuadoramalavida_logo.png" width="138" height="37" longdesc="longdesc/logdesc.html">
