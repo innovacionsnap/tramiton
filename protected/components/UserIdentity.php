@@ -18,17 +18,23 @@ class UserIdentity extends CUserIdentity {
     private $_id;
 
     public function authenticate() {
-        $username = strtolower($this->username);
-        $user = Usuario::model()->find('LOWER(usu_nombreusuario)=?', array($username));
-        if ($user === null)
+        //$username = strtolower($this->username);
+        $username = $this->username;
+        //$user = Usuario::model()->find('LOWER(usu_nombreusuario)=?', array($username));
+        $user = Usuario::model()->find('usu_nombreusuario=?', array($username));
+        //var_dump($user);
+        //Yii::app()->end();
+        if ($user === null){
+            //echo "<br><br><br> entre por user null";
             $this->errorCode = self::ERROR_USERNAME_INVALID;
-        else if (!$user->validatePassword($this->password))
+        }else if (!$user->validatePassword($this->password)){
+            //echo "<br><br><br> entre password incorrecta";
             $this->errorCode = self::ERROR_PASSWORD_INVALID;
 
        /* else if ($user->usu_estado === 1) 
             $this->errorCode = self::ERROR_USER_INACTIVE;*/
 
-        else {
+        }else {
             
             //Yii::app()->end();
         
@@ -49,6 +55,7 @@ class UserIdentity extends CUserIdentity {
             $command = $connection->createCommand($sql);
             $command->execute();*/
         }
+        //Yii::app()->end();
         return $this->errorCode == self::ERROR_NONE;
     }
 

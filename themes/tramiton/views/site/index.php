@@ -15,15 +15,15 @@ $baseUrl = Yii::app()->theme->baseUrl;
         <div class="row">
             <div class="col-xs-4" id="col-logo-2">
                 <a href="#"><img id="logo-ciudadano" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-ciudadano.png' ; ?>" alt="Tramitón" width="170" onclick="closeModal();"></a>
-                <p class="p-r-5 p-l-5 p-t-5">¿Conoces de trámites o servicios públicos complicados o ineficientes?</p>
+                <p class="p-r-5 p-l-5 p-t-5">Un espacio de participación ciudadana para aportar en la simplificación de trámites.</p>
             </div>
             <div class="col-xs-4" id="col-logo-1">
                 <a href="http://productivo.tramiton.to"><img id="logo-ciudadano" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-productivo-home.png' ; ?>" alt="Tramitón productivo" width="170"></a>
-                <p class="p-r-5 p-l-5 p-t-5">¿Conoces de trámites o servicios públicos complicados o ineficientes que impactan en el sector productivo?</p>
+                <p class="p-r-5 p-l-5 p-t-5">Una herramienta social activa, para la reducción de trámites que involucran al sector productivo ecuatoriano.</p>
             </div>
             <div class="col-xs-4" id="col-logo-2">
                 <a href="https://www.tramiton.to/gubernamental"><img id="logo-ciudadano" class="center-block" src="<?php echo $baseUrl . '/images/logo-tramiton-gubernamental.png' ; ?>" alt="Tramitón Gubernamental" width="170"></a>
-                <p class="p-r-5 p-l-5 p-t-5">¿Quieres que las instituciones públicas brinden un mejor servicio a los servidores públicos?</p>
+                <p class="p-r-5 p-l-5 p-t-5">El lugar ideal para que los servidores públicos aporten ideas de mejoramiento institucional.</p>
             </div>
 
         </div>
