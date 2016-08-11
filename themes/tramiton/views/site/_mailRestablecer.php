@@ -47,6 +47,9 @@
                           </td>
                         </tr>
                         <tr>
+                          <td align="right">Su nombre de usuario es: <b><?php echo $datosUser['usuUsername']; ?></b></td>
+                        </tr>
+                        <tr>
                           <td style="line-height:40px" height="40"></td>
                         </tr>
                         <tr>
