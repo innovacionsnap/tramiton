@@ -23,7 +23,7 @@
                       <tbody>
                         <tr>
                           <td align="center">
-                            <img src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/tramiton/images/tramiton-gubernamental_mail.png">
+                            <img src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/tramiton/images/logo_tramiton1.png">
                           </td>
                         </tr>
                         <tr style="border-bottom:solid 1px #BFBFBF"><td style="line-height:16px" colspan="2" height="16"></td></tr>
@@ -38,14 +38,14 @@
                       <tbody>
                         <tr>
                           <td align="justify">
-                            <p><b>Hola <?php echo $datosSolucion['usu_nombreusuario']; ?></b>,<br><br> Tu propuesta de solución para el trámite <b><?php echo $datosSolucion['tra_nombre']; ?></b> en la Institución <b><?php echo $datosSolucion['ins_nombre']; ?></b> recibió un comentario, para leerlo ingresa a <a href="<?php echo Yii::app()->getBaseUrl(true); ?>" target="_blank">https://www.tramiton.to/gubernamental</a> con tus datos de acceso, luego ve al menú seguimiento y selecciona tu propuesta de solución.</p>
+                            <p><b>Hola <?php echo $datosSolucion['usu_nombreusuario']; ?></b>,<br><br> Tu propuesta de solución para el trámite <b><?php echo $datosSolucion['tra_nombre']; ?></b> en la Institución <b><?php echo $datosSolucion['ins_nombre']; ?></b> recibió un comentario, para leerlo ingresa a <a href="<?php echo Yii::app()->getBaseUrl(true); ?>" target="_blank">https://www.tramiton.to/ciudadano</a> con tus datos de acceso, luego ve al menú seguimiento y selecciona tu propuesta de solución.</p>
                           </td>
                         </tr>
                         <tr>
                           <td style="line-height:40px" height="40"></td>
                         </tr>
                         <tr>
-                          <td align="justify">Ingresa al Portal del Tramitón desde el siguiente botón <br><br><a href="<?php echo Yii::app()->getBaseUrl(true); ?>" target="_blank" style="color: #fff; background-color: #C92D2D;border-color: #C92D2D; padding: 6px 12px;border-radius: 8px;font-size: 1.3em; text-decoration: none;">Tramitón Gubernamental</a></td>
+                          <td align="justify">Ingresa al Portal del Tramitón desde el siguiente botón <br><br><a href="<?php echo Yii::app()->getBaseUrl(true); ?>" target="_blank" style="color: #fff; background-color: #C92D2D;border-color: #C92D2D; padding: 6px 12px;border-radius: 8px;font-size: 1.3em; text-decoration: none;">Tramitón Ciudadano</a></td>
                         </tr>
                         <tr><td style="line-height:40px" height="40"></td></tr>
                         
