@@ -46,6 +46,7 @@ class SolucionController extends Controller {
 
     public function actionProcesaComentario() {
         $comentario = new Comentario();
+        $modelSolucionDatos = new consultasBaseDatos;
         $comentario_enviado = $_POST['comentario-interno'];
         $solucion = $_POST['solucion'];
         $usuario = Yii::app()->user->id;
@@ -56,6 +57,21 @@ class SolucionController extends Controller {
         $comentario->com_descripcion = $comentario_enviado;
         $comentario->com_fecha = $fecha;
         if ($comentario->save()) {
+            $datosSolucion = $modelSolucionDatos->datosSolucionMail($solucion);
+            //var_dump($datosSolucion);
+            $msgEmail = $this->renderPartial('_mailComentaSolucion', array('datosSolucion' => $datosSolucion), true);
+            $mail = new EnviarCorreo;
+
+            //enviamos los parametros necesarios para enviar el correo
+            $asunto = Yii::app()->name . ": Tu propuesta de solución recibió un comentario";
+            $asunto = utf8_decode($asunto);
+            $msgEmail = utf8_decode($msgEmail);
+            $remitente = utf8_decode(Yii::app()->name);
+            //llamamos la funcion para enviar el correo y pasamos los parametros necesarios
+            $mail->enviarMail(
+                    array(Yii::app()->params['adminEmail'], $remitente), array($datosSolucion['usu_mail'], $datosSolucion['usu_nombreusuario']), $asunto, $msgEmail
+                    // array(Yii::app()->params['adminEmail'], Yii::app()->name), array($datosUser['usuMail'], $datosUser['usuNombre']), $asunto, $msgEmail
+            );
             $this->getComentario($solucion, 'comentado');
         }
     }
@@ -72,13 +88,14 @@ class SolucionController extends Controller {
     }
 
     public function getComentario($solucion, $bandera) {
-        $comentarios = Comentario::model()->findAll($condition = 'sol_id=' . $solucion);
+        //$comentarios = Comentario::model()->findAll($condition = 'sol_id=' . $solucion);
+        $comentarios = Comentario::model()->getComentarioSolucion($solucion);
         if ($bandera == 'inicio') {
             return $comentarios;
         } else {
             foreach ($comentarios as $dato):
                 $usuario = $this->GetUsuario($dato['usu_id']);
-                $html = '<div class="row" style="border-top: 1px solid #ffffff;"><p><font style="color:#348fe2;">' . $usuario . '</font><font> ' . $dato['com_descripcion'] . '</font></p></div>';
+                $html = '<div class="row" style="border-top: 1px solid #ffffff;"><p><font style="color:#348fe2;">' . $usuario . '</font><font> ' . $dato['com_descripcion'] . '<br>' . $dato['com_fecha'] . '</font></p></div>';
                 echo $html;
             endforeach;
         }

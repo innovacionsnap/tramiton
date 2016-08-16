@@ -614,5 +614,45 @@ class consultasBaseDatos {
 
         return $casoTemp;
     }
+    
+    public function datosSolucionMail($solId) {
+        $conexion = Yii::app()->db;
+        
+        $sqlSolucionDatos = "select "
+                . "usu.usu_id, usu.usu_nombreusuario, "
+                . "usu.usu_mail, tra.tra_nombre, "
+                . "ins.ins_nombre, datt.datt_id "
+                . "from "
+                . "solucion sol, datos_tramite datt, tramite tra, "
+                . "tramite_institucion trai, institucion ins, usuario usu "
+                . "where "
+                . "sol.datt_id = datt.datt_id and "
+                . "datt.trai_id = trai.trai_id and "
+                . "trai.ins_id = ins.ins_id and "
+                . "trai.tra_id = tra.tra_id and "
+                . "sol.usu_id = usu.usu_id and "
+                . "sol.sol_id = $solId";
+        
+        $resultado = $conexion->createCommand($sqlSolucionDatos);
+
+        $solucionDatos = $resultado->query();
+        
+        $datosSolucion = array();
+        
+        foreach ($solucionDatos as $solucion) {
+            $datosSolucion = array(
+                'usu_id' => $solucion['usu_id'],
+                'usu_nombreusuario' => $solucion['usu_nombreusuario'],
+                'usu_mail' => $solucion['usu_mail'],
+                'tra_nombre' => $solucion['tra_nombre'],
+                'ins_nombre' => $solucion['ins_nombre'],
+                'datt_id' => $solucion['datt_id'],
+            );
+        }
+        
+        return $datosSolucion;
+        
+    }
+
 
 }

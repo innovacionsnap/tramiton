@@ -106,4 +106,34 @@ class Comentario extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        public function getComentarioSolucion($solId) {
+
+        $conexion = Yii::app()->db;
+
+        $sqlComentario = "select "
+                . "com_id, sol_id, usu_id, "
+                . "com_descripcion, "
+                . "to_char(com_fecha_comentario, 'TMDay, DD TMMonth YYYY a las HH24:MI') as com_fecha "
+                . "from comentario "
+                . "where sol_id = $solId";
+
+        $resultado = $conexion->createCommand($sqlComentario);
+
+        $comentario = $resultado->query();
+
+        /*$listaComentarios = array();
+
+        foreach ($comentario as $comment) {
+            $listaComentarios = array(
+                'comId' => $comment['com_id'],
+                'solId' => $comment['sol_id'],
+                'usuId' => $comment['usu_id'],
+                'comDesc' => $comment['com_descripcion'],
+                'comFecha' => $comment['com_fecha'],
+            );
+        }*/
+
+        return $comentario;
+    }
+
 }

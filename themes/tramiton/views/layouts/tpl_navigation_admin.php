@@ -101,9 +101,11 @@
                     <?php if($this->_casosTmp['existe'] == TRUE): ?>
                     <li><a href="<?php echo Yii::app()->baseUrl;?>/ciudadano/casosTemporales"><span class="badge badge-danger pull-right"><?php echo $this->_casosTmp['nroTmp'] ?></span> Casos Temporales</a></li>
                     <?php endif; ?>
+                    <?php if($this->_datosUser->usu_tipo_usuario <> 2): ?>
                     <li><a href="<?php echo Yii::app()->baseUrl;?>/ciudadano/usuario_tramites">Mis Trámites</a></li>
                     <li><a href="<?php echo Yii::app()->baseUrl;?>/empresa/empresa">Mis Empresas</a></li>
                     <li><a href="<?php echo Yii::app()->baseUrl;?>/empresa/index">Registrar Caso como Empresa</a></li>
+                    <?php endif; ?>
                     <li role="separator" class="divider"></li>
                     <li><?php echo CHtml::link('Salir', array('site/logout')); ?></li>
                 </ul>
