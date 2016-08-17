@@ -105,10 +105,11 @@ class CiudadanoController extends Controller {
         $model = new Ciudadano();
         $datosTramite_Usuario = $model->getTramite_Usuario();
         $datosTramite_Solucion = $model->getTramite_Solucion();
+        $datosTramite_Problemas = $model->getTramite_Problemas();
         $this->_datosUser = $modelUser;
         $this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin_form_caso';
-        $this->render('viewTramite_Usuario2', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion'));
+        $this->render('viewTramite_Usuario2', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion','datosTramite_Problemas'));
     }
 
     public function actionviewTramite_Usuario_Comentario() {

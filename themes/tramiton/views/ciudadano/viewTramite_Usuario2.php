@@ -83,6 +83,28 @@
                                         <tr class="divider">
                                             <td colspan="2"></td>
                                         </tr>
+                                        
+                                        <!--///////////cambio w///////////-->
+                                        <tr class="highlight">
+                                            <td class="field">Problemas</td>
+                                            <td>
+                                                <?php
+                                                
+                                                    foreach ($datosTramite_Problemas as $datos_tramite_problemas){ 
+                                                        $id=Empresa::model()->codificaGet('sol='.$datos_tramite_problemas['prob_nombre']);?>
+                                                    
+                                                    <div class="message">
+                                                        <?php echo $datos_tramite_problemas["prob_nombre_principal"];echo " - ";echo $datos_tramite_problemas["prob_nombre"] ?>
+                                                    </div>
+                                                    <br>
+
+                                                     
+                                                <?php } ?>
+                                                   
+                                            </td>
+                                        </tr>
+                                        
+                                        <!--///////////cambio w///////////-->
                                         <tr class="highlight">
                                             <td class="field">Soluciones</td>
                                             <td>
@@ -96,11 +118,12 @@
                                                     </div>
                                                     <br>
 
-                                                     <a href="../solucion/index?<?php echo  $id; ?>" class="btn btn-blue-tramiton solucion" role="button">Responder</a>
+                                                    <a href="../solucion/index?<?php echo  $id; ?>" class="btn btn-blue-tramiton solucion" role="button">Responder</a>
                                                 <?php } ?>
 
                                             </td>
-                                        </tr> 
+                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>

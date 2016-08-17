@@ -74,6 +74,24 @@ class Ciudadano extends CActiveRecord {
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
+    //////cambio w////////
+    
+    public function getTramite_Problemas() {
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+
+        $id_usuario = $modelUser['usu_id'];
+        $dato_datt_id = $_GET['datt_id'];
+        //$usu_id = $this->_datosUser->usu_id;
+        $sql= "SELECT pt.prob_id, pt.datt_id, pt.prot_estado_, pt.prot_nombreotroproblema, p.prob_nombre,p.prob_nombre_principal
+                FROM problema_tramite pt,problema p
+                where datt_id='$dato_datt_id' and pt.prob_id = p.prob_id";
+        
+        //echo "<br>".$sql;
+        $dataReader = $this->connection->createCommand($sql)->query();
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
+    /////////////////////
 
     public function getdatosTramite_Solucion_Comentario() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
