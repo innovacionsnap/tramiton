@@ -711,11 +711,14 @@ class SiteController extends Controller {
 
 //enviamos los parametros necesarios para enviar el correo
                     $asunto = Yii::app()->name . ": Solicitud de restablecimiento de clave";
+                    $asunto = utf8_decode($asunto);
                     $msgEmail = utf8_decode($msgEmail);
+                    $remitente = utf8_decode(Yii::app()->name);
 //$mensajeEmail = utf8_decode($textoEmail);
 //llamamos la funcion para enviar el correo y pasamos los parametros necesarios
                     $mail->enviarMail(
-                            array(Yii::app()->params['adminEmail'], Yii::app()->name), array($datosUser['usuMail'], $datosUser['usuUsername']), $asunto, $msgEmail
+                            
+                            array(Yii::app()->params['adminEmail'], $remitente), array($datosUser['usuMail'], $datosUser['usuUsername']), $asunto, $msgEmail
                             // array(Yii::app()->params['adminEmail'], Yii::app()->name), array($datosUser['usuMail'], $datosUser['usuNombre']), $asunto, $msgEmail
                     );
 
