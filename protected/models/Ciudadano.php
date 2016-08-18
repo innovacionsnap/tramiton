@@ -92,7 +92,7 @@ class Ciudadano extends CActiveRecord {
         return $rows;
     }
     /////////////////////
-
+    
     public function getdatosTramite_Solucion_Comentario() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
 

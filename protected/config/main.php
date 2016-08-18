@@ -10,7 +10,7 @@ Yii::setPathOfAlias('hash', dirname(__FILE__).'/../components');
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Tramiton',
+	'name'=>'Tramitón Ciudadano',
         'theme'=>'tramiton', // requires you to copy the theme under your themes directory
 
 	// preloading 'log' component

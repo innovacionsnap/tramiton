@@ -156,10 +156,10 @@ class consultasBaseDatos {
             //asigna rol ciudadano a nueva cuenta para que pueda acceder al sistema
             Yii::app()->authManager->assign('ciudadano', $codUsuario);
 
-            $mensaje = "Tu nueva cuenta de Tramiton.to ha sido activada satisfactoriamente, ya"
+            $mensaje = "Tu nueva cuenta de Tramiton Ciudadano ha sido activada satisfactoriamente, ya"
                     . " puedes ingresar y registrar los tramites más absurdos del sector público.";
         } else {
-            $mensaje = "Lo sentimos, tu nueva cuenta de Tramiton.to no pudo ser activada, por favor intentalo nuevamente";
+            $mensaje = "Lo sentimos, tu nueva cuenta de Tramiton Ciudadano no pudo ser activada, por favor intentalo nuevamente";
         }
 
         return $mensaje;

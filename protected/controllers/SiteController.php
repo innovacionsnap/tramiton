@@ -485,7 +485,7 @@ class SiteController extends Controller {
                 $mail = new EnviarCorreo;
 
 //enviamos los parametros necesarios para enviar el correo
-                $asunto = utf8_decode('Confirmar Cuenta Tramitón');
+                $asunto = utf8_decode('Confirmar Cuenta Tramitón Ciudadano');
                 $mensajeEmail = utf8_decode($textoEmail);
 
 //llamamos la funcion para enviar el correo y pasamos los parametros necesarios
@@ -582,7 +582,7 @@ class SiteController extends Controller {
             } else {
                 $mensaje = $modelActiva->activaCuenta($email, $codigoVerificacion);
                 $this->_msgSuccess = $this->creaMensaje(
-                        'Felicitaciones!!!!', $mensaje, 'Ingresa a Tramiton.to', 'login', true
+                        'Felicitaciones!!!!', $mensaje, 'Ingresa a Tramiton Ciudadano', 'login', true
                 );
             }
         }
@@ -811,7 +811,7 @@ class SiteController extends Controller {
                     } else {
                         $mensaje = "Se ha reestablecido tu contraseña correctamente, ya puedes iniciar sesión en Tramitón";
                         $this->_msgSuccess = $this->creaMensaje(
-                                'Felicitaciones!!!!', $mensaje, 'Ingresa a Tramitón', 'login', true
+                                'Felicitaciones!!!!', $mensaje, 'Ingresa a Tramitón Ciudadano', 'login', true
                         );
                     }
                     $this->redirect(array('site/success', 'msgSuccess' => $this->_msgSuccess));
