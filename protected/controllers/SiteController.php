@@ -487,10 +487,11 @@ class SiteController extends Controller {
 //enviamos los parametros necesarios para enviar el correo
                 $asunto = utf8_decode('Confirmar Cuenta Tramitón Ciudadano');
                 $mensajeEmail = utf8_decode($textoEmail);
+                $remitente = utf8_decode(Yii::app()->name);
 
 //llamamos la funcion para enviar el correo y pasamos los parametros necesarios
-                $mail->enviarMail(
-                        array(Yii::app()->params['adminEmail'], Yii::app()->name), array($model->email, $model->nombre_usuario), $asunto, $mensajeEmail
+                $mail->enviarMail(                       
+                        array(Yii::app()->params['adminEmail'], $remitente), array($model->email, $model->nombre_usuario), $asunto, $mensajeEmail
                 );
 
                 /* if (Yii::app()->session && isset(Yii::app()->session['cCache'])) {
