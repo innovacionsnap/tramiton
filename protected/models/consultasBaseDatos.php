@@ -653,6 +653,59 @@ class consultasBaseDatos {
         return $datosSolucion;
         
     }
+    
+    /**
+     * Función para actualizar la fecha del ultimo ingreso a la plataforma segun el id del usuario
+     */
+    public function ultimoIngresoUser($idUser) {
+        $conexion = Yii::app()->db;
+        
+        $sqlUpdateUser = "update usuario set "
+                . "usu_ultimo_ingreso = now() "
+                . "where usu_id = $idUser";
+        
+        $resultado = $conexion->createCommand($sqlUpdateUser);
+        return $resultado->execute();
+    }
+    
+    /**
+     * Función para llamar a una función SP creado en la base de datos para actualizar los logs
+     * de acceso al sistema por los usuarios.
+     */
+    public function callSpLogsUser($param) {
+        $conexion = Yii::app()->db;
+        
+        $usuId = $param['usu_id'];
+        $usuNombre = $param['usu_nombre'];
+        $logAccion = $param['log_accion'];
+        $logIp = $param['log_ip'];
+        $usuUsername = $param['usu_username'];
+        $logTipoPublica = $param['log_tipo_public'];
+        $logProductivo = $param['log_productivo'];
+        $logIdTabla = $param['log_id_tabla'];
+        $logTablaNombre = $param['log_tabla_nombre'];
+        $logIdTablaDest = $param['log_id_tabla_dest'];
+        $logTablaDestNombre = $param['log_tabla_dest_nombre'];
+        
+        $sqlLogsUser = "SELECT "
+                . "sp_logs_usuarios("
+                . "$usuId, "
+                . "'$usuNombre', "
+                . "'$logAccion', "
+                . "'$logIp', "
+                . "'$usuUsername', "
+                . "'$logTipoPublica', "
+                . "$logIdTabla, "
+                . "'$logTablaNombre', "
+                . "$logIdTablaDest, "
+                . "'$logTablaDestNombre', "
+                . "'$logProductivo'"
+                . ");";
+        
+        $resultado = $conexion->createCommand($sqlLogsUser);
+        return $resultado->execute();
+        
+    }
 
 
 }

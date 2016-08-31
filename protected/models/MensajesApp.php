@@ -8,7 +8,7 @@
  * @property string $msg_codigo
  * @property string $msg_titulo
  * @property string $msg_descripcion
- * @property string $msk_titulo_link
+ * @property string $msg_titulo_link
  * @property string $msg_url
  * @property integer $msg_eslink
  */
@@ -31,10 +31,10 @@ class MensajesApp extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('msg_eslink', 'numerical', 'integerOnly'=>true),
-			array('msg_codigo, msg_titulo, msg_descripcion, msk_titulo_link, msg_url', 'safe'),
+			array('msg_codigo, msg_titulo, msg_descripcion, msg_titulo_link, msg_url', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('msg_id, msg_codigo, msg_titulo, msg_descripcion, msk_titulo_link, msg_url, msg_eslink', 'safe', 'on'=>'search'),
+			array('msg_id, msg_codigo, msg_titulo, msg_descripcion, msg_titulo_link, msg_url, msg_eslink', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,12 +56,13 @@ class MensajesApp extends CActiveRecord
 	{
 		return array(
 			'msg_id' => 'Msg',
-			'msg_codigo' => 'Msg Codigo',
+			'msg_codigo' => 'código del mensaje',
 			'msg_titulo' => 'Msg Titulo',
 			'msg_descripcion' => 'Msg Descripcion',
-			'msk_titulo_link' => 'Msk Titulo Link',
+			'msg_titulo_link' => 'Msg Titulo Link',
 			'msg_url' => 'Msg Url',
-			'msg_eslink' => 'Msg Eslink',
+			'msg_eslink' => '1: si es link
+0: no es link',
 		);
 	}
 
@@ -87,7 +88,7 @@ class MensajesApp extends CActiveRecord
 		$criteria->compare('msg_codigo',$this->msg_codigo,true);
 		$criteria->compare('msg_titulo',$this->msg_titulo,true);
 		$criteria->compare('msg_descripcion',$this->msg_descripcion,true);
-		$criteria->compare('msk_titulo_link',$this->msk_titulo_link,true);
+		$criteria->compare('msg_titulo_link',$this->msg_titulo_link,true);
 		$criteria->compare('msg_url',$this->msg_url,true);
 		$criteria->compare('msg_eslink',$this->msg_eslink);
 

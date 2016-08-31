@@ -10,6 +10,7 @@ class LoginForm extends CFormModel
 	public $username;
 	public $password;
 	public $rememberMe;
+        public $idUsr;
 
 	private $_identity;
 
@@ -49,11 +50,15 @@ class LoginForm extends CFormModel
 	 */
 	public function authenticate($attribute,$params)
 	{
-		if(!$this->hasErrors())
+                if(!$this->hasErrors())
 		{
 			$this->_identity=new UserIdentity($this->username,$this->password);
-			if(!$this->_identity->authenticate())
+			if(!$this->_identity->authenticate()){
 				$this->addError('password','<span style="color: #F00;">Usuario y/o Contraseña Incorrecta</span>');
+                        }
+                        else{
+                            $this->idUsr = $this->_identity->getId();
+                        }
 		}
 	}
 
@@ -63,10 +68,11 @@ class LoginForm extends CFormModel
 	 */
 	public function login()
 	{
-		if($this->_identity===null)
+                if($this->_identity===null)
 		{
 			$this->_identity=new UserIdentity($this->username,$this->password);
 			$this->_identity->authenticate();
+                        $this->idUsr = $this->_identity->getId();
 		}
 		if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
 		{
@@ -77,4 +83,8 @@ class LoginForm extends CFormModel
 		else
 			return false;
 	}
+        
+        public function getIdUsr(){
+            return $this->idUsr;
+        }
 }

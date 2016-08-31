@@ -124,21 +124,59 @@ class SiteController extends Controller {
     public function actionLogin() {
         $model = new LoginForm;
 
-// if it is ajax validation request
+        // if it is ajax validation request
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'login-form') {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
 
-// collect user input data
+        // collect user input data
         if (isset($_POST['LoginForm'])) {
-//var_dump($_POST);
             $model->attributes = $_POST['LoginForm'];
-// validate user input and redirect to the previous page if valid
-            if ($model->validate() && $model->login())
-            //$this->redirect(array('dashboard/index'));
-            //$this->redirect(array('index'));
+            // validate user input and redirect to the previous page if valid
+            if ($model->validate() && $model->login()){
+                $usuario = Usuario::model()->findByPk($model->getIdUsr());
+                $estado = $usuario->usu_estado;
+                if($estado == 1){
+                    echo "usuario no activa cuenta";
+                    Yii::app()->user->logout();
+                    $msgCode = Yii::app()->encriptaParam->codificaParamGet(300);
+                    $this->redirect(array('site/mensajeApp', 'msgId' => $msgCode));
+                }
+                elseif ($estado == 11) {
+                    echo "usuario pidio cambio de contraseña y no terminó el proceso";
+                    Yii::app()->user->logout();
+                    $msgCode = Yii::app()->encriptaParam->codificaParamGet(301);
+                    $this->redirect(array('site/mensajeApp', 'msgId' => $msgCode));
+                }
+                else{
+                    //Yii::app()->end();
+                    $ultimaVisita = new consultasBaseDatos();
+                    
+                    $ultimaVisita->ultimoIngresoUser(Yii::app()->user->id);
+                    
+                    $datosLog = array(
+                        'usu_id' => Yii::app()->user->id,
+                        'usu_nombre' => $usuario->usu_nombre,
+                        'log_accion' => 'Ingreso al sistema',
+                        'log_ip' => Yii::app()->encriptaParam->getIpAddress(),
+                        'usu_username' => $usuario->usu_nombreusuario,
+                        'log_tipo_public' => 'log_usuario',
+                        'log_productivo' => 'N',
+                        'log_id_tabla' => 0,
+                        'log_tabla_nombre' => '',
+                        'log_id_tabla_dest' => 0,
+                        'log_tabla_dest_nombre' => ''
+                    );
+                    
+                    
+                    $ultimaVisita->callSpLogsUser($datosLog);
+                    
+                    $this->redirect(Yii::app()->user->returnUrl);
+                }
+                
                 $this->redirect(Yii::app()->user->returnUrl);
+            }
         }
 
         $this->layout = 'main-login';
@@ -600,6 +638,16 @@ class SiteController extends Controller {
 
         $mensajes = $_GET['msgSuccess'];
         $this->render('success', array('msgSuccess' => $mensajes, "model_login" => $model_login));
+    }
+    
+    public function actionMensajeApp($msgId){
+        
+        $msgCode = Yii::app()->encriptaParam->decodificaParamGet($msgId);
+        $modelMensaje = MensajesApp::model()->findAllByAttributes(array('msg_codigo' => $msgCode));
+        
+        $model_login = new LoginForm;
+        //$this->render('mensajeApp', array('msgSuccess' => $mensajes, "model_login" => $model_login));
+        $this->render('mensajeApp', array("model_login" => $model_login, 'modelMensaje' => $modelMensaje));
     }
 
     /**
