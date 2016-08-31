@@ -37,7 +37,7 @@
 
                 array('label' => '<i class="fa fa-archive"></i>Trámites<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('ciudadano', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
                     'items' => array(
-                        array('label' => 'Registro', 'url' => array('ciudadano/index')),
+                        array('label' => 'Registro', 'url' => array('./')),
                         array('label' => 'Seguimiento', 'url' => array('ciudadano/usuario_tramites')),
                         //array('label' => 'Mis comentarios', 'url' => array('')),
                     )),
