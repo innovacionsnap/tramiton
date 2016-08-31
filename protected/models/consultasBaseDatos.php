@@ -73,7 +73,7 @@ class consultasBaseDatos {
 
         $imagen = 'default_image_profile.jpg';
 
-        if ($datosCiudadano->genero === 'MASCULINO') {
+        if ($datosCiudadano->genero === 'HOMBRE') {
             $imagen = 'hombre.png';
         } else {
             $imagen = 'mujer.png';

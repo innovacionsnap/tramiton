@@ -94,7 +94,8 @@
                                                         $id=Empresa::model()->codificaGet('sol='.$datos_tramite_problemas['prob_nombre']);?>
                                                     
                                                     <div class="message">
-                                                        <?php echo $datos_tramite_problemas["prob_nombre_principal"];echo "<br>" ;echo $datos_tramite_problemas["prob_nombre"] ?>
+                                                        <strong><?php echo $datos_tramite_problemas["prob_nombre_principal"];?></strong>
+                                                                <?php echo "<br>" ;echo $datos_tramite_problemas["prob_nombre"] ?>
                                                     </div>
                                                     <br>
 
