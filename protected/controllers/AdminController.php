@@ -87,7 +87,7 @@ class AdminController extends Controller {
         $modelRole = new RoleForm;
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $this->_datosUser = $modelUser;
-        $this->_casosTmp = $this->getDatosTemporal();
+        //$this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin';
         $this->render('role', array('modelRole' => $modelRole));
     }

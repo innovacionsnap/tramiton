@@ -50,14 +50,7 @@
                         //array('label' => 'Servicios', 'url' => array('')),
                         //array('label' => 'Usuarios', 'url' => array('')),
                     )),
-                /*
-                array('label' => '<i class="fa fa-cubes"></i>Procesos<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('super_admin', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
-                    'items' => array(
-                        array('label' => 'Aprobar Tranferencias', 'url' => array('')),
-                        array('label' => 'Aprobar Acciones Correctivas', 'url' => array('')),
-                        array('label' => 'Seguimiento', 'url' => array('')),
-                    )),
-                */
+                
                  array('label' => '<i class="fa fa-crosshairs"></i>Seguimiento<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('bitacora', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
                     'items' => array(
                         array('label' => 'Bitácora', 'url' => array('bitacora/index')),
@@ -65,6 +58,16 @@
                         //array('label' => 'Tareas por usuario', 'url' => array('')),
                         //array('label' => 'Archivos', 'url' => array('')),
                     )),
+                
+                array('label' => '<i class="fa fa-bar-chart-o"></i>Reportes<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('super_admin', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
+                    'items' => array(
+                        array('label' => 'General', 'url' => array('reporte/index')),
+                        array('label' => 'Instituciones', 'url' => array('reporte/institucion')),
+                        array('label' => 'Trámites', 'url' => array('')),
+                        array('label' => 'Acciones Coreectivas', 'url' => array('')),
+                        array('label' => 'Usuarios', 'url' => array('')),
+                    )),
+                
                 array('label' => '<i class="fa fa-cogs"></i>Administración<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('super_admin', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
                     'items' => array(
                         array('label' => 'Usuarios', 'url' => array('admin/index')),

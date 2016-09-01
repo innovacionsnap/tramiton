@@ -150,18 +150,18 @@ class SiteController extends Controller {
                     $this->redirect(array('site/mensajeApp', 'msgId' => $msgCode));
                 }
                 else{
-                    //Yii::app()->end();
+                    /**
+                     * Bloque para guardar los eventos de ingreso de usuarios en el log
+                     */
                     $ultimaVisita = new consultasBaseDatos();
-                    
                     $ultimaVisita->ultimoIngresoUser(Yii::app()->user->id);
-                    
                     $datosLog = array(
                         'usu_id' => Yii::app()->user->id,
                         'usu_nombre' => $usuario->usu_nombre,
                         'log_accion' => 'Ingreso al sistema',
                         'log_ip' => Yii::app()->encriptaParam->getIpAddress(),
                         'usu_username' => $usuario->usu_nombreusuario,
-                        'log_tipo_public' => 'log_usuario',
+                        'log_tipo_public' => 'log_ingreso_usuario',
                         'log_productivo' => 'N',
                         'log_id_tabla' => 0,
                         'log_tabla_nombre' => '',

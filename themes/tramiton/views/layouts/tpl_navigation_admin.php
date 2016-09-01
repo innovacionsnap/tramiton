@@ -98,9 +98,9 @@
                 <ul class="dropdown-menu animated fadeInLeft">
                     <!-- <li class="arrow"></li> -->
                     <li><?php echo CHtml::link('Editar Perfil', array('ciudadano/mostrarPerfil', 'key' => $this->_datosUser->usu_codigo_confirmacion)); ?></li>
-                    <?php if($this->_casosTmp['existe'] == TRUE): ?>
-                    <li><a href="<?php echo Yii::app()->baseUrl;?>/ciudadano/casosTemporales"><span class="badge badge-danger pull-right"><?php echo $this->_casosTmp['nroTmp'] ?></span> Casos Temporales</a></li>
-                    <?php endif; ?>
+                    <?php //if($this->_casosTmp['existe'] == TRUE): ?><!--
+                    <li><a href="<?php //echo Yii::app()->baseUrl;?>/ciudadano/casosTemporales"><span class="badge badge-danger pull-right"><?php //echo $this->_casosTmp['nroTmp'] ?></span> Casos Temporales</a></li>-->
+                    <?php //endif; ?>
                     <?php if($this->_datosUser->usu_tipo_usuario <> 2): ?>
                     <li><a href="<?php echo Yii::app()->baseUrl;?>/ciudadano/usuario_tramites">Mis Trámites</a></li>
                     <li><a href="<?php echo Yii::app()->baseUrl;?>/empresa/empresa">Mis Empresas</a></li>
