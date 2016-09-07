@@ -63,9 +63,9 @@
                     'items' => array(
                         array('label' => 'General', 'url' => array('reporte/index')),
                         array('label' => 'Instituciones', 'url' => array('reporte/institucion')),
-                        array('label' => 'Trámites', 'url' => array('')),
-                        array('label' => 'Acciones Coreectivas', 'url' => array('')),
-                        array('label' => 'Usuarios', 'url' => array('')),
+                        array('label' => 'Trámites', 'url' => array('reporte/tramites')),
+                        array('label' => 'Acciones Correctivas', 'url' => array('reporte/tramitones')),
+                        array('label' => 'Usuarios', 'url' => array('reporte/usuarios_inst')),
                     )),
                 
                 array('label' => '<i class="fa fa-cogs"></i>Administración<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('super_admin', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),

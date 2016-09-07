@@ -661,7 +661,7 @@ class consultasBaseDatos {
         $conexion = Yii::app()->db;
         
         $sqlUpdateUser = "update usuario set "
-                . "usu_ultimo_ingreso = now() "
+                . "usu_ultimo_ingreso = now(),usu_ingresos=usu_ingresos + 1 "
                 . "where usu_id = $idUser";
         
         $resultado = $conexion->createCommand($sqlUpdateUser);
