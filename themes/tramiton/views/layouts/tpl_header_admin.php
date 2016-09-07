@@ -38,6 +38,7 @@
 
         <!-- ================== BEGIN PAGE LEVEL STYLE - TABLAS ================== -->
         <link href="<?php echo $baseUrl; ?>/assets/plugins/DataTables/css/data-table.css" rel="stylesheet" />
+        <!--<link href="<?php //echo $baseUrl; ?>/assets/plugins/DataTables/css/dataTables.tableTools.min.css" rel="stylesheet" />-->
         <!-- ================== END PAGE LEVEL STYLE ================== -->
         <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>/assets/css/navigation.css">
         <link type="text/css" href="<?php echo $baseUrl; ?>/assets/css/footer.css" rel="stylesheet" />
@@ -60,8 +61,15 @@
 
         <script src="<?php echo $baseUrl; ?>/assets/plugins/pace/pace.min.js"></script>
         <script type="text/javascript" src="<?php echo $baseUrl; ?>/views/ciudadano/jquery.js"></script>
+        <!--<script src="<?php //echo Yii::app()->theme->baseUrl; ?>/assets/plugins/DataTables/js/dataTables.tableTools.min.js"></script>-->
         <script type="text/javascript">
             $(document).ready(function () {
+                /*var table = $('#data-table').dataTable();
+                var tableTools = new $.fn.dataTable.TableTools(table);
+                $(tableTools.fnContainer()).insertBefore('#data_table_wrapper');*/
+                
+                
+                
                 /* COMBOBOX PROVINCIAS  */
                 $("#id_provincia").change(function (event)
                 {

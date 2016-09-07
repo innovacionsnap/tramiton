@@ -8,12 +8,11 @@
             <a><img class="center-block" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo_pais.png" /></a>
         </div>
         <div id="col-socials-networks" class="col-xs-4" align="right">
-                    <a style="display: none;" target="_blank" href="http://ilab.gob.ec/"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_plataforma_innovacion.png'); ?>"></a>
-                    <a target="_blank" href="https://www.facebook.com/AdmPublicaEcuador"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_facebook.png'); ?>"></a>
-                    <a target="_blank" href="https://twitter.com/tramitonEC"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_twitter.png'); ?>"></a>
-                    <a target="_blank" href="https://www.youtube.com/user/AdmPublicaEcuador"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/uoy.png'); ?>"></a>
+          <a style="display: none;" target="_blank" href="http://ilab.gob.ec/"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_plataforma_innovacion.png'); ?>"></a>
+          <a target="_blank" href="https://www.facebook.com/AdmPublicaEcuador"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_facebook.png'); ?>"></a>
+          <a target="_blank" href="https://twitter.com/tramitonEC"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/red_twitter.png'); ?>"></a>
+          <a target="_blank" href="https://www.youtube.com/user/AdmPublicaEcuador"><img src="<?php echo (Yii::app()->theme->baseUrl . '/assets/img/uoy.png'); ?>"></a>
         </div>
-
     </div>
 </div>
 <!-- end #footer -->
@@ -52,14 +51,17 @@
 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/dashboard.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/apps-admin.js"></script>
+
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/parsley/dist/parsley.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/form-wizards-validation.demo.js"></script>
+
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/DataTables/js/jquery.dataTables-asc.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/DataTables/js/dataTables.tableTools.js"></script>
+<!--<script src="<?php //echo Yii::app()->theme->baseUrl; ?>/assets/js/table-manage-default.demo.min.js"></script>-->
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/table-manage-tabletools.demo.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 
-<!-- ================== BEGIN PLUGIN DATA TABLES ================== -->
-<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/plugins/DataTables/js/jquery.dataTables.js"></script>
-<script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/table-manage-default.demo.min.js"></script>
-
-<!-- ================== END PAGE LEVEL JS ================== -->
-<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/jquery.yiiactiveform.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/view-elements.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/body-padding.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/notificacion.js"></script>
@@ -70,7 +72,9 @@
 <script>
     $(document).ready(function () {
         App.init();
-        TableManageDefault.init();
+        TableManageTableTools.init();
+        FormWizardValidation.init();
+        //TableManageDefault.init();
         viewElements();
         bodyPadding();
     });

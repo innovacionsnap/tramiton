@@ -26,7 +26,7 @@ class ReporteController extends Controller {
         
         $this->_datosUser = $modelUser;
         
-        $this->layout = 'main-admin';
+        $this->layout = 'main-admin-rep';
         $this->render('institucion', array('datosInstitucion' => $datosInstitucion));
         
     }

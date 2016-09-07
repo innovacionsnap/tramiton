@@ -28,7 +28,7 @@ class Reporte {
                 . "dt.trai_id = trai.trai_id and "
                 . "trai.ins_id = ins.ins_id "
                 . "group by trai.ins_id, ins.ins_nombre "
-                . "order by total desc limit 10";
+                . "order by total desc ";
         
          $resultado = $conexion->createCommand($sqlTopTen);
          
