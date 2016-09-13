@@ -257,7 +257,33 @@ class ReporteController extends Controller {
     
     public function actionResumen() {
         
-               
+         $hoy = getdate();
+        $d= $hoy['mday'];
+        $d1=$d-9;
+        $d2=$d-8;
+        $d3=$d-7;
+        $d4=$d-6;
+        $d5=$d-5;
+        $d6=$d-4;
+        $d7=$d-3;
+        $d8=$d-2;
+        $d9=$d-1;
+        $d10=$d;
+        
+        $m =$hoy['mon'];
+        $a =$hoy['year'];
+        //$d=$d-9;
+
+        $fecha1=$a . '-' . $m . '-' . $d1;      
+        $fecha2=$a . '-' . $m . '-' . $d2;      
+        $fecha3=$a . '-' . $m . '-' . $d3;      
+        $fecha4=$a . '-' . $m . '-' . $d4;      
+        $fecha5=$a . '-' . $m . '-' . $d5; 
+        $fecha6=$a . '-' . $m . '-' . $d6;      
+        $fecha7=$a . '-' . $m . '-' . $d7;      
+        $fecha8=$a . '-' . $m . '-' . $d8;      
+        $fecha9=$a . '-' . $m . '-' . $d9;      
+        $fecha10=$a . '-' . $m . '-' . $d10; 
                
         $modelReporte = new Reporte();
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
@@ -274,6 +300,29 @@ class ReporteController extends Controller {
         $datosMegusta1 = $modelReporte->Megusta1();
         $datosMegusta2 = $modelReporte->Megusta2();
         $datosgrafico = $modelReporte->grafico();
+        $datosgraficofc1 = $modelReporte->graficofc1($fecha1);
+        $datosgraficofc2 = $modelReporte->graficofc1($fecha2);
+        $datosgraficofc3 = $modelReporte->graficofc1($fecha3);
+        $datosgraficofc4 = $modelReporte->graficofc1($fecha4);
+        $datosgraficofc5 = $modelReporte->graficofc1($fecha5);
+        $datosgraficofc6 = $modelReporte->graficofc1($fecha6);
+        $datosgraficofc7 = $modelReporte->graficofc1($fecha7);
+        $datosgraficofc8 = $modelReporte->graficofc1($fecha8);
+        $datosgraficofc9 = $modelReporte->graficofc1($fecha9);
+        $datosgraficofc10 = $modelReporte->graficofc1($fecha10);
+        
+        $datosgraficofp1 = $modelReporte->graficofp1($fecha1);
+        $datosgraficofp2 = $modelReporte->graficofp1($fecha2);
+        $datosgraficofp3 = $modelReporte->graficofp1($fecha3);
+        $datosgraficofp4 = $modelReporte->graficofp1($fecha4);
+        $datosgraficofp5 = $modelReporte->graficofp1($fecha5);
+        $datosgraficofp6 = $modelReporte->graficofp1($fecha6);
+        $datosgraficofp7 = $modelReporte->graficofp1($fecha7);
+        $datosgraficofp8 = $modelReporte->graficofp1($fecha8);
+        $datosgraficofp9 = $modelReporte->graficofp1($fecha9);
+        $datosgraficofp10 = $modelReporte->graficofp1($fecha10);
+        
+        
         $datosgraficop = $modelReporte->graficop();
         
         
@@ -288,7 +337,8 @@ class ReporteController extends Controller {
         $this->_datosUser = $modelUser;
         
         $this->layout = 'main-resumen';
-        $this->render('resumen',compact('datosUsuarios','datosTramitones','datosTramites','datosSumaUsuarios','datosSumaAcciones','datosSumaTramites','datosComentarios','datosSumaComentarios','datosIngresos1','datosIngresos2','datosMegusta1','datosMegusta2','datosgrafico','datosgraficop' ));
+        $this->render('resumen',compact('datosUsuarios','datosTramitones','datosTramites','datosSumaUsuarios','datosSumaAcciones','datosSumaTramites','datosComentarios','datosSumaComentarios','datosIngresos1','datosIngresos2','datosMegusta1','datosMegusta2','datosgrafico','datosgraficop',
+                'datosgraficofc1','datosgraficofc2','datosgraficofc3','datosgraficofc4','datosgraficofc5','datosgraficofc6','datosgraficofc7','datosgraficofc8','datosgraficofc9','datosgraficofc10','datosgraficofp1','datosgraficofp2','datosgraficofp3','datosgraficofp4','datosgraficofp5','datosgraficofp6','datosgraficofp7','datosgraficofp8','datosgraficofp9','datosgraficofp10' ));
         
     }
 

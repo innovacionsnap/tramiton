@@ -16,6 +16,7 @@ class Reporte {
     /**
      * Función para top ten de instituciones     
      */
+    
     public function topTenInstituciones() {
         $conexion = Yii::app()->db;
         
@@ -381,7 +382,7 @@ public function GenComentarios() {
         $sqlaccion = "SELECT count(datt_id) as totalg ,datt_fecharegistro, datt_productivo 
        
   FROM datos_tramite
-  where datt_productivo='N' group by datt_fecharegistro,datt_productivo limit 10;";
+  where datt_productivo='N'  group by datt_fecharegistro,datt_productivo limit 10;";
         
          $resultado = $conexion->createCommand($sqlaccion);
          
@@ -396,6 +397,44 @@ public function GenComentarios() {
        
   FROM datos_tramite
   where datt_productivo='S' group by datt_fecharegistro,datt_productivo limit 10;";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    public function graficofc1($fecha) {
+        
+        
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "SELECT count(datt_id) as totalg ,datt_fecharegistro, datt_productivo 
+       
+  FROM datos_tramite
+  where datt_productivo='N' and datt_fecharegistro ='$fecha'
+  
+  group by datt_fecharegistro,datt_productivo";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+    
+    public function graficofp1($fecha) {
+        
+        
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "SELECT count(datt_id) as totalg ,datt_fecharegistro, datt_productivo 
+       
+  FROM datos_tramite
+  where datt_productivo='S' and datt_fecharegistro ='$fecha'
+  
+  group by datt_fecharegistro,datt_productivo";
         
          $resultado = $conexion->createCommand($sqlaccion);
          

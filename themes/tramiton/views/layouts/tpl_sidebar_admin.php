@@ -16,7 +16,7 @@
         <!-- end sidebar user -->
         <!-- begin sidebar nav -->
 
-        <?php
+        <?php               
         
         $sw = FALSE;
         if($this->_datosUser->rol_id == 2){

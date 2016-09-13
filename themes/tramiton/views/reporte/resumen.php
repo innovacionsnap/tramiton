@@ -352,6 +352,154 @@ $baseUrl = Yii::app()->theme->baseUrl;
  endforeach; ?>  
 
 <?php
+$jf1=0;
+$jf2=0;
+$jf3=0;
+$jf4=0;
+$jf5=0;
+$jf6=0;
+$jf7=0;
+$jf8=0;
+$jf9=0;
+$jf10=0;
+
+$if1=0;
+$if2=0;
+$if3=0;
+$if4=0;
+$if5=0;
+$if6=0;
+$if7=0;
+$if8=0;
+$if9=0;
+$if10=0;
+?>
+
+<?php                                                                
+  foreach ($datosgraficofc1 as $datosfc1) : 
+        $if1= $datosfc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofc2 as $datosfc2) : 
+        $if2= $datosfc2['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofc3 as $datosfc3) : 
+        $if3= $datosfc3['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofc4 as $datosfc4) : 
+        $if4= $datosfc4['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofc5 as $datosfc5) : 
+        $if5= $datosfc5['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofc6 as $datosfc1) : 
+        $if6= $datosfc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofc7 as $datosfc2) : 
+        $if7= $datosfc2['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofc8 as $datosfc3) : 
+        $if8= $datosfc3['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofc9 as $datosfc4) : 
+        $if9= $datosfc4['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofc10 as $datosfc5) : 
+        $if10= $datosfc5['totalg'];    
+                                 
+ endforeach; ?>  
+
+
+
+<?php                                                                
+  foreach ($datosgraficofp1 as $datosfp1) : 
+        $jf1= $datosfc1['totalg'];                                                              
+        
+ 
+                                
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofp2 as $datosfc2) : 
+        $jf2= $datosfc2['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofp3 as $datosfc3) : 
+        $jf3= $datosfc3['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofp4 as $datosfc4) : 
+        $jf4= $datosfc4['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofp5 as $datosfc5) : 
+        $jf5= $datosfc5['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofp6 as $datosfc1) : 
+        $jf6= $datosfc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofp7 as $datosfc2) : 
+        $jf7= $datosfc2['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofp8 as $datosfc3) : 
+        $jf8= $datosfc3['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofp9 as $datosfc4) : 
+        $jf9= $datosfc4['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficofp10 as $datosfc5) : 
+        $jf10= $datosfc5['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php
 $hoy = getdate();
 $d= $hoy['mday'];
 $m =$hoy['mon'];
@@ -364,27 +512,27 @@ $fecha=$a . '-' . $m . '-' . $d;
 ?>
 <script >
     
-    c1=<?php echo $i[1] ?>;
-    c2=<?php echo $i[2] ?>;
-    c3=<?php echo $i[3] ?>;
-    c4=<?php echo $i[4] ?>;
-    c5=<?php echo $i[5] ?>;
-    c6=<?php echo $i[6] ?>;
-    c7=<?php echo $i[7] ?>;
-    c8=<?php echo $i[8] ?>;
-    c9=<?php echo $i[9] ?>;
-    c10=<?php echo $i[10] ?>;
+    c1=<?php echo $if1 ?>;
+    c2=<?php echo $if2 ?>;
+    c3=<?php echo $if3 ?>;
+    c4=<?php echo $if4 ?>;
+    c5=<?php echo $if5 ?>;
+    c6=<?php echo $if6 ?>;
+    c7=<?php echo $if7 ?>;
+    c8=<?php echo $if8 ?>;
+    c9=<?php echo $if9 ?>;
+    c10=<?php echo $if10 ?>;
     
-    p1=<?php echo $j[1] ?>;
-    p2=<?php echo $j[2] ?>;
-    p3=<?php echo $j[3] ?>;
-    p4=<?php echo $j[4] ?>;
-    p5=<?php echo $j[5] ?>;
-    p6=<?php echo $j[6] ?>;
-    p7=<?php echo $j[7] ?>;
-    p8=<?php echo $j[8] ?>;
-    p9=<?php echo $j[9] ?>;
-    p10=<?php echo $j[10] ?>;
+    p1=<?php echo $jf1 ?>;
+    p2=<?php echo $jf2 ?>;
+    p3=<?php echo $jf3 ?>;
+    p4=<?php echo $jf4 ?>;
+    p5=<?php echo $jf5 ?>;
+    p6=<?php echo $jf6 ?>;
+    p7=<?php echo $jf7 ?>;
+    p8=<?php echo $jf8 ?>;
+    p9=<?php echo $jf9 ?>;
+    p10=<?php echo $jf10 ?>;
     
     
     fc1=<?php echo $fecha ?>;
