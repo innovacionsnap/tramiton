@@ -30,7 +30,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                                        	
 						</div>
 						<div class="stats-link">
-							<a href="general">Detalle </a>
+							<a href="general">Detalle <i class="fa fa-arrow-circle-o-right"></i></a> </a>
 						</div>
 					</div>
 				</div>
@@ -134,15 +134,15 @@ $baseUrl = Yii::app()->theme->baseUrl;
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 							</div>
-							<h4 class="panel-title">Detalles de Datos</h4>
+							<h4 class="panel-title">Datos Tramitón</h4>
 						</div>
 						<div class="panel-body p-t-0">
 							<table class="table table-valign-middle m-b-0">
 								<thead>
 									<tr>	
-										<th>Fuente</th>
-										<th>Trámiton Ciudadano</th>
-										<th>Trámiton Productivo</th>
+										<th>Tipo</th>
+										<th>Ciudadano</th>
+										<th>Productivo</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -239,7 +239,9 @@ $baseUrl = Yii::app()->theme->baseUrl;
 					
 				</div>
 				<!-- end col-4 -->
-                                
+                                <!--
+                                <div class="col-md-4">
+                                    
                                 <div class="panel panel-inverse" data-sortable-id="index-10">
 						<div class="panel-heading">
 							<div class="panel-heading-btn">
@@ -248,12 +250,14 @@ $baseUrl = Yii::app()->theme->baseUrl;
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 							</div>
-							<h4 class="panel-title">Calendario</h4>
+							<h4 class="panel-title"align="center">Calendario</h4>
 						</div>
 						<div class="panel-body">
 							<div id="datepicker-inline" class="datepicker-full-width"><div></div></div>
 						</div>
 					</div>
+                                    
+                                </div>-->
                                 
                                 <!-- estadisticas ---->
                                 <div id="estadisticas" class="container-fluid p-t-30 p-r-30 p-l-30">
@@ -352,6 +356,7 @@ $hoy = getdate();
 $d= $hoy['mday'];
 $m =$hoy['mon'];
 $a =$hoy['year'];
+$d=$d-9;
 
 $fecha=$a . '-' . $m . '-' . $d;
 
@@ -403,6 +408,10 @@ $fecha=$a . '-' . $m . '-' . $d;
     fp8=<?php echo $fp[8] ?>;
     fp9=<?php echo $fp[9] ?>;
     fp10=<?php echo $fp[10] ?>;
+    
+    a=<?php echo $a ?>;
+    m=<?php echo $m ?>;
+    d=<?php echo $d ?>;
    
     
     $(document).ready(function () {
@@ -442,7 +451,25 @@ var blue		= '#348fe2',
     
 
 var handleInteractiveChart = function () {
-    
+        fc1=a+'-'+m+'-'+d;
+        d++;
+        fc2=a+'-'+m+'-'+d;
+        d++;
+        fc3=a+'-'+m+'-'+d;
+        d++;
+        fc4=a+'-'+m+'-'+d;
+        d++;
+        fc5=a+'-'+m+'-'+d;
+        d++;
+        fc6=a+'-'+m+'-'+d;
+        d++;
+        fc7=a+'-'+m+'-'+d;
+        d++;
+        fc8=a+'-'+m+'-'+d;
+        d++;
+        fc9=a+'-'+m+'-'+d;
+        d++;
+        fc10=a+'-'+m+'-'+d;
 	"use strict";
     function showTooltip(x, y, contents) {
         $('<div id="tooltip" class="flot-tooltip">' + contents + '</div>').css( {
@@ -461,7 +488,7 @@ var handleInteractiveChart = function () {
             //[11, 18], [12, 30], [13, 25], [14, 25], [15, 30], [16, 27], [17, 20], [18, 18], [19, 31], [20, 23]
         ];
         var xLabel = [
-            [1,'2016-09-04'],[2,'2016-09-05'],[3,'2016-09-06'],[4,'2016-09-07'],[5,'2016-09-08'],[6,'2016-09-09'],[7,'2016-09-10'],[8,'2016-09-11'],[9,'2016-09-12'],[10,'2016-09-13']
+            [1,fc1],[2,fc2],[3,fc3],[4,fc4],[5,fc5],[6,fc6],[7,fc7],[8,fc8],[9,fc9],[10,fc10]
             //[11,''],[12,'May&nbsp;25'],[13,''],[14,''],[15,'May&nbsp;28'],[16,''],[17,''],[18,'May&nbsp;31'],[19,''],[20,'']
         ];
         $.plot($("#interactive-chart"), [
@@ -475,7 +502,7 @@ var handleInteractiveChart = function () {
                 }, {
                     data: data2,
                     label: 'Tramitón Productivo',
-                    color: green,
+                    color: orange,
                     lines: { show: true, fill:false, lineWidth: 2 },
                     points: { show: true, radius: 3, fillColor: '#fff' },
                     shadowSize: 0
