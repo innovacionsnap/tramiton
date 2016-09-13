@@ -47,7 +47,10 @@
                                         <td><?php echo $datos['ins_nombre']; ?></td>
                                         <td><?php echo $datos['total']; ?></td>
                                         <td><?php
-                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>', array("reporte/viewInstitucion", 'id' => $datos['total']), array('title' => 'Mostrar'));
+                                            $tramite='N';
+                                            $inst = Yii::app()->encriptaParam->codificaParamGet($datos['ins_id']); 
+                                            $tramite = Yii::app()->encriptaParam->codificaParamGet($tramite); 
+                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>', array("reporte/viewtramites2", 'inst' => $inst,'tram'=>$tramite), array('title' => 'Mostrar'));
                                             ?>
                                         </td>
                                     </tr>

@@ -130,7 +130,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
            $p5 = $nacc['total']+0;
            $name= $nacc['nombre'];
            $nombreac=array('name' => $name, 'data' => array($p5));
-
+           
            }
 
            if($i==2)

@@ -50,7 +50,7 @@
                                         <td><?php
                                         //$inst=$datos['ins_id'];
                                         $tram=$datos['usu_tramiton'];
-                                        //$tram = Yii::app()->encriptaParam->codificaParamGet($datos['usu_tramiton']); 
+                                        $tram = Yii::app()->encriptaParam->codificaParamGet($datos['usu_tramiton']); 
                                             echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>', array("reporte/viewusuarios", 'tram' => $tram), array('title' => 'Mostrar'));
                                             ?>
                                         </td>

@@ -108,7 +108,7 @@
                                     <th>Nombre</th>
                                     <th>Descripción</th>
                                     <th>Nombre Trámite</th>
-                                    <th>Nombre Usuario</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -129,7 +129,7 @@
                                         </td>
                                         
                                         <td><?php echo $datos['tra_nombre']; ?></td>
-                                        <td><?php echo $datos['usu_nombre']; ?></td>
+                                        
                                         
                                     </tr>
                                 <?php 

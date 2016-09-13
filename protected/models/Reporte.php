@@ -20,15 +20,15 @@ class Reporte {
         $conexion = Yii::app()->db;
         
         $sqlTopTen = "select "
-                . "count(trai.ins_id) as total, ins.ins_nombre "
+                . "count(trai.ins_id) as total, ins.ins_nombre,ins.ins_id "
                 . "from "
                 . "datos_tramite dt, tramite_institucion trai, institucion ins "
                 . "where "
                 . "datt_productivo = 'N' and "
                 . "dt.trai_id = trai.trai_id and "
                 . "trai.ins_id = ins.ins_id "
-                . "group by trai.ins_id, ins.ins_nombre "
-                . "order by total desc ";
+                . "group by trai.ins_id, ins.ins_nombre,ins.ins_id "
+                . "order by total desc limit 10";
         
          $resultado = $conexion->createCommand($sqlTopTen);
          
@@ -184,4 +184,223 @@ public function ViewAccionesC($inst,$tram2) {
          return $datos;
     
 }
+
+public function GenUsuarios() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "select count(usu_id) as total,usu_tramiton 
+                from usuario  group by usu_tramiton,usu_tipo_usuario;";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+public function GenComentarios() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "SELECT s.sol_productivo,count(c.com_id) as totalcom,u.usu_tipo_usuario
+  FROM solucion s,comentario c,usuario u
+  where s.sol_id=c.sol_id and c.usu_id = u.usu_id
+  group by s.sol_productivo,u.usu_tipo_usuario";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+    public function GenUsuarios1() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "select count(usu_id) as total,usu_tramiton 
+                from usuario  where usu_tramiton = 1 group by usu_tramiton";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+    public function GenUsuarios2() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "select count(usu_id) as total,usu_tramiton 
+                from usuario  where usu_tramiton = 2 group by usu_tramiton";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+    public function Tramites1() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "select count(datt_id) as total,datt_productivo "
+                . "from datos_tramite where datt_productivo='N' group by datt_productivo;";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+    public function Tramites2() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "select count(datt_id) as total,datt_productivo "
+                . "from datos_tramite where datt_productivo='S' group by datt_productivo;";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+    public function Tramitones1() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "select count(accc_id) as total,accc_productivo "
+                . "from acciones_correctivas where accc_productivo=1 group by accc_productivo;";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+     public function Tramitones2() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "select count(accc_id) as total,accc_productivo "
+                . "from acciones_correctivas where accc_productivo=2 group by accc_productivo;";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    public function GenComentarios1() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "SELECT s.sol_productivo,count(c.com_id) as totalcom
+  FROM solucion s,comentario c,usuario u
+  where s.sol_id=c.sol_id and c.usu_id = u.usu_id and sol_productivo='N'
+  group by s.sol_productivo";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+    public function GenComentarios2() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "SELECT s.sol_productivo,count(c.com_id) as totalcom
+  FROM solucion s,comentario c,usuario u
+  where s.sol_id=c.sol_id and c.usu_id = u.usu_id and sol_productivo='S'
+  group by s.sol_productivo";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+    public function Ingresos1() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "select count(logs_id) as total,logs_productivo 
+                from log_sistema where logs_productivo='N' and logs_accion='Ingreso al sistema' group by logs_productivo ";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    public function Ingresos2() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "select count(logs_id) as total,logs_productivo 
+                from log_sistema where logs_productivo='S' and logs_accion='Ingreso al sistema' group by logs_productivo ";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+    public function Megusta1() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "SELECT s.sol_productivo,count(m.mgu_id) as totalcom
+  FROM solucion s,megusta m,usuario u
+  where s.sol_id=m.sol_id and m.usu_id = u.usu_id and sol_productivo='N'
+  group by s.sol_productivo";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+     public function Megusta2() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "SELECT s.sol_productivo,count(m.mgu_id) as totalcom
+  FROM solucion s,megusta m,usuario u
+  where s.sol_id=m.sol_id and m.usu_id = u.usu_id and sol_productivo='S'
+  group by s.sol_productivo";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+    public function grafico() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "SELECT count(datt_id) as totalg ,datt_fecharegistro, datt_productivo 
+       
+  FROM datos_tramite
+  where datt_productivo='N' group by datt_fecharegistro,datt_productivo limit 10;";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    public function graficop() {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "SELECT count(datt_id) as totalg ,datt_fecharegistro, datt_productivo 
+       
+  FROM datos_tramite
+  where datt_productivo='S' group by datt_fecharegistro,datt_productivo limit 10;";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
 }

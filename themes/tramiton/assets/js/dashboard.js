@@ -96,6 +96,7 @@ var handleVectorMap = function() {
 };
 
 var handleInteractiveChart = function () {
+    wil=90;
 	"use strict";
     function showTooltip(x, y, contents) {
         $('<div id="tooltip" class="flot-tooltip">' + contents + '</div>').css( {
@@ -106,7 +107,7 @@ var handleInteractiveChart = function () {
 	if ($('#interactive-chart').length !== 0) {
 	
         var data1 = [ 
-            [1, 40], [2, 50], [3, 60], [4, 60], [5, 60], [6, 65], [7, 75], [8, 90], [9, 100], [10, 105], 
+            [1, 10], [2, 50], [3, 60], [4, 60], [5, 60], [6, 65], [7, 75], [8, 90], [9, 100], [10, 105], 
             [11, 110], [12, 110], [13, 120], [14, 130], [15, 135],[16, 145], [17, 132], [18, 123], [19, 135], [20, 150] 
         ];
         var data2 = [
@@ -120,14 +121,14 @@ var handleInteractiveChart = function () {
         $.plot($("#interactive-chart"), [
                 {
                     data: data1, 
-                    label: "Page Views", 
+                    label: "Tramitón Ciudadano", 
                     color: blue,
                     lines: { show: true, fill:false, lineWidth: 2 },
                     points: { show: true, radius: 3, fillColor: '#fff' },
                     shadowSize: 0
                 }, {
                     data: data2,
-                    label: 'Visitors',
+                    label: 'Tramitón Productivo',
                     color: green,
                     lines: { show: true, fill:false, lineWidth: 2 },
                     points: { show: true, radius: 3, fillColor: '#fff' },

@@ -46,7 +46,7 @@ class ReporteController extends Controller {
         
         $this->_datosUser = $modelUser;
         
-        $this->layout = 'main-admin';
+        $this->layout = 'main-admin-rep';
         $this->render('accioncorrectiva', array('datosAcciones' => $datosAcciones));
         
     }
@@ -67,7 +67,7 @@ class ReporteController extends Controller {
         
         $this->_datosUser = $modelUser;
         
-        $this->layout = 'main-admin';
+        $this->layout = 'main-admin-rep';
         $this->render('viewaccioncorrectiva', compact('datosViewAcciones','datosViewUsuario'));
         //$this->render('viewaccioncorrectiva', array('datosViewAcciones' => $datosViewAcciones));
         
@@ -113,7 +113,7 @@ class ReporteController extends Controller {
     
     public function actionViewUsuarios($tram) {
         
-        //$tram = Yii::app()->encriptaParam->decodificaParamGet($tram);
+        $tram = Yii::app()->encriptaParam->decodificaParamGet($tram);
         
         $modelReporte = new Reporte();
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);        
@@ -127,7 +127,7 @@ class ReporteController extends Controller {
         
         $this->_datosUser = $modelUser;
         
-        $this->layout = 'main-admin';
+        $this->layout = 'main-admin-rep';
         $this->render('viewusuarios', array('datosUsuarios' => $datosUsuarios));
         
     }
@@ -167,7 +167,7 @@ class ReporteController extends Controller {
         
         $this->_datosUser = $modelUser;
         
-        $this->layout = 'main-admin';
+        $this->layout = 'main-admin-rep';
         $this->render('viewtramites',compact('datosTramites','tram1')); 
         
     }
@@ -192,7 +192,7 @@ class ReporteController extends Controller {
         
         $this->_datosUser = $modelUser;
         
-        $this->layout = 'main-admin';
+        $this->layout = 'main-admin-rep';
         $this->render('viewtramites2',compact('datosViewTramites2','datosViewInstitucion','tram2'));  
         //array('datosViewTramites2' => $datosViewTramites2));
         //$this->render('viewaccioncorrectiva', array('datosViewAcciones' => $datosViewAcciones));
@@ -221,10 +221,74 @@ class ReporteController extends Controller {
         
         $this->_datosUser = $modelUser;
         
-        $this->layout = 'main-admin';
+        $this->layout = 'main-admin-rep';
         $this->render('viewacciones',compact('datosAccionesc','datosAccionesT'));  
         //array('datosViewTramites2' => $datosViewTramites2));
         //$this->render('viewaccioncorrectiva', array('datosViewAcciones' => $datosViewAcciones));
+        
+    }
+    
+    public function actionGeneral() {
+        
+         $modelReporte = new Reporte();
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);        
+        $datosUsuarios = $modelReporte->GenUsuarios();
+        $datosSumaUsuarios = $modelReporte->GenUsuarios();
+        $datosTramitones = $modelReporte->Tramitones();
+        $datosSumaAcciones = $modelReporte->Tramitones();
+        $datosTramites = $modelReporte->Tramites();
+        $datosSumaTramites = $modelReporte->Tramites();
+        $datosComentarios = $modelReporte->GenComentarios();
+        $datosSumaComentarios = $modelReporte->GenComentarios();
+        
+        //foreach ($datosInstitucion as $datos){
+          //  echo "<br>" . $datos['total'] . " " . $datos['ins_nombre'];
+        //}
+        
+        //var_dump($datosInstitucion);
+        //Yii::app()->end();
+        
+        $this->_datosUser = $modelUser;
+        
+        $this->layout = 'main-admin';
+        $this->render('general', compact('datosUsuarios','datosTramitones','datosTramites','datosSumaUsuarios','datosSumaAcciones','datosSumaTramites','datosComentarios','datosSumaComentarios'));
+        
+    }
+    
+    public function actionResumen() {
+        
+               
+               
+        $modelReporte = new Reporte();
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $datosUsuarios = $modelReporte->GenUsuarios1();
+        $datosSumaUsuarios = $modelReporte->GenUsuarios2();
+        $datosTramitones = $modelReporte->Tramitones1();
+        $datosSumaAcciones = $modelReporte->Tramitones2();
+        $datosTramites = $modelReporte->Tramites1();
+        $datosSumaTramites = $modelReporte->Tramites2();
+        $datosComentarios = $modelReporte->GenComentarios1();
+        $datosSumaComentarios = $modelReporte->GenComentarios2();
+        $datosIngresos1 = $modelReporte->Ingresos1();
+        $datosIngresos2 = $modelReporte->Ingresos2();
+        $datosMegusta1 = $modelReporte->Megusta1();
+        $datosMegusta2 = $modelReporte->Megusta2();
+        $datosgrafico = $modelReporte->grafico();
+        $datosgraficop = $modelReporte->graficop();
+        
+        
+        //$datosInstitucion = $modelReporte->topTenInstituciones();
+        //foreach ($datosInstitucion as $datos){
+          //  echo "<br>" . $datos['total'] . " " . $datos['ins_nombre'];
+        //}
+        
+        //var_dump($datosInstitucion);
+        //Yii::app()->end();
+        
+        $this->_datosUser = $modelUser;
+        
+        $this->layout = 'main-resumen';
+        $this->render('resumen',compact('datosUsuarios','datosTramitones','datosTramites','datosSumaUsuarios','datosSumaAcciones','datosSumaTramites','datosComentarios','datosSumaComentarios','datosIngresos1','datosIngresos2','datosMegusta1','datosMegusta2','datosgrafico','datosgraficop' ));
         
     }
 
