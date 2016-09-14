@@ -3,7 +3,52 @@
 class ReporteController extends Controller {
 
     public $_datosUser;
+    
+    public function filters() {
+        return array(
+            'accessControl', // perform access control for CRUD operations
+            'postOnly + delete', // we only allow deletion via POST request
+        );
+    }
+    
+    public function accessRules() {
+        return array(
+            
+            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+                'actions' => array(
+                    'index',
+                    'general',                    
+                    'institucion',
+                    'resumen',
+                    'tramites',
+                    'tramitones',
+                    'usuarios_inst',
+                    'acciones',
+                    'viewtramacciones',
+                    'viewtramites',
+                    'viewtramites2',
+                    'viewusuarios',
+                    'viewacciones'
+                    
+                    
+                ),
+                'roles' => array('super_admin', 'reportes'),
+            ),
+            /* array('allow',
+              'actions' => array(
+              '*'
+              ),
+              //'users' => array('admin', 'oacero'),
+              'roles' => array('super_admin', 'ciudadano'),
+              ), */
+            array('deny', // deny all users
+                #'roles' => array('*'),
+                'users' => array('*'),
+            ),
+        );
+    }
 
+    
     public function actionIndex() {
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $this->_datosUser = $modelUser;

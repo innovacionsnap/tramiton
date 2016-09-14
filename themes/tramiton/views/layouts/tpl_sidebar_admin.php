@@ -59,7 +59,7 @@
                         //array('label' => 'Archivos', 'url' => array('')),
                     )),
                 
-                array('label' => '<i class="fa fa-bar-chart-o"></i>Reportes<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('super_admin', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
+                array('label' => '<i class="fa fa-bar-chart-o"></i>Reportes<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('reportes', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
                     'items' => array(
                         array('label' => 'General', 'url' => array('reporte/resumen')),
                         array('label' => 'Instituciones', 'url' => array('reporte/institucion')),
