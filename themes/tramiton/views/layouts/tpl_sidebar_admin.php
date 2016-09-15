@@ -61,7 +61,7 @@
                 
                 array('label' => '<i class="fa fa-bar-chart-o"></i>Reportes<b class="caret pull-right"></b>', 'url' => '', 'visible' => Yii::app()->authManager->checkAccess('reportes', Yii::app()->user->id), 'itemOptions' => array('class' => 'has-sub'),
                     'items' => array(
-                        array('label' => 'General', 'url' => array('reporte/resumen')),
+                        array('label' => 'Resumen', 'url' => array('reporte/resumen')),
                         array('label' => 'Instituciones', 'url' => array('reporte/institucion')),
                         array('label' => 'Trámites', 'url' => array('reporte/tramites')),
                         array('label' => 'Acciones Correctivas', 'url' => array('reporte/tramitones')),
