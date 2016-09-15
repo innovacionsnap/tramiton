@@ -12,12 +12,12 @@ $baseUrl = Yii::app()->theme->baseUrl;
     
 
     <!-- end page-header -->
-
+    <h1 class="page-header">Resumen de Datos Tramitón Ciudadano y Productivo </h1>
     <div class="row">
 				<!-- begin col-3 -->
 				<div class="col-md-3 col-sm-6">
 					<div class="widget widget-stats bg-green">
-						<div class="stats-icon"><i class="fa fa-desktop"></i></div>
+						<div class="stats-icon"><i class="fa fa-user"></i></div>
 						<div class="stats-info">
                                                     <h4>NÚMERO DE USUARIOS TRAMITÓN CIUDADANO</h4>
                                                     <?php                                                                
@@ -38,7 +38,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 				<!-- begin col-3 -->
 				<div class="col-md-3 col-sm-6">
 					<div class="widget widget-stats bg-blue">
-						<div class="stats-icon"><i class="fa fa-chain-broken"></i></div>
+						<div class="stats-icon"><i class="fa fa-users"></i></div>
 						<div class="stats-info">
 							<h4>NÚMERO DE USUARIOS TRAMITÓN PRODUCTIVO</h4>
                                                     <?php                                                                
@@ -57,7 +57,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 				<!-- begin col-3 -->
 				<div class="col-md-3 col-sm-6">
 					<div class="widget widget-stats bg-purple">
-						<div class="stats-icon"><i class="fa fa-users"></i></div>
+						<div class="stats-icon"><i class="fa fa-tasks"></i></div>
 						<div class="stats-info">
 							<h4>NÚMERO DE CASOS TRAMITÓN CIUDADANO</h4>
                                                     <?php                                                                
@@ -76,7 +76,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 				<!-- begin col-3 -->
 				<div class="col-md-3 col-sm-6">
 					<div class="widget widget-stats bg-red">
-						<div class="stats-icon"><i class="fa fa-clock-o"></i></div>
+						<div class="stats-icon"><i class="fa fa-list"></i></div>
 						<div class="stats-info">
 							<h4>NÚMERO DE CASOS TRAMITÓN PRODUCTIVO</h4>
                                                     <?php                                                                
@@ -147,7 +147,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 								</thead>
 								<tbody>
 									<tr>
-										<td><label class="label label-danger">Acciones Correctivas</label></td>
+										<td><label class="label label-danger" >Acciones Correctivas</label></td>
                                                                                 <?php                                                                
                                                                                 foreach ($datosTramitones as $datosa) : ?>
                                                                                 

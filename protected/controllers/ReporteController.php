@@ -295,7 +295,7 @@ class ReporteController extends Controller {
         
         $this->_datosUser = $modelUser;
         
-        $this->layout = 'main-admin';
+        $this->layout = 'main-admin-gen';
         $this->render('general', compact('datosUsuarios','datosTramitones','datosTramites','datosSumaUsuarios','datosSumaAcciones','datosSumaTramites','datosComentarios','datosSumaComentarios'));
         
     }
