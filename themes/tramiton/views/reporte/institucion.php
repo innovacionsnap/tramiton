@@ -35,9 +35,9 @@
                             <thead>
                                 <tr>
                                     <th>Nro.</th>
-                                    <th>Institucion</th>
+                                    <th>Institución</th>
                                     <th>Total Casos</th>
-                                    <th>Acciones</th>
+                                    <th>Detalle</th>
                                 </tr>
                             </thead>
                             <tbody>

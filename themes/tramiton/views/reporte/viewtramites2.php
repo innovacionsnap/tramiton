@@ -37,12 +37,13 @@
                         <table id="data-table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Nro.</th>
-                                    <th>Fecha</th>
-                                    <th>Experiencia</th>
+                                    <th>Nro Caso.</th>
                                     <th>Nombre del Trámite</th>
+                                    <th>Experiencia</th>
+                                    <th>Fecha de Registro</th>
                                     
-                                    <th>Acciones</th>
+                                    
+                                    <th>Detalle </th>
                                     
                                 </tr>
                             </thead>
@@ -50,11 +51,11 @@
                                 
                                 <?php foreach ($datosViewTramites2 as $datos) : ?>
                                     <tr class="odd gradeX">
-                                        <td><?php echo $cont; ?></td>
-                                        <td><?php echo $datos['datt_fecharegistro']; ?></td>
-                                    
+                                        <td><?php echo $datos['datt_id']; ?></td>
+                                        <td><?php echo $datos['tra_nombre']; ?></td>                                                                           
                                         <td><?php echo $datos['datt_experiencia']; ?></td>
-                                        <td><?php echo $datos['tra_nombre']; ?></td>
+                                        <td><?php echo $datos['datt_fecharegistro']; ?></td>
+                                        
                                         
                                         
                                         <td>
@@ -62,9 +63,14 @@
                                         
                                         $inst=$datos['trai_id'];
                                         $tramite=$tram2;
-                                        $inst = Yii::app()->encriptaParam->codificaParamGet($datos['trai_id']); 
+                                        $id=Empresa::model()->codificaGet('datt_id='.$datos['datt_id']);
+                                        $inst = Yii::app()->encriptaParam->codificaParamGet($datos['trai_id']);                                         
                                         //$tramite = Yii::app()->encriptaParam->codificaParamGet($tramite); 
-                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar Acciones</button>', array("reporte/viewtramacciones", 'inst' => $inst,'tram2'=>$tram2), array('title' => 'Mostrar Acciones'));
+                                        echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'
+                                                ,array("ciudadano/viewTramite_Usuario2?".$id), array('title' => 'Mostrar'));    
+                                                //, array('reporte/casosreportados', 'traiId' => $inst), array('title' => 'Mostrar'));    
+                                        echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar Acciones</button>', array("reporte/viewtramacciones", 'inst' => $inst,'tram2'=>$tram2), array('title' => 'Mostrar Acciones'));
+                                            
                                             ?>
                                         </td>
                                     </tr>

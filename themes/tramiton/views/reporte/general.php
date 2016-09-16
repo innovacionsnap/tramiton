@@ -41,7 +41,7 @@
                             <thead>
                                 <tr>
                                     
-                                    
+                                    <th>Nro.</th>
                                     <th>Tipo de Usuario</th>
                                     <th>Total de Usuarios<br><?php echo "(" . $totalCasos . ")"?></th>
                                     
@@ -49,16 +49,16 @@
                             </thead>
                             <tbody>
                                     
-                                <?php $i=1;$usuarioT['1']="Tramitón Ciudadano - Usuarios Ciudadanos";
-                                        $usuarioT['2']="Tramitón Productivo - Usuarios Institucionales";
-                                        $usuarioT['3']="Tramitón Ciudadano - Usuarios Institucionales";
+                                <?php $i=1;$cont=1;$usuarioT['1']="Tramitón Ciudadano - Usuarios Institucionales";
+                                        $usuarioT['2']="Tramitón Ciudadano - Usuarios Ciudadanos";
+                                        $usuarioT['3']="Tramitón Productivo - Usuarios Institucionales";
                                         $usuarioT['4']="Tramitón Productivo - Usuarios Ciudadanos";
                                         
                                 
                                 
                                 foreach ($datosUsuarios as $datos) : ?>
                                     <tr class="odd gradeX">
-                                                                                                                      
+                                        <td><?php echo $cont; ?></td>                                                                             
                                         <td><?php echo $usuarioT[$i]; ?></td>
                                         <td><?php echo $datos['total']; ?></td>
                                         <?php
@@ -70,7 +70,7 @@
                                         
                                     </tr>
                                 <?php 
-                                $i++;
+                                $i++;$cont++;
                                 endforeach; ?>
 
                             </tbody>
@@ -104,16 +104,16 @@
                             <thead>
                                 <tr>
                                     
-                                    
+                                    <th>Nro.</th>
                                     <th>Nombre del Proyecto</th>
                                     <th>Total Acciones Correctivas<br><?php echo "(" . $totalCasos . ")"?></th>
-                                    <th>Acciones</th>
+                                    <th>Detalle</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $tramiton="Tramitón Ciudadano";foreach ($datosTramitones as $datos) : ?>
+                                <?php $tramiton="Tramitón Ciudadano";$cont=1;foreach ($datosTramitones as $datos) : ?>
                                     <tr class="odd gradeX">
-                                                                                                                      
+                                        <td><?php echo $cont; ?></td>                                                                              
                                         <td><?php echo $tramiton; ?></td>
                                         <td><?php echo $datos['total']; ?></td>
                                         <td><?php
@@ -124,7 +124,7 @@
                                         </td>
                                     </tr>
                                 <?php 
-                                $tramiton="Tramitón Productivo";
+                                $tramiton="Tramitón Productivo";$cont++;
                                 endforeach; ?>
                                     </tbody>
 
@@ -156,16 +156,16 @@
                             <thead>
                                 <tr>
                                     
-                                    
+                                    <th>Nro.</th>
                                     <th>Nombre del Proyecto</th>
                                     <th>Total de Trámites<br><?php echo "(" . $totalCasos . ")"?></th>
-                                    <th>Acciones</th>
+                                    <th>Detalle</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $tramiton="Tramitón Productivo";foreach ($datosTramites as $datos) : ?>
+                                <?php $tramiton="Tramitón Ciudadano";$cont=1;foreach ($datosTramites as $datos) : ?>
                                     <tr class="odd gradeX">
-                                                                                                                      
+                                        <td><?php echo $cont; ?></td>                                                                              
                                         <td><?php echo $tramiton; ?></td>
                                         <td><?php echo $datos['total']; ?></td>
                                         <td><?php
@@ -176,7 +176,7 @@
                                         </td>
                                     </tr>
                                 <?php 
-                                $tramiton="Tramitón Ciudadano";
+                                $tramiton="Tramitón Productivo";$cont++;
                                 endforeach; ?>
                                 
 
@@ -214,7 +214,7 @@
                             <thead>
                                 <tr>
                                     
-                                    
+                                    <th>Nro.</th>
                                     <th>Tipo de Usuario</th>
                                     <th>Total de Comentarios<br><?php echo "(" . $totalCasos . ")"?></th>
                                     
@@ -222,16 +222,16 @@
                             </thead>
                             <tbody>
                                     
-                                <?php $i=1;$usuarioT['1']="Tramitón Ciudadano - Usuarios Institucionales";
-                                        $usuarioT['2']="Tramitón Productivo - Usuarios Institucionales";
-                                        $usuarioT['3']="Tramitón Ciudadano - Usuarios Ciudadanos";
+                                <?php $i=1;$cont=1;$usuarioT['1']="Tramitón Ciudadano - Usuarios Institucionales";
+                                        $usuarioT['2']="Tramitón Ciudadano - Usuarios Ciudadanos";
+                                        $usuarioT['3']="Tramitón Productivo - Usuarios Institucionales";
                                         $usuarioT['4']="Tramitón Productivo - Usuarios Ciudadanos";
                                         
                                 
                                 
                                 foreach ($datosComentarios as $datos) : ?>
                                     <tr class="odd gradeX">
-                                                                                                                      
+                                        <td><?php echo $cont; ?></td>                                                                              
                                         <td><?php echo $usuarioT[$i]; ?></td>
                                         <td><?php echo $datos['totalcom']; ?></td>
                                         <?php
@@ -243,7 +243,7 @@
                                         
                                     </tr>
                                 <?php 
-                                $i++;
+                                $i++;$cont++;
                                 endforeach; ?>
 
                             </tbody>

@@ -57,14 +57,14 @@ class Reporte {
          return $datos;
     }
     
-    public function ViewAccionesCorrectivas($inst) {
+    public function ViewAccionesCorrectivas($inst,$tram) {
         $conexion = Yii::app()->db;
         
         $sqlaccion2 = "SELECT "
                 . "ac.accc_nombre, ac.accc_descripcion, ac.accc_fechaingreso, t.tra_id,t.tra_nombre,u.usu_nombre,u.usu_ultimo_ingreso, "
                 . "to_char(usu_ultimo_ingreso, 'TMDay, DD TMMonth YYYY a las HH24:MI') as usu_fecha,u.usu_responsable_inst  "
                 . "FROM acciones_correctivas ac, tramite t, tramite_institucion ti,usuario u "
-                . "where accc_productivo=2 and ac.tra_id = t.tra_id and ti.trai_id = ac.trai_id and ti.ins_id =$inst and ac.usu_id = u.usu_id";
+                . "where accc_productivo=$tram and ac.tra_id = t.tra_id and ti.trai_id = ac.trai_id and ti.ins_id =$inst and ac.usu_id = u.usu_id";
         
          $resultado = $conexion->createCommand($sqlaccion2);
          
@@ -119,7 +119,7 @@ class Reporte {
         $conexion = Yii::app()->db;
         
         $sqlaccion = "select count(datt_id) as total,datt_productivo "
-                . "from datos_tramite group by datt_productivo;";
+                . "from datos_tramite group by datt_productivo order by datt_productivo;";
         
          $resultado = $conexion->createCommand($sqlaccion);
          
@@ -157,7 +157,7 @@ class Reporte {
        dt.datt_observacion,
        i.ins_nombre,
        ti.trai_id,
-       t.tra_nombre
+       t.tra_nombre,dt.datt_id
   FROM datos_tramite dt,tramite_institucion ti,tramite t,institucion i
   where dt.trai_id=ti.trai_id and t.tra_id=ti.tra_id and ti.ins_id=$inst and datt_productivo='$tram'and ti.ins_id=i.ins_id";
         
@@ -190,7 +190,7 @@ public function GenUsuarios() {
         $conexion = Yii::app()->db;
         
         $sqlaccion = "select count(usu_id) as total,usu_tramiton 
-                from usuario  group by usu_tramiton,usu_tipo_usuario;";
+                from usuario  group by usu_tramiton,usu_tipo_usuario order by usu_tramiton,total;";
         
          $resultado = $conexion->createCommand($sqlaccion);
          
@@ -205,7 +205,7 @@ public function GenComentarios() {
         $sqlaccion = "SELECT s.sol_productivo,count(c.com_id) as totalcom,u.usu_tipo_usuario
   FROM solucion s,comentario c,usuario u
   where s.sol_id=c.sol_id and c.usu_id = u.usu_id
-  group by s.sol_productivo,u.usu_tipo_usuario";
+  group by s.sol_productivo,u.usu_tipo_usuario order by sol_productivo";
         
          $resultado = $conexion->createCommand($sqlaccion);
          

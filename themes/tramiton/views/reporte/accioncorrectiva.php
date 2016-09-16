@@ -27,6 +27,13 @@
                     <h4 class="panel-title">Total de Acciones por Instituciones</h4>
                 </div>
                 <div class="panel-body">
+                    
+                     <?php 
+                    $totalCasos = 0;
+                foreach ($datosSumaAcciones as $suma){
+                    $totalCasos += $suma["total"];
+                }
+                ?>
                     <?php //echo CHtml::link('<li class="fa fa-plus-circle"></li>&nbsp;&nbsp;Nuevo&nbsp;', array('admin/#role-modal'), array('class' => 'btn btn-primary btn-xs m-r-5', 'data-toggle' => "modal")); ?>
                     <hr>
                     <?php $cont = 1; ?>
@@ -35,9 +42,9 @@
                             <thead>
                                 <tr>
                                     <th>Nro.</th>
-                                    <th>Institucion</th>
-                                    <th>Total Casos</th>
-                                    <th>Acciones</th>
+                                    <th>Institución</th>
+                                    <th>Total de Acciones<br><?php echo "(" . $totalCasos . ")"?></th>
+                                    <th>Detalle</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,7 +56,7 @@
                                         <td><?php
                                         //$inst=$datos['ins_id'];
                                         $inst = Yii::app()->encriptaParam->codificaParamGet($datos['ins_id']); 
-                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>', array("reporte/viewacciones", 'inst' => $inst), array('title' => 'Mostrar'));
+                                            echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>', array("reporte/viewacciones", 'inst' => $inst,'tram'=>$tram), array('title' => 'Mostrar'));
                                             ?>
                                         </td>
                                     </tr>

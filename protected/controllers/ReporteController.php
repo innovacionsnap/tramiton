@@ -28,7 +28,8 @@ class ReporteController extends Controller {
                     'viewtramites',
                     'viewtramites2',
                     'viewusuarios',
-                    'viewacciones'
+                    'viewacciones',
+                    'casosreportados'
                     
                     
                 ),
@@ -82,6 +83,7 @@ class ReporteController extends Controller {
         $modelReporte = new Reporte();
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);        
         $datosAcciones = $modelReporte->AccionesCorrectivas($tram);
+        $datosSumaAcciones = $modelReporte->AccionesCorrectivas($tram);
         //foreach ($datosInstitucion as $datos){
           //  echo "<br>" . $datos['total'] . " " . $datos['ins_nombre'];
         //}
@@ -92,17 +94,17 @@ class ReporteController extends Controller {
         $this->_datosUser = $modelUser;
         
         $this->layout = 'main-admin-rep';
-        $this->render('accioncorrectiva', array('datosAcciones' => $datosAcciones));
+        $this->render('accioncorrectiva', compact('datosAcciones','datosSumaAcciones','tram'));
         
     }
     
-    public function actionViewAcciones($inst) {
+    public function actionViewAcciones($inst,$tram) {
         
         $inst = Yii::app()->encriptaParam->decodificaParamGet($inst);
         $modelReporte = new Reporte();
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);        
-        $datosViewAcciones = $modelReporte->ViewAccionesCorrectivas($inst);
-        $datosViewUsuario = $modelReporte->ViewAccionesCorrectivas($inst);
+        $datosViewAcciones = $modelReporte->ViewAccionesCorrectivas($inst,$tram);
+        $datosViewUsuario = $modelReporte->ViewAccionesCorrectivas($inst,$tram);
         //foreach ($datosInstitucion as $datos){
           //  echo "<br>" . $datos['total'] . " " . $datos['ins_nombre'];
         //}
@@ -123,6 +125,7 @@ class ReporteController extends Controller {
         $modelReporte = new Reporte();
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);        
         $datosTramitones = $modelReporte->Tramitones();
+        $datosSumaTramitones = $modelReporte->Tramitones();
         //foreach ($datosInstitucion as $datos){
           //  echo "<br>" . $datos['total'] . " " . $datos['ins_nombre'];
         //}
@@ -132,8 +135,8 @@ class ReporteController extends Controller {
         
         $this->_datosUser = $modelUser;
         
-        $this->layout = 'main-admin';
-        $this->render('tramitones', array('datosTramitones' => $datosTramitones));
+        $this->layout = 'main-admin-gen';
+        $this->render('tramitones', compact('datosTramitones','datosSumaTramitones'));
         
     }
     
@@ -142,6 +145,7 @@ class ReporteController extends Controller {
         $modelReporte = new Reporte();
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);        
         $datosUsuarios = $modelReporte->Usuarios();
+        $datosSumaUsuarios = $modelReporte->Usuarios();
         //foreach ($datosInstitucion as $datos){
           //  echo "<br>" . $datos['total'] . " " . $datos['ins_nombre'];
         //}
@@ -151,8 +155,8 @@ class ReporteController extends Controller {
         
         $this->_datosUser = $modelUser;
         
-        $this->layout = 'main-admin';
-        $this->render('usuarios_inst', array('datosUsuarios' => $datosUsuarios));
+        $this->layout = 'main-admin-gen';
+        $this->render('usuarios_inst', compact('datosUsuarios','datosSumaUsuarios' ));
         
     }
     
@@ -182,6 +186,7 @@ class ReporteController extends Controller {
         $modelReporte = new Reporte();
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);        
         $datosTramitones = $modelReporte->Tramites();
+        $datosSumaTramitones = $modelReporte->Tramites();
         //foreach ($datosInstitucion as $datos){
           //  echo "<br>" . $datos['total'] . " " . $datos['ins_nombre'];
         //}
@@ -191,8 +196,8 @@ class ReporteController extends Controller {
         
         $this->_datosUser = $modelUser;
         
-        $this->layout = 'main-admin';
-        $this->render('tramites', array('datosTramitones' => $datosTramitones));
+        $this->layout = 'main-admin-gen';
+        $this->render('tramites', compact('datosTramitones','datosSumaTramitones' ));
         
     }
     
@@ -385,6 +390,24 @@ class ReporteController extends Controller {
         $this->render('resumen',compact('datosUsuarios','datosTramitones','datosTramites','datosSumaUsuarios','datosSumaAcciones','datosSumaTramites','datosComentarios','datosSumaComentarios','datosIngresos1','datosIngresos2','datosMegusta1','datosMegusta2','datosgrafico','datosgraficop',
                 'datosgraficofc1','datosgraficofc2','datosgraficofc3','datosgraficofc4','datosgraficofc5','datosgraficofc6','datosgraficofc7','datosgraficofc8','datosgraficofc9','datosgraficofc10','datosgraficofp1','datosgraficofp2','datosgraficofp3','datosgraficofp4','datosgraficofp5','datosgraficofp6','datosgraficofp7','datosgraficofp8','datosgraficofp9','datosgraficofp10' ));
         
+    }
+    
+    public function actioncasosreportados($traiId) {
+
+        $traiId = Yii::app()->encriptaParam->decodificaParamGet($traiId);
+
+        //echo "tramite institucion: " . $traiId; Yii::app()->end();
+
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        //creo una instancia del modelo Dashboard
+        $model = new TramiteInstitucion();
+        $datosgetTramiteInstitucionDetalle = $model->getTramiteInstitucionDetalle($traiId, $modelUser->usu_id);
+
+        $this->layout = 'main-admin-rep';
+        $this->_datosUser = $modelUser;
+        //$this->_casosTmp = $this->getDatosTemporal();
+        $this->render('casosreportados',compact('datosgetTramiteInstitucionDetalle'));
+        //$this->render('formulario');
     }
 
     // Uncomment the following methods and override them if needed

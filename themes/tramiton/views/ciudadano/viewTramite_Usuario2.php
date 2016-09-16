@@ -64,7 +64,7 @@
                                             <td><?php echo $dato_tramite_detalle["pro_nombre"] ?></td>
                                         </tr>
                                         <tr>
-                                            <td class="field">Canton</td>
+                                            <td class="field">Cantón</td>
                                             <td><?php echo $dato_tramite_detalle["can_nombre"] ?></td>
                                         </tr>
                                         <tr>

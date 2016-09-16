@@ -105,7 +105,7 @@
                                 <tr>
                                     
                                     <th>Fecha</th>
-                                    <th>Nombre</th>
+                                    <th>Nombre Acción Correctiva</th>
                                     <th>Descripción</th>
                                     <th>Nombre Trámite</th>
                                     

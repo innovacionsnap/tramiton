@@ -27,6 +27,13 @@
                     <h4 class="panel-title">Datos principales</h4>
                 </div>
                 <div class="panel-body">
+                    <?php 
+                    $totalCasos = 0;
+                foreach ($datosSumaUsuarios as $suma){
+                    $totalCasos += $suma["total"];
+                }
+                ?>
+                    
                     <?php //echo CHtml::link('<li class="fa fa-plus-circle"></li>&nbsp;&nbsp;Nuevo&nbsp;', array('admin/#role-modal'), array('class' => 'btn btn-primary btn-xs m-r-5', 'data-toggle' => "modal")); ?>
                     <hr>
                     <?php  ?>
@@ -35,16 +42,16 @@
                             <thead>
                                 <tr>
                                     
-                                    
+                                    <th>Nro.</th>
                                     <th>Nombre del Proyecto</th>
-                                    <th>Total de Usuarios</th>
-                                    <th>Acciones</th>
+                                    <th>Total de Usuarios<br><?php echo "(" . $totalCasos . ")"?></th>
+                                    <th>Detalle</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $tramiton="Tramitón Ciudadano";foreach ($datosUsuarios as $datos) : ?>
+                                <?php $tramiton="Tramitón Ciudadano";$cont=1;foreach ($datosUsuarios as $datos) : ?>
                                     <tr class="odd gradeX">
-                                                                                                                      
+                                        <td><?php echo $cont; ?></td>                                                                                
                                         <td><?php echo $tramiton; ?></td>
                                         <td><?php echo $datos['total']; ?></td>
                                         <td><?php
@@ -56,7 +63,7 @@
                                         </td>
                                     </tr>
                                 <?php 
-                                $tramiton="Tramitón Productivo";
+                                $tramiton="Tramitón Productivo";$cont++;
                                 endforeach; ?>
 
                             </tbody>

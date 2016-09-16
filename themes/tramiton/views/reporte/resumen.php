@@ -35,25 +35,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 					</div>
 				</div>
 				<!-- end col-3 -->
-				<!-- begin col-3 -->
-				<div class="col-md-3 col-sm-6">
-					<div class="widget widget-stats bg-blue">
-						<div class="stats-icon"><i class="fa fa-users"></i></div>
-						<div class="stats-info">
-							<h4>NÚMERO DE USUARIOS TRAMITÓN PRODUCTIVO</h4>
-                                                    <?php                                                                
-                                                foreach ($datosSumaUsuarios as $datosup) : ?>
-                                                        <p><?php echo $datosup['total'];?></p>
-                                                 <?php 
-                                
-                                                endforeach; ?> 	
-						</div>
-						<div class="stats-link">
-							<a href="general">Detalle <i class="fa fa-arrow-circle-o-right"></i></a>
-						</div>
-					</div>
-				</div>
-				<!-- end col-3 -->
+				
 				<!-- begin col-3 -->
 				<div class="col-md-3 col-sm-6">
 					<div class="widget widget-stats bg-purple">
@@ -69,6 +51,26 @@ $baseUrl = Yii::app()->theme->baseUrl;
 						</div>
 						<div class="stats-link">
                                                     <a href="general">Detalle <i class="fa fa-arrow-circle-o-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- end col-3 -->
+                                
+                                <!-- begin col-3 -->
+				<div class="col-md-3 col-sm-6">
+					<div class="widget widget-stats bg-blue">
+						<div class="stats-icon"><i class="fa fa-users"></i></div>
+						<div class="stats-info">
+							<h4>NÚMERO DE USUARIOS TRAMITÓN PRODUCTIVO</h4>
+                                                    <?php                                                                
+                                                foreach ($datosSumaUsuarios as $datosup) : ?>
+                                                        <p><?php echo $datosup['total'];?></p>
+                                                 <?php 
+                                
+                                                endforeach; ?> 	
+						</div>
+						<div class="stats-link">
+							<a href="general">Detalle <i class="fa fa-arrow-circle-o-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -191,7 +193,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 										<td><p><?php echo $datostp['total'];?><div id="sparkline-avg-time-on-site"></div></td>
 									</tr>
 									<tr>
-										<td><label class="label label-success">Ingresos</label></td>
+										<td><label class="label label-success">Visitas de Usuarios</label></td>
 										<?php                                                                
                                                                                 foreach ($datosIngresos1 as $datosi) : ?>
                                                                                 

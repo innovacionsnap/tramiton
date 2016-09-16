@@ -38,7 +38,7 @@
                                     <th>Institucion</th>
                                     
                                     <th>Total Casos</th>
-                                    <th>Acciones</th>
+                                    <th>Detalle</th>
                                 </tr>
                             </thead>
                             <tbody>

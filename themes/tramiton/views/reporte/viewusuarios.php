@@ -35,12 +35,12 @@
                             <thead>
                                 <tr>
                                     
-                                    <th>Institucion</th>
+                                    <th>Institución</th>
                                     <th>Responsable</th>
                                     <th>Cédula</th>
-                                    <th>mail</th>
-                                    <th>N° de Ingresos</th>
-                                    <th>Ultimo Ingreso</th>
+                                    <th>Correo Electónico</th>
+                                    <th>N° de Visitas</th>
+                                    <th>Última Visita</th>
                                                                        
                                 </tr>
                             </thead>
