@@ -34,7 +34,7 @@
                         <table id="data-table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    
+                                    <th>Nro.</th>
                                     <th>Institución</th>
                                     <th>Responsable</th>
                                     <th>Cédula</th>
@@ -47,7 +47,7 @@
                             <tbody>
                                 <?php foreach ($datosUsuarios as $datos) : ?>
                                     <tr class="odd gradeX">
-                                        
+                                        <td><?php echo $cont; ?></td>
                                         <td><?php echo $datos['usu_nombre']; ?></td>
                                         <td><?php echo $datos['usu_responsable_inst']; ?></td>
                                         <td><?php echo $datos['usu_cedula']; ?></td>

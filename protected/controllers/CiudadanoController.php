@@ -100,16 +100,19 @@ class CiudadanoController extends Controller {
     }
 
     public function actionviewTramite_Usuario2() {
+        
+        //$i = Yii::app()->encriptaParam->decodificaParamGet();
 
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
         $model = new Ciudadano();
         $datosTramite_Usuario = $model->getTramite_Usuario();
         $datosTramite_Solucion = $model->getTramite_Solucion();
         $datosTramite_Problemas = $model->getTramite_Problemas();
+        $datosComentarios=$model->getComentarios();
         $this->_datosUser = $modelUser;
-        $this->_casosTmp = $this->getDatosTemporal();
+        //$this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin_form_caso';
-        $this->render('viewTramite_Usuario2', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion','datosTramite_Problemas'));
+        $this->render('viewTramite_Usuario2', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion','datosTramite_Problemas','datosComentarios'));
     }
 
     public function actionviewTramite_Usuario_Comentario() {

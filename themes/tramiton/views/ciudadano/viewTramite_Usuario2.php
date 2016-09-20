@@ -119,11 +119,33 @@
                                                     </div>
                                                     <br>
 
-                                                    <a href="../solucion/index?<?php echo  $id; ?>" class="btn btn-blue-tramiton solucion" role="button">Responder</a>
+                                                    
                                                 <?php } ?>
 
                                             </td>
                                         </tr>
+                                        
+                                        <tr class="highlight">
+                                            <td class="field">Comentarios</td>
+                                            <td>
+                                                <?php
+                                                
+                                                    foreach ($datosComentarios as $datos_comentarios){ 
+                                                        //$id=Empresa::model()->codificaGet('sol='.$datos_comentarios['com_descripcion']);?>
+                                                    
+                                                    <div class="message">
+                                                        <strong><?php echo $datos_comentarios["usu_nombreusuario"];?></strong>
+                                                                <?php echo "<br>" ;echo $datos_comentarios["com_fecha"] ?>
+                                                                <?php echo "<br>" ;echo $datos_comentarios["com_descripcion"] ?>
+                                                    </div>
+                                                    <br>
+
+                                                     
+                                                <?php } ?>
+                                                  <a href="../solucion/index?<?php echo  $id; ?>" class="btn btn-blue-tramiton solucion" role="button">Responder</a>     
+                                            </td>
+                                        </tr>
+                                        
                                         
                                     </tbody>
                                 </table>

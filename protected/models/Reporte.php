@@ -442,4 +442,42 @@ public function GenComentarios() {
          
          return $datos;
     }
+    
+    public function graficomc1($fecha1,$fecha2) {
+        
+        
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "SELECT count(datt_id) as totalg ,datt_fecharegistro, datt_productivo 
+       
+  FROM datos_tramite
+  where datt_productivo='N' and datt_fecharegistro between '$fecha1' and '$fecha2'
+  
+  group by datt_fecharegistro,datt_productivo";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+     public function graficomp1($fecha1,$fecha2) {
+        
+        
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion = "SELECT count(datt_id) as totalg ,datt_fecharegistro, datt_productivo 
+       
+  FROM datos_tramite
+  where datt_productivo='S' and datt_fecharegistro between '$fecha1' and '$fecha2'
+  
+  group by datt_fecharegistro,datt_productivo";
+        
+         $resultado = $conexion->createCommand($sqlaccion);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
 }

@@ -109,7 +109,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 							</div>
-							<h4 class="panel-title">Tendencia de Participación</h4>
+							<h4 class="panel-title">Tendencia de Participación (últimos 10 días)</h4>
 						</div>
 						<div class="panel-body">
 							<div id="interactive-chart" class="height-sm"></div>
@@ -206,6 +206,11 @@ $baseUrl = Yii::app()->theme->baseUrl;
                                                                                 <?php 
                                 
                                                                                 endforeach; ?>
+                                                                                <?php
+                                                                                $vc=0;
+                                                                                $vp=0;
+                                                                                ?>
+                                                                                
                                                                                 <td><p><?php echo $datosi['total'];?></td>
 										<td><p><?php echo $datosi1['total'];?><div id="sparkline-new-visits"></div></td>
 									</tr>
@@ -226,13 +231,15 @@ $baseUrl = Yii::app()->theme->baseUrl;
                                                                                 
                                                                                 <td><p><?php echo $datosmg['totalcom'];?></td>
 										<td><p><?php echo $datosmg1['totalcom'];?><div id="sparkline-return-visitors"></div></td>
+                                                                                
 									</tr>
 								</tbody>
 							</table>
 						</div>
 					</div>
 					
-					
+				
+                                
 					
 					
 					
@@ -240,11 +247,57 @@ $baseUrl = Yii::app()->theme->baseUrl;
 					
 					
 				</div>
-				<!-- end col-4 -->
                                 <!--
+                                <div class="col-sm-4">
+                                    
+                                <div  class="panel panel-inverse" >
+						<div class="panel-heading">
+							<div class="panel-heading-btn">
+								<a href="general" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+							
+						</div>
+						<div class="panel-body">
+							<div id="datepicker-inline" class="datepicker-full-width"><div></div></div>
+						</div>
+					</div>
+                                    
+                                </div>
+                                
+                                   
+			<!-- end row -->
+                           <!-- <div class="row"> 
+                                <div class="col-md-12">-->
+					<div class="panel panel-inverse" data-sortable-id="index-2">.
+                           
+                                             <br>
+						<div class="panel-heading">
+                                                   
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+							<h4 class="panel-title">Tendencia de Participación por meses</h4>
+						</div>
+						<div class="panel-body">
+							<div id="interactive-chart1" class="height-sm"></div>
+						</div>
+					</div>
+				
+                              <!--  </div>   
+                                
+                            </div>-->
+                        
+				<!-- end col-4 -->
+                                   <!--
                                 <div class="col-md-4">
                                     
-                                <div class="panel panel-inverse" data-sortable-id="index-10">
+                                <div class="panel panel-inverse" >
 						<div class="panel-heading">
 							<div class="panel-heading-btn">
 								<a href="general" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -259,80 +312,9 @@ $baseUrl = Yii::app()->theme->baseUrl;
 						</div>
 					</div>
                                     
-                                </div>-->
+                                </div>
                                 
-                                <!-- estadisticas ---->
-                                <div id="estadisticas" class="container-fluid p-t-30 p-r-30 p-l-30">
-                                    <div class="col-md-12 m-t-30">
-                                    <h2 style="color:#325972;" class="text-left titulo-estadistica m-t-0 m-l-0"></h2>
-                                    <?php
-                                    
-                                    //$p5 = $datosa['total']+0;
-                                    $p5 = 10;
-                                    $name= "Acciones Correctivas";
-                                    $nombreac1=array('name' => $name, 'data' => array($p5));
-                                    
-                                    
-                                    //$p5 = $datosc['totalcom']+0;
-                                    $p5 = 10;
-                                    $name= "Comentarios";
-                                    $nombreac2=array('name' => $name, 'data' => array($p5));
-                                    
-                                    //$p5 = $datosuc['total']+0;
-                                    $p5 = 10;
-                                    $name= "Usuarios";
-                                    $nombreac3=array('name' => $name, 'data' => array($p5));
-                                    
-                                    //$p5 = $datosi['total']+0;
-                                    $p5 = 10;
-                                    $name= "Ingresos";
-                                    $nombreac4=array('name' => $name, 'data' => array($p5));
-                                    
-                                    //$p5 = $datosmg['totalcom']+0;
-                                    $p5 = 10;
-                                    $name= "Likes";
-                                    $nombreac5=array('name' => $name, 'data' => array($p5));
-                                    
-                                    $this->Widget('ext.highcharts.HighchartsWidget', array(
-           'options' => array(
-               'chart' => array(
-                       'plotBackgroundColor' => '#ffffff',
-                       'plotBorderWidth' => null,
-                       'plotShadow' => false,
-                       'height' => 400,
-                       'type'=>'column'
-                     ),
-
-
-
-
-               'credits' => array('enabled' => false),
-               'title' => array('text' => ''),
-               'xAxis' => array(
-                   'categories' => array('INSTITUCIONES')
-               ),
-               'yAxis' => array(
-                   'title' => array('text' => 'ACCIONES CORRECTIVAS')
-               ),
-
-
-             //'series'  = $accion;
-
-               'series' => array(
-
-
-                   $nombreac1,$nombreac2,$nombreac3,$nombreac4,$nombreac5
-                   
-
-                   
-
-                   )
-           )
-       ));
-                                    ?>
-                                    </div>
-			</div>
-                         <!-- fin estadisticas  -->       
+                                   
 			<!-- end row -->     
 </div>
 <!-- end #content -->
@@ -510,8 +492,184 @@ $d=$d-9;
 
 $fecha=$a . '-' . $m . '-' . $d;
 
+//////////////grafico 2-- datos por meses
 
+$mc1=0;
+$mc2=0;
+$mc3=0;
+$mc4=0;
+$mc5=0;
+$mc6=0;
+$mc7=0;
+$mc8=0;
+$mc9=0;
+$mc10=0;
+$mc11=0;
+$mc12=0;
+
+$mp1=0;
+$mp2=0;
+$mp3=0;
+$mp4=0;
+$mp5=0;
+$mp6=0;
+$mp7=0;
+$mp8=0;
+$mp9=0;
+$mp10=0;
+$mp11=0;
+$mp12=0;
 ?>
+
+<?php                                                                
+  foreach ($datosgraficomc1 as $datosmc1) : 
+        $mc1+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomc2 as $datosmc1) : 
+        $mc2+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomc3 as $datosmc1) : 
+        $mc3+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomc4 as $datosmc1) : 
+        $mc4+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomc5 as $datosmc1) : 
+        $mc5+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomc6 as $datosmc1) : 
+        $mc6+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomc7 as $datosmc1) : 
+        $mc7+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomc8 as $datosmc1) : 
+        $mc8+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomc9 as $datosmc1) : 
+        $mc9+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomc10 as $datosmc1) : 
+        $mc10+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomc11 as $datosmc1) : 
+        $mc11+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomc12 as $datosmc1) : 
+        $mc12+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomp1 as $datosmc1) : 
+        $mp1+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomp2 as $datosmc1) : 
+        $mp2+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomp3 as $datosmc1) : 
+        $mp3+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomp4 as $datosmc1) : 
+        $mp4+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomp5 as $datosmc1) : 
+        $mp5+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomp6 as $datosmc1) : 
+        $mp6+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomp7 as $datosmc1) : 
+        $mp7+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomp8 as $datosmc1) : 
+        $mp8+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomp9 as $datosmc1) : 
+        $mp9+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomp10 as $datosmc1) : 
+        $mp10+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomp11 as $datosmc1) : 
+        $mp11+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+<?php                                                                
+  foreach ($datosgraficomp12 as $datosmc1) : 
+        $mp12+= $datosmc1['totalg'];    
+                                 
+ endforeach; ?>  
+
+
+
+
+
+
 <script >
     
     c1=<?php echo $if1 ?>;
@@ -563,12 +721,40 @@ $fecha=$a . '-' . $m . '-' . $d;
     m=<?php echo $m ?>;
     d=<?php echo $d ?>;
    
+    mc1=<?php echo $mc1 ?>;
+    mc2=<?php echo $mc2 ?>;
+    mc3=<?php echo $mc3 ?>;
+    mc4=<?php echo $mc4 ?>;
+    mc5=<?php echo $mc5 ?>;
+    mc6=<?php echo $mc6 ?>;
+    mc7=<?php echo $mc7 ?>;
+    mc8=<?php echo $mc8 ?>;
+    mc9=<?php echo $mc9 ?>;
+    mc10=<?php echo $mc10 ?>;
+    mc11=<?php echo $mc11 ?>;
+    mc12=<?php echo $mc12 ?>;
+    
+    mp1=<?php echo $mp1 ?>;
+    mp2=<?php echo $mp2 ?>;
+    mp3=<?php echo $mp3 ?>;
+    mp4=<?php echo $mp4 ?>;
+    mp5=<?php echo $mp5 ?>;
+    mp6=<?php echo $mp6 ?>;
+    mp7=<?php echo $mp7 ?>;
+    mp8=<?php echo $mp8 ?>;
+    mp9=<?php echo $mp9 ?>;
+    mp10=<?php echo $mp10 ?>;
+    mp11=<?php echo $mp11 ?>;
+    mp12=<?php echo $mp12 ?>;
+    
+   
     
     $(document).ready(function () {
         App.init();
         //Dashboard.init();
         handleDashboardDatepicker();
         handleInteractiveChart();
+        handleInteractiveChart1();
         viewElements();
         bodyPadding();
     });
@@ -631,7 +817,7 @@ var handleInteractiveChart = function () {
 	
         var data1 = [ 
             [1, c1], [2, c2], [3, c3], [4, c4], [5, c5], [6, c6], [7, c7], [8, c8], [9, c9], [10, c10] 
-            //[11, 110], [12, 110], [13, 120], [14, 130], [15, 135],[16, 145], [17, 132], [18, 123], [19, 135], [20, 150] 
+            //[11, 110], [12, 110]//, [13, 120], [14, 130], [15, 135],[16, 145], [17, 132], [18, 123], [19, 135], [20, 150] 
         ];
         var data2 = [
             [1, p1],  [2, p2], [3, p3], [4, p4], [5, p5], [6, p6], [7, p7], [8, p8], [9, p9], [10, p10] 
@@ -645,7 +831,7 @@ var handleInteractiveChart = function () {
                 {
                     data: data1, 
                     label: "Tramitón Ciudadano", 
-                    color: blue,
+                    color: blue   ,
                     lines: { show: true, fill:false, lineWidth: 2 },
                     points: { show: true, radius: 3, fillColor: '#fff' },
                     shadowSize: 0
@@ -679,6 +865,87 @@ var handleInteractiveChart = function () {
         );
         var previousPoint = null;
         $("#interactive-chart").bind("plothover", function (event, pos, item) {
+            $("#x").text(pos.x.toFixed(2));
+            $("#y").text(pos.y.toFixed(2));
+            if (item) {
+                if (previousPoint !== item.dataIndex) {
+                    previousPoint = item.dataIndex;
+                    $("#tooltip").remove();
+                    var y = item.datapoint[1].toFixed(2);
+                    
+                    var content = item.series.label + " " + y;
+                    showTooltip(item.pageX, item.pageY, content);
+                }
+            } else {
+                $("#tooltip").remove();
+                previousPoint = null;            
+            }
+            event.preventDefault();
+        });
+    }
+};
+
+var handleInteractiveChart1 = function () {
+        
+	"use strict";
+    function showTooltip(x, y, contents) {
+        $('<div id="tooltip" class="flot-tooltip">' + contents + '</div>').css( {
+            top: y - 45,
+            left: x - 55
+        }).appendTo("body").fadeIn(200);
+    }
+	if ($('#interactive-chart1').length !== 0) {
+	
+        var data1 = [ 
+            [1, mc1], [2, mc2], [3, mc3], [4, mc4], [5, mc5], [6, mc6], [7, mc7], [8, mc8], [9,mc9]//, [10, mc10], 
+            //[11, mc11], [12, mc12] //, [13, 120], [14, 130], [15, 135],[16, 145], [17, 132], [18, 123], [19, 135], [20, 150] 
+        ];
+        var data2 = [
+            [1, mp1],  [2, mp2], [3, mp3], [4, mp4], [5, mp5], [6, mp6], [7, mp7], [8, mp8], [9, mp9]//, [10, mp10], 
+            //[11, mp11], [12, mp12] //, [13, 25], [14, 25], [15, 30], [16, 27], [17, 20], [18, 18], [19, 31], [20, 23]
+        ];
+        var xLabel = [
+            [1,'ENERO'],[2,'FEBRERO'],[3,'MARZO'],[4,'ABRIL'],[5,'MAYO'],[6,'JUNIO'],[7,'JULIO'],[8,'AGOSTO'],[9,'SEPTIEMBRE']
+            //,[10,'OCTUBRE'],[11,'NOVIEMBRE'],[12,'DICIEMBRE'] //,[13,''],[14,''],[15,'May&nbsp;28'],[16,''],[17,''],[18,'May&nbsp;31'],[19,''],[20,'']
+        ];
+        $.plot($("#interactive-chart1"), [
+                {
+                    data: data1, 
+                    label: "Tramitón Ciudadano", 
+                    color: blue,
+                    lines: { show: true, fill:false, lineWidth: 2 },
+                    points: { show: true, radius: 3, fillColor: '#fff' },
+                    shadowSize: 0
+                }, {
+                    data: data2,
+                    label: 'Tramitón Productivo',
+                    color: orange,
+                    lines: { show: true, fill:false, lineWidth: 2 },
+                    points: { show: true, radius: 3, fillColor: '#fff' },
+                    shadowSize: 0
+                }
+            ], 
+            {
+                xaxis: {  ticks:xLabel, tickDecimals: 0, tickColor: '#ddd' },
+                yaxis: {  ticks: 10, tickColor: '#ddd', min: 0, max: 50 },
+                grid: { 
+                    hoverable: true, 
+                    clickable: true,
+                    tickColor: "#ddd",
+                    borderWidth: 1,
+                    backgroundColor: '#fff',
+                    borderColor: '#ddd'
+                },
+                legend: {
+                    labelBoxBorderColor: '#ddd',
+                    margin: 10,
+                    noColumns: 1,
+                    show: true
+                }
+            }
+        );
+        var previousPoint = null;
+        $("#interactive-chart1").bind("plothover", function (event, pos, item) {
             $("#x").text(pos.x.toFixed(2));
             $("#y").text(pos.y.toFixed(2));
             if (item) {

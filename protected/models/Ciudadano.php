@@ -107,5 +107,24 @@ class Ciudadano extends CActiveRecord {
         $rows = $this->connection->createCommand($sql)->queryAll();
         return $rows;
     }
+    
+    public function getComentarios() {
+        
+        
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+
+        $id_usuario = $modelUser['usu_id'];
+        $dato_datt_id = $_GET['datt_id'];
+        //$usu_id = $this->_datosUser->usu_id;
+        $sql= "SELECT s.sol_id,dt.datt_experiencia,dt.datt_id,c.com_descripcion,c.usu_id,u.usu_nombreusuario,
+to_char(c.com_fecha_comentario, 'TMDay, DD TMMonth YYYY a las HH24:MI') as com_fecha 
+  FROM solucion s,datos_tramite dt, comentario c,usuario u
+  where s.datt_id=dt.datt_id and s.sol_id=c.sol_id and c.usu_id=u.usu_id and dt.datt_id=$dato_datt_id";
+        
+        //echo "<br>".$sql;
+        $dataReader = $this->connection->createCommand($sql)->query();
+        $rows = $this->connection->createCommand($sql)->queryAll();
+        return $rows;
+    }
 
 }

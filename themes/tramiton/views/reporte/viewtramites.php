@@ -34,7 +34,7 @@
                         <table id="data-table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    
+                                    <th>Nro.</th>
                                     <th>Institucion</th>
                                     
                                     <th>Total Casos</th>
@@ -46,7 +46,7 @@
                                 
                                 <?php foreach ($datosTramites as $datos) : ?>
                                     <tr class="odd gradeX">
-                                        
+                                        <td><?php echo $cont; ?></td>
                                         <td><?php echo $datos['ins_nombre']; ?></td>
                                         
                                         <td><?php echo $datos['total']; ?></td>

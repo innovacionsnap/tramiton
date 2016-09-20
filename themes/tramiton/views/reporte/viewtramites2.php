@@ -37,6 +37,7 @@
                         <table id="data-table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
+                                    <th>Nro.</th>
                                     <th>Nro Caso.</th>
                                     <th>Nombre del Trámite</th>
                                     <th>Experiencia</th>
@@ -51,6 +52,7 @@
                                 
                                 <?php foreach ($datosViewTramites2 as $datos) : ?>
                                     <tr class="odd gradeX">
+                                        <td><?php echo $cont; ?></td>
                                         <td><?php echo $datos['datt_id']; ?></td>
                                         <td><?php echo $datos['tra_nombre']; ?></td>                                                                           
                                         <td><?php echo $datos['datt_experiencia']; ?></td>
@@ -63,13 +65,17 @@
                                         
                                         $inst=$datos['trai_id'];
                                         $tramite=$tram2;
+                                        //$id=$datos['datt_id'];
+                                        //$id=Yii::app()->encriptaParam->codificaParamGet($datos['datt_id']);
                                         $id=Empresa::model()->codificaGet('datt_id='.$datos['datt_id']);
                                         $inst = Yii::app()->encriptaParam->codificaParamGet($datos['trai_id']);                                         
                                         //$tramite = Yii::app()->encriptaParam->codificaParamGet($tramite); 
                                         echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar</button>'
-                                                ,array("ciudadano/viewTramite_Usuario2?".$id), array('title' => 'Mostrar'));    
+                                                ,array("reporte/comentarios?".$id), array('title' => 'Mostrar'));    
                                                 //, array('reporte/casosreportados', 'traiId' => $inst), array('title' => 'Mostrar'));    
-                                        echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar Acciones</button>', array("reporte/viewtramacciones", 'inst' => $inst,'tram2'=>$tram2), array('title' => 'Mostrar Acciones'));
+                                                //,array("ciudadano/viewTramite_Usuario2",'i'=>$id), array('title' => 'Mostrar'));    
+                                        echo CHtml::link('<button type="button" class="btn btn-inverse active btn-xs m-r-5"><i class="fa fa-eye"></i> Mostrar Acciones</button>'
+                                                , array("reporte/viewtramacciones", 'inst' => $inst,'tram2'=>$tram2), array('title' => 'Mostrar Acciones'));
                                             
                                             ?>
                                         </td>

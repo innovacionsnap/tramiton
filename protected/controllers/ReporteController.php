@@ -29,7 +29,8 @@ class ReporteController extends Controller {
                     'viewtramites2',
                     'viewusuarios',
                     'viewacciones',
-                    'casosreportados'
+                    'casosreportados',
+                    'comentarios'
                     
                     
                 ),
@@ -334,6 +335,31 @@ class ReporteController extends Controller {
         $fecha8=$a . '-' . $m . '-' . $d8;      
         $fecha9=$a . '-' . $m . '-' . $d9;      
         $fecha10=$a . '-' . $m . '-' . $d10; 
+        
+        $enero='01/01/2016';
+        $enero1='31/01/2016';
+        $febrero='01/02/2016';
+        $febrero1='29/02/2016';
+        $marzo='01/03/2016';
+        $marzo1='31/03/2016';
+        $abril='01/04/2016';
+        $abril1='30/04/2016';
+        $mayo='01/05/2016';
+        $mayo1='31/05/2016';
+        $junio='01/06/2016';
+        $junio1='30/06/2016';
+        $julio='01/07/2016';
+        $julio1='31/07/2016';
+        $agosto='01/08/2016';
+        $agosto1='31/08/2016';
+        $septiembre='01/09/2016';
+        $septiembre1='30/09/2016';
+        $octubre='01/10/2016';
+        $octubre1='31/10/2016';
+        $noviembre='01/11/2016';
+        $noviembre1='30/11/2016';
+        $diciembre='01/12/2016';
+        $diciembre1='31/12/2016';
                
         $modelReporte = new Reporte();
         $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
@@ -350,6 +376,7 @@ class ReporteController extends Controller {
         $datosMegusta1 = $modelReporte->Megusta1();
         $datosMegusta2 = $modelReporte->Megusta2();
         $datosgrafico = $modelReporte->grafico();
+        
         $datosgraficofc1 = $modelReporte->graficofc1($fecha1);
         $datosgraficofc2 = $modelReporte->graficofc1($fecha2);
         $datosgraficofc3 = $modelReporte->graficofc1($fecha3);
@@ -372,6 +399,33 @@ class ReporteController extends Controller {
         $datosgraficofp9 = $modelReporte->graficofp1($fecha9);
         $datosgraficofp10 = $modelReporte->graficofp1($fecha10);
         
+        $datosgraficomc1 = $modelReporte->graficomc1($enero,$enero1);
+        $datosgraficomc2 = $modelReporte->graficomc1($febrero,$febrero1);
+        $datosgraficomc3 = $modelReporte->graficomc1($marzo,$marzo1);
+        $datosgraficomc4 = $modelReporte->graficomc1($abril,$abril1);
+        $datosgraficomc5 = $modelReporte->graficomc1($mayo,$mayo1);
+        $datosgraficomc6 = $modelReporte->graficomc1($junio,$junio1);
+        $datosgraficomc7 = $modelReporte->graficomc1($julio,$julio1);
+        $datosgraficomc8 = $modelReporte->graficomc1($agosto,$agosto1);
+        $datosgraficomc9 = $modelReporte->graficomc1($septiembre,$septiembre1);
+        $datosgraficomc10 = $modelReporte->graficomc1($octubre,$octubre1);
+        $datosgraficomc11 = $modelReporte->graficomc1($noviembre,$noviembre1);
+        $datosgraficomc12 = $modelReporte->graficomc1($diciembre,$diciembre1);
+        
+        $datosgraficomp1 = $modelReporte->graficomp1($enero,$enero1);
+        $datosgraficomp2 = $modelReporte->graficomp1($febrero,$febrero1);
+        $datosgraficomp3 = $modelReporte->graficomp1($marzo,$marzo1);
+        $datosgraficomp4 = $modelReporte->graficomp1($abril,$abril1);
+        $datosgraficomp5 = $modelReporte->graficomp1($mayo,$mayo1);
+        $datosgraficomp6 = $modelReporte->graficomp1($junio,$junio1);
+        $datosgraficomp7 = $modelReporte->graficomp1($julio,$julio1);
+        $datosgraficomp8 = $modelReporte->graficomp1($agosto,$agosto1);
+        $datosgraficomp9 = $modelReporte->graficomp1($septiembre,$septiembre1);
+        $datosgraficomp10 = $modelReporte->graficomp1($octubre,$octubre1);
+        $datosgraficomp11 = $modelReporte->graficomp1($noviembre,$noviembre1);
+        $datosgraficomp12 = $modelReporte->graficomp1($diciembre,$diciembre1);
+        
+        
         
         $datosgraficop = $modelReporte->graficop();
         
@@ -388,7 +442,9 @@ class ReporteController extends Controller {
         
         $this->layout = 'main-resumen';
         $this->render('resumen',compact('datosUsuarios','datosTramitones','datosTramites','datosSumaUsuarios','datosSumaAcciones','datosSumaTramites','datosComentarios','datosSumaComentarios','datosIngresos1','datosIngresos2','datosMegusta1','datosMegusta2','datosgrafico','datosgraficop',
-                'datosgraficofc1','datosgraficofc2','datosgraficofc3','datosgraficofc4','datosgraficofc5','datosgraficofc6','datosgraficofc7','datosgraficofc8','datosgraficofc9','datosgraficofc10','datosgraficofp1','datosgraficofp2','datosgraficofp3','datosgraficofp4','datosgraficofp5','datosgraficofp6','datosgraficofp7','datosgraficofp8','datosgraficofp9','datosgraficofp10' ));
+                'datosgraficofc1','datosgraficofc2','datosgraficofc3','datosgraficofc4','datosgraficofc5','datosgraficofc6','datosgraficofc7','datosgraficofc8','datosgraficofc9','datosgraficofc10','datosgraficofp1','datosgraficofp2','datosgraficofp3','datosgraficofp4','datosgraficofp5','datosgraficofp6','datosgraficofp7','datosgraficofp8','datosgraficofp9','datosgraficofp10',
+                'datosgraficomc1','datosgraficomc2','datosgraficomc3','datosgraficomc4','datosgraficomc5','datosgraficomc6','datosgraficomc7','datosgraficomc8','datosgraficomc9','datosgraficomc10','datosgraficomc11','datosgraficomc12',
+                'datosgraficomp1','datosgraficomp2','datosgraficomp3','datosgraficomp4','datosgraficomp5','datosgraficomp6','datosgraficomp7','datosgraficomp8','datosgraficomp9','datosgraficomp10','datosgraficomp11','datosgraficomp12'));
         
     }
     
@@ -410,6 +466,21 @@ class ReporteController extends Controller {
         //$this->render('formulario');
     }
 
+    public function actionComentarios() {
+        
+        //$i = Yii::app()->encriptaParam->decodificaParamGet();
+
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);
+        $model = new Ciudadano();
+        $datosTramite_Usuario = $model->getTramite_Usuario();
+        $datosTramite_Solucion = $model->getTramite_Solucion();
+        $datosTramite_Problemas = $model->getTramite_Problemas();
+        $datosComentarios=$model->getComentarios();
+        $this->_datosUser = $modelUser;
+        //$this->_casosTmp = $this->getDatosTemporal();
+        $this->layout = 'main-admin_form_caso';
+        $this->render('comentarios', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion','datosTramite_Problemas','datosComentarios'));
+    }
     // Uncomment the following methods and override them if needed
     /*
       public function filters()
