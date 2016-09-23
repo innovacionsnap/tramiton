@@ -108,6 +108,8 @@ class Ciudadano extends CActiveRecord {
         return $rows;
     }
     
+    
+    
     public function getComentarios() {
         
         

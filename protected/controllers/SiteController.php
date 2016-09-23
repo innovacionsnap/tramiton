@@ -207,6 +207,7 @@ class SiteController extends Controller {
             //$empresa = $_POST['empresa'];
             $empresa = 0;
             $productivo = 'N';
+            $sistema = 1;
             $modelInstitucion = Institucion::model()->findByPk($id_institucion);
             $ins_productivo = $modelInstitucion->ins_productivo;
 
@@ -267,6 +268,7 @@ class SiteController extends Controller {
                 $model_dtramite->datt_otronombreinstitucion = 'N/A';
                 $model_dtramite->datt_fecha_actualizacion = $hoy;
                 $model_dtramite->datt_productivo = $productivo;
+                $model_dtramite->datt_sistema = $sistema;
                 $model_dtramite->save();
                 $id_dtramite = $model_dtramite->primaryKey;
                 //Yii::app()->end();

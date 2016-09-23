@@ -30,7 +30,10 @@ class ReporteController extends Controller {
                     'viewusuarios',
                     'viewacciones',
                     'casosreportados',
-                    'comentarios'
+                    'comentarios',
+                    'provincias',
+                    'viewprovincias',
+                    'viewprovincias2'
                     
                     
                 ),
@@ -480,6 +483,74 @@ class ReporteController extends Controller {
         //$this->_casosTmp = $this->getDatosTemporal();
         $this->layout = 'main-admin_form_caso';
         $this->render('comentarios', compact('datosUsuarioTramite', 'datosTramite_Usuario', 'datosTramite_Solucion','datosTramite_Problemas','datosComentarios'));
+    }
+    
+    public function actionProvincias() {
+        
+        $modelReporte = new Reporte();
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);        
+        $datosTramitones = $modelReporte->Tramites();
+        $datosSumaTramitones = $modelReporte->Tramites();
+        //foreach ($datosInstitucion as $datos){
+          //  echo "<br>" . $datos['total'] . " " . $datos['ins_nombre'];
+        //}
+        
+        //var_dump($datosInstitucion);
+        //Yii::app()->end();
+        
+        $this->_datosUser = $modelUser;
+        
+        $this->layout = 'main-admin-gen';
+        $this->render('provincias', compact('datosTramitones','datosSumaTramitones' ));
+        
+    }
+    
+    public function actionViewProvincias($tram) {
+        
+        $tram1=$tram;
+        $tram = Yii::app()->encriptaParam->decodificaParamGet($tram);
+        $modelReporte = new Reporte();
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);        
+        $datosTramites = $modelReporte->ViewProvincias($tram);
+        //foreach ($datosInstitucion as $datos){
+          //  echo "<br>" . $datos['total'] . " " . $datos['ins_nombre'];
+        //}
+        
+        //var_dump($datosInstitucion);
+        //Yii::app()->end();
+        
+        $this->_datosUser = $modelUser;
+        
+        $this->layout = 'main-admin-rep';
+        $this->render('viewprovincias',compact('datosTramites','tram1')); 
+        
+    }
+    
+    public function actionViewProvincias2($inst,$tram) {
+        
+        $tram2=$tram;
+        $inst = Yii::app()->encriptaParam->decodificaParamGet($inst);
+        $tram = Yii::app()->encriptaParam->decodificaParamGet($tram);
+        $modelReporte = new Reporte();
+        $modelUser = Usuario::model()->findByPk(Yii::app()->user->id);        
+        $datosViewTramites2 = $modelReporte->ViewProvincias2($inst,$tram);
+        $datosViewInstitucion = $modelReporte->ViewProvincias2($inst,$tram);
+        //$datosAccionesc=$modelReporte->ViewAccionesC();
+        
+        //foreach ($datosInstitucion as $datos){
+          //  echo "<br>" . $datos['total'] . " " . $datos['ins_nombre'];
+        //}
+        
+        //var_dump($datosInstitucion);
+        //Yii::app()->end();
+        
+        $this->_datosUser = $modelUser;
+        
+        $this->layout = 'main-admin-rep';
+        $this->render('viewprovincias2',compact('datosViewTramites2','datosViewInstitucion','tram2'));  
+        //array('datosViewTramites2' => $datosViewTramites2));
+        //$this->render('viewaccioncorrectiva', array('datosViewAcciones' => $datosViewAcciones));
+        
     }
     // Uncomment the following methods and override them if needed
     /*

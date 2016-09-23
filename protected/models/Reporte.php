@@ -480,4 +480,39 @@ public function GenComentarios() {
          
          return $datos;
     }
+    
+    public function ViewProvincias($tram) {
+        $conexion = Yii::app()->db;
+        
+        $sqltramite = "SELECT count(dt.can_id) as total,c.pro_id,p.pro_nombre
+  FROM datos_tramite dt,canton c,provincia p
+  where dt.can_id = c.can_id and c.pro_id = p.pro_id and dt.datt_productivo='$tram'
+  group by c.pro_id,p.pro_nombre
+  order by total desc;";
+                
+                
+                
+                
+        
+         $resultado = $conexion->createCommand($sqltramite);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    }
+    
+     public function ViewProvincias2($inst,$tram) {
+        $conexion = Yii::app()->db;
+        
+        $sqlaccion2 = "SELECT dt.datt_id,t.tra_nombre,dt.datt_experiencia,dt.datt_fecharegistro,p.pro_nombre,ti.trai_id
+  FROM datos_tramite dt,canton c,provincia p,tramite_institucion ti,tramite t
+  where dt.can_id = c.can_id and c.pro_id = p.pro_id and dt.trai_id=ti.trai_id and ti.tra_id = t.tra_id and dt.datt_productivo='$tram' and p.pro_id=$inst";
+        
+         $resultado = $conexion->createCommand($sqlaccion2);
+         
+         $datos = $resultado->query();
+         
+         return $datos;
+    
+}
 }
